@@ -1,0 +1,35 @@
+{
+  "1": {
+    "inputs": {
+      "model_name": "{{unet}}",
+      "text_encoder": "{{clip}}",
+      "vae": "{{vae}}",
+      "weight_dtype": "bf16",
+      "text_encoder_device": "cpu",
+      "blocks_on_gpu": 14,
+      "unload_encoder_after_encode": true,
+      "delta_t": -1.0,
+      "timestep_shift_alpha": -1.0
+    },
+    "class_type": "RebelsSeFiLoader",
+    "_meta": { "title": "Rebels SeFi Loader (5B Turbo)" }
+  },
+  "2": {
+    "inputs": {
+      "sefi_pipe": ["1", 0],
+      "prompt": "{{prompt}}",
+      "steps": 4,
+      "guidance_scale": 1.0,
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "seed": "{{seed}}"
+    },
+    "class_type": "RebelsSeFiSampler",
+    "_meta": { "title": "SeFi Sampler (Turbo 4-step)" }
+  },
+  "3": {
+    "inputs": { "filename_prefix": "sefi-5b-turbo", "images": ["2", 0] },
+    "class_type": "SaveImage",
+    "_meta": { "title": "Save Image" }
+  }
+}
