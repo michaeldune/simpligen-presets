@@ -1,0 +1,72 @@
+{
+  "1": {
+    "inputs": { "unet_name": "{{unet}}", "dequant_dtype": "default", "patch_dtype": "default" },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": { "title": "Load Krea-CSG Foundation (GGUF)" }
+  },
+  "2": {
+    "inputs": {
+      "clip_name1": "clip_l_hidream.safetensors",
+      "clip_name2": "t5xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": { "title": "Load Flux CLIP (clip_l + t5xxl)" }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "➕ Add Lora": "",
+      "model": ["1", 0],
+      "clip":  ["2", 0]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": { "title": "SimpliGen User LoRAs" }
+  },
+  "3": {
+    "inputs": { "vae_name": "{{vae}}" },
+    "class_type": "VAELoader",
+    "_meta": { "title": "Load Flux VAE" }
+  },
+  "4": {
+    "inputs": { "text": "{{prompt}}", "clip": ["simpligen_lora_1", 1] },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "Positive Prompt" }
+  },
+  "5": {
+    "inputs": { "conditioning": ["4", 0] },
+    "class_type": "ConditioningZeroOut",
+    "_meta": { "title": "Zero Negative (CFG 1)" }
+  },
+  "6": {
+    "inputs": { "width": "{{width}}", "height": "{{height}}", "batch_size": 1 },
+    "class_type": "EmptyLatentImage",
+    "_meta": { "title": "Empty Latent Image" }
+  },
+  "7": {
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": "{{denoise}}",
+      "model": ["simpligen_lora_1", 0],
+      "positive": ["4", 0],
+      "negative": ["5", 0],
+      "latent_image": ["6", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": { "title": "Krea-CSG Sampler (euler/beta)" }
+  },
+  "8": {
+    "inputs": { "samples": ["7", 0], "vae": ["3", 0] },
+    "class_type": "VAEDecode",
+    "_meta": { "title": "Decode Image" }
+  },
+  "9": {
+    "inputs": { "filename_prefix": "krea-csg-foundation", "images": ["8", 0] },
+    "class_type": "SaveImage",
+    "_meta": { "title": "Save Image" }
+  }
+}

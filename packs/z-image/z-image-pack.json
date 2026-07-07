@@ -1,0 +1,101 @@
+{
+  "id": "z-image-pack",
+  "name": "Community — Z-Image",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Z-Image base checkpoints.",
+  "tags": [
+    "Local",
+    "Z-Image"
+  ],
+  "presets": [
+    {
+      "id": "luciddreamer-z-v079-sr-zib",
+      "name": "LucidDreamer Z v0.79 SR",
+      "icon": "💭",
+      "previewImage": "previews/luciddreamer-z-v079-sr-zib.jpg",
+      "description": "Semi-realistic Z-Image Base model with broad subject range and optional anime-style rendering.",
+      "tags": [
+        "Z-Image",
+        "Base",
+        "Semi-Realistic",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "LucidDreamer Z v0.79 SR ZIB FP8",
+        "baseModels": [
+          "z-image"
+        ],
+        "workflow": "workflows/luciddreamer-z-v079-sr-zib.json",
+        "unet": "luciddreamerZ_v079SRZib.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3005293",
+        "vae": "ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "steps": 30,
+        "cfg": 5.5,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 24,
+          "sizeGB": 6
+        }
+      },
+      "tagline": "Semi-real Z-Image base"
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "id": "sdxl-art-anime-pack",
+  "name": "Community — SDXL Art & Anime",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
+  "tags": [
+    "Local",
+    "SDXL",
+    "Anime",
+    "Artistic"
+  ],
+  "presets": [
+    {
+      "id": "yamermix-nihilmania",
+      "name": "YamerMIX NihilMania",
+      "tagline": "Artistic SDXL (YamerMIX)",
+      "icon": "🎨",
+      "previewImage": "previews/yamermix-nihilmania.jpg",
+      "description": "SDXL Unstable Diffusers (YamerMIX) NihilMania - versatile artistic/illustration SDXL. Natural-language prompting, baked VAE.",
+      "tags": [
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "YamerMIX NihilMania",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/yamermix-nihilmania.json",
+        "checkpoint": "sdxlUnstableDiffusers_nihilmania.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/84040",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "SDXL 1.0 with baked VAE. DPM++ 2M Karras."
+        }
+      }
+    },
+    {
+      "id": "sdxl-niji-seven",
+      "name": "SDXL Niji Seven",
+      "tagline": "Niji-style anime SDXL",
+      "icon": "🎨",
+      "previewImage": "previews/sdxl-niji-seven.jpg",
+      "description": "Niji-style anime SDXL with vivid color and clean linework. CLIP Skip 2; works with tags and natural language.",
+      "tags": [
+        "SDXL",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SDXL Niji Seven",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/sdxl-niji-seven.json",
+        "checkpoint": "sdxlNijiSeven_sdxlNijiSeven.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/120765",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "SDXL 1.0 anime with CLIP Skip 2 and baked VAE. DPM++ 2M Karras."
+        }
+      }
+    },
+    {
+      "id": "cheyenne-v16",
+      "name": "Cheyenne 1.6",
+      "icon": "🖼️",
+      "previewImage": "previews/cheyenne-v16.jpg",
+      "description": "Graphic-novel and comics illustration with CFG-driven control from rough sketches to bold outlined color.",
+      "tags": [
+        "SDXL",
+        "Graphic Novel",
+        "Comics",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Cheyenne 1.6",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/cheyenne-v16.json",
+        "checkpoint": "CHEYENNE_v16VAEBaked.safetensors",
+        "vae": "sdxl_vae.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "text, watermark, signature, low quality, low resolution, blurry, jpeg artifacts, distorted, poorly drawn, bad anatomy, duplicate, pixelated, overexposed",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1.5,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "checkpointUrl": "https://huggingface.co/sinkinai/models-moved/resolve/main/CHEYENNE_v16VAEBaked.safetensors"
+      },
+      "tagline": "Stylized SDXL (Cheyenne)"
+    },
+    {
+      "id": "helloworld-xl-70",
+      "name": "HelloWorld XL 7.0",
+      "icon": "🌍",
+      "previewImage": "previews/helloworld-xl-70.jpg",
+      "description": "Versatile SDXL generation with strong anatomy, rich details, broad concepts, and polished aesthetics.",
+      "tags": [
+        "SDXL",
+        "Versatile",
+        "Detailed",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "HelloWorld XL 7.0",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/helloworld-xl-70.json",
+        "checkpoint": "leosamsHelloworldXL_helloworldXL70.safetensors",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "bad hand, bad anatomy, worst quality, ai generated images, low quality, average quality",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1360
+          },
+          "16:9": {
+            "width": 1360,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://huggingface.co/Maxivi/SDXLModels/resolve/main/leosamsHelloworldXL_helloworldXL70.safetensors"
+      },
+      "tagline": "Versatile stylized SDXL"
+    }
+  ]
+}

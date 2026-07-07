@@ -1,0 +1,299 @@
+{
+  "id": "sdxl-realism-pack",
+  "name": "Community — SDXL Realism",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
+  "tags": [
+    "Local",
+    "SDXL",
+    "Realistic"
+  ],
+  "presets": [
+    {
+      "id": "sdxl-triple-headed-monkeys-v10",
+      "name": "Triple Headed Monkeys v1.0",
+      "tagline": "Photoreal SDXL (realism)",
+      "icon": "🎨",
+      "previewImage": "previews/sdxl-triple-headed-monkeys-v10.jpg",
+      "description": "SDXL Triple Headed Monkey's Realism - photoreal SDXL for lifelike people and scenes (NSFW & SFW). Natural-language prompting, baked VAE.",
+      "tags": [
+        "SDXL",
+        "Realistic",
+        "Photoreal",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Triple Headed Monkeys v1.0",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/sdxl-triple-headed-monkeys-v10.json",
+        "checkpoint": "sdxlTripleHeadedMonkeys_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/237793",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry, cartoon, 3d",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "SDXL 1.0 realism with baked VAE. DPM++ 2M Karras."
+        }
+      }
+    },
+    {
+      "id": "epicrealism-xl",
+      "name": "EpicRealism XL",
+      "icon": "📷",
+      "previewImage": "previews/epicrealism-xl.jpg",
+      "description": "Photorealistic SDXL images generated locally with EpicRealism XL.",
+      "tags": [
+        "SDXL",
+        "Photorealism",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "EpicRealism XL",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/epicrealism-xl.json",
+        "checkpoint": "epicrealismXL_vxviLastfameRealism.safetensors",
+        "steps": 30,
+        "cfg": 5.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, low resolution, blurry, deformed, disfigured, bad anatomy, extra limbs, extra fingers, malformed hands, text, watermark, logo",
+        "controls": {
+          "steps": {
+            "min": 15,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://huggingface.co/xxiaogui/hongchao/resolve/main/epicrealismXL_vxviLastfameRealism.safetensors"
+      },
+      "tagline": "Photoreal SDXL realism"
+    },
+    {
+      "id": "juggernaut-xl-ragnarok",
+      "name": "Juggernaut XL Ragnarok",
+      "icon": "⚔️",
+      "previewImage": "previews/juggernaut-xl-ragnarok.jpg",
+      "description": "High-quality photorealistic and cinematic SDXL generation with Juggernaut XL Ragnarok.",
+      "tags": [
+        "SDXL",
+        "Photorealism",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Juggernaut XL Ragnarok",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/juggernaut-xl-ragnarok.json",
+        "checkpoint": "juggernautXL_ragnarok.safetensors",
+        "steps": 35,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://huggingface.co/prolapse/xl4supir/resolve/main/juggernautXL_ragnarok.safetensors"
+      },
+      "tagline": "Versatile photoreal SDXL"
+    },
+    {
+      "id": "realvisxl-v50",
+      "name": "RealVisXL V5.0",
+      "icon": "🎥",
+      "previewImage": "previews/realvisxl-v50.jpg",
+      "description": "Photorealistic SDXL generation with strong portraits, cinematic detail, and natural rendering.",
+      "tags": [
+        "SDXL",
+        "Photorealism",
+        "Portrait",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "RealVisXL V5.0 fp16",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/realvisxl-v50.json",
+        "checkpoint": "RealVisXL_V5.0_fp16.safetensors",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "bad hands, bad anatomy, ugly, deformed, face asymmetry, eyes asymmetry, deformed eyes, deformed mouth, open mouth",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 25,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://huggingface.co/misri/RealVisXL_V5.0_fp16/resolve/main/RealVisXL_V5.0_fp16.safetensors"
+      },
+      "tagline": "Photoreal SDXL (RealVis)"
+    }
+  ]
+}

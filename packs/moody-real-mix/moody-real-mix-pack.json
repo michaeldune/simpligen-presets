@@ -1,0 +1,453 @@
+{
+  "id": "moody-real-mix-pack",
+  "name": "Community — Moody Models",
+  "version": "7.4.0",
+  "author": "catlover1937",
+  "description": "Local Moody model variants collected into one selectable preset group.",
+  "tags": [
+    "Local",
+    "Z-Image",
+    "Turbo",
+    "Realistic"
+  ],
+  "presets": [
+    {
+      "id": "moody-real-v7-fp8",
+      "name": "Moody Real V7 FP8",
+      "icon": "📷",
+      "previewImage": "previews/moody-real-v7-fp8.jpg",
+      "description": "Moody Real Mix V7 for realistic portraits, expressive faces, rich color, and editorial lighting.",
+      "tags": [
+        "Z-Image",
+        "Turbo",
+        "Realistic",
+        "Portraits",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Moody Real Mix ZIT V7 FP8",
+        "baseModels": [
+          "z-image"
+        ],
+        "workflow": "workflows/moody-real-v7-fp8.json",
+        "unet": "moodyRealMix_zitV7FP8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3005223",
+        "vae": "ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 2,
+            "max": 8,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 24,
+          "sizeGB": 6
+        }
+      },
+      "tagline": "Z-Image photoreal portraits"
+    },
+    {
+      "id": "moody-real-v7-global-fp8",
+      "name": "Moody Real V7 Global FP8",
+      "icon": "🌍",
+      "previewImage": "previews/moody-real-v7-global-fp8.jpg",
+      "description": "The international V7 variant with more diverse subjects, natural realism, and less beauty-filter influence.",
+      "tags": [
+        "Z-Image",
+        "Turbo",
+        "Realistic",
+        "Global",
+        "Portraits",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Moody Real Mix ZIT V7 Global FP8",
+        "baseModels": [
+          "z-image"
+        ],
+        "workflow": "workflows/moody-real-v7-global-fp8.json",
+        "unet": "moodyRealMix_zitV7GlobalFP8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3010266",
+        "vae": "ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 2,
+            "max": 8,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 24,
+          "sizeGB": 6
+        }
+      },
+      "tagline": "Z-Image photoreal, global lighting"
+    },
+    {
+      "id": "moody-wild-v4-base-fp8",
+      "name": "Moody Wild V4 Base FP8",
+      "icon": "🌿",
+      "previewImage": "previews/moody-wild-v4-base-fp8.jpg",
+      "description": "Moody Wild Mix V4 Base with full 40-step Z-Image sampling for high detail and flexible artistic generation.",
+      "tags": [
+        "Z-Image",
+        "Base",
+        "Artistic",
+        "Characters",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Moody Wild Mix V4 Base FP8",
+        "baseModels": [
+          "z-image"
+        ],
+        "workflow": "workflows/moody-wild-v4-base-fp8.json",
+        "unet": "moodyWildMixZIBZID_v40BASE40STEPSCFG4.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2939920",
+        "vae": "ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "steps": 40,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 25,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 2,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 24,
+          "sizeGB": 6
+        }
+      },
+      "tagline": "Z-Image expressive realism"
+    },
+    {
+      "id": "moody-desire-v2-pro-fp8",
+      "name": "Moody Desire V2 PRO FP8",
+      "icon": "♦️",
+      "previewImage": "previews/moody-desire-v2-pro-fp8.jpg",
+      "description": "Moody Desire V2 PRO for high-detail FLUX.2 Klein 9B generation, inpainting-oriented realism, and expressive character work.",
+      "tags": [
+        "FLUX.2",
+        "Klein",
+        "Realistic",
+        "Characters",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Moody Desire Mix V2 PRO FP8",
+        "baseModels": [
+          "flux"
+        ],
+        "workflow": "workflows/moody-desire-v2-pro-fp8.json",
+        "unet": "moodyDesireMix_v20PRO.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2910912",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "clip": "qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "steps": 20,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 18
+        }
+      },
+      "tagline": "Flux-based photoreal (uncensored)"
+    },
+    {
+      "id": "moody-pro-v13-fp8",
+      "name": "Moody Pro V13 FP8",
+      "icon": "🌙",
+      "previewImage": "previews/moody-pro-v13-fp8.jpg",
+      "description": "Moody Pro Mix V13 with improved anatomy, stability, LoRA compatibility, and a balanced photographic aesthetic.",
+      "tags": [
+        "Z-Image",
+        "Turbo",
+        "Realistic",
+        "Characters",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Moody Pro Mix ZIT V13 FP8",
+        "baseModels": [
+          "z-image"
+        ],
+        "workflow": "workflows/moody-pro-v13-fp8.json",
+        "unet": "moodyProMix_zitV13FP8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3028885",
+        "vae": "ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 2,
+            "max": 8,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 24,
+          "sizeGB": 6
+        }
+      },
+      "tagline": "Z-Image balanced photoreal"
+    }
+  ]
+}

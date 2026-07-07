@@ -1,0 +1,133 @@
+{
+  "id": "pony-realistic-pack",
+  "name": "Community — Pony Realistic",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
+  "tags": ["Local", "Pony", "SDXL", "Realistic"],
+  "presets": [
+    {
+      "id": "cyberrealistic-pony-v18",
+      "name": "CyberRealistic Pony v18.0",
+      "tagline": "Photoreal Pony for lifelike people",
+      "icon": "🤖",
+      "previewImage": "previews/cyberrealistic-pony-v18.jpg",
+      "description": "Photorealistic Pony SDXL with strong anatomy, skin detail, and cinematic lighting. Works with plain descriptive prompts; no Pony score tags needed.",
+      "tags": ["Pony", "Realistic", "Photoreal", "SDXL", "Local"],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "CyberRealistic Pony v18.0 CoreShift",
+        "baseModels": ["pony", "sdxl"],
+        "workflow": "workflows/cyberrealistic-pony-v18.json",
+        "checkpoint": "cyberrealisticPony_v180Coreshift.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2884631",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, jpeg artifacts, extra digits, censored, signature, watermark, username, text",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "2:3":  {"width": 832,  "height": 1216},
+          "3:2":  {"width": 1216, "height": 832},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 20, "max": 45, "step": 1},
+          "cfg":   {"min": 2,  "max": 9,  "step": 0.5}
+        },
+        "requirements": {"minVramGB": 8, "recommendedVramGB": 12, "minRamGB": 16, "sizeGB": 6.5}
+      }
+    },
+    {
+      "id": "semi-realistic-pony-v10",
+      "name": "Semi-Realistic Pony v1.0",
+      "tagline": "Pony blend with semi-realistic proportions",
+      "icon": "🎨",
+      "previewImage": "previews/semi-realistic-pony-v10.jpg",
+      "description": "Checkpoint merger blending Pony V6 with semi-realistic aesthetics. CLIP Skip 2, baked VAE, euler_ancestral sampler.",
+      "tags": ["Pony", "SDXL", "SemiRealistic", "Local"],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "Semi_realistic Pony v1.0",
+        "baseModels": ["pony", "sdxl"],
+        "workflow": "workflows/semi-realistic-pony-v10.json",
+        "checkpoint": "semiRealisticPony_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1500301",
+        "steps": 25,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "score_6, score_5, score_4, worst quality, low quality, bad anatomy, bad hands, extra limbs, watermark, text",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "2:3":  {"width": 832,  "height": 1216},
+          "3:2":  {"width": 1216, "height": 832},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 20, "max": 40, "step": 1},
+          "cfg":   {"min": 3,  "max": 9,  "step": 0.5}
+        },
+        "requirements": {"minVramGB": 8, "recommendedVramGB": 12, "minRamGB": 16, "sizeGB": 6.6}
+      }
+    },
+    {
+      "id": "realism-stable-yogi-pony-v65",
+      "name": "Realism by Stable Yogi (Pony) v6.5",
+      "tagline": "Community-tuned photoreal Pony with fixed anatomy & hands",
+      "icon": "📷",
+      "previewImage": "previews/realism-stable-yogi-pony-v65.jpg",
+      "description": "Photorealistic Pony SDXL tuned over community feedback - improved anatomy, hand grips, expressions, and full-body proportions. Trigger word 99rbsy99 and score-up tags are applied automatically; CLIP Skip 2, baked VAE, DPM++ 2M SDE Karras.",
+      "tags": ["Pony", "Realistic", "Photoreal", "SDXL", "Local"],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "Realism By Stable Yogi (Pony) v6.5",
+        "baseModels": ["pony", "sdxl"],
+        "workflow": "workflows/realism-stable-yogi-pony-v65.json",
+        "checkpoint": "realismByStableYogi_ponyV65.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2985392",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "score_6, score_5, score_4, lowres, worst quality, low quality, bad anatomy, bad hands, extra digits, jpeg artifacts, watermark, signature, text",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "2:3":  {"width": 832,  "height": 1216},
+          "3:2":  {"width": 1216, "height": 832},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 20, "max": 45, "step": 1},
+          "cfg":   {"min": 2,  "max": 9,  "step": 0.5}
+        },
+        "requirements": {"minVramGB": 8, "recommendedVramGB": 12, "minRamGB": 16, "sizeGB": 4.0}
+      }
+    }
+  ]
+}

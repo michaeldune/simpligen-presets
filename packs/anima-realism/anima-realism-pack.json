@@ -1,0 +1,206 @@
+{
+  "id": "anima-realism-pack",
+  "name": "Community — Anima Realism",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Anima (Cosmos) photoreal checkpoints.",
+  "tags": [
+    "Local",
+    "Anima",
+    "Realistic"
+  ],
+  "presets": [
+    {
+      "id": "nova-reality-am-v10",
+      "name": "Nova Reality AM v1.0",
+      "icon": "📷",
+      "previewImage": "previews/nova-reality-am-v10.jpg",
+      "description": "Realistic Anima checkpoint with photorealistic details, photography-oriented prompting, and flexible style control.",
+      "tags": [
+        "Anima",
+        "Realistic",
+        "Photography",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Nova Reality AM v1.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/nova-reality-am-v10.json",
+        "unet": "novaRealityAM_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3054111",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 25,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, early, old, score_1, score_2, score_3, cartoon, anime, graphic, painting, crayon, graphite, sketch, abstract, glitch, text, signature, watermark, username, fused face, poorly drawn face, deformed, mutated, ugly, disfigured, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, conjoined, long body, lowres, jpeg artifacts, simple background, bad ai-generated",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 30,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 6,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Anima UNet + Qwen 0.6B text encoder + Qwen-Image VAE. Euler Ancestral / normal, ModelSamplingAuraFlow shift 3. CLIP Skip 2, LoRA support."
+        }
+      },
+      "tagline": "Photoreal Anima"
+    },
+    {
+      "id": "photanima-v22-turbo",
+      "name": "PhotAnima v2.2 Turbo",
+      "tagline": "Photoreal Anima (turbo)",
+      "icon": "📷",
+      "previewImage": "previews/photanima-v22-turbo.jpg",
+      "description": "Photorealistic Anima (Cosmos) checkpoint, v2.2 Turbo (distilled, low-step). Uses the Qwen text encoder + Qwen-Image VAE.",
+      "tags": [
+        "Anima",
+        "Realistic",
+        "Photoreal",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "PhotAnima v2.2 Turbo",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/photanima-v22-turbo.json",
+        "unet": "photanima_v22Turbo.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2645333",
+        "clip": "qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 12,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 24,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5,
+          "notes": "Anima (Cosmos) UNet + Qwen 0.6B encoder + Qwen-Image VAE. ER-SDE/simple, ModelSamplingAuraFlow shift 3. v2.2 Turbo distilled (low steps, CFG 1)."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors"
+      }
+    }
+  ]
+}

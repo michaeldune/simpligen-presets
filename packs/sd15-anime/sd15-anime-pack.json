@@ -1,0 +1,273 @@
+{
+  "id": "sd15-anime-pack",
+  "name": "Community — SD 1.5 Anime",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Local SD 1.5 anime checkpoints (CLIP Skip 2, external kl-f8-anime2 VAE), tuned for ~512px.",
+  "tags": [
+    "Local",
+    "SD 1.5",
+    "Anime"
+  ],
+  "presets": [
+    {
+      "id": "anythingelse-v45",
+      "name": "AnythingElse V4.5",
+      "icon": "🌸",
+      "previewImage": "previews/anythingelse-v45.jpg",
+      "description": "Classic detailed anime rendering with strong character work and Danbooru-tag prompting.",
+      "tags": [
+        "Anime",
+        "SD 1.5",
+        "Danbooru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "AnythingElse V4.5",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/anythingelse-v45.json",
+        "checkpoint": "anythingelseV4_v45.safetensors",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, missing fingers, extra digits, fewer digits, blurry, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, extra limbs, cropped, worst quality, low quality, normal quality, jpeg artifacts, watermark, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 workflow using CLIP Skip 2 and the external kl-f8-anime2 VAE (the baked VAE renders washed-out). Native resolutions around 512 pixels work best."
+        },
+        "checkpointUrl": "https://huggingface.co/lu1994/111/resolve/main/anythingelseV4_v45.safetensors"
+      },
+      "tagline": "Classic SD 1.5 anime"
+    },
+    {
+      "id": "ultimate-hentai-v50",
+      "name": "Ultimate Hentai v5.0",
+      "tagline": "Explicit SD 1.5 anime",
+      "icon": "🔞",
+      "previewImage": "previews/ultimate-hentai-v50.jpg",
+      "description": "SD 1.5 anime checkpoint for explicit/NSFW content. Danbooru-tag prompting; uses the kl-f8-anime2 VAE for vivid color. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "Anime",
+        "NSFW",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ultimate Hentai v5.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/ultimate-hentai-v50.json",
+        "checkpoint": "ultimateHentai_v50.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/394505",
+        "vae": "kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, missing fingers, extra digits, fewer digits, blurry, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, extra limbs, cropped, worst quality, low quality, normal quality, jpeg artifacts, watermark, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. Native resolutions around 512px work best."
+        },
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+      }
+    },
+    {
+      "id": "duchaiten-thiccboi-v10",
+      "name": "DucHaiTen ThiccBoi v1.0",
+      "tagline": "Stylized SD 1.5 (DucHaiTen)",
+      "icon": "🎨",
+      "previewImage": "previews/duchaiten-thiccboi-v10.jpg",
+      "description": "DucHaiTen ThiccBoi - a stylized, curvy 2.5D SD 1.5 model. Danbooru-tag prompting; uses kl-f8-anime2 VAE. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "Anime",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiTen ThiccBoi v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-thiccboi-v10.json",
+        "checkpoint": "duchaitenThiccboi_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/116087",
+        "vae": "kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, missing fingers, extra digits, fewer digits, blurry, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, extra limbs, cropped, worst quality, low quality, normal quality, jpeg artifacts, watermark, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.4,
+          "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. ~512px."
+        },
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+      }
+    }
+  ]
+}

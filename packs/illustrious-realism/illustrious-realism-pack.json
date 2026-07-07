@@ -1,0 +1,475 @@
+{
+  "id": "illustrious-realism-pack",
+  "name": "Community — Illustrious Realism",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
+  "tags": [
+    "Local",
+    "Illustrious",
+    "Realistic",
+    "SDXL"
+  ],
+  "presets": [
+    {
+      "id": "illustrious-realism-v40",
+      "name": "Illustrious Realism v4.0",
+      "tagline": "Detailed photoreal Illustrious",
+      "icon": "📷",
+      "previewImage": "previews/illustrious-realism-v40.jpg",
+      "description": "Illustrious-based realism model with detailed skin, lighting, and lifelike rendering. Works with descriptive prompts and Danbooru tags.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Photoreal",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Illustrious Realism v4.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/illustrious-realism-v40.json",
+        "checkpoint": "illustriousRealism_ilXL10V40.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2947166",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry, cartoon, 3d",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Thumbnail sourced from the model's earlier v3.0 showcase."
+        }
+      }
+    },
+    {
+      "id": "catpony-real-v60",
+      "name": "CatPony-Real v6.0",
+      "tagline": "Photoreal Illustrious portraits",
+      "icon": "📷",
+      "previewImage": "previews/catpony-real-v60.jpg",
+      "description": "Illustrious-based realism model with detailed skin, lighting, and lifelike rendering. Works with descriptive prompts and Danbooru tags.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Photoreal",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "CatPony-Real v6.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/catpony-real-v60.json",
+        "checkpoint": "catponyReal_ilV60.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2920263",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry, cartoon, 3d",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
+        }
+      }
+    },
+    {
+      "id": "unnamedixl-realistic-v5",
+      "name": "UnNamedIXL Realistic V5",
+      "tagline": "IllustriousXL v2-based realism",
+      "icon": "📷",
+      "previewImage": "previews/unnamedixl-realistic-v5.jpg",
+      "description": "IllustriousXL v2.0-based realism model with detailed skin, lighting, and lifelike rendering. Works with descriptive prompts and Danbooru tags.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Photoreal",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "UnNamedIXL Realistic V5",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/unnamedixl-realistic-v5.json",
+        "checkpoint": "unnamedixlRealisticModel_v5.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2789273",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry, cartoon, 3d",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "IllustriousXL v2.0-based realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
+        }
+      }
+    },
+    {
+      "id": "illustrioussat-real-v3",
+      "name": "IllustriousSAT Real V3",
+      "icon": "🎞️",
+      "previewImage": "previews/illustrioussat-real-v3.jpg",
+      "description": "Photorealistic Illustrious generation with strong character knowledge, dynamic composition, and cinematic scene handling.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Characters",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "IllustriousSAT Real V3",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/illustrioussat-real-v3.json",
+        "checkpoint": "illustrioussatReal_illustrioussatRealv3.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/3043552",
+        "steps": 8,
+        "cfg": 1.2,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 3,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        }
+      },
+      "tagline": "Fast distilled Illustrious realism"
+    },
+    {
+      "id": "semi-real-illustrious-v30",
+      "name": "Semi-Real Illustrious v3.0",
+      "tagline": "Semi-realistic Illustrious (anime and photoreal)",
+      "icon": "📷",
+      "previewImage": "previews/semi-real-illustrious-v30.jpg",
+      "description": "Semi-realistic Illustrious model (MM) blending anime and photoreal aesthetics. CLIP Skip 2, baked VAE, euler_ancestral. Danbooru tags + descriptive prompts.",
+      "tags": [
+        "Illustrious",
+        "SemiRealistic",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Semi-Real (Illustrious) MM v3.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/semi-real-illustrious-v30.json",
+        "checkpoint": "semiRealIllustrious_v30.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/3057034",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry, cartoon, 3d",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Thumbnail sourced from the model's earlier v3.0 showcase."
+        }
+      }
+    }
+  ]
+}

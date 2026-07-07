@@ -1,0 +1,406 @@
+{
+  "id": "krea-2-pack",
+  "name": "Community — Krea 2",
+  "version": "1.0.0",
+  "author": "Krea AI",
+  "description": "Krea 2 single-pass DiT presets — Moody Mix, RedCraft Red Mix, Realia, and Fascium. Uncensored/photoreal 8-step Krea-2 diffusion-transformer mixes sharing the Qwen3VL encoder and Qwen-Image VAE.",
+  "tags": [
+    "Local",
+    "Krea",
+    "Turbo",
+    "Fast",
+    "Quality"
+  ],
+  "presets": [
+    {
+      "id": "moody-krea2-mix-v10",
+      "name": "Moody Krea 2 Mix V1.0",
+      "tagline": "Uncensored Krea 2 photoreal mix",
+      "icon": "🌙",
+      "previewImage": "previews/moody-krea2-mix-v10.jpg",
+      "description": "Uncensored Krea 2 diffusion-transformer mix tuned for moody, photoreal output. Best skin texture and natural anatomy of the Krea presets. 8-step distilled at CFG 1.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Moody Krea 2 Mix V1.0",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/moody-krea2-mix-v10.json",
+        "unet": "moodyKrea2Mix_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3070525",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13,
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors"
+      }
+    },
+    {
+      "id": "redcraft-krea2-red-mix",
+      "name": "RedCraft Krea 2 Red Mix",
+      "tagline": "Uncensored Krea 2 red-mix, 10-step",
+      "icon": "🔥",
+      "previewImage": "previews/redcraft-krea2-red-mix.jpg",
+      "description": "Uncensored Krea 2 'Red Mix' (Raw + Turbo merge). Zero-censorship realism with strong detail. 10-step euler/simple at CFG 1.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "RedCraft Krea 2 Red Mix",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/redcraft-krea2-red-mix.json",
+        "unet": "redcraftKREA2RedMix_krea2Edition.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3066243",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.5,
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored Raw+Turbo mix; 10 steps recommended."
+        }
+      }
+    },
+    {
+      "id": "realia-krea2-v10",
+      "name": "Realia Krea 2 V1.0",
+      "tagline": "Photoreal Krea 2 realism mix, 8-step",
+      "icon": "📷",
+      "previewImage": "previews/realia-krea2-v10.jpg",
+      "description": "Realia Krea 2 — a photoreal Krea 2 diffusion-transformer mix tuned for natural realism and skin detail. 8-step distilled at CFG 1 (bump to 10-12 steps for extra detail).",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Realia Krea 2 V1.0",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/realia-krea2-v10.json",
+        "unet": "realiaKrea2_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3082189",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13,
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail."
+        }
+      }
+    },
+    {
+      "id": "fascium-krea2-v3",
+      "name": "Fascium Krea 2 V3",
+      "tagline": "Uncensored Krea 2 photoreal mix, 8-step",
+      "icon": "💎",
+      "previewImage": "previews/fascium-krea2-v3.jpg",
+      "description": "FASCIUM Krea 2 (v3) — uncensored Krea 2 diffusion-transformer mix tuned for photoreal detail. 8-step distilled at CFG 1.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Fascium Krea 2 V3",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/fascium-krea2-v3.json",
+        "unet": "fasciumKREA2_3.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3094240",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 14,
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default."
+        }
+      }
+    }
+  ]
+}

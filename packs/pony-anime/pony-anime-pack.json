@@ -1,0 +1,391 @@
+{
+  "id": "pony-anime-pack",
+  "name": "Community — Pony Anime",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
+  "tags": [
+    "Local",
+    "Pony",
+    "SDXL",
+    "Anime"
+  ],
+  "presets": [
+    {
+      "id": "pony-diffusion-v6-xl",
+      "name": "Pony Diffusion V6 XL",
+      "tagline": "Classic Pony character base",
+      "icon": "🎠",
+      "previewImage": "previews/pony-diffusion-v6-xl.jpg",
+      "description": "Versatile character and illustration generation with Pony V6 quality tags and CLIP Skip 2.",
+      "tags": [
+        "Pony",
+        "SDXL",
+        "Characters",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pony Diffusion V6 XL",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/pony-diffusion-v6-xl.json",
+        "checkpoint": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
+        "vae": "sdxl_vae.safetensors",
+        "steps": 25,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "checkpointUrl": "https://huggingface.co/LyliaEngine/Pony_Diffusion_V6_XL/resolve/main/ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+      }
+    },
+    {
+      "id": "aniverse-pony-xl-v60",
+      "name": "AniVerse Pony XL V6",
+      "tagline": "Anime Pony characters",
+      "icon": "🌌",
+      "previewImage": "previews/aniverse-pony-xl-v60.jpg",
+      "description": "AniVerse Pony XL V6 character and illustration generation with its baked VAE and 4n1v3rs3 trigger.",
+      "tags": [
+        "Pony",
+        "SDXL",
+        "Anime",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "AniVerse Pony XL V6",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/aniverse-pony-xl-v60.json",
+        "checkpoint": "aniversePonyXL_v60.safetensors",
+        "steps": 30,
+        "cfg": 5.5,
+        "denoise": 1,
+        "negativePrompt": "score_6, score_5, score_4, worst quality:1.4, low quality:1.4, front light, grayscale, doll, plastic, fake, ugly, hair on face, muscular woman, low res, blurry, fat, topless, child",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/1761857?fileId=1662621"
+      }
+    },
+    {
+      "id": "prefect-pony-xl-v6",
+      "name": "Prefect Pony XL V6",
+      "tagline": "Polished Pony characters",
+      "icon": "🦄",
+      "previewImage": "previews/prefect-pony-xl-v6.jpg",
+      "description": "Prefect Pony XL V6 character generation with CLIP Skip 2, baked VAE, and broad LoRA compatibility.",
+      "tags": [
+        "Pony",
+        "SDXL",
+        "Anime",
+        "Characters",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Prefect Pony XL V6",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/prefect-pony-xl-v6.json",
+        "checkpoint": "prefectPonyXL_v6.safetensors",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "checkpointUrl": "https://prompthero.com/api/ai-models/prefect-pony-xl-download/v6/file/00861c46-680f-4efd-81e4-63751f22a870/download"
+      }
+    },
+    {
+      "id": "autismmix-sdxl-confetti",
+      "name": "AutismMix Confetti",
+      "tagline": "Predictable Pony anime",
+      "icon": "🎊",
+      "previewImage": "previews/autismmix-sdxl-confetti.jpg",
+      "description": "Predictable Pony-derived anime and character generation with reduced style swing and improved hands.",
+      "tags": [
+        "Pony",
+        "SDXL",
+        "Anime",
+        "Characters",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "AutismMix SDXL Confetti",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/autismmix-confetti.json",
+        "checkpoint": "autismmixSDXL_autismmixConfetti.safetensors",
+        "vae": "sdxl_vae.safetensors",
+        "steps": 25,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        },
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "checkpointUrl": "https://huggingface.co/LyliaEngine/autismmixSDXL_autismmixConfetti/resolve/main/autismmixSDXL_autismmixConfetti.safetensors"
+      }
+    }
+  ]
+}

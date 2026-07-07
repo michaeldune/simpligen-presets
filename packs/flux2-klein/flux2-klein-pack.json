@@ -1,0 +1,162 @@
+{
+  "id": "flux2-klein-pack",
+  "name": "Community — Flux 2 Klein",
+  "version": "1.0.0",
+  "author": "Black Forest Labs",
+  "description": "FLUX.2 Klein 9B (fp8) — Black Forest Labs' open Flux 2 model. Flux 2 DiT + Qwen 3 4B encoder + Flux 2 VAE, native ComfyUI Flux 2 support.",
+  "tags": ["Local", "Flux", "Flux2"],
+  "presets": [
+    {
+      "id": "flux2-klein-9b-fp8",
+      "name": "Flux 2 Klein 9B (FP8)",
+      "tagline": "Open Flux 2 — strong prompt-following and detail",
+      "icon": "🌀",
+      "previewImage": "previews/flux2-klein-9b-fp8.jpg",
+      "description": "FLUX.2 Klein 9B in fp8. Black Forest Labs' open Flux 2 model with excellent prompt adherence, coherent composition, and clean detail. Flux 2 DiT + Qwen 3 4B encoder + Flux 2 VAE.",
+      "tags": ["Flux", "Flux2", "Klein", "Local"],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "FLUX.2 Klein 9B (fp8)",
+        "baseModels": ["flux2"],
+        "workflow": "workflows/flux2-klein-9b.json",
+        "unet": "flux2Klein9bFp8_fp8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2363950",
+        "clip": "Qwen3-8B-FP8-native-bf16.safetensors",
+        "clipUrl": "https://huggingface.co/sjoe1244/Qwen3-8B-FP8-native-for-FLUX2-ComfyUI/resolve/main/Qwen3-8B-FP8-native-bf16.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "2:3":  {"width": 832,  "height": 1216},
+          "3:2":  {"width": 1216, "height": 832},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 4,  "max": 12, "step": 1},
+          "cfg":   {"min": 1,  "max": 4,  "step": 0.1}
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 16.7,
+          "notes": "FLUX.2 [klein] 9B, step-distilled to 4 steps. Flux 2 DiT fp8 (diffusion_models) + Qwen3-8B encoder (clip\\, hidden 4096; the 4B Klein's qwen_3_4b does NOT fit the 9B - dim 12288) + Flux 2 VAE. Native Flux 2: Flux2Scheduler + SamplerCustomAdvanced + CFGGuider cfg 1 + zeroed negative, euler, 4 steps. NON-COMMERCIAL license (BFL). Safety fine-tuned (resists NSFW) but no hard output filter."
+        }
+      }
+    },
+    {
+      "id": "miraclein-nsfw-9b",
+      "name": "MiracleIn NSFW (Klein 9B)",
+      "tagline": "Uncensored Flux 2 Klein fine-tune",
+      "icon": "🔞",
+      "previewImage": "previews/miraclein-nsfw-9b.jpg",
+      "description": "MiracleIn v3.0 — uncensored NSFW fine-tune of FLUX.2 Klein 9B for generation and editing. Same Flux 2 stack (Qwen3-8B encoder + Flux 2 VAE); tuned for 12 steps at CFG 1.1.",
+      "tags": ["Flux", "Flux2", "Klein", "NSFW", "Local"],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "MiracleIn v3.0 (Klein 9B fp8)",
+        "baseModels": ["flux2"],
+        "workflow": "workflows/flux2-klein-9b.json",
+        "unet": "miracleinNSFWGeneration_30Bf16Fp8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2453960",
+        "clip": "Qwen3-8B-FP8-native-bf16.safetensors",
+        "clipUrl": "https://huggingface.co/sjoe1244/Qwen3-8B-FP8-native-for-FLUX2-ComfyUI/resolve/main/Qwen3-8B-FP8-native-bf16.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "steps": 12,
+        "cfg": 1.1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 8,  "max": 24, "step": 1},
+          "cfg":   {"min": 1,  "max": 3,  "step": 0.05}
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 16.4,
+          "notes": "MiracleIn v3.0 uncensored fine-tune of FLUX.2 Klein 9B. Flux 2 DiT fp8 (diffusion_models) + Qwen3-8B encoder (clip\\, 12288-dim) + Flux 2 VAE. Native Flux 2: Flux2Scheduler + SamplerCustomAdvanced + CFGGuider cfg 1.1 + zeroed negative, euler, ~12 steps (per the model's embedded workflow). Klein base is NON-COMMERCIAL license."
+        }
+      }
+    },
+    {
+      "id": "klein-4b-maxx-v10",
+      "name": "Flux 2 Klein 4B Maxx",
+      "tagline": "Fast 4-step Klein 4B with wide style range",
+      "icon": "🎨",
+      "previewImage": "previews/klein-4b-maxx-v10.jpg",
+      "description": "FLUX.2 Klein 4B Maxx v1.0 — a fine-tune of the distilled 4B Klein with excellent style diversity (photoreal to painterly). Lighter and faster than the 9B; uses the qwen_3_4b encoder. 4-step distilled.",
+      "tags": ["Flux", "Flux2", "Klein", "Local"],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+      },
+      "image": {
+        "supports": ["local"],
+        "provider": "comfyui",
+        "displayModel": "FLUX.2 Klein 4B Maxx v1.0",
+        "baseModels": ["flux2"],
+        "workflow": "workflows/flux2-klein-9b.json",
+        "unet": "flux2Klein4bMaxx_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2335221",
+        "clip": "qwen_3_4b.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1":  {"width": 1024, "height": 1024},
+          "3:4":  {"width": 896,  "height": 1152},
+          "4:3":  {"width": 1152, "height": 896},
+          "9:16": {"width": 768,  "height": 1344},
+          "16:9": {"width": 1344, "height": 768}
+        },
+        "controls": {
+          "steps": {"min": 4,  "max": 12, "step": 1},
+          "cfg":   {"min": 1,  "max": 2,  "step": 0.05}
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 11.6,
+          "notes": "FLUX.2 Klein 4B Maxx (distilled). Flux 2 DiT fp8 (diffusion_models) + qwen_3_4b encoder (clip\\, hidden 2560 -> 7680-dim; the 9B's Qwen3-8B does NOT fit the 4B - check txt_in.weight [3072,7680]) + Flux 2 VAE. Native Flux 2: Flux2Scheduler + SamplerCustomAdvanced + CFGGuider cfg 1 + zeroed negative, euler, 4 steps. Shares the generic flux2-klein-9b.json workflow. Klein base is NON-COMMERCIAL license."
+        }
+      }
+    }
+  ]
+}

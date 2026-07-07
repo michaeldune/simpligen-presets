@@ -1,0 +1,169 @@
+{
+  "id": "wan22-i2v-gguf-pack",
+  "name": "Community — Wan 2.2 I2V (GGUF)",
+  "version": "1.0.0",
+  "author": "Wan-AI",
+  "description": "Wan 2.2 14B image-to-video, GGUF Q4 quant for lower VRAM (12 GB-friendly). Dual high/low-noise experts + 4-step lightx2v LoRAs. Reuses the umt5 encoder + Wan VAE.",
+  "tags": [
+    "Local",
+    "Wan",
+    "Video",
+    "I2V"
+  ],
+  "presets": [
+    {
+      "id": "wan-22-i2v-gguf-q4",
+      "name": "Wan 2.2 I2V (GGUF Q4)",
+      "icon": "🎬",
+      "previewImage": "previews/wan-22-i2v-gguf-q4.jpg",
+      "description": "Wan 2.2 14B image-to-video in GGUF Q4_K_M — lighter on VRAM than the fp8 build, tuned for 12 GB cards. 4-step dual-expert (high steps 0-2, low steps 2-4) with the lightx2v distill LoRAs. Animate a still image with a motion prompt.",
+      "tags": [
+        "Wan",
+        "Video",
+        "I2V",
+        "GGUF",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Wan 2.2 I2V A14B (GGUF Q4_K_M)",
+        "baseModels": [
+          "wan-2.2-high",
+          "wan-2.2-low"
+        ],
+        "workflow": "workflows/wan22-i2v-gguf.json",
+        "requiresImage": true,
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 8,
+          "default": 4,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unets": [
+          {
+            "filename": "Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf",
+            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/main/HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf"
+          },
+          {
+            "filename": "Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf",
+            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/main/LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf"
+          }
+        ],
+        "loras": [
+          {
+            "filename": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+            "strength": 1
+          },
+          {
+            "filename": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+            "strength": 1
+          }
+        ],
+        "clip": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "vae": "wan_2.1_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+        "steps": 4,
+        "high_steps": 2,
+        "low_steps": 2,
+        "cfg": 1,
+        "negativePrompt": "",
+        "extensions": [
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Utility nodes"
+          },
+          {
+            "name": "RES4LYF",
+            "url": "https://github.com/ClownsharkBatwing/RES4LYF.git",
+            "description": "Samplers"
+          },
+          {
+            "name": "comfy-image-saver",
+            "url": "https://github.com/giriss/comfy-image-saver.git",
+            "description": "Metadata-aware image saver"
+          }
+        ],
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 832
+              },
+              "4:3": {
+                "width": 736,
+                "height": 544
+              },
+              "3:4": {
+                "width": 544,
+                "height": 736
+              },
+              "21:9": {
+                "width": 960,
+                "height": 384
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 720
+              },
+              "9:16": {
+                "width": 720,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1680,
+                "height": 720
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 20,
+          "notes": "Wan 2.2 14B I2V GGUF Q4_K_M (2 experts ~9 GB each, diffusion_models via UnetLoaderGGUF) + umt5 encoder (clip\\) + Wan 2.1 VAE + the wan2.2 i2v lightx2v 4-step LoRAs (high+low). 4-step dual-expert split (high 0-2, low 2-4), euler/simple, cfg 1. GGUF is lighter than the built-in fp8 Wan 2.2 I2V (min 16 GB) - runs 480p on ~8 GB, 720p needs ~16 GB (14B model); 12 GB cards should use 480p + short clips. Needs KJNodes + RES4LYF extensions (bundled in engine)."
+        }
+      }
+    }
+  ]
+}

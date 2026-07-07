@@ -1,0 +1,547 @@
+{
+  "id": "reijs-merges-pack",
+  "name": "Community — Reij's Merges",
+  "version": "1.0.0",
+  "author": "reijlita",
+  "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
+  "tags": [
+    "Local",
+    "Illustrious",
+    "Anime",
+    "Realistic",
+    "Digital Art"
+  ],
+  "presets": [
+    {
+      "id": "illustrij-v21",
+      "name": "IllustriJ V21",
+      "tagline": "Comic-anime hybrid with soft 3D depth",
+      "icon": "🎨",
+      "previewImage": "previews/illustrij-v21.jpg",
+      "description": "Comic-anime hybrid Illustrious model with soft 3D depth, semi-realistic rendering, and expressive digital-art lighting.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Semi-Realistic",
+        "Digital Art",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "IllustriJ V21",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/illustrij-v21.json",
+        "checkpoint": "illustrij_v21.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2728617",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "worst quality, bad quality",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 832,
+            "height": 1216
+          },
+          "4:3": {
+            "width": 1216,
+            "height": 832
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 8
+        }
+      }
+    },
+    {
+      "id": "animij-v10",
+      "name": "AniMiJ V10",
+      "tagline": "Soft, vibrant retro-modern anime",
+      "icon": "💙",
+      "previewImage": "previews/animij-v10.jpg",
+      "description": "Soft, vibrant, retro-modern Illustrious anime model with controlled lighting, flexible identities, and gentle depth.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Retro",
+        "Soft Rendering",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "AniMiJ V10",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/animij-v10.json",
+        "checkpoint": "animij_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2827109",
+        "steps": 28,
+        "cfg": 5.3,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 832,
+            "height": 1216
+          },
+          "4:3": {
+            "width": 1216,
+            "height": 832
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 832,
+            "height": 1536
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 7,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7
+        }
+      }
+    },
+    {
+      "id": "ilustreal-v5",
+      "name": "ILustREAL V5",
+      "tagline": "Cinematic anime-realism blend",
+      "icon": "🌺",
+      "previewImage": "previews/ilustreal-v5.jpg",
+      "description": "Illustrious fantasy-realism blend with cinematic depth, rich textures, dynamic lighting, and expressive characters.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Fantasy",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "ILustREAL V5",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/ilustreal-v5.json",
+        "checkpoint": "ilustreal_v50VAE.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1575331",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "worst_quality, bad_quality, poorly_detailed, extra_fingers, malformed_hands, deformed_feet",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 832,
+            "height": 1216
+          },
+          "4:3": {
+            "width": 1216,
+            "height": 832
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 8
+        }
+      }
+    },
+    {
+      "id": "project-r-v1",
+      "name": "Project.R v1",
+      "tagline": "Cinematic anime with dramatic lighting",
+      "icon": "🎬",
+      "previewImage": "previews/project-r-v1.jpg",
+      "description": "Cinematic Illustrious anime merge with dramatic lighting, isofocus depth, dynamic angles, and richly detailed characters.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Cinematic",
+        "Detailed",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Project.R v1",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/project-r-v1.json",
+        "checkpoint": "projectR_1.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2805426",
+        "steps": 32,
+        "cfg": 6.7,
+        "denoise": 1,
+        "negativePrompt": "worst quality, bad quality, lowres, jpeg artifacts, signature, watermark, username, text, error, blurry, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, cropped",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2M Karras."
+        }
+      }
+    },
+    {
+      "id": "twinlight-v1",
+      "name": "Twinlight v1",
+      "tagline": "Soft dual-tone anime portraits",
+      "icon": "🌗",
+      "previewImage": "previews/twinlight-v1.jpg",
+      "description": "Illustrious anime merge with soft dual-tone lighting, expressive portraits, dynamic angles, and richly detailed characters.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Portrait",
+        "Soft Lighting",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Twinlight v1",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/twinlight-v1.json",
+        "checkpoint": "twinlight_v1.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2817831",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "poorly_detailed, jpeg_artifacts, worst_quality, bad_quality, lowres, signature, watermark, username, text, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, cropped",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2M Karras."
+        }
+      }
+    },
+    {
+      "id": "insight-v1",
+      "name": "Insight v1",
+      "tagline": "Cinematic anime with deep depth-of-field",
+      "icon": "👁️",
+      "previewImage": "previews/insight-v1.jpg",
+      "description": "Illustrious anime merge with cinematic depth of field, dramatic rim and dappled lighting, and expressive 2D-flat character rendering.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Depth of Field",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Insight v1",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/insight-v1.json",
+        "checkpoint": "insight_1.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2832979",
+        "steps": 30,
+        "cfg": 5.4,
+        "denoise": 1,
+        "negativePrompt": "poorly_detailed, jpeg_artifacts, worst_quality, bad_quality, long neck, lowres, signature, watermark, username, text, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, cropped",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2S a Karras."
+        }
+      }
+    }
+  ]
+}

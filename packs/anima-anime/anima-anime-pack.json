@@ -1,0 +1,390 @@
+{
+  "id": "anima-anime-pack",
+  "name": "Community — Anima Anime",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Anima (Cosmos) anime & illustration checkpoints.",
+  "tags": [
+    "Local",
+    "Anima",
+    "Anime"
+  ],
+  "presets": [
+    {
+      "id": "anima-base-v1",
+      "name": "Anima Base v1.0",
+      "tagline": "Flexible base anime & illustration model",
+      "icon": "🌸",
+      "previewImage": "previews/anima-base-v1.jpg",
+      "description": "True base Anima model with maximum style flexibility and diversity. Danbooru-tag prompting; specify artist and quality tags for stronger aesthetics.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Anima Base v1.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/anima-base-v1.json",
+        "unet": "anima-base-v1.0.safetensors",
+        "unetUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-base-v1.0.safetensors",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 35,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Danbooru-tag prompting."
+        }
+      }
+    },
+    {
+      "id": "rdbt-anima-b1-v039b",
+      "name": "RDBT Anima b1 v0.39.b",
+      "icon": "🎨",
+      "previewImage": "previews/rdbt-anima-b1-v039b.jpg",
+      "description": "Fast guidance-distilled Anima generation. Specify an art style explicitly for predictable results.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "RDBT Anima b1 v0.39.b",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/rdbt-anima-b1-v039b.json",
+        "unet": "rdbtAnima_b1V039B.safetensors",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 16,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 16,
+            "max": 24,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "unetUrl": "https://huggingface.co/LeFeujitif/sandbox/resolve/main/rdbtAnima_b1V039B.safetensors"
+      },
+      "tagline": "Distilled Anima illustration"
+    },
+    {
+      "id": "male-ggmix-illustrious-anima-v11",
+      "name": "Male GG Mix Illustrious/Anima v1.1",
+      "tagline": "Illustrious merge fine-tuned for male anime characters",
+      "icon": "⚔️",
+      "previewImage": "previews/male-ggmix-illustrious-anima-v11.jpg",
+      "description": "Illustrious/Anima merge optimized for male anime characters. Strong male anatomy, expressive faces, versatile for action, fantasy, and portrait scenes.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Male",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Male GG Mix Illustrious/Anima v1.1",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/male-ggmix-illustrious-anima-v11.json",
+        "unet": "maleGgmixIllustrious_anima11Base.safetensors",
+        "unetUrl": null,
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 35,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, female",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Manual download required from civitai.red."
+        }
+      }
+    },
+    {
+      "id": "ri-mix-illustrious-anima",
+      "name": "Ri-Mix (Illustrious/Anima) α",
+      "tagline": "Illustrious-flavored Anima mix with its own text encoder",
+      "icon": "🌀",
+      "previewImage": "previews/ri-mix-illustrious-anima.jpg",
+      "description": "Anima mix infused with Illustrious aesthetics for clean, vibrant anime. Ships its own text encoder. Danbooru-tag prompting; ER-SDE / simple, ModelSamplingAuraFlow shift 3.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustrious",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ri-mix - [Illustrious + Anima] α",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/ri-mix-illustrious-anima.json",
+        "unet": "riMixIllustriousAnima_riMixAnima.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3020951",
+        "clip": "riMixIllustriousAnima_riMixAnima_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3020951?type=Text%20Encoder&format=Other",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Anima UNet (diffusion_models) + model's OWN text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Encoder is a non-shared custom file - download all three parts."
+        }
+      }
+    }
+  ]
+}

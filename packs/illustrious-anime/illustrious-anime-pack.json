@@ -1,0 +1,674 @@
+{
+  "id": "illustrious-anime-pack",
+  "name": "Community — Illustrious Anime",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
+  "tags": [
+    "Local",
+    "Illustrious",
+    "Anime",
+    "SDXL"
+  ],
+  "presets": [
+    {
+      "id": "rule-of-moon-v2p",
+      "name": "Rule of Moon v2p",
+      "tagline": "Detailed semi-realistic anime",
+      "icon": "🌙",
+      "previewImage": "previews/rule-of-moon-v2p.jpg",
+      "description": "Detailed semi-realistic Illustrious anime with crisp linework, expressive eyes, and clean lighting. Danbooru-tag prompting.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Semi-Realistic",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Rule of Moon v2p",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/rule-of-moon-v2p.json",
+        "checkpoint": "ruleOfMoon_ruleOfMoonV2p.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2882156",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL workflow using CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting."
+        },
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+      }
+    },
+    {
+      "id": "mega-cock-fantasy-human",
+      "name": "Mega Cock Fantasy - Human",
+      "tagline": "Fantasy anime creatures & characters",
+      "icon": "🐓",
+      "previewImage": "previews/mega-cock-fantasy-human.jpg",
+      "description": "Illustrious anime model geared toward fantasy creatures and characters. Danbooru-tag prompting.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Mega Cock Fantasy (Human)",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/mega-cock-fantasy-human.json",
+        "checkpoint": "megaCockNsfwFantasy_human.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2665539",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting. Placeholder thumbnail - swap in your own preview if desired."
+        }
+      }
+    },
+    {
+      "id": "vete-crimson-oath-v02ill",
+      "name": "Vete Crimson Oath v0.2 ILL",
+      "tagline": "Crimson-themed Illustrious anime",
+      "icon": "🩸",
+      "previewImage": "previews/vete-crimson-oath-v02ill.jpg",
+      "description": "Illustrious anime checkpoint (Crimson Oath, ILL variant) with bold color and dynamic composition. Danbooru-tag prompting.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Vete Crimson Oath v0.2 ILL",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/vete-crimson-oath-v02ill.json",
+        "checkpoint": "veteCrimsonOathILLANM_v02ILL.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/3052259",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL anime with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
+        }
+      }
+    },
+    {
+      "id": "nova-anime-xl-v70",
+      "name": "Nova Anime XL v7.0",
+      "icon": "✨",
+      "previewImage": "previews/nova-anime-xl-v70.jpg",
+      "description": "Polished anime and 2.5D illustration with vivid lighting, detailed characters, and rich backgrounds.",
+      "tags": [
+        "Anime",
+        "2.5D",
+        "Illustrious",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Nova Anime XL IL v7.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/nova-anime-xl-v70.json",
+        "checkpoint": "novaAnimeXL_ilV70.safetensors",
+        "steps": 20,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "modern, recent, old, oldest, text, abstract, glitch, deformed, mutated, ugly, disfigured, long body, lowres, bad anatomy, bad hands, missing fingers, extra fingers, extra digits, fewer digits, cropped, very displeasing, worst quality, bad quality, sketch, jpeg artifacts, signature, watermark, username, censored, bar censor, mosaic censor, simple background, conjoined, bad ai-generated",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 15,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 2,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious-based SDXL checkpoint with CLIP Skip 2, Euler Ancestral, LoRA support."
+        },
+        "checkpointUrl": "https://prompthero.com/api/ai-models/nova-anime-xl-376130-download/nova-anime-xl-il-v70/file/3f2d1988-7420-4f1e-a104-8892c55599aa/download"
+      },
+      "tagline": "Polished 2.5D Illustrious anime"
+    },
+    {
+      "id": "perfectdeliberate-v90",
+      "name": "PerfectDeliberate V9.0",
+      "icon": "✨",
+      "previewImage": "previews/perfectdeliberate-v90.jpg",
+      "description": "Illustrious checkpoint with anime/semi-realistic flexibility, strong aesthetics, and LoRA support.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "Semi-Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "PerfectDeliberate V9.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/perfectdeliberate-v90.json",
+        "checkpoint": "perfectdeliberate_v90.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2805032",
+        "steps": 30,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 5,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious-based SDXL checkpoint with CLIP Skip 2, Euler Ancestral, LoRA support."
+        }
+      },
+      "tagline": "Flexible Illustrious anime / semi-real"
+    },
+    {
+      "id": "illumiyume-xl-v35",
+      "name": "IllumiYume XL v3.5",
+      "tagline": "Expressive Illustrious anime with V-Pred precision",
+      "icon": "🌙",
+      "previewImage": "previews/illumiyume-xl-v35.jpg",
+      "description": "IllumiYume XL v3.5 — Illustrious-based anime checkpoint using V-parameterisation for cleaner gradients and more expressive faces. CLIP Skip 2, external sdxl_vae, euler/v_prediction sampler.",
+      "tags": [
+        "Illustrious",
+        "SDXL",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "IllumiYume XL v3.5 VPred",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/illumiyume-xl-v35.json",
+        "checkpoint": "illumiyumeXL_v35VPred.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1308285",
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "steps": 25,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, extra limbs, watermark, text",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5
+        }
+      }
+    },
+    {
+      "id": "smoothmix-ultimate-anima-v20",
+      "name": "SmoothMix Ultimate (Illustrious) v2.0",
+      "tagline": "Versatile anime and semi-real Illustrious mix",
+      "icon": "🎨",
+      "previewImage": "previews/smoothmix-ultimate-anima-v20.jpg",
+      "description": "SmoothMix Ultimate combines the SmoothMix checkpoints into one - high-quality anime with a semi-realistic push. CLIP Skip 2, baked VAE, euler_ancestral. Danbooru tags + descriptive prompts.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "SemiRealistic",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SmoothMix Ultimate (Anima/Illustrious 2) v2.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/smoothmix-ultimate-anima-v20.json",
+        "checkpoint": "smoothmixUltimateAnima_illustriousV20.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2746772",
+        "steps": 28,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 9,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious-based SDXL workflow using CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting."
+        },
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+      }
+    }
+  ]
+}

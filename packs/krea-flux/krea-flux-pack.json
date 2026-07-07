@@ -1,0 +1,109 @@
+{
+  "id": "krea-flux-pack",
+  "name": "Community — Krea Flux",
+  "version": "1.0.0",
+  "author": "Community",
+  "description": "Flux.1 Krea community presets (BFL FLUX.1 Krea dev generation). Krea-CSG Foundation: a GGUF Flux.1 Krea fine-tune (Cyber Supergirl) with strong anime and photoreal range, 35-step euler/beta, lower VRAM than the Krea 2 DiT presets.",
+  "tags": [
+    "Local",
+    "Krea",
+    "Flux",
+    "GGUF"
+  ],
+  "presets": [
+    {
+      "id": "krea-csg-foundation",
+      "name": "Krea 2 CSG Foundation",
+      "tagline": "Versatile Flux GGUF — anime and photoreal",
+      "icon": "⚗️",
+      "previewImage": "previews/krea-csg-foundation.jpg",
+      "description": "GGUF Flux.1 Krea fine-tune (Cyber Supergirl). Handles anime illustration and photoreal portraits from the same model. 35 steps, euler/beta, lower VRAM than the DiT presets.",
+      "tags": [
+        "Krea",
+        "Flux",
+        "GGUF",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Krea-CSG Foundation (GGUF)",
+        "baseModels": [
+          "flux"
+        ],
+        "workflow": "workflows/krea-csg-foundation.json",
+        "unet": "kreaCSG_foundation.gguf",
+        "unetUrl": "https://civitai.com/api/download/models/2221466",
+        "vae": "fluxVaeSft_aeSft.sft",
+        "steps": 35,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 3,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 6,
+          "recommendedVramGB": 10,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "GGUF quantized Flux.1 Krea. UnetLoaderGGUF + Qwen3VL encoder + Flux SFT VAE. euler/beta, CFG 1, negative zeroed. Lower VRAM than the FP8 Krea-2 turbo presets."
+        },
+        "vaeUrl": "https://huggingface.co/Albert-zp/flux-vaesft/resolve/main/fluxVaeSft_aeSft.sft"
+      }
+    }
+  ]
+}

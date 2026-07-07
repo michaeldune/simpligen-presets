@@ -1,0 +1,19 @@
+# generated artifacts
+zips/
+*.zip
+
+# model weights never belong in the repo
+*.safetensors
+*.gguf
+*.ckpt
+*.sft
+*.pt
+*.pth
+
+# python
+__pycache__/
+*.pyc
+
+# session scaffolding
+.claude/
+.planning/

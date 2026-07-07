@@ -1,0 +1,77 @@
+{
+  "70": {
+    "inputs": { "unet_name": "{{unet}}", "weight_dtype": "default" },
+    "class_type": "UNETLoader",
+    "_meta": { "title": "Load Flux.2 Klein 9B" }
+  },
+  "71": {
+    "inputs": { "clip_name": "{{clip}}", "type": "flux2", "device": "default" },
+    "class_type": "CLIPLoader",
+    "_meta": { "title": "Load Qwen 3 4B Text Encoder" }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "➕ Add Lora": "",
+      "model": ["70", 0],
+      "clip": ["71", 0]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": { "title": "SimpliGen User LoRAs" }
+  },
+  "74": {
+    "inputs": { "text": "{{prompt}}", "clip": ["simpligen_lora_1", 1] },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "Positive Prompt" }
+  },
+  "67": {
+    "inputs": { "conditioning": ["74", 0] },
+    "class_type": "ConditioningZeroOut",
+    "_meta": { "title": "Negative (zeroed — distilled)" }
+  },
+  "63": {
+    "inputs": { "model": ["simpligen_lora_1", 0], "positive": ["74", 0], "negative": ["67", 0], "cfg": "{{cfg}}" },
+    "class_type": "CFGGuider",
+    "_meta": { "title": "CFG Guider" }
+  },
+  "62": {
+    "inputs": { "steps": "{{steps}}", "width": "{{width}}", "height": "{{height}}" },
+    "class_type": "Flux2Scheduler",
+    "_meta": { "title": "Flux 2 Scheduler" }
+  },
+  "61": {
+    "inputs": { "sampler_name": "euler" },
+    "class_type": "KSamplerSelect",
+    "_meta": { "title": "Sampler (euler)" }
+  },
+  "73": {
+    "inputs": { "noise_seed": "{{seed}}" },
+    "class_type": "RandomNoise",
+    "_meta": { "title": "Noise" }
+  },
+  "66": {
+    "inputs": { "width": "{{width}}", "height": "{{height}}", "batch_size": 1 },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": { "title": "Empty Latent (Flux2)" }
+  },
+  "64": {
+    "inputs": { "noise": ["73", 0], "guider": ["63", 0], "sampler": ["61", 0], "sigmas": ["62", 0], "latent_image": ["66", 0] },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": { "title": "Flux 2 Klein Sampler" }
+  },
+  "72": {
+    "inputs": { "vae_name": "{{vae}}" },
+    "class_type": "VAELoader",
+    "_meta": { "title": "Load Flux2 VAE" }
+  },
+  "65": {
+    "inputs": { "samples": ["64", 0], "vae": ["72", 0] },
+    "class_type": "VAEDecode",
+    "_meta": { "title": "Decode Image" }
+  },
+  "9": {
+    "inputs": { "filename_prefix": "flux2-klein-9b", "images": ["65", 0] },
+    "class_type": "SaveImage",
+    "_meta": { "title": "Save Image" }
+  }
+}

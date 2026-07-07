@@ -1,0 +1,63 @@
+{
+  "4": {
+    "inputs": { "ckpt_name": "{{checkpoint}}" },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": { "title": "Load Semi-Real Illustrious v3.0" }
+  },
+  "10": {
+    "inputs": { "stop_at_clip_layer": -2, "clip": ["simpligen_lora_1", 1] },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": { "title": "CLIP Skip 2" }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "➕ Add Lora": "",
+      "model": ["4", 0],
+      "clip": ["4", 1]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": { "title": "SimpliGen User LoRAs" }
+  },
+  "5": {
+    "inputs": { "width": "{{width}}", "height": "{{height}}", "batch_size": 1 },
+    "class_type": "EmptyLatentImage",
+    "_meta": { "title": "Empty Latent Image" }
+  },
+  "6": {
+    "inputs": { "text": "masterpiece, best quality, amazing quality, ultra detailed, realistic, {{prompt}}", "clip": ["10", 0] },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "Positive Prompt" }
+  },
+  "7": {
+    "inputs": { "text": "{{negative_prompt}}", "clip": ["10", 0] },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "Negative Prompt" }
+  },
+  "3": {
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": "{{denoise}}",
+      "model": ["simpligen_lora_1", 0],
+      "positive": ["6", 0],
+      "negative": ["7", 0],
+      "latent_image": ["5", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": { "title": "Euler Ancestral Sampler" }
+  },
+  "8": {
+    "inputs": { "samples": ["3", 0], "vae": ["4", 2] },
+    "class_type": "VAEDecode",
+    "_meta": { "title": "Decode with Baked VAE" }
+  },
+  "9": {
+    "inputs": { "filename_prefix": "semi-real-illustrious-v30", "images": ["8", 0] },
+    "class_type": "SaveImage",
+    "_meta": { "title": "Save Image" }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "1": {
+    "inputs": { "unet_name": "{{unet}}", "weight_dtype": "default" },
+    "class_type": "UNETLoader",
+    "_meta": { "title": "Load RedCraft Krea 2 Red Mix" }
+  },
+  "3": {
+    "inputs": { "clip_name": "{{clip}}", "type": "krea2", "device": "default" },
+    "class_type": "CLIPLoader",
+    "_meta": { "title": "Load Qwen3VL 4B Text Encoder" }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "➕ Add Lora": "",
+      "model": ["1", 0],
+      "clip": ["3", 0]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": { "title": "SimpliGen User LoRAs" }
+  },
+  "4": {
+    "inputs": { "text": "{{prompt}}", "clip": ["simpligen_lora_1", 1] },
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "Positive Prompt" }
+  },
+  "5": {
+    "inputs": { "conditioning": ["4", 0] },
+    "class_type": "ConditioningZeroOut",
+    "_meta": { "title": "Negative (zeroed for CFG 1)" }
+  },
+  "6": {
+    "inputs": { "width": "{{width}}", "height": "{{height}}", "batch_size": 1 },
+    "class_type": "EmptyLatentImage",
+    "_meta": { "title": "Empty Latent Image" }
+  },
+  "7": {
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": "{{denoise}}",
+      "model": ["simpligen_lora_1", 0],
+      "positive": ["4", 0],
+      "negative": ["5", 0],
+      "latent_image": ["6", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": { "title": "RedCraft Krea 2 Sampler (euler/simple)" }
+  },
+  "8": {
+    "inputs": { "vae_name": "{{vae}}" },
+    "class_type": "VAELoader",
+    "_meta": { "title": "Load Qwen Image VAE" }
+  },
+  "9": {
+    "inputs": { "samples": ["7", 0], "vae": ["8", 0] },
+    "class_type": "VAEDecode",
+    "_meta": { "title": "Decode Image" }
+  },
+  "10": {
+    "inputs": { "filename_prefix": "redcraft-krea2-red-mix", "images": ["9", 0] },
+    "class_type": "SaveImage",
+    "_meta": { "title": "Save Image" }
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "97": {
+    "inputs": {
+      "image": "{{image}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Start Frame Image"
+    }
+  },
+  "108": {
+    "inputs": {
+      "filename_prefix": "video/Wan2.2_image_to_video",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "116:94",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "116:84": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "wan",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "116:90": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "116:95": {
+    "inputs": {
+      "unet_name": "{{unet}}"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "116:96": {
+    "inputs": {
+      "unet_name": "{{unet_low_noise}}"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "116:103": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "116:simpligen_lora_low_1",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "ModelSamplingSD3"
+    }
+  },
+  "116:101": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+      "strength_model": 1.0000000000000002,
+      "model": [
+        "116:95",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "116:102": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+      "strength_model": 1.0000000000000002,
+      "model": [
+        "116:96",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "116:104": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "116:simpligen_lora_high_1",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "ModelSamplingSD3"
+    }
+  },
+  "116:94": {
+    "inputs": {
+      "fps": 16,
+      "images": [
+        "116:87",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video"
+    }
+  },
+  "116:87": {
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "samples": [
+        "116:85",
+        0
+      ],
+      "vae": [
+        "116:90",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "116:86": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": "{{seed}}",
+      "steps": "{{total_steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": "{{high_steps}}",
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "116:104",
+        0
+      ],
+      "positive": [
+        "116:98",
+        0
+      ],
+      "negative": [
+        "116:98",
+        1
+      ],
+      "latent_image": [
+        "116:98",
+        2
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "116:85": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": "{{seed}}",
+      "steps": "{{total_steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": "{{high_steps}}",
+      "end_at_step": "{{total_steps}}",
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "116:103",
+        0
+      ],
+      "positive": [
+        "116:98",
+        0
+      ],
+      "negative": [
+        "116:98",
+        1
+      ],
+      "latent_image": [
+        "116:86",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "116:93": {
+    "inputs": {
+      "text": "{{prompt}}",
+      "clip": [
+        "116:84",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "116:89": {
+    "inputs": {
+      "text": "{{negative_prompt}}",
+      "clip": [
+        "116:84",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "116:98": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "length": {{DURATION_FRAMES_WAN}},
+      "batch_size": 1,
+      "positive": [
+        "116:93",
+        0
+      ],
+      "negative": [
+        "116:89",
+        0
+      ],
+      "vae": [
+        "116:90",
+        0
+      ],
+      "start_image": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "WanImageToVideo",
+    "_meta": {
+      "title": "WanImageToVideo"
+    }
+  },
+  "116:simpligen_lora_high_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "116:101",
+        0
+      ],
+      "clip": [
+        "116:84",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs (HIGH)"
+    }
+  },
+  "116:simpligen_lora_low_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "116:102",
+        0
+      ],
+      "clip": [
+        "116:84",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs (LOW)"
+    }
+  }
+}
