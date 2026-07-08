@@ -18,7 +18,7 @@ Z-Image
 Reij's Merges
 Moody Models
 
-:inbox_tray: Download: https://drive.google.com/drive/folders/1o8-ou3XQRVJ9VpCY6-rpgiZnpjMqSxOH?usp=sharing
+:inbox_tray: Download: https://drive.google.com/drive/folders/1MWc3_MGCK6f_pxTsma1tUe-y2FZ9FjrH?usp=sharing
 
 How to install:
 
