@@ -111,10 +111,10 @@
     {
       "id": "sefi-5b-turbo-q8-8step",
       "name": "SeFi-Image 5B Turbo (Q8, 8-step)",
-      "tagline": "Quality variant - better faces, testing text stability",
+      "tagline": "Quality tier - best balance of faces + text in dense scenes",
       "icon": "🖋️",
       "previewImage": "previews/sefi-5b-turbo-q8-8step.jpg",
-      "description": "SeFi-Image 5B Turbo at 8 steps - middle quality tier. 10 steps fixed blank faces in crowds but destabilized text (duplication/typos); 8 aims for both. Same models, no reload when switching presets.",
+      "description": "SeFi-Image 5B Turbo at 8 steps - the quality tier and best all-rounder. The sweet spot for crowds/complex posters: complete faces AND clean text. (4 steps blanks faces in crowds; 10 steps fixes faces but duplicates/garbles title text - 8 does both.) Same models, no reload when switching presets.",
       "tags": [
         "SeFi",
         "GGUF",
@@ -202,7 +202,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.6,
-          "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 8 steps: at 10, faces in crowds fixed but title text duplicated/garbled (off distillation target); 8 is the middle ground. ~18s warm."
+          "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 8 steps = best balance: verified to keep faces complete in dense multi-subject scenes while keeping title text clean (4 = blank faces in crowds; 10 = faces fixed but text duplicated/garbled off the distillation target). Remaining ceiling: small/secondary text in dense infographics can still garble (model size, not step count). ~18s warm."
         }
       }
     }
