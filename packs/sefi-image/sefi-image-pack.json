@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "author": "SeFi-Team",
   "description": "SeFi-Image 5B — Semantic-First Diffusion (Flux 2 Klein-based). Excellent text rendering and stylized art (posters, anime, watercolor). Runs via the Rebels SeFi custom nodes.",
-  "tags": ["Local", "SeFi", "GGUF"],
+  "tags": [
+    "Local",
+    "SeFi",
+    "GGUF"
+  ],
   "presets": [
     {
       "id": "sefi-5b-turbo-q8",
@@ -13,18 +17,35 @@
       "icon": "✒️",
       "previewImage": "previews/sefi-5b-turbo-q8.jpg",
       "description": "SeFi-Image 5B Turbo, GGUF Q8. Semantic-First Diffusion resolves structure ahead of texture — strong at rendered text, posters, and stylized illustration (anime, watercolor, low-poly). 4-step distilled; not aimed at photoreal portraits.",
-      "tags": ["SeFi", "GGUF", "TextRendering", "Stylized", "Local"],
+      "tags": [
+        "SeFi",
+        "GGUF",
+        "TextRendering",
+        "Stylized",
+        "Local"
+      ],
       "enabled": true,
       "promptStyle": "natural",
       "template": "sdxl",
       "ui": {
-        "visibleFields": ["content", "aspectRatio", "shotType", "environment", "lightingSource", "atmosphere"]
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
       },
       "image": {
-        "supports": ["local"],
+        "supports": [
+          "local"
+        ],
         "provider": "comfyui",
         "displayModel": "SeFi-Image 5B Turbo (GGUF Q8_0)",
-        "baseModels": ["sefi"],
+        "baseModels": [
+          "sefi"
+        ],
         "workflow": "workflows/sefi-5b-turbo.json",
         "unet": "SeFi-5B-Turbo-Q8_0.gguf",
         "unetUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi-5B-Turbo-Q8_0.gguf",
@@ -37,17 +58,46 @@
         "denoise": 1,
         "negativePrompt": "",
         "resolutionOverrides": {
-          "1:1":  {"width": 1024, "height": 1024},
-          "2:3":  {"width": 832,  "height": 1248},
-          "3:2":  {"width": 1248, "height": 832},
-          "3:4":  {"width": 896,  "height": 1152},
-          "4:3":  {"width": 1152, "height": 896},
-          "9:16": {"width": 768,  "height": 1344},
-          "16:9": {"width": 1344, "height": 768}
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
         },
         "controls": {
-          "steps": {"min": 4, "max": 4, "step": 1},
-          "cfg":   {"min": 1, "max": 1, "step": 0.1}
+          "steps": {
+            "min": 4,
+            "max": 4,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 1,
+            "step": 0.1
+          }
         },
         "requirements": {
           "minVramGB": 8,
@@ -55,6 +105,104 @@
           "minRamGB": 16,
           "sizeGB": 12.6,
           "notes": "SeFi 5B Turbo GGUF Q8 (diffusion_models) + SeFi Qwen3-VL-4B encoder (clip\\) + SeFi's OWN VAE (a generic Flux 2 VAE loads but degrades output - NOT interchangeable). Requires the ComfyUI_Rebels_SeFi custom node (github.com/RealRebelAI/ComfyUI_Rebels_SeFi; the INNER ComfyUI_Rebels_SeFi folder goes in custom_nodes). Steps/guidance hardcoded (Turbo allows 4/8/10 steps, guidance 1.0 only). Monolithic SEFI_PIPE - user LoRAs not supported. Encoder runs on CPU and unloads after encode (16GB-RAM friendly)."
+        }
+      }
+    },
+    {
+      "id": "sefi-5b-turbo-q8-10step",
+      "name": "SeFi-Image 5B Turbo (Q8, 10-step)",
+      "tagline": "Quality variant - better faces in dense scenes",
+      "icon": "🖋️",
+      "previewImage": "previews/sefi-5b-turbo-q8-10step.jpg",
+      "description": "SeFi-Image 5B Turbo at 10 steps - the quality tier. Noticeably better faces and detail in multi-subject/dense scenes than the 4-step variant, at ~2.5x the (still fast) render time. Same text-rendering strength.",
+      "tags": [
+        "SeFi",
+        "GGUF",
+        "TextRendering",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SeFi-Image 5B Turbo (GGUF Q8_0)",
+        "baseModels": [
+          "sefi"
+        ],
+        "workflow": "workflows/sefi-5b-turbo.json",
+        "unet": "SeFi-5B-Turbo-Q8_0.gguf",
+        "unetUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi-5B-Turbo-Q8_0.gguf",
+        "clip": "SeFi_Qwen3-VL-4B_text_bf16.safetensors",
+        "clipUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi_Qwen3-VL-4B_text_bf16.safetensors",
+        "vae": "SeFi_VAE.safetensors",
+        "vaeUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi_VAE.safetensors",
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 10,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 1,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.6,
+          "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 10 steps for better per-region refinement - use for crowds/complex scenes; ~22s warm vs ~9s at 4 steps."
         }
       }
     }

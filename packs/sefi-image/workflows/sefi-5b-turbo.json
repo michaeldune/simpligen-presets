@@ -18,7 +18,7 @@
     "inputs": {
       "sefi_pipe": ["1", 0],
       "prompt": "{{prompt}}",
-      "steps": 4,
+      "steps": "{{steps}}",
       "guidance_scale": 1.0,
       "width": "{{width}}",
       "height": "{{height}}",
