@@ -109,12 +109,12 @@
       }
     },
     {
-      "id": "sefi-5b-turbo-q8-10step",
-      "name": "SeFi-Image 5B Turbo (Q8, 10-step)",
-      "tagline": "Quality variant - better faces in dense scenes",
+      "id": "sefi-5b-turbo-q8-8step",
+      "name": "SeFi-Image 5B Turbo (Q8, 8-step)",
+      "tagline": "Quality variant - better faces, testing text stability",
       "icon": "🖋️",
-      "previewImage": "previews/sefi-5b-turbo-q8-10step.jpg",
-      "description": "SeFi-Image 5B Turbo at 10 steps - the quality tier. Noticeably better faces and detail in multi-subject/dense scenes than the 4-step variant, at ~2.5x the (still fast) render time. Same text-rendering strength.",
+      "previewImage": "previews/sefi-5b-turbo-q8-8step.jpg",
+      "description": "SeFi-Image 5B Turbo at 8 steps - middle quality tier. 10 steps fixed blank faces in crowds but destabilized text (duplication/typos); 8 aims for both. Same models, no reload when switching presets.",
       "tags": [
         "SeFi",
         "GGUF",
@@ -151,7 +151,7 @@
         "clipUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi_Qwen3-VL-4B_text_bf16.safetensors",
         "vae": "SeFi_VAE.safetensors",
         "vaeUrl": "https://huggingface.co/realrebelai/SeFi-Image-5B-Turbo/resolve/main/SeFi_VAE.safetensors",
-        "steps": 10,
+        "steps": 8,
         "cfg": 1,
         "denoise": 1,
         "negativePrompt": "",
@@ -187,8 +187,8 @@
         },
         "controls": {
           "steps": {
-            "min": 10,
-            "max": 10,
+            "min": 8,
+            "max": 8,
             "step": 1
           },
           "cfg": {
@@ -202,7 +202,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.6,
-          "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 10 steps for better per-region refinement - use for crowds/complex scenes; ~22s warm vs ~9s at 4 steps."
+          "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 8 steps: at 10, faces in crowds fixed but title text duplicated/garbled (off distillation target); 8 is the middle ground. ~18s warm."
         }
       }
     }
