@@ -1,6 +1,8 @@
 :art: Community Preset Packs — Free Downloads
 
-I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 15 preset packs for SimpliGen covering a wide range of models and styles. Each pack includes a one-click installer and a readme with model download links.
+I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 15 preset packs (50+ presets) for SimpliGen covering a wide range of models and styles. Each pack includes a one-click installer and a readme with model download links.
+
+:arrows_counterclockwise: **Updated — grab the latest:** the installer's downloader was reworked (now uses curl instead of Windows BITS). If you hit any "download failed / HTTP 400" errors on an earlier version, re-download the pack folder and re-run `install.cmd` — your Civitai token was fine, the downloader was the problem. New models added across the Illustrious and Krea packs too.
 
 :package: What's included: (as of this moment)
 
@@ -35,5 +37,10 @@ Restart SimpliGen
 :scales: **Licensing:** The **Flux 2 Klein** pack is built on Black Forest Labs' FLUX.2 [klein] weights, which are **non-commercial** — personal/research use only. Everything else is fine for general use.
 
 :white_check_mark: The installer now tells you clearly if any model **failed or was skipped**, so you won't be left thinking everything downloaded when it didn't.
+
+:test_tube: **In the works (advanced / manual setup, not in the one-click packs yet):**
+• **SeFi-Image 5B** — Semantic-First Diffusion, unreal at rendered text/posters and stylized art. Needs a custom ComfyUI node, so it's manual for now.
+• **Wan 2.2 Image-to-Video (GGUF)** — animate a still image, runs on 12 GB. Video packs aren't one-click yet.
+Ping me if you want a hand setting either up.
 
 Enjoy — feedback and bug reports welcome! :raised_hands:
