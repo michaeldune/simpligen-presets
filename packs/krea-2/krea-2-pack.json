@@ -401,6 +401,104 @@
           "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default."
         }
       }
+    },
+    {
+      "id": "bf95-krea2-dark-realism-v30",
+      "name": "BF95 Krea 2 Dark Realism v3.0",
+      "tagline": "Dark cinematic photoreal Krea 2 mix",
+      "icon": "🌑",
+      "previewImage": "previews/bf95-krea2-dark-realism-v30.jpg",
+      "description": "BF95 Krea 2 Dark Realism v3.0 - Krea 2 DiT mix (Realism Engine + Ideogram 4 + Krea 2) tuned for dark, cinematic photoreal output. 8-step euler/simple at CFG 1.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Realistic",
+        "Dark",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "BF95 Krea 2 Dark Realism v3.0",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/bf95-krea2-dark-realism-v30.json",
+        "unet": "bf95Krea2DarkRealism_v30.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3111156",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.5,
+          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2)."
+        }
+      }
     }
   ]
 }
