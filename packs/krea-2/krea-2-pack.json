@@ -499,6 +499,104 @@
           "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2)."
         }
       }
+    },
+    {
+      "id": "dark-beast-krea2-fp8",
+      "name": "Dark Beast Krea 2 (FP8)",
+      "tagline": "Aggressive uncensored Krea 2, fast",
+      "icon": "🐺",
+      "previewImage": "previews/dark-beast-krea2-fp8.jpg",
+      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition).",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Dark Beast KREA 2 FP8",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/dark-beast-krea2-fp8.json",
+        "unet": "darkBeastINT8Convrot2_darkBeastKREA2FP8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3078453",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.5,
+          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file."
+        }
+      }
     }
   ]
 }
