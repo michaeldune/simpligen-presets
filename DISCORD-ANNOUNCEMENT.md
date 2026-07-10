@@ -18,11 +18,11 @@ Z-Image
 Reij's Merges
 Moody Models
 
-:inbox_tray: Download: https://drive.google.com/drive/folders/1MWc3_MGCK6f_pxTsma1tUe-y2FZ9FjrH?usp=sharing
+:inbox_tray: Download: https://www.dropbox.com/scl/fo/q6bt9h1dit7axfvq8o4j3/AD8yAlftvg2auCaunh2f5zE?rlkey=2n45wzxjjsb3o9i8eh20qz768&st=ib7k353q&dl=0
 
 How to install:
 
-Download a pack folder
+Download a pack's .zip and unzip it
 Open readme.html to see which models you need and grab any you're missing
 Run install.cmd — it will download models automatically and let you install the full pack or a single preset
 Restart SimpliGen
