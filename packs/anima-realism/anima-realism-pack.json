@@ -107,12 +107,12 @@
       "tagline": "Photoreal Anima"
     },
     {
-      "id": "photanima-v22-turbo",
-      "name": "PhotAnima v2.2 Turbo",
+      "id": "photanima-v23-turbo",
+      "name": "PhotAnima v2.3 Turbo",
       "tagline": "Photoreal Anima (turbo)",
       "icon": "📷",
-      "previewImage": "previews/photanima-v22-turbo.jpg",
-      "description": "Photorealistic Anima (Cosmos) checkpoint, v2.2 Turbo (distilled, low-step). Uses the Qwen text encoder + Qwen-Image VAE.",
+      "previewImage": "previews/photanima-v23-turbo.jpg",
+      "description": "Photorealistic Anima (Cosmos) checkpoint, v2.3 Turbo (distilled, low-step). Uses the Qwen text encoder + Qwen-Image VAE.",
       "tags": [
         "Anima",
         "Realistic",
@@ -136,13 +136,13 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "PhotAnima v2.2 Turbo",
+        "displayModel": "PhotAnima v2.3 Turbo",
         "baseModels": [
           "anima"
         ],
-        "workflow": "workflows/photanima-v22-turbo.json",
-        "unet": "photanima_v22Turbo.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/2645333",
+        "workflow": "workflows/photanima-v23-turbo.json",
+        "unet": "photanima_v23Turbo.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3112450",
         "clip": "qwen_3_06b_base.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "steps": 12,
@@ -196,7 +196,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 5,
-          "notes": "Anima (Cosmos) UNet + Qwen 0.6B encoder + Qwen-Image VAE. ER-SDE/simple, ModelSamplingAuraFlow shift 3. v2.2 Turbo distilled (low steps, CFG 1)."
+          "notes": "Anima (Cosmos) UNet + Qwen 0.6B encoder + Qwen-Image VAE. ER-SDE/simple, ModelSamplingAuraFlow shift 3. v2.3 Turbo distilled (low steps, CFG 1)."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors"
