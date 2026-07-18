@@ -470,6 +470,103 @@
           "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Thumbnail sourced from the model's earlier v3.0 showcase."
         }
       }
+    },
+    {
+      "id": "babes-illustrious-v55-fp16",
+      "name": "Babes Illustrious v5.5 FP16",
+      "tagline": "Natural portrait realism with flexible LoRA blending",
+      "icon": "📷",
+      "previewImage": "previews/babes-illustrious-v55-fp16.jpg",
+      "description": "Stable Yogi's Illustrious v5.5 FP16 checkpoint, tuned for realistic skin, diverse faces, stronger anatomy, and controlled portrait lighting.",
+      "tags": [
+        "Illustrious",
+        "Realistic",
+        "Photoreal",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Babes Illustrious v5.5 FP16",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/babes-illustrious-v55-fp16.json",
+        "checkpoint": "babesIllustriousBy_v55FP16.safetensors",
+        "steps": 24,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers, extra fingers, extra digits, fewer digits, malformed limbs, deformed, disfigured, blurry, jpeg artifacts, signature, watermark, username, text, logo, cartoon, illustration, 3d render",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "4:5": {
+            "width": 896,
+            "height": 1120
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 18,
+            "max": 27,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.5,
+          "notes": "Illustrious/SDXL full checkpoint with baked VAE, CLIP Skip 2, and DPM++ 2M SDE / Karras defaults."
+        }
+      }
     }
   ]
 }
