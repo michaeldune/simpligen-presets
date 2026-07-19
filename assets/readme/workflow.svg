@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
+  <title id="t">Build and install pipeline</title>
+  <desc id="d">Pack sources in the repo are built into zips by build-zips.py, distributed via Google Drive and Discord, installed with install.cmd, and appear in SimpliGen's preset picker.</desc>
+  <rect width="1200" height="300" rx="20" fill="#0d0f14"/>
+
+  <!-- nodes -->
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g transform="translate(64 88)">
+      <rect width="192" height="124" rx="12" fill="#151923" stroke="#232838" stroke-width="1.5"/>
+      <text x="20" y="40" font-size="22" font-weight="600" fill="#f2f0ea">packs/&lt;slug&gt;/</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8" font-family="ui-monospace,Menlo,monospace">pack.json</text>
+      <text x="20" y="100" font-size="19" fill="#6b7080" font-family="ui-monospace,Menlo,monospace">workflows previews</text>
+    </g>
+    <g transform="translate(284 88)">
+      <rect width="192" height="124" rx="12" fill="#151923" stroke="#e8a33d" stroke-width="1.5"/>
+      <text x="20" y="40" font-size="22" font-weight="600" fill="#f2f0ea">build-zips.py</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8">readme.html</text>
+      <text x="20" y="100" font-size="19" fill="#6b7080">install.cmd + zip</text>
+    </g>
+    <g transform="translate(504 88)">
+      <rect width="192" height="124" rx="12" fill="#151923" stroke="#232838" stroke-width="1.5"/>
+      <text x="20" y="40" font-size="22" font-weight="600" fill="#f2f0ea">Distribute</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8">Google Drive link</text>
+      <text x="20" y="100" font-size="19" fill="#6b7080">posted on Discord</text>
+    </g>
+    <g transform="translate(724 88)">
+      <rect width="192" height="124" rx="12" fill="#151923" stroke="#232838" stroke-width="1.5"/>
+      <text x="20" y="40" font-size="22" font-weight="600" fill="#f2f0ea">install.cmd</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8">auto-downloads</text>
+      <text x="20" y="100" font-size="19" fill="#6b7080">models + verifies</text>
+    </g>
+    <g transform="translate(944 88)">
+      <rect width="192" height="124" rx="12" fill="#1c2230" stroke="#e8a33d" stroke-width="1.5"/>
+      <text x="20" y="40" font-size="22" font-weight="600" fill="#e8a33d">SimpliGen</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8">"Community — "</text>
+      <text x="20" y="100" font-size="19" fill="#6b7080">packs in picker</text>
+    </g>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#4a5163" stroke-width="2" fill="none">
+    <path d="M258 150 h22 m-8 -6 l8 6 l-8 6"/>
+    <path d="M478 150 h22 m-8 -6 l8 6 l-8 6"/>
+    <path d="M698 150 h22 m-8 -6 l8 6 l-8 6"/>
+    <path d="M918 150 h22 m-8 -6 l8 6 l-8 6"/>
+  </g>
+
+  <text x="64" y="56" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="19" letter-spacing="2" fill="#6b7080">SOURCE OF TRUTH → END USER</text>
+  <text x="64" y="256" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" fill="#6b7080">Installer prompts for Civitai / HuggingFace tokens where downloads require them.</text>
+</svg>

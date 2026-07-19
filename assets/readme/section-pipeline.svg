@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="130" viewBox="0 0 1200 130" role="img" aria-labelledby="t d">
+  <title id="t">02 From repo to installed preset</title>
+  <desc id="d">Section header: the build and install pipeline.</desc>
+  <rect width="1200" height="130" rx="20" fill="#0d0f14"/>
+  <text x="64" y="82" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="44" fill="#e8a33d">02</text>
+  <text x="140" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="700" fill="#f2f0ea">From repo to installed preset</text>
+  <text x="1136" y="80" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="20" fill="#6b7080">build-zips.py</text>
+  <path d="M64 102 h1072" stroke="#232838" stroke-width="2"/>
+  <path d="M64 102 h96" stroke="#e8a33d" stroke-width="2"/>
+</svg>

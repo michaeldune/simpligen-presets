@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">SimpliGen Community Preset Packs</title>
+  <desc id="desc">57 local presets in 16 self-contained packs for SimpliGen, each shipping as a zip with a one-click installer.</desc>
+
+  <rect width="1200" height="360" rx="24" fill="#0d0f14"/>
+
+  <!-- title block -->
+  <g transform="translate(64 58)">
+    <text x="0" y="0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="19" letter-spacing="3" fill="#e8a33d">LOCAL PRESET PACKS · SIMPLIGEN</text>
+    <text x="0" y="62" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="58" font-weight="700" fill="#f2f0ea">SimpliGen Community</text>
+    <text x="0" y="126" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="58" font-weight="700" fill="#f2f0ea">Preset Packs</text>
+    <text x="0" y="178" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" fill="#a9adb8">57 ready-to-run presets in 16 packs. One zip, one click,</text>
+    <text x="0" y="212" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" fill="#a9adb8">models auto-downloaded into SimpliGen.</text>
+    <text x="0" y="250" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" fill="#6b7080">SDXL · Pony · Illustrious · SD 1.5 · Anima · Krea · Flux · Z-Image · Wan 2.2</text>
+  </g>
+
+  <!-- proof: stacked pack cards feeding the installer -->
+  <g transform="translate(760 44)">
+    <!-- back cards -->
+    <rect x="26" y="0" width="300" height="86" rx="12" fill="#151923" stroke="#232838" stroke-width="1.5" transform="rotate(-2 176 43)"/>
+    <rect x="14" y="26" width="300" height="86" rx="12" fill="#181d29" stroke="#262c3e" stroke-width="1.5" transform="rotate(-1 164 69)"/>
+    <!-- front pack card -->
+    <g transform="translate(0 54)">
+      <rect width="316" height="110" rx="12" fill="#1c2230" stroke="#e8a33d" stroke-width="1.5"/>
+      <text x="22" y="36" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="21" font-weight="600" fill="#f2f0ea">Community — Illustrious Anime</text>
+      <text x="22" y="66" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" fill="#a9adb8">pack.json · 7 presets</text>
+      <text x="22" y="92" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" fill="#6b7080">workflows/ · previews/</text>
+    </g>
+    <!-- flow to install -->
+    <path d="M196 172 v34" stroke="#e8a33d" stroke-width="2" fill="none"/>
+    <path d="M190 200 l6 10 l6 -10" stroke="#e8a33d" stroke-width="2" fill="none"/>
+    <g transform="translate(76 214)">
+      <rect width="240" height="52" rx="10" fill="#0d0f14" stroke="#333a4d" stroke-width="1.5"/>
+      <text x="20" y="33" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="20" fill="#e8a33d">&gt; install.cmd</text>
+    </g>
+  </g>
+</svg>

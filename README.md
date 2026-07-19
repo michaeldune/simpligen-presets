@@ -1,12 +1,16 @@
-# SimpliGen Community Preset Packs
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 57 ready-to-run presets in 16 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+</p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image — plus a Wan 2.2 image-to-video pack.
 
-**16 packs · 57 presets.** Each pack ships as a self-contained zip with a `readme.html` (model download links + destination folders), a one-click `install.cmd` (full pack or single preset, with auto-download of models), the pack JSON, workflows, and preview thumbnails.
+**Getting a pack takes three steps:** download the pack zip from the shared Google Drive folder (link posted on the [SimpliGen Discord](./DISCORD-ANNOUNCEMENT.md)), unzip it, and run `install.cmd`. The installer downloads the models for you, verifies them, and the pack appears in SimpliGen's preset picker under `Community — `.
 
-> **Distribution:** end users download zips from the shared Google Drive folder (link posted on the SimpliGen Discord — see `DISCORD-ANNOUNCEMENT.md`). This repo is the source of truth the zips are built from.
+> This repo is the source of truth the zips are built from. End users never need to clone it.
 
-## Pack catalog
+<p align="center">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 16 packs, 57 presets.">
+</p>
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
@@ -27,7 +31,15 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Z-Image | 1 | Z-Image | Semi-real/anime |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B (video) | Image-to-video, Q4 GGUF, 12 GB-friendly — **not zip-distributable yet** |
 
-## Building the zips
+Every pack is self-contained: a `readme.html` with model download links and destination folders, a one-click `install.cmd` (full pack or single preset), the pack JSON, ComfyUI workflows, and preview thumbnails.
+
+<p align="center">
+  <img src="./assets/readme/section-pipeline.svg" width="100%" alt="02 — From repo to installed preset.">
+</p>
+
+<p align="center">
+  <img src="./assets/readme/workflow.svg" width="100%" alt="Pipeline: pack sources in packs/ are built by build-zips.py into zips with readme.html and install.cmd, distributed via a Google Drive link posted on Discord, installed by install.cmd which auto-downloads and verifies models, and appear in SimpliGen's picker under the Community prefix.">
+</p>
 
 ```
 python build-zips.py
@@ -37,7 +49,11 @@ Generates `community-<slug>.zip` per pack into `D:\SimpliGen-Backups\zips\` (rea
 
 The installer prompts for a **Civitai API token** (required by Civitai for downloads) and a **HuggingFace token** where needed, verifies downloads, and reports failures honestly.
 
-## Layout
+<p align="center">
+  <img src="./assets/readme/section-authoring.svg" width="100%" alt="03 — Authoring your own pack.">
+</p>
+
+Each pack lives under `packs/<slug>/`:
 
 ```
 packs/<slug>/
@@ -46,11 +62,13 @@ packs/<slug>/
 └── previews/*.jpg       ← 640×640 thumbnails
 ```
 
-## Authoring
-
-See `CUSTOM-PRESET-AUTHORING-GUIDE.md` — architecture detection, workflow families, the `simpligen_lora_1` LoRA marker, pack schema, thumbnails, installer conventions, and validation.
+See [`CUSTOM-PRESET-AUTHORING-GUIDE.md`](./CUSTOM-PRESET-AUTHORING-GUIDE.md) — architecture detection, workflow families, the `simpligen_lora_1` LoRA marker, pack schema, thumbnails, installer conventions, and validation.
 
 Key conventions:
 - Models install to `%APPDATA%\simpligen\engine\models\<subfolder>\` — checkpoints→`checkpoints\`, UNet/GGUF→`diffusion_models\`, **CLIP/text encoders→`clip\`**, VAE→`vae\`.
 - Pack names carry the `Community — ` prefix so they group together in SimpliGen's picker.
 - JSON is UTF-8 **without BOM**; installed `previewImage` uses absolute `local-file:///` URIs, source uses relative paths.
+
+<p align="center">
+  <a href="https://github.com/oil-oil/beautify-github-readme"><img src="./assets/readme/made-with-beautify.svg" width="300" alt="README made with beautify-github-readme"></a>
+</p>
