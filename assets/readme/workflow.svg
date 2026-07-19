@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
   <title id="t">Build and install pipeline</title>
-  <desc id="d">Pack sources in the repo are built into zips by build-zips.py, distributed via Google Drive and Discord, installed with install.cmd, and appear in SimpliGen's preset picker.</desc>
+  <desc id="d">Pack sources in the repo are built into zips by build-zips.py, distributed via Dropbox and Discord, installed with install.cmd, and appear in SimpliGen's preset picker.</desc>
   <rect width="1200" height="300" rx="20" fill="#0d0f14"/>
 
   <!-- nodes -->
@@ -20,7 +20,7 @@
     <g transform="translate(504 88)">
       <rect width="192" height="124" rx="12" fill="#151923" stroke="#232838" stroke-width="1.5"/>
       <text x="20" y="40" font-size="22" font-weight="600" fill="#f2f0ea">Distribute</text>
-      <text x="20" y="74" font-size="19" fill="#a9adb8">Google Drive link</text>
+      <text x="20" y="74" font-size="19" fill="#a9adb8">Dropbox link</text>
       <text x="20" y="100" font-size="19" fill="#6b7080">posted on Discord</text>
     </g>
     <g transform="translate(724 88)">

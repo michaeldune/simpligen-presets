@@ -4,7 +4,7 @@
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image — plus a Wan 2.2 image-to-video pack.
 
-**Getting a pack takes three steps:** download the pack zip from the shared Google Drive folder (link posted on the [SimpliGen Discord](./DISCORD-ANNOUNCEMENT.md)), unzip it, and run `install.cmd`. The installer downloads the models for you, verifies them, and the pack appears in SimpliGen's preset picker under `Community — `.
+**Getting a pack takes three steps:** download the pack zip from the shared Dropbox folder (link posted on the [SimpliGen Discord](./DISCORD-ANNOUNCEMENT.md)), unzip it, and run `install.cmd`. The installer downloads the models for you, verifies them, and the pack appears in SimpliGen's preset picker under `Community — `.
 
 > This repo is the source of truth the zips are built from. End users never need to clone it.
 
@@ -38,7 +38,7 @@ Every pack is self-contained: a `readme.html` with model download links and dest
 </p>
 
 <p align="center">
-  <img src="./assets/readme/workflow.svg" width="100%" alt="Pipeline: pack sources in packs/ are built by build-zips.py into zips with readme.html and install.cmd, distributed via a Google Drive link posted on Discord, installed by install.cmd which auto-downloads and verifies models, and appear in SimpliGen's picker under the Community prefix.">
+  <img src="./assets/readme/workflow.svg" width="100%" alt="Pipeline: pack sources in packs/ are built by build-zips.py into zips with readme.html and install.cmd, distributed via a Dropbox link posted on Discord, installed by install.cmd which auto-downloads and verifies models, and appear in SimpliGen's picker under the Community prefix.">
 </p>
 
 ```
