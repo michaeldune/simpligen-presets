@@ -109,6 +109,106 @@
      "notes": "Ideogram 4 Instant INT8 (9.4 GB, diffusion_models) + qwen_3_8b_fp8mixed encoder (clip\\, HF gated - accept license) + flux2 VAE + Lenovo UltraReal LoRA (baked, 106 MB). Engine must be ComfyUI 0.28+ for int8_tensorwise support (SimpliGen updated mid-July 2026). Plain prose prompts; JSON-style prompts degrade output."
     }
    }
+  },
+  {
+   "id": "ideogram4-instant-graphic",
+   "name": "Ideogram 4 Instant (Graphic / Poster)",
+   "tagline": "Flat graphic design, posters & typography",
+   "icon": "🎨",
+   "previewImage": "previews/ideogram4-instant-graphic.jpg",
+   "description": "Same Instant INT8 base with the UltraReal LoRA reduced to 0.35 - just enough to keep the safety filter suppressed while freeing Ideogram's native clean-graphic look. Best for posters, flat design, saturated color, and big typography. Plain-prose prompts; engine 0.28+.",
+   "tags": [
+    "Ideogram 4",
+    "Graphic Design",
+    "Poster",
+    "Text",
+    "INT8",
+    "Local"
+   ],
+   "enabled": true,
+   "template": "sdxl",
+   "ui": {
+    "visibleFields": [
+     "content",
+     "aspectRatio",
+     "shotType",
+     "environment",
+     "lightingSource",
+     "atmosphere"
+    ]
+   },
+   "image": {
+    "supports": [
+     "local"
+    ],
+    "provider": "comfyui",
+    "displayModel": "Ideogram 4 Instant INT8 + UltraReal 0.35",
+    "baseModels": [
+     "ideogram4"
+    ],
+    "workflow": "workflows/ideogram4-instant-graphic.json",
+    "unet": "Ideogram4-instant_int8-convrot-simple.safetensors",
+    "unetUrl": "https://civitai.com/api/download/models/3131396",
+    "clip": "qwen_3_8b_fp8mixed.safetensors",
+    "clipUrl": "https://huggingface.co/Comfy-Org/Ideogram-4_ComfyUI/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+    "vae": "flux2-vae.safetensors",
+    "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+    "loras": [
+     {
+      "filename": "lenovo_ideogram4.safetensors",
+      "url": "https://civitai.com/api/download/models/3025161",
+      "strength": 0.35
+     }
+    ],
+    "steps": 8,
+    "cfg": 1,
+    "denoise": 1,
+    "resolutionOverrides": {
+     "1:1": {
+      "width": 1024,
+      "height": 1024
+     },
+     "2:3": {
+      "width": 832,
+      "height": 1248
+     },
+     "3:2": {
+      "width": 1248,
+      "height": 832
+     },
+     "3:4": {
+      "width": 896,
+      "height": 1152
+     },
+     "4:3": {
+      "width": 1152,
+      "height": 896
+     },
+     "9:16": {
+      "width": 768,
+      "height": 1360
+     },
+     "16:9": {
+      "width": 1360,
+      "height": 768
+     }
+    },
+    "controls": {
+     "steps": {
+      "min": 8,
+      "max": 12,
+      "step": 1,
+      "default": 8
+     }
+    },
+    "requirements": {
+     "minVramGB": 12,
+     "recommendedVramGB": 12,
+     "minRamGB": 32,
+     "sizeGB": 18,
+     "notes": "Same models as the UltraReal preset (shared downloads). LoRA at 0.35 - the tested floor for filter suppression (0.2 re-triggers it); do not lower. Engine 0.28+."
+    }
+   }
   }
  ]
 }
