@@ -22,7 +22,7 @@
   "inputs": {
    "shift": 8,
    "model": [
-    "lo",
+    "simpligen_lora_1",
     0
    ]
   }
@@ -40,8 +40,8 @@
   "inputs": {
    "text": "{{prompt}}",
    "clip": [
-    "c",
-    0
+    "simpligen_lora_1",
+    1
    ]
   }
  },
@@ -138,6 +138,23 @@
    "filename_prefix": "ideogram4-instant",
    "images": [
     "d",
+    0
+   ]
+  }
+ },
+ "simpligen_lora_1": {
+  "class_type": "Power Lora Loader (rgthree)",
+  "inputs": {
+   "PowerLoraLoaderHeaderWidget": {
+    "type": "PowerLoraLoaderHeaderWidget"
+   },
+   "\u2795 Add Lora": "",
+   "model": [
+    "lo",
+    0
+   ],
+   "clip": [
+    "c",
     0
    ]
   }
