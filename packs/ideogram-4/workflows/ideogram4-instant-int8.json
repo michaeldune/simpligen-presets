@@ -1,0 +1,145 @@
+{
+ "u": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "{{unet}}",
+   "weight_dtype": "default"
+  }
+ },
+ "lo": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "lora_name": "lenovo_ideogram4.safetensors",
+   "strength_model": 1.0,
+   "model": [
+    "u",
+    0
+   ]
+  }
+ },
+ "ms": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "shift": 8,
+   "model": [
+    "lo",
+    0
+   ]
+  }
+ },
+ "c": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "{{clip}}",
+   "type": "ideogram4",
+   "device": "default"
+  }
+ },
+ "pos": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "{{prompt}}",
+   "clip": [
+    "c",
+    0
+   ]
+  }
+ },
+ "g": {
+  "class_type": "BasicGuider",
+  "inputs": {
+   "model": [
+    "ms",
+    0
+   ],
+   "conditioning": [
+    "pos",
+    0
+   ]
+  }
+ },
+ "n": {
+  "class_type": "RandomNoise",
+  "inputs": {
+   "noise_seed": "{{seed}}"
+  }
+ },
+ "ks": {
+  "class_type": "KSamplerSelect",
+  "inputs": {
+   "sampler_name": "euler"
+  }
+ },
+ "sig": {
+  "class_type": "Ideogram4Scheduler",
+  "inputs": {
+   "steps": "{{steps}}",
+   "width": "{{width}}",
+   "height": "{{height}}",
+   "mu": 0.0,
+   "std": 1.75
+  }
+ },
+ "lat": {
+  "class_type": "EmptyFlux2LatentImage",
+  "inputs": {
+   "width": "{{width}}",
+   "height": "{{height}}",
+   "batch_size": 1
+  }
+ },
+ "s": {
+  "class_type": "SamplerCustomAdvanced",
+  "inputs": {
+   "noise": [
+    "n",
+    0
+   ],
+   "guider": [
+    "g",
+    0
+   ],
+   "sampler": [
+    "ks",
+    0
+   ],
+   "sigmas": [
+    "sig",
+    0
+   ],
+   "latent_image": [
+    "lat",
+    0
+   ]
+  }
+ },
+ "v": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "{{vae}}"
+  }
+ },
+ "d": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "s",
+    0
+   ],
+   "vae": [
+    "v",
+    0
+   ]
+  }
+ },
+ "o": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "ideogram4-instant",
+   "images": [
+    "d",
+    0
+   ]
+  }
+ }
+}
