@@ -2,9 +2,9 @@
 
 I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 16 preset packs (60+ presets) for SimpliGen covering a wide range of models and styles. Each pack includes a one-click installer and a readme with model download links.
 
-:new: **New — Ideogram 4:** best-in-class text rendering, and a genuinely wide style range from one model — photoreal, flat graphic/poster design, magazine editorial, technical illustration, even anime, all from the same 9.4 GB INT8 checkpoint at 8 steps. Two tiers: **UltraReal** for candid photo work, **Graphic/Poster** for flat design and typography. See the requirement note below before installing.
+:new: **New — Ideogram 4:** best-in-class text rendering and a wide style range from one model — photoreal, flat poster/graphic design, editorial, even anime — all from a 9.4 GB INT8 checkpoint at 8 steps. Two tiers: **UltraReal** (photo) and **Graphic/Poster** (flat design). Needs engine 0.28+ — see below.
 
-:arrows_counterclockwise: **Updated — grab the latest:** the installer's downloader was reworked (now uses curl instead of Windows BITS). If you hit any "download failed / HTTP 400" errors on an earlier version, re-download the pack folder and re-run `install.cmd` — your Civitai token was fine, the downloader was the problem. New models added across the Illustrious and Krea packs too.
+:arrows_counterclockwise: **Updated:** installer now uses curl instead of Windows BITS — fixes old "HTTP 400" download errors. New models added across the Illustrious and Krea packs too.
 
 :package: What's included: (as of this moment)
 
@@ -35,13 +35,13 @@ Restart SimpliGen
 **:clipboard: Before you install — please read:**
 :warning: **Disk space:** these are full local image models. Some packs pull **5–13 GB per model**, and a few packs reference several. If you're tight on disk space, install one preset at a time rather than a whole pack, and check the model sizes listed in each pack's `readme.html` first.
 
-:key: **Civitai token:** several models are hosted on Civitai, which now requires a **free API token** to download. Create one at <https://civitai.com/user/account> (API Keys section) — the installer will prompt you to paste it. No token = those models are skipped (you can always download them manually later; the `readme.html` lists every link and which folder it goes in).
+:key: **Civitai token:** some models need a **free API token** to download. Create one at <https://civitai.com/user/account> (API Keys) — the installer prompts for it. No token = those models are skipped (`readme.html` has manual links).
 
 :hugging: **HuggingFace token:** a few models live on HuggingFace and may need a free HF access token / license acceptance. The installer prompts for this too; press Enter to skip and install manually.
 
 :scales: **Licensing:** The **Flux 2 Klein** pack is built on Black Forest Labs' FLUX.2 [klein] weights, which are **non-commercial** — personal/research use only. Everything else is fine for general use.
 
-:rotating_light: **Engine version — Ideogram 4 only:** this one pack needs SimpliGen's ComfyUI engine at **0.28+** (native INT8 support). Update SimpliGen and let it pull the latest engine before installing Ideogram 4 — if you're on an older engine, the model will fail to load. Every other pack in the collection works on any engine version.
+:rotating_light: **Engine version — Ideogram 4 only:** needs SimpliGen's ComfyUI engine **0.28+** (native INT8). Update SimpliGen first, or the model won't load. Everything else works on any engine version.
 
 :white_check_mark: The installer now tells you clearly if any model **failed or was skipped**, so you won't be left thinking everything downloaded when it didn't.
 
