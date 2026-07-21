@@ -27,6 +27,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Krea 2 | 4 | Krea 2 DiT | Uncensored mixes, 8–10 step distilled |
 | Krea Flux | 1 | Flux.1 Krea (GGUF) | CSG Foundation, low-VRAM |
 | Flux 2 Klein | 3 | Flux 2 | 9B + 4B, 4-step distilled — **non-commercial license (BFL)** |
+| Ideogram 4 | 2 | Ideogram 4 (INT8) | Best-in-class text rendering; UltraReal photo + Graphic/Poster tiers — **requires engine 0.28+** |
 | Moody Models | 5 | Z-Image / Flux | NSFW-biased/uncensored |
 | Z-Image | 1 | Z-Image | Semi-real/anime |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B (video) | Image-to-video, Q4 GGUF, 12 GB-friendly — **not zip-distributable yet** |

@@ -1,6 +1,8 @@
 :art: Community Preset Packs — Free Downloads
 
-I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 15 preset packs (50+ presets) for SimpliGen covering a wide range of models and styles. Each pack includes a one-click installer and a readme with model download links.
+I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 16 preset packs (60+ presets) for SimpliGen covering a wide range of models and styles. Each pack includes a one-click installer and a readme with model download links.
+
+:new: **New — Ideogram 4:** best-in-class text rendering, and a genuinely wide style range from one model — photoreal, flat graphic/poster design, magazine editorial, technical illustration, even anime, all from the same 9.4 GB INT8 checkpoint at 8 steps. Two tiers: **UltraReal** for candid photo work, **Graphic/Poster** for flat design and typography. See the requirement note below before installing.
 
 :arrows_counterclockwise: **Updated — grab the latest:** the installer's downloader was reworked (now uses curl instead of Windows BITS). If you hit any "download failed / HTTP 400" errors on an earlier version, re-download the pack folder and re-run `install.cmd` — your Civitai token was fine, the downloader was the problem. New models added across the Illustrious and Krea packs too.
 
@@ -14,6 +16,7 @@ SD 1.5 Anime
 Krea 2 (Moody Mix, RedCraft, Realia, Fascium)
 Krea Flux (CSG Foundation — GGUF Flux.1 Krea)
 Flux 2 Klein (9B, MiracleIn NSFW, 4B Maxx — sub-second 4-step generation)
+Ideogram 4 (UltraReal photo + Graphic/Poster — needs engine 0.28+)
 Z-Image
 Reij's Merges
 Moody Models
@@ -37,6 +40,8 @@ Restart SimpliGen
 :hugging: **HuggingFace token:** a few models live on HuggingFace and may need a free HF access token / license acceptance. The installer prompts for this too; press Enter to skip and install manually.
 
 :scales: **Licensing:** The **Flux 2 Klein** pack is built on Black Forest Labs' FLUX.2 [klein] weights, which are **non-commercial** — personal/research use only. Everything else is fine for general use.
+
+:rotating_light: **Engine version — Ideogram 4 only:** this one pack needs SimpliGen's ComfyUI engine at **0.28+** (native INT8 support). Update SimpliGen and let it pull the latest engine before installing Ideogram 4 — if you're on an older engine, the model will fail to load. Every other pack in the collection works on any engine version.
 
 :white_check_mark: The installer now tells you clearly if any model **failed or was skipped**, so you won't be left thinking everything downloaded when it didn't.
 
