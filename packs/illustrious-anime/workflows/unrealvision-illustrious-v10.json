@@ -1,0 +1,106 @@
+{
+ "4": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "{{checkpoint}}"
+  }
+ },
+ "simpligen_lora_1": {
+  "class_type": "Power Lora Loader (rgthree)",
+  "inputs": {
+   "PowerLoraLoaderHeaderWidget": {
+    "type": "PowerLoraLoaderHeaderWidget"
+   },
+   "\u2795 Add Lora": "",
+   "model": [
+    "4",
+    0
+   ],
+   "clip": [
+    "4",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "SimpliGen User LoRAs"
+  }
+ },
+ "5": {
+  "class_type": "EmptyLatentImage",
+  "inputs": {
+   "width": "{{width}}",
+   "height": "{{height}}",
+   "batch_size": 1
+  }
+ },
+ "6": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "{{prompt}}",
+   "clip": [
+    "simpligen_lora_1",
+    1
+   ]
+  }
+ },
+ "7": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "{{negative_prompt}}",
+   "clip": [
+    "simpligen_lora_1",
+    1
+   ]
+  }
+ },
+ "3": {
+  "class_type": "KSampler",
+  "inputs": {
+   "seed": "{{seed}}",
+   "steps": "{{steps}}",
+   "cfg": "{{cfg}}",
+   "sampler_name": "euler_ancestral",
+   "scheduler": "normal",
+   "denoise": "{{denoise}}",
+   "model": [
+    "simpligen_lora_1",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "latent_image": [
+    "5",
+    0
+   ]
+  }
+ },
+ "8": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "3",
+    0
+   ],
+   "vae": [
+    "4",
+    2
+   ]
+  }
+ },
+ "9": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "unrealvision-illustrious-v10",
+   "images": [
+    "8",
+    0
+   ]
+  }
+ }
+}
