@@ -21,7 +21,7 @@ Z-Image
 Reij's Merges
 Moody Models
 
-:inbox_tray: Download: https://www.dropbox.com/scl/fo/q6bt9h1dit7axfvq8o4j3/AD8yAlftvg2auCaunh2f5zE?rlkey=2n45wzxjjsb3o9i8eh20qz768&st=ib7k353q&dl=0
+:inbox_tray: Download: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
 
 :octopus: Source on GitHub: <https://github.com/michaeldune/simpligen-presets> — all pack definitions, workflows, and the zip build script. Browse the presets, report issues, or build the zips yourself.
 
