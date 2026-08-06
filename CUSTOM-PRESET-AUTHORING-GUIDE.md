@@ -1,8 +1,8 @@
-# SimpliGen Custom Local Preset Authoring Guide (v2)
+# SimpliGen Custom Local Preset Authoring Guide (v3)
 
-A practical guide for building **local** SimpliGen preset packs: researching an image model, writing the preset pack + ComfyUI **API-format** workflow, adding a thumbnail and LoRA support, installing safely on Windows, and verifying the result. Written for a capable coding agent or a hands-on user.
+A practical guide for building **local** SimpliGen preset packs: researching a model, writing the preset pack + ComfyUI **API-format** workflow, adding a thumbnail and LoRA support, installing safely on Windows, and verifying the result. Covers both **image** and **video** presets. Written for a capable coding agent or a hands-on user.
 
-A preset is **done** only when SimpliGen loads the pack, shows its thumbnail, and a test generation produces an image — not when files are copied. Examples assume a ~12 GB VRAM GPU; adjust `requirements` and step counts for your hardware.
+A preset is **done** only when SimpliGen loads the pack, shows its thumbnail, and a test generation produces output — not when files are copied. Examples assume a ~12 GB VRAM GPU; adjust `requirements` and step counts for your hardware.
 
 ---
 
@@ -13,6 +13,7 @@ Installed workflows:  %APPDATA%\simpligen\presets\workflows\<id>.json   (shared 
 Installed thumbnails: %APPDATA%\simpligen\presets\previews\<id>.jpg     (shared)
 Engine models root:   %APPDATA%\simpligen\engine\models\
                         checkpoints\  diffusion_models\  clip\  vae\  loras\  ...
+Engine custom nodes:  %APPDATA%\simpligen\engine\ComfyUI\custom_nodes\
 Logs:                 %APPDATA%\simpligen\logs\session-*.log
 Engine model-path map: %APPDATA%\simpligen\engine\ComfyUI\extra_model_paths.yaml
 ```
@@ -24,12 +25,12 @@ Engine model-path map: %APPDATA%\simpligen\engine\ComfyUI\extra_model_paths.yaml
 ---
 
 ## 2. Required agent behavior
-1. Inspect an existing working pack of the same family before writing a new one.
+1. Inspect an existing working pack of the same family (and same media type — image or video) before writing a new one.
 2. Verify exact model version, base architecture, filename, VAE/encoder/custom-node needs, CLIP skip, sampler/scheduler, steps/CFG, prompt conventions, native resolutions.
 3. Prefer the creator's published generation metadata over generic assumptions.
 4. One self-contained source folder per pack.
 5. Use a ComfyUI **API-format** workflow (flat node map), not a UI graph export.
-6. Validate every JSON with a parser.
+6. Validate every JSON with a parser — for video workflows, confirm every `{{placeholder}}` sits **inside a quoted string value** (`"steps": "{{steps}}"`), not bare (`"steps": {{steps}}`). SimpliGen resolves either at generation time, but a bare placeholder is not valid JSON, which breaks any tooling (including `build-zips.py`) that tries to parse the workflow file directly.
 7. Install via an idempotent Windows installer.
 8. Write JSON as UTF-8 **without BOM**; preserve Unicode/emoji.
 9. Add the LoRA marker node (§5) and a `tagline` (§6) to every preset.
@@ -48,7 +49,7 @@ $ver.files | ? {$_.type -eq 'Model'} | Select-Object name, @{n='GB';e={$_.sizeKB
 $ver.images | ? {$_.meta.sampler} | Select-Object -First 3 -Expand meta   # sampler/steps/cfg/clip skip
 $ver.images | ? {$_.type -eq 'image'} | Sort-Object nsfwLevel | Select -First 1 -Expand url  # cleanest thumb
 ```
-Record: base model, exact filename, full-checkpoint vs UNet-only, VAE/encoder/custom-node needs, CLIP skip, sampler/scheduler, steps/CFG, native sizes, recommended prompt prefix + negative. Image metadata is usually the best source for settings.
+Record: base model, exact filename, full-checkpoint vs UNet-only, VAE/encoder/custom-node needs, CLIP skip, sampler/scheduler, steps/CFG, native sizes, recommended prompt prefix + negative. Image metadata is usually the best source for settings. For video/LoRA-accelerator models found as ComfyUI workflow exports (Civitai "Workflows" resource type, or a linked custom-node repo's README), the node graph itself and the repo's README are the best source — check the repo's own `pyproject.toml`/`requirements.txt` for real dependencies rather than assuming.
 
 ### Detect architecture from the safetensors header (don't trust the name)
 Read the header (first 8 bytes = little-endian header length, then that many bytes of UTF-8 JSON) and inspect key prefixes:
@@ -66,7 +67,7 @@ SimpliGen substitutes these placeholders at generation time:
 {{checkpoint}} {{unet}} {{clip}} {{vae}} {{prompt}} {{negative_prompt}}
 {{width}} {{height}} {{seed}} {{steps}} {{cfg}} {{denoise}}
 ```
-Any extra `image.<key>` field in the pack is also exposed as `{{key}}`. Sampler names are machine ids: `euler`, `euler_ancestral`, `dpmpp_2m`, `dpmpp_2m_sde`, `dpmpp_2s_ancestral`, `dpmpp_sde`, `er_sde`. Schedulers: `normal`, `karras`, `simple`, `exponential`, `lcm`.
+Any extra `image.<key>` or `video.<key>` field in the pack is also exposed as `{{key}}`. Sampler names are machine ids: `euler`, `euler_ancestral`, `dpmpp_2m`, `dpmpp_2m_sde`, `dpmpp_2s_ancestral`, `dpmpp_sde`, `er_sde`, `res_multistep`. Schedulers: `normal`, `karras`, `simple`, `exponential`, `lcm`, `beta`.
 
 **4.1 Conventional checkpoint** (most SD 1.5 / SDXL): `CheckpointLoaderSimple` → encoders → `KSampler` → `VAEDecode` (vae from `["4",2]`) → `SaveImage`.
 
@@ -90,7 +91,7 @@ Files go in their own folders: UNet → `diffusion_models\`, encoder → `clip\`
 
 **4.6 Two-pass hi-res:** base KSampler → `VAEDecode` → `ImageScaleBy {lanczos, 1.5}` → `VAEEncode` → 2nd KSampler (denoise ~0.1, ~4 steps) → `VAEDecode` → SaveImage.
 
-**4.7 Custom nodes:** clone the repo into `engine\ComfyUI\custom_nodes\` (the bundled engine loads custom nodes; rgthree, KJNodes, RES4LYF ship by default). SimpliGen has no custom UI slider, so to expose a node parameter you can repurpose the `steps`/`cfg` slider (route `{{cfg}}` into the node param and hardcode the sampler cfg).
+**4.7 Custom nodes:** clone the repo into `engine\ComfyUI\custom_nodes\` (the bundled engine loads custom nodes; rgthree, KJNodes, RES4LYF ship by default). SimpliGen has no custom UI slider, so to expose a node parameter you can repurpose the `steps`/`cfg` slider (route `{{cfg}}` into the node param and hardcode the sampler cfg). See §7.3 for the two very different *kinds* of "custom node dependency" — a git clone is not always the whole story.
 
 **Minimal checkpoint workflow** (add the LoRA marker from §5):
 ```json
@@ -125,10 +126,11 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
 - Preserve the `➕` key — write JSON with UTF-8 (no BOM), don't let it get mangled.
 - Subgraph-namespaced workflows (node ids like `75:70`, e.g. some Flux `SamplerCustomAdvanced` graphs) don't take this flat marker cleanly — wire LoRA there manually in the graph editor or skip.
 - LoRA compatibility: SDXL-family LoRAs (incl. Illustrious, Pony) load on any SDXL/Illustrious/Pony preset (effect varies off the native base). They do NOT load on SD 1.5 / Krea-2 / Anima / Z-Image. There is no reliable cross-architecture LoRA conversion — retrain for the target base.
+- If a pack adds its own baked-in accelerator LoRA (e.g. a "turbo" LoRA, §7), that node is **separate** from `simpligen_lora_1` and goes further downstream in the chain — the user LoRA marker still comes first, right after the model/clip source.
 
 ---
 
-## 6. Pack schema
+## 6. Pack schema (image presets)
 ```json
 {
   "id": "<slug>-pack",
@@ -173,7 +175,69 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
 
 ---
 
-## 7. Reference settings by family (examples)
+## 7. Video presets
+
+Video presets follow the same overall pack shape as image ones (§6), but the per-preset media block is called **`video`** instead of `image`, and both the schema and the typical workflow graph differ enough to warrant their own section. Cross-reference: `packs/wan22-i2v-gguf/` (dual-expert GGUF, image-to-video) and `packs/minimax-h3-turbo/` (single checkpoint + baked accelerator LoRA, text-to-video with synced audio) in this repo are working, shipped examples of the two shapes below.
+
+**7.1 Video pack schema.** A `video` block replaces `image`, with these differences:
+```json
+"video": {
+  "supports": ["local"],
+  "displayModel": "<name>",
+  "baseModels": ["<family>"],
+  "workflow": "workflows/<preset-id>.json",
+  "duration": { "type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true },
+  "requiresImage": false,                                // true for image-to-video presets
+
+  // Single-checkpoint models (e.g. MiniMax H3): same 4 core fields as image packs
+  "unet": "<file>", "unetUrl": "...", "clip": "<file>", "clipUrl": "...", "vae": "<file>", "vaeUrl": "...",
+  // Extra model files beyond the 4 core fields (audio VAEs, baked accelerator LoRAs) go here -
+  // each entry is its own download, `dir` is the exact engine\models\<dir>\ subfolder name:
+  "extraModels": [
+    { "dir": "vae",   "filename": "<audio_vae_file>", "url": "..." },
+    { "dir": "loras", "filename": "<turbo_lora_file>", "url": "..." }
+  ],
+
+  // Dual-expert models (e.g. Wan 2.2 high/low-noise) use arrays instead of single unet/clip/vae fields:
+  "unets": [ { "filename": "<high_noise_file>", "url": "..." }, { "filename": "<low_noise_file>", "url": "..." } ],
+  "loras": [ { "filename": "<high_noise_lora>", "url": "...", "strength": 1 }, { "filename": "<low_noise_lora>", "url": "...", "strength": 1 } ],
+
+  "steps": 20,
+  "negativePrompt": "",
+  "extensions": [ { "name": "<custom-node-repo-name>", "url": "https://github.com/...", "description": "<why it's needed>" } ],
+  "resolutionOptions": [                                  // NOT resolutionOverrides - a list of tiers, each gated by VRAM
+    { "label": "480p", "minVramGB": 12, "aspects": { "16:9": {"width":864,"height":480}, "1:1": {"width":640,"height":640} } },
+    { "label": "720p", "minVramGB": 16, "aspects": { "16:9": {"width":1280,"height":720} } }
+  ],
+  "requirements": { "minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 48, "sizeGB": 41, "notes": "<free-text caveats>" }
+}
+```
+Key differences from image presets, spelled out:
+- `resolutionOptions` (array of `{label, minVramGB, aspects}` tiers) replaces `resolutionOverrides` (flat aspect→size map) — video models often have a VRAM-gated ladder of supported resolutions, not one fixed native size.
+- `duration` (slider config) has no image equivalent.
+- A single checkpoint model uses the same `unet`/`clip`/`vae` core fields as an image UNet-family pack, **plus** `extraModels[]` for anything beyond those three (most commonly an audio VAE and/or a baked accelerator LoRA).
+- A dual-expert model (two diffusion models sharing one CLIP/VAE, e.g. Wan's high-noise/low-noise split) uses `unets[]`/`loras[]` arrays instead of singular `unet`/`lora` fields.
+- `extensions[]` (not `requirements.notes` alone) is where you list required custom nodes for the reader's benefit; **also** register the node's real `class_type` name(s) in `build-zips.py`'s `CUSTOM_NODES` dict (§11) so the generated installer readme actually warns about it — `extensions[]` in the pack JSON is documentation, `CUSTOM_NODES` in the generator is what makes that documentation actually appear in the shipped zip.
+
+**7.2 Typical video workflow shape** (single-checkpoint, text-to-video, audio-synced — e.g. MiniMax H3):
+```text
+UNETLoader → CLIPLoader → simpligen_lora_1 (§5) → [optional: accelerator LoRA node] →
+  ├─→ BasicGuider (conditioning) ─┐
+  └─→ BasicScheduler (steps)      ├─→ SamplerCustomAdvanced (+ RandomNoise, KSamplerSelect) →
+                                   ┘     VAEDecode (video) + VAEDecodeAudio (audio) →
+                                         CreateVideo (fps, audio) → SaveVideo
+```
+This `RandomNoise`/`BasicGuider`/`KSamplerSelect`/`BasicScheduler`/`SamplerCustomAdvanced` chain (rather than a single `KSampler` node) is the common pattern for models with more exotic sampling needs (flow-matching schedules, dual video/audio streams). A dual-expert model (Wan-style) instead runs two `KSamplerAdvanced` passes in sequence (high-noise steps, then low-noise steps) between a shared conditioning stage and a shared `VAEDecodeTiled`.
+
+**7.3 Custom node dependencies: two very different tiers.** Not every "clone this repo" requirement is equally risky:
+- **Pure-Python, no extra pip deps** (e.g. `ComfyUI-MiniMax-H3-Turbo`): `git clone` into `custom_nodes\`, restart, done. Check the repo's `pyproject.toml` `dependencies = []` (or absence of a `requirements.txt` beyond stdlib/torch/comfy internals) to confirm this before promising it'll be simple.
+- **Needs a compiled Python package too** (e.g. `sageattention`, which some SageAttention-based nodes require): this is a materially bigger ask. On Windows, `pip install sageattention` from PyPI typically wants to compile from source, which needs `nvcc` (CUDA Toolkit) and a matching MSVC linker — **SimpliGen's bundled Python has neither**, and its embeddable-Python distribution also lacks `Python.h`/`python3XX.lib`, which additionally blocks Triton's own JIT compiler (a dependency of some SageAttention code paths) from working even if a prebuilt `sageattention` wheel installs cleanly. Prebuilt Windows wheels exist for some exact torch/CUDA/Python combinations (search GitHub releases, e.g. the `woct0rdho/SageAttention` and `woct0rdho/triton-windows` forks) but are not guaranteed to match your exact engine build. **Verify a specific node's actual runtime dependency chain before shipping a preset that depends on it** — a node existing and importing successfully does not mean its default configuration will run without a compiler toolchain this app doesn't have.
+
+**7.4 Testing a video preset via MCP:** `mcp__simpligen__generate` with `mediaType: "video"`, then poll with `wait_for_result`/`get_job` — note `wait_for_result` has its own internal timeout shorter than any `timeoutSeconds` you pass it, so a timeout error there does **not** mean the job failed; check `get_job` or the session log directly for real progress before concluding anything. Compare actual per-step timing (grep the session log for the `it/s]`/`s/it]` progress lines, or check the completed job's `createdAt`/`completedAt`) against any baseline you're trying to beat — don't trust a community-claimed speedup number without reproducing it on this hardware.
+
+---
+
+## 8. Reference settings by family (examples)
 | Family | Sampler / scheduler | Steps | CFG | Notes |
 |---|---|---:|---:|---|
 | SDXL realism | dpmpp_2m / karras (or dpmpp_2m_sde) | 30 | 6–7 | no clip skip, baked VAE, natural language |
@@ -182,21 +246,24 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
 | SD 1.5 anime | dpmpp_2m / karras | 30 | 7 | CLIP Skip 2, external kl-f8-anime2 VAE, 512-base |
 | Anima (Cosmos) | er_sde / simple, ModelSamplingAuraFlow shift 3 | 16 (turbo ~12) | 1 | UNet + Qwen 0.6B encoder + Qwen-Image VAE, preamble |
 | Krea-2 turbo | euler / simple | 8 | 1 | DiT, Qwen3VL encoder, Qwen-Image VAE, ConditioningZeroOut negative |
+| MiniMax H3 (video) | res_multistep / simple | 20 (turbo LoRA ~6-8) | 1 | UNet + 32B Qwen3VL encoder + video/audio VAE, synced stereo audio |
+| Wan 2.2 (video, dual-expert) | euler / simple, dual KSamplerAdvanced pass | 4 (2 high + 2 low, lightx2v LoRA) | 1 | GGUF dual high/low-noise UNets, shared clip/vae |
 
 ---
 
-## 8. Prompt conventions
+## 9. Prompt conventions
 - **SDXL realism:** pass `{{prompt}}` directly; put defect terms in `negativePrompt`.
 - **Illustrious anime:** `masterpiece, best quality, amazing quality, ultra detailed, ... {{prompt}}` + CLIP Skip 2.
 - **Pony V6:** `score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, {{prompt}}` (photoreal Pony mixes often need NO score tags). Don't force a `source_*` tag globally.
 - **SD 1.5 anime:** `masterpiece, best quality, highly detailed, anime, {{prompt}}`.
 - **Anima/Krea:** use the model preamble (§4). Don't apply it to plain SD/SDXL checkpoints.
+- **Video (MiniMax H3 style):** prompts describe a timeline, not a single frame — shots, camera motion, dialogue/speaker tags, and separate `overall_soundscape`/`non_diegetic_music` fields if the model supports audio. Treat it as writing a short shot list, not an image prompt.
 - **Figure/age safety:** avoid words like "tiny" (with fairy/wings themes they skew childlike); add explicit adult framing ("tall, full-grown adult, 21"). Note: uncensored realism mixes may ignore clothing prompts even with strong negatives — that's a model bias, not a prompt bug.
 
 ---
 
-## 9. Thumbnails — 640×640 JPEG (q90), keep them small (~0.1 MB)
-Center-crop "cover" to 640×640, JPEG q90. Never store full-resolution previews (they bloat the pack and slow the store). Resize with System.Drawing, loading from a **MemoryStream** so the source file isn't locked (lets you overwrite in place). When converting PNG→JPG, update the `previewImage` reference in both source (relative) and installed (absolute) and delete the old PNG. No text/logos/watermarks; one coherent image. For NSFW models, pick a low-`nsfwLevel` showcase image, an earlier clean version, or a neutral placeholder.
+## 10. Thumbnails — 640×640 JPEG (q90), keep them small (~0.1 MB)
+Center-crop "cover" to 640×640, JPEG q90. Never store full-resolution previews (they bloat the pack and slow the store). Resize with System.Drawing, loading from a **MemoryStream** so the source file isn't locked (lets you overwrite in place). When converting PNG→JPG, update the `previewImage` reference in both source (relative) and installed (absolute) and delete the old PNG. No text/logos/watermarks; one coherent image. For NSFW models, pick a low-`nsfwLevel` showcase image, an earlier clean version, or a neutral placeholder. **For video presets**, extract a representative frame from a real test-generation output with `ffmpeg` (`-ss <timestamp> -vframes 1 -vf "scale=640:640:force_original_aspect_ratio=increase,crop=640:640"`) rather than redistributing a frame from someone else's showcase video.
 
 Source uses a relative path; the **installed** pack must use an absolute local-file URL:
 ```text
@@ -206,7 +273,7 @@ The installer rewrites this dynamically (relative paths render as broken cards).
 
 ---
 
-## 10. BOM-safe, portable installer (`install-<slug>.cmd`)
+## 11. BOM-safe, portable installer (`install-<slug>.cmd`)
 Uses `%~dp0` so it restores from anywhere it's placed, copies into `%APPDATA%\simpligen`, rewrites `previewImage` to an absolute URL, and writes JSON UTF-8 **without BOM**:
 ```bat
 @echo off
@@ -234,7 +301,9 @@ echo Installation failed. & pause & exit /b 1
 **Encoding warning:** PS 5.1 `Set-Content -Encoding UTF8` writes a **BOM**, which SimpliGen rejects (`Unexpected token '﻿'`). Always use `[IO.File]::WriteAllText` + `New-Object System.Text.UTF8Encoding($false)`. Don't change `|` to `^|` inside the quoted `-Command`.
 
 ### Distributable packs (share with other users)
-For sharing on Discord, build a self-contained zip per pack: `readme.html` + `install.cmd` + `install.ps1` + `<pack>.json` + `workflows/` + `previews/`. The `readme.html` lists each model's download link **and destination subfolder**, flags shared/gated/Civitai/HF models, and shows VRAM + sizes. The `install.cmd` wraps `install.ps1`, offers a menu (`[0]` all presets, `[1..N]` a single preset), copies files, rewrites `previewImage` to an absolute `local-file:///` URI, and can **auto-download models**.
+For sharing with others, build a self-contained zip per pack: `readme.html` + `install.cmd` + `install.ps1` + `<pack>.json` + `workflows/` + `previews/`, then host the zips wherever suits you (GitHub Releases, Dropbox, etc. — being able to update the same link in place, rather than a versioned one-off, keeps a Discord/announcement post from going stale). The `readme.html` lists each model's download link **and destination subfolder**, flags shared/gated/Civitai/HF models, and shows VRAM + sizes. The `install.cmd` wraps `install.ps1`, offers a menu (`[0]` all presets, `[1..N]` a single preset), copies files, rewrites `previewImage` to an absolute `local-file:///` URI, and can **auto-download models**.
+
+If you're using a generator script like this repo's `build-zips.py`: it detects required custom nodes by scanning each workflow JSON for `class_type` values against a hardcoded registry (`CUSTOM_NODES` dict). **A pack whose custom node isn't in that registry doesn't get flagged** — the generated readme just silently omits any "you need to install X first" warning, and the resulting zip installs a preset that will fail the first time someone tries to generate with it. When you add a pack that needs a custom node, register its `class_type`(s) there too, not just in the pack JSON's own `extensions[]` field — the two are separate and both matter. Also make sure any workflow JSON your generator has to parse (not just SimpliGen at runtime) keeps `{{placeholders}}` inside quoted strings (§2.6) — a generator that can't parse the workflow can't detect its custom-node needs either, and may silently produce an incomplete or misleading readme instead of erroring loudly.
 
 Auto-download gotchas (these will bite the recipient, not you):
 - **Civitai requires an API token.** Bare `civitai.com/api/download/models/<id>` returns **HTTP 401** with no token. Prompt the user for a token (made at `civitai.com/user/account` → API Keys) and append it as a query param: `?token=<t>` (use `&` if the URL already has a `?`). HuggingFace uses an `Authorization: Bearer <token>` header instead.
@@ -244,36 +313,37 @@ Auto-download gotchas (these will bite the recipient, not you):
 
 ---
 
-## 11. Validation
+## 12. Validation
 - Parse pack + workflow JSON. Confirm **no BOM** (`bytes[0..2] != EF BB BF`) and emoji/icon intact.
-- Cross-refs: workflow file exists; `previewImage` resolves; primary model present (checkpoint in `checkpoints\`, unet in `diffusion_models\`, encoder in **`clip\`**, vae in `vae\`).
-- Every workflow `{{placeholder}}` has a pack value or is a runtime value. Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`.
-- After install: restart SimpliGen, check the newest `session-*.log` for "Loaded N preset packs" and no "Failed to load preset pack". Run a test generation and confirm an output image.
+- Cross-refs: workflow file exists; `previewImage` resolves; primary model present (checkpoint in `checkpoints\`, unet in `diffusion_models\`, encoder in **`clip\`**, vae in `vae\`, LoRAs in `loras\`).
+- Every workflow `{{placeholder}}` has a pack value or is a runtime value. Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`; (video) a bare unquoted `{{placeholder}}` that breaks strict JSON parsing.
+- After install: restart SimpliGen, check the newest `session-*.log` for "Loaded N preset packs" and no "Failed to load preset pack". Run a test generation and confirm real output (an image file, or for video, a playable file with the requested duration — check via `ffprobe`, since duration sliders often get frame-quantized and don't land on the exact requested number of seconds).
 
 ---
 
-## 12. Organization conventions (optional, for large collections)
+## 13. Organization conventions (optional, for large collections)
 - **Group by purpose within architecture** (e.g. SDXL Realism vs SDXL Art & Anime; Illustrious Realism vs Anime). Packs cannot be nested — a pack holds a flat preset list.
 - **To group your own packs on the selection screen, use a common name prefix** (e.g. `MyTag — <name>`). SimpliGen's store search matches pack **name / description / base-model / preset-name — NOT the `tags` array** (tags are cosmetic chips). So a prefix is searchable and clusters packs together; a leading non-typeable symbol is not useful (you can't search it).
 - Give every preset a short `tagline` (shown under the name in recent app versions).
 
 ---
 
-## 13. Failure guide
+## 14. Failure guide
 - **Preset missing:** check newest log. Causes: BOM, malformed JSON, duplicate/bad id, missing required fields, app not fully restarted. `Unexpected token '﻿'` = BOM.
-- **Broken thumbnail:** installed `previewImage` must be an absolute `local-file:///` URL and the JPG must exist in `presets\previews`.
-- **Generation fails immediately:** wrong checkpoint name/folder; checkpoint vs UNet mismatch; missing VAE/encoder; node class not in the installed ComfyUI; unsubstituted placeholder; wrong sampler id; CLIP-skip miswire. Also: the engine **caches its model list at startup**, so a newly added model file isn't visible until SimpliGen is fully restarted.
+- **Broken thumbnail:** installed `previewImage` must be an absolute `local-file:///` URL and the JPG must exist in `presets\previews`. A plain file-copy sync from source→installed silently reverts this — always reapply the absolute-path rewrite after any sync, image or video pack alike.
+- **Generation fails immediately:** wrong checkpoint name/folder; checkpoint vs UNet mismatch; missing VAE/encoder; node class not in the installed ComfyUI; unsubstituted placeholder; wrong sampler id; CLIP-skip miswire; (video) a required custom node was never actually cloned in, or imports but its own further dependency (e.g. a compiled Python package) isn't installed — check the session log for an `ImportError`/`ModuleNotFoundError` near engine startup, not just at generation time. Also: the engine **caches its model list at startup**, so a newly added model file, or a newly cloned custom node, isn't visible until SimpliGen is fully restarted.
 - **Poor quality:** verify CLIP skip, the creator's prefix/negative, native resolution, sampler/scheduler/steps/CFG, correct VAE, and whether the creator used a hi-res second pass you haven't implemented. Don't mask a missing hi-res pass by inflating steps/CFG.
 
 ---
 
-## 14. Agent working practices
+## 15. Agent working practices
 - Do JSON edits and file deletions in a real language (e.g. Python `json` with `ensure_ascii=False`, `os.remove`, `shutil.rmtree`) rather than fragile shell one-liners.
 - Keep source and installed copies in sync on every change (source = relative `previewImage`, installed = absolute).
 - Pack `id` stays stable; only the display `name` carries any grouping prefix.
-- After adding/removing model files, the user must fully restart SimpliGen before the engine sees them.
+- After adding/removing model files, or cloning/removing a custom node, the user must fully restart SimpliGen before the engine sees the change.
+- Before promising a speed/quality claim from a community workflow or node, verify it against the actual installed engine (imports cleanly, runs on real hardware, produces real output) rather than relaying the claim — see §7.3/§7.4.
 
 ---
 
-## 15. Final principle
+## 16. Final principle
 Treat a preset as a small integration, not a label on a checkpoint. The checkpoint, prompt encoding, model sampling, VAE, resolution, workflow graph, LoRA marker, installer encoding, thumbnail URL, and SimpliGen loader must all agree. Most failures come from one layer being locally correct but incompatible with the next.
