@@ -29,6 +29,26 @@ CUSTOM_NODES = {
         'url':  'https://github.com/Jonseed/ComfyUI-ConditioningKrea2Rebalance',
         'note': 'Required for the Krea 2 Turbo + Rebalance preset. Usually pre-installed by SimpliGen.',
     },
+    'MiniMaxH3TurboLoRA': {
+        'name': 'ComfyUI-MiniMax-H3-Turbo',
+        'url':  'https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo',
+        'note': 'Turbo LoRA loader + 4-step dual-schedule sampler for MiniMax H3. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually before using this preset.',
+    },
+    'MiniMaxH3TurboSampler': {
+        'name': 'ComfyUI-MiniMax-H3-Turbo',
+        'url':  'https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo',
+        'note': 'Turbo LoRA loader + 4-step dual-schedule sampler for MiniMax H3. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually before using this preset.',
+    },
+    'RebelsSeFiLoader': {
+        'name': 'ComfyUI_Rebels_SeFi',
+        'url':  'https://github.com/RealRebelAI/ComfyUI_Rebels_SeFi',
+        'note': 'SeFi-Image 5B Turbo loader + sampler. NOT pre-installed by SimpliGen. The repo nests the package - clone it, then move the INNER ComfyUI_Rebels_SeFi/ folder into ComfyUI/custom_nodes (a plain clone of the outer repo will not load).',
+    },
+    'RebelsSeFiSampler': {
+        'name': 'ComfyUI_Rebels_SeFi',
+        'url':  'https://github.com/RealRebelAI/ComfyUI_Rebels_SeFi',
+        'note': 'SeFi-Image 5B Turbo loader + sampler. NOT pre-installed by SimpliGen. The repo nests the package - clone it, then move the INNER ComfyUI_Rebels_SeFi/ folder into ComfyUI/custom_nodes (a plain clone of the outer repo will not load).',
+    },
 }
 
 HF_GATED_REPOS = [
@@ -43,6 +63,35 @@ HF_GATED_REPOS = [
 MODEL_FIELDS = ['checkpoint', 'unet', 'vae', 'clip']
 URL_FIELDS   = {'checkpoint': 'checkpointUrl', 'unet': 'unetUrl', 'vae': 'vaeUrl', 'clip': 'clipUrl'}
 DEST_FOLDER  = {'checkpoint': 'checkpoints', 'unet': 'diffusion_models', 'vae': 'vae', 'clip': 'clip'}
+
+# Array-shaped model lists seen in some video packs (e.g. Wan's dual high/low-noise
+# experts): each item is {filename, url, ...}, dest folder is fixed per array name.
+ARRAY_MODEL_FIELDS = {'unets': 'diffusion_models', 'loras': 'loras'}
+
+MEDIA_TYPES = ('image', 'video')
+
+
+def media_key(p):
+    """Which media block this preset uses ('image' or 'video'), or None if neither."""
+    for k in MEDIA_TYPES:
+        if k in p:
+            return k
+    return None
+
+
+def media_block(p):
+    k = media_key(p)
+    return p[k] if k else {}
+
+
+def preset_model_filenames(p):
+    """All model filenames a single preset needs: core fields + extraModels + array fields."""
+    blk = media_block(p)
+    names = [blk[f] for f in MODEL_FIELDS if blk.get(f)]
+    names += [e['filename'] for e in blk.get('extraModels', []) if e.get('filename')]
+    for arr_field in ARRAY_MODEL_FIELDS:
+        names += [e['filename'] for e in blk.get(arr_field, []) if e.get('filename')]
+    return names
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -78,24 +127,34 @@ def collect_custom_nodes(pack_dir):
 
 def collect_models(data):
     seen = {}
+
+    def add(fname, url, dest, preset_name):
+        if not fname:
+            return
+        if fname not in seen:
+            seen[fname] = {
+                'filename': fname,
+                'url':      url,
+                'dest':     dest,
+                'gated':    is_hf_gated(url),
+                'hf':       is_hf(url),
+                'presets':  [],
+            }
+        if preset_name not in seen[fname]['presets']:
+            seen[fname]['presets'].append(preset_name)
+
     for p in data['presets']:
-        img = p['image']
+        blk = media_block(p)
         for field in MODEL_FIELDS:
-            fname = img.get(field)
-            if not fname:
-                continue
-            url = img.get(URL_FIELDS.get(field, ''))
-            if fname not in seen:
-                seen[fname] = {
-                    'field':    field,
-                    'filename': fname,
-                    'url':      url,
-                    'dest':     DEST_FOLDER.get(field, 'models'),
-                    'gated':    is_hf_gated(url),
-                    'hf':       is_hf(url),
-                    'presets':  [],
-                }
-            seen[fname]['presets'].append(p['name'])
+            fname = blk.get(field)
+            if fname:
+                add(fname, blk.get(URL_FIELDS.get(field, '')), DEST_FOLDER.get(field, 'models'), p['name'])
+        for extra in blk.get('extraModels', []):
+            add(extra.get('filename'), extra.get('url'), extra.get('dir', 'models'), p['name'])
+        for arr_field, dest in ARRAY_MODEL_FIELDS.items():
+            for entry in blk.get(arr_field, []):
+                add(entry.get('filename'), entry.get('url'), dest, p['name'])
+
     return list(seen.values())
 
 
@@ -159,15 +218,24 @@ def make_readme(data, pack_dir):
     model_by_fname    = {m['filename']: m for m in models}
     pack_name         = data['name']
 
-    # Prerequisites
+    # Prerequisites (dedup by node package, since one package can register
+    # multiple class_types - e.g. a loader + a sampler from the same repo)
     prereq_html = ''
     if custom_nodes_used:
+        seen_urls = set()
+        unique_nodes = []
+        for ct in sorted(custom_nodes_used):
+            node = CUSTOM_NODES[ct]
+            if node['url'] in seen_urls:
+                continue
+            seen_urls.add(node['url'])
+            unique_nodes.append(node)
         items = ''.join(
             f'<div class="prereq-item"><div>'
-            f'<div class="prereq-name"><a href="{h(CUSTOM_NODES[ct]["url"])}" target="_blank">{h(CUSTOM_NODES[ct]["name"])}</a></div>'
-            f'<div class="prereq-note">{h(CUSTOM_NODES[ct]["note"])}</div>'
+            f'<div class="prereq-name"><a href="{h(node["url"])}" target="_blank">{h(node["name"])}</a></div>'
+            f'<div class="prereq-note">{h(node["note"])}</div>'
             f'</div></div>'
-            for ct in sorted(custom_nodes_used)
+            for node in unique_nodes
         )
         prereq_html = f'<h2>Custom Node Prerequisites</h2><div class="section">{items}</div>'
 
@@ -217,14 +285,14 @@ def make_readme(data, pack_dir):
 
     cards = ''
     for p in data['presets']:
-        img      = p['image']
-        req      = img.get('requirements', {})
+        blk      = media_block(p)
+        req      = blk.get('requirements', {})
         thumb    = p.get('previewImage', '')
         thumb_el = (f'<img class="preset-thumb" src="{h(thumb)}" alt="{h(p["name"])}">'
                     if thumb else '<div class="preset-thumb"></div>')
         rows = ''.join(
-            model_row(img[f], model_by_fname[img[f]])
-            for f in MODEL_FIELDS if img.get(f) and img[f] in model_by_fname
+            model_row(fn, model_by_fname[fn])
+            for fn in preset_model_filenames(p) if fn in model_by_fname
         )
         cards += (
             f'<div class="preset-card">{thumb_el}'
@@ -283,8 +351,13 @@ def make_readme(data, pack_dir):
 def make_install(data, slug):
     presets = data['presets']
 
+    media_keys = {media_key(p) for p in presets}
+    if not all(media_keys) or len(media_keys) > 1:
+        raise ValueError(f'{slug}: presets must all share one media type (image or video), got {media_keys}')
+    mkey = media_keys.pop()
+
     def wf_file(p):
-        return p['image']['workflow'].replace('workflows/', '').replace('workflows\\', '')
+        return media_block(p)['workflow'].replace('workflows/', '').replace('workflows\\', '')
 
     def prev_file(p):
         return os.path.basename(p.get('previewImage', ''))
@@ -318,17 +391,31 @@ def make_install(data, slug):
         '$destMap = @{ checkpoint=\'checkpoints\'; unet=\'diffusion_models\'; vae=\'vae\'; clip=\'clip\' }\n'
         '\n'
         '# Collect unique models needed by a list of preset objects\n'
-        'function Get-Models($presetList) {\n'
+        f'function Get-Models($presetList) {{\n'
         '    $seen = @{}; $out = @()\n'
         '    foreach ($p in $presetList) {\n'
+        f'        $blk = $p.{mkey}\n'
         '        foreach ($field in \'checkpoint\',\'unet\',\'vae\',\'clip\') {\n'
-        '            $fname = $p.image.$field\n'
+        '            $fname = $blk.$field\n'
         '            if (-not $fname -or $seen[$fname]) { continue }\n'
         '            $seen[$fname] = $true\n'
         '            $out += [PSCustomObject]@{\n'
         '                filename = $fname\n'
-        '                url      = $p.image.($field + \'Url\')\n'
+        '                url      = $blk.($field + \'Url\')\n'
         '                dest     = $destMap[$field]\n'
+        '            }\n'
+        '        }\n'
+        '        foreach ($e in $blk.extraModels) {\n'
+        '            if (-not $e.filename -or $seen[$e.filename]) { continue }\n'
+        '            $seen[$e.filename] = $true\n'
+        '            $out += [PSCustomObject]@{ filename = $e.filename; url = $e.url; dest = $e.dir }\n'
+        '        }\n'
+        '        foreach ($arrField in \'unets\',\'loras\') {\n'
+        '            $arrDest = if ($arrField -eq \'unets\') { \'diffusion_models\' } else { \'loras\' }\n'
+        '            foreach ($e in $blk.$arrField) {\n'
+        '                if (-not $e.filename -or $seen[$e.filename]) { continue }\n'
+        '                $seen[$e.filename] = $true\n'
+        '                $out += [PSCustomObject]@{ filename = $e.filename; url = $e.url; dest = $arrDest }\n'
         '            }\n'
         '        }\n'
         '    }\n'
@@ -498,8 +585,12 @@ def build_pack(slug, pack_dir):
     pack_json_path = os.path.join(pack_dir, jsons[0])
     data = json.load(open(pack_json_path, encoding='utf-8'))
 
-    if any('image' not in p for p in data['presets']):
-        print(f'  SKIP {slug}: video pack (generator only supports image packs)')
+    media_keys = {media_key(p) for p in data['presets']}
+    if not all(media_keys):
+        print(f'  SKIP {slug}: preset(s) missing both image and video block')
+        return False
+    if len(media_keys) > 1:
+        print(f'  SKIP {slug}: mixed image/video presets in one pack (not supported)')
         return False
 
     readme_html      = make_readme(data, pack_dir)
