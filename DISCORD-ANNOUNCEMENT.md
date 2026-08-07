@@ -1,8 +1,12 @@
 :art: Community Preset Packs — Free Downloads
 
-I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 19 preset packs (69 presets) for SimpliGen covering a wide range of models and styles — images, video, and now sound-synced video too. Each pack includes a one-click installer and a readme with model download links.
+I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 20 preset packs (73 presets) for SimpliGen covering a wide range of models and styles — images, video, and now sound-synced video too. Each pack includes a one-click installer and a readme with model download links.
 
-:new: **New — MiniMax H3 Turbo:** two video presets that cut MiniMax H3's text-to-video sampling from ~20 steps down to ~6-8 while keeping the audio in sync, using larryvrh's Turbo LoRA + a custom dual-schedule sampler. One plain Turbo preset, one Turbo + EasyCache variant for a bit more speed on top. Needs one extra manual step — see below.
+:new: **New — MiniMax H3 Turbo, now with I2V + R2V:** three video presets (Text-to-Video, Image-to-Video, Reference-to-Video) that cut MiniMax H3's sampling from ~20 steps down to ~6 while keeping audio in sync, using larryvrh's Turbo LoRA + a custom dual-schedule sampler. Needs one extra manual step — see below.
+
+:new: **New — MiniMax H3 Sol-Attn:** three more video presets (T2V/I2V/R2V) using a training-free sparse-attention node instead of a step-count LoRA — same 20-step quality as the official preset, just faster per step. Experimental (the underlying node is brand new), needs its own extra manual step too.
+
+Both packs now also support **Character Dialogue** (the toggle that lets a character speak in-scene), matching the official MiniMax H3 preset.
 
 :arrows_counterclockwise: **Updated — downloads moved off Dropbox:** everything now lives on GitHub, source and distribution in one place. Same one-click zips, new link below. Video packs (Wan 2.2, MiniMax H3) and the custom-node pack (SeFi-Image) are also now proper one-click installs, not manual setups.
 
@@ -24,7 +28,8 @@ SeFi-Image (Semantic-First Diffusion — rendered text/posters/stylized art; nee
 
 **Video:**
 Wan 2.2 Image-to-Video (GGUF, 12 GB-friendly)
-MiniMax H3 Turbo — Text-to-Video with synced audio, ~6-8 steps (needs a custom node)
+MiniMax H3 Turbo — T2V/I2V/R2V with synced audio, ~6 steps (needs a custom node)
+MiniMax H3 Sol-Attn — T2V/I2V/R2V with synced audio, sparse attention, full 20-step quality (needs a custom node, experimental)
 
 :inbox_tray: Download: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
 
@@ -44,7 +49,7 @@ Restart SimpliGen
 
 :hugging: **HuggingFace token:** a few models live on HuggingFace and may need a free HF access token / license acceptance. The installer prompts for this too; press Enter to skip and install manually.
 
-:wrench: **Custom ComfyUI node required — SeFi-Image and MiniMax H3 Turbo:** these two need one extra manual step the installer can't do for you — clone a custom node into ComfyUI's `custom_nodes` folder. Each pack's `readme.html` lists the exact repo link and, for SeFi, an important gotcha about which folder to actually copy in.
+:wrench: **Custom ComfyUI node required — SeFi-Image, MiniMax H3 Turbo, and MiniMax H3 Sol-Attn:** these need one extra manual step the installer can't do for you — clone a custom node into ComfyUI's `custom_nodes` folder. Each pack's `readme.html` lists the exact repo link and, for SeFi, an important gotcha about which folder to actually copy in. Sol-Attn also needs Triton's JIT compiler working, which requires SimpliGen 1.43.x or later.
 
 :scales: **Licensing:** The **Flux 2 Klein** pack is built on Black Forest Labs' FLUX.2 [klein] weights, which are **non-commercial** — personal/research use only. Everything else is fine for general use.
 
