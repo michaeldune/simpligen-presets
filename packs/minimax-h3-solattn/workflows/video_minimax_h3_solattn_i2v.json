@@ -209,7 +209,7 @@
   "h3_guider": {
     "inputs": {
       "model": [
-        "h3_sol_attn",
+        "h3_easycache",
         0
       ],
       "conditioning": [
@@ -234,7 +234,7 @@
   "h3_sigmas": {
     "inputs": {
       "model": [
-        "h3_sol_attn",
+        "h3_easycache",
         0
       ],
       "scheduler": "simple",
@@ -403,6 +403,22 @@
     "class_type": "SolAttnPatch",
     "_meta": {
       "title": "Patch Sol-Attn"
+    }
+  },
+  "h3_easycache": {
+    "inputs": {
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
+      "reuse_threshold": 0.3,
+      "start_percent": 0.2,
+      "end_percent": 0.9,
+      "verbose": false
+    },
+    "class_type": "EasyCache",
+    "_meta": {
+      "title": "EasyCache"
     }
   }
 }

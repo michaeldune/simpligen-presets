@@ -1,37 +1,69 @@
 {
   "h3_unet": {
-    "inputs": { "unet_name": "{{unet}}", "weight_dtype": "default" },
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
     "class_type": "UNETLoader",
-    "_meta": { "title": "Load Diffusion Model" }
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
   },
   "h3_clip": {
-    "inputs": { "clip_name": "{{clip}}", "type": "minimax", "device": "default" },
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
     "class_type": "CLIPLoader",
-    "_meta": { "title": "Load CLIP" }
+    "_meta": {
+      "title": "Load CLIP"
+    }
   },
   "h3_video_vae": {
-    "inputs": { "vae_name": "{{vae}}" },
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
     "class_type": "VAELoader",
-    "_meta": { "title": "Load Video VAE" }
+    "_meta": {
+      "title": "Load Video VAE"
+    }
   },
   "h3_audio_vae": {
-    "inputs": { "vae_name": "{{audio_vae}}" },
+    "inputs": {
+      "vae_name": "{{audio_vae}}"
+    },
     "class_type": "VAELoader",
-    "_meta": { "title": "Load Audio VAE" }
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
   },
   "simpligen_lora_1": {
     "inputs": {
-      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
       "➕ Add Lora": "",
-      "model": ["h3_unet", 0],
-      "clip": ["h3_clip", 0]
+      "model": [
+        "h3_unet",
+        0
+      ],
+      "clip": [
+        "h3_clip",
+        0
+      ]
     },
     "class_type": "Power Lora Loader (rgthree)",
-    "_meta": { "title": "SimpliGen User LoRAs" }
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
   },
   "h3_sol_attn": {
     "inputs": {
-      "model": ["simpligen_lora_1", 0],
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
       "tau": 1.3,
       "start_percent": 0.2,
       "end_percent": 0.9,
@@ -46,97 +78,211 @@
       "dense_blocks": ""
     },
     "class_type": "SolAttnPatch",
-    "_meta": { "title": "Patch Sol-Attn" }
+    "_meta": {
+      "title": "Patch Sol-Attn"
+    }
   },
   "h3_conditioning": {
     "inputs": {
-      "clip": ["simpligen_lora_1", 1],
-      "vae": ["h3_video_vae", 0],
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
       "prompt": "{{prompt}}",
       "width": "{{width}}",
       "height": "{{height}}",
-      "length": ["h3_length", 1]
+      "length": [
+        "h3_length",
+        1
+      ]
     },
     "class_type": "MiniMaxH3ImageToVideo",
-    "_meta": { "title": "MiniMax H3 Conditioning" }
+    "_meta": {
+      "title": "MiniMax H3 Conditioning"
+    }
   },
   "h3_noise": {
-    "inputs": { "noise_seed": "{{seed}}" },
+    "inputs": {
+      "noise_seed": "{{seed}}"
+    },
     "class_type": "RandomNoise",
-    "_meta": { "title": "Random Noise" }
+    "_meta": {
+      "title": "Random Noise"
+    }
   },
   "h3_guider": {
-    "inputs": { "model": ["h3_sol_attn", 0], "conditioning": ["h3_conditioning", 0] },
+    "inputs": {
+      "model": [
+        "h3_easycache",
+        0
+      ],
+      "conditioning": [
+        "h3_conditioning",
+        0
+      ]
+    },
     "class_type": "BasicGuider",
-    "_meta": { "title": "Guider" }
+    "_meta": {
+      "title": "Guider"
+    }
   },
   "h3_sampler": {
-    "inputs": { "sampler_name": "res_multistep" },
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
     "class_type": "KSamplerSelect",
-    "_meta": { "title": "Sampler" }
+    "_meta": {
+      "title": "Sampler"
+    }
   },
   "h3_sigmas": {
     "inputs": {
-      "model": ["h3_sol_attn", 0],
+      "model": [
+        "h3_easycache",
+        0
+      ],
       "scheduler": "simple",
       "steps": "{{steps}}",
       "denoise": 1
     },
     "class_type": "BasicScheduler",
-    "_meta": { "title": "Scheduler" }
+    "_meta": {
+      "title": "Scheduler"
+    }
   },
   "h3_sampling": {
     "inputs": {
-      "noise": ["h3_noise", 0],
-      "guider": ["h3_guider", 0],
-      "sampler": ["h3_sampler", 0],
-      "sigmas": ["h3_sigmas", 0],
-      "latent_image": ["h3_conditioning", 1]
+      "noise": [
+        "h3_noise",
+        0
+      ],
+      "guider": [
+        "h3_guider",
+        0
+      ],
+      "sampler": [
+        "h3_sampler",
+        0
+      ],
+      "sigmas": [
+        "h3_sigmas",
+        0
+      ],
+      "latent_image": [
+        "h3_conditioning",
+        1
+      ]
     },
     "class_type": "SamplerCustomAdvanced",
-    "_meta": { "title": "Sample" }
+    "_meta": {
+      "title": "Sample"
+    }
   },
   "h3_decode_video": {
-    "inputs": { "samples": ["h3_sampling", 0], "vae": ["h3_video_vae", 0] },
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
     "class_type": "VAEDecode",
-    "_meta": { "title": "Decode Video" }
+    "_meta": {
+      "title": "Decode Video"
+    }
   },
   "h3_decode_audio": {
-    "inputs": { "samples": ["h3_sampling", 0], "vae": ["h3_audio_vae", 0] },
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_audio_vae",
+        0
+      ]
+    },
     "class_type": "VAEDecodeAudio",
-    "_meta": { "title": "Decode Audio" }
+    "_meta": {
+      "title": "Decode Audio"
+    }
   },
   "h3_create_video": {
     "inputs": {
-      "images": ["h3_decode_video", 0],
+      "images": [
+        "h3_decode_video",
+        0
+      ],
       "fps": 24,
-      "audio": ["h3_decode_audio", 0],
+      "audio": [
+        "h3_decode_audio",
+        0
+      ],
       "bit_depth": 8
     },
     "class_type": "CreateVideo",
-    "_meta": { "title": "Create Video" }
+    "_meta": {
+      "title": "Create Video"
+    }
   },
   "h3_save": {
     "inputs": {
-      "video": ["h3_create_video", 0],
+      "video": [
+        "h3_create_video",
+        0
+      ],
       "filename_prefix": "video/MiniMax_H3_solattn_t2v",
       "format": "auto",
       "codec": "auto"
     },
     "class_type": "SaveVideo",
-    "_meta": { "title": "Save Video" }
+    "_meta": {
+      "title": "Save Video"
+    }
   },
   "h3_duration": {
-    "inputs": { "value": "{{duration}}" },
+    "inputs": {
+      "value": "{{duration}}"
+    },
     "class_type": "PrimitiveFloat",
-    "_meta": { "title": "Duration (seconds)" }
+    "_meta": {
+      "title": "Duration (seconds)"
+    }
   },
   "h3_length": {
     "inputs": {
       "expression": "min(362, max(124, max(5, round(a * 24)) + (17 - (max(5, round(a * 24)) - 5) % 17) % 17))",
-      "values.a": ["h3_duration", 0]
+      "values.a": [
+        "h3_duration",
+        0
+      ]
     },
     "class_type": "ComfyMathExpression",
-    "_meta": { "title": "Frame Length" }
+    "_meta": {
+      "title": "Frame Length"
+    }
+  },
+  "h3_easycache": {
+    "inputs": {
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
+      "reuse_threshold": 0.3,
+      "start_percent": 0.2,
+      "end_percent": 0.9,
+      "verbose": false
+    },
+    "class_type": "EasyCache",
+    "_meta": {
+      "title": "EasyCache"
+    }
   }
 }

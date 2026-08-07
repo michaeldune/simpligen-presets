@@ -1,31 +1,33 @@
 {
   "id": "minimax-h3-solattn-pack",
-  "name": "Community — MiniMax H3 (Sol-Attn)",
+  "name": "Community — MiniMax H3 (Sol-Attn + EasyCache)",
   "version": "1.0.0",
   "author": "kijai",
-  "description": "MiniMax H3 text-to-video with Sol-Attn (arXiv 2607.24027) — a training-free sparse-attention method that skips most attention blocks that don't need exact computation. Same official 20-step workflow as SimpliGen's built-in MiniMax H3 preset, with a Patch Sol-Attn node added; no LoRA, no step reduction. Early/experimental: the underlying node repo is brand new (pushed the same day this preset was built) and explicitly marked experimental by its own author. Only became testable once SimpliGen 1.43.x added the Python dev headers Sol-Attn's Triton kernels need to compile - it was blocked before that. Tested: 2m43s total (5s/480p/20 steps) vs SimpliGen's automatic SageAttention alone at 2m59s - about 9% faster, including a one-time ~8s Triton kernel-compile cost paid within that same run (dense pre-sparsify steps ran ~5.9s/step, post-compile sparse steps dropped to ~5.0-5.5s/step). Whether Sol-Attn's per-model attention override stacks with or replaces SimpliGen's automatic SageAttention for the patched model is unconfirmed.",
+  "description": "MiniMax H3 video with Sol-Attn (arXiv 2607.24027, training-free sparse attention) stacked with EasyCache (native ComfyUI step-skipping cache) — full 20-step quality, no LoRA, no step reduction. Tested T2V at 5s/480p/20 steps: Sol-Attn alone ran 2m43s; adding EasyCache (reuse_threshold 0.3) dropped that to 115.0s with 7/20 steps skipped (1.54x on top of Sol-Attn) — faster than either technique alone, with no visible quality loss across sampled frames. Sol-Attn and EasyCache patch the model at different layers (EasyCache wraps via ComfyUI's WrappersMP system, Sol-Attn patches diffusion_model.blocks directly), so they stack cleanly. Early/experimental: the Sol-Attn node repo is brand new and explicitly marked experimental by its own author. Only became testable once SimpliGen 1.43.x added the Python dev headers Sol-Attn's Triton kernels need to compile.",
   "tags": [
     "Local",
     "Video",
     "T2V",
     "MiniMax H3",
     "Sol-Attn",
-    "Experimental"
+    "Experimental",
+    "EasyCache"
   ],
   "presets": [
     {
       "id": "minimax-h3-solattn-t2v",
-      "name": "MiniMax H3 Text to Video (Sol-Attn)",
+      "name": "MiniMax H3 Text to Video (Sol-Attn + EasyCache)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-solattn-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention. Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized.",
-      "tagline": "MiniMax H3 T2V with sparse Sol-Attn - experimental",
+      "description": "Describe a scene and get video with matching stereo sound. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention. Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Stacked with EasyCache step-skipping for extra speed on top of Sol-Attn (tested: 115.0s vs 2m43s for Sol-Attn alone on T2V, 7/20 steps skipped) - no visible quality loss.",
+      "tagline": "MiniMax H3 T2V with sparse Sol-Attn + EasyCache - experimental",
       "tags": [
         "Video",
         "T2V",
         "Audio",
         "Sol-Attn",
-        "Experimental"
+        "Experimental",
+        "EasyCache"
       ],
       "enabled": true,
       "template": "wan-video",
@@ -38,7 +40,7 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 (pruned int8) + Sol-Attn",
+        "displayModel": "MiniMax H3 (pruned int8) + Sol-Attn + EasyCache",
         "baseModels": [
           "minimax-h3"
         ],
@@ -306,23 +308,24 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized. EasyCache is native to ComfyUI, no extra custom node beyond Sol-Attn's."
         }
       }
     },
     {
       "id": "minimax-h3-solattn-i2v",
-      "name": "MiniMax H3 Image to Video (Sol-Attn)",
+      "name": "MiniMax H3 Image to Video (Sol-Attn + EasyCache)",
       "icon": "🖼️",
       "previewImage": "previews/minimax-h3-solattn-t2v.jpg",
-      "description": "Bring a still image to life, with stereo sound to match. Your image becomes the first frame; add a last frame as well and the model animates from one to the other. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention. Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized.",
-      "tagline": "MiniMax H3 I2V with sparse Sol-Attn - experimental",
+      "description": "Bring a still image to life, with stereo sound to match. Your image becomes the first frame; add a last frame as well and the model animates from one to the other. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention. Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Stacked with EasyCache step-skipping for extra speed on top of Sol-Attn (tested: 115.0s vs 2m43s for Sol-Attn alone on T2V, 7/20 steps skipped) - no visible quality loss.",
+      "tagline": "MiniMax H3 I2V with sparse Sol-Attn + EasyCache - experimental",
       "tags": [
         "Video",
         "I2V",
         "Audio",
         "Sol-Attn",
-        "Experimental"
+        "Experimental",
+        "EasyCache"
       ],
       "enabled": true,
       "template": "wan-video",
@@ -335,7 +338,7 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 (pruned int8) + Sol-Attn",
+        "displayModel": "MiniMax H3 (pruned int8) + Sol-Attn + EasyCache",
         "baseModels": [
           "minimax-h3"
         ],
@@ -603,7 +606,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized. EasyCache is native to ComfyUI, no extra custom node beyond Sol-Attn's."
         },
         "acceptsReferenceImages": {
           "min": 1,
@@ -617,18 +620,19 @@
     },
     {
       "id": "minimax-h3-solattn-r2v",
-      "name": "MiniMax H3 Reference to Video (Sol-Attn)",
+      "name": "MiniMax H3 Reference to Video (Sol-Attn + EasyCache)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-solattn-t2v.jpg",
-      "description": "Carry a character and a look across into a new scene, with sound. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention; no LoRA, no step reduction (still 20 steps, same as the official R2V preset). Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Reference-video conditioning is much heavier than plain text conditioning (confirmed elsewhere in this repo: the official R2V preset ran ~290s/step vs ~10-20s/step for T2V on the same hardware).",
-      "tagline": "Reference images/video steer the cast and style - experimental",
+      "description": "Carry a character and a look across into a new scene, with sound. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention; no LoRA, no step reduction (still 20 steps, same as the official R2V preset). Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Reference-video conditioning is much heavier than plain text conditioning (confirmed elsewhere in this repo: the official R2V preset ran ~290s/step vs ~10-20s/step for T2V on the same hardware). Stacked with EasyCache step-skipping for extra speed on top of Sol-Attn (tested: 115.0s vs 2m43s for Sol-Attn alone on T2V, 7/20 steps skipped) - no visible quality loss.",
+      "tagline": "Reference images/video steer the cast and style + EasyCache - experimental",
       "tags": [
         "Video",
         "R2V",
         "Audio",
         "Reference",
         "Sol-Attn",
-        "Experimental"
+        "Experimental",
+        "EasyCache"
       ],
       "enabled": true,
       "template": "wan-video",
@@ -641,7 +645,7 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 Reference (pruned int8) + Sol-Attn",
+        "displayModel": "MiniMax H3 Reference (pruned int8) + Sol-Attn + EasyCache",
         "baseModels": [
           "minimax-h3"
         ],
@@ -909,7 +913,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Reference-video conditioning is much heavier than plain text conditioning. Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset - no new downloads. Needs the ComfyUI-SolAttn_triton custom node, which itself needs Triton's JIT compiler working (requires Python.h/python3XX.lib in the engine's Python - present from SimpliGen 1.43.x). Reference-video conditioning is much heavier than plain text conditioning. Sol-Attn is brand new and experimental; its interaction with SimpliGen's automatic SageAttention has not been characterized. EasyCache is native to ComfyUI, no extra custom node beyond Sol-Attn's."
         },
         "acceptsReferenceImages": {
           "min": 0,
