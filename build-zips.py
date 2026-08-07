@@ -49,6 +49,11 @@ CUSTOM_NODES = {
         'url':  'https://github.com/RealRebelAI/ComfyUI_Rebels_SeFi',
         'note': 'SeFi-Image 5B Turbo loader + sampler. NOT pre-installed by SimpliGen. The repo nests the package - clone it, then move the INNER ComfyUI_Rebels_SeFi/ folder into ComfyUI/custom_nodes (a plain clone of the outer repo will not load).',
     },
+    'SolAttnPatch': {
+        'name': 'ComfyUI-SolAttn_triton',
+        'url':  'https://github.com/kijai/ComfyUI-SolAttn_triton',
+        'note': 'Sol-Attn sparse-attention node (Triton kernels) for MiniMax H3. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually before using this preset. Requires Triton JIT compiler support (Python.h/python3XX.lib in the engine\'s Python - present from SimpliGen 1.43.x onward).',
+    },
 }
 
 HF_GATED_REPOS = [
