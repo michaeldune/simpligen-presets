@@ -6,7 +6,7 @@
     },
     "class_type": "UNETLoader",
     "_meta": {
-      "title": "Load Diffusion Model"
+      "title": "MiniMax H3 Diffusion Model"
     }
   },
   "h3_clip": {
@@ -17,7 +17,7 @@
     },
     "class_type": "CLIPLoader",
     "_meta": {
-      "title": "Load CLIP"
+      "title": "Qwen3-VL Text Encoder (MiniMax)"
     }
   },
   "h3_video_vae": {
@@ -26,7 +26,7 @@
     },
     "class_type": "VAELoader",
     "_meta": {
-      "title": "Load Video VAE"
+      "title": "Video VAE"
     }
   },
   "h3_audio_vae": {
@@ -35,7 +35,7 @@
     },
     "class_type": "VAELoader",
     "_meta": {
-      "title": "Load Audio VAE"
+      "title": "Audio VAE"
     }
   },
   "simpligen_lora_1": {
@@ -58,21 +58,6 @@
       "title": "SimpliGen User LoRAs"
     }
   },
-  "h3_turbo_lora": {
-    "inputs": {
-      "model": [
-        "simpligen_lora_1",
-        0
-      ],
-      "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
-      "strength": 1,
-      "low_vram": false
-    },
-    "class_type": "MiniMaxH3TurboLoRA",
-    "_meta": {
-      "title": "MiniMax H3 Turbo LoRA"
-    }
-  },
   "h3_conditioning": {
     "inputs": {
       "clip": [
@@ -89,11 +74,127 @@
       "length": [
         "h3_length",
         1
+      ],
+      "first_frame": [
+        "h3_first_frame_fit",
+        0
       ]
     },
     "class_type": "MiniMaxH3ImageToVideo",
     "_meta": {
-      "title": "MiniMax H3 Conditioning"
+      "title": "MiniMax H3 Image to Video (first frame only)"
+    }
+  },
+  "h3_conditioning_flf": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "length": [
+        "h3_length",
+        1
+      ],
+      "first_frame": [
+        "h3_first_frame_fit",
+        0
+      ],
+      "last_frame": [
+        "h3_last_frame_fit",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ImageToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Image to Video (first + last frame)"
+    }
+  },
+  "h3_last_frame_enabled": {
+    "inputs": {
+      "value": "{{ref_2_enabled}}"
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Last Frame Enabled"
+    }
+  },
+  "h3_conditioning_switch": {
+    "inputs": {
+      "switch": [
+        "h3_last_frame_enabled",
+        0
+      ],
+      "on_false": [
+        "h3_conditioning",
+        0
+      ],
+      "on_true": [
+        "h3_conditioning_flf",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Conditioning: with or without a last frame"
+    }
+  },
+  "h3_latent_switch": {
+    "inputs": {
+      "switch": [
+        "h3_last_frame_enabled",
+        0
+      ],
+      "on_false": [
+        "h3_conditioning",
+        1
+      ],
+      "on_true": [
+        "h3_conditioning_flf",
+        1
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Latent: with or without a last frame"
+    }
+  },
+  "h3_first_frame_fit": {
+    "inputs": {
+      "image": [
+        "h3_load_image",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Fit first frame to the output shape (center crop)"
+    }
+  },
+  "h3_last_frame_fit": {
+    "inputs": {
+      "image": [
+        "h3_load_image_2",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Fit last frame to the output shape (center crop)"
     }
   },
   "h3_noise": {
@@ -112,13 +213,13 @@
         0
       ],
       "conditioning": [
-        "h3_conditioning",
+        "h3_conditioning_switch",
         0
       ]
     },
     "class_type": "BasicGuider",
     "_meta": {
-      "title": "Guider"
+      "title": "Basic Guider"
     }
   },
   "h3_sampler": {
@@ -140,7 +241,7 @@
     },
     "class_type": "BasicScheduler",
     "_meta": {
-      "title": "Scheduler"
+      "title": "Basic Scheduler"
     }
   },
   "h3_sampling": {
@@ -162,13 +263,13 @@
         0
       ],
       "latent_image": [
-        "h3_conditioning",
-        1
+        "h3_latent_switch",
+        0
       ]
     },
     "class_type": "SamplerCustomAdvanced",
     "_meta": {
-      "title": "Sample"
+      "title": "SamplerCustomAdvanced"
     }
   },
   "h3_decode_video": {
@@ -184,7 +285,7 @@
     },
     "class_type": "VAEDecode",
     "_meta": {
-      "title": "Decode Video"
+      "title": "VAE Decode"
     }
   },
   "h3_decode_audio": {
@@ -200,7 +301,7 @@
     },
     "class_type": "VAEDecodeAudio",
     "_meta": {
-      "title": "Decode Audio"
+      "title": "VAE Decode Audio"
     }
   },
   "h3_create_video": {
@@ -227,13 +328,33 @@
         "h3_create_video",
         0
       ],
-      "filename_prefix": "video/MiniMax_H3_turbo_t2v",
+      "filename_prefix": "video/MiniMax_H3_turbo_i2v",
       "format": "auto",
       "codec": "auto"
     },
     "class_type": "SaveVideo",
     "_meta": {
       "title": "Save Video"
+    }
+  },
+  "h3_load_image": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "First Frame"
+    }
+  },
+  "h3_load_image_2": {
+    "inputs": {
+      "image": "{{ref_image_2}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Last Frame (optional)"
     }
   },
   "h3_duration": {
@@ -255,7 +376,22 @@
     },
     "class_type": "ComfyMathExpression",
     "_meta": {
-      "title": "Frame Length"
+      "title": "Snap length to the 17k+5 grid"
+    }
+  },
+  "h3_turbo_lora": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "lora_name": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+      "strength": 1,
+      "low_vram": false
+    },
+    "class_type": "MiniMaxH3TurboLoRA",
+    "_meta": {
+      "title": "MiniMax H3 Turbo LoRA"
     }
   }
 }

@@ -1,9 +1,9 @@
 {
-  "id": "minimax-h3-turbo-pack",
-  "name": "Community — MiniMax H3 (Turbo LoRA)",
-  "version": "1.1.0",
+  "id": "minimax-h3-turbo-motion-pack",
+  "name": "Community — MiniMax H3 (Turbo LoRA, Fast Motion)",
+  "version": "1.0.0",
   "author": "larryvrh",
-  "description": "MiniMax H3 text-to-video with the v4-600 EMA Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — the default choice for 6-8 steps and for any motion that is not heavy/fast, while keeping audio in sync. The current best line improves static/small-motion detail and resolves the v1 over-sharpened plastic look. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
+  "description": "MiniMax H3 video with the v1-850 Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — a focused 4-step option for heavy or fast motion, where the v4-600 line can produce motion-smear or trailing ghosting. It keeps audio in sync and caps at 6 steps because v1 over-sharpens at higher step counts. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
   "tags": [
     "Local",
     "Video",
@@ -14,12 +14,12 @@
   ],
   "presets": [
     {
-      "id": "minimax-h3-turbo-t2v",
-      "name": "MiniMax H3 Text to Video (Turbo)",
+      "id": "minimax-h3-turbo-motion-t2v",
+      "name": "MiniMax H3 Text to Video (Turbo, Fast Motion)",
       "icon": "⚡",
-      "previewImage": "previews/minimax-h3-turbo-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound using the v4-600 EMA Turbo LoRA + dual-schedule sampler. This is the default MiniMax H3 Turbo choice for 6-8 steps and static or small-motion clips; the current v4 line brings better micro-detail without v1's over-sharpened plastic look. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
-      "tagline": "MiniMax H3 T2V with v4-600 EMA in 6-8 steps",
+      "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
+      "description": "Describe a scene and get video with matching stereo sound using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step pack for heavy or fast motion, where the default v4-600 line can smear or trail; use the other pack for static or small-motion clips. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
+      "tagline": "MiniMax H3 T2V for heavy/fast motion in 4 steps",
       "tags": [
         "Video",
         "T2V",
@@ -38,11 +38,11 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 (pruned int8) + Turbo LoRA",
+        "displayModel": "MiniMax H3 (pruned int8) + v1-850 Turbo LoRA",
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_turbo_t2v.json",
+        "workflow": "workflows/video_minimax_h3_turbo_motion_t2v.json",
         "duration": {
           "type": "slider",
           "min": 5,
@@ -67,8 +67,8 @@
           },
           {
             "dir": "loras",
-            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
-            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+            "filename": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_4step_ema_ckpt850.safetensors"
           }
         ],
         "extensions": [
@@ -83,12 +83,12 @@
             "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
           }
         ],
-        "steps": 6,
+        "steps": 4,
         "negativePrompt": "",
         "controls": {
           "steps": {
             "min": 4,
-            "max": 8,
+            "max": 6,
             "step": 1,
             "affectsCost": true
           }
@@ -311,17 +311,17 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v4-600 EMA Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. The current best line is intended for 6-8 steps and improves static/small-motion detail; training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
         }
       }
     },
     {
-      "id": "minimax-h3-turbo-r2v",
-      "name": "MiniMax H3 Reference to Video (Turbo)",
+      "id": "minimax-h3-turbo-motion-r2v",
+      "name": "MiniMax H3 Reference to Video (Turbo, Fast Motion)",
       "icon": "🎭",
-      "previewImage": "previews/minimax-h3-turbo-t2v.jpg",
-      "description": "Carry a character and a look across into a new scene with sound using the v4-600 EMA Turbo LoRA + dual-schedule sampler. Use this default pack for 6-8 steps and normal reference-video motion; the v4 line improves static and small-motion detail. Training continues, and audio plus heavy/fast-motion behaviour remain open areas, so treat output quality as a preview.",
-      "tagline": "Reference images/video + v4-600 EMA in 6-8 steps",
+      "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
+      "description": "Carry a character and a look across into a new scene with sound using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step fast-motion pack for heavy movement in reference-video generations, where the default v4-600 line can produce motion-smear or trailing ghosting; use the other pack for normal motion. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
+      "tagline": "Reference images/video + v1-850 for fast motion in 4 steps",
       "tags": [
         "Video",
         "R2V",
@@ -341,11 +341,11 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 Reference (pruned int8) + Turbo LoRA",
+        "displayModel": "MiniMax H3 Reference (pruned int8) + v1-850 Turbo LoRA",
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_turbo_r2v.json",
+        "workflow": "workflows/video_minimax_h3_turbo_motion_r2v.json",
         "acceptsReferenceImages": {
           "min": 0,
           "max": 9,
@@ -394,8 +394,8 @@
           },
           {
             "dir": "loras",
-            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
-            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+            "filename": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_4step_ema_ckpt850.safetensors"
           }
         ],
         "extensions": [
@@ -410,12 +410,12 @@
             "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
           }
         ],
-        "steps": 6,
+        "steps": 4,
         "negativePrompt": "",
         "controls": {
           "steps": {
             "min": 4,
-            "max": 8,
+            "max": 6,
             "step": 1,
             "affectsCost": true
           }
@@ -638,17 +638,17 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset (pruned int8 diffusion model + NVFP4 text encoder) plus the ~744MB v4-600 EMA Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node - install before use. Reference-video conditioning is much heavier than plain text conditioning; the v4 line is the default at 6-8 steps and improves static/small-motion detail. Training continues, with audio and heavy/fast-motion behaviour still open areas, so treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset (pruned int8 diffusion model + NVFP4 text encoder) plus the ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node - install before use. Reference-video conditioning is much heavier than plain text conditioning; choose 4 steps for heavy/fast motion and cap at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
         }
       }
     },
     {
-      "id": "minimax-h3-turbo-i2v",
-      "name": "MiniMax H3 Image to Video (Turbo)",
+      "id": "minimax-h3-turbo-motion-i2v",
+      "name": "MiniMax H3 Image to Video (Turbo, Fast Motion)",
       "icon": "🖼️",
-      "previewImage": "previews/minimax-h3-turbo-t2v.jpg",
-      "description": "Bring a still image to life, with stereo sound to match, using the v4-600 EMA Turbo LoRA + dual-schedule sampler. Your image becomes the first frame; add a last frame as well and the model animates from one to the other. This is the default choice for 6-8 steps and static or small-motion clips, with better micro-detail than the v1 line. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
-      "tagline": "MiniMax H3 I2V with v4-600 EMA in 6-8 steps",
+      "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
+      "description": "Bring a still image to life, with stereo sound to match, using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step pack when the image needs heavy or fast motion; for static or small-motion animation, use the default v4-600 pack instead. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
+      "tagline": "MiniMax H3 I2V fast motion in 4 steps",
       "tags": [
         "Video",
         "I2V",
@@ -667,11 +667,11 @@
         "supports": [
           "local"
         ],
-        "displayModel": "MiniMax H3 (pruned int8) + Turbo LoRA",
+        "displayModel": "MiniMax H3 (pruned int8) + v1-850 Turbo LoRA",
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_turbo_i2v.json",
+        "workflow": "workflows/video_minimax_h3_turbo_motion_i2v.json",
         "duration": {
           "type": "slider",
           "min": 5,
@@ -696,8 +696,8 @@
           },
           {
             "dir": "loras",
-            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
-            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+            "filename": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_4step_ema_ckpt850.safetensors"
           }
         ],
         "extensions": [
@@ -712,12 +712,12 @@
             "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
           }
         ],
-        "steps": 6,
+        "steps": 4,
         "negativePrompt": "",
         "controls": {
           "steps": {
             "min": 4,
-            "max": 8,
+            "max": 6,
             "step": 1,
             "affectsCost": true
           }
@@ -940,7 +940,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v4-600 EMA Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. The current best line is intended for 6-8 steps and improves static/small-motion detail; training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
         },
         "acceptsReferenceImages": {
           "min": 1,

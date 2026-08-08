@@ -64,7 +64,7 @@
         "simpligen_lora_1",
         0
       ],
-      "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
+      "lora_name": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
       "strength": 1,
       "low_vram": false
     },

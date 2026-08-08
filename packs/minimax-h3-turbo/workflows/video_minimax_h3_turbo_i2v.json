@@ -118,7 +118,7 @@
   },
   "h3_last_frame_enabled": {
     "inputs": {
-      "value": {{ref_2_enabled}}
+      "value": "{{ref_2_enabled}}"
     },
     "class_type": "PrimitiveBoolean",
     "_meta": {
@@ -385,7 +385,7 @@
         "simpligen_lora_1",
         0
       ],
-      "lora_name": "minimax_h3_turbo_4step_ckpt500.safetensors",
+      "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
       "strength": 1,
       "low_vram": false
     },
