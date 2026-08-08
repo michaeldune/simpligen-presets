@@ -1,6 +1,6 @@
 :art: Community Preset Packs — Free Downloads
 
-I've put together (with a great deal of assistance from Claude Code and Codex) a collection of 20 preset packs (73 presets) for SimpliGen covering a wide range of models and styles — images, video, and now sound-synced video too. Each pack includes a one-click installer and a readme with model download links.
+I've put together (with help from Claude Code and Codex) a collection of 21 preset packs (76 presets) for SimpliGen — images, video, and sound-synced video too. Each pack includes a one-click installer and a readme with model download links.
 
 :new: **New — MiniMax H3 Turbo & Sol-Attn now cover T2V/I2V/R2V:** Turbo (larryvrh's LoRA + dual-schedule sampler) cuts sampling to ~6 steps; Sol-Attn (sparse attention, experimental) keeps full 20-step quality but runs faster per step. Both now support Character Dialogue, matching the official preset. Each needs one extra manual step — see below.
 
@@ -24,7 +24,8 @@ SeFi-Image (Semantic-First Diffusion — rendered text/posters/stylized art; nee
 
 **Video:**
 Wan 2.2 Image-to-Video (GGUF, 12 GB-friendly)
-MiniMax H3 Turbo — T2V/I2V/R2V, synced audio, ~6 steps (needs a custom node)
+MiniMax H3 Turbo — T2V/I2V/R2V, synced audio, v4-600 EMA, 6-8 steps (needs a custom node)
+MiniMax H3 Turbo Fast Motion — T2V/I2V/R2V, synced audio, v1-850, 4 steps (needs a custom node)
 MiniMax H3 Sol-Attn — T2V/I2V/R2V, synced audio, sparse attention, full quality (needs a custom node, experimental)
 
 :inbox_tray: Download: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
