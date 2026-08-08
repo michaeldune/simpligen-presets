@@ -319,7 +319,7 @@
       "id": "minimax-h3-turbo-motion-r2v",
       "name": "MiniMax H3 Reference to Video (Turbo, Fast Motion)",
       "icon": "🎭",
-      "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
+      "previewImage": "previews/minimax-h3-turbo-motion-r2v.jpg",
       "description": "Carry a character and a look across into a new scene with sound using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step fast-motion pack for heavy movement in reference-video generations, where the default v4-600 line can produce motion-smear or trailing ghosting; use the other pack for normal motion. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
       "tagline": "Reference images/video + v1-850 for fast motion in 4 steps",
       "tags": [
@@ -646,7 +646,7 @@
       "id": "minimax-h3-turbo-motion-i2v",
       "name": "MiniMax H3 Image to Video (Turbo, Fast Motion)",
       "icon": "🖼️",
-      "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
+      "previewImage": "previews/minimax-h3-turbo-motion-i2v.jpg",
       "description": "Bring a still image to life, with stereo sound to match, using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step pack when the image needs heavy or fast motion; for static or small-motion animation, use the default v4-600 pack instead. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
       "tagline": "MiniMax H3 I2V fast motion in 4 steps",
       "tags": [

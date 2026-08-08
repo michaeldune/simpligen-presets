@@ -316,7 +316,7 @@
       "id": "minimax-h3-solattn-i2v",
       "name": "MiniMax H3 Image to Video (Sol-Attn + EasyCache)",
       "icon": "🖼️",
-      "previewImage": "previews/minimax-h3-solattn-t2v.jpg",
+      "previewImage": "previews/minimax-h3-solattn-i2v.jpg",
       "description": "Bring a still image to life, with stereo sound to match. Your image becomes the first frame; add a last frame as well and the model animates from one to the other. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention. Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Stacked with EasyCache step-skipping for extra speed on top of Sol-Attn (tested: 115.0s vs 2m43s for Sol-Attn alone on T2V, 7/20 steps skipped) - no visible quality loss.",
       "tagline": "MiniMax H3 I2V with sparse Sol-Attn + EasyCache - experimental",
       "tags": [
@@ -622,7 +622,7 @@
       "id": "minimax-h3-solattn-r2v",
       "name": "MiniMax H3 Reference to Video (Sol-Attn + EasyCache)",
       "icon": "🎭",
-      "previewImage": "previews/minimax-h3-solattn-t2v.jpg",
+      "previewImage": "previews/minimax-h3-solattn-r2v.jpg",
       "description": "Carry a character and a look across into a new scene, with sound. Uses Sol-Attn sparse attention instead of (or alongside - unconfirmed) SimpliGen's built-in automatic SageAttention; no LoRA, no step reduction (still 20 steps, same as the official R2V preset). Experimental - the node is brand new and its interaction with SimpliGen's automatic SageAttention hasn't been characterized. Reference-video conditioning is much heavier than plain text conditioning (confirmed elsewhere in this repo: the official R2V preset ran ~290s/step vs ~10-20s/step for T2V on the same hardware). Stacked with EasyCache step-skipping for extra speed on top of Sol-Attn (tested: 115.0s vs 2m43s for Sol-Attn alone on T2V, 7/20 steps skipped) - no visible quality loss.",
       "tagline": "Reference images/video steer the cast and style + EasyCache - experimental",
       "tags": [

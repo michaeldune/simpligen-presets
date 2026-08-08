@@ -319,7 +319,7 @@
       "id": "minimax-h3-turbo-r2v",
       "name": "MiniMax H3 Reference to Video (Turbo)",
       "icon": "🎭",
-      "previewImage": "previews/minimax-h3-turbo-t2v.jpg",
+      "previewImage": "previews/minimax-h3-turbo-r2v.jpg",
       "description": "Carry a character and a look across into a new scene with sound using the v4-600 EMA Turbo LoRA + dual-schedule sampler. Use this default pack for 6-8 steps and normal reference-video motion; the v4 line improves static and small-motion detail. Training continues, and audio plus heavy/fast-motion behaviour remain open areas, so treat output quality as a preview.",
       "tagline": "Reference images/video + v4-600 EMA in 6-8 steps",
       "tags": [
@@ -646,7 +646,7 @@
       "id": "minimax-h3-turbo-i2v",
       "name": "MiniMax H3 Image to Video (Turbo)",
       "icon": "🖼️",
-      "previewImage": "previews/minimax-h3-turbo-t2v.jpg",
+      "previewImage": "previews/minimax-h3-turbo-i2v.jpg",
       "description": "Bring a still image to life, with stereo sound to match, using the v4-600 EMA Turbo LoRA + dual-schedule sampler. Your image becomes the first frame; add a last frame as well and the model animates from one to the other. This is the default choice for 6-8 steps and static or small-motion clips, with better micro-detail than the v1 line. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
       "tagline": "MiniMax H3 I2V with v4-600 EMA in 6-8 steps",
       "tags": [
