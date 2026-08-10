@@ -668,7 +668,7 @@
       "name": "MiniMax H3 Reference to Video (Turbo, Fully Accelerated)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-turbo-accelerated-r2v.jpg",
-      "description": "Supply reference images, clips, or sound to steer the cast, style, and audio of a generated shot. Stacks Turbo LoRA + SageAttention + Sigma Shift + Spectrum + Sol-Attn. Reference conditioning is much heavier than plain text conditioning, so expect longer runs than the T2V preset at the same settings. Research/experimental - Spectrum forecasted steps change the denoising trajectory, so output is not bit-identical to unaccelerated MiniMax H3. Needs four custom nodes.",
+      "description": "Supply reference images, clips, or sound to steer the cast, style, and audio of a generated shot. Stacks Turbo LoRA + SageAttention + Sigma Shift + Spectrum + Sol-Attn. Measured at 5s/480p/10 steps in 92.7s - slightly faster than this pack's own T2V preset (99.1s), unlike the unaccelerated Turbo and Sol-Attn packs where reference conditioning costs noticeably more than plain text. Research/experimental - Spectrum forecasted steps change the denoising trajectory, so output is not bit-identical to unaccelerated MiniMax H3. Needs four custom nodes.",
       "tagline": "Reference images/video steer the cast and style - fully accelerated",
       "tags": [
         "Video",
