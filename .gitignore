@@ -18,3 +18,10 @@ __pycache__/
 .claude/
 .planning/
 .worktrees/
+MEMORY.md
+
+# credentials - this repo is PUBLIC. .mcp.json carries bearer tokens.
+.mcp.json
+*.token
+.env
+.env.*

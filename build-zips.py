@@ -54,6 +54,17 @@ CUSTOM_NODES = {
         'url':  'https://github.com/kijai/ComfyUI-SolAttn_triton',
         'note': 'Sol-Attn sparse-attention node (Triton kernels) for MiniMax H3. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually before using this preset. Requires Triton JIT compiler support (Python.h/python3XX.lib in the engine\'s Python - present from SimpliGen 1.43.x onward).',
     },
+    # NOTE: the "Pathch" spelling is the real registered class name upstream, not a typo here.
+    'PathchSageAttentionKJ': {
+        'name': 'ComfyUI-KJNodes',
+        'url':  'https://github.com/kijai/ComfyUI-KJNodes',
+        'note': 'Global SageAttention patch. The workflow applies SageAttention itself through this node, so do NOT also run ComfyUI with --use-sage-attention or let a host app patch the model - two model-level attention patches together can make Turbo output numerically invalid (black or garbage frames). SimpliGen handles this automatically by withholding its own per-preset patch.',
+    },
+    'SpectrumApplyMiniMaxH3': {
+        'name': 'ComfyUI-Spectrum-MiniMax-H3',
+        'url':  'https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3',
+        'note': 'Spectral-feature-forecasting accelerator for MiniMax H3 - skips transformer evaluations and predicts them instead (~30-40% fewer). NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually. Approximate by design: output is not bit-identical to unaccelerated MiniMax H3.',
+    },
 }
 
 HF_GATED_REPOS = [
