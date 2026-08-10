@@ -93,7 +93,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -420,7 +420,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -722,7 +722,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
