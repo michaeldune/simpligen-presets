@@ -1,57 +1,33 @@
-:art: Community Preset Packs — Free Downloads
+:art: **Community Preset Packs — Free Downloads**
 
-I've put together (with help from Claude Code and Codex) a collection of 21 preset packs (76 presets) for SimpliGen — images, video, and sound-synced video too. Each pack includes a one-click installer and a readme with model download links.
+A growing collection of 20+ local preset packs for SimpliGen — images, video, and sound-synced video — put together with help from Claude Code and Codex. Every pack is a one-click installer that downloads and verifies its own models.
 
-:new: **New — MiniMax H3 Turbo & Sol-Attn now cover T2V/I2V/R2V:** Turbo (larryvrh's LoRA + dual-schedule sampler) cuts sampling to ~6 steps; Sol-Attn (sparse attention, experimental) keeps full 20-step quality but runs faster per step. Both now support Character Dialogue, matching the official preset. Each needs one extra manual step — see below.
+:books: **What's in them:** <https://github.com/michaeldune/simpligen-presets#readme>
+The full catalogue lives there — every pack, its presets, the architecture behind it, and measured generation times for the video presets. It's kept in step with the source, so it's always current. Check there rather than this post.
 
-:arrows_counterclockwise: **Updated — downloads moved off Dropbox:** everything now lives on GitHub, source and distribution in one place. Same one-click zips, new link below. Video packs (Wan 2.2, MiniMax H3) and the custom-node pack (SeFi-Image) are also now proper one-click installs, not manual setups.
+:inbox_tray: **Download:** https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
+This link is rolling — the zips are replaced on every build, so it always points at the newest set. Bookmark it and you'll never need a new link.
 
-:package: What's included: (as of this moment)
+:octopus: **Source:** <https://github.com/michaeldune/simpligen-presets> — pack definitions, workflows, and the build script. Browse, report issues, or build the zips yourself.
 
-Anima Anime & Realism
-SDXL Realism & Art/Anime
-Pony Anime & Realistic
-Illustrious Realism & Anime
-SD 1.5 Anime
-Krea 2 (Moody Mix, RedCraft, Realia, Fascium)
-Krea Flux (CSG Foundation — GGUF Flux.1 Krea)
-Flux 2 Klein (9B, MiracleIn NSFW, 4B Maxx — sub-second 4-step generation)
-Ideogram 4 (UltraReal photo + Graphic/Poster — needs engine 0.28+)
-Z-Image
-Reij's Merges
-Moody Models
-SeFi-Image (Semantic-First Diffusion — rendered text/posters/stylized art; needs a custom node)
+**How to install**
+1. Download a pack's `.zip` and unzip it
+2. Open `readme.html` — it lists exactly which models that pack needs and where they go
+3. Run `install.cmd` — downloads the models for you; install the whole pack or just one preset
+4. Restart SimpliGen
 
-**Video:**
-Wan 2.2 Image-to-Video (GGUF, 12 GB-friendly)
-MiniMax H3 Turbo — T2V/I2V/R2V, synced audio, v4-600 EMA, 6-8 steps (needs a custom node)
-MiniMax H3 Turbo Fast Motion — T2V/I2V/R2V, synced audio, v1-850, 4 steps (needs a custom node)
-MiniMax H3 Sol-Attn — T2V/I2V/R2V, synced audio, sparse attention, full quality (needs a custom node, experimental)
+**:clipboard: Before you install — please read**
 
-:inbox_tray: Download: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
+:warning: **Disk space:** these are full local models, often 5–13 GB each, and video packs run larger. If you're tight, install one preset at a time — `readme.html` shows sizes up front.
 
-:octopus: Source on GitHub: <https://github.com/michaeldune/simpligen-presets> — all pack definitions, workflows, and the zip build script. Browse the presets, report issues, or build the zips yourself.
+:key: **Civitai / HuggingFace tokens:** some models need a free API token or a license acceptance. The installer prompts for both; press Enter to skip, and you'll get manual download links in `readme.html` instead.
 
-How to install:
+:wrench: **Custom ComfyUI nodes:** a few packs need one extra manual step — cloning a node into ComfyUI's `custom_nodes` folder. Each pack's `readme.html` names the exact repo and any gotchas. If a preset won't load, check this first.
 
-Download a pack's .zip and unzip it
-Open readme.html to see which models you need and grab any you're missing
-Run install.cmd — it will download models automatically and let you install the full pack or a single preset
-Restart SimpliGen
+:rotating_light: **Engine version:** a handful of presets need a recent SimpliGen engine. `readme.html` calls this out per pack — update SimpliGen if a model refuses to load.
 
-**:clipboard: Before you install — please read:**
-:warning: **Disk space:** these are full local models, some 5–13 GB per model (video packs more). If you're tight on space, install one preset at a time and check sizes in `readme.html` first.
+:scales: **Licensing:** **Flux 2 Klein** is built on Black Forest Labs' FLUX.2 [klein] weights — **non-commercial**, personal and research use only. Everything else is fine for general use.
 
-:key: **Civitai token:** some models need a free API token — create one at <https://civitai.com/user/account> (API Keys). The installer prompts for it; no token = those models are skipped (manual links in `readme.html`).
-
-:hugging: **HuggingFace token:** a few models need a free HF token / license acceptance. The installer prompts for this too; press Enter to skip and install manually.
-
-:wrench: **Custom ComfyUI node required — SeFi-Image, MiniMax H3 Turbo, MiniMax H3 Sol-Attn:** these need one extra manual step — clone a custom node into ComfyUI's `custom_nodes` folder. Each `readme.html` has the repo link (SeFi has a folder-nesting gotcha, read carefully). Sol-Attn also needs SimpliGen 1.43.x+ for Triton support.
-
-:scales: **Licensing:** **Flux 2 Klein** is built on Black Forest Labs' FLUX.2 [klein] weights — **non-commercial**, personal/research use only. Everything else is fine for general use.
-
-:rotating_light: **Engine version — Ideogram 4 only:** needs SimpliGen's ComfyUI engine **0.28+**. Update SimpliGen first, or the model won't load.
-
-:white_check_mark: The installer now clearly flags any model that **failed or was skipped**.
+:white_check_mark: The installer clearly flags any model that failed or was skipped — no silent failures.
 
 Enjoy — feedback and bug reports welcome! :raised_hands:
