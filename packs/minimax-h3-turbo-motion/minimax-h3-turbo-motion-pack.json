@@ -320,7 +320,7 @@
       "name": "MiniMax H3 Reference to Video (Turbo, Fast Motion)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-turbo-motion-r2v.jpg",
-      "description": "Carry a character and a look across into a new scene with sound using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step fast-motion pack for heavy movement in reference-video generations, where the default v4-600 line can produce motion-smear or trailing ghosting; use the other pack for normal motion. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview.",
+      "description": "Carry a character and a look across into a new scene with sound using the v1-850 Turbo LoRA + dual-schedule sampler. Pick this 4-step fast-motion pack for heavy movement in reference generations, where the default v4-600 line can produce motion-smear or trailing ghosting; use the other pack for normal motion. Training continues, and audio plus fast-motion behaviour remain open areas, so treat output quality as a preview. KNOWN ISSUE - reference VIDEO currently fails on every Turbo-LoRA preset: a reference clip triggers a second conditioning pass at the same timestep, and the ComfyUI-MiniMax-H3-Turbo node's adaln re-injection crashes on it with 'The size of tensor a (3) must match the size of tensor b (2)'. Reference images and reference audio are unaffected - remove the video and the generation completes. For reference-video work use the Community MiniMax H3 (Sol-Attn + EasyCache) R2V preset, which applies no Turbo LoRA. Upstream node bug, not a pack defect.",
       "tagline": "Reference images/video + v1-850 for fast motion in 4 steps",
       "tags": [
         "Video",
