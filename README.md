@@ -46,15 +46,17 @@ All four MiniMax H3 packs generate video *with synchronized stereo audio*, and e
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 
-Measured on a 12 GB RTX 4070 Ti, T2V at 5 s / 480p:
+Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all five, each preset at its own default step count. Engine v0.31.0, SimpliGen 1.46.0:
 
 | Preset | Steps | Time | vs. official |
 |---|---|---|---|
-| Official MiniMax H3 | 20 | 199.1 s | — |
-| Sol-Attn + EasyCache | 20 | 157.0 s | 1.27× |
-| Turbo | 6 | 112.7 s | 1.77× |
-| **Fully Accelerated** | **10** | **99.1 s** | **2.01×** |
-| Turbo, Fast Motion | 4 | 86.9 s | 2.29× |
+| Official MiniMax H3 | 20 | 170.7 s | — |
+| Sol-Attn + EasyCache | 20 | 129.5 s | 1.32× |
+| Turbo | 6 | 103.8 s | 1.64× |
+| **Fully Accelerated** | **10** | **84.1 s** | **2.03×** |
+| Turbo, Fast Motion | 4 | 79.5 s | 2.15× |
+
+Engine v0.31.0 took 8–18% off every one of these versus v0.30.1, and not evenly: the two 20-step presets gained most and the low-step Turbo presets least, which is what you would expect if the work landed in per-step execution rather than fixed overhead. Treat these as one run each — a repeat of the Sol-Attn row landed within 2%, but reference-to-video conditioning has shown far wider spread, so the I2V and R2V figures quoted in individual packs are less firm than these.
 
 Every pack is self-contained: a `readme.html` with model download links and destination folders, a one-click `install.cmd` (full pack or single preset), the pack JSON, ComfyUI workflows, and preview thumbnails.
 
