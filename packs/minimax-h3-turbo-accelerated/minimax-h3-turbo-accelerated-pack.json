@@ -330,9 +330,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         }
       }
     },
@@ -657,9 +657,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         }
       }
     },
@@ -996,9 +996,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         }
       }
     }

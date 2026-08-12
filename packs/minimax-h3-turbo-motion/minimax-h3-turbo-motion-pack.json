@@ -309,9 +309,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         }
       }
     },
@@ -636,9 +636,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset (pruned int8 diffusion model + NVFP4 text encoder) plus the ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node - install before use. Reference-video conditioning is much heavier than plain text conditioning; choose 4 steps for heavy/fast motion and cap at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 R2V preset (pruned int8 diffusion model + NVFP4 text encoder) plus the ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node - install before use. Reference-video conditioning is much heavier than plain text conditioning; choose 4 steps for heavy/fast motion and cap at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         }
       }
     },
@@ -938,9 +938,9 @@
         "requirements": {
           "minVramGB": 12,
           "recommendedVramGB": 16,
-          "minRamGB": 48,
+          "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v1-850 Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. Choose 4 steps for heavy/fast motion; this pack caps at 6 because v1 over-sharpens at high steps with strength 1. Training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
         },
         "acceptsReferenceImages": {
           "min": 1,
