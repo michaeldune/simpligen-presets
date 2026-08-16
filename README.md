@@ -36,7 +36,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 
 **Video packs**
 
-All four MiniMax H3 packs generate video *with synchronized stereo audio*, and each ships text-to-video, image-to-video, and reference-to-video presets off the same base weights — so adding one costs only its LoRA, not another 40 GB.
+All the MiniMax H3 packs generate video *with synchronized stereo audio*. The first four ship text-to-video, image-to-video, and reference-to-video presets off the same base weights — so adding one costs only its LoRA, not another 40 GB. **10Eros Max is the exception**: it is a different base checkpoint (a separate 20.94 GiB download) and ships text-to-video only.
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
@@ -44,6 +44,7 @@ All four MiniMax H3 packs generate video *with synchronized stereo audio*, and e
 | MiniMax H3 (Turbo, Fast Motion) | 3 | MiniMax H3 (pruned INT8) | 4-step tier tuned for heavy/fast motion |
 | MiniMax H3 (Sol-Attn + EasyCache) | 3 | MiniMax H3 (pruned INT8) | Sparse attention + step caching at the full 20 steps |
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
+| MiniMax H3 (10Eros Max) | 2 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download, T2V only. Faster than the pruned base despite being larger. Plain 20-step and Turbo 6-step |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 
 Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all five, each preset at its own default step count. Engine v0.31.0, SimpliGen 1.46.0:
@@ -57,6 +58,18 @@ Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and 
 | Turbo, Fast Motion | 4 | 79.5 s | 2.15× |
 
 Engine v0.31.0 took 8–18% off every one of these versus v0.30.1, and not evenly: the two 20-step presets gained most and the low-step Turbo presets least, which is what you would expect if the work landed in per-step execution rather than fixed overhead. Treat these as one run each — a repeat of the Sol-Attn row landed within 2%, but reference-to-video conditioning has shown far wider spread, so the I2V and R2V figures quoted in individual packs are less firm than these.
+
+**10Eros Max** was measured separately, on engine v0.33.1 / SimpliGen 1.49.x, so it is not directly comparable to the table above and is quoted against its own same-session control:
+
+| Preset | Steps | Time | vs. official (same session) |
+|---|---|---|---|
+| Official MiniMax H3 | 20 | 171.4 s | — |
+| 10Eros Max | 20 | 133.4 s | 1.28× |
+| 10Eros Max + Turbo | 6 | 70.7 s | 2.42× |
+
+The counter-intuitive part is that 10Eros is *larger* than the pruned base and still faster. The pruned weights store 30 layers as int8 that have to be dequantised every step; 10Eros leaves those in BF16 and skips that work, trading ~1.5 GB more streaming for less per-step compute. On a 12 GB card that trade pays.
+
+Two caveats worth stating plainly. These are single runs. And **free system RAM moves these numbers more than any preset choice does** — the same preset and seed measured 47.7 s with ~20 GB free and 78.6 s with ~2.8 GB free, a 65% swing. Quote your own free RAM alongside any timing, or the comparison means very little.
 
 Every pack is self-contained: a `readme.html` with model download links and destination folders, a one-click `install.cmd` (full pack or single preset), the pack JSON, ComfyUI workflows, and preview thumbnails.
 
