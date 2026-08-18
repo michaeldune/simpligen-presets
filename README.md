@@ -44,30 +44,30 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (Turbo, Fast Motion) | 3 | MiniMax H3 (pruned INT8) | 4-step tier tuned for heavy/fast motion |
 | MiniMax H3 (Sol-Attn + EasyCache) | 3 | MiniMax H3 (pruned INT8) | Sparse attention + step caching at the full 20 steps |
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
-| MiniMax H3 (10Eros Max) | 2 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download, T2V only. Faster than the pruned base despite being larger. Plain 20-step and Turbo 6-step |
+| MiniMax H3 (10Eros Max) | 2 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download, T2V only. Plain 20-step, plus a Turbo 6-step that is the fastest preset here |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 
-Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all five, each preset at its own default step count. Engine v0.31.0, SimpliGen 1.46.0:
+Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all seven, each preset at its own default step count. **SimpliGen 1.50.0, engine v0.33.1**, ~19 GB system RAM free at the start of each run:
 
-| Preset | Steps | Time | vs. official |
-|---|---|---|---|
-| Official MiniMax H3 | 20 | 170.7 s | — |
-| Sol-Attn + EasyCache | 20 | 129.5 s | 1.32× |
-| Turbo | 6 | 103.8 s | 1.64× |
-| **Fully Accelerated** | **10** | **84.1 s** | **2.03×** |
-| Turbo, Fast Motion | 4 | 79.5 s | 2.15× |
+| Preset | Steps | Time | Per step | vs. official |
+|---|---|---|---|---|
+| **10Eros Max + Turbo** | **6** | **67.9 s** | 5.16 s | **1.82×** |
+| Turbo, Fast Motion | 4 | 80.9 s | 11.14 s | 1.53× |
+| Fully Accelerated | 10 | 87.4 s | 4.86 s | 1.41× |
+| Turbo | 6 | 102.7 s | 10.71 s | 1.20× |
+| 10Eros Max | 20 | 119.1 s | 3.60 s | 1.04× |
+| Official MiniMax H3 | 20 | 123.5 s | 3.01 s | — |
+| Sol-Attn + EasyCache | 20 | 127.7 s | 4.18 s | 0.97× |
+
+**SimpliGen 1.50.0 changed the baseline, not these packs.** 1.50.0 frees VRAM before decoding and unloads the text encoder before sampling. That took the *official* preset from 170.7 s to 123.5 s — a 28% gain — while every community pack here landed within a few percent of its pre-1.50.0 time. Nothing regressed; the thing they are measured against simply got much faster, so every ratio in this table is smaller than the one it replaces.
+
+Two consequences worth stating rather than burying. **Sol-Attn + EasyCache is no longer a speed win** — at 0.97× it is marginally slower than the official preset, where it used to be 1.32× faster; its case now rests on output at the full 20 steps, not throughput. And the **Turbo-family gains are roughly half what they were**: Fast Motion was 2.15×, it is now 1.53×. Still a real saving, just an honest one.
+
+Earlier figures for reference, measured on engine v0.31.0 / SimpliGen 1.46.0: official 170.7 s, Sol-Attn 129.5 s, Turbo 103.8 s, Fully Accelerated 84.1 s, Fast Motion 79.5 s.
 
 Engine v0.31.0 took 8–18% off every one of these versus v0.30.1, and not evenly: the two 20-step presets gained most and the low-step Turbo presets least, which is what you would expect if the work landed in per-step execution rather than fixed overhead. Treat these as one run each — a repeat of the Sol-Attn row landed within 2%, but reference-to-video conditioning has shown far wider spread, so the I2V and R2V figures quoted in individual packs are less firm than these.
 
-**10Eros Max** was measured separately, on engine v0.33.1 / SimpliGen 1.49.x, so it is not directly comparable to the table above and is quoted against its own same-session control:
-
-| Preset | Steps | Time | vs. official (same session) |
-|---|---|---|---|
-| Official MiniMax H3 | 20 | 171.4 s | — |
-| 10Eros Max | 20 | 133.4 s | 1.28× |
-| 10Eros Max + Turbo | 6 | 70.7 s | 2.42× |
-
-The counter-intuitive part is that 10Eros is *larger* than the pruned base and still faster. The pruned weights store 30 layers as int8 that have to be dequantised every step; 10Eros leaves those in BF16 and skips that work, trading ~1.5 GB more streaming for less per-step compute. On a 12 GB card that trade pays.
+**A note on 10Eros and quantisation, because the earlier version of this README got it wrong.** On pre-1.50.0 builds 10Eros beat the pruned base by 22%, and that was attributed to it skipping per-step dequantisation on the 30 layers the pruned weights store as int8. The 1.50.0 numbers show that explanation was backwards: 10Eros is *slower* per step (3.60 s vs 3.01 s), and its advantage is lower fixed overhead, not cheaper compute. The old 22% was a VRAM-pressure artifact — while the run was memory-bound, streaming behaviour dominated and masked the per-step cost. Free the memory and the pruned base's smaller footprint wins on compute, leaving 10Eros ahead by only ~4%.
 
 Two caveats worth stating plainly. These are single runs. And **free system RAM moves these numbers more than any preset choice does** — the same preset and seed measured 47.7 s with ~20 GB free and 78.6 s with ~2.8 GB free, a 65% swing. Quote your own free RAM alongside any timing, or the comparison means very little.
 
