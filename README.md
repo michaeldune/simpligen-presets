@@ -33,6 +33,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | SeFi-Image | 2 | SeFi 5B (Q8) | Turbo, 4- and 8-step tiers |
 | Moody Models | 5 | Z-Image / Flux | NSFW-biased/uncensored |
 | Z-Image | 1 | Z-Image | Semi-real/anime |
+| Hentai Mixes | 8 | SD 1.5 ×6, SDXL ×2 | Civitai anime/hentai checkpoints. SD 1.5 tier runs 512–768 with CLIP Skip 2; the SDXL pair run native 1024, one of them Pony-based (wants `score_9, score_8_up, score_7_up`) |
 
 **Video packs**
 

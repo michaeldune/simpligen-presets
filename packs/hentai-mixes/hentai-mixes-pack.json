@@ -1,0 +1,619 @@
+{
+  "id": "hentai-mixes-pack",
+  "name": "Community — Hentai Mixes",
+  "version": "1.0.0",
+  "author": "various",
+  "description": "Eight anime/hentai checkpoints from Civitai — six SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nUltimate Hentai v5.0 is deliberately absent — it already ships in the SD 1.5 Anime pack. The Realistic variant of the same model is included here, since it is a different checkpoint.",
+  "tags": [
+    "Local",
+    "Image",
+    "Anime",
+    "NSFW",
+    "SD 1.5",
+    "SDXL"
+  ],
+  "presets": [
+    {
+      "id": "hentai-mix-xl-v50",
+      "name": "Hentai Mix XL — Road to Freedom v5.0",
+      "tagline": "SDXL.",
+      "icon": "🌸",
+      "previewImage": "previews/hentai-mix-xl-v50.jpg",
+      "description": "SDXL. The most capable of the group at native 1024 and complex compositions.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SDXL"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Hentai Mix XL — Road to Freedom v5.0",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/hentai-mix-xl-v50.json",
+        "checkpoint": "hentaiMixXLRoadTo_v50.safetensors",
+        "checkpointUrl": "https://civitai.com/models/199554/hentai-mix-xl-road-to-freedom",
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "steps": 25,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "SDXL at native 1024. Uses the standard SDXL VAE rather than the baked one."
+        }
+      }
+    },
+    {
+      "id": "wai-ani-hentai-ponyxl-v60",
+      "name": "WAI-ANI-HENTAI Pony XL v6.0",
+      "tagline": "Pony XL.",
+      "icon": "🌸",
+      "previewImage": "previews/wai-ani-hentai-ponyxl-v60.jpg",
+      "description": "Pony XL. Uses Pony score tags; strong on character consistency and anime linework.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SDXL",
+        "Pony"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "WAI-ANI-HENTAI Pony XL v6.0",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/wai-ani-hentai-ponyxl-v60.json",
+        "checkpoint": "waiANIHENTAIPONYXL_v60.safetensors",
+        "checkpointUrl": "https://civitai.com/models/553648/wai-ani-hentai-ponyxl",
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "steps": 25,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "SDXL at native 1024. Uses the standard SDXL VAE rather than the baked one."
+        }
+      }
+    },
+    {
+      "id": "xe-hentai-anime-sd15",
+      "name": "XE: Hentai Anime SD 1.5",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/xe-hentai-anime-sd15.jpg",
+      "description": "SD 1.5, the largest of the 1.5 group at 3.6 GB. Clean anime rendering.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "XE: Hentai Anime SD 1.5",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/xe-hentai-anime-sd15.json",
+        "checkpoint": "xeHentaiAnimeSD15_v10VAE.safetensors",
+        "checkpointUrl": "https://civitai.com/models/514212/xe-hentai-anime-sd15",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    },
+    {
+      "id": "earths-hentai-elite-v10",
+      "name": "Earth's Hentai Elite v1.0",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/earths-hentai-elite-v10.jpg",
+      "description": "SD 1.5. Polished, illustration-leaning output.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Earth's Hentai Elite v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/earths-hentai-elite-v10.json",
+        "checkpoint": "earthsHentaiElite_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/models/254370/earths-hentai-elite",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    },
+    {
+      "id": "falkons-anime-hentai-v13",
+      "name": "Falkons Anime and Hentai v1.3",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/falkons-anime-hentai-v13.jpg",
+      "description": "SD 1.5. One of the older mixes here and still a solid general anime base.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Falkons Anime and Hentai v1.3",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/falkons-anime-hentai-v13.json",
+        "checkpoint": "falkonsAnimeAndHentai_v13.safetensors",
+        "checkpointUrl": "https://civitai.com/models/38795/falkons-anime-and-hentai",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    },
+    {
+      "id": "nova-hentai-v10",
+      "name": "Nova Hentai v1.0",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/nova-hentai-v10.jpg",
+      "description": "SD 1.5. Bright, saturated anime styling.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Nova Hentai v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/nova-hentai-v10.json",
+        "checkpoint": "novaHentai_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/models/329710/nova-hentai",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    },
+    {
+      "id": "hentaimodel-v10",
+      "name": "HentaiModel v1.0",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/hentaimodel-v10.jpg",
+      "description": "SD 1.5. Straightforward general-purpose mix.",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "HentaiModel v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/hentaimodel-v10.json",
+        "checkpoint": "hentaimodel_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/models/309915/hentaimodel",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    },
+    {
+      "id": "ultimate-hentai-realistic-v50",
+      "name": "Ultimate Hentai — Realistic v5.0",
+      "tagline": "SD 1.",
+      "icon": "🌸",
+      "previewImage": "previews/ultimate-hentai-realistic-v50.jpg",
+      "description": "SD 1.5. The semi-real variant of Ultimate Hentai — softer shading, less flat cel look. (The standard v5.0 ships in the SD 1.5 Anime pack.)",
+      "tags": [
+        "Image",
+        "Anime",
+        "NSFW",
+        "SD 1.5"
+      ],
+      "enabled": true,
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ultimate Hentai — Realistic v5.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/ultimate-hentai-realistic-v50.json",
+        "checkpoint": "ultimateHentai_realisticV50.safetensors",
+        "checkpointUrl": "https://civitai.com/models/236842/ultimate-hentai?modelVersionId=394505",
+        "vae": "kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "9:16": {
+            "width": 512,
+            "height": 896
+          },
+          "16:9": {
+            "width": 896,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+        }
+      }
+    }
+  ]
+}
