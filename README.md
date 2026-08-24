@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 79 ready-to-run presets in 22 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 93 ready-to-run presets in 26 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: four MiniMax H3 packs (text/image/reference-to-video with synchronized audio) and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 22 packs, 79 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 26 packs, 93 presets.">
 </p>
 
 **Image packs**
@@ -24,8 +24,8 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Illustrious Anime | 8 | Illustrious (SDXL) | Anime, incl. V-Pred models |
 | SD 1.5 Anime | 3 | SD 1.5 | External kl-f8-anime2 VAE, 512-base |
 | Reij's Merges | 6 | Illustrious (SDXL) | reijlita merge family |
-| Anima Anime | 4 | Anima (Cosmos) | UNet + Qwen encoder + Qwen-Image VAE |
-| Anima Realism | 2 | Anima (Cosmos) | Same stack, photoreal |
+| Anima Anime | 5 | Anima (Cosmos) | UNet + Qwen encoder + Qwen-Image VAE |
+| Anima Realism | 3 | Anima (Cosmos) | Same stack, photoreal |
 | Krea 2 | 6 | Krea 2 DiT | Uncensored mixes, 8–10 step distilled |
 | Krea Flux | 1 | Flux.1 Krea (GGUF) | CSG Foundation, low-VRAM |
 | Flux 2 Klein | 3 | Flux 2 | 9B + 4B, 4-step distilled — **non-commercial license (BFL)** |
@@ -47,6 +47,8 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
 | MiniMax H3 (10Eros Max) | 2 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download, T2V only. Plain 20-step, plus a Turbo 6-step that is the fastest preset here |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
+| LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |
+| MiniMax H3 Lip-Sync | 1 | MiniMax H3 (pruned INT8) | Audio-driven lip sync with up to 9 reference images, so a whole band stays recognisable in a wide. Trims your track to the shot automatically; 10 s default. Reuses the H3 Turbo weights |
 
 Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all seven, each preset at its own default step count. **SimpliGen 1.50.0, engine v0.33.1**, ~19 GB system RAM free at the start of each run:
 

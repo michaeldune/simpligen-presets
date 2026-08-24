@@ -1,0 +1,178 @@
+{
+  "id": "ltx-2-5-a2v-pack",
+  "name": "Community — LTX 2.5 Lip-Sync (A2V)",
+  "version": "1.0.0",
+  "author": "michaeldune",
+  "addedAt": "2026-08-24",
+  "description": "Audio-to-video for LTX 2.5. SimpliGen ships LTX 2.5 image-to-video, which generates its own soundtrack, and a separate LTX 2.3 lip-sync preset that accepts your audio. This pack combines them: the 2.5 image-to-video graph with its invented-audio latent replaced by an encode of your uploaded track, so 2.5 lip-syncs to real audio. Every node is already registered by the SimpliGen engine - nothing extra to install. Uses the same weights as the official LTX 2.5 pack, so if you have that installed there is no additional download.",
+  "tags": [
+    "Local",
+    "Video",
+    "A2V",
+    "Lip-Sync",
+    "LTX"
+  ],
+  "presets": [
+    {
+      "id": "ltx-2-5-a2v-int8",
+      "name": "LTX 2.5 Lip-Sync (Audio-to-Video)",
+      "icon": "🎤",
+      "description": "Drive an LTX 2.5 shot with your own audio track. Supply a character image and an audio file; the model lip-syncs to it and bakes the audio into the output. Two-pass upscaled to 1080p.",
+      "tagline": "Make a character sing or speak your own audio, in LTX 2.5",
+      "previewImage": "previews/ltx-2-5-a2v-int8.jpg",
+      "tags": [
+        "Video",
+        "Lip-Sync",
+        "A2V",
+        "Audio",
+        "1080p"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/ltx-2-5-a2v-int8.json",
+        "requiresImage": true,
+        "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": true,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 34,
+          "notes": "Two-pass: the first pass runs at half resolution and is upscaled x2 by the latent spatial upscaler, so 1080p output is sampled at 960x544. Your uploaded audio is encoded into the audio latent and masked out of denoising, so it is preserved exactly and drives the lip sync. Measured 165 s for 5 s at 1920x1088 on a 12 GB card. Uses only nodes the SimpliGen engine already registers - no custom node installs required."
+        }
+      }
+    }
+  ]
+}
