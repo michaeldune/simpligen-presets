@@ -242,9 +242,9 @@
   },
   "116:98": {
     "inputs": {
-      "width": {{width}},
-      "height": {{height}},
-      "length": {{DURATION_FRAMES_WAN}},
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "length": "{{DURATION_FRAMES_WAN}}",
       "batch_size": 1,
       "positive": [
         "116:93",
