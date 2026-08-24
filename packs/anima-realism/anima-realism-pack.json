@@ -201,6 +201,102 @@
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors"
       }
+    },
+    {
+      "id": "jedpointreal-anima-v1",
+      "name": "JedPointReal Anima v1",
+      "tagline": "Realistic/editorial Anima v1",
+      "icon": "📷",
+      "previewImage": "previews/jedpointreal-anima-v1.jpg",
+      "description": "Realistic Anima v1 checkpoint from JEDAS, tuned for detailed faces, editorial fashion, cinematic lighting, and painterly or photoreal-leaning scenes. Uses the release's bundled Qwen text encoder.",
+      "tags": [
+        "Anima",
+        "Realistic",
+        "Editorial",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "JedPointReal Anima v1",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/jedpointreal-anima-v1.json",
+        "unet": "jedpointreal_animaV1.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3225415?fileId=3107529",
+        "clip": "jedpointreal_animaV1_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3225415?fileId=3107494",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://civitai.com/api/download/models/3225415?fileId=3107489",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, young",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Anima UNet (diffusion_models) + the release's own Qwen text encoder (clip) + Qwen-Image VAE. Euler / normal scheduler, ModelSamplingAuraFlow shift 3, 30 steps, CFG 5."
+        }
+      }
     }
   ]
 }

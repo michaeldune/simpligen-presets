@@ -385,6 +385,104 @@
           "notes": "Anima UNet (diffusion_models) + model's OWN text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Encoder is a non-shared custom file - download all three parts."
         }
       }
+    },
+    {
+      "id": "miaomiao-harem-anima-v16",
+      "name": "MiaoMiao Harem Anima v1.6",
+      "tagline": "MiaoMiao Harem's Anima mainline v1.6",
+      "icon": "👑",
+      "previewImage": "previews/miaomiao-harem-anima-v16.jpg",
+      "description": "Anima v1.6 anime checkpoint from MIAOKA, tuned for expressive anime illustration, skin detail, and mixed tag/natural-language prompting. Uses the release's bundled Qwen text encoder.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Booru",
+        "NSFW",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "MiaoMiao Harem Anima v1.6",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/miaomiao-harem-anima-v16.json",
+        "unet": "miaomiaoHarem_anima16.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3248362?fileId=3131298",
+        "clip": "miaomiaoHarem_anima16_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3248362?fileId=3131293",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://civitai.com/api/download/models/3248362?fileId=3131288",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, shiny skin",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Anima UNet (diffusion_models) + the release's own Qwen text encoder (clip) + Qwen-Image VAE. Euler / Euler a with normal scheduler, ModelSamplingAuraFlow shift 3, 30 steps, CFG 4.0-5.0. Review the creator's usage restrictions before commercial use."
+        }
+      }
     }
   ]
 }
