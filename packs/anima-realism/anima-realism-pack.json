@@ -1,8 +1,9 @@
 {
   "id": "anima-realism-pack",
   "name": "Community — Anima Realism",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "various",
+  "nsfw": false,
   "description": "Anima (Cosmos) photoreal checkpoints.",
   "tags": [
     "Local",

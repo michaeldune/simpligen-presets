@@ -1,8 +1,9 @@
 {
   "id": "illustrious-realism-pack",
   "name": "Community — Illustrious Realism",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "various",
+  "nsfw": false,
   "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
   "tags": [
     "Local",

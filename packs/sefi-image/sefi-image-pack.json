@@ -1,8 +1,9 @@
 {
   "id": "sefi-image-pack",
   "name": "Community — SeFi-Image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "SeFi-Team",
+  "nsfw": false,
   "description": "SeFi-Image 5B — Semantic-First Diffusion (Flux 2 Klein-based). Excellent text rendering and stylized art (posters, anime, watercolor). Runs via the Rebels SeFi custom nodes.",
   "tags": [
     "Local",

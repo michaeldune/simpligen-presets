@@ -1,8 +1,9 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Krea AI",
+  "nsfw": false,
   "description": "Krea 2 single-pass DiT presets — Moody Mix, RedCraft Red Mix, Realia, and Fascium. Uncensored/photoreal 8-step Krea-2 diffusion-transformer mixes sharing the Qwen3VL encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
@@ -106,7 +107,7 @@
           "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors"
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
       }
     },
     {
@@ -149,7 +150,7 @@
         "unet": "redcraftKREA2RedMix_krea2Edition.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3066243",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "steps": 10,
@@ -246,7 +247,7 @@
         "unet": "realiaKrea2_v10.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3082189",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "steps": 8,
@@ -344,7 +345,7 @@
         "unet": "fasciumKREA2_3.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3094240",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "steps": 8,
@@ -442,7 +443,7 @@
         "unet": "bf95Krea2DarkRealism_v30.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3111156",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "steps": 8,
@@ -540,7 +541,7 @@
         "unet": "darkBeastINT8Convrot2_darkBeastKREA2FP8.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3078453",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Kutches/Kr3a/resolve/main/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "steps": 8,

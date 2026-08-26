@@ -1,8 +1,9 @@
 {
   "id": "reijs-merges-pack",
   "name": "Community — Reij's Merges",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "reijlita",
+  "nsfw": false,
   "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
   "tags": [
     "Local",

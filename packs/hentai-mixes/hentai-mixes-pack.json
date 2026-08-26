@@ -1,9 +1,10 @@
 {
   "id": "hentai-mixes-pack",
   "name": "Community — Hentai Mixes",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "author": "various",
-  "description": "Eight anime/hentai checkpoints from Civitai — six SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nUltimate Hentai v5.0 is deliberately absent — it already ships in the SD 1.5 Anime pack. The Realistic variant of the same model is included here, since it is a different checkpoint.",
+  "nsfw": true,
+  "description": "Nine anime/hentai checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
   "tags": [
     "Local",
     "Image",
@@ -38,7 +39,7 @@
         ],
         "workflow": "workflows/hentai-mix-xl-v50.json",
         "checkpoint": "hentaiMixXLRoadTo_v50.safetensors",
-        "checkpointUrl": "https://civitai.com/models/199554/hentai-mix-xl-road-to-freedom",
+        "checkpointUrl": "https://civitai.com/api/download/models/296678",
         "vae": "sdxl_vae.safetensors",
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
         "steps": 25,
@@ -115,7 +116,7 @@
         ],
         "workflow": "workflows/wai-ani-hentai-ponyxl-v60.json",
         "checkpoint": "waiANIHENTAIPONYXL_v60.safetensors",
-        "checkpointUrl": "https://civitai.com/models/553648/wai-ani-hentai-ponyxl",
+        "checkpointUrl": "https://civitai.com/api/download/models/952743",
         "vae": "sdxl_vae.safetensors",
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
         "steps": 25,
@@ -190,7 +191,7 @@
         ],
         "workflow": "workflows/xe-hentai-anime-sd15.json",
         "checkpoint": "xeHentaiAnimeSD15_v10VAE.safetensors",
-        "checkpointUrl": "https://civitai.com/models/514212/xe-hentai-anime-sd15",
+        "checkpointUrl": "https://civitai.com/api/download/models/572038",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,
@@ -265,7 +266,7 @@
         ],
         "workflow": "workflows/earths-hentai-elite-v10.json",
         "checkpoint": "earthsHentaiElite_v10.safetensors",
-        "checkpointUrl": "https://civitai.com/models/254370/earths-hentai-elite",
+        "checkpointUrl": "https://civitai.com/api/download/models/286762",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,
@@ -340,7 +341,7 @@
         ],
         "workflow": "workflows/falkons-anime-hentai-v13.json",
         "checkpoint": "falkonsAnimeAndHentai_v13.safetensors",
-        "checkpointUrl": "https://civitai.com/models/38795/falkons-anime-and-hentai",
+        "checkpointUrl": "https://civitai.com/api/download/models/91001",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,
@@ -415,7 +416,7 @@
         ],
         "workflow": "workflows/nova-hentai-v10.json",
         "checkpoint": "novaHentai_v10.safetensors",
-        "checkpointUrl": "https://civitai.com/models/329710/nova-hentai",
+        "checkpointUrl": "https://civitai.com/api/download/models/369474",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,
@@ -490,7 +491,7 @@
         ],
         "workflow": "workflows/hentaimodel-v10.json",
         "checkpoint": "hentaimodel_v10.safetensors",
-        "checkpointUrl": "https://civitai.com/models/309915/hentaimodel",
+        "checkpointUrl": "https://civitai.com/api/download/models/347846",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,
@@ -541,12 +542,99 @@
       }
     },
     {
+      "id": "ultimate-hentai-v50",
+      "name": "Ultimate Hentai v5.0",
+      "tagline": "Explicit SD 1.5 anime",
+      "icon": "🔞",
+      "previewImage": "previews/ultimate-hentai-v50.jpg",
+      "description": "SD 1.5 anime checkpoint for explicit/NSFW content. Danbooru-tag prompting; uses the kl-f8-anime2 VAE for vivid color. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "Anime",
+        "NSFW",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ultimate Hentai v5.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/ultimate-hentai-v50.json",
+        "checkpoint": "ultimateHentai_v50.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/394505",
+        "vae": "kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, missing fingers, extra digits, fewer digits, blurry, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, extra limbs, cropped, worst quality, low quality, normal quality, jpeg artifacts, watermark, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. Native resolutions around 512px work best."
+        },
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+      }
+    },
+    {
       "id": "ultimate-hentai-realistic-v50",
       "name": "Ultimate Hentai — Realistic v5.0",
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/ultimate-hentai-realistic-v50.jpg",
-      "description": "SD 1.5. The semi-real variant of Ultimate Hentai — softer shading, less flat cel look. (The standard v5.0 ships in the SD 1.5 Anime pack.)",
+      "description": "SD 1.5. The semi-real variant of Ultimate Hentai — softer shading, less flat cel look. The standard v5.0 sits alongside it in this pack.",
       "tags": [
         "Image",
         "Anime",
@@ -565,7 +653,7 @@
         ],
         "workflow": "workflows/ultimate-hentai-realistic-v50.json",
         "checkpoint": "ultimateHentai_realisticV50.safetensors",
-        "checkpointUrl": "https://civitai.com/models/236842/ultimate-hentai?modelVersionId=394505",
+        "checkpointUrl": "https://civitai.com/api/download/models/394549",
         "vae": "kl-f8-anime2.ckpt",
         "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
         "steps": 30,

@@ -1,69 +1,116 @@
 {
   "h3_unet": {
-    "inputs": { "unet_name": "{{unet}}", "weight_dtype": "default" },
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
     "class_type": "UNETLoader",
-    "_meta": { "title": "Load Diffusion Model" }
+    "_meta": {
+      "title": "Load MiniMax H3 (pruned int8)"
+    }
   },
   "h3_clip": {
-    "inputs": { "clip_name": "{{clip}}", "type": "minimax", "device": "default" },
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
     "class_type": "CLIPLoader",
-    "_meta": { "title": "Load CLIP" }
+    "_meta": {
+      "title": "Load CLIP"
+    }
   },
   "h3_video_vae": {
-    "inputs": { "vae_name": "{{vae}}" },
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
     "class_type": "VAELoader",
-    "_meta": { "title": "Load Video VAE" }
+    "_meta": {
+      "title": "Load Video VAE"
+    }
   },
   "h3_audio_vae": {
-    "inputs": { "vae_name": "{{audio_vae}}" },
+    "inputs": {
+      "vae_name": "{{audio_vae}}"
+    },
     "class_type": "VAELoader",
-    "_meta": { "title": "Load Audio VAE" }
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
   },
   "simpligen_lora_1": {
     "inputs": {
-      "PowerLoraLoaderHeaderWidget": { "type": "PowerLoraLoaderHeaderWidget" },
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
       "➕ Add Lora": "",
-      "model": ["h3_unet", 0],
-      "clip": ["h3_clip", 0]
+      "model": [
+        "h3_unet",
+        0
+      ],
+      "clip": [
+        "h3_clip",
+        0
+      ]
     },
     "class_type": "Power Lora Loader (rgthree)",
-    "_meta": { "title": "SimpliGen User LoRAs" }
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
   },
   "h3_turbo_lora": {
     "inputs": {
-      "model": ["simpligen_lora_1", 0],
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
       "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
       "strength": 1,
       "low_vram": false
     },
     "class_type": "MiniMaxH3TurboLoRA",
-    "_meta": { "title": "MiniMax H3 Turbo LoRA" }
+    "_meta": {
+      "title": "MiniMax H3 Turbo LoRA"
+    }
   },
   "h3_sage_attn": {
     "inputs": {
-      "model": ["h3_turbo_lora", 0],
+      "model": [
+        "h3_turbo_lora",
+        0
+      ],
       "sage_attention": "auto",
       "allow_compile": false
     },
     "class_type": "PathchSageAttentionKJ",
-    "_meta": { "title": "Patch Sage Attention (KJ)" }
+    "_meta": {
+      "title": "Patch Sage Attention (KJ)"
+    }
   },
   "h3_sigma_shift": {
     "inputs": {
-      "model": ["h3_sage_attn", 0],
+      "model": [
+        "h3_sage_attn",
+        0
+      ],
       "shift_video": 12.0,
       "shift_audio": 3.0
     },
     "class_type": "MiniMaxH3SigmaShift",
-    "_meta": { "title": "MiniMax H3 Sigma Shift" }
+    "_meta": {
+      "title": "MiniMax H3 Sigma Shift"
+    }
   },
   "h3_spectrum": {
     "inputs": {
-      "model": ["h3_sigma_shift", 0],
+      "model": [
+        "h3_sigma_shift",
+        0
+      ],
       "enabled": true,
-      "blend_weight": 0.50,
+      "blend_weight": 0.5,
       "degree": 1,
-      "ridge_lambda": 0.10,
+      "ridge_lambda": 0.1,
       "window_size": 2.0,
       "flex_window": 0.75,
       "warmup_steps": 1,
@@ -79,11 +126,16 @@
       "offline_archive_storage": "system_ram"
     },
     "class_type": "SpectrumApplyMiniMaxH3",
-    "_meta": { "title": "Spectrum Apply MiniMax H3" }
+    "_meta": {
+      "title": "Spectrum Apply MiniMax H3"
+    }
   },
   "h3_sol_attn": {
     "inputs": {
-      "model": ["h3_spectrum", 0],
+      "model": [
+        "h3_spectrum",
+        0
+      ],
       "tau": 1.3,
       "start_percent": 0.2,
       "end_percent": 0.9,
@@ -98,167 +150,329 @@
       "dense_blocks": ""
     },
     "class_type": "SolAttnPatch",
-    "_meta": { "title": "Patch Sol-Attn" }
+    "_meta": {
+      "title": "Patch Sol-Attn"
+    }
   },
   "h3_load_image": {
-    "inputs": { "image": "{{ref_image_1}}", "upload": "image" },
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
     "class_type": "LoadImage",
-    "_meta": { "title": "First Frame" }
+    "_meta": {
+      "title": "First Frame"
+    }
   },
   "h3_load_image_2": {
-    "inputs": { "image": "{{ref_image_2}}", "upload": "image" },
+    "inputs": {
+      "image": "{{ref_image_2}}",
+      "upload": "image"
+    },
     "class_type": "LoadImage",
-    "_meta": { "title": "Last Frame (optional)" }
+    "_meta": {
+      "title": "Last Frame (optional)"
+    }
   },
   "h3_first_frame_fit": {
     "inputs": {
-      "image": ["h3_load_image", 0],
+      "image": [
+        "h3_load_image",
+        0
+      ],
       "upscale_method": "lanczos",
       "width": "{{width}}",
       "height": "{{height}}",
       "crop": "center"
     },
     "class_type": "ImageScale",
-    "_meta": { "title": "Fit first frame to the output shape (center crop)" }
+    "_meta": {
+      "title": "Fit first frame to the output shape (center crop)"
+    }
   },
   "h3_last_frame_fit": {
     "inputs": {
-      "image": ["h3_load_image_2", 0],
+      "image": [
+        "h3_load_image_2",
+        0
+      ],
       "upscale_method": "lanczos",
       "width": "{{width}}",
       "height": "{{height}}",
       "crop": "center"
     },
     "class_type": "ImageScale",
-    "_meta": { "title": "Fit last frame to the output shape (center crop)" }
+    "_meta": {
+      "title": "Fit last frame to the output shape (center crop)"
+    }
   },
   "h3_conditioning": {
     "inputs": {
-      "clip": ["simpligen_lora_1", 1],
-      "vae": ["h3_video_vae", 0],
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
       "prompt": "{{prompt}}",
       "width": "{{width}}",
       "height": "{{height}}",
-      "length": ["h3_length", 1],
-      "first_frame": ["h3_first_frame_fit", 0]
+      "length": [
+        "h3_length",
+        1
+      ],
+      "first_frame": [
+        "h3_first_frame_fit",
+        0
+      ]
     },
     "class_type": "MiniMaxH3ImageToVideo",
-    "_meta": { "title": "MiniMax H3 Image to Video (first frame only)" }
+    "_meta": {
+      "title": "MiniMax H3 Image to Video (first frame only)"
+    }
   },
   "h3_conditioning_flf": {
     "inputs": {
-      "clip": ["simpligen_lora_1", 1],
-      "vae": ["h3_video_vae", 0],
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
       "prompt": "{{prompt}}",
       "width": "{{width}}",
       "height": "{{height}}",
-      "length": ["h3_length", 1],
-      "first_frame": ["h3_first_frame_fit", 0],
-      "last_frame": ["h3_last_frame_fit", 0]
+      "length": [
+        "h3_length",
+        1
+      ],
+      "first_frame": [
+        "h3_first_frame_fit",
+        0
+      ],
+      "last_frame": [
+        "h3_last_frame_fit",
+        0
+      ]
     },
     "class_type": "MiniMaxH3ImageToVideo",
-    "_meta": { "title": "MiniMax H3 Image to Video (first + last frame)" }
+    "_meta": {
+      "title": "MiniMax H3 Image to Video (first + last frame)"
+    }
   },
   "h3_last_frame_enabled": {
-    "inputs": { "value": {{ref_2_enabled}} },
+    "inputs": {
+      "value": "{{ref_2_enabled}}"
+    },
     "class_type": "PrimitiveBoolean",
-    "_meta": { "title": "Last Frame Enabled" }
+    "_meta": {
+      "title": "Last Frame Enabled"
+    }
   },
   "h3_conditioning_switch": {
     "inputs": {
-      "switch": ["h3_last_frame_enabled", 0],
-      "on_false": ["h3_conditioning", 0],
-      "on_true": ["h3_conditioning_flf", 0]
+      "switch": [
+        "h3_last_frame_enabled",
+        0
+      ],
+      "on_false": [
+        "h3_conditioning",
+        0
+      ],
+      "on_true": [
+        "h3_conditioning_flf",
+        0
+      ]
     },
     "class_type": "ComfySwitchNode",
-    "_meta": { "title": "Conditioning: with or without a last frame" }
+    "_meta": {
+      "title": "Conditioning: with or without a last frame"
+    }
   },
   "h3_latent_switch": {
     "inputs": {
-      "switch": ["h3_last_frame_enabled", 0],
-      "on_false": ["h3_conditioning", 1],
-      "on_true": ["h3_conditioning_flf", 1]
+      "switch": [
+        "h3_last_frame_enabled",
+        0
+      ],
+      "on_false": [
+        "h3_conditioning",
+        1
+      ],
+      "on_true": [
+        "h3_conditioning_flf",
+        1
+      ]
     },
     "class_type": "ComfySwitchNode",
-    "_meta": { "title": "Latent: with or without a last frame" }
+    "_meta": {
+      "title": "Latent: with or without a last frame"
+    }
   },
   "h3_noise": {
-    "inputs": { "noise_seed": "{{seed}}" },
+    "inputs": {
+      "noise_seed": "{{seed}}"
+    },
     "class_type": "RandomNoise",
-    "_meta": { "title": "Random Noise" }
+    "_meta": {
+      "title": "Random Noise"
+    }
   },
   "h3_guider": {
-    "inputs": { "model": ["h3_sol_attn", 0], "conditioning": ["h3_conditioning_switch", 0] },
+    "inputs": {
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
+      "conditioning": [
+        "h3_conditioning_switch",
+        0
+      ]
+    },
     "class_type": "BasicGuider",
-    "_meta": { "title": "Guider" }
+    "_meta": {
+      "title": "Guider"
+    }
   },
   "h3_sampler": {
     "inputs": {},
     "class_type": "MiniMaxH3TurboSampler",
-    "_meta": { "title": "MiniMax H3 Turbo Sampler (4-step)" }
+    "_meta": {
+      "title": "MiniMax H3 Turbo Sampler (4-step)"
+    }
   },
   "h3_sigmas": {
     "inputs": {
-      "model": ["h3_sol_attn", 0],
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
       "scheduler": "simple",
       "steps": "{{steps}}",
       "denoise": 1
     },
     "class_type": "BasicScheduler",
-    "_meta": { "title": "Scheduler" }
+    "_meta": {
+      "title": "Scheduler"
+    }
   },
   "h3_sampling": {
     "inputs": {
-      "noise": ["h3_noise", 0],
-      "guider": ["h3_guider", 0],
-      "sampler": ["h3_sampler", 0],
-      "sigmas": ["h3_sigmas", 0],
-      "latent_image": ["h3_latent_switch", 0]
+      "noise": [
+        "h3_noise",
+        0
+      ],
+      "guider": [
+        "h3_guider",
+        0
+      ],
+      "sampler": [
+        "h3_sampler",
+        0
+      ],
+      "sigmas": [
+        "h3_sigmas",
+        0
+      ],
+      "latent_image": [
+        "h3_latent_switch",
+        0
+      ]
     },
     "class_type": "SamplerCustomAdvanced",
-    "_meta": { "title": "Sample" }
+    "_meta": {
+      "title": "Sample"
+    }
   },
   "h3_decode_video": {
-    "inputs": { "samples": ["h3_sampling", 0], "vae": ["h3_video_vae", 0] },
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
     "class_type": "VAEDecode",
-    "_meta": { "title": "Decode Video" }
+    "_meta": {
+      "title": "Decode Video"
+    }
   },
   "h3_decode_audio": {
-    "inputs": { "samples": ["h3_sampling", 0], "vae": ["h3_audio_vae", 0] },
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_audio_vae",
+        0
+      ]
+    },
     "class_type": "VAEDecodeAudio",
-    "_meta": { "title": "Decode Audio" }
+    "_meta": {
+      "title": "Decode Audio"
+    }
   },
   "h3_create_video": {
     "inputs": {
-      "images": ["h3_decode_video", 0],
+      "images": [
+        "h3_decode_video",
+        0
+      ],
       "fps": 24,
-      "audio": ["h3_decode_audio", 0],
+      "audio": [
+        "h3_decode_audio",
+        0
+      ],
       "bit_depth": 8
     },
     "class_type": "CreateVideo",
-    "_meta": { "title": "Create Video" }
+    "_meta": {
+      "title": "Create Video"
+    }
   },
   "h3_save": {
     "inputs": {
-      "video": ["h3_create_video", 0],
+      "video": [
+        "h3_create_video",
+        0
+      ],
       "filename_prefix": "video/MiniMax_H3_turbo_accelerated_i2v",
       "format": "auto",
       "codec": "auto"
     },
     "class_type": "SaveVideo",
-    "_meta": { "title": "Save Video" }
+    "_meta": {
+      "title": "Save Video"
+    }
   },
   "h3_duration": {
-    "inputs": { "value": "{{duration}}" },
+    "inputs": {
+      "value": "{{duration}}"
+    },
     "class_type": "PrimitiveFloat",
-    "_meta": { "title": "Duration (seconds)" }
+    "_meta": {
+      "title": "Duration (seconds)"
+    }
   },
   "h3_length": {
     "inputs": {
       "expression": "min(362, max(124, max(5, round(a * 24)) + (17 - (max(5, round(a * 24)) - 5) % 17) % 17))",
-      "values.a": ["h3_duration", 0]
+      "values.a": [
+        "h3_duration",
+        0
+      ]
     },
     "class_type": "ComfyMathExpression",
-    "_meta": { "title": "Frame Length" }
+    "_meta": {
+      "title": "Frame Length"
+    }
   }
 }

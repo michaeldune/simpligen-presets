@@ -6,7 +6,7 @@
     },
     "class_type": "UNETLoader",
     "_meta": {
-      "title": "MiniMax H3 Diffusion Model"
+      "title": "Load 10Eros Max H3 (int8 convrot, non-pruned)"
     }
   },
   "h3_clip": {

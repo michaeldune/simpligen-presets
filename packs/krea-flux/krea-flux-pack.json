@@ -1,8 +1,9 @@
 {
   "id": "krea-flux-pack",
   "name": "Community — Krea Flux",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Community",
+  "nsfw": false,
   "description": "Flux.1 Krea community presets (BFL FLUX.1 Krea dev generation). Krea-CSG Foundation: a GGUF Flux.1 Krea fine-tune (Cyber Supergirl) with strong anime and photoreal range, 35-step euler/beta, lower VRAM than the Krea 2 DiT presets.",
   "tags": [
     "Local",
@@ -48,7 +49,7 @@
         "workflow": "workflows/krea-csg-foundation.json",
         "unet": "kreaCSG_foundation.gguf",
         "unetUrl": "https://civitai.com/api/download/models/2221466",
-        "vae": "fluxVaeSft_aeSft.sft",
+        "vae": "ae.safetensors",
         "steps": 35,
         "cfg": 1,
         "denoise": 1,
@@ -102,7 +103,7 @@
           "sizeGB": 6.5,
           "notes": "GGUF quantized Flux.1 Krea. UnetLoaderGGUF + Qwen3VL encoder + Flux SFT VAE. euler/beta, CFG 1, negative zeroed. Lower VRAM than the FP8 Krea-2 turbo presets."
         },
-        "vaeUrl": "https://huggingface.co/Albert-zp/flux-vaesft/resolve/main/fluxVaeSft_aeSft.sft"
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors"
       }
     }
   ]

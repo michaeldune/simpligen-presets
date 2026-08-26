@@ -1,8 +1,9 @@
 {
   "id": "wan22-i2v-gguf-pack",
   "name": "Community — Wan 2.2 I2V (GGUF)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Wan-AI",
+  "nsfw": false,
   "description": "Wan 2.2 14B image-to-video, GGUF Q4 quant for lower VRAM (12 GB-friendly). Dual high/low-noise experts + 4-step lightx2v LoRAs. Reuses the umt5 encoder + Wan VAE.",
   "tags": [
     "Local",

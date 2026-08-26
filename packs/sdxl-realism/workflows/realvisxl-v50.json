@@ -5,7 +5,7 @@
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
-      "title": "Load RealVisXL V5.0"
+      "title": "Load RealVisXL V5.0 fp16"
     }
   },
   "5": {

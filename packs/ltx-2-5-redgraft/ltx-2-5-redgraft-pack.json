@@ -1,8 +1,9 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "michaeldune",
+  "nsfw": true,
   "addedAt": "2026-08-24",
   "description": "LTX 2.5 text-to-video and image-to-video using the REDgraft NSFW INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen.",
   "tags": [

@@ -6,7 +6,7 @@
     },
     "class_type": "UNETLoader",
     "_meta": {
-      "title": "MiniMax H3 Diffusion Model"
+      "title": "Load MiniMax H3 Reference (pruned int8)"
     }
   },
   "h3_clip": {

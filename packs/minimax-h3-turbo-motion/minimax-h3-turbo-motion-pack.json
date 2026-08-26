@@ -1,8 +1,9 @@
 {
   "id": "minimax-h3-turbo-motion-pack",
   "name": "Community — MiniMax H3 (Turbo LoRA, Fast Motion)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "larryvrh",
+  "nsfw": false,
   "description": "MiniMax H3 video with the v1-850 Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — a focused 4-step option for heavy or fast motion, where the v4-600 line can produce motion-smear or trailing ghosting. It keeps audio in sync and caps at 6 steps because v1 over-sharpens at higher step counts. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
   "tags": [
     "Local",

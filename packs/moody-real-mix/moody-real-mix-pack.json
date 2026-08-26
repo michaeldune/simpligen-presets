@@ -1,8 +1,9 @@
 {
   "id": "moody-real-mix-pack",
   "name": "Community — Moody Models",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "author": "catlover1937",
+  "nsfw": false,
   "description": "Local Moody model variants collected into one selectable preset group.",
   "tags": [
     "Local",

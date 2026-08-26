@@ -1,8 +1,9 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "various",
+  "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
   "tags": [
     "Local",
@@ -189,7 +190,7 @@
           "sizeGB": 5.5
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "unetUrl": "https://huggingface.co/LeFeujitif/sandbox/resolve/main/rdbtAnima_b1V039B.safetensors"
+        "unetUrl": "https://civitai.com/api/download/models/3016541"
       },
       "tagline": "Distilled Anima illustration"
     },

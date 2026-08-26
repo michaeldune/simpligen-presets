@@ -22,7 +22,7 @@
     },
     "class_type": "UNETLoader",
     "_meta": {
-      "title": "Load Diffusion Model"
+      "title": "Load LTX 2.5 REDgraft / Sulphur2 Ported (INT8)"
     }
   },
   "5575:5574": {

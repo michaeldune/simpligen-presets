@@ -1,8 +1,9 @@
 {
   "id": "minimax-h3-lipsync-pack",
   "name": "Community — MiniMax H3 Lip-Sync",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "michaeldune",
+  "nsfw": false,
   "addedAt": "2026-08-24",
   "description": "Audio-driven lip sync on MiniMax H3. Supply reference images and an audio track, and H3 sings or speaks your audio - syncing whoever is at the microphone. Because H3 takes up to nine reference images at once, a whole band can be in frame with every face staying recognisable, which is what sets it apart from single-portrait lip-sync models. H3 expects its reference audio to match the length of the shot, so this preset trims your track automatically and gives you a start-offset slider to choose which part of a song a shot syncs to. Drop in a full song and pick a moment. Uses the same weights as the MiniMax H3 Turbo pack, so there is no extra download if you already have that installed, and no custom nodes are required.",
   "tags": [

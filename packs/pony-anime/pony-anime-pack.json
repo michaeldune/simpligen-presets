@@ -1,8 +1,9 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "various",
+  "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
   "tags": [
     "Local",
@@ -103,7 +104,7 @@
           "sizeGB": 7
         },
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://huggingface.co/LyliaEngine/Pony_Diffusion_V6_XL/resolve/main/ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+        "checkpointUrl": "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors"
       }
     },
     {
@@ -384,7 +385,7 @@
           "sizeGB": 7
         },
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://huggingface.co/LyliaEngine/autismmixSDXL_autismmixConfetti/resolve/main/autismmixSDXL_autismmixConfetti.safetensors"
+        "checkpointUrl": "https://civitai.com/api/download/models/324524"
       }
     }
   ]
