@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -13,12 +13,12 @@
   ],
   "presets": [
     {
-      "id": "yamermix-nihilmania",
-      "name": "YamerMIX NihilMania",
+      "id": "yamermix-v11-rundiffusion",
+      "name": "YamerMIX V11 + RunDiffusion",
       "tagline": "Artistic SDXL (YamerMIX)",
       "icon": "🎨",
-      "previewImage": "previews/yamermix-nihilmania.jpg",
-      "description": "SDXL Unstable Diffusers (YamerMIX) NihilMania - versatile artistic/illustration SDXL. Natural-language prompting, baked VAE.",
+      "previewImage": "previews/yamermix-v11-rundiffusion.jpg",
+      "description": "SDXL Unstable Diffusers (YamerMIX) V11 + RunDiffusion - versatile artistic/illustration SDXL. Natural-language prompting, baked VAE.",
       "tags": [
         "SDXL",
         "Local"
@@ -40,13 +40,13 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "YamerMIX NihilMania",
+        "displayModel": "YamerMIX V11 + RunDiffusion",
         "baseModels": [
           "sdxl"
         ],
-        "workflow": "workflows/yamermix-nihilmania.json",
-        "checkpoint": "sdxlUnstableDiffusers_nihilmania.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/395107",
+        "workflow": "workflows/yamermix-v11-rundiffusion.json",
+        "checkpoint": "sdxlUnstableDiffusers_v11Rundiffusion.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/309729",
         "steps": 30,
         "cfg": 7,
         "denoise": 1,

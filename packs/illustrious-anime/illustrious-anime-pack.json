@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -482,12 +482,12 @@
       "tagline": "Flexible Illustrious anime / semi-real"
     },
     {
-      "id": "illumiyume-xl-v35",
-      "name": "IllumiYume XL v3.5",
+      "id": "illumiyume-xl-v32",
+      "name": "IllumiYume XL v3.2",
       "tagline": "Expressive Illustrious anime with V-Pred precision",
       "icon": "🌙",
-      "previewImage": "previews/illumiyume-xl-v35.jpg",
-      "description": "IllumiYume XL v3.5 — Illustrious-based anime checkpoint using V-parameterisation for cleaner gradients and more expressive faces. CLIP Skip 2, external sdxl_vae, euler/v_prediction sampler.",
+      "previewImage": "previews/illumiyume-xl-v32.jpg",
+      "description": "IllumiYume XL v3.2 - Illustrious-based anime checkpoint using V-parameterisation for cleaner gradients and more expressive faces. CLIP Skip 2, external VAE.",
       "tags": [
         "Illustrious",
         "SDXL",
@@ -511,14 +511,14 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "IllumiYume XL v3.5 VPred",
+        "displayModel": "IllumiYume XL v3.2 VPred",
         "baseModels": [
           "illustrious",
           "sdxl"
         ],
-        "workflow": "workflows/illumiyume-xl-v35.json",
-        "checkpoint": "illumiyumeXL_v35VPred.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/1887507",
+        "workflow": "workflows/illumiyume-xl-v32.json",
+        "checkpoint": "illumiyumeXL_v32VPred.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1820669",
         "vae": "sdxl_vae.safetensors",
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
         "steps": 25,
