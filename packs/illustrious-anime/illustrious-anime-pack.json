@@ -518,7 +518,7 @@
         ],
         "workflow": "workflows/illumiyume-xl-v35.json",
         "checkpoint": "illumiyumeXL_v35VPred.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/1308285",
+        "checkpointUrl": "https://civitai.com/api/download/models/1887507",
         "vae": "sdxl_vae.safetensors",
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
         "steps": 25,

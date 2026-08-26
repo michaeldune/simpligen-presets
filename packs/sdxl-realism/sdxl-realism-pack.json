@@ -47,7 +47,7 @@
         ],
         "workflow": "workflows/sdxl-triple-headed-monkeys-v10.json",
         "checkpoint": "sdxlTripleHeadedMonkeys_v10.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/237793",
+        "checkpointUrl": "https://civitai.com/api/download/models/268085",
         "steps": 30,
         "cfg": 7,
         "denoise": 1,
