@@ -41,7 +41,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
-| MiniMax H3 (Turbo LoRA) | 3 | MiniMax H3 (pruned INT8) | The default: 6–8 steps, best for static/small motion |
+| MiniMax H3 (Turbo LoRA, larryvrh) | 3 | MiniMax H3 (pruned INT8) | The default: 6–8 steps, best for static/small motion. Named for the LoRA author to stay clear of SimpliGen's own official H3 Turbo pack |
 | MiniMax H3 (Turbo, Fast Motion) | 3 | MiniMax H3 (pruned INT8) | 4-step tier tuned for heavy/fast motion |
 | MiniMax H3 (Sol-Attn + EasyCache) | 3 | MiniMax H3 (pruned INT8) | Sparse attention + step caching at the full 20 steps. **Not a speed pick** since 1.50.0 — pick it for the no-LoRA path, and for the R2V preset, which is the crash-free route for reference *video*. Needs Faster Attention ON |
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
