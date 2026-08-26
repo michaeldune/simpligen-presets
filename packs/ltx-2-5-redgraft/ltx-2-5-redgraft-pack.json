@@ -1,0 +1,351 @@
+{
+  "id": "ltx-2-5-redgraft-pack",
+  "name": "Community — LTX 2.5 REDgraft",
+  "version": "1.0.0",
+  "author": "michaeldune",
+  "addedAt": "2026-08-24",
+  "description": "LTX 2.5 text-to-video and image-to-video using the REDgraft NSFW INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "LTX",
+    "REDgraft",
+    "NSFW"
+  ],
+  "presets": [
+    {
+      "id": "redgraft-ltx-25-fast2k-t2v",
+      "name": "LTX 2.5 REDgraft Fast 2K (T2V, NSFW)",
+      "icon": "⚡",
+      "description": "Generate video directly from a text prompt with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX T2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
+      "tagline": "Fast LTX 2.5 text-to-video with generated audio",
+      "previewImage": "previews/redgraft-ltx-25-fast2k-t2v.jpg",
+      "tags": [
+        "Video",
+        "T2V",
+        "LTX 2.5",
+        "REDgraft",
+        "INT8",
+        "NSFW"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 REDgraft / Sulphur2 Ported (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/redgraft-ltx-25-fast2k-t2v.json",
+        "requiresImage": false,
+        "unet": "redgraftLTX25Fast2K_ltx25RedgraftNSFW.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3250230?fileId=3133376",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": null
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17,
+          "notes": "The REDgraft diffusion model is an approximately 17 GB INT8 download. The Gemma4 encoder, LTX 2.5 video/audio VAEs, and the LTX 2.3 spatial upscaler are shared companion files; this text-to-video preset does not require a source image. The supplied Civitai JSON is an I2V ComfyUI configuration export and is not a runtime dependency, so only the safetensors model and this API workflow are installed."
+        }
+      }
+    },
+    {
+      "id": "redgraft-ltx-25-fast2k-i2v",
+      "name": "LTX 2.5 REDgraft Fast 2K (I2V, NSFW)",
+      "icon": "🖼️",
+      "description": "Animate a source image with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX I2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
+      "tagline": "Fast LTX 2.5 image-to-video with generated audio",
+      "previewImage": "previews/redgraft-ltx-25-fast2k-i2v.jpg",
+      "tags": [
+        "Video",
+        "I2V",
+        "LTX 2.5",
+        "REDgraft",
+        "INT8",
+        "NSFW"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 REDgraft / Sulphur2 Ported (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/redgraft-ltx-25-fast2k-i2v.json",
+        "requiresImage": true,
+        "unet": "redgraftLTX25Fast2K_ltx25RedgraftNSFW.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3250230?fileId=3133376",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": null
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17,
+          "notes": "The REDgraft diffusion model is an approximately 17 GB INT8 download. The Gemma4 encoder, LTX 2.5 video/audio VAEs, and the LTX 2.3 spatial upscaler are shared companion files; this image-to-video preset requires a source image. The supplied Civitai JSON informed this I2V workflow but is not a runtime dependency, so only the safetensors model and this API workflow are installed."
+        }
+      }
+    }
+  ]
+}
