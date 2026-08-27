@@ -1,7 +1,7 @@
 {
   "id": "illustrious-realism-pack",
   "name": "Community — Illustrious Realism",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
@@ -510,6 +510,7 @@
         ],
         "workflow": "workflows/babes-illustrious-v55-fp16.json",
         "checkpoint": "babesIllustriousBy_v55FP16.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2739037",
         "steps": 24,
         "cfg": 4.5,
         "denoise": 1,

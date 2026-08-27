@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -230,7 +230,7 @@
         ],
         "workflow": "workflows/male-ggmix-illustrious-anima-v11.json",
         "unet": "maleGgmixIllustrious_anima11Base.safetensors",
-        "unetUrl": null,
+        "unetUrl": "https://civitai.com/api/download/models/2958278",
         "clip": "qwen_3_06b_base.safetensors",
         "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
         "vae": "qwen_image_vae.safetensors",

@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
@@ -161,7 +161,7 @@
           {
             "dir": "latent_upscale_models",
             "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
-            "url": null
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
           }
         ],
         "cfg": 1,
@@ -327,7 +327,7 @@
           {
             "dir": "latent_upscale_models",
             "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
-            "url": null
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
           }
         ],
         "cfg": 1,
