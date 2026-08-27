@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-pack",
   "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "DmitryDB",
   "nsfw": true,
   "description": "MiniMax H3 text-to-video on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Plain and Turbo-LoRA variants.",
@@ -72,12 +72,14 @@
         "extensions": [
           {
             "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git"
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
@@ -381,12 +383,14 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
         "steps": 6,

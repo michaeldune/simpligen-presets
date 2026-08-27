@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-turbo-accelerated-pack",
   "name": "Community — MiniMax H3 (Turbo, Fully Accelerated)",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "larryvrh + kijai + xmarre",
   "nsfw": false,
   "description": "MiniMax H3 text-to-video with every acceleration technique stacked: MiniMax H3 Turbo LoRA (v4-600 EMA, applied via the dedicated ComfyUI-MiniMax-H3-Turbo loader - required on our pruned int8 base, since a generic LoRA loader silently drops the adaln timing-curve weights) + MiniMax H3 Turbo Sampler (dual-schedule aware, auto-detects native ModelSamplingAV) + SageAttention (KJNodes) + MiniMax H3 Sigma Shift (native noise-schedule control) + Spectrum (xmarre's spectral-feature-forecasting accelerator, ~30-40% fewer transformer evaluations) + Sol-Attn (sparse attention, reduced VRAM). Stack order and recommended settings sourced from the community workflow this pack is based on. Steps reduced from the official 20 down to 10 (can go as low as 4 per the source video, at a quality cost). Tested T2V at 5s/480p/10 steps: 84.1s on engine v0.31.0 (was 99.1s on v0.30.1), LoRA log-confirmed fully applied (208/208 backbone modules + 51 adaln modules, zero dropped keys) - clean video output across sampled frames, no artifacts, no visible plastic-skin/over-sharp-grain look. That is 2.03x the official 20-step MiniMax H3 preset measured the same way, making this the first preset here to pass 2x. Research/experimental preset - Spectrum is an approximate accelerator (not bit-identical output). IMPORTANT, from Spectrum's own maintainer as of 2026-08-13: few-step acceleration LoRAs - explicitly including Turbo - are NOT recommended alongside Spectrum for quality-critical work. Reported degradation covers composition, action and motion, reduced natural detail, and a smooth/plasticky look. He also found the same degradation running the acceleration LoRA WITHOUT Spectrum, so this is the Turbo LoRA's character rather than a Spectrum interaction - but it means this pack stacks two things whose author does not recommend combining them. Use it for speed; use the Sol-Attn + EasyCache pack at 20 steps when fidelity matters. Settings here are blend_weight 0.50, audio_blend_weight 0.00, offline_smoothing_replay on. Note audio_blend_weight 0 does NOT make a forecast step equivalent to a real transformer evaluation - it only stops direct spectral blending of audio rows; Spectrum still substitutes predicted hidden features on forecast steps. At 10 steps this preset runs roughly 5 real evaluations and 5 forecasts, which is the short-trajectory regime the maintainer flags as having few actual anchors. Pinned against Spectrum v0.2.5; v0.2.6 and v0.2.7 since added native ER-SDE support and model-aware forecasting, which this workflow does not yet configure.",
@@ -82,27 +82,32 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active."
+            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen."
+            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen.",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
           },
           {
             "name": "ComfyUI-SolAttn_triton",
             "url": "https://github.com/kijai/ComfyUI-SolAttn_triton.git",
-            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch."
+            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch.",
+            "pinnedCommit": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc"
           }
         ],
         "steps": 10,
@@ -409,27 +414,32 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active."
+            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen."
+            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen.",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
           },
           {
             "name": "ComfyUI-SolAttn_triton",
             "url": "https://github.com/kijai/ComfyUI-SolAttn_triton.git",
-            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch."
+            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch.",
+            "pinnedCommit": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc"
           }
         ],
         "steps": 10,
@@ -748,27 +758,32 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active."
+            "description": "Provides PathchSageAttentionKJ - this workflow applies SageAttention itself, via this node. IMPORTANT: do not stack a second model-level SageAttention patch on top of it. If your setup applies SageAttention globally (ComfyUI's --use-sage-attention, or a host app that patches the model for you), the two patches together can make Turbo output numerically invalid - reported as black or garbage frames. On SimpliGen this is handled automatically: the app withholds its own per-preset patch for this preset, so this node is the only one active.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen."
+            "description": "Spectral-feature-forecasting accelerator for native MiniMax H3 (SpectrumApplyMiniMaxH3 node). NOT pre-installed by SimpliGen.",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
           },
           {
             "name": "ComfyUI-SolAttn_triton",
             "url": "https://github.com/kijai/ComfyUI-SolAttn_triton.git",
-            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch."
+            "description": "Sol-Attn sparse-attention node (Triton kernels). NOT pre-installed by SimpliGen. Requires the engine's Python to have dev headers (Python.h / python3XX.lib) for Triton's JIT compiler - present from SimpliGen 1.43.x onward. REQUIRES SimpliGen Settings > Advanced > 'Faster Attention' to be ON - that toggle controls whether the triton-windows pip package stays installed, and without it this node fails to import ('No module named triton'). SimpliGen's own 'Repair now' prompt will NOT fix this, and that still holds on SimpliGen 1.46.0, which added detection and repair of half-installed custom nodes: that targets incomplete installs, and this node is complete - it ships no requirements.txt, pyproject.toml or install script, so there is no declared dependency for a repair to reinstall. Only re-enabling Faster Attention restores triton. Note that toggle does two distinct things: globally it installs/removes the triton + sageattention packages (needed here), while per-preset it decides whether SimpliGen applies its own SageAttention patch (withheld for this preset, which is what we want - see the KJNodes note on double-patching). Leaving it ON is correct for this preset: the packages stay installed and SimpliGen still withholds the duplicate patch.",
+            "pinnedCommit": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc"
           }
         ],
         "steps": 10,

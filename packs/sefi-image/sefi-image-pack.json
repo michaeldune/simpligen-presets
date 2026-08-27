@@ -1,7 +1,7 @@
 {
   "id": "sefi-image-pack",
   "name": "Community — SeFi-Image",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "SeFi-Team",
   "nsfw": false,
   "description": "SeFi-Image 5B — Semantic-First Diffusion (Flux 2 Klein-based). Excellent text rendering and stylized art (posters, anime, watercolor). Runs via the Rebels SeFi custom nodes.",
@@ -106,7 +106,15 @@
           "minRamGB": 16,
           "sizeGB": 12.6,
           "notes": "SeFi 5B Turbo GGUF Q8 (diffusion_models) + SeFi Qwen3-VL-4B encoder (clip\\) + SeFi's OWN VAE (a generic Flux 2 VAE loads but degrades output - NOT interchangeable). Requires the ComfyUI_Rebels_SeFi custom node (github.com/RealRebelAI/ComfyUI_Rebels_SeFi; the INNER ComfyUI_Rebels_SeFi folder goes in custom_nodes). Steps/guidance hardcoded (Turbo allows 4/8/10 steps, guidance 1.0 only). Monolithic SEFI_PIPE - user LoRAs not supported. Encoder runs on CPU and unloads after encode (16GB-RAM friendly)."
-        }
+        },
+        "extensions": [
+          {
+            "name": "ComfyUI_Rebels_SeFi",
+            "url": "https://github.com/RealRebelAI/ComfyUI_Rebels_SeFi.git",
+            "description": "Rebels SeFi loader and sampler nodes (RebelsSeFiLoader, RebelsSeFiSampler) - required, not bundled with ComfyUI.",
+            "pinnedCommit": "737d61f20723340a8c3090084b4983be594bab66"
+          }
+        ]
       }
     },
     {
@@ -204,7 +212,15 @@
           "minRamGB": 16,
           "sizeGB": 12.6,
           "notes": "Same models/node as the 4-step preset (shared workflow; Turbo validates steps in {4,8,10}). 8 steps = best balance: verified to keep faces complete in dense multi-subject scenes while keeping title text clean (4 = blank faces in crowds; 10 = faces fixed but text duplicated/garbled off the distillation target). Remaining ceiling: small/secondary text in dense infographics can still garble (model size, not step count). ~18s warm."
-        }
+        },
+        "extensions": [
+          {
+            "name": "ComfyUI_Rebels_SeFi",
+            "url": "https://github.com/RealRebelAI/ComfyUI_Rebels_SeFi.git",
+            "description": "Rebels SeFi loader and sampler nodes (RebelsSeFiLoader, RebelsSeFiSampler) - required, not bundled with ComfyUI.",
+            "pinnedCommit": "737d61f20723340a8c3090084b4983be594bab66"
+          }
+        ]
       }
     }
   ]

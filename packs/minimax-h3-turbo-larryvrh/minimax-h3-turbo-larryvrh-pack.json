@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-turbo-larryvrh-pack",
   "name": "Community — MiniMax H3 (Turbo LoRA, larryvrh)",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "larryvrh",
   "nsfw": false,
   "description": "MiniMax H3 text-to-video with the v4-600 EMA Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — the default choice for 6-8 steps and for any motion that is not heavy/fast, while keeping audio in sync. The current best line improves static/small-motion detail and resolves the v1 over-sharpened plastic look. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
@@ -76,12 +76,14 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
         "steps": 6,
@@ -403,12 +405,14 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
         "steps": 6,
@@ -705,12 +709,14 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
         "steps": 6,

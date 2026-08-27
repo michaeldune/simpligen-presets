@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-lipsync-pack",
   "name": "Community — MiniMax H3 Lip-Sync",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -86,12 +86,14 @@
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)"
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-MiniMax-H3-Turbo",
             "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
-            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)"
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
         "steps": 6,
