@@ -1,7 +1,7 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Michael Pate (community)",
   "nsfw": false,
   "minComfyuiVersion": "0.28.0",
@@ -52,7 +52,7 @@
         "unet": "Ideogram4-instant_int8-convrot-simple.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3131396",
         "clip": "qwen_3_8b_fp8mixed.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Ideogram-4_ComfyUI/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
         "vae": "flux2-vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
         "loras": [
@@ -152,7 +152,7 @@
         "unet": "Ideogram4-instant_int8-convrot-simple.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3131396",
         "clip": "qwen_3_8b_fp8mixed.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Ideogram-4_ComfyUI/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
         "vae": "flux2-vae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
         "loras": [
