@@ -1,10 +1,10 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "Michael Pate (community)",
   "nsfw": false,
-  "minComfyuiVersion": "0.28.0",
+  "minComfyuiVersion": "v0.28.0",
   "description": "Ideogram 4 Instant INT8 — the text-rendering powerhouse, distilled to 8 steps and quantized to INT8 so it runs on 12 GB cards. Paired with the Lenovo UltraReal LoRA for authentic candid-photo realism. Requires ComfyUI engine 0.28+ (SimpliGen with int8 support).",
   "tags": [
     "Ideogram",
