@@ -73,24 +73,10 @@
       "title": "MiniMax H3 Turbo LoRA"
     }
   },
-  "h3_sage_attn": {
-    "inputs": {
-      "model": [
-        "h3_turbo_lora",
-        0
-      ],
-      "sage_attention": "auto",
-      "allow_compile": false
-    },
-    "class_type": "PathchSageAttentionKJ",
-    "_meta": {
-      "title": "Patch Sage Attention (KJ)"
-    }
-  },
   "h3_sigma_shift": {
     "inputs": {
       "model": [
-        "h3_sage_attn",
+        "h3_turbo_lora",
         0
       ],
       "shift_video": 12.0,
