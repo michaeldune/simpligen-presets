@@ -7,7 +7,7 @@ Run: python build-zips.py
 Output: D:\\SimpliGen-Backups\\zips\\community-<slug>.zip
 """
 
-import os, json, zipfile
+import os, re, json, zipfile
 
 BASE    = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'packs')
 OUT_DIR = r'D:\SimpliGen-Backups\zips'
@@ -123,23 +123,63 @@ def h(text):
             .replace('&', '&amp;').replace('<', '&lt;')
             .replace('>', '&gt;').replace('"', '&quot;'))
 
-def collect_custom_nodes(pack_dir):
-    found = set()
+PLACEHOLDER_RE = re.compile(r'\{\{[^}]+\}\}')
+
+def norm_repo(url):
+    """Same repo whether written with .git, a trailing slash, or neither."""
+    return (url or '').strip().rstrip('/').removesuffix('.git').lower()
+
+def collect_custom_nodes(data, pack_dir):
+    """Prerequisites come from TWO sources, and both are needed.
+
+    Workflow class_types catch the nodes a graph names. Declared extensions
+    catch the ones it does not: SimpliGen INJECTS PathchSageAttentionKJ at
+    render time when a preset sets supportsSage, so that node never appears
+    in any workflow yet must still be installed. Reading only the graph
+    silently dropped ComfyUI-KJNodes from the accelerated pack's readme.
+
+    Bare {{PLACEHOLDER}} tokens are substituted before parsing, exactly as the
+    engine does. Skipping unparseable workflows meant a pack could emit NO
+    prerequisites at all and look like a pack that simply needed none - the
+    Wan 2.2 readme shipped that way until the workflow was hand-quoted.
+    """
+    by_repo = {}
+    known_by_name = {e['name']: e for e in CUSTOM_NODES.values()}
+
+    def add(name, url, note):
+        key = norm_repo(url)
+        if not key or key in by_repo:
+            return
+        by_repo[key] = {'name': name, 'url': url, 'note': note}
+
     wf_dir = os.path.join(pack_dir, 'workflows')
-    if not os.path.isdir(wf_dir):
-        return found
-    for fn in os.listdir(wf_dir):
-        if not fn.endswith('.json'):
-            continue
-        try:
-            wf = json.load(open(os.path.join(wf_dir, fn), encoding='utf-8'))
-        except json.JSONDecodeError:
-            # video workflows contain bare {{PLACEHOLDER}} tokens that aren't valid JSON
-            continue
-        for node in wf.values():
-            if isinstance(node, dict) and node.get('class_type') in CUSTOM_NODES:
-                found.add(node['class_type'])
-    return found
+    if os.path.isdir(wf_dir):
+        for fn in sorted(os.listdir(wf_dir)):
+            if not fn.endswith('.json'):
+                continue
+            raw = open(os.path.join(wf_dir, fn), encoding='utf-8').read()
+            try:
+                wf = json.loads(PLACEHOLDER_RE.sub('0', raw))
+            except json.JSONDecodeError as e:
+                print(f'  WARN  {fn}: unparseable even after placeholder '
+                      f'substitution ({e.msg}) - its nodes are not listed')
+                continue
+            for node in wf.values():
+                if isinstance(node, dict) and node.get('class_type') in CUSTOM_NODES:
+                    n = CUSTOM_NODES[node['class_type']]
+                    add(n['name'], n['url'], n['note'])
+
+    for preset in data.get('presets', []):
+        for media in ('video', 'image'):
+            for ext in ((preset.get(media) or {}).get('extensions') or []):
+                name = ext.get('name') or ''
+                # prefer the curated note; fall back to the pack's own text
+                known = known_by_name.get(name)
+                add(name,
+                    ext.get('url') or (known or {}).get('url'),
+                    (known or {}).get('note') or ext.get('description') or '')
+
+    return sorted(by_repo.values(), key=lambda n: n['name'].lower())
 
 def collect_models(data):
     seen = {}
@@ -228,7 +268,7 @@ code { font-family: monospace; background: var(--border); padding: 1px 5px; bord
 
 
 def make_readme(data, pack_dir):
-    custom_nodes_used = collect_custom_nodes(pack_dir)
+    custom_nodes_used = collect_custom_nodes(data, pack_dir)
     models            = collect_models(data)
     shared_set        = {m['filename'] for m in models if len(m['presets']) > 1}
     model_by_fname    = {m['filename']: m for m in models}
@@ -238,14 +278,7 @@ def make_readme(data, pack_dir):
     # multiple class_types - e.g. a loader + a sampler from the same repo)
     prereq_html = ''
     if custom_nodes_used:
-        seen_urls = set()
-        unique_nodes = []
-        for ct in sorted(custom_nodes_used):
-            node = CUSTOM_NODES[ct]
-            if node['url'] in seen_urls:
-                continue
-            seen_urls.add(node['url'])
-            unique_nodes.append(node)
+        unique_nodes = custom_nodes_used  # already deduped by repo, name-sorted
         items = ''.join(
             f'<div class="prereq-item"><div>'
             f'<div class="prereq-name"><a href="{h(node["url"])}" target="_blank">{h(node["name"])}</a></div>'
