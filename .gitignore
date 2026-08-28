@@ -25,3 +25,6 @@ MEMORY.md
 *.token
 .env
 .env.*
+
+# frame contact sheets / audio samples from reviewing generated video
+.video-analysis/
