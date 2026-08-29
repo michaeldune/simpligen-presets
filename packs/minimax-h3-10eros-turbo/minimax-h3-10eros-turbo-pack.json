@@ -1,10 +1,10 @@
 {
-  "id": "minimax-h3-10eros-pack",
-  "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "2.0.0",
+  "id": "minimax-h3-10eros-turbo-pack",
+  "name": "Community — MiniMax H3 (10Eros Max, Turbo)",
+  "version": "1.0.0",
   "author": "DmitryDB",
   "nsfw": true,
-  "description": "MiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
+  "description": "MiniMax H3 on the 10Eros Max finetune with larryvrh's Turbo LoRA: six steps instead of twenty. Text-to-video, image-to-video and reference-to-video. Uses the same 10Eros Max weights as the plain pack, plus the Turbo LoRA - if you have the plain pack installed this costs one extra file.",
   "tags": [
     "Local",
     "Video",
@@ -15,20 +15,22 @@
   ],
   "presets": [
     {
-      "id": "minimax-h3-10eros-t2v",
-      "name": "MiniMax H3 Text to Video (10Eros Max)",
-      "icon": "🎬",
-      "previewImage": "previews/minimax-h3-10eros-t2v.jpg",
-      "description": "The 10Eros Max finetune of MiniMax H3 (INT8 ConvRot build), run through the unmodified official T2V graph — same sampler, scheduler and step count as the stock preset, so the model is the only difference.\n\nThis is the non-pruned base: full-width adaln (96768x16 against the stock 96768x8) and 30 layers left in BF16 that the stock weights store as int8.\n\nMeasured on SimpliGen 1.50.0 / engine v0.33.1, 5s/480p/20 steps on a 12 GB RTX 4070 Ti with ~19 GB system RAM free: 113.3s against the official preset's 113.2s on the beta engine (e5a38e3, 2026-08-27, warm, seed-fixed, n=1) - a dead heat. The 4% edge measured on engine v0.33.1 (119.1s vs 123.5s) no longer holds. Note it is actually SLOWER per sampling step (3.60s vs 3.01s) and wins only on load overhead.\n\nOn builds before 1.50.0 the gap was far larger (133.4s vs 171.4s, 22%). That was a VRAM-pressure artifact: while the run was memory-bound, streaming dominated and hid the per-step cost. 1.50.0 frees the text encoder before sampling, and most of the advantage went with it. If you are on an older build, expect the bigger number.\n\nWeights are 20.94 GiB. Free system RAM matters more than VRAM here — keep 16 GB+ free or timings degrade sharply.",
-      "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
+      "id": "minimax-h3-10eros-turbo-t2v",
+      "name": "MiniMax H3 Text to Video (10Eros Max + Turbo)",
+      "icon": "⚡",
+      "previewImage": "previews/minimax-h3-10eros-turbo-t2v.jpg",
+      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
         "T2V",
         "Audio",
+        "Turbo",
+        "LoRA",
         "Finetune"
       ],
-      "template": "wan-video",
       "enabled": true,
+      "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {
         "placement": "inline-end",
@@ -42,10 +44,7 @@
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_10eros_t2v.json",
-        "supportsSage": true,
-        "supportsSpectrum": true,
-        "supportsSolAttn": true,
+        "workflow": "workflows/video_minimax_h3_10eros_turbo_t2v.json",
         "duration": {
           "type": "slider",
           "min": 5,
@@ -67,38 +66,38 @@
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
           }
         ],
         "extensions": [
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
-            "name": "ComfyUI-KJNodes",
-            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
-            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
-          },
-          {
-            "name": "ComfyUI-Spectrum-MiniMax-H3",
-            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "name": "ComfyUI-MiniMax-H3-Turbo",
+            "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
-        "steps": 20,
+        "steps": 6,
         "negativePrompt": "",
         "controls": {
           "steps": {
-            "min": 10,
-            "max": 30,
+            "min": 4,
+            "max": 8,
             "step": 1,
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -317,24 +316,30 @@
           "minRamGB": 32,
           "sizeGB": 22,
           "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
-        }
+        },
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "description": ""
       }
     },
     {
-      "id": "minimax-h3-10eros-i2v",
-      "name": "MiniMax H3 Image to Video (10Eros Max)",
-      "icon": "🎬",
-      "previewImage": "previews/minimax-h3-10eros-i2v.jpg",
-      "description": "The 10Eros Max finetune of MiniMax H3 (INT8 ConvRot build), run through the unmodified official T2V graph — same sampler, scheduler and step count as the stock preset, so the model is the only difference.\n\nThis is the non-pruned base: full-width adaln (96768x16 against the stock 96768x8) and 30 layers left in BF16 that the stock weights store as int8.\n\nMeasured on SimpliGen 1.50.0 / engine v0.33.1, 5s/480p/20 steps on a 12 GB RTX 4070 Ti with ~19 GB system RAM free: 113.3s against the official preset's 113.2s on the beta engine (e5a38e3, 2026-08-27, warm, seed-fixed, n=1) - a dead heat. The 4% edge measured on engine v0.33.1 (119.1s vs 123.5s) no longer holds. Note it is actually SLOWER per sampling step (3.60s vs 3.01s) and wins only on load overhead.\n\nOn builds before 1.50.0 the gap was far larger (133.4s vs 171.4s, 22%). That was a VRAM-pressure artifact: while the run was memory-bound, streaming dominated and hid the per-step cost. 1.50.0 frees the text encoder before sampling, and most of the advantage went with it. If you are on an older build, expect the bigger number.\n\nWeights are 20.94 GiB. Free system RAM matters more than VRAM here — keep 16 GB+ free or timings degrade sharply.",
-      "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
+      "id": "minimax-h3-10eros-turbo-i2v",
+      "name": "MiniMax H3 Image to Video (10Eros Max + Turbo)",
+      "icon": "⚡",
+      "previewImage": "previews/minimax-h3-10eros-turbo-i2v.jpg",
+      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
         "T2V",
         "Audio",
+        "Turbo",
+        "LoRA",
         "Finetune"
       ],
-      "template": "wan-video",
       "enabled": true,
+      "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {
         "placement": "inline-end",
@@ -348,10 +353,7 @@
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_10eros_i2v.json",
-        "supportsSage": true,
-        "supportsSpectrum": true,
-        "supportsSolAttn": true,
+        "workflow": "workflows/video_minimax_h3_10eros_turbo_i2v.json",
         "duration": {
           "type": "slider",
           "min": 5,
@@ -373,38 +375,38 @@
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
           }
         ],
         "extensions": [
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
-            "name": "ComfyUI-KJNodes",
-            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
-            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
-          },
-          {
-            "name": "ComfyUI-Spectrum-MiniMax-H3",
-            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "name": "ComfyUI-MiniMax-H3-Turbo",
+            "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
-        "steps": 20,
+        "steps": 6,
         "negativePrompt": "",
         "controls": {
           "steps": {
-            "min": 10,
-            "max": 30,
+            "min": 4,
+            "max": 8,
             "step": 1,
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -624,7 +626,10 @@
           "sizeGB": 22,
           "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
         },
-        "description": "Animate a source image with the 10Eros Max finetune. The image becomes the first frame and the prompt describes the motion. Runs on the 10Eros Max INT8 ConvRot finetune already used by this pack's text-to-video preset, so there is no extra model download. Note: your first and last frame images are CENTRE-CROPPED to the output shape, not letterboxed. Match the aspect ratio to your source picture - a tall portrait rendered at 16:9 will lose the top and bottom, which usually means the head.",
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "description": "Animate a source image with the 10Eros Max finetune at six steps using the Turbo LoRA. The image becomes the first frame and the prompt describes the motion. Note: your first and last frame images are CENTRE-CROPPED to the output shape, not letterboxed. Match the aspect ratio to your source picture - a tall portrait rendered at 16:9 will lose the top and bottom, which usually means the head.",
         "acceptsReferenceImages": {
           "min": 1,
           "max": 2,
@@ -636,20 +641,22 @@
       }
     },
     {
-      "id": "minimax-h3-10eros-r2v",
-      "name": "MiniMax H3 Reference to Video (10Eros Max)",
-      "icon": "🎬",
-      "previewImage": "previews/minimax-h3-10eros-r2v.jpg",
-      "description": "The 10Eros Max finetune of MiniMax H3 (INT8 ConvRot build), run through the unmodified official T2V graph — same sampler, scheduler and step count as the stock preset, so the model is the only difference.\n\nThis is the non-pruned base: full-width adaln (96768x16 against the stock 96768x8) and 30 layers left in BF16 that the stock weights store as int8.\n\nMeasured on SimpliGen 1.50.0 / engine v0.33.1, 5s/480p/20 steps on a 12 GB RTX 4070 Ti with ~19 GB system RAM free: 113.3s against the official preset's 113.2s on the beta engine (e5a38e3, 2026-08-27, warm, seed-fixed, n=1) - a dead heat. The 4% edge measured on engine v0.33.1 (119.1s vs 123.5s) no longer holds. Note it is actually SLOWER per sampling step (3.60s vs 3.01s) and wins only on load overhead.\n\nOn builds before 1.50.0 the gap was far larger (133.4s vs 171.4s, 22%). That was a VRAM-pressure artifact: while the run was memory-bound, streaming dominated and hid the per-step cost. 1.50.0 frees the text encoder before sampling, and most of the advantage went with it. If you are on an older build, expect the bigger number.\n\nWeights are 20.94 GiB. Free system RAM matters more than VRAM here — keep 16 GB+ free or timings degrade sharply.",
-      "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
+      "id": "minimax-h3-10eros-turbo-r2v",
+      "name": "MiniMax H3 Reference to Video (10Eros Max + Turbo)",
+      "icon": "⚡",
+      "previewImage": "previews/minimax-h3-10eros-turbo-r2v.jpg",
+      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
         "T2V",
         "Audio",
+        "Turbo",
+        "LoRA",
         "Finetune"
       ],
-      "template": "wan-video",
       "enabled": true,
+      "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {
         "placement": "inline-end",
@@ -663,10 +670,7 @@
         "baseModels": [
           "minimax-h3"
         ],
-        "workflow": "workflows/video_minimax_h3_10eros_r2v.json",
-        "supportsSage": true,
-        "supportsSpectrum": true,
-        "supportsSolAttn": true,
+        "workflow": "workflows/video_minimax_h3_10eros_turbo_r2v.json",
         "duration": {
           "type": "slider",
           "min": 5,
@@ -688,38 +692,38 @@
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
           }
         ],
         "extensions": [
           {
             "name": "rgthree-comfy",
             "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
-            "name": "ComfyUI-KJNodes",
-            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
-            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
-          },
-          {
-            "name": "ComfyUI-Spectrum-MiniMax-H3",
-            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "name": "ComfyUI-MiniMax-H3-Turbo",
+            "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
           }
         ],
-        "steps": 20,
+        "steps": 6,
         "negativePrompt": "",
         "controls": {
           "steps": {
-            "min": 10,
-            "max": 30,
+            "min": 4,
+            "max": 8,
             "step": 1,
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -939,7 +943,10 @@
           "sizeGB": 22,
           "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
         },
-        "description": "Keep a person's appearance across a brand new shot. Supply one to three reference pictures of the SAME person; the reference itself never appears in the video, so the prompt must describe the whole shot - setting, action and camera - not just the movement. Runs on the 10Eros Max INT8 ConvRot finetune already used by this pack's text-to-video preset, so there is no extra model download.",
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "description": "Keep a person's appearance across a brand new shot, at six steps with the Turbo LoRA. Supply one to three reference pictures of the SAME person; the reference never appears in the video, so the prompt must describe the whole shot - setting, action and camera.",
         "acceptsReferenceImages": {
           "min": 0,
           "max": 9,
