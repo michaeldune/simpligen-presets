@@ -5,7 +5,7 @@
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
-  "description": "Audio-to-video for LTX 2.5. SimpliGen ships LTX 2.5 image-to-video, which generates its own soundtrack, and a separate LTX 2.3 lip-sync preset that accepts your audio. This pack combines them: the 2.5 image-to-video graph with its invented-audio latent replaced by an encode of your uploaded track, so 2.5 lip-syncs to real audio. Every node is already registered by the SimpliGen engine - nothing extra to install. Uses the same weights as the official LTX 2.5 pack, so if you have that installed there is no additional download.",
+  "description": "Audio-to-video for LTX 2.5. SimpliGen ships LTX 2.5 image-to-video, which generates its own soundtrack, and a separate LTX 2.3 lip-sync preset that accepts your audio. This pack combines them: the 2.5 image-to-video graph with its invented-audio latent replaced by an encode of your uploaded track, so 2.5 lip-syncs to real audio. Every node is already registered by the SimpliGen engine - nothing extra to install. Uses the same weights as the official LTX 2.5 pack, so if you have that installed there is no additional download. If you do not, note that those weights are on a gated HuggingFace repository: you need a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 before they will download. Approval is instant; without a key the download will retry rather than prompting.",
   "tags": [
     "Local",
     "Video",
