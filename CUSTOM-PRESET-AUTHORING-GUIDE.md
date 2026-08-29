@@ -1,4 +1,4 @@
-# SimpliGen Custom Local Preset Authoring Guide (v3)
+# SimpliGen Custom Local Preset Authoring Guide (v4)
 
 A practical guide for building **local** SimpliGen preset packs: researching a model, writing the preset pack + ComfyUI **API-format** workflow, adding a thumbnail and LoRA support, installing safely on Windows, and verifying the result. Covers both **image** and **video** presets. Written for a capable coding agent or a hands-on user.
 
@@ -30,7 +30,7 @@ Engine model-path map: %APPDATA%\simpligen\engine\ComfyUI\extra_model_paths.yaml
 3. Prefer the creator's published generation metadata over generic assumptions.
 4. One self-contained source folder per pack.
 5. Use a ComfyUI **API-format** workflow (flat node map), not a UI graph export.
-6. Validate every JSON with a parser — for video workflows, confirm every `{{placeholder}}` sits **inside a quoted string value** (`"steps": "{{steps}}"`), not bare (`"steps": {{steps}}`). SimpliGen resolves either at generation time, but a bare placeholder is not valid JSON, which breaks any tooling (including `build-zips.py`) that tries to parse the workflow file directly.
+6. Validate every JSON with a parser. Prefer `{{placeholder}}` **inside a quoted string value** (`"steps": "{{steps}}"`) over bare (`"values.c": {{width}}`) — SimpliGen resolves either, but a bare placeholder is not valid JSON and breaks any tooling (including `build-zips.py`) that parses the workflow directly. **Both forms are in shipped workflows**, though: across this repo's 100 workflows, `width`, `height`, `prompt` and `ref_2_enabled` appear bare, everything else quoted. So write quoted where you have the choice, but *any tool you write must handle both* — and must preserve which form each placeholder used. Substitute quoted `"{{x}}"` and bare `{{x}}` with **different sentinels** and invert each separately; a single blind substitution turns `"unet_name": "{{unet}}"` into `""sentinel""` on the way in, or drops the quotes on the way out. Assert after the round trip that every placeholder name survived *with the same quoting*.
 7. Install via an idempotent Windows installer.
 8. Write JSON as UTF-8 **without BOM**; preserve Unicode/emoji.
 9. Add the LoRA marker node (§5) and a `tagline` (§6) to every preset.
@@ -137,8 +137,11 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
   "name": "<display name>",
   "version": "1.0.0",
   "author": "<creator>",
+  "nsfw": false,                                           // REQUIRED - drives the store's "Hide mature" filter
   "description": "<desc>",
   "tags": ["Local", "<family>", "<style>"],
+  "minComfyuiVersion": "v0.33.0",                          // optional; blocks install on older engines
+  "addedAt": "2026-08-24",                                 // optional ISO date, for "Latest" ordering
   "presets": [{
     "id": "<preset-id>",
     "name": "<display name>",
@@ -148,7 +151,8 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
     "description": "<short desc>",
     "tags": ["<style>", "<family>", "Local"],
     "enabled": true,
-    "template": "sdxl",                                    // "booru" for danbooru-tag anime models
+    "template": "sdxl",                                    // "booru" tag-trained anime, "wan-video" video
+    "promptStyle": "natural",                              // optional; pairs with template
     "ui": { "visibleFields": ["content","aspectRatio","shotType","environment","lightingSource","atmosphere"] },
     "image": {
       "supports": ["local"], "provider": "comfyui",
@@ -177,7 +181,7 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
 
 ## 7. Video presets
 
-Video presets follow the same overall pack shape as image ones (§6), but the per-preset media block is called **`video`** instead of `image`, and both the schema and the typical workflow graph differ enough to warrant their own section. Cross-reference: `packs/wan22-i2v-gguf/` (dual-expert GGUF, image-to-video) and `packs/minimax-h3-turbo/` (single checkpoint + baked accelerator LoRA, text-to-video with synced audio) in this repo are working, shipped examples of the two shapes below.
+Video presets follow the same overall pack shape as image ones (§6), but the per-preset media block is called **`video`** instead of `image`, and both the schema and the typical workflow graph differ enough to warrant their own section. Cross-reference, all shipped and working in this repo: `packs/wan22-i2v-gguf/` (dual-expert GGUF, image-to-video), `packs/minimax-h3-10eros-turbo/` (single checkpoint + baked accelerator LoRA, three variants off one model file), and `packs/minimax-h3-solattn/` (the fullest example of reference inputs — nine image slots, audio and video references).
 
 **7.1 Video pack schema.** A `video` block replaces `image`, with these differences:
 ```json
@@ -187,11 +191,21 @@ Video presets follow the same overall pack shape as image ones (§6), but the pe
   "baseModels": ["<family>"],
   "workflow": "workflows/<preset-id>.json",
   "duration": { "type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true },
-  "requiresImage": false,                                // true for image-to-video presets
 
-  // Single-checkpoint models (e.g. MiniMax H3): same 4 core fields as image packs
+  // ---- User inputs. See 7.5 - getting these wrong rejects the render before it starts.
+  "acceptsReferenceImages": { "min": 1, "max": 2,
+                              "slotLabels": ["First frame", "Last frame (optional)"] },
+  "acceptsReferenceAudios": { "min": 0, "max": 3 },
+  "acceptsReferenceVideos": { "min": 0, "max": 3, "soundtrack": true },
+  "acceptsAudio": true,                                  // a single audio track (lip-sync presets)
+  "requiresImage": false,                                // legacy single-image flag; prefer acceptsReferenceImages
+
+  // Single-checkpoint models (e.g. MiniMax H3): same core fields as image packs,
+  // plus audio_vae for models that emit a synced audio stream
   "unet": "<file>", "unetUrl": "...", "clip": "<file>", "clipUrl": "...", "vae": "<file>", "vaeUrl": "...",
-  // Extra model files beyond the 4 core fields (audio VAEs, baked accelerator LoRAs) go here -
+  "audio_vae": "<audio_vae_file>",                       // exposed as {{audio_vae}}; still needs an extraModels entry to download
+  "spatialUpscaler": "<file>", "spatialUpscalerUrl": "...",   // two-pass latent upscale presets
+  // Extra model files beyond the core fields (audio VAEs, baked accelerator LoRAs) go here -
   // each entry is its own download, `dir` is the exact engine\models\<dir>\ subfolder name:
   "extraModels": [
     { "dir": "vae",   "filename": "<audio_vae_file>", "url": "..." },
@@ -204,11 +218,23 @@ Video presets follow the same overall pack shape as image ones (§6), but the pe
 
   "steps": 20,
   "negativePrompt": "",
-  "extensions": [ { "name": "<custom-node-repo-name>", "url": "https://github.com/...", "description": "<why it's needed>" } ],
+  "controls": { "steps": { "min": 10, "max": 30, "step": 1, "affectsCost": true } },
+  "extensions": [ { "name": "<custom-node-repo-name>", "url": "https://github.com/...",
+                    "pinnedCommit": "<40-char sha>",     // see 7.6 - shared across packs
+                    "description": "<why it's needed>" } ],
+
+  // ---- Accelerators the APP owns. Declare support; do not bake the node in. See 7.7.
+  "supportsSage": true,
+  "supportsSolAttn": true,
+  "supportsSpectrum": true,
+
   "resolutionOptions": [                                  // NOT resolutionOverrides - a list of tiers, each gated by VRAM
     { "label": "480p", "minVramGB": 12, "aspects": { "16:9": {"width":864,"height":480}, "1:1": {"width":640,"height":640} } },
     { "label": "720p", "minVramGB": 16, "aspects": { "16:9": {"width":1280,"height":720} } }
   ],
+  "defaultResolutionTier": 0,                             // index into resolutionOptions, not a label
+  "reclaimVramBeforeDecode": true,                        // unload the model before VAE decode on tight cards
+  "vramModel": { "floorGB": 8, "gbPerMpSecond": 0.38 },   // lets the app predict VRAM from resolution x duration
   "requirements": { "minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 48, "sizeGB": 41, "notes": "<free-text caveats>" }
 }
 ```
@@ -233,7 +259,31 @@ This `RandomNoise`/`BasicGuider`/`KSamplerSelect`/`BasicScheduler`/`SamplerCusto
 - **Pure-Python, no extra pip deps** (e.g. `ComfyUI-MiniMax-H3-Turbo`): `git clone` into `custom_nodes\`, restart, done. Check the repo's `pyproject.toml` `dependencies = []` (or absence of a `requirements.txt` beyond stdlib/torch/comfy internals) to confirm this before promising it'll be simple.
 - **Needs a compiled Python package too** (e.g. `sageattention`, which some SageAttention-based nodes require): this is a materially bigger ask. On Windows, `pip install sageattention` from PyPI typically wants to compile from source, which needs `nvcc` (CUDA Toolkit) and a matching MSVC linker — **SimpliGen's bundled Python has neither**, and its embeddable-Python distribution also lacks `Python.h`/`python3XX.lib`, which additionally blocks Triton's own JIT compiler (a dependency of some SageAttention code paths) from working even if a prebuilt `sageattention` wheel installs cleanly. Prebuilt Windows wheels exist for some exact torch/CUDA/Python combinations (search GitHub releases, e.g. the `woct0rdho/SageAttention` and `woct0rdho/triton-windows` forks) but are not guaranteed to match your exact engine build. **Verify a specific node's actual runtime dependency chain before shipping a preset that depends on it** — a node existing and importing successfully does not mean its default configuration will run without a compiler toolchain this app doesn't have.
 
-**7.4 Testing a video preset via MCP:** `mcp__simpligen__generate` with `mediaType: "video"`, then poll with `wait_for_result`/`get_job` — note `wait_for_result` has its own internal timeout shorter than any `timeoutSeconds` you pass it, so a timeout error there does **not** mean the job failed; check `get_job` or the session log directly for real progress before concluding anything. Compare actual per-step timing (grep the session log for the `it/s]`/`s/it]` progress lines, or check the completed job's `createdAt`/`completedAt`) against any baseline you're trying to beat — don't trust a community-claimed speedup number without reproducing it on this hardware.
+**7.5 Reference inputs: the `acceptsReference*` fields.** This is the single easiest way to ship a preset that cannot run at all. A video workflow that takes user pictures carries placeholders like `{{ref_image_1}}`, `{{ref_image_2}}`, `{{ref_2_enabled}}`. **Those are filled from the preset's `acceptsReference*` declarations, not from the workflow.** Omit them and generation is rejected before a single step runs, with `missing render settings {{ref_2_enabled}}, {{ref_image_1}}, ...`. Nothing about the workflow file looks wrong; the pack is what is incomplete.
+
+Two shapes are in use, and the distinction matters more than the names suggest:
+```json
+// First/last frame ("image to video"). The plate IS the first frame of the clip.
+"acceptsReferenceImages": { "min": 1, "max": 2,
+                            "slotLabels": ["First frame", "Last frame (optional)"] }
+
+// Reference to video. The plate is READ and set aside - it never appears in the output.
+"acceptsReferenceImages": { "min": 0, "max": 9,
+                            "slotLabels": ["Reference 1", ... "Reference 9"] },
+"acceptsReferenceAudios": { "min": 0, "max": 3 },
+"acceptsReferenceVideos": { "min": 0, "max": 3, "soundtrack": true }
+```
+- What SimpliGen labels **"image to video" is first/last-frame** — which is what the `FL2VA` in checkpoint names such as `minimax_h3_fl2va_*` refers to. It optionally takes a *last* frame too, which is worth exposing.
+- **Reference-to-video takes a different prompt.** With a first frame, the picture already established the setting, so the prompt only has to describe motion. With a reference there is no first frame and nothing to inherit: the prompt must describe the whole shot — setting, action, and camera — or you get a person standing still in a grey nowhere.
+- **First/last frame images are CENTRE-CROPPED to the output shape** (`ImageScale` with `crop: "center"`), not letterboxed. A 896×1152 portrait plate rendered at 16:9 864×480 loses 57% of its height, and what goes is the top — i.e. the head. Match the aspect ratio to the source picture, or crop the picture first. Say so in the preset description; users hit this and assume the model is broken.
+- `ref2va` and `fl2va` are **separate checkpoints**, but an `fl2va` checkpoint *does* drive `MiniMaxH3ReferenceToVideo` — verified by A/B against the `ref2va` build at equal likeness. That matters because it means a finetune published only in `FL2VA` form (e.g. 10Eros Max) can still ship all three of T2V, I2V and R2V off one file, with no second 19.5 GB download.
+- **MiniMax H3 frame counts must be 17n+5** (73, 124, 192, 277...). Any other value errors out. The shipped workflows snap to that grid with a `ComfyMathExpression` node driven by the duration slider rather than trusting the user — copy that node rather than reinventing it.
+
+**7.6 Shared extensions and `pinnedCommit`.** `extensions[]` entries carry a `pinnedCommit` (all 62 entries across this repo do). Extensions are installed **once and shared by every pack**, so two installed packs pinning the same repo to different commits will fight: preparing a preset from pack A re-pins the extension, preparing one from pack B re-pins it back, and the user sees `Extension 'x' is at <a>, pack pins <b> — re-pinning` on every switch. Before adding or bumping a pin, check what every other pack in the collection pins for that repo, and move them together. Prefer a commit that is current, not merely the one that was latest when you built the pack — an older pin can drag a shared extension *backwards* past a fix that other packs depend on.
+
+**7.7 Accelerators the app owns — declare, don't bake.** SageAttention, Sol-Attn and Spectrum are injected by SimpliGen at render time when the preset declares `supportsSage` / `supportsSolAttn` / `supportsSpectrum`. **Do not put the corresponding node (e.g. `PathchSageAttentionKJ`) in the workflow.** If you bake it in, the app sees the workflow as already controlling that accelerator and withholds its own handling — which also disables its crash-recovery path, so a card that can't run the accelerator has no way to fall back. Declaring instead of baking lets the app withdraw the accelerator and retry. Note the node's provider still has to be installed (`ComfyUI-KJNodes` for Sage), so keep it in `extensions[]` even though it appears nowhere in your graph.
+
+**7.8 Testing a video preset via MCP:** `mcp__simpligen__generate` with `mediaType: "video"`, then poll with `wait_for_result`/`get_job` — note `wait_for_result` has its own internal timeout shorter than any `timeoutSeconds` you pass it, so a timeout error there does **not** mean the job failed; check `get_job` or the session log directly for real progress before concluding anything. Compare actual per-step timing (grep the session log for the `it/s]`/`s/it]` progress lines, or check the completed job's `createdAt`/`completedAt`) against any baseline you're trying to beat — don't trust a community-claimed speedup number without reproducing it on this hardware.
 
 ---
 
@@ -246,8 +296,10 @@ This `RandomNoise`/`BasicGuider`/`KSamplerSelect`/`BasicScheduler`/`SamplerCusto
 | SD 1.5 anime | dpmpp_2m / karras | 30 | 7 | CLIP Skip 2, external kl-f8-anime2 VAE, 512-base |
 | Anima (Cosmos) | er_sde / simple, ModelSamplingAuraFlow shift 3 | 16 (turbo ~12) | 1 | UNet + Qwen 0.6B encoder + Qwen-Image VAE, preamble |
 | Krea-2 turbo | euler / simple | 8 | 1 | DiT, Qwen3VL encoder, Qwen-Image VAE, ConditioningZeroOut negative |
-| MiniMax H3 (video) | res_multistep / simple | 20 (turbo LoRA ~6-8) | 1 | UNet + 32B Qwen3VL encoder + video/audio VAE, synced stereo audio |
+| MiniMax H3 (video) | res_multistep / simple | 20 (turbo LoRA ~6-8) | 1 | UNet + 32B Qwen3VL encoder + video/audio VAE, synced stereo audio; frame count must be 17n+5 |
+| MiniMax H3 PDD Acc (video) | res_multistep / simple | 8 (fixed) | 1 | Alibaba's official distill; own node pack + `pdd_acc` model dir. Distills do NOT stack with a turbo/lightx2v LoRA |
 | Wan 2.2 (video, dual-expert) | euler / simple, dual KSamplerAdvanced pass | 4 (2 high + 2 low, lightx2v LoRA) | 1 | GGUF dual high/low-noise UNets, shared clip/vae |
+| LTX 2.5 (video) | — (two-pass, latent spatial upscaler) | — | 1 | Gated HF repo (§11); INT8 ConvRot build; separate video and audio VAEs |
 
 ---
 
@@ -307,6 +359,7 @@ If you're using a generator script like this repo's `build-zips.py`: it detects 
 
 Auto-download gotchas (these will bite the recipient, not you):
 - **Civitai requires an API token.** Bare `civitai.com/api/download/models/<id>` returns **HTTP 401** with no token. Prompt the user for a token (made at `civitai.com/user/account` → API Keys) and append it as a query param: `?token=<t>` (use `&` if the URL already has a `?`). HuggingFace uses an `Authorization: Bearer <token>` header instead.
+- **Gated HuggingFace repos need a key AND a licence acceptance, and say so badly.** Some repos (e.g. `Lightricks/LTX-2.5`, `gated: "auto"`) serve their repo page to anyone but return **401** on the model files without a token from an account that has accepted the licence. SimpliGen has a "Model Access Required" dialog for exactly this, but it only fires when a key is already configured — its downloader classifies a failure as gated via `statusCode === 403 || hasKey`, so **a 401 with no key on file is treated as "add your API key", not as "accept the licence"**, and the user sees a download that starts, never finishes, and starts again. If any model in your pack lives on a gated repo, **say so in the pack description**, with the repo URL: that is the only thing that reaches a user who has no key yet. Approval on `gated: auto` repos is instant, and partial downloads are preserved across the failure, so a retry resumes rather than restarting. Check a repo's gate state with `https://huggingface.co/api/models/<owner>/<repo>` and read the `gated` field before shipping.
 - **Report failures honestly.** A `try/catch` around the download isn't enough — also verify the file exists and is non-zero (`throw` otherwise), collect every failed/skipped model, and print that summary at the end. Never print "Installed" unconditionally; a 401 that's swallowed makes the user think the model downloaded when it didn't.
 - **The single-preset menu choice is destructive by design.** Picking `[3]` rewrites the installed `<pack>.json` to contain *only* that preset (so the pack shows one card). To get the whole pack back, the user must re-run and choose `[0]`. Document this so it's not mistaken for a wipe bug.
 - **Models go in `engine\models\<sub>\`, not `engine\ComfyUI\models\`** — make sure both the installer copy target and the readme's manual-install instructions use the correct path.
@@ -316,7 +369,8 @@ Auto-download gotchas (these will bite the recipient, not you):
 ## 12. Validation
 - Parse pack + workflow JSON. Confirm **no BOM** (`bytes[0..2] != EF BB BF`) and emoji/icon intact.
 - Cross-refs: workflow file exists; `previewImage` resolves; primary model present (checkpoint in `checkpoints\`, unet in `diffusion_models\`, encoder in **`clip\`**, vae in `vae\`, LoRAs in `loras\`).
-- Every workflow `{{placeholder}}` has a pack value or is a runtime value. Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`; (video) a bare unquoted `{{placeholder}}` that breaks strict JSON parsing.
+- Every workflow `{{placeholder}}` has a pack value or is a runtime value. Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`; (video) reference placeholders with no `acceptsReference*` declaration (§7.5); (video) a bare unquoted `{{placeholder}}` that breaks strict JSON parsing.
+- **Model-presence checks must follow directory junctions.** If model folders were relocated (§1), `engine\models\diffusion_models` and friends are reparse points, and both PowerShell's `Get-ChildItem -Recurse` and a naive `os.walk` **skip them by default** — every relocated model reads as missing. Resolve each junction's target (`(Get-Item <path> -Force).Target`) and scan those roots explicitly. The mirror-image error is just as easy: walking *both* the junction path and its target double-counts every file, which will inflate any size total you report by 2×.
 - After install: restart SimpliGen, check the newest `session-*.log` for "Loaded N preset packs" and no "Failed to load preset pack". Run a test generation and confirm real output (an image file, or for video, a playable file with the requested duration — check via `ffprobe`, since duration sliders often get frame-quantized and don't land on the exact requested number of seconds).
 
 ---
@@ -324,6 +378,8 @@ Auto-download gotchas (these will bite the recipient, not you):
 ## 13. Organization conventions (optional, for large collections)
 - **Group by purpose within architecture** (e.g. SDXL Realism vs SDXL Art & Anime; Illustrious Realism vs Anime). Packs cannot be nested — a pack holds a flat preset list.
 - **To group your own packs on the selection screen, use a common name prefix** (e.g. `MyTag — <name>`). SimpliGen's store search matches pack **name / description / base-model / preset-name — NOT the `tags` array** (tags are cosmetic chips). So a prefix is searchable and clusters packs together; a leading non-typeable symbol is not useful (you can't search it).
+- **But a prefix only survives a manual install.** Packs installed from a catalogue have the `Community — ` prefix **stripped**, deliberately: the store card carries its own "Community" badge, and stripping makes packs sort by subject instead of clustering every community pack under "C". Keep the prefix in your source (it still helps people installing the zip by hand), and expect it to disappear for everyone else. The consequence to watch for is a **name collision** — once stripped, a community "Krea 2" is indistinguishable from an official "Krea 2" in the picker, which has no badge. If your pack's subject matches an official one, differentiate the name beyond the prefix.
+- **Store-installed and hand-installed copies of the same pack coexist.** A catalogue install lands under id `community--<slug>-pack`; the repo's own installer lands under `<slug>-pack`. Different ids, so the app treats them as unrelated and shows both, with the hand-installed one frozen at whatever version it was. After moving a pack into a catalogue, remove the local copy or you accumulate stale duplicates — and be aware the local copy may be the *newer* one until the catalogue ingests your release.
 - Give every preset a short `tagline` (shown under the name in recent app versions).
 
 ---
@@ -332,7 +388,12 @@ Auto-download gotchas (these will bite the recipient, not you):
 - **Preset missing:** check newest log. Causes: BOM, malformed JSON, duplicate/bad id, missing required fields, app not fully restarted. `Unexpected token '﻿'` = BOM.
 - **Broken thumbnail:** installed `previewImage` must be an absolute `local-file:///` URL and the JPG must exist in `presets\previews`. A plain file-copy sync from source→installed silently reverts this — always reapply the absolute-path rewrite after any sync, image or video pack alike.
 - **Generation fails immediately:** wrong checkpoint name/folder; checkpoint vs UNet mismatch; missing VAE/encoder; node class not in the installed ComfyUI; unsubstituted placeholder; wrong sampler id; CLIP-skip miswire; (video) a required custom node was never actually cloned in, or imports but its own further dependency (e.g. a compiled Python package) isn't installed — check the session log for an `ImportError`/`ModuleNotFoundError` near engine startup, not just at generation time. Also: the engine **caches its model list at startup**, so a newly added model file, or a newly cloned custom node, isn't visible until SimpliGen is fully restarted.
+- **"Missing render settings {{ref_image_1}}, {{ref_2_enabled}}":** the workflow has reference slots the preset doesn't declare — add the `acceptsReference*` fields (§7.5). Nothing is wrong with the workflow.
+- **"Failed to convert an input value to a FLOAT" on `h3_duration`:** a duration was never supplied, so `{{duration}}` resolved to nothing. Slider defaults are not applied when generating through the MCP — pass `durationSeconds` explicitly.
+- **Subject's head cut off in an image-to-video result:** aspect mismatch, not a model failure. First/last frame plates are centre-cropped to the output shape (§7.5).
+- **Downloads that restart forever:** a gated HuggingFace repo with no API key configured (§11). Check the repo's `gated` field.
 - **Poor quality:** verify CLIP skip, the creator's prefix/negative, native resolution, sampler/scheduler/steps/CFG, correct VAE, and whether the creator used a hi-res second pass you haven't implemented. Don't mask a missing hi-res pass by inflating steps/CFG.
+- **Uninstalling a pack never deletes model weights.** `deletePresetPack` removes the pack JSON, its DB rows, previews and workflows, then returns — it does not touch `engine\models\`. It guards shared previews and shared workflows, but has no equivalent guard for models because it never deletes them. So reinstalling a pack costs nothing in re-downloads; and reclaiming model space is always manual, and always needs a check that no *other* installed pack references the file first.
 
 ---
 
