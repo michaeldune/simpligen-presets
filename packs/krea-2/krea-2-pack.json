@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Krea AI",
   "nsfw": false,
   "description": "Krea 2 single-pass DiT presets — Moody Mix, RedCraft Red Mix, Realia, and Fascium. Uncensored/photoreal 8-step Krea-2 diffusion-transformer mixes sharing the Qwen3VL encoder and Qwen-Image VAE.",
@@ -539,7 +539,7 @@
         ],
         "workflow": "workflows/dark-beast-krea2-fp8.json",
         "unet": "darkBeastINT8Convrot2_darkBeastKREA2FP8.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3078453",
+        "unetUrl": "https://civitai.com/api/download/models/3078453?fileId=2958418",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
@@ -595,7 +595,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file."
+          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file. Pinned to Civitai's 11.94 GB fp8 file. That version also publishes a 20.68 GB build under the same filename; a user who received that one got a 20 GB download followed by 'model isn't installed'."
         }
       }
     }
