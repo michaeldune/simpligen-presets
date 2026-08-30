@@ -1,7 +1,7 @@
 {
   "id": "community-z-image",
   "name": "Community — Z-Image",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "Z-Image base checkpoints.",
@@ -46,7 +46,7 @@
         ],
         "workflow": "workflows/luciddreamer-z-v079-sr-zib.json",
         "unet": "luciddreamerZ_v079SRZib.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3005293",
+        "unetUrl": "https://civitai.com/api/download/models/3005293?fileId=2884596",
         "vae": "ae.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
         "clip": "qwen_3_4b.safetensors",
@@ -93,7 +93,8 @@
           "minVramGB": 10,
           "recommendedVramGB": 12,
           "minRamGB": 24,
-          "sizeGB": 6
+          "sizeGB": 6,
+          "notes": " Pinned to Civitai's fp8 file (5.73 GB): that version also publishes an 11.46 GB bf16 under the same filename, and it is the one Civitai serves by default."
         }
       },
       "tagline": "Semi-real Z-Image base"
