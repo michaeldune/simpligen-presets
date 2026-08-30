@@ -146,11 +146,19 @@ def collect_custom_nodes(data, pack_dir):
     by_repo = {}
     known_by_name = {e['name']: e for e in CUSTOM_NODES.values()}
 
-    def add(name, url, note):
+    def add(name, url, note, commit=None):
         key = norm_repo(url)
-        if not key or key in by_repo:
+        if not key:
             return
-        by_repo[key] = {'name': name, 'url': url, 'note': note}
+        if key in by_repo:
+            # A workflow class_type is seen before the declared extension, and
+            # only the declaration carries the pin. Let the later entry fill
+            # the gap instead of the first writer silently winning.
+            if commit and not by_repo[key].get('commit'):
+                by_repo[key]['commit'] = commit
+            return
+        by_repo[key] = {'name': name, 'url': url, 'note': note,
+                        'commit': commit}
 
     wf_dir = os.path.join(pack_dir, 'workflows')
     if os.path.isdir(wf_dir):
@@ -177,7 +185,8 @@ def collect_custom_nodes(data, pack_dir):
                 known = known_by_name.get(name)
                 add(name,
                     ext.get('url') or (known or {}).get('url'),
-                    (known or {}).get('note') or ext.get('description') or '')
+                    (known or {}).get('note') or ext.get('description') or '',
+                    ext.get('pinnedCommit'))
 
     return sorted(by_repo.values(), key=lambda n: n['name'].lower())
 
@@ -279,10 +288,29 @@ def make_readme(data, pack_dir):
     prereq_html = ''
     if custom_nodes_used:
         unique_nodes = custom_nodes_used  # already deduped by repo, name-sorted
+
+        def pin_html(node):
+            """A pinned extension is pinned for a reason - the pack was tested
+            against that commit. SimpliGen checks it out itself, but the zip is
+            also read by people cloning by hand, and a plain clone lands on
+            HEAD. Emit the checkout line so both routes end up at the same node.
+            """
+            sha = node.get('commit')
+            if not sha:
+                return ''
+            folder = node['url'].rstrip('/').split('/')[-1]
+            if folder.endswith('.git'):
+                folder = folder[:-4]
+            return (f'<div class="prereq-note">Tested at <code>{h(sha[:7])}</code>. '
+                    f'SimpliGen checks this out for you; if you clone it by hand, '
+                    f'run <code>git -C {h(folder)} checkout {h(sha)}</code> '
+                    f'afterwards.</div>')
+
         items = ''.join(
             f'<div class="prereq-item"><div>'
             f'<div class="prereq-name"><a href="{h(node["url"])}" target="_blank">{h(node["name"])}</a></div>'
             f'<div class="prereq-note">{h(node["note"])}</div>'
+            f'{pin_html(node)}'
             f'</div></div>'
             for node in unique_nodes
         )
