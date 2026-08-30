@@ -1,0 +1,200 @@
+{
+  "id": "ltx-2-5-msr-pack",
+  "name": "Community — LTX 2.5 MSR (Multi-Subject)",
+  "version": "1.0.0",
+  "author": "LiconStudio",
+  "nsfw": false,
+  "description": "Put SEVERAL different people in one LTX 2.5 shot and keep each of them themselves. Licon's Multiple-Subject-Reference IC-LoRA takes up to three subject pictures plus a background and holds each one, where a single-reference model blends two people into a third who is neither. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 - the base weights are on a gated repository. Approval is instant.",
+  "tags": [
+    "Local",
+    "LTX 2.5",
+    "Video",
+    "Multi-Subject",
+    "Reference"
+  ],
+  "presets": [
+    {
+      "id": "ltx-2-5-msr-r2v",
+      "name": "LTX 2.5 Multi-Subject Reference",
+      "tagline": "Up to three people and a place, all kept apart",
+      "icon": "👥",
+      "previewImage": "previews/ltx-2-5-msr-r2v.jpg",
+      "description": "Up to three subjects and a background, each held by its own reference slot.",
+      "tags": [
+        "Video",
+        "Reference",
+        "LTX 2.5",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot) + Licon MSR V2",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/ltx_2_5_msr.json",
+        "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "LTX-2.3-Licon-MSR-V2.safetensors",
+            "url": "https://huggingface.co/LiconStudio/LTX-2.3-Multiple-Subject-Reference/resolve/main/LTX-2.3-Licon-MSR-V2.safetensors"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 3,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "slotLabels": [
+            "Subject 1",
+            "Subject 2",
+            "Subject 3",
+            "Background"
+          ]
+        },
+        "steps": 8,
+        "cfg": 1,
+        "negativePrompt": "blurry, distorted faces, warped hands, duplicated people, low quality",
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 10,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "reclaimVramBeforeDecode": true,
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 35,
+          "notes": "Single pass - there is no latent upscaler here, so the output is sampled at the resolution you pick. Audio is generated with the video; this preset takes no audio input. The reference guide is built at 65 frames, which gives the IC-LoRA nine latent slots - enough for three subjects plus the background - and is independent of the clip length you choose. Measured 75 s for 5 s at 832x448 on a 12 GB card. Requires the ComfyUI-Licon-MSR extension, which SimpliGen installs for you at the pinned commit."
+        },
+        "extensions": [
+          {
+            "name": "ComfyUI-Licon-MSR",
+            "url": "https://github.com/liconstudio/ComfyUI-Licon-MSR",
+            "pinnedCommit": "94a52bfec735ff6f802c480f7fe8fdac1d279a7f",
+            "description": "Builds the multi-subject reference video the MSR IC-LoRA reads. MIT licensed; needs opencv-python, which the engine already ships."
+          }
+        ],
+        "description": "Supply pictures of up to three subjects plus a background plate. Name them in the prompt as 'Image 1', 'Image 2' and 'Image 3' and say what each one does - that labelling is how the model tells them apart. The background slot is literal: it uses the room you give it, so describe the action in the prompt rather than the place. Keep every subject at a similar depth and describe them side by side. Identity holds well for three standing figures, but a subject placed further back gets fewer pixels and reads less clearly - and wording like 'behind a drum kit' tends to put that person behind the OTHER PLAYERS rather than behind their instrument."
+      }
+    }
+  ]
+}
