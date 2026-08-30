@@ -1,0 +1,106 @@
+{
+  "id": "flux2-klein-miraclein-retired-pack",
+  "name": "Community — MiracleIn NSFW (retired)",
+  "version": "1.0.0",
+  "author": "Black Forest Labs",
+  "nsfw": true,
+  "description": "A single retired preset, kept for anyone who already has the checkpoint. It was removed from the Flux 2 Klein pack on 2026-08-30 because Civitai's author placed paid access on every version of the model, which breaks the automated installer. See README.md in this folder.",
+  "tags": [
+    "Local",
+    "Flux 2",
+    "Retired"
+  ],
+  "presets": [
+    {
+      "id": "miraclein-nsfw-9b",
+      "name": "MiracleIn NSFW (Klein 9B)",
+      "tagline": "Retired - Civitai now charges Buzz for the checkpoint",
+      "icon": "🔞",
+      "previewImage": "miraclein-nsfw-9b.jpg",
+      "description": "MiracleIn v3.0 — uncensored NSFW fine-tune of FLUX.2 Klein 9B for generation and editing. Same Flux 2 stack (Qwen3-8B encoder + Flux 2 VAE); tuned for 12 steps at CFG 1.1.",
+      "tags": [
+        "Flux",
+        "Flux2",
+        "Klein",
+        "NSFW",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "MiracleIn v3.0 (Klein 9B fp8)",
+        "baseModels": [
+          "flux2"
+        ],
+        "workflow": "flux2-klein-9b.json",
+        "unet": "miracleinNSFWGeneration_30Bf16Fp8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2986788",
+        "clip": "qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "steps": 12,
+        "cfg": 1.1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 24,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 3,
+            "step": 0.05
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 16.4,
+          "notes": "MiracleIn v3.0 uncensored fine-tune of FLUX.2 Klein 9B. Flux 2 DiT fp8 (diffusion_models) + Qwen3-8B encoder (clip\\, 12288-dim) + Flux 2 VAE. Native Flux 2: Flux2Scheduler + SamplerCustomAdvanced + CFGGuider cfg 1.1 + zeroed negative, euler, ~12 steps (per the model's embedded workflow). Klein base is NON-COMMERCIAL license."
+        },
+        "description": "RETIRED 2026-08-30 - cannot be installed automatically any more. The author put Civitai's paid access on this checkpoint on 2026-08-27, and applied it to every version of the model, so there is no free build to point at. Downloading it now costs 10,000 Buzz. SimpliGen reads Civitai's payment refusal as a rejected API key, so the installer asks for your key again, saves it happily, and never starts the download - an endless loop rather than an error. Nothing is wrong with your key. The preset itself still works if you already own the file: buy or otherwise obtain miracleinNSFWGeneration_30Bf16Fp8.safetensors (8.46 GB, model 2453960, version 2986788), drop it in your diffusion_models folder, and follow retired/README.md to install this preset by hand. Original description: "
+      }
+    }
+  ]
+}
