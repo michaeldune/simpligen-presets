@@ -1,0 +1,250 @@
+{
+  "id": "krea2-identity-edit-pack",
+  "name": "Community — Krea 2 Identity Edit",
+  "version": "1.0.0",
+  "author": "lbouaraba / conradlocke",
+  "nsfw": false,
+  "editCapable": true,
+  "description": "Image editing on Krea 2: hand it a photo and an instruction in plain English. Two presets on one LoRA - Identity Edit at neutral fidelity for outfit, colour and lighting changes, and Identity Lock at fidelity 4.0 for holding a face while you re-stage a character sheet into a new scene, transfer a face between two images, or do virtual try-on. Shares the Krea 2 turbo checkpoint, Qwen3-VL encoder and Qwen-Image VAE with our Krea 2 pack, so the only new download is a 1.83 GB LoRA. Masked inpainting is not included - SimpliGen presets cannot pass a mask.",
+  "tags": [
+    "Local",
+    "Krea",
+    "Edit",
+    "Identity",
+    "Turbo"
+  ],
+  "presets": [
+    {
+      "id": "krea2-identity-edit",
+      "name": "Krea 2 Identity Edit",
+      "icon": "✏️",
+      "enabled": true,
+      "tagline": "Change one thing, keep the rest",
+      "description": "Edits the image you supply while leaving everything else alone - swap an outfit, change a colour, relight the scene. Reference fidelity sits at 1.0, the neutral setting, so the model follows your instruction without pulling the result back toward the reference. Supply a second image to bring a person or an object in from elsewhere: image 1 is the scene, image 2 is the subject, and that order is what the model was trained on.",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Krea",
+        "Edit",
+        "Identity",
+        "Local"
+      ],
+      "previewImage": "previews/krea2-identity-edit.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "krea2"
+        ],
+        "displayModel": "Krea 2 Turbo + Identity Edit LoRA v1.2",
+        "workflow": "workflows/image_krea2_identity_edit.json",
+        "unet": "krea2_turbo_fp8_scaled.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "krea2_identity_edit_v1_2.safetensors",
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          },
+          {
+            "name": "comfyui-krea2edit",
+            "url": "https://github.com/lbouaraba/comfyui-krea2edit.git",
+            "pinnedCommit": "86f886dac23013d88996e3a2e99093ba44d322fb",
+            "description": "Krea2EditModelPatch and Krea2EditGroundedEncode - the in-context source path and the image-grounded instruction encode. Apache-2.0."
+          }
+        ],
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 16,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 15,
+          "notes": "Krea 2 turbo DiT + Qwen3-VL 4B encoder + Qwen-Image VAE, all shared with our Krea 2 pack, plus a 1.83 GB identity-edit LoRA in models/loras/. Needs the comfyui-krea2edit custom node (Apache-2.0, pinned); SimpliGen installs it with the pack. Ten steps at CFG 1, euler/simple. REFERENCE ORDER MATTERS: image 1 is the scene being edited, image 2 is the subject being brought in - the LoRA was trained scene-first, and swapping them degrades the result without raising an error. NO MASKING: SimpliGen presets cannot pass a mask, so the tutorial's inpainting and outpainting sections are not reproduced here; the node's own ref_boost_mask is left unconnected. The tutorial also suggests replacing the VAE with 'Krea 2 Real VAE' (artsyww/KREA2REALVAE) for skin texture. That file carries no licence at all and community comparisons report only a marginal difference, so this pack ships Comfy-Org's qwen_image_vae; swap it yourself if you want it. Smaller LoRA ranks exist in the same repo (r128 914 MB, r64 457 MB) if 1.83 GB is too much."
+        }
+      }
+    },
+    {
+      "id": "krea2-identity-lock",
+      "name": "Krea 2 Identity Lock",
+      "icon": "🧿",
+      "enabled": true,
+      "tagline": "Hold the face; restage from a character sheet",
+      "description": "The same editor with reference fidelity turned up to 4.0, which is what holds a face. Use it to re-stage a character sheet into a new scene (\"re-stage this woman on a rainy street at night\"), to put the face from image 2 onto the person in image 1, or for virtual try-on. Image 1 is the scene, image 2 is the subject. If a result comes back over-baked or plasticky, use the Identity Edit preset instead - that is the same graph at fidelity 1.0.",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Krea",
+        "Edit",
+        "Identity",
+        "Local"
+      ],
+      "previewImage": "previews/krea2-identity-lock.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "krea2"
+        ],
+        "displayModel": "Krea 2 Turbo + Identity Edit LoRA v1.2",
+        "workflow": "workflows/image_krea2_identity_lock.json",
+        "unet": "krea2_turbo_fp8_scaled.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "krea2_identity_edit_v1_2.safetensors",
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          },
+          {
+            "name": "comfyui-krea2edit",
+            "url": "https://github.com/lbouaraba/comfyui-krea2edit.git",
+            "pinnedCommit": "86f886dac23013d88996e3a2e99093ba44d322fb",
+            "description": "Krea2EditModelPatch and Krea2EditGroundedEncode - the in-context source path and the image-grounded instruction encode. Apache-2.0."
+          }
+        ],
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 16,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 15,
+          "notes": "Krea 2 turbo DiT + Qwen3-VL 4B encoder + Qwen-Image VAE, all shared with our Krea 2 pack, plus a 1.83 GB identity-edit LoRA in models/loras/. Needs the comfyui-krea2edit custom node (Apache-2.0, pinned); SimpliGen installs it with the pack. Ten steps at CFG 1, euler/simple. REFERENCE ORDER MATTERS: image 1 is the scene being edited, image 2 is the subject being brought in - the LoRA was trained scene-first, and swapping them degrades the result without raising an error. NO MASKING: SimpliGen presets cannot pass a mask, so the tutorial's inpainting and outpainting sections are not reproduced here; the node's own ref_boost_mask is left unconnected. The tutorial also suggests replacing the VAE with 'Krea 2 Real VAE' (artsyww/KREA2REALVAE) for skin texture. That file carries no licence at all and community comparisons report only a marginal difference, so this pack ships Comfy-Org's qwen_image_vae; swap it yourself if you want it. Smaller LoRA ranks exist in the same repo (r128 914 MB, r64 457 MB) if 1.83 GB is too much."
+        }
+      }
+    }
+  ]
+}
