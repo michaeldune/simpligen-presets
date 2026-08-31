@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 102 ready-to-run presets in 30 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 105 ready-to-run presets in 31 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 30 packs, 102 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 31 packs, 105 presets.">
 </p>
 
 **Image packs**
@@ -51,6 +51,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |
 | LTX 2.5 MSR (Multi-Subject) | 1 | LTX 2.5 distilled 22B + Licon MSR | Up to three people in one shot, each kept themselves, plus a background plate. Identity held across four tests including two similar-looking subjects. Needs the ComfyUI-Licon-MSR extension (MIT, pinned); reuses the official LTX 2.5 weights |
 | LTX 2.5 REDgraft Fast 2K (T2V + I2V) | 2 | LTX 2.5 REDgraft (INT8) | Text-to-video with generated audio or image-to-video from a source image. Separate NSFW finetune; reuses the official LTX 2.5 companion stack |
+| MiniMax H3 (DaSiWa Hybrid) | 3 | MiniMax H3 (int8 + ConvRot) | **The fast one.** Darksidewalker's finetune with the distillation baked in: 4 steps, no Turbo LoRA, nothing extra to install. ONE checkpoint covers T2V + I2V + R2V where every other H3 pack needs two, so it is ~19.5 GB lighter. Roughly 70-140 s per 5 s shot against ~180. Reads brighter and wider than stock — pick another H3 pack for the darker look. Needs a Civitai API key (free model, sign-in required) |
 | MiniMax H3 Lip-Sync | 1 | MiniMax H3 (pruned INT8) | Audio-driven lip sync with up to 9 reference images, so a whole band stays recognisable in a wide. Trims your track to the shot automatically; 10 s default. Reuses the H3 Turbo weights |
 
 Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all seven, each preset at its own default step count. **SimpliGen 1.50.0, engine v0.33.1**, ~19 GB system RAM free at the start of each run:
