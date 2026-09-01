@@ -1,7 +1,7 @@
 {
   "id": "krea2-identity-edit-pack",
   "name": "Community — Krea 2 Identity Edit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "lbouaraba / conradlocke",
   "nsfw": false,
   "editCapable": true,
@@ -89,7 +89,11 @@
           "max": 2,
           "imagePlaceholder": "ref_image_{n}",
           "enabledPlaceholder": "ref_{n}_enabled",
-          "promptPrefixTemplate": ""
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Image to edit (the scene)",
+            "Person or object to bring in"
+          ]
         },
         "resolutionOverrides": {
           "1:1": {
@@ -205,7 +209,11 @@
           "max": 2,
           "imagePlaceholder": "ref_image_{n}",
           "enabledPlaceholder": "ref_{n}_enabled",
-          "promptPrefixTemplate": ""
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Image to edit (the scene)",
+            "Person or object to bring in"
+          ]
         },
         "resolutionOverrides": {
           "1:1": {

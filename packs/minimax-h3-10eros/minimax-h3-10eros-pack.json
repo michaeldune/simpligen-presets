@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-pack",
   "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "DmitryDB",
   "nsfw": true,
   "description": "MiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
@@ -98,7 +98,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -404,7 +404,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -719,7 +719,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
