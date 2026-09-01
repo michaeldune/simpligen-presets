@@ -46,7 +46,7 @@
   "simpligen_lora_1": {
     "class_type": "Power Lora Loader (rgthree)",
     "_meta": {
-      "title": "Your LoRAs"
+      "title": "SimpliGen User LoRAs"
     },
     "inputs": {
       "PowerLoraLoaderHeaderWidget": {
