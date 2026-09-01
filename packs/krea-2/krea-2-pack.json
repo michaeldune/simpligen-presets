@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Krea AI",
-  "nsfw": false,
-  "description": "Krea 2 single-pass DiT presets — Moody Mix, RedCraft Red Mix, Realia, and Fascium. Uncensored/photoreal 8-step Krea-2 diffusion-transformer mixes sharing the Qwen3VL encoder and Qwen-Image VAE.",
+  "nsfw": true,
+  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes.",
   "tags": [
     "Local",
     "Krea",
