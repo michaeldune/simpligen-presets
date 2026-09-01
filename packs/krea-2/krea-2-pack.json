@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Krea AI",
   "nsfw": true,
   "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes.",
@@ -19,7 +19,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix",
       "icon": "🌙",
       "previewImage": "previews/moody-krea2-mix-v10.jpg",
-      "description": "Uncensored Krea 2 diffusion-transformer mix tuned for moody, photoreal output. Best skin texture and natural anatomy of the Krea presets. 8-step distilled at CFG 1.",
+      "description": "Uncensored Krea 2 diffusion-transformer mix tuned for moody, photoreal output. Best skin texture and natural anatomy of the Krea presets. 8-step distilled at CFG 1. Warm, freckled, natural skin; the reference look of the pack. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -113,7 +113,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 13,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~25 s on a 4070 Ti (~20 s at 1 MP); Upscale 1.5 to 2112x2112 adds ~10 s. 2048x2048 direct: ~70 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
@@ -126,7 +126,7 @@
       "tagline": "Uncensored Krea 2 red-mix, 10-step",
       "icon": "🔥",
       "previewImage": "previews/redcraft-krea2-red-mix.jpg",
-      "description": "Uncensored Krea 2 'Red Mix' (Raw + Turbo merge). Zero-censorship realism with strong detail. 10-step euler/simple at CFG 1.",
+      "description": "Uncensored Krea 2 'Red Mix' (Raw + Turbo merge). Zero-censorship realism with strong detail. 10-step euler/simple at CFG 1. Warm and freckled with the strongest micro-detail of the six. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -223,7 +223,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored Raw+Turbo mix; 10 steps recommended. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored Raw+Turbo mix; 10 steps recommended. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~35 s on a 4070 Ti at 10 steps; Upscale 1.5 to 2112x2112 adds ~5 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
       }
@@ -234,7 +234,7 @@
       "tagline": "Photoreal Krea 2 realism mix, 8-step",
       "icon": "📷",
       "previewImage": "previews/realia-krea2-v10.jpg",
-      "description": "Realia Krea 2 — a photoreal Krea 2 diffusion-transformer mix tuned for natural realism and skin detail. 8-step distilled at CFG 1 (bump to 10-12 steps for extra detail).",
+      "description": "Realia Krea 2 — a photoreal Krea 2 diffusion-transformer mix tuned for natural realism and skin detail. 8-step distilled at CFG 1 (bump to 10-12 steps for extra detail). Soft, natural, slightly cooler skin than Moody; the most 'unedited photo' look. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -330,7 +330,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 13,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~30 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~8 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
       }
@@ -341,7 +341,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix, 8-step",
       "icon": "💎",
       "previewImage": "previews/fascium-krea2-v3.jpg",
-      "description": "FASCIUM Krea 2 (v3) — uncensored Krea 2 diffusion-transformer mix tuned for photoreal detail. 8-step distilled at CFG 1.",
+      "description": "FASCIUM Krea 2 (v3) — uncensored Krea 2 diffusion-transformer mix tuned for photoreal detail. 8-step distilled at CFG 1. Muted, desaturated palette with matte skin; reads more editorial than the others. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -438,7 +438,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 14,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~34 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~6 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
       }
@@ -449,7 +449,7 @@
       "tagline": "Dark cinematic photoreal Krea 2 mix",
       "icon": "🌑",
       "previewImage": "previews/bf95-krea2-dark-realism-v30.jpg",
-      "description": "BF95 Krea 2 Dark Realism v3.0 - Krea 2 DiT mix (Realism Engine + Ideogram 4 + Krea 2) tuned for dark, cinematic photoreal output. 8-step euler/simple at CFG 1.",
+      "description": "BF95 Krea 2 Dark Realism v3.0 - Krea 2 DiT mix (Realism Engine + Ideogram 4 + Krea 2) tuned for dark, cinematic photoreal output. 8-step euler/simple at CFG 1. Cool, cinematic grade with clean skin and strong background separation. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -546,7 +546,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2). Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2). Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~28 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~6 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
       }
@@ -557,7 +557,7 @@
       "tagline": "Aggressive uncensored Krea 2, fast",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-fp8.jpg",
-      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition).",
+      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition). High-contrast film look with pale skin and a wider, more environmental framing. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
       "tags": [
         "Krea",
         "Turbo",
@@ -654,7 +654,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file. Pinned to Civitai's 11.94 GB fp8 file. That version also publishes a 20.68 GB build under the same filename; a user who received that one got a 20 GB download followed by 'model isn't installed'. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file. Pinned to Civitai's 11.94 GB fp8 file. That version also publishes a 20.68 GB build under the same filename; a user who received that one got a 20 GB download followed by 'model isn't installed'. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~34 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~7 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
       }
