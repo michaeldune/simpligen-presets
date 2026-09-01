@@ -1,16 +1,18 @@
 :art: **Community Preset Packs — Free Downloads**
 
-A growing collection of 20+ local preset packs for SimpliGen — images, video, and sound-synced video — put together with help from Claude Code and Codex. Every pack is a one-click installer that downloads and verifies its own models.
+A growing collection of local preset packs for SimpliGen — currently 31 packs and 106 presets across images, video, and sound-synced video — put together with help from Claude Code and Codex. Every pack is a one-click installer that downloads and verifies its own models.
 
 :books: **What's in them:** <https://github.com/michaeldune/simpligen-presets#readme>
 The full catalogue lives there — every pack, its presets, the architecture behind it, and measured generation times for the video presets. It's kept in step with the source, so it's always current. Check there rather than this post.
 
-:inbox_tray: **Download:** https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
+:shopping_cart: **Easiest route:** the packs are in the SimpliGen Store under the `Community — ` prefix, synced from the repo every few hours. Install from there and skip the zips entirely.
+
+:inbox_tray: **Manual download:** https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
 This link is rolling — the zips are replaced on every build, so it always points at the newest set. Bookmark it and you'll never need a new link.
 
 :octopus: **Source:** <https://github.com/michaeldune/simpligen-presets> — pack definitions, workflows, and the build script. Browse, report issues, or build the zips yourself.
 
-**How to install**
+**How to install (manual zip route)**
 1. Download a pack's `.zip` and unzip it
 2. Open `readme.html` — it lists exactly which models that pack needs and where they go
 3. Run `install.cmd` — downloads the models for you; install the whole pack or just one preset
@@ -20,7 +22,7 @@ This link is rolling — the zips are replaced on every build, so it always poin
 
 :warning: **Disk space:** these are full local models, often 5–13 GB each, and video packs run larger. If you're tight, install one preset at a time — `readme.html` shows sizes up front.
 
-:key: **Civitai / HuggingFace tokens:** some models need a free API token or a license acceptance. The installer prompts for both; press Enter to skip, and you'll get manual download links in `readme.html` instead.
+:key: **Civitai / HuggingFace tokens:** some models need a free API token or a license acceptance. The installer prompts for both; press Enter to skip, and you'll get manual download links in `readme.html` instead. If a Civitai prompt keeps looping, the author has put the model behind paid access — it isn't your key.
 
 :wrench: **Custom ComfyUI nodes:** a few packs need one extra manual step — cloning a node into ComfyUI's `custom_nodes` folder. Each pack's `readme.html` names the exact repo and any gotchas. If a preset won't load, check this first.
 
