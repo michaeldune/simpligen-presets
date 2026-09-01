@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes.",
+  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes.",
   "tags": [
     "Local",
     "Krea",
@@ -59,32 +59,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -97,6 +101,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -104,10 +113,11 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 13,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix."
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored mix. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1
       }
     },
     {
@@ -159,32 +169,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -197,6 +211,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -204,8 +223,9 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored Raw+Turbo mix; 10 steps recommended."
-        }
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored Raw+Turbo mix; 10 steps recommended. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+        },
+        "upscale": 1
       }
     },
     {
@@ -256,32 +276,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -294,6 +318,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -301,8 +330,9 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 13,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail."
-        }
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+        },
+        "upscale": 1
       }
     },
     {
@@ -354,32 +384,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -392,6 +426,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -399,8 +438,9 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 14,
-          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default."
-        }
+          "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored photoreal mix; 8 steps default. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+        },
+        "upscale": 1
       }
     },
     {
@@ -452,32 +492,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -490,6 +534,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -497,8 +546,9 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2)."
-        }
+          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2). Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+        },
+        "upscale": 1
       }
     },
     {
@@ -550,32 +600,36 @@
         "negativePrompt": "",
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
-          },
-          "2:3": {
-            "width": 832,
-            "height": 1216
-          },
-          "3:2": {
-            "width": 1216,
-            "height": 832
-          },
-          "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1408,
+            "height": 1408
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 1632,
+            "height": 1216
           },
-          "9:16": {
-            "width": 768,
-            "height": 1344
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
           }
         },
         "controls": {
@@ -588,6 +642,11 @@
             "min": 1,
             "max": 2,
             "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
           }
         },
         "requirements": {
@@ -595,8 +654,9 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 12.5,
-          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file. Pinned to Civitai's 11.94 GB fp8 file. That version also publishes a 20.68 GB build under the same filename; a user who received that one got a 20 GB download followed by 'model isn't installed'."
-        }
+          "notes": "Krea-2 DiT (diffusion_models, plain fp8 - all F8_E4M3) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Uncensored \"Aggressive Edition\" (2x-speed distill). NOTE: the model PAGE also has an INT8 ConvRot version - do NOT use that one (INT8 blocked on engine v0.26.0 like Ideogram); we use the FP8 file. Pinned to Civitai's 11.94 GB fp8 file. That version also publishes a 20.68 GB build under the same filename; a user who received that one got a 20 GB download followed by 'model isn't installed'. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean)."
+        },
+        "upscale": 1
       }
     }
   ]

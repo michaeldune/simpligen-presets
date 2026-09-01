@@ -27,7 +27,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Anima Anime | 5 | Anima (Cosmos) | UNet + Qwen encoder + Qwen-Image VAE |
 | Anima Realism | 3 | Anima (Cosmos) | Same stack, photoreal |
 | Krea 2 Identity Edit | 2 | Krea 2 Turbo + Identity Edit LoRA v1.2 | **Image editing.** Hand it a photo and an instruction in plain English. Identity Edit changes one thing and leaves the rest alone; Identity Lock holds a face while you re-stage a character sheet into a new scene, transfer a face between two images, or do virtual try-on. Takes one or two reference images — image 1 is the scene, image 2 is the subject. Shares the Krea 2 checkpoint, encoder and VAE with the Krea 2 pack, so the only new download is a 1.83 GB LoRA. No masked inpainting: SimpliGen presets cannot pass a mask |
-| Krea 2 | 6 | Krea 2 DiT | Uncensored mixes, 8–10 step distilled |
+| Krea 2 | 6 | Krea 2 DiT | Uncensored mixes, 8–10 step distilled. Renders at native ~2 MP (1408×1408 and equivalents) plus an Upscale slider with a 4-step refine pass, matching the official Krea 2 Turbo preset; 2 MP costs ~5 s more than 1 MP on a 4070 Ti |
 | Krea Flux | 1 | Flux.1 Krea (GGUF) | CSG Foundation, low-VRAM |
 | Flux 2 Klein | 2 | Flux 2 | 9B + 4B, 4-step distilled — **non-commercial license (BFL)**. A third preset, MiracleIn NSFW, was retired 2026-08-30 when Civitai's author put paid access on every version of that checkpoint; it is kept in `packs/flux2-klein/retired/` for manual install |
 | Ideogram 4 | 2 | Ideogram 4 (INT8) | Best-in-class text rendering; UltraReal photo + Graphic/Poster tiers — **requires engine 0.28+** |
