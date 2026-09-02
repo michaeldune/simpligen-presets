@@ -1,7 +1,7 @@
 {
   "id": "krea2-identity-edit-pack",
   "name": "Community — Krea 2 Identity Edit",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "lbouaraba / conradlocke",
   "nsfw": false,
   "editCapable": true,
@@ -132,6 +132,15 @@
           "sizeGB": 15,
           "notes": "Krea 2 turbo DiT + Qwen3-VL 4B encoder + Qwen-Image VAE, all shared with our Krea 2 pack, plus a 1.83 GB identity-edit LoRA in models/loras/. Needs the comfyui-krea2edit custom node (Apache-2.0, pinned); SimpliGen installs it with the pack. Ten steps at CFG 1, euler/simple. REFERENCE ORDER MATTERS: image 1 is the scene being edited, image 2 is the subject being brought in - the LoRA was trained scene-first, and swapping them degrades the result without raising an error. NO MASKING: SimpliGen presets cannot pass a mask, so the tutorial's inpainting and outpainting sections are not reproduced here; the node's own ref_boost_mask is left unconnected. The tutorial also suggests replacing the VAE with 'Krea 2 Real VAE' (artsyww/KREA2REALVAE) for skin texture. That file carries no licence at all and community comparisons report only a marginal difference, so this pack ships Comfy-Org's qwen_image_vae; swap it yourself if you want it. Smaller LoRA ranks exist in the same repo (r128 914 MB, r64 457 MB) if 1.83 GB is too much."
         }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1"
       }
     },
     {
@@ -252,6 +261,16 @@
           "sizeGB": 15,
           "notes": "Krea 2 turbo DiT + Qwen3-VL 4B encoder + Qwen-Image VAE, all shared with our Krea 2 pack, plus a 1.83 GB identity-edit LoRA in models/loras/. Needs the comfyui-krea2edit custom node (Apache-2.0, pinned); SimpliGen installs it with the pack. Ten steps at CFG 1, euler/simple. REFERENCE ORDER MATTERS: image 1 is the scene being edited, image 2 is the subject being brought in - the LoRA was trained scene-first, and swapping them degrades the result without raising an error. NO MASKING: SimpliGen presets cannot pass a mask, so the tutorial's inpainting and outpainting sections are not reproduced here; the node's own ref_boost_mask is left unconnected. The tutorial also suggests replacing the VAE with 'Krea 2 Real VAE' (artsyww/KREA2REALVAE) for skin texture. That file carries no licence at all and community comparisons report only a marginal difference, so this pack ships Comfy-Org's qwen_image_vae; swap it yourself if you want it. Smaller LoRA ranks exist in the same repo (r128 914 MB, r64 457 MB) if 1.83 GB is too much."
         }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1",
+        "maxCharacters": 2
       }
     }
   ]

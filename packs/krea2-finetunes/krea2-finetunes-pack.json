@@ -1,7 +1,7 @@
 {
   "id": "krea2-finetunes-pack",
   "name": "Community — Krea 2 Finetunes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Stable Yogi / Felldude / Binyuan",
   "nsfw": true,
   "description": "Three trained Krea 2 checkpoints, as opposed to the merges in the Krea 2 pack — each with a specific, tested purpose. Muse v3.5 Extended: clean SFW editorial portraits with a real 8-20 step / CFG 1-3 range (ships 12 steps / CFG 1.5). FinalCut v2: matte skin instead of Krea 2's glossy 'wet skin', native up to 2432x1920, NSFW-capable. Binyuan Portrait v3.2: East Asian portrait realism trained on ~1,000 unedited studio photos. All three render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass. They share the Qwen3VL 4B encoder and Qwen-Image VAE with the Krea 2 pack, so each preset costs only its 13-14.5 GB checkpoint.",
@@ -118,6 +118,14 @@
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "upscale": 1
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
       }
     },
     {
@@ -226,6 +234,14 @@
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "upscale": 1
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
       }
     },
     {
@@ -334,6 +350,14 @@
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "upscale": 1
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
       }
     }
   ]

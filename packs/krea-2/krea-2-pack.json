@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "author": "Krea AI",
   "nsfw": true,
   "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0.",
@@ -118,6 +118,14 @@
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "upscale": 1
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
       }
     },
     {
@@ -333,6 +341,14 @@
           "notes": "Krea-2 DiT (diffusion_models) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Photoreal realism mix; 8 steps default, 10-12 for extra detail. Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~30 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~8 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
         },
         "upscale": 1
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
       }
     },
     {
