@@ -211,7 +211,7 @@
   "15": {
     "class_type": "ComfyMathExpression",
     "inputs": {
-      "expression": "a > 1.0",
+      "expression": "float(a) > 1.0",
       "values.a": "{{upscale}}"
     }
   },
