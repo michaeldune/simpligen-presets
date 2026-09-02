@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Seven Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism, Dark Beast (fp8) and Muse v3.5 Extended. Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the seven (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes.",
+  "description": "Nine Krea 2 single-pass DiT checkpoints — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism, Dark Beast (fp8), Muse v3.5 Extended, FinalCut v2 (matte skin) and Binyuan Portrait v3.2 (East Asian portraits). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Four of the nine (RedCraft, Fascium, Dark Beast, FinalCut) are NSFW-capable.",
   "tags": [
     "Local",
     "Krea",
@@ -760,6 +760,222 @@
           "minRamGB": 16,
           "sizeGB": 13,
           "notes": "Krea-2 DiT (diffusion_models, fp8 scaled, 12.83 GB, SHA256 840EE6A7…) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, negative zeroed. SFW editorial mix. CFG above 1 runs a real negative pass, so per-step cost doubles. Measured 2026-09-01 on a 4070 Ti at 1408x1408: 8 st/CFG 1 ~24 s, 12 st/CFG 1.5 ~59 s, 16 st/CFG 2 ~78 s (all incl. model load); Upscale 1.5 to 2112x2112 adds ~30 s. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass gated by ComfyMathExpression + ComfySwitchNode so Upscale 1 is a clean single pass. Author says do not exceed CFG 3."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1
+      }
+    },
+    {
+      "id": "finalcut-krea2-v2-int8",
+      "name": "FinalCut Krea 2 v2 (INT8)",
+      "tagline": "Matte skin, no Krea gloss; native up to 2432x1920",
+      "icon": "🎬",
+      "previewImage": "previews/finalcut-krea2-v2-int8.jpg",
+      "description": "Felldude's FinalCut v2 — a trained Krea 2 finetune (hundreds of hours), not a merge, whose whole point is killing Krea 2's glossy 'wet skin'. In our side-by-side the claim holds: matte skin and cooler, softer light where Moody and Realia show forehead and cheek sheen. NSFW-capable, SFW fine. The author's native latent ceiling of 2432x1920 also holds: coherent in ~66 s on a 4070 Ti. INT8 ConvRot build, the author's recommended file. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "tags": [
+        "Krea",
+        "Realistic",
+        "NSFW",
+        "Matte",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "FinalCut Krea 2 v2 (INT8 ConvRot)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/finalcut-krea2-v2-int8.json",
+        "unet": "krea2FinalcutUpdateFP16_comfyQuantV20.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3257963?fileId=3141170",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 14.5,
+          "notes": "Krea-2 DiT (diffusion_models, INT8 ConvRot, 14.47 GB, SHA256 7DFF8A1F…) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Trained finetune with matte skin; NSFW-capable. Measured 2026-09-01 on a 4070 Ti: 1408x1408 ~27 s incl. load, 1216x1632 ~19 s, 2432x1920 (author's stated native ceiling) ~66 s; Upscale 1.5 to 2112x2112 ~52 s. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass gated by ComfyMathExpression + ComfySwitchNode so Upscale 1 is a clean single pass."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1
+      }
+    },
+    {
+      "id": "binyuan-krea2-portrait-v32",
+      "name": "Binyuan Krea 2 Portrait v3.2",
+      "tagline": "East Asian portrait realism, trained on unedited photos",
+      "icon": "📷",
+      "previewImage": "previews/binyuan-krea2-portrait-v32.jpg",
+      "description": "Binyuan's Krea 2 Portrait v3.2 — the official Turbo finetuned on ~1,000 unedited studio photographs of East Asian women. The only checkpoint in the pack aimed at East Asian faces, and in our studio test it gave the most photographic result of the three tried: natural features, matte skin, convincing hair, where Moody went waxy. It reads lighting words literally (a 'softbox' in the prompt got drawn into the frame), so describe light quality rather than gear. v3.2 is the author's stable release; v4.x are marked experimental by the author. SFW-oriented. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "tags": [
+        "Krea",
+        "Realistic",
+        "Portrait",
+        "Asian",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Binyuan Krea 2 Portrait v3.2 (INT8)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/binyuan-krea2-portrait-v32.json",
+        "unet": "binyuanKrea2Portrait_v32.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3224910?fileId=3108607",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13,
+          "notes": "Krea-2 DiT (diffusion_models, INT8, 12.83 GB, SHA256 32644A1D…) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Portrait finetune on the official Turbo. Measured 2026-09-01 on a 4070 Ti: 1408x1408 ~23 s incl. load, 1216x1632 ~18 s; Upscale 1.5 to 2112x2112 ~49 s. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass gated by ComfyMathExpression + ComfySwitchNode so Upscale 1 is a clean single pass."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
