@@ -1,0 +1,1008 @@
+{
+  "id": "minimax-h3-two-stage-pack",
+  "name": "Community — MiniMax H3 (Two-Stage Latent Upscale)",
+  "version": "1.0.0",
+  "author": "LBH-123-AI + lightx2v",
+  "nsfw": false,
+  "description": "MiniMax H3 the way the LTX family does it: a small full-quality first pass, a trained latent upscaler, then a short Turbo refine at your chosen size.\n\nWHY TWO STAGES. Turbo LoRAs are fast but flatten motion; the full 20-step base model keeps the natural nuance but is slow at 768p. This pack runs the full base steps where they are cheap (about 0.2 megapixels), upscales the LATENT with LBH-123-AI's trained 3D upscaler (no decode/re-encode round trip), and spends the Turbo LoRA only on a 4-step refine at full size. Stage 2 adds real detail: amp logos, LEDs and switches that the small pass only smears resolve cleanly.\n\nMeasured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB.\n\nWHAT IT IS NOT. Not a speed win over a distilled checkpoint: DaSiWa renders 768p directly in about the same time. Pick this for the stock, non-distilled look at 768p in half the time a direct full-steps render costs, not for raw throughput. Not verified above the 768p tier or beyond 5 s; a 15 s clip at 768p is known to exhaust 32 GB of VRAM on the upscale in a third-party test, so expect the higher tiers and long durations to need more than 12 GB.\n\nSETTINGS THAT MATTER. The Steps control is the STAGE-1 step count (default 20). The resolution tier is the FINAL size; stage 1 is always 0.45x of it, snapped to 32. Stage 2 is fixed at 4 steps on the schedule the upscaler's author ships. Sigma shift 12 / 3 on both stages. The Turbo LoRA is applied in stage 2 only; your own LoRAs (the LoRA slot) apply to both.\n\nREQUIRES the Comfyui_Minimax_h3_latent_Upscaler custom node pinned at commit d7c01b9 or later. The previous commit (6a4b191) produced scrambled output - blobby backgrounds, cyan skin - on this exact graph; that is the whole reason this pack did not exist a day earlier. Adds one 0.69 GB upscaler model and the 2 GB Turbo LoRA; the base weights are the official Comfy-Org pruned INT8 files shared with every other H3 pack.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "R2V",
+    "MiniMax H3",
+    "Upscale",
+    "Turbo",
+    "Experimental"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-two-stage-t2v",
+      "name": "MiniMax H3 Text to Video (Two-Stage Upscale)",
+      "icon": "🔍",
+      "previewImage": "previews/minimax-h3-two-stage-t2v.jpg",
+      "description": "Text to video at 768p with the stock, non-distilled look. Stage 1 runs the full base-model steps at 0.45x your chosen size (about 0.2 MP at 768p), the latent is upscaled by a trained 3D upscaler, and stage 2 is a 4-step Turbo refine at full size. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. The Steps control is the stage-1 count; stage 2 is fixed. Verified at the 768p tier and 5 s only; higher tiers and longer clips are untested on 12 GB.",
+      "tagline": "Full base steps small, latent-upscaled, Turbo-refined at full size",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Experimental",
+        "Upscale",
+        "Turbo",
+        "Experimental"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 FL2VA (pruned int8) + Latent Upscaler + Turbo refine",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_twostage_t2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/main/minimax_h3_latent_upscaler_3d_fp16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ. The workflow does not patch attention itself; SimpliGen injects it when Faster Attention is on (supportsSage), and the node must be installed for that injection to resolve.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "Official Comfy-Org pruned INT8 base weights shared with the other H3 packs, plus the 0.69 GB LBH-123-AI latent upscaler and the 2 GB lightx2v Turbo 4-step LoRA. Needs the Comfyui_Minimax_h3_latent_Upscaler custom node at d7c01b9 or later - the earlier commit scrambles stage 2. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. Only the 768p tier at 5 s has been run on 12 GB; a 15 s clip at 768p OOMed on the upscale at 32 GB VRAM in a third-party test, so treat the 928p/1088p tiers and long durations as untested. Free system RAM is the usual H3 constraint: below ~2 GB free the decode can fail with 'HostBuffer.read_file_slice failed'."
+        },
+        "supportsSage": true
+      }
+    },
+    {
+      "id": "minimax-h3-two-stage-i2v",
+      "name": "MiniMax H3 Image to Video (Two-Stage Upscale)",
+      "icon": "🔍",
+      "previewImage": "previews/minimax-h3-two-stage-i2v.jpg",
+      "description": "Animate a still (optionally toward a last frame) at 768p. The first and last frames are fitted to the STAGE-1 size, then the whole clip is upscaled and refined. Stage 1 runs the full base-model steps at 0.45x your chosen size (about 0.2 MP at 768p), the latent is upscaled by a trained 3D upscaler, and stage 2 is a 4-step Turbo refine at full size. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. The Steps control is the stage-1 count; stage 2 is fixed. Verified at the 768p tier and 5 s only; higher tiers and longer clips are untested on 12 GB.",
+      "tagline": "Full base steps small, latent-upscaled, Turbo-refined at full size",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "Experimental",
+        "Upscale",
+        "Turbo",
+        "Experimental"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 FL2VA (pruned int8) + Latent Upscaler + Turbo refine",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_twostage_i2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/main/minimax_h3_latent_upscaler_3d_fp16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ. The workflow does not patch attention itself; SimpliGen injects it when Faster Attention is on (supportsSage), and the node must be installed for that injection to resolve.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "Official Comfy-Org pruned INT8 base weights shared with the other H3 packs, plus the 0.69 GB LBH-123-AI latent upscaler and the 2 GB lightx2v Turbo 4-step LoRA. Needs the Comfyui_Minimax_h3_latent_Upscaler custom node at d7c01b9 or later - the earlier commit scrambles stage 2. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. Only the 768p tier at 5 s has been run on 12 GB; a 15 s clip at 768p OOMed on the upscale at 32 GB VRAM in a third-party test, so treat the 928p/1088p tiers and long durations as untested. Free system RAM is the usual H3 constraint: below ~2 GB free the decode can fail with 'HostBuffer.read_file_slice failed'."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "supportsSage": true
+      }
+    },
+    {
+      "id": "minimax-h3-two-stage-r2v",
+      "name": "MiniMax H3 Reference to Video (Two-Stage Upscale)",
+      "icon": "🔍",
+      "previewImage": "previews/minimax-h3-two-stage-r2v.jpg",
+      "description": "Carry a character and a look into a new scene at 768p, with sound, without a 7-minute direct render. Best with one or two reference images; reference VIDEO is untested on this graph. Stage 1 runs the full base-model steps at 0.45x your chosen size (about 0.2 MP at 768p), the latent is upscaled by a trained 3D upscaler, and stage 2 is a 4-step Turbo refine at full size. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. The Steps control is the stage-1 count; stage 2 is fixed. Verified at the 768p tier and 5 s only; higher tiers and longer clips are untested on 12 GB.",
+      "tagline": "Full base steps small, latent-upscaled, Turbo-refined at full size",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Reference",
+        "Experimental",
+        "Upscale",
+        "Turbo",
+        "Experimental"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Reference (pruned int8) + Latent Upscaler + Turbo refine",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_twostage_r2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_4step_v1.0_768p_comfyui_bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/main/minimax_h3_latent_upscaler_3d_fp16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ. The workflow does not patch attention itself; SimpliGen injects it when Faster Attention is on (supportsSage), and the node must be installed for that injection to resolve.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "Official Comfy-Org pruned INT8 base weights shared with the other H3 packs, plus the 0.69 GB LBH-123-AI latent upscaler and the 2 GB lightx2v Turbo 4-step LoRA. Needs the Comfyui_Minimax_h3_latent_Upscaler custom node at d7c01b9 or later - the earlier commit scrambles stage 2. Measured 2026-09-02 on a 12 GB RTX 4070 Ti, SimpliGen 1.58.0 / engine ComfyUI 0.34.2, ~19 GB system RAM free: a 5 s reference-to-video shot at 1376x768 (the 768p tier) took 246 s end to end - 20 base steps at 608x352, the latent upscale, then the 4-step Turbo refine at full size. The same shot rendered directly at 768p with the non-distilled base plus Turbo LoRA took 424 s the day before. Free system RAM moves these numbers a lot: the identical two-stage graph ran 241 s with ~2 GB free and 211 s with ~19 GB. Only the 768p tier at 5 s has been run on 12 GB; a 15 s clip at 768p OOMed on the upscale at 32 GB VRAM in a third-party test, so treat the 928p/1088p tiers and long durations as untested. Free system RAM is the usual H3 constraint: below ~2 GB free the decode can fail with 'HostBuffer.read_file_slice failed'."
+        },
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "supportsSage": true
+      }
+    }
+  ]
+}
