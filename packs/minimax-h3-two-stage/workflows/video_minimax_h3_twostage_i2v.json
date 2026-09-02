@@ -411,7 +411,7 @@
       "title": "Stage 1 width"
     },
     "inputs": {
-      "expression": "max(320, round(float(a) * 0.45 / 32) * 32)",
+      "expression": "max(320, round(float(a) * 0.6 / 32) * 32)",
       "values.a": "{{width}}"
     }
   },
@@ -421,7 +421,7 @@
       "title": "Stage 1 height"
     },
     "inputs": {
-      "expression": "max(320, round(float(a) * 0.45 / 32) * 32)",
+      "expression": "max(320, round(float(a) * 0.6 / 32) * 32)",
       "values.a": "{{height}}"
     }
   },
