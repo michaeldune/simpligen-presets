@@ -14,6 +14,26 @@ OUT_DIR = r'D:\SimpliGen-Backups\zips'
 
 # ── Custom node registry ──────────────────────────────────────────────────────
 CUSTOM_NODES = {
+    'T8_IndexTTS25_ModelLoader': {
+        'name': 'comfyui-indextts25-T8',
+        'url':  'https://github.com/T8mars/comfyui-indextts25-T8',
+        'note': 'IndexTTS 2.5 text-to-speech nodes. NOT pre-installed by SimpliGen. Its requirements pin transformers below 5 and downgrade the engine's transformers on install (confirmed allowed and persistent by the SimpliGen maintainer). Weights go into models/TTS/IndexTTS-2.5.',
+    },
+    'T8_IndexTTS25_Generate': {
+        'name': 'comfyui-indextts25-T8',
+        'url':  'https://github.com/T8mars/comfyui-indextts25-T8',
+        'note': 'IndexTTS 2.5 text-to-speech nodes (see above).',
+    },
+    'T8_IndexTTS25_EmotionControl': {
+        'name': 'comfyui-indextts25-T8',
+        'url':  'https://github.com/T8mars/comfyui-indextts25-T8',
+        'note': 'IndexTTS 2.5 text-to-speech nodes (see above).',
+    },
+    'MinimaxH3LatentUpscaler3D': {
+        'name': 'Comfyui_Minimax_h3_latent_Upscaler',
+        'url':  'https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler',
+        'note': 'Trained latent upscaler for MiniMax H3. NOT pre-installed by SimpliGen. Must be at commit d7c01b9 or later; 6a4b191 scrambles the second stage.',
+    },
     'Power Lora Loader (rgthree)': {
         'name': 'Power Lora Loader (rgthree)',
         'url':  'https://github.com/rgthree/rgthree-comfy',
