@@ -29,6 +29,16 @@ CUSTOM_NODES = {
         'url':  'https://github.com/T8mars/comfyui-indextts25-T8',
         'note': 'IndexTTS 2.5 text-to-speech nodes (see above).',
     },
+    'MiniMaxH3MotionContext': {
+        'name': 'ComfyUI-H3-Motion-Context-MultiRef',
+        'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
+        'note': 'H3 Motion Context clip-chaining nodes (fork of NikoDemon80/ComfyUI-H3-Motion-Context, GPL-3.0). Pure Python, no requirements.txt; reads ComfyUI native guides and patches nothing. NOT pre-installed by SimpliGen. Pin a823ca7 or later.',
+    },
+    'MiniMaxH3MotionContextTrim': {
+        'name': 'ComfyUI-H3-Motion-Context-MultiRef',
+        'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
+        'note': 'H3 Motion Context Trim node (see above) - removes the pinned head from picture and sound together.',
+    },
     'MinimaxH3LatentUpscaler3D': {
         'name': 'Comfyui_Minimax_h3_latent_Upscaler',
         'url':  'https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler',

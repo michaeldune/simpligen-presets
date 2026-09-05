@@ -1,0 +1,1220 @@
+{
+  "h3_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "MiniMax H3 Diffusion Model"
+    }
+  },
+  "h3_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Qwen3-VL Text Encoder (MiniMax)"
+    }
+  },
+  "h3_video_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Video VAE"
+    }
+  },
+  "h3_audio_vae": {
+    "inputs": {
+      "vae_name": "{{audio_vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Audio VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "h3_unet",
+        0
+      ],
+      "clip": [
+        "h3_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "h3_conditioning": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "length": [
+        "h3_length",
+        1
+      ],
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "sgopt_ref_image_1__scale",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "sgopt_ref_image_2__scale",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "sgopt_ref_image_3__scale",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "sgopt_ref_image_4__scale",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "sgopt_ref_image_5__scale",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "sgopt_ref_image_6__scale",
+        0
+      ],
+      "ref_images.ref_image_6": [
+        "sgopt_ref_image_7__scale",
+        0
+      ],
+      "ref_images.ref_image_7": [
+        "sgopt_ref_image_8__scale",
+        0
+      ],
+      "ref_images.ref_image_8": [
+        "sgopt_ref_image_9__scale",
+        0
+      ],
+      "ref_videos.ref_video_1": [
+        "sgopt_ref_video_2__scale",
+        0
+      ],
+      "ref_video_audios.ref_video_audio_1": [
+        "sgopt_ref_video_audio_2__load",
+        0
+      ],
+      "ref_videos.ref_video_2": [
+        "sgopt_ref_video_3__scale",
+        0
+      ],
+      "ref_video_audios.ref_video_audio_2": [
+        "sgopt_ref_video_audio_3__load",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "sgopt_ref_audio_1__load",
+        0
+      ],
+      "ref_audios.ref_audio_1": [
+        "sgopt_ref_audio_2__load",
+        0
+      ],
+      "ref_audios.ref_audio_2": [
+        "sgopt_ref_audio_3__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "sgopt_ref_video_2__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_2__components",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Clip 2 size"
+    }
+  },
+  "sgopt_ref_video_2__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.a": [
+        "sgopt_ref_video_2__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_video_2__size",
+        2
+      ],
+      "values.e": [
+        "sgopt_ref_video_2__size",
+        3
+      ],
+      "values.c": "{{width}}",
+      "values.d": "{{height}}"
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref clip 2 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_video_2__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_2__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_video_2__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale ref clip 2 to the output tier"
+    }
+  },
+  "sgopt_ref_video_3__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_3__components",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Clip 3 size"
+    }
+  },
+  "sgopt_ref_video_3__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.a": [
+        "sgopt_ref_video_3__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_video_3__size",
+        2
+      ],
+      "values.e": [
+        "sgopt_ref_video_3__size",
+        3
+      ],
+      "values.c": "{{width}}",
+      "values.d": "{{height}}"
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref clip 3 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_video_3__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_3__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_video_3__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale ref clip 3 to the output tier"
+    }
+  },
+  "sgopt_ref_video_1__load": {
+    "inputs": {
+      "file": "{{ref_video_1}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Reference Clip 1"
+    }
+  },
+  "sgopt_ref_video_1__components": {
+    "inputs": {
+      "video": [
+        "sgopt_ref_video_1__load",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Reference Clip 1 frames + sound"
+    }
+  },
+  "sgopt_ref_video_2__load": {
+    "inputs": {
+      "file": "{{ref_video_2}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Reference Clip 2"
+    }
+  },
+  "sgopt_ref_video_2__trim": {
+    "inputs": {
+      "video": [
+        "sgopt_ref_video_2__load",
+        0
+      ],
+      "start_time": 0,
+      "duration": 15,
+      "strict_duration": false
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Trim Reference Clip 2 to 15s"
+    }
+  },
+  "sgopt_ref_video_2__components": {
+    "inputs": {
+      "video": [
+        "sgopt_ref_video_2__trim",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Reference Clip 2 frames + sound"
+    }
+  },
+  "sgopt_ref_video_3__load": {
+    "inputs": {
+      "file": "{{ref_video_3}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Reference Clip 3"
+    }
+  },
+  "sgopt_ref_video_3__trim": {
+    "inputs": {
+      "video": [
+        "sgopt_ref_video_3__load",
+        0
+      ],
+      "start_time": 0,
+      "duration": 15,
+      "strict_duration": false
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Trim Reference Clip 3 to 15s"
+    }
+  },
+  "sgopt_ref_video_3__components": {
+    "inputs": {
+      "video": [
+        "sgopt_ref_video_3__trim",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Reference Clip 3 frames + sound"
+    }
+  },
+  "sgopt_ref_video_audio_1__load": {
+    "inputs": {
+      "audio": "{{ref_video_audio_1}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Clip 1 soundtrack"
+    }
+  },
+  "sgopt_ref_video_audio_2__load": {
+    "inputs": {
+      "audio": "{{ref_video_audio_2}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Clip 2 soundtrack"
+    }
+  },
+  "sgopt_ref_video_audio_3__load": {
+    "inputs": {
+      "audio": "{{ref_video_audio_3}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Clip 3 soundtrack"
+    }
+  },
+  "sgopt_ref_audio_1__load": {
+    "inputs": {
+      "audio": "{{ref_audio_1}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Sound 1"
+    }
+  },
+  "sgopt_ref_audio_2__load": {
+    "inputs": {
+      "audio": "{{ref_audio_2}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Sound 2"
+    }
+  },
+  "sgopt_ref_audio_3__load": {
+    "inputs": {
+      "audio": "{{ref_audio_3}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Sound 3"
+    }
+  },
+  "h3_noise": {
+    "inputs": {
+      "noise_seed": "{{seed}}"
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Random Noise"
+    }
+  },
+  "h3_guider": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "conditioning": [
+        "chain_ctx",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "h3_sampler": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSampler Select"
+    }
+  },
+  "h3_sigmas": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": "{{steps}}",
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Basic Scheduler"
+    }
+  },
+  "h3_sampling": {
+    "inputs": {
+      "noise": [
+        "h3_noise",
+        0
+      ],
+      "guider": [
+        "h3_guider",
+        0
+      ],
+      "sampler": [
+        "h3_sampler",
+        0
+      ],
+      "sigmas": [
+        "h3_sigmas",
+        0
+      ],
+      "latent_image": [
+        "h3_conditioning",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "h3_decode_video": {
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "h3_decode_audio": {
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_audio_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE Decode Audio"
+    }
+  },
+  "h3_create_video": {
+    "inputs": {
+      "images": [
+        "chain_trim",
+        0
+      ],
+      "fps": 24,
+      "audio": [
+        "chain_trim",
+        1
+      ],
+      "bit_depth": 8
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video"
+    }
+  },
+  "h3_save": {
+    "inputs": {
+      "video": [
+        "h3_create_video",
+        0
+      ],
+      "filename_prefix": "video/MiniMax_H3_chain_motion",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "sgopt_ref_image_1__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 1 size"
+    }
+  },
+  "sgopt_ref_image_1__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_1__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_1__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 1 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_1__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_1__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 1 tokens"
+    }
+  },
+  "sgopt_ref_image_2__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_2__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 2 size"
+    }
+  },
+  "sgopt_ref_image_2__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_2__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_2__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 2 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_2__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_2__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_2__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 2 tokens"
+    }
+  },
+  "sgopt_ref_image_3__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_3__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 3 size"
+    }
+  },
+  "sgopt_ref_image_3__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_3__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_3__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 3 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_3__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_3__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_3__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 3 tokens"
+    }
+  },
+  "sgopt_ref_image_4__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 4 size"
+    }
+  },
+  "sgopt_ref_image_4__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_4__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_4__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 4 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_4__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_4__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_4__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 4 tokens"
+    }
+  },
+  "sgopt_ref_image_5__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_5__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 5 size"
+    }
+  },
+  "sgopt_ref_image_5__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_5__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_5__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 5 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_5__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_5__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_5__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 5 tokens"
+    }
+  },
+  "sgopt_ref_image_6__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_6__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 6 size"
+    }
+  },
+  "sgopt_ref_image_6__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_6__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_6__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 6 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_6__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_6__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_6__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 6 tokens"
+    }
+  },
+  "sgopt_ref_image_7__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_7__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 7 size"
+    }
+  },
+  "sgopt_ref_image_7__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_7__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_7__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 7 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_7__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_7__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_7__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 7 tokens"
+    }
+  },
+  "sgopt_ref_image_8__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_8__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 8 size"
+    }
+  },
+  "sgopt_ref_image_8__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_8__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_8__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 8 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_8__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_8__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_8__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 8 tokens"
+    }
+  },
+  "sgopt_ref_image_9__size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_9__load",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Reference Image 9 size"
+    }
+  },
+  "sgopt_ref_image_9__mp": {
+    "inputs": {
+      "expression": "max(0.01, min(a * b, c * d) / 1000000)",
+      "values.c": "{{width}}",
+      "values.d": "{{height}}",
+      "values.a": [
+        "sgopt_ref_image_9__size",
+        1
+      ],
+      "values.b": [
+        "sgopt_ref_image_9__size",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Ref image 9 conditioning budget (MP)"
+    }
+  },
+  "sgopt_ref_image_9__scale": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_9__size",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "sgopt_ref_image_9__mp",
+        0
+      ],
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Cap ref image 9 tokens"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 1"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 2"
+    }
+  },
+  "sgopt_ref_image_3__load": {
+    "inputs": {
+      "image": "{{ref_image_3}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 3"
+    }
+  },
+  "sgopt_ref_image_4__load": {
+    "inputs": {
+      "image": "{{ref_image_4}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 4"
+    }
+  },
+  "sgopt_ref_image_5__load": {
+    "inputs": {
+      "image": "{{ref_image_5}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 5"
+    }
+  },
+  "sgopt_ref_image_6__load": {
+    "inputs": {
+      "image": "{{ref_image_6}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 6"
+    }
+  },
+  "sgopt_ref_image_7__load": {
+    "inputs": {
+      "image": "{{ref_image_7}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 7"
+    }
+  },
+  "sgopt_ref_image_8__load": {
+    "inputs": {
+      "image": "{{ref_image_8}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 8"
+    }
+  },
+  "sgopt_ref_image_9__load": {
+    "inputs": {
+      "image": "{{ref_image_9}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image 9"
+    }
+  },
+  "h3_duration": {
+    "inputs": {
+      "value": "{{duration}}"
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration (seconds)"
+    }
+  },
+  "h3_length": {
+    "inputs": {
+      "expression": "min(362, max(124, max(5, round(a * 24)) + (17 - (max(5, round(a * 24)) - 5) % 17) % 17) + 17)",
+      "values.a": [
+        "h3_duration",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Snap length to the 17k+5 grid"
+    }
+  },
+  "chain_prev_count": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_1__components",
+        0
+      ]
+    },
+    "class_type": "GetImageSizeAndCount",
+    "_meta": {
+      "title": "Chain: previous clip frame count"
+    }
+  },
+  "chain_tail_start": {
+    "inputs": {
+      "expression": "max(0, a - 22)",
+      "values.a": [
+        "chain_prev_count",
+        3
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Chain: tail start frame"
+    }
+  },
+  "chain_tail": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_video_1__components",
+        0
+      ],
+      "batch_index": [
+        "chain_tail_start",
+        1
+      ],
+      "length": 22
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Chain: last 22 frames of previous clip"
+    }
+  },
+  "chain_tail_fit": {
+    "inputs": {
+      "image": [
+        "chain_tail",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Chain: fit tail to output size"
+    }
+  },
+  "chain_ctx": {
+    "inputs": {
+      "conditioning": [
+        "h3_conditioning",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "latent": [
+        "h3_conditioning",
+        1
+      ],
+      "context_frames": [
+        "chain_tail_fit",
+        0
+      ],
+      "context_length": 22,
+      "encode_mode": "video",
+      "anchor_mode": "head",
+      "crop": "center",
+      "audio_context_length": 22,
+      "audio_mode": "timeline",
+      "target_start": 0,
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "context_audio": [
+        "sgopt_ref_video_audio_1__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3MotionContext",
+    "_meta": {
+      "title": "Chain: H3 Motion Context (pin tail, continue audio)"
+    }
+  },
+  "chain_trim": {
+    "inputs": {
+      "images": [
+        "h3_decode_video",
+        0
+      ],
+      "trim_frames": [
+        "chain_ctx",
+        1
+      ],
+      "audio": [
+        "h3_decode_audio",
+        0
+      ],
+      "fps": 24.0,
+      "match_tail": true
+    },
+    "class_type": "MiniMaxH3MotionContextTrim",
+    "_meta": {
+      "title": "Chain: remove pinned head (picture + sound)"
+    }
+  }
+}

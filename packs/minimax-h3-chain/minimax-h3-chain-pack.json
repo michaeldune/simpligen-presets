@@ -1,0 +1,689 @@
+{
+  "id": "minimax-h3-chain-pack",
+  "name": "Community — MiniMax H3 (Clip Chaining)",
+  "version": "1.0.0",
+  "author": "NikoDemon80 + seitanism (Motion Context), Comfy-Org (Add Guide)",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.34.0",
+  "description": "Continue an existing MiniMax H3 clip into a longer one with the motion, camera and sound carried across the cut. Drop the clip to continue into Reference Video 1 and describe what happens next. Two mechanisms, measured side by side on 2026-09-04: MOTION CONTEXT pins the last 22 frames and end-aligns the same 22 frames of audio on the new clip's timeline, so the soundtrack genuinely continues (correlation 0.95, 0 ms lag); ADD GUIDE uses ComfyUI's stock guide node and anchors the same frames forward, so the picture is just as seamless but the audio is imitated rather than continued (-8 ms lag). Both were visually seamless on a static-camera shot (join ratio 1.9 and 1.3 against 16 for a hard cut). Fast action across the cut is untested. Same official weights as the MiniMax H3 pack, no extra downloads; one pure-Python node pack.",
+  "tags": [
+    "Local",
+    "Video",
+    "R2V",
+    "MiniMax H3",
+    "Chaining",
+    "Continuation",
+    "Long video",
+    "Experimental"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-chain-motion",
+      "name": "MiniMax H3 Continue Clip (Motion Context)",
+      "icon": "🔗",
+      "previewImage": "previews/minimax-h3-chain-motion.jpg",
+      "description": "CONTINUES THE SOUNDTRACK. Pins the previous clip's last 22 frames as one native H3 clip guide and the same 22 frames of audio END-ALIGNED on the new clip's own timeline, so the model reads it as 'this clip's sound so far' and continues it rather than writing a sound-alike. Uses the H3 Motion Context node (seitanism's MultiRef fork, GPL-3.0), which only reads ComfyUI's native guide layout and patches nothing - it coexists with the Turbo, Sol-Attn and Spectrum packs. Pick this for singing, dialogue and anything with a beat. Both presets continue an existing MiniMax H3 clip: drop the clip you want to continue into REFERENCE VIDEO 1, describe what happens next, and the new clip starts from that clip's last frames with its motion, camera and timing carried across the cut. Reference Video 1 is NOT used as a style reference here; image references 1-9, video references 2-3 and audio references 1-3 still work as normal references. Delivered length is about the requested duration: the graph renders one extra latent step (17 frames) and trims the 22 pinned frames off the front of picture and sound together. Both take the same input; they differ only in HOW the tail is pinned, which shows up in the audio.\n\nMEASURED 2026-09-04 on a 12 GB RTX 4070 Ti (vanilla ComfyUI 0.34.3, 672x384, 5 s, 20 steps, same seed and prompt), scored against a genuine hard cut (join ratio 16): Motion Context join ratio 1.87, Add Guide 1.32, last-frame-only 1.19 - all three are visually seamless on a static-camera shot. Audio is where they part: Motion Context continues the soundtrack (correlation 0.95, 0 ms lag, 4.9 dB level step), Add Guide imitates it (correlation 0.95 but -8 ms lag, 5.4 dB, rated marginal), and a single last frame restarts it (13-16 dB, audible). NOT tested: fast action across the cut (a running subject), and resolutions above the tier used. Cut on a frame where something is moving; a seam inside a static hold is where the eye lands. Colour drifts slightly warmer down a chain (about +3/255 red per link on the pixel path), so long chains are worth restarting at a natural transition. Same official Comfy-Org pruned INT8 weights as SimpliGen's own MiniMax H3 pack, no extra downloads.",
+      "tagline": "Reference Video 1 = clip to continue; sound continues across the cut",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Chaining",
+        "Motion Context"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Reference (pruned int8) - clip chaining",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_chain_motion_context.json",
+        "supportsSage": true,
+        "supportsSolAttn": true,
+        "supportsSpectrum": false,
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot). Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6",
+            "description": "GetImageSizeAndCount (finds the previous clip's last frames) and PathchSageAttentionKJ for the faster-attention opt-in. Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "pinnedCommit": "a823ca7",
+            "description": "H3 Motion Context + Trim nodes (fork of NikoDemon80/ComfyUI-H3-Motion-Context, GPL-3.0). Pure Python, no requirements.txt. Reads ComfyUI's native guide layout and patches nothing, so it coexists with the Turbo/Sol-Attn/Spectrum packs. NOT pre-installed by SimpliGen."
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 48,
+          "sizeGB": 40,
+          "notes": "Same ~40 GB of official pruned INT8 weights as the MiniMax H3 pack, streamed through system RAM. Reference Video 1 is the clip to continue and is required; it should be an H3 clip at 24 fps (any SimpliGen H3 output). Spectrum is deliberately off: step-skipping mispredicts the pinned rows, which never change."
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-chain-guide",
+      "name": "MiniMax H3 Continue Clip (Add Guide)",
+      "icon": "🧷",
+      "previewImage": "previews/minimax-h3-chain-guide.jpg",
+      "description": "STOCK NODES FOR THE GUIDE. Anchors the previous clip's last 22 frames plus their audio at frame 0 with ComfyUI's own Add Guide for MiniMax H3, then trims them off. Picture continuity measured as good as or better than Motion Context; the audio is anchored forward from the cut, so it is imitated rather than continued (-8 ms lag, marginal level step). Pick this when you re-lay audio in the edit. Needs ComfyUI 0.34.0 or newer for the Add Guide node; the Motion Context pack is still needed for its Trim node. Both presets continue an existing MiniMax H3 clip: drop the clip you want to continue into REFERENCE VIDEO 1, describe what happens next, and the new clip starts from that clip's last frames with its motion, camera and timing carried across the cut. Reference Video 1 is NOT used as a style reference here; image references 1-9, video references 2-3 and audio references 1-3 still work as normal references. Delivered length is about the requested duration: the graph renders one extra latent step (17 frames) and trims the 22 pinned frames off the front of picture and sound together. Both take the same input; they differ only in HOW the tail is pinned, which shows up in the audio.\n\nMEASURED 2026-09-04 on a 12 GB RTX 4070 Ti (vanilla ComfyUI 0.34.3, 672x384, 5 s, 20 steps, same seed and prompt), scored against a genuine hard cut (join ratio 16): Motion Context join ratio 1.87, Add Guide 1.32, last-frame-only 1.19 - all three are visually seamless on a static-camera shot. Audio is where they part: Motion Context continues the soundtrack (correlation 0.95, 0 ms lag, 4.9 dB level step), Add Guide imitates it (correlation 0.95 but -8 ms lag, 5.4 dB, rated marginal), and a single last frame restarts it (13-16 dB, audible). NOT tested: fast action across the cut (a running subject), and resolutions above the tier used. Cut on a frame where something is moving; a seam inside a static hold is where the eye lands. Colour drifts slightly warmer down a chain (about +3/255 red per link on the pixel path), so long chains are worth restarting at a natural transition. Same official Comfy-Org pruned INT8 weights as SimpliGen's own MiniMax H3 pack, no extra downloads.",
+      "tagline": "Reference Video 1 = clip to continue; stock Add Guide, picture-first",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Chaining",
+        "Add Guide"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Reference (pruned int8) - clip chaining",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_chain_add_guide.json",
+        "supportsSage": true,
+        "supportsSolAttn": true,
+        "supportsSpectrum": false,
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot). Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6",
+            "description": "GetImageSizeAndCount (finds the previous clip's last frames) and PathchSageAttentionKJ for the faster-attention opt-in. Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "pinnedCommit": "a823ca7",
+            "description": "H3 Motion Context + Trim nodes (fork of NikoDemon80/ComfyUI-H3-Motion-Context, GPL-3.0). Pure Python, no requirements.txt. Reads ComfyUI's native guide layout and patches nothing, so it coexists with the Turbo/Sol-Attn/Spectrum packs. NOT pre-installed by SimpliGen."
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 48,
+          "sizeGB": 40,
+          "notes": "Same ~40 GB of official pruned INT8 weights as the MiniMax H3 pack, streamed through system RAM. Reference Video 1 is the clip to continue and is required; it should be an H3 clip at 24 fps (any SimpliGen H3 output). Spectrum is deliberately off: step-skipping mispredicts the pinned rows, which never change."
+        }
+      }
+    }
+  ]
+}
