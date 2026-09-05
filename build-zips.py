@@ -14,6 +14,21 @@ OUT_DIR = r'D:\SimpliGen-Backups\zips'
 
 # ── Custom node registry ──────────────────────────────────────────────────────
 CUSTOM_NODES = {
+    'MiniMaxH3Director': {
+        'name': 'ComfyUI_MiniMaxH3_Director',
+        'url':  'https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director',
+        'note': 'AIMixer multi-segment MiniMax H3 Director (Apache-2.0), used headless via its Group / Groups Combine nodes. NOT pre-installed by SimpliGen. Its requirements.txt lists opencv-python-headless, scenedetect and imageio-ffmpeg; the engine already has OpenCV and the preset never calls the other two. Pin e00b408 or later.',
+    },
+    'MiniMaxH3DirectorGroupReferenceToVideo': {
+        'name': 'ComfyUI_MiniMaxH3_Director',
+        'url':  'https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director',
+        'note': 'Director external group node (see above).',
+    },
+    'MiniMaxH3DirectorGroupsCombine': {
+        'name': 'ComfyUI_MiniMaxH3_Director',
+        'url':  'https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director',
+        'note': 'Director groups combiner (see above).',
+    },
     'MiniMaxH3MotionContext': {
         'name': 'ComfyUI-H3-Motion-Context-MultiRef',
         'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',

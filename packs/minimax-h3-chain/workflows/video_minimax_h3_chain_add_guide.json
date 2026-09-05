@@ -73,8 +73,8 @@
         0
       ],
       "prompt": "{{prompt}}",
-      "width": "{{width}}",
-      "height": "{{height}}",
+      "width": {{width}},
+      "height": {{height}},
       "length": [
         "h3_length",
         1
@@ -177,8 +177,8 @@
         "sgopt_ref_video_2__size",
         3
       ],
-      "values.c": "{{width}}",
-      "values.d": "{{height}}"
+      "values.c": {{width}},
+      "values.d": {{height}}
     },
     "class_type": "ComfyMathExpression",
     "_meta": {
@@ -230,8 +230,8 @@
         "sgopt_ref_video_3__size",
         3
       ],
-      "values.c": "{{width}}",
-      "values.d": "{{height}}"
+      "values.c": {{width}},
+      "values.d": {{height}}
     },
     "class_type": "ComfyMathExpression",
     "_meta": {
@@ -560,8 +560,8 @@
   "sgopt_ref_image_1__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_1__size",
         1
@@ -609,8 +609,8 @@
   "sgopt_ref_image_2__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_2__size",
         1
@@ -658,8 +658,8 @@
   "sgopt_ref_image_3__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_3__size",
         1
@@ -707,8 +707,8 @@
   "sgopt_ref_image_4__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_4__size",
         1
@@ -756,8 +756,8 @@
   "sgopt_ref_image_5__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_5__size",
         1
@@ -805,8 +805,8 @@
   "sgopt_ref_image_6__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_6__size",
         1
@@ -854,8 +854,8 @@
   "sgopt_ref_image_7__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_7__size",
         1
@@ -903,8 +903,8 @@
   "sgopt_ref_image_8__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_8__size",
         1
@@ -952,8 +952,8 @@
   "sgopt_ref_image_9__mp": {
     "inputs": {
       "expression": "max(0.01, min(a * b, c * d) / 1000000)",
-      "values.c": "{{width}}",
-      "values.d": "{{height}}",
+      "values.c": {{width}},
+      "values.d": {{height}},
       "values.a": [
         "sgopt_ref_image_9__size",
         1
@@ -1147,8 +1147,8 @@
         0
       ],
       "upscale_method": "lanczos",
-      "width": "{{width}}",
-      "height": "{{height}}",
+      "width": {{width}},
+      "height": {{height}},
       "crop": "center"
     },
     "class_type": "ImageScale",

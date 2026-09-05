@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-chain-pack",
   "name": "Community — MiniMax H3 (Clip Chaining)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "NikoDemon80 + seitanism (Motion Context), Comfy-Org (Add Guide)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -451,6 +451,341 @@
             "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
             "pinnedCommit": "a823ca7",
             "description": "H3 Motion Context + Trim nodes (fork of NikoDemon80/ComfyUI-H3-Motion-Context, GPL-3.0). Pure Python, no requirements.txt. Reads ComfyUI's native guide layout and patches nothing, so it coexists with the Turbo/Sol-Attn/Spectrum packs. NOT pre-installed by SimpliGen."
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 48,
+          "sizeGB": 40,
+          "notes": "Same ~40 GB of official pruned INT8 weights as the MiniMax H3 pack, streamed through system RAM. Reference Video 1 is the clip to continue and is required; it should be an H3 clip at 24 fps (any SimpliGen H3 output). Spectrum is deliberately off: step-skipping mispredicts the pinned rows, which never change."
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-director-two-shot",
+      "name": "MiniMax H3 Two-Shot Director (one render)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-director-two-shot.jpg",
+      "description": "TWO SHOTS, ONE RENDER. Runs AIMixer's MiniMax H3 Director with two segments and segment continuity (the last 22 frames of segment 1 are pinned into segment 2 and trimmed), so you get one file with the join already made and no clip to feed back in. Write the prompt the way H3 wants it: [Shot 1] ... then [Shot 2] ... - everything before [Shot 2] is segment 1, everything after it is segment 2 (an 'At 00:05.000,' stamp after the tag is stripped). No [Shot 2] in the prompt = both segments run the same prompt, continued. Each segment is the Duration slider long, so 5 s gives a 10 s clip. References 1-9, video references and audio references go to BOTH segments. The dialogue field is appended to the end of the prompt, so it lands in segment 2 when a [Shot 2] exists; write speech inline with <d> tags per segment instead. MEASURED 2026-09-05 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, 2x5 s at 672x384, 20 steps: 411 s total, picture join ratio 1.90 against 16 for a hard cut, colour shift under 1/255 per channel (the pinned tail is sliced from the latent, so less drift than the pixel-path presets), steady audio across the join. Not tested above 2 segments; the Director supports more but this preset is fixed at two.",
+      "tagline": "[Shot 1] ... [Shot 2] ... - two chained segments in one file",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Chaining",
+        "Director",
+        "Two shots"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Reference (pruned int8) - clip chaining",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_director_two_shot.json",
+        "supportsSage": true,
+        "supportsSolAttn": true,
+        "supportsSpectrum": false,
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot). Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6",
+            "description": "GetImageSizeAndCount (finds the previous clip's last frames) and PathchSageAttentionKJ for the faster-attention opt-in. Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI_MiniMaxH3_Director",
+            "url": "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director.git",
+            "pinnedCommit": "e00b408",
+            "description": "AIMixer's multi-segment MiniMax H3 Director (Apache-2.0). Used here headless: two external Reference-to-Video groups + segment continuity, no timeline UI. requirements.txt wants opencv-python-headless, scenedetect and imageio-ffmpeg; only OpenCV is exercised by this preset and SimpliGen's engine already ships it. NOT pre-installed by SimpliGen."
           }
         ],
         "steps": 20,
