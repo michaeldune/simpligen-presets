@@ -1,17 +1,20 @@
 {
   "id": "minimax-h3-turbo-larryvrh-pack",
   "name": "Community — MiniMax H3 (Turbo LoRA, larryvrh)",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "larryvrh",
   "nsfw": false,
-  "description": "MiniMax H3 text-to-video with the v4-600 EMA Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — the default choice for 6-8 steps and for any motion that is not heavy/fast, while keeping audio in sync. The current best line improves static/small-motion detail and resolves the v1 over-sharpened plastic look. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
+  "description": "MiniMax H3 text-to-video with the v4-600 EMA Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — the default choice for 6-8 steps and for any motion that is not heavy/fast, while keeping audio in sync. The current best line improves static/small-motion detail and resolves the v1 over-sharpened plastic look. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA. v1.4.0 adds two image-to-video cards and changes nothing about the original three: MiniMax H3 Image to Video (Turbo, Comfy Kitchen attention) is the existing Turbo I2V recipe with ComfyUI's built-in Comfy Kitchen attention backend (about 25% faster on a 12 GB 4070 Ti, same look), and MiniMax H3 Image to Video (lightx2v 4-step) swaps in lightx2v's FL2V Turbo v1.1 LoRA at 4 steps for about 40% faster sampling at a small cost in fine detail.",
   "tags": [
     "Local",
     "Video",
     "T2V",
     "MiniMax H3",
     "Turbo",
-    "LoRA"
+    "LoRA",
+    "I2V",
+    "lightx2v",
+    "Comfy Kitchen"
   ],
   "presets": [
     {
@@ -957,6 +960,632 @@
             "Last frame (optional)"
           ]
         }
+      }
+    },
+    {
+      "id": "minimax-h3-turbo-larryvrh-i2v-kitchen",
+      "name": "MiniMax H3 Image to Video (Turbo, Comfy Kitchen attention)",
+      "icon": "🍳",
+      "previewImage": "previews/minimax-h3-turbo-larryvrh-i2v-kitchen.jpg",
+      "description": "Identical to MiniMax H3 Image to Video (Turbo) - same v4-600 EMA Turbo LoRA, dual-schedule sampler and 6-8 steps - with one addition: ComfyUI's built-in Comfy Kitchen attention backend (ModelAttentionBackend) on the model. Measured 2026-09-06 on a 12 GB RTX 4070 Ti, same first frame / seed / prompt, 5 s at 960x544, 6 steps: 87 s vs 117 s wall against the plain card (about 9.3 vs 14.2 s per step on the same test with a 4-step LoRA), no visible change to the picture or the audio. Kept as a separate card so the original keeps behaving exactly as it always has. Needs engine ComfyUI v0.34.0 or newer for the attention node (SimpliGen has shipped v0.34.2 since late August 2026). Because attention is fixed inside the workflow, this card declares no SageAttention / Sol-Attn / Spectrum support - stacking attention patches is what produces black renders. Same LoRA-slot caveat as the plain card: do not also pick the Turbo LoRA in the user LoRA slot.",
+      "tagline": "The Turbo I2V card with ComfyUI's Comfy Kitchen attention - about 25% faster, same look",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "Turbo",
+        "LoRA",
+        "Comfy Kitchen"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 (pruned int8) + Turbo LoRA",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_turbo_larryvrh_i2v_kitchen.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-MiniMax-H3-Turbo",
+            "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+            "description": "Turbo LoRA loader node + dual-schedule sampler node (required - the workflow will fail to load without it)",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
+          }
+        ],
+        "steps": 6,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus a ~744MB v4-600 EMA Turbo LoRA. Requires the ComfyUI-MiniMax-H3-Turbo custom node (LoRA loader + dual-schedule sampler) - install before use. The current best line is intended for 6-8 steps and improves static/small-motion detail; training continues, with audio and fast-motion behaviour still open areas. Treat this as a preview. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested. This card additionally bakes ComfyUI's Comfy Kitchen attention backend into the graph (core node, no extra install); measured about 25% faster wall time on a 12 GB RTX 4070 Ti with unchanged output."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "supportsSage": false,
+        "supportsSolAttn": false,
+        "supportsSpectrum": false
+      }
+    },
+    {
+      "id": "minimax-h3-turbo-lightx2v-i2v",
+      "name": "MiniMax H3 Image to Video (lightx2v 4-step)",
+      "icon": "🏎️",
+      "previewImage": "previews/minimax-h3-turbo-lightx2v-i2v.jpg",
+      "description": "The fast image-to-video card: your image becomes the first frame (add a last frame to animate between the two), rendered in 4 steps with lightx2v's FL2V Turbo 4-step v1.1 LoRA (768p) at video/audio sigma shift 6/3, with ComfyUI's built-in Comfy Kitchen attention backend baked in. Measured 2026-09-06 on a 12 GB RTX 4070 Ti, same first frame / seed / prompt as the larryvrh Turbo card in this pack, 5 s at 960x544: sampling 39 s vs 68 s (about 75 s vs 100 s wall), identity held through a full head turn, and a sung <d> line reproduced word for word with the mouth closing after it. Trade: the larryvrh 6-step card is a little crisper on skin and hair; pick this one for speed, that one for detail. No custom nodes: plain LoraLoaderModelOnly + MiniMaxH3SigmaShift + ModelAttentionBackend, all core ComfyUI (needs engine v0.34.0 or newer for the attention node). Do not also pick the lightx2v LoRA in the user LoRA slot - the preset applies it itself, and stacking doubles its strength. Do not stack another distill (larryvrh, PDD) on top. The 768p LoRA was trained at 1344x768 and also works at the 480p-672p tiers. First/last frames are centre-cropped to the output aspect - match the aspect to your picture or the head goes first.",
+      "tagline": "MiniMax H3 I2V in 4 steps with lightx2v v1.1 - the fast card",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "Turbo",
+        "LoRA",
+        "lightx2v"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 (pruned int8) + lightx2v Turbo 4-step v1.1",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_turbo_lightx2v_i2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.1_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/main/minimax_h3_fl2v_turbo_4step_v1.1_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "steps": 4,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 42,
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 diffusion model + NVFP4 text encoder) plus lightx2v's 1.96 GB FL2V Turbo 4-step v1.1 (768p) LoRA from huggingface.co/lightx2v/Minimax-h3-Turbo (not gated). No custom nodes beyond the user-LoRA slot. The attention backend is fixed to Comfy Kitchen inside the workflow, so this card declares no SageAttention / Sol-Attn / Spectrum support - it does not need them at 4 steps and stacking attention patches is what produces black renders. Measured on a 12 GB RTX 4070 Ti with 32 GB RAM; 16 GB RAM not tested."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "supportsSage": false,
+        "supportsSolAttn": false,
+        "supportsSpectrum": false
       }
     }
   ]

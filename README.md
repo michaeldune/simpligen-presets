@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 118 ready-to-run presets in 35 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 120 ready-to-run presets in 35 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 35 packs, 118 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 35 packs, 120 presets.">
 </p>
 
 **Image packs**
@@ -43,7 +43,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
-| MiniMax H3 (Turbo LoRA, larryvrh) | 3 | MiniMax H3 (pruned INT8) | The default: 6–8 steps, best for static/small motion. Named for the LoRA author to stay clear of SimpliGen's own official H3 Turbo pack |
+| MiniMax H3 (Turbo LoRA, larryvrh) | 5 | MiniMax H3 (pruned INT8) | The default: 6–8 steps, best for static/small motion. Named for the LoRA author to stay clear of SimpliGen's own official H3 Turbo pack. v1.4.0 adds two I2V cards: the Turbo recipe with Comfy Kitchen attention (about 25% faster, same look) and a lightx2v 4-step card (about 40% faster sampling, a little less fine detail) |
 | MiniMax H3 (Turbo, Fast Motion) | 3 | MiniMax H3 (pruned INT8) | 4-step tier tuned for heavy/fast motion |
 | MiniMax H3 (Sol-Attn + EasyCache) | 3 | MiniMax H3 (pruned INT8) | Sparse attention + step caching at the full 20 steps. **Not a speed pick** since 1.50.0 — pick it for the no-LoRA path, and for the R2V preset, which is the crash-free route for reference *video*. Needs Faster Attention ON |
 | MiniMax H3 (Two-Stage Latent Upscale) | 3 | MiniMax H3 (pruned INT8) | Full 20 base steps at 0.6x size (~0.36 MP), trained latent upscaler, 4-step Turbo refine at your chosen size. Stock non-distilled look at 768p in 248-351 s on 12 GB where a direct full-steps render took 882 s. A smaller first pass wrinkles close-up faces, so 0.6x is the floor. Verified at 768p / 5 s only |
