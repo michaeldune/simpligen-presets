@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 115 ready-to-run presets in 34 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 118 ready-to-run presets in 35 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 34 packs, 115 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 35 packs, 118 presets.">
 </p>
 
 **Image packs**
@@ -49,6 +49,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (Two-Stage Latent Upscale) | 3 | MiniMax H3 (pruned INT8) | Full 20 base steps at 0.6x size (~0.36 MP), trained latent upscaler, 4-step Turbo refine at your chosen size. Stock non-distilled look at 768p in 248-351 s on 12 GB where a direct full-steps render took 882 s. A smaller first pass wrinkles close-up faces, so 0.6x is the floor. Verified at 768p / 5 s only |
 | MiniMax H3 (Clip Chaining) | 3 | MiniMax H3 (pruned INT8) | Continue an existing H3 clip: drop it in Reference Video 1, describe what happens next, and the new clip picks up its last 22 frames with motion and timing carried across the cut. Motion Context preset continues the soundtrack (corr 0.95, 0 ms lag); Add Guide preset uses ComfyUI's stock guide and imitates it (-8 ms). Two-Shot Director preset renders both segments in one file via AIMixer's Director, prompt split on H3's own `[Shot 2]` tag (join ratio 1.9, colour drift under 1/255). All visually seamless on static-camera shots (hard cut = 16). Fast action across the cut untested |
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
+| MiniMax H3 (Singularity) | 3 | MiniMax H3 Singularity v1.3 ref2va (pruned INT8) | WarmBloodAban's HDR merge-and-finetune, one 21 GB checkpoint for T2V, I2V and R2V on the official 20-step graphs. Measured over three seeds against the official checkpoint: close-up faces ~30% sharper and distant faces readable in action, but ~20 points darker, lower contrast and a quarter to a third less motion. A look, not a free upgrade. Card claims Apache-2.0; it is an H3 derivative, so the H3 Community License applies |
 | MiniMax H3 (10Eros Max) | 3 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download. Plain 20-step, T2V + I2V + R2V |
 | MiniMax H3 (10Eros Max + Turbo) | 3 | MiniMax H3 (**non-pruned** INT8) | The same base at 6 steps — the fastest preset here. Shares the 20.94 GiB download with the pack above |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
