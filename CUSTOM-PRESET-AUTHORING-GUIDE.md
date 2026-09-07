@@ -301,7 +301,7 @@ Two shapes are in use, and the distinction matters more than the names suggest:
 | Anima (Cosmos) | er_sde / simple, ModelSamplingAuraFlow shift 3 | 16 (turbo ~12) | 1 | UNet + Qwen 0.6B encoder + Qwen-Image VAE, preamble |
 | Krea-2 turbo | euler / simple | 8 | 1 | DiT, Qwen3VL encoder, Qwen-Image VAE, ConditioningZeroOut negative |
 | MiniMax H3 (video) | res_multistep / simple | 20 (turbo LoRA ~6-8) | 1 | UNet + 32B Qwen3VL encoder + video/audio VAE, synced stereo audio; frame count must be 17n+5 |
-| MiniMax H3 PDD Acc (video) | res_multistep / simple | 8 (fixed) | 1 | Alibaba's official distill; own node pack + `pdd_acc` model dir. Distills do NOT stack with a turbo/lightx2v LoRA |
+| MiniMax H3 PDD Acc (video) | euler, sigmas from the Apply node (NOT res_multistep: multistep samplers flicker and glitch with this and any turbo distill) | 8 (fixed, refused otherwise) | 1 | Alibaba's official distill; own node pack + `pdd_acc` model dir; sigma shift 12.0/3.0 enforced. Distills do NOT stack with a turbo/lightx2v LoRA |
 | Wan 2.2 (video, dual-expert) | euler / simple, dual KSamplerAdvanced pass | 4 (2 high + 2 low, lightx2v LoRA) | 1 | GGUF dual high/low-noise UNets, shared clip/vae |
 | LTX 2.5 (video) | — (two-pass, latent spatial upscaler) | — | 1 | Gated HF repo (§11); INT8 ConvRot build; separate video and audio VAEs |
 
