@@ -16,7 +16,7 @@
       "tags": ["Video", "V2V", "Upscale", "Refine", "MSR", "1080p"],
       "enabled": true,
       "template": "wan-video",
-      "description": "Drop a finished clip in Reference Video 1 and at least one face picture in Face 1 (up to four). Write the prompt LTX style: one paragraph, who, action, place, camera, light. Output is the clip at the chosen tier with its own soundtrack. Measured on a 12 GB RTX 4070 Ti - see the pack notes for the numbers.",
+      "description": "Drop a finished clip in Reference Video 1 and at least one face picture in Face 1 (up to four). Write the prompt LTX style: one paragraph, who, action, place, camera, light. Output is the clip at the chosen tier with its own soundtrack. Measured on a 12 GB RTX 4070 Ti: 5 s from 864x480 to 1920x1088 in 155 s.",
       "video": {
         "supports": ["local"],
         "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot) + latent upsampler + Licon MSR V1",
@@ -54,7 +54,7 @@
           {"label": "720p", "minVramGB": 8, "aspects": {"1:1": {"width": 960, "height": 960}, "16:9": {"width": 1280, "height": 704}, "9:16": {"width": 704, "height": 1280}, "4:3": {"width": 1024, "height": 768}, "3:4": {"width": 768, "height": 1024}, "21:9": {"width": 1664, "height": 704}}},
           {"label": "1080p", "minVramGB": 12, "aspects": {"1:1": {"width": 1408, "height": 1408}, "16:9": {"width": 1920, "height": 1088}, "9:16": {"width": 1088, "height": 1920}, "4:3": {"width": 1536, "height": 1152}, "3:4": {"width": 1152, "height": 1536}, "21:9": {"width": 2560, "height": 1088}}}
         ],
-        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 35, "notes": "FILLED IN TASK 6 FROM THE TEST RENDER"}
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 35, "notes": "Measured 2026-09-07 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: 864x480 H3 clip -> 1920x1088 in 155 s for 5 s with one reference face, sigmas 0.85 / 0.725 / 0.4219 / 0 (the A2V pack stage-2 tail). At native pixels the result resolves eye, beard and microphone-mesh detail a Lanczos upscale of the same clip smears (Laplacian variance 24 against 11), and the face matched the source frame for frame with the design sheet in Face 1. Shares every LTX 2.5 file with the A2V and official LTX packs; the only new download is the 1.3 GB MSR V1 LoRA. Duration follows the source clip up to 15 s. Gated HF repo: needs an API key and licence acceptance."}
       }
     }
   ]
