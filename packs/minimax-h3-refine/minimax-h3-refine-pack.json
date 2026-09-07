@@ -19,7 +19,7 @@
       "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
-      "description": "Drop a finished H3 clip in Reference Video 1 and paste the same brief that made it. Output is the clip re-rendered at the chosen tier with its own soundtrack, refined by Alibaba's official PDD 8-step distill at denoise 0.25 in 73-frame windows. Duration follows the clip (capped at 15 s); the slider is ignored. Input should be 480p H3; the upscaler targets the tier directly, so 768p is the sweet spot. Cannot repair a face the source already lost. Measured on a 12 GB RTX 4070 Ti at 1344x768 from an 864x480 source - see the pack notes for the numbers.",
+      "description": "Drop a finished H3 clip in Reference Video 1 and paste the same brief that made it. Output is the clip re-rendered at the chosen tier with its own soundtrack, refined by Alibaba's official PDD 8-step distill at denoise 0.25 in 73-frame windows. Duration follows the clip (capped at 15 s); the slider is ignored. Input should be 480p H3; the upscaler targets the tier directly, so 768p is the sweet spot. Cannot repair a face the source already lost. Measured on a 12 GB RTX 4070 Ti, 864x480 in, 1344x768 out: 5 s in 162 s, 10 s in 297 s.",
       "video": {
         "supports": ["local"],
         "displayModel": "MiniMax H3 Reference (pruned int8) + LBH 3D Latent Upscaler + Alibaba PDD Acc refine",
@@ -54,7 +54,7 @@
           {"label": "768p", "minVramGB": 12, "aspects": {"1:1": {"width": 1024, "height": 1024}, "16:9": {"width": 1344, "height": 768}, "9:16": {"width": 768, "height": 1344}, "4:3": {"width": 1184, "height": 864}, "3:4": {"width": 864, "height": 1184}, "21:9": {"width": 1536, "height": 672}}}
         ],
         "reclaimVramBeforeDecode": true,
-        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 43, "notes": "FILLED IN TASK 3 FROM THE TEST RENDER"}
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 43, "notes": "Measured 2026-09-07 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2, Sage attention on: 864x480 -> 1344x768, 5 s in 162 s, 10 s (two 73-frame windows, a hard cut inside the clip preserved, no visible seam) in 297 s. At native pixels the refine resolves microphone mesh, forehead lines and beard hairs that a Lanczos upscale of the same clip smears (Laplacian variance 58 against 32). Denoise 0.5 and 0.75 were also run: 0.75 adds skin texture but shifts toward a re-render and costs 268 s, so 0.25 ships. Shares the ref2va base with every R2V pack; new downloads are the 1.37 GB Ref2VA PDD distill and the 0.69 GB LBH upscaler if you lack Two-Stage. Duration follows the source clip up to 15 s. Below ~2 GB free system RAM the decode can fail with HostBuffer.read_file_slice failed."}
       }
     }
   ]
