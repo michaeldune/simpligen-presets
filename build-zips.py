@@ -44,6 +44,36 @@ CUSTOM_NODES = {
         'url':  'https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler',
         'note': 'Trained latent upscaler for MiniMax H3. NOT pre-installed by SimpliGen. Must be at commit d7c01b9 or later; 6a4b191 scrambles the second stage.',
     },
+    'MMH3SplitUpscale': {
+        'name': 'Comfyui_Minimax_h3_latent_Upscaler',
+        'url':  'https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler',
+        'note': 'Windowed refine sampler for MiniMax H3 (same pack as the latent upscaler). NOT pre-installed by SimpliGen. Must be at commit d7c01b9 or later.',
+    },
+    'MMH3TemporalSplitParamsV10': {
+        'name': 'Comfyui_Minimax_h3_latent_Upscaler',
+        'url':  'https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler',
+        'note': 'Temporal window parameters for the windowed refine sampler (same pack as the latent upscaler). NOT pre-installed by SimpliGen.',
+    },
+    'MiniMaxH3PDDAccApply': {
+        'name': 'ComfyUI-MiniMax-H3-PDD-Acc',
+        'url':  'https://github.com/Jalen-Brunson/ComfyUI-MiniMax-H3-PDD-Acc',
+        'note': "Loads Alibaba's official PDD acceleration LoRA (trunk + parallel-decoding head bank + trained sigma schedule). A plain LoRA loader silently drops the head bank. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually. Pure Python, no extra pip deps.",
+    },
+    'MiniMaxH3PDDAccScheduler': {
+        'name': 'ComfyUI-MiniMax-H3-PDD-Acc',
+        'url':  'https://github.com/Jalen-Brunson/ComfyUI-MiniMax-H3-PDD-Acc',
+        'note': 'Sigma schedule (with partial denoise) for the PDD acceleration LoRA. Same pack as the Apply node. NOT pre-installed by SimpliGen.',
+    },
+    'ComfyUILTX25MSRICLoRALoader': {
+        'name': 'ComfyUI-LTX2.5-MSR',
+        'url':  'https://github.com/liconstudio/ComfyUI-LTX2.5-MSR',
+        'note': "Multiple Subject Reference loader for LTX 2.5. Installed by SimpliGen for its official LTX 2.5 Multi-Reference preset; otherwise clone into ComfyUI/custom_nodes.",
+    },
+    'ComfyUILTX25MSRMultiReferenceGuide': {
+        'name': 'ComfyUI-LTX2.5-MSR',
+        'url':  'https://github.com/liconstudio/ComfyUI-LTX2.5-MSR',
+        'note': "Multiple Subject Reference guide for LTX 2.5. Installed by SimpliGen for its official LTX 2.5 Multi-Reference preset; otherwise clone into ComfyUI/custom_nodes.",
+    },
     'Power Lora Loader (rgthree)': {
         'name': 'Power Lora Loader (rgthree)',
         'url':  'https://github.com/rgthree/rgthree-comfy',

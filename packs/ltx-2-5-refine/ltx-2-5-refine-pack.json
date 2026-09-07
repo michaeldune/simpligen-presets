@@ -1,0 +1,61 @@
+{
+  "id": "ltx-2-5-refine-pack",
+  "name": "Community — LTX 2.5 (Video Refine, MSR)",
+  "version": "1.0.0",
+  "author": "LiconStudio + Lightricks",
+  "nsfw": false,
+  "description": "Re-render any finished clip (MiniMax H3 or otherwise) at up to 1080p with LTX 2.5, holding the faces with Licon's Multi-Subject-Reference IC-LoRA. Drop the clip in Reference Video 1 and one to four face pictures in the reference slots. The clip is scaled to half the tier, encoded, upsampled 2x by the LTX latent spatial upscaler and refined by the distilled LTX 2.5 with the reference faces prepended, then decoded. The source soundtrack is muxed back untouched. LTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack; pick this one for sharpness or when a face needs a reference to hold. The prompt must be LTX style, not the H3 brief: one paragraph, '<who> <does what> in <where>, <camera>, <light>'. Requires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo); the weights are the same files the LTX 2.5 packs already use.",
+  "tags": ["Local", "Video", "V2V", "Upscale", "Refine", "LTX", "MSR", "1080p"],
+  "presets": [
+    {
+      "id": "ltx-2-5-refine-msr",
+      "name": "LTX 2.5 Video Refine (Multi-Reference)",
+      "icon": "🔍",
+      "previewImage": "previews/ltx-2-5-refine-msr.jpg",
+      "tagline": "Upscale a clip to 1080p in LTX 2.5, faces held by reference pictures",
+      "tags": ["Video", "V2V", "Upscale", "Refine", "MSR", "1080p"],
+      "enabled": true,
+      "template": "wan-video",
+      "description": "Drop a finished clip in Reference Video 1 and at least one face picture in Face 1 (up to four). Write the prompt LTX style: one paragraph, who, action, place, camera, light. Output is the clip at the chosen tier with its own soundtrack. Measured on a 12 GB RTX 4070 Ti - see the pack notes for the numbers.",
+      "video": {
+        "supports": ["local"],
+        "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot) + latent upsampler + Licon MSR V1",
+        "baseModels": ["ltxv-2.5-distilled"],
+        "workflow": "workflows/ltx_2_5_refine_msr.json",
+        "duration": {"type": "slider", "min": 3, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "acceptsReferenceImages": {"min": 1, "max": 4, "slotLabels": ["Face 1", "Face 2", "Face 3", "Face 4"]},
+        "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {"dir": "vae", "filename": "ltx-2.5-audio-vae-bf16.safetensors", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"},
+          {"dir": "loras", "filename": "LTX-2.5-Licon-MSR-V1.safetensors", "url": "https://huggingface.co/LiconStudio/LTX-2.5-Multiple-Subject-Reference/resolve/9a053e6d63e54cd6970b1cda9419f1339457bd8c/LTX-2.5-Licon-MSR-V1.safetensors"}
+        ],
+        "extensions": [
+          {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},
+          {"name": "ComfyUI-LTX2.5-MSR", "url": "https://github.com/liconstudio/ComfyUI-LTX2.5-MSR.git", "pinnedCommit": "98941179a82223a0a62219550272b2823b3e3a9c", "description": "Multiple Subject Reference nodes for LTX 2.5. Same pin as SimpliGen's official LTX 2.5 Multi-Reference preset, so usually already installed."},
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage). Not used by the graph itself."}
+        ],
+        "cfg": 1,
+        "steps": 3,
+        "negativePrompt": "",
+        "supportsSage": true,
+        "vramModel": {"floorGB": 8, "gbPerMpSecond": 0.38},
+        "reclaimVramBeforeDecode": true,
+        "defaultResolutionTier": 1,
+        "resolutionOptions": [
+          {"label": "720p", "minVramGB": 8, "aspects": {"1:1": {"width": 960, "height": 960}, "16:9": {"width": 1280, "height": 704}, "9:16": {"width": 704, "height": 1280}, "4:3": {"width": 1024, "height": 768}, "3:4": {"width": 768, "height": 1024}, "21:9": {"width": 1664, "height": 704}}},
+          {"label": "1080p", "minVramGB": 12, "aspects": {"1:1": {"width": 1408, "height": 1408}, "16:9": {"width": 1920, "height": 1088}, "9:16": {"width": 1088, "height": 1920}, "4:3": {"width": 1536, "height": 1152}, "3:4": {"width": 1152, "height": 1536}, "21:9": {"width": 2560, "height": 1088}}}
+        ],
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 35, "notes": "FILLED IN TASK 6 FROM THE TEST RENDER"}
+      }
+    }
+  ]
+}

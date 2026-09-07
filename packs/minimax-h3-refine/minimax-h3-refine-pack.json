@@ -1,0 +1,61 @@
+{
+  "id": "minimax-h3-refine-pack",
+  "name": "Community — MiniMax H3 (Video Refine)",
+  "version": "1.0.0",
+  "author": "LBH-123-AI + alibaba-pai + Jalen-Brunson",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.33.0",
+  "description": "Re-render a finished MiniMax H3 clip at a higher tier without leaving H3. Drop the clip in Reference Video 1, paste the brief that made it, pick the output tier. The clip is encoded, upscaled by LBH-123-AI's trained 3D latent upscaler, then refined with Alibaba's official 8-step PDD distill at denoise 0.25 (the last two of its eight trained blocks) in 73-frame windows with 22-frame overlap, so any length up to 15 s runs in one queue. The source soundtrack is muxed back untouched; nothing is re-synthesised in the audio. Same model family as the clip, so the look, motion and cast stay H3's own. Expects 480p H3 input; it cannot repair a face the source already lost. Euler, CFG 1, 8-step grid, sigma shift 12/3, all enforced by the PDD node. Do not stack a Turbo or lightx2v LoRA in the LoRA slot.",
+  "tags": ["Local", "Video", "V2V", "Upscale", "Refine", "MiniMax H3", "PDD", "8-step"],
+  "presets": [
+    {
+      "id": "minimax-h3-refine-pdd",
+      "name": "MiniMax H3 Video Refine (PDD 8-Step)",
+      "icon": "🔍",
+      "previewImage": "previews/minimax-h3-refine-pdd.jpg",
+      "tagline": "Upscale and sharpen an H3 clip in H3 - source audio kept",
+      "tags": ["Video", "V2V", "Upscale", "Refine", "PDD", "8-step"],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
+      "description": "Drop a finished H3 clip in Reference Video 1 and paste the same brief that made it. Output is the clip re-rendered at the chosen tier with its own soundtrack, refined by Alibaba's official PDD 8-step distill at denoise 0.25 in 73-frame windows. Duration follows the clip (capped at 15 s); the slider is ignored. Input should be 480p H3; the upscaler targets the tier directly, so 768p is the sweet spot. Cannot repair a face the source already lost. Measured on a 12 GB RTX 4070 Ti at 1344x768 from an 864x480 source - see the pack notes for the numbers.",
+      "video": {
+        "supports": ["local"],
+        "displayModel": "MiniMax H3 Reference (pruned int8) + LBH 3D Latent Upscaler + Alibaba PDD Acc refine",
+        "baseModels": ["minimax-h3"],
+        "workflow": "workflows/video_minimax_h3_refine_pdd.json",
+        "duration": {"type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {"dir": "vae", "filename": "minimax_h3_audio_vae_fp32.safetensors", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"},
+          {"dir": "pdd_acc", "filename": "MiniMax-H3-Ref2VA-Acc-8Step.safetensors", "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-Ref2VA-Acc-8Step.safetensors"},
+          {"dir": "latent_upscale_models", "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/main/minimax_h3_latent_upscaler_3d_fp16.safetensors"}
+        ],
+        "extensions": [
+          {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},
+          {"name": "ComfyUI-MiniMax-H3-PDD-Acc", "url": "https://github.com/Jalen-Brunson/ComfyUI-MiniMax-H3-PDD-Acc.git", "pinnedCommit": "83353308bc14dc49b2d82e263a1cafb94169b849", "description": "Loads Alibaba's official PDD acceleration LoRA (trunk + parallel-decoding head bank + trained sigma schedule with partial denoise). NOT pre-installed by SimpliGen."},
+          {"name": "Comfyui_Minimax_h3_latent_Upscaler", "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git", "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f", "description": "Trained 3D latent upscaler (MinimaxH3LatentUpscaler3D) and the windowed refine sampler (MMH3SplitUpscale, MMH3TemporalSplitParamsV10). Same pin as the Two-Stage pack."},
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage). Not used by the graph itself."}
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "supportsSage": true,
+        "defaultResolutionTier": 1,
+        "resolutionOptions": [
+          {"label": "672p", "minVramGB": 12, "aspects": {"1:1": {"width": 928, "height": 928}, "16:9": {"width": 1216, "height": 672}, "9:16": {"width": 672, "height": 1216}, "4:3": {"width": 1056, "height": 800}, "3:4": {"width": 800, "height": 1056}, "21:9": {"width": 1408, "height": 608}}},
+          {"label": "768p", "minVramGB": 12, "aspects": {"1:1": {"width": 1024, "height": 1024}, "16:9": {"width": 1344, "height": 768}, "9:16": {"width": 768, "height": 1344}, "4:3": {"width": 1184, "height": 864}, "3:4": {"width": 864, "height": 1184}, "21:9": {"width": 1536, "height": 672}}}
+        ],
+        "reclaimVramBeforeDecode": true,
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 43, "notes": "FILLED IN TASK 3 FROM THE TEST RENDER"}
+      }
+    }
+  ]
+}

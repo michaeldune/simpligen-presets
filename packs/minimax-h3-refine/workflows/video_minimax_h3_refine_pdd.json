@@ -1,0 +1,34 @@
+{
+  "h3_unet": {"inputs": {"unet_name": "{{unet}}", "weight_dtype": "default"}, "class_type": "UNETLoader", "_meta": {"title": "Load MiniMax H3 Reference (pruned int8)"}},
+  "h3_clip": {"inputs": {"clip_name": "{{clip}}", "type": "minimax", "device": "default"}, "class_type": "CLIPLoader", "_meta": {"title": "Qwen3-VL Text Encoder (MiniMax)"}},
+  "h3_video_vae": {"inputs": {"vae_name": "{{vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Video VAE"}},
+  "h3_audio_vae": {"inputs": {"vae_name": "{{audio_vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Audio VAE"}},
+  "simpligen_lora_1": {"inputs": {"PowerLoraLoaderHeaderWidget": {"type": "PowerLoraLoaderHeaderWidget"}, "➕ Add Lora": "", "model": ["h3_unet", 0], "clip": ["h3_clip", 0]}, "class_type": "Power Lora Loader (rgthree)", "_meta": {"title": "SimpliGen User LoRAs"}},
+
+  "sgopt_ref_video_1__load": {"inputs": {"file": "{{ref_video_1}}"}, "class_type": "LoadVideo", "_meta": {"title": "Source clip"}},
+  "sgopt_ref_video_1__trim": {"inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": 15, "strict_duration": false}, "class_type": "Video Slice", "_meta": {"title": "Trim source to 15 s"}},
+  "sgopt_ref_video_1__components": {"inputs": {"video": ["sgopt_ref_video_1__trim", 0]}, "class_type": "GetVideoComponents", "_meta": {"title": "Source frames + sound"}},
+  "sgopt_ref_video_audio_1__load": {"inputs": {"audio": "{{ref_video_audio_1}}"}, "class_type": "LoadAudio", "_meta": {"title": "Source soundtrack"}},
+
+  "refine_count": {"inputs": {"image": ["sgopt_ref_video_1__components", 0]}, "class_type": "GetImageSizeAndCount", "_meta": {"title": "Source size + frame count"}},
+  "refine_len": {"inputs": {"expression": "a - ((a - 5) % 17)", "values.a": ["refine_count", 3]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Snap frame count down to the 17k+5 grid"}},
+  "refine_frames": {"inputs": {"image": ["refine_count", 0], "batch_index": 0, "length": ["refine_len", 1]}, "class_type": "ImageFromBatch", "_meta": {"title": "Frames on the H3 grid"}},
+  "refine_encode": {"inputs": {"pixels": ["refine_frames", 0], "vae": ["h3_video_vae", 0]}, "class_type": "VAEEncode", "_meta": {"title": "Encode source video"}},
+  "refine_upscale": {"inputs": {"latent": ["refine_encode", 0], "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "mode": "target dimensions", "mode.width": {{width}}, "mode.height": {{height}}, "align": 32, "enable_temporal_chunking": true, "force_unload": true, "device": "cuda", "precision": "fp16"}, "class_type": "MinimaxH3LatentUpscaler3D", "_meta": {"title": "H3 Latent Upscaler (3D) to the output tier"}},
+  "refine_audio_encode": {"inputs": {"audio": ["sgopt_ref_video_audio_1__load", 0], "vae": ["h3_audio_vae", 0]}, "class_type": "VAEEncodeAudio", "_meta": {"title": "Encode source audio (sampler needs an audio latent)"}},
+  "refine_av_join": {"inputs": {"video_latent": ["refine_upscale", 0], "audio_latent": ["refine_audio_encode", 0]}, "class_type": "LTXVConcatAVLatent", "_meta": {"title": "Join A/V latent"}},
+
+  "h3_conditioning": {"inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "audio_vae": ["h3_audio_vae", 0], "prompt": "{{prompt}}", "width": {{width}}, "height": {{height}}, "length": ["refine_len", 1], "ref_image_size": "match"}, "class_type": "MiniMaxH3ReferenceToVideo", "_meta": {"title": "MiniMax H3 conditioning (prompt describes the clip)"}},
+
+  "h3_pdd_shift": {"inputs": {"model": ["simpligen_lora_1", 0], "shift_video": 12.0, "shift_audio": 3.0}, "class_type": "MiniMaxH3SigmaShift", "_meta": {"title": "Sigma Shift 12/3 (required by PDD)"}},
+  "h3_pdd_apply": {"inputs": {"model": ["h3_pdd_shift", 0], "pdd_file": "MiniMax-H3-Ref2VA-Acc-8Step.safetensors", "nfe": "8", "lora_strength": 1.0, "head_strength": 1.0, "on_off_grid": "error"}, "class_type": "MiniMaxH3PDDAccApply", "_meta": {"title": "MiniMax H3 PDD Acc LoRA (Apply, Ref2VA)"}},
+  "h3_pdd_sigmas": {"inputs": {"nfe": "8", "denoise": 0.25}, "class_type": "MiniMaxH3PDDAccScheduler", "_meta": {"title": "Refine sigmas: last 2 of 8 PDD blocks"}},
+  "h3_noise": {"inputs": {"noise_seed": "{{seed}}"}, "class_type": "RandomNoise", "_meta": {"title": "Random Noise"}},
+  "h3_sampler": {"inputs": {"sampler_name": "euler"}, "class_type": "KSamplerSelect", "_meta": {"title": "KSampler Select (euler)"}},
+  "refine_windows": {"inputs": {"chunk_frames": 73, "temporal_overlap_frames": 22, "anchor_strength": 0.999, "motion_anchor_frames": "22", "identity_anchor_frames": 24}, "class_type": "MMH3TemporalSplitParamsV10", "_meta": {"title": "Temporal windows 73/22"}},
+  "refine_sampling": {"inputs": {"model": ["h3_pdd_apply", 0], "conditioning": ["h3_conditioning", 0], "latent": ["refine_av_join", 0], "noise": ["h3_noise", 0], "sampler": ["h3_sampler", 0], "sigmas": ["h3_pdd_sigmas", 0], "cfg": 1.0, "seam_polish": "off", "color_match": true, "temporal_split_param": ["refine_windows", 0]}, "class_type": "MMH3SplitUpscale", "_meta": {"title": "Windowed PDD refine at full size"}},
+
+  "h3_decode_video": {"inputs": {"samples": ["refine_sampling", 0], "vae": ["h3_video_vae", 0]}, "class_type": "VAEDecode", "_meta": {"title": "VAE Decode"}},
+  "h3_create_video": {"inputs": {"images": ["h3_decode_video", 0], "fps": 24, "audio": ["sgopt_ref_video_audio_1__load", 0], "bit_depth": 8}, "class_type": "CreateVideo", "_meta": {"title": "Create Video (source audio untouched)"}},
+  "h3_save": {"inputs": {"video": ["h3_create_video", 0], "filename_prefix": "video/MiniMax_H3_refine_pdd", "format": "auto", "codec": "auto"}, "class_type": "SaveVideo", "_meta": {"title": "Save Video"}}
+}
