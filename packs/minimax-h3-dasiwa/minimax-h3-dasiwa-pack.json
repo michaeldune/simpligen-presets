@@ -1,19 +1,20 @@
 {
   "id": "minimax-h3-dasiwa-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid)",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Darksidewalker",
   "nsfw": false,
-  "description": "The fast MiniMax H3 pack. Darksidewalker's DaSiWa Hybrid 4Turbo is a finetune of the pruned int8 ConvRot weights with the distillation baked in, so it runs at four steps with no Turbo LoRA and nothing to install beyond what SimpliGen already ships — unlike the other H3 packs, which need the ComfyUI-MiniMax-H3-Turbo node cloned in by hand. One checkpoint covers text, image and reference to video, where every other H3 pack needs two - about 19.5 GB less to download for the same three presets. Roughly 1.7-2.3 minutes per five-second shot against about 3 for the six-step Turbo LoRA preset, with no audible change to the generated audio. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
+  "description": "The fast MiniMax H3 pack. Darksidewalker's DaSiWa Hybrid 4Turbo is a finetune of the pruned int8 ConvRot weights with the distillation baked in, so it runs at four steps with no Turbo LoRA and nothing to install beyond what SimpliGen already ships — unlike the other H3 packs, which need the ComfyUI-MiniMax-H3-Turbo node cloned in by hand. One checkpoint covers text, image and reference to video plus a Character PV reveal-trailer preset, where every other H3 pack needs two - about 19.5 GB less to download for the same three presets. Roughly 1.7-2.3 minutes per five-second shot against about 3 for the six-step Turbo LoRA preset, with no audible change to the generated audio. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
   "tags": [
-    "Local",
-    "Video",
-    "T2V",
+    "Character PV",
+    "Hybrid",
     "I2V",
-    "R2V",
+    "Local",
     "MiniMax H3",
+    "R2V",
+    "T2V",
     "Turbo",
-    "Hybrid"
+    "Video"
   ],
   "presets": [
     {
@@ -664,6 +665,301 @@
           "min": 5,
           "max": 15,
           "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "DasiwaMinimaxH3_dasiwaHybrid4turboV1.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3272675",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+          }
+        ],
+        "steps": 4,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 40,
+          "notes": "ONE checkpoint serves all three presets. Every other MiniMax H3 pack needs two 19.53 GB files - FL2VA for text/image to video and REF2VA for reference to video - so this pack is roughly 19.5 GB lighter for the same coverage. Four steps, euler/simple, with the sigma shift at 12.0 video / 3.0 audio; the distillation is baked into the checkpoint, so there is no Turbo LoRA and nothing extra to install: the only prerequisite is the rgthree Power Lora Loader that SimpliGen already ships and every H3 preset uses. The other H3 packs additionally need ComfyUI-MiniMax-H3-Turbo cloned in manually. Measured against our six-step Turbo LoRA preset on identical references, prompt, audio and seed: 1.7-2.3 minutes per five-second shot against about 3, with no audible difference in the generated audio. It reads the scene brighter and wider than the stock checkpoint, which is a look, not a fault - pick another H3 pack if you want the darker, tighter reading. THE DOWNLOAD NEEDS A CIVITAI API KEY: the author requires you to be signed in, so add one in Settings before installing. It is a free model, not paid access. MEASURED ON A 12 GB CARD (RTX 4070 Ti, 2026-09-01): the 768p native tier (1344x768, 1.03 MP) runs a five-second reference-to-video shot in about four minutes and does NOT run out of memory, so the 12 GB minimum on that tier is tested rather than estimated; 480p takes about 76 seconds for the same shot. For comparison, the b25-49 FL2VA/REF2VA hybrid plus a lightx2v Turbo LoRA at eight steps - the combination recommended online for high-resolution H3 - took just over seven minutes for the same shot at the same resolution, so this pack is about 1.8x faster there while needing 19.5 GB less on disk. Two-stage latent upscaling was also tried and is NOT recommended: it produced scrambled output on this checkpoint and on the non-distilled hybrid, with both our own sigma split and the technique author's own schedule."
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-dasiwa-character-pv",
+      "name": "MiniMax H3 Character PV (DaSiWa Hybrid)",
+      "icon": "🎞️",
+      "previewImage": "previews/minimax-h3-dasiwa-character-pv.jpg",
+      "description": "CHARACTER PV: a 15-second, 13-shot character-reveal trailer with five kinetic typography cards, native music and a name-and-title card at the end, driven by ONE reference image. The method comes from Smart Bobo (机智波玩ai): make a character design sheet first (a 16:9 board with the name as title, a big full-body centre figure, FRONT/BACK/SIDE views, pose studies and detail crops - any image editor that keeps identity will do, e.g. Qwen Image Edit or GPT Image), put that sheet in the Reference slot, and write the prompt as the six-section H3 reference brief following the 13-shot skeleton: [Shot 1] extreme close-up mid-motion; [Shot 2] At 00:01.100 a hand gesture that emits a light trail; [Shot 3] At 00:02.200 card 1 (e.g. \"ACTIVE\"); [Shot 4] At 00:03.200 card 2 (\"MODE: ENGAGE\"); [Shot 5] At 00:04.100 whip pan into the venue; [Shot 6] At 00:05.200 low tilt up the outfit; [Shot 7] At 00:06.200 card 3 (\"SYSTEM\" / \"LINK\"); [Shot 8] At 00:06.900 a turn; [Shot 9] At 00:07.900 card 4 (\"TARGET LOCK\"); [Shot 10] At 00:08.600 a close pass by the lens; [Shot 11] At 00:09.600 the only black card (\"FULL DRIVE\"); [Shot 12] At 00:10.300 the hero pose in the venue; [Shot 13] At 00:12.300 the identity card with the NAME and a TITLE. Every card is entered and left by a gesture-triggered wipe, the character is a large crop on every card, and each shot ends with its own sound beat. Change the card strings, the name, the title and the venue to give each video its own personality; keep the timestamps. The full template with every shot spelled out: https://github.com/michaeldune/simpligen-presets/blob/main/docs/character-pv-template.md Set Duration to 15 (the skeleton needs it) and start at 480p for previews. MEASURED 2026-09-06 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3: 864x480, 15 s (362 frames), 4 steps = 316 s wall, all 13 shots on their timestamps, all five cards legible, name and title readable, audio live (mean -14 dB). Identity, wardrobe and the sheet's photoreal medium held for the full clip. No dialogue support: the brief states no dialogue by design.",
+      "tagline": "One design sheet in, a 15-second 13-shot character reveal with typography cards out",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Reference",
+        "Turbo",
+        "Character PV",
+        "Typography"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": false,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "DaSiWa MiniMax H3 Hybrid 4Turbo (int8 + ConvRot)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_dasiwa_character_pv.json",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "Character design sheet"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 15,
           "step": 1,
           "unit": "seconds",
           "vramScalesWithDuration": true
