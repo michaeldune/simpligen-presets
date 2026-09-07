@@ -1,0 +1,11 @@
+{
+  "sgopt_ref_video_1__load": {"inputs": {"file": "{{ref_video_1}}"}, "class_type": "LoadVideo", "_meta": {"title": "Source clip"}},
+  "sgopt_ref_video_1__trim": {"inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": 15, "strict_duration": false}, "class_type": "Video Slice", "_meta": {"title": "Trim source to 15 s"}},
+  "sgopt_ref_video_1__components": {"inputs": {"video": ["sgopt_ref_video_1__trim", 0]}, "class_type": "GetVideoComponents", "_meta": {"title": "Source frames + sound + fps"}},
+
+  "vosr_model": {"inputs": {"model": "VOSR2", "dtype": "default"}, "class_type": "VOSR2ModelLoader", "_meta": {"title": "VOSR 2.0 loader (fetches the 7 GB bundle on first run)"}},
+  "vosr_upscale": {"inputs": {"model": ["vosr_model", 0], "image": ["sgopt_ref_video_1__components", 0], "upscale": 2, "seed": "{{seed}}", "color_alignment": "wavelet", "tile_size": 512, "tile_overlap": 32, "vae_tile_size": 1024, "vae_tile_overlap": 32}, "class_type": "VOSR2Upscale", "_meta": {"title": "VOSR 2.0 one-step x2, per frame"}},
+
+  "create_video": {"inputs": {"images": ["vosr_upscale", 0], "fps": ["sgopt_ref_video_1__components", 2], "audio": ["sgopt_ref_video_1__components", 1], "bit_depth": 8}, "class_type": "CreateVideo", "_meta": {"title": "Create Video (source audio and fps untouched)"}},
+  "save": {"inputs": {"video": ["create_video", 0], "filename_prefix": "video/VOSR2_refine_x2", "format": "auto", "codec": "auto"}, "class_type": "SaveVideo", "_meta": {"title": "Save Video"}}
+}

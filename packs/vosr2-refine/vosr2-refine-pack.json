@@ -1,0 +1,43 @@
+{
+  "id": "vosr2-refine-pack",
+  "name": "Community — VOSR 2.0 (Video Refine)",
+  "version": "1.0.0",
+  "author": "CSWRY + ylchen333",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.33.0",
+  "description": "Double the resolution of any finished clip with VOSR 2.0, a one-step 1.4B image super-resolution model (LightningDiT + Qwen-Image 2D VAE + DINOv2-L conditioning). No prompt, no references, no big video model: every frame is restored on its own and the source soundtrack and frame rate are muxed back untouched. In a same-clip bake-off on 2026-09-07 it was the sharpest of the three community refine packs by a wide margin (Laplacian variance 88 against 51 for the H3 PDD refine and 46 for the LTX 2.5 MSR refine) with the face held, and its frame-to-frame flicker sat between the two. It is also the slowest on a 12 GB card, about two seconds per 480p frame, and because it works per frame it will shimmer on fast motion where the H3 refine stays steady; pick it for static or slow shots. FIRST RENDER DOWNLOADS 7 GB: the node fetches the VOSR2 bundle from CSWRY/VOSR into the engine's own models/vosr2 folder the first time it runs, with no progress shown in SimpliGen, so the first job looks stuck for a few minutes. This pack declares no model files on purpose; the node reads only that folder and converts the DINOv2 encoder itself, so an installer download would land where it never looks.",
+  "tags": ["Local", "Video", "V2V", "Upscale", "Refine", "VOSR2", "One-step"],
+  "presets": [
+    {
+      "id": "vosr2-refine-x2",
+      "name": "VOSR 2.0 Video Refine (2x, per frame)",
+      "icon": "🔍",
+      "previewImage": "previews/vosr2-refine-x2.jpg",
+      "tagline": "Sharpest 2x for static shots - no prompt, source audio kept",
+      "tags": ["Video", "V2V", "Upscale", "Refine", "VOSR2"],
+      "enabled": true,
+      "template": "wan-video",
+      "description": "Drop a finished clip in Reference Video 1. Output is exactly twice the source size (an 864x480 H3 clip becomes 1728x960) with its own soundtrack; the prompt, resolution tier and duration slider are ignored. Sharpest of the three refine packs on static shots, slowest per frame, and it can shimmer on fast motion. FIRST RENDER DOWNLOADS 7 GB into the engine with no progress bar; wait it out. Measured on a 12 GB RTX 4070 Ti: 5 s from 864x480 to 1728x960 in 274 s.",
+      "video": {
+        "supports": ["local"],
+        "displayModel": "VOSR 2.0 one-step SR (1.4B LightningDiT + Qwen-Image 2D VAE + DINOv2-L)",
+        "baseModels": ["vosr2"],
+        "workflow": "workflows/video_vosr2_refine_x2.json",
+        "duration": {"type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": false},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "extensions": [
+          {"name": "ComfyUI-VOSR2", "url": "https://github.com/ylchen333/ComfyUI-VOSR2.git", "pinnedCommit": "483b553df7162dd9e940cce1b1ef2275998bf463", "description": "VOSR 2.0 loader and upscale nodes. Pure Python; downloads the 7 GB model bundle from CSWRY/VOSR into models/vosr2 on first use. NOT pre-installed by SimpliGen."}
+        ],
+        "steps": 1,
+        "negativePrompt": "",
+        "supportsSage": false,
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {"label": "2x source (tier ignored)", "minVramGB": 8, "aspects": {"16:9": {"width": 1728, "height": 960}, "9:16": {"width": 960, "height": 1728}, "1:1": {"width": 1280, "height": 1280}, "4:3": {"width": 1472, "height": 1152}, "3:4": {"width": 1152, "height": 1472}, "21:9": {"width": 1984, "height": 832}}}
+        ],
+        "reclaimVramBeforeDecode": true,
+        "requirements": {"minVramGB": 8, "recommendedVramGB": 12, "minRamGB": 16, "sizeGB": 7, "notes": "Measured 2026-09-07 inside SimpliGen on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: 864x480 H3 clip (124 frames) -> 1728x960 in 274 s, about 2.2 s per frame; the first run took 292 s including the model fetch because the files were already in the Hugging Face cache, so budget several extra minutes on a cold machine. Same-clip bake-off against the H3 PDD refine (162 s, sharpness 51) and the LTX 2.5 MSR refine (155 s, sharpness 46): VOSR2 sharpness 88 with the face held, high-frequency flicker 1.21 against 1.09 (H3) and 1.34 (LTX). The 6.5 GB bundle lives in the engine models/vosr2 folder plus 1.2 GB in the user Hugging Face cache; it is not managed by SimpliGen. Tile 512 with VAE tile 1024 keeps VRAM under 4 GB, so it runs on 8 GB cards, just slowly."}
+      }
+    }
+  ]
+}

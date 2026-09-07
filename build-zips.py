@@ -74,6 +74,16 @@ CUSTOM_NODES = {
         'url':  'https://github.com/liconstudio/ComfyUI-LTX2.5-MSR',
         'note': "Multiple Subject Reference guide for LTX 2.5. Installed by SimpliGen for its official LTX 2.5 Multi-Reference preset; otherwise clone into ComfyUI/custom_nodes.",
     },
+    'VOSR2ModelLoader': {
+        'name': 'ComfyUI-VOSR2',
+        'url':  'https://github.com/ylchen333/ComfyUI-VOSR2',
+        'note': 'VOSR 2.0 one-step super-resolution loader. NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes. Pure Python. Downloads the 7 GB VOSR2 bundle from huggingface CSWRY/VOSR into models/vosr2 on first run.',
+    },
+    'VOSR2Upscale': {
+        'name': 'ComfyUI-VOSR2',
+        'url':  'https://github.com/ylchen333/ComfyUI-VOSR2',
+        'note': 'VOSR 2.0 one-step super-resolution upscale node (same pack as the loader). NOT pre-installed by SimpliGen.',
+    },
     'Power Lora Loader (rgthree)': {
         'name': 'Power Lora Loader (rgthree)',
         'url':  'https://github.com/rgthree/rgthree-comfy',
