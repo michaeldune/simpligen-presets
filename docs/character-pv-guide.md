@@ -8,7 +8,7 @@ in two steps, with the exact prompts used. The method comes from Smart Bobo
 they have been verified on a 12 GB RTX 4070 Ti through both vanilla ComfyUI
 and the SimpliGen app.
 
-**Contents:** [Source picture](#step-1-the-source-picture) · [Design sheet](#step-2-the-design-sheet) · [PV brief](#step-3-the-pv-brief) · [Rendering](#step-4-rendering) · [What to expect](#what-to-expect-and-what-to-fix) · [Worked examples](examples/)
+**Contents:** [Source picture](#step-1-the-source-picture) · [Design sheet](#step-2-the-design-sheet) · [PV brief](#step-3-the-pv-brief) · [Rendering](#step-4-rendering) · [Refining](#step-5-refining-the-result) · [What to expect](#what-to-expect-and-what-to-fix) · [Worked examples](examples/)
 
 ![Tifa design sheet](images/tifa-design-sheet.jpg)
 
@@ -230,8 +230,12 @@ things, and ignore the rest:
 - the medium is the one you want the video to have
 - the title is spelled right
 
-What you can ignore: Qwen often returns 1:1 instead of 16:9, garbles the small
-FRONT/BACK/SIDE labels, and draws the expression heads as cartoons. None of
+What you can ignore: Qwen garbles the small FRONT/BACK/SIDE labels and
+sometimes draws the expression heads as cartoons. If the sheet comes back 1:1
+instead of 16:9 you asked for the ratio in the wrong place: through the MCP the
+aspect ratio, resolution, duration and seed all go inside `options`, and a
+top-level value is silently dropped. Flux Klein Edit is the better choice when
+you want a genuinely photographic sheet; Qwen holds a face slightly tighter. None of
 that reaches the video. A wrong title is also survivable, because the video's
 name card comes from the brief, not the sheet (Y'shtola's sheet read
 "Y'S FNOLA" and the video still rendered "Y'SHTOLA"). If the title matters to
@@ -522,6 +526,21 @@ So 480p is not a preview setting for this preset on 12 GB, it is the delivery
 setting. Bobo's 0.9 megapixel recommendation assumes a larger card.
 
 ---
+
+## Step 5: refining the result
+
+480p is the delivery tier on a 12 GB card, so the three Video Refine packs
+are the way to a bigger file. Tested on the same 15-second Bruce Lee PV,
+864x480 in:
+
+| Refine pack | Output | Time | Verdict for a PV |
+|---|---|---|---|
+| VOSR 2.0 Video Refine (2x, per frame) | 1728x960, full 15 s | 26 min | **Use this.** Sharpness roughly doubles at matched scale on every shot, the typography stays crisp, no shimmer on the cards. Slow, and the first run downloads its weights. |
+| LTX 2.5 Video Refine (Multi-Reference), 720p | 1280x704, 14.7 s | 2.5 min | Keeps every shot, cut and the likeness, but treats the cards as texture and smears the letters. Fine for a PV without text cards. 1080p at 15 s runs a 12 GB card out of memory. |
+| MiniMax H3 Video Refine (PDD 8-Step), 768p | 1344x768, 14.4 s | 8 min | Adds pixels but no detail at matched scale, and its 73-frame windowing trims the clip so the identity card at 12.3 s is cut. Skip for this format. |
+
+Judge sharpness on the same frame at matched scale, or with a Laplacian
+variance number; a rescaled thumbnail will mislead you.
 
 ## What to expect and what to fix
 
