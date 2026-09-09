@@ -1,0 +1,970 @@
+{
+  "id": "minimax-h3-10eros-beta5-pack",
+  "name": "Community — MiniMax H3 (10Eros Max beta5)",
+  "version": "1.0.0",
+  "author": "TenStrip",
+  "nsfw": true,
+  "description": "MiniMax H3 on TenStrip's 10Eros Max beta5, the current release of the finetune (the author calls beta5 the only functional build; betas 3 and 4 are withdrawn). This is the HYBRID file: one 21 GB INT8 checkpoint carries both the first-frame and the reference-to-video character, so text-, image- and reference-to-video all run on it and reference shots no longer borrow the first-frame base. Built from seven concept-grouped grafts and consensus merges of 20+ LoRAs on the delta1024 H3 merge, with transferred character from LTX 2.3, Wan 2.2 and Krea 2 (their community licences apply to those portions alongside the MiniMax H3 licence). Same-seed bake-off against the original 10Eros Max pack on a 12 GB RTX 4070 Ti, 5 s at 480p: cleaner faces (no mouth smear), real motion on action prompts, and about 20% faster at the same 20 steps. The original 10Eros Max packs stay available unchanged; this is a separate download.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "MiniMax H3",
+    "Finetune",
+    "10Eros"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-10eros-beta5-t2v",
+      "name": "MiniMax H3 Text to Video (10Eros Max beta5)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-beta5-t2v.jpg",
+      "description": "TenStrip's 10Eros Max beta5 hybrid (INT8, 21 GB), run through the unmodified official graph: res_multistep / simple at 20 steps, so the checkpoint is the only difference from the stock preset. beta5 is a single hybrid file carrying both first-frame and reference character, built from concept grafts and consensus LoRA merges rather than direct merges.\n\nSame-seed bake-off against the original 10Eros Max pack (RTX 4070 Ti 12 GB, 864x480, 5 s, 20 steps, vanilla ComfyUI, no attention accelerators): 202 s against 250 s, no mouth artefact on a locked-off portrait, motion blur and neon streaks on a tracking shot where the original stayed static.\n\nThe author's own advice: keep Spectrum and step caching OFF for reference-driven shots, they cost accuracy. Free system RAM matters more than VRAM; keep 16 GB+ free.\n\nVerified in SimpliGen 1.59.1 / engine v0.34.2 on a 12 GB RTX 4070 Ti: 5 s at 864x480, 20 steps, 127 s warm with the app's Faster Attention on; the scripted line arrived word-perfect at the scripted time.",
+      "tagline": "10Eros Max beta5 hybrid on the stock H3 sampler",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Finetune"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max beta5 hybrid (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_10eros_beta5_t2v.json",
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "ComfyUI-Spectrum-MiniMax-H3",
+            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 22,
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-beta5-i2v",
+      "name": "MiniMax H3 Image to Video (10Eros Max beta5)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-beta5-i2v.jpg",
+      "description": "TenStrip's 10Eros Max beta5 hybrid (INT8, 21 GB), run through the unmodified official graph: res_multistep / simple at 20 steps, so the checkpoint is the only difference from the stock preset. beta5 is a single hybrid file carrying both first-frame and reference character, built from concept grafts and consensus LoRA merges rather than direct merges.\n\nSame-seed bake-off against the original 10Eros Max pack (RTX 4070 Ti 12 GB, 864x480, 5 s, 20 steps, vanilla ComfyUI, no attention accelerators): 202 s against 250 s, no mouth artefact on a locked-off portrait, motion blur and neon streaks on a tracking shot where the original stayed static.\n\nThe author's own advice: keep Spectrum and step caching OFF for reference-driven shots, they cost accuracy. Free system RAM matters more than VRAM; keep 16 GB+ free.\n\nImage-to-video: the picture becomes the first frame and the prompt describes the motion. First and last frame images are CENTRE-CROPPED to the output shape, not letterboxed - match the aspect ratio to the source or a tall portrait at 16:9 loses the head.\n\nVerified in SimpliGen 1.59.1 / engine v0.34.2 on a 12 GB RTX 4070 Ti: 5 s at 864x480, 20 steps, 149 s. First frame reproduced exactly, locked-off camera held, a prompted gull landed on cue; the one spoken line in that test did not come out, so keep dialogue on the T2V and R2V cards or give it a second seed.",
+      "tagline": "10Eros Max beta5 hybrid on the stock H3 sampler",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Finetune"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max beta5 hybrid (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_10eros_beta5_i2v.json",
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "ComfyUI-Spectrum-MiniMax-H3",
+            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 22,
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+        },
+        "description": "Animate a source image with the 10Eros Max beta5 hybrid. The image becomes the first frame and the prompt describes the motion. Runs on the 10Eros Max beta5 hybrid already used by this pack's text-to-video preset, so there is no extra model download. Note: your first and last frame images are CENTRE-CROPPED to the output shape, not letterboxed. Match the aspect ratio to your source picture - a tall portrait rendered at 16:9 will lose the top and bottom, which usually means the head.",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-beta5-r2v",
+      "name": "MiniMax H3 Reference to Video (10Eros Max beta5)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-beta5-r2v.jpg",
+      "description": "TenStrip's 10Eros Max beta5 hybrid (INT8, 21 GB), run through the unmodified official graph: res_multistep / simple at 20 steps, so the checkpoint is the only difference from the stock preset. beta5 is a single hybrid file carrying both first-frame and reference character, built from concept grafts and consensus LoRA merges rather than direct merges.\n\nSame-seed bake-off against the original 10Eros Max pack (RTX 4070 Ti 12 GB, 864x480, 5 s, 20 steps, vanilla ComfyUI, no attention accelerators): 202 s against 250 s, no mouth artefact on a locked-off portrait, motion blur and neon streaks on a tracking shot where the original stayed static.\n\nThe author's own advice: keep Spectrum and step caching OFF for reference-driven shots, they cost accuracy. Free system RAM matters more than VRAM; keep 16 GB+ free.\n\nReference-to-video: supply one to three pictures of the SAME person; the reference never appears in the video, so the prompt must describe the whole shot. On beta5 this runs on true reference-to-video character (the hybrid file), unlike the original pack, which ran references on the first-frame base.\n\nVerified in SimpliGen 1.59.1 / engine v0.34.2 on a 12 GB RTX 4070 Ti: 5 s at 864x480, 20 steps, 139 s from one reference picture. Face, cap and jacket held in a new location with a backward tracking camera, and the scripted line arrived word-perfect.",
+      "tagline": "10Eros Max beta5 hybrid on the stock H3 sampler",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Finetune"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max beta5 hybrid (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_10eros_beta5_r2v.json",
+        "supportsSage": true,
+        "supportsSpectrum": true,
+        "supportsSolAttn": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_hybrid_beta5_int8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "ComfyUI-Spectrum-MiniMax-H3",
+            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
+            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 22,
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+        },
+        "description": "Keep a person's appearance across a brand new shot. Supply one to three reference pictures of the SAME person; the reference itself never appears in the video, so the prompt must describe the whole shot - setting, action and camera - not just the movement. Runs on the 10Eros Max beta5 hybrid already used by this pack's text-to-video preset, so there is no extra model download.",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        }
+      }
+    }
+  ]
+}
