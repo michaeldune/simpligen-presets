@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 127 ready-to-run presets in 39 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 130 ready-to-run presets in 40 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 39 packs, 127 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 40 packs, 130 presets.">
 </p>
 
 **Image packs**
@@ -39,7 +39,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 
 **Video packs**
 
-All the MiniMax H3 packs generate video *with synchronized stereo audio*. The first four ship text-to-video, image-to-video, and reference-to-video presets off the same base weights — so adding one costs only its LoRA, not another 40 GB. **10Eros Max is the exception**: it is a different base checkpoint (a separate 20.94 GiB download), and it ships as two packs - plain and Turbo - each with text-, image- and reference-to-video. **10Eros Max beta5** is TenStrip's current release of that finetune on its own 21 GB hybrid file, a third separate download.
+All the MiniMax H3 packs generate video *with synchronized stereo audio*. The first four ship text-to-video, image-to-video, and reference-to-video presets off the same base weights — so adding one costs only its LoRA, not another 40 GB. **10Eros Max is the exception**: it is a different base checkpoint (a separate 20.94 GiB download), and it ships as two packs - plain and Turbo - each with text-, image- and reference-to-video. **10Eros Max beta5** is TenStrip's current release of that finetune on its own 21 GB hybrid file, a third separate download, and **beta5 Turbo** is a fourth: the same beta5 with the turbo delta fused into the weights, so it needs no Turbo LoRA.
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
@@ -57,6 +57,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (10Eros Max) | 3 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download. Plain 20-step, T2V + I2V + R2V |
 | MiniMax H3 (10Eros Max + Turbo) | 3 | MiniMax H3 (**non-pruned** INT8) | The same base at 6 steps — the fastest preset here. Shares the 20.94 GiB download with the pack above |
 | MiniMax H3 (10Eros Max beta5) | 3 | 10Eros Max beta5 hybrid (INT8) | TenStrip's current beta5, one 21 GB **hybrid** file so R2V runs on true reference character. Same-seed bake-off vs the original: cleaner faces, real motion, ~20% faster at 20 steps (202 vs 250 s vanilla; 127 s for 5 s at 480p in-app). Separate download; the original packs are unchanged |
+| MiniMax H3 (10Eros Max beta5, Turbo) | 3 | 10Eros Max beta5 TURBO-hybrid (INT8) | beta5 with the turbo **baked into the checkpoint**: 8 steps, res_multistep/simple, no LoRA. ~105 s for 5 s at 480p on vanilla, same wall as the larryvrh Turbo at 6; on a face-visible I2V it was sharper than 20-step beta5 at half the time. Its own 21 GB file, so pick this or the plain beta5 unless you want both |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 | LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |
 | LTX 2.5 REDgraft Fast 2K (T2V + I2V) | 2 | LTX 2.5 REDgraft (INT8) | Text-to-video with generated audio or image-to-video from a source image. Separate NSFW finetune; reuses the official LTX 2.5 companion stack |

@@ -1,4 +1,4 @@
-:sparkles: **New pack: MiniMax H3 (10Eros Max beta5)**
+:sparkles: **New packs: MiniMax H3 (10Eros Max beta5) and (10Eros Max beta5, Turbo)**
 
 The 10Eros Max finetune moved on since we packed it in August. TenStrip's current release is **beta5**, and it is a different animal: one **hybrid** checkpoint that carries both the first-frame and the reference-to-video character, built from seven concept-grouped grafts and consensus merges of 20+ LoRAs instead of direct merges. The author calls beta5 the only functional build; betas 3 and 4 are withdrawn.
 
@@ -15,7 +15,7 @@ Three cards, all on the unmodified official graphs (res_multistep/simple, 20 ste
 • The author's advice, and ours: keep **Spectrum and step caching OFF for reference shots**, they cost accuracy.
 • Licence: MiniMax H3 community licence, plus the LTX 2.3 / Wan 2.2 / Krea 2 community licences for the grafted character.
 • Free system RAM matters more than VRAM here. Keep 16 GB+ free.
-• No Turbo card yet. The baked-in turbo file matched our Turbo pack's speed in the bake-off but the look needs one more seed before we ship it.
+• There is also a **Turbo** version of this pack, `Community — MiniMax H3 (10Eros Max beta5, Turbo)`: beta5 with the turbo delta fused into the checkpoint, so it runs 8 steps with no Turbo LoRA to download. ~105 s per 5 s clip at 480p, and on a face-visible image-to-video test it came out sharper than the 20-step file at half the time. It is a **different 21 GB file** from the plain beta5, so pick one unless you want both.
 
 :shopping_cart: Store: `Community — MiniMax H3 (10Eros Max beta5)`, syncs within a few hours.
 :inbox_tray: Zip: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
