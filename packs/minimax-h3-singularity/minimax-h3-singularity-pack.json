@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-singularity-pack",
   "name": "Community — MiniMax H3 (Singularity)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "WarmBloodAban (AIGC-Singularity)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -85,7 +85,8 @@
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
@@ -402,7 +403,8 @@
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
@@ -742,7 +744,8 @@
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
