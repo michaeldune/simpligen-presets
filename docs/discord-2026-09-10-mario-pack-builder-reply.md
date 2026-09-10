@@ -9,6 +9,14 @@ New §8 "Tool presets: Upscale / Enhance" covers what you asked for:
 - the full image/video tool schema (`supportedScales` vs `targetResolutions`, `maxOutputPixels`, `acceptsReferenceImages: {max: 1}` for pictures, `{{video_file}}` for clips, the `requirements.gpu` gate)
 - §8.2, the part an AI cannot guess: the app substitutes ONE flat context = every key in your `image`/`video` block + the job's `scale`/`targetResolution` + the uploaded filenames + computed sizes. So any field you put in the block becomes `{{that_field}}` — but only the declared model keys (`upscaler`/`checkpoint`/`unet`/`clip`/`vae`/`extraModels[]` …) are downloaded. A filename that is only in the workflow is never fetched, and on a clean PC the job dies with "Value not in list" before it starts. (That exact bug was in my own Krea Flux pack until this morning.)
 - a "preset types at a glance" table (generate image / edit / video / upscale image / upscale video), a minimal restoration graph, and a fresh-install test recipe
+- the exact keys an Enhance job hands your workflow, measured on a real run today with a 941×1672 input:
+
+  | mode | `{{scale}}` | `{{targetResolution}}` | `{{resolution}}` | `{{outputWidth}}`×`{{outputHeight}}` | `{{inputWidth}}`×`{{inputHeight}}` |
+  |---|---|---|---|---|---|
+  | `supportedScales`, 2x | 2 | not set | 1882 | 1882×3344 | 941×1672 |
+  | `targetResolutions`, 1440p | not set | 1440 | 1440 | 1440×2559 | 941×1672 |
+
+  `{{resolution}}` is the output short side in both modes. Use `{{scale}}` only with `supportedScales` and `{{targetResolution}}` only with `targetResolutions`; the wrong one is rejected before the engine runs with "missing render settings {{scale}}", and that message lists every key it could not fill, so it doubles as your checklist. `{{outputWidth}}`/`{{outputHeight}}` are the safest choice when a node wants exact pixels. One more thing that bit me: the app overwrites the SaveImage `filename_prefix` with its own path, so never put anything you need there.
 
 **About "A preset pack is corrupted":** that message means a `.json` file in the presets folder is not valid JSON at all — the schema is not even looked at yet. Export your logs (Settings → Export logs) and search the newest `session-*.log` for `is CORRUPTED`; that line names the file and the parser error. Usual culprits: a UTF-16 file (`Out-File` in Windows PowerShell 5.1 writes UTF-16 by default), a BOM, a UI-format ComfyUI export renamed to `.json`, or a builder project/save file sitting next to the packs. Every `*.json` directly in that folder is parsed as a pack. Send me that log line and I will tell you which one it is.
 
