@@ -1,4 +1,4 @@
-# SimpliGen Custom Local Preset Authoring Guide (v4)
+# SimpliGen Custom Local Preset Authoring Guide (v5)
 
 A practical guide for building **local** SimpliGen preset packs: researching a model, writing the preset pack + ComfyUI **API-format** workflow, adding a thumbnail and LoRA support, installing safely on Windows, and verifying the result. Covers both **image** and **video** presets. Written for a capable coding agent or a hands-on user.
 
@@ -131,6 +131,7 @@ Wiring: redirect every consumer of the checkpoint model output `[ckpt,0]` → `[
 ---
 
 ## 6. Pack schema (image presets)
+This is a **generate** preset. For an upscale / restoration tool (Enhance page) see §8 — the shape is different.
 ```json
 {
   "id": "<slug>-pack",
@@ -243,7 +244,7 @@ Key differences from image presets, spelled out:
 - `duration` (slider config) has no image equivalent.
 - A single checkpoint model uses the same `unet`/`clip`/`vae` core fields as an image UNet-family pack, **plus** `extraModels[]` for anything beyond those three (most commonly an audio VAE and/or a baked accelerator LoRA).
 - A dual-expert model (two diffusion models sharing one CLIP/VAE, e.g. Wan's high-noise/low-noise split) uses `unets[]`/`loras[]` arrays instead of singular `unet`/`lora` fields.
-- `extensions[]` (not `requirements.notes` alone) is where you list required custom nodes for the reader's benefit; **also** register the node's real `class_type` name(s) in `build-zips.py`'s `CUSTOM_NODES` dict (§11) so the generated installer readme actually warns about it — `extensions[]` in the pack JSON is documentation, `CUSTOM_NODES` in the generator is what makes that documentation actually appear in the shipped zip.
+- `extensions[]` (not `requirements.notes` alone) is where you list required custom nodes for the reader's benefit; **also** register the node's real `class_type` name(s) in `build-zips.py`'s `CUSTOM_NODES` dict (§12) so the generated installer readme actually warns about it — `extensions[]` in the pack JSON is documentation, `CUSTOM_NODES` in the generator is what makes that documentation actually appear in the shipped zip.
 
 **7.2 Typical video workflow shape** (single-checkpoint, text-to-video, audio-synced — e.g. MiniMax H3):
 ```text
@@ -291,7 +292,108 @@ Two shapes are in use, and the distinction matters more than the names suggest:
 
 ---
 
-## 8. Reference settings by family (examples)
+## 8. Tool presets: Upscale / Enhance (image and video)
+
+Everything above describes **generate** presets: the user types a prompt, the app picks a size from an aspect ratio, a sampler runs. SimpliGen has a second preset kind, **tool**, which is what the Enhance page (upscale / restore) lists. A tool preset takes a *file the user already has* and a *scale or target size* — no prompt, no aspect ratio, no `resolutionOverrides`. The app decides which list a preset appears in from two top-level fields, and nothing else:
+
+```json
+"kind": "tool",
+"tool": "upscale"
+```
+
+Leave those out and the preset lands in the generation pickers, where the Enhance page will never see it; put them in and the generation pickers hide it. A preset is one or the other. Reference, installed on every machine: the official `upscale-pack.json` (RTX Super Resolution, image + video) in your presets folder — copy its shape rather than a generate preset's.
+
+**Preset types at a glance**
+
+| You want | `kind` / `tool` | media block | user gives | workflow placeholders for the input |
+|---|---|---|---|---|
+| Text to image | (none) | `image` | prompt, aspect ratio | `{{prompt}}`, `{{width}}`, `{{height}}`, `{{seed}}` … (§6) |
+| Image edit (reference in, image out) | (none) + `acceptsReferenceImages` + `editCapable: true` | `image` | prompt + 1..N pictures | `{{ref_image_1}}` … (§7.5 rules apply to image packs too) |
+| Text / image / reference to video | (none) | `video` | prompt, duration, refs | §7 |
+| **Upscale / restore an image** | `"tool"` / `"upscale"` | `image` | one picture + scale | `{{ref_image_1}}` (or `{{image}}`), `{{scale}}` |
+| **Upscale / restore a video** | `"tool"` / `"upscale"` | `video` | one clip + scale | `{{video_file}}`, `{{scale}}`, `{{VIDEO_FRAME_RATE}}` |
+
+**8.1 Tool preset schema.** A tool pack is a normal pack (§6 top level: `id`, `name`, `version`, `nsfw`, `presets[]`). Each tool preset:
+
+```json
+{
+  "id": "<preset-id>",
+  "name": "<display name>",
+  "tagline": "<one line>",
+  "icon": "🔍",
+  "previewImage": "previews/<preset-id>.jpg",
+  "description": "<what it restores / when to use it>",
+  "kind": "tool",                                   // REQUIRED - makes it a tool
+  "tool": "upscale",                                // REQUIRED - the only tool the app has today
+  "enabled": true,
+  "image": {                                        // and/or "video" - one preset may carry both blocks
+    "supports": ["local"],
+    "displayModel": "<model name shown in the picker>",
+    "workflow": "workflows/<preset-id>.json",
+
+    // ---- What the user picks. Choose ONE of the two modes:
+    "scale": 2,                                     // default multiplier
+    "supportedScales": [2, 4],                      // multiplier mode: the picker offers these -> {{scale}}
+    // "targetResolutions": [720, 1080, 1440],      // target mode (video mostly): picker offers "to 1080p" -> {{targetResolution}}
+    "maxOutputPixels": 8294400,                     // optional; a choice whose output exceeds this is greyed out (8294400 = 4K)
+
+    // ---- The input. Image tools take exactly one picture:
+    "acceptsReferenceImages": { "max": 1 },         // fills {{ref_image_1}} (and the {{image}} shorthand)
+    // Video tools need NO acceptsReference* field: the clip arrives as {{video_file}},
+    // plus {{VIDEO_FRAME_RATE}}, {{VIDEO_DURATION_SECONDS}}, {{VIDEO_START_SECONDS}}, {{VIDEO_START_FRAMES}}.
+    // "videoFrameRate": 24,                        // video only, optional: overrides the fps the app assumes
+
+    // ---- Models. Same download keys as generate presets; the app downloads ONLY what is declared here (§13):
+    "upscaler": "<file>.pth", "upscalerUrl": "...",           // goes to models\upscale_models\ ; exposed as {{upscaler}}
+    "checkpoint": "...", "checkpointUrl": "...",              // or unet/clip/vae + their Url fields, or unets[] / clips[]
+    "extraModels": [ { "dir": "SEEDVR2", "filename": "<file>", "url": "..." } ],   // anything in a custom models\<dir>\
+    "extensions": [ { "name": "<repo>", "url": "https://github.com/...", "pinnedCommit": "<sha>", "description": "..." } ],
+
+    "requirements": { "minVramGB": 8, "recommendedVramGB": 12, "minRamGB": 16, "sizeGB": 3.2,
+                      "gpu": "nvidia-rtx" }         // optional gate: "nvidia-rtx" or "nvidia"; anything else = no gate
+  }
+}
+```
+
+Rules that differ from generate presets:
+- **No `template`, no `ui.visibleFields`, no `resolutionOverrides`, no `steps`/`cfg` controls.** The Enhance page shows a preset picker, the input, and the scale/target picker. Nothing else is rendered, so nothing else is read.
+- **One preset can carry both `image` and `video` blocks** (the RTX preset does not; SeedVR2 did). The Enhance page filters on whichever block matches the file the user opened.
+- **`supportedScales` vs `targetResolutions` are exclusive in effect.** If `targetResolutions` is a non-empty array the picker switches to target mode and ignores `supportedScales`. Target mode computes the output from the short edge and respects aspect; `{{targetResolution}}` is the chosen number (720, 1080 …), `{{scale}}` is *not* set in that mode.
+- **Video tools are capped at 60 s of input** by the app, and a video tool may be chunked by VRAM; keep the workflow a straight single pass.
+- **A tool preset still needs `localReady`**: every model file it uses must be declared with a URL (`upscaler`/`checkpoint`/`unet`/`clip`/`vae`, the `unets[]`/`clips[]`/`loras[]` arrays, or `extraModels[]`). A filename that is only *in the workflow* is never downloaded, and on any PC that lacks it the engine rejects the job with `Value not in list` before it starts. `tests/check_declared_weights.py` catches this (§13).
+
+**8.2 Placeholders: where every `{{key}}` actually comes from.** This is the part the guide never spelled out, and it is why an AI "guessing the parameters" keeps failing. At render time the app builds one flat context and substitutes it into the workflow text:
+
+```text
+context = { ...preset.<image|video> block,      // EVERY key in the media block, verbatim
+            ...job metadata,                    // scale / targetResolution / sourceName / inputWidth / inputHeight ...
+            ...user inputs }                    // prompt, seed, steps, aspectRatio ... (generate presets)
+          + computed: width, height, latent_width, latent_height, hires_width, hires_height,
+                      DURATION_FRAMES*, negative_prompt, and defaults for checkpoint/unet/cfg/denoise/steps
+          + assets:   ref_image_1..N, image, video_file, audio, driving_video  (uploaded filenames)
+          + video:    VIDEO_START_SECONDS, VIDEO_DURATION_SECONDS, VIDEO_FRAME_RATE, VIDEO_START_FRAMES
+```
+
+Consequences worth memorising:
+- **Any field you put in the media block becomes a placeholder of the same name.** `"seedvr2_dit": "seedvr2_3b_fp16.safetensors"` in the block makes `{{seedvr2_dit}}` resolve. That is how a workflow can name a model in a custom folder — but the *download* still needs a matching `extraModels[]` entry, because the block field only substitutes, it does not fetch.
+- **A placeholder the context lacks is left in the workflow as the literal text `{{name}}`**, and ComfyUI then fails on it ("Value not in list", a float conversion error, or `missing render settings` if it is a reference slot). So the checklist for a new workflow is: list every `{{…}}` in it, and for each one name the block field, the computed value, or the asset that supplies it.
+- **Quoted vs bare placeholders both work, but not interchangeably.** `"{{steps}}"` (quoted) substitutes a number as a string, `{{steps}}` (bare) substitutes a bare number. Nodes that type-check their inputs (`ComfyMathExpression`, most `INT` widgets in newer nodes) need the bare form; string inputs need the quoted form. The official templates use bare `{{width}}`/`{{height}}` for exactly this reason — keep them bare, and keep the file valid JSON by only using bare placeholders where a number is legal.
+- **Seed:** `{{seed}}` comes from the user input; tool presets get one too, so a restoration workflow with a sampler can keep its `{{seed}}`.
+
+**8.3 The minimum image-restoration workflow (API format)** — an "load model, load picture, upscale, save" graph is four to six nodes:
+
+```text
+LoadImage(image: "{{ref_image_1}}")  →  <model loader>(model_name: "{{upscaler}}" or "{{checkpoint}}")
+                                     →  <upscale/restore node>(scale: {{scale}} where the node takes a number)
+                                     →  SaveImage(filename_prefix: "simpligen")
+```
+Export from ComfyUI with **Save (API format)**, then replace the literal filenames with the placeholders above. No `simpligen_lora_1` marker is needed unless the tool takes user LoRAs (it usually should not). If the model needs a prompt internally (some diffusion-based restorers do), hard-code the prompt in the workflow — a tool preset has no prompt box.
+
+**8.4 Verify like a fresh install.** Move (do not delete) the model files the preset uses out of your models folder, install the pack, open Enhance, pick the preset: the app must download every file itself and the run must finish. If a file has to be put back by hand, the pack is incomplete for everyone else — that is exactly how Krea Flux 1.1.0 shipped broken (the author's PC already had the encoders).
+
+---
+
+## 9. Reference settings by family (examples)
 | Family | Sampler / scheduler | Steps | CFG | Notes |
 |---|---|---:|---:|---|
 | SDXL realism | dpmpp_2m / karras (or dpmpp_2m_sde) | 30 | 6–7 | no clip skip, baked VAE, natural language |
@@ -306,11 +408,11 @@ Two shapes are in use, and the distinction matters more than the names suggest:
 | LTX 2.5 Video Refine (V2V, MSR) | euler, manual sigmas 0.85/0.725/0.4219/0 | 3 | 1 | Source scaled to half the tier, LTX VAE encode, 2x latent upsampler, MSR guide (pic1 required), audio latent masked, source audio muxed back |
 | VOSR 2.0 Video Refine (V2V) | one-step, no sampler | 1 | - | Per-frame `VOSR2Upscale` x2, tile 512 / VAE tile 1024, source audio and fps from GetVideoComponents. Declares NO extraModels: the node reads only `<engine>/models/vosr2` and self-downloads 7 GB on first run (converts DINOv2 itself), so installer downloads to the data root would never be seen |
 | Wan 2.2 (video, dual-expert) | euler / simple, dual KSamplerAdvanced pass | 4 (2 high + 2 low, lightx2v LoRA) | 1 | GGUF dual high/low-noise UNets, shared clip/vae |
-| LTX 2.5 (video) | — (two-pass, latent spatial upscaler) | — | 1 | Gated HF repo (§11); INT8 ConvRot build; separate video and audio VAEs |
+| LTX 2.5 (video) | — (two-pass, latent spatial upscaler) | — | 1 | Gated HF repo (§12); INT8 ConvRot build; separate video and audio VAEs |
 
 ---
 
-## 9. Prompt conventions
+## 10. Prompt conventions
 - **SDXL realism:** pass `{{prompt}}` directly; put defect terms in `negativePrompt`.
 - **Illustrious anime:** `masterpiece, best quality, amazing quality, ultra detailed, ... {{prompt}}` + CLIP Skip 2.
 - **Pony V6:** `score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, {{prompt}}` (photoreal Pony mixes often need NO score tags). Don't force a `source_*` tag globally.
@@ -321,7 +423,7 @@ Two shapes are in use, and the distinction matters more than the names suggest:
 
 ---
 
-## 10. Thumbnails — 640×640 JPEG (q90), keep them small (~0.1 MB)
+## 11. Thumbnails — 640×640 JPEG (q90), keep them small (~0.1 MB)
 Center-crop "cover" to 640×640, JPEG q90. Never store full-resolution previews (they bloat the pack and slow the store). Resize with System.Drawing, loading from a **MemoryStream** so the source file isn't locked (lets you overwrite in place). When converting PNG→JPG, update the `previewImage` reference in both source (relative) and installed (absolute) and delete the old PNG. No text/logos/watermarks; one coherent image. For NSFW models, pick a low-`nsfwLevel` showcase image, an earlier clean version, or a neutral placeholder. **For video presets**, extract a representative frame from a real test-generation output with `ffmpeg` (`-ss <timestamp> -vframes 1 -vf "scale=640:640:force_original_aspect_ratio=increase,crop=640:640"`) rather than redistributing a frame from someone else's showcase video.
 
 Source uses a relative path; the **installed** pack must use an absolute local-file URL:
@@ -332,7 +434,7 @@ The installer rewrites this dynamically (relative paths render as broken cards).
 
 ---
 
-## 11. BOM-safe, portable installer (`install-<slug>.cmd`)
+## 12. BOM-safe, portable installer (`install-<slug>.cmd`)
 Uses `%~dp0` so it restores from anywhere it's placed, copies into `%APPDATA%\simpligen`, rewrites `previewImage` to an absolute URL, and writes JSON UTF-8 **without BOM**:
 ```bat
 @echo off
@@ -373,16 +475,17 @@ Auto-download gotchas (these will bite the recipient, not you):
 
 ---
 
-## 12. Validation
+## 13. Validation
 - Parse pack + workflow JSON. Confirm **no BOM** (`bytes[0..2] != EF BB BF`) and emoji/icon intact.
 - Cross-refs: workflow file exists; `previewImage` resolves; primary model present (checkpoint in `checkpoints\`, unet in `diffusion_models\`, encoder in **`clip\`**, vae in `vae\`, LoRAs in `loras\`).
-- Every workflow `{{placeholder}}` has a pack value or is a runtime value. Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`; (video) reference placeholders with no `acceptsReference*` declaration (§7.5); (video) a bare unquoted `{{placeholder}}` that breaks strict JSON parsing.
+- Run `uv run python tests/check_declared_weights.py` (or `python …`): every weight filename literally present in a workflow must also appear in the pack manifest, or the app never downloads it and a fresh install fails with `Value not in list` — the exact bug Krea Flux 1.1.0 shipped with (fixed in 1.1.1, 2026-09-10).
+- Every workflow `{{placeholder}}` has a pack value or is a runtime value (the full list of what the context contains is in §8.2). Common mistakes: `{{vae}}`/`{{unet}}` with no matching pack field; filename case; wrong workflow folder; a CLIP-skip node present but one encoder still on raw CLIP; sampler display name instead of machine id; missing `simpligen_lora_1`; (video) reference placeholders with no `acceptsReference*` declaration (§7.5); (video) a bare unquoted `{{placeholder}}` that breaks strict JSON parsing.
 - **Model-presence checks must follow directory junctions.** If model folders were relocated (§1), `engine\models\diffusion_models` and friends are reparse points, and both PowerShell's `Get-ChildItem -Recurse` and a naive `os.walk` **skip them by default** — every relocated model reads as missing. Resolve each junction's target (`(Get-Item <path> -Force).Target`) and scan those roots explicitly. The mirror-image error is just as easy: walking *both* the junction path and its target double-counts every file, which will inflate any size total you report by 2×.
 - After install: restart SimpliGen, check the newest `session-*.log` for "Loaded N preset packs" and no "Failed to load preset pack". Run a test generation and confirm real output (an image file, or for video, a playable file with the requested duration — check via `ffprobe`, since duration sliders often get frame-quantized and don't land on the exact requested number of seconds).
 
 ---
 
-## 13. Organization conventions (optional, for large collections)
+## 14. Organization conventions (optional, for large collections)
 - **Group by purpose within architecture** (e.g. SDXL Realism vs SDXL Art & Anime; Illustrious Realism vs Anime). Packs cannot be nested — a pack holds a flat preset list.
 - **To group your own packs on the selection screen, use a common name prefix** (e.g. `MyTag — <name>`). SimpliGen's store search matches pack **name / description / base-model / preset-name — NOT the `tags` array** (tags are cosmetic chips). So a prefix is searchable and clusters packs together; a leading non-typeable symbol is not useful (you can't search it).
 - **But a prefix only survives a manual install.** Packs installed from a catalogue have the `Community — ` prefix **stripped**, deliberately: the store card carries its own "Community" badge, and stripping makes packs sort by subject instead of clustering every community pack under "C". Keep the prefix in your source (it still helps people installing the zip by hand), and expect it to disappear for everyone else. **App 1.54.0 also badges community packs in the model pickers**, not just on store cards, so a stripped name is no longer ambiguous against an official pack of the same name — that had made a community "Krea 2" indistinguishable from the official one. Two packs can still share a display name, so if yours collides with an official pack, a distinguishing name is still kinder than relying on the badge.
@@ -391,20 +494,24 @@ Auto-download gotchas (these will bite the recipient, not you):
 
 ---
 
-## 14. Failure guide
+## 15. Failure guide
+- **"A preset pack is corrupted and could not load. Open the Preset Store to reinstall it."** — a `.json` file in the presets folder failed `JSON.parse`. Nothing about the schema is checked at that point; the file is not valid JSON at all. The newest `session-*.log` names the file and the parser's message (`Preset pack <file>.json is CORRUPTED (not valid JSON) … (<reason>)`) — read that line before anything else. Usual causes: a UTF-16 file (`Out-File` in Windows PowerShell 5.1 writes UTF-16 by default), a BOM, a truncated copy, a project/save file that is not a pack dropped next to the packs, or a UI-format ComfyUI export renamed to `.json`. Every `*.json` directly in the presets folder is parsed as a pack — keep only packs there.
+- **Icons and names turn into `â€”`, `âœ¨` after your installer runs:** the pack was read with `Get-Content` in Windows PowerShell 5.1 without `-Encoding UTF8`, which decodes UTF-8 as ANSI, then re-saved. The JSON stays valid so the app loads it, with garbage text. Copy the file with `Copy-Item` and do the `previewImage` rewrite in a real JSON library, or read with `-Encoding UTF8` / `[IO.File]::ReadAllText($p,[Text.Encoding]::UTF8)` — see §12.
 - **Preset missing:** check newest log. Causes: BOM, malformed JSON, duplicate/bad id, missing required fields, app not fully restarted. `Unexpected token '﻿'` = BOM.
 - **Broken thumbnail:** installed `previewImage` must be an absolute `local-file:///` URL and the JPG must exist in `presets\previews`. A plain file-copy sync from source→installed silently reverts this — always reapply the absolute-path rewrite after any sync, image or video pack alike.
+- **`Value not in list: <input>: '<file>' not in [...]` on a loader node:** the engine cannot see that file. Either it was never declared in the pack (so never downloaded — the list in the error is what IS installed, compare it), or it sits in a folder the engine does not scan, or the app has not been restarted since it was added.
+- **Tool preset does not appear on the Enhance page / appears in the generation pickers instead:** missing `"kind": "tool", "tool": "upscale"` (§8).
 - **Generation fails immediately:** wrong checkpoint name/folder; checkpoint vs UNet mismatch; missing VAE/encoder; node class not in the installed ComfyUI; unsubstituted placeholder; wrong sampler id; CLIP-skip miswire; (video) a required custom node was never actually cloned in, or imports but its own further dependency (e.g. a compiled Python package) isn't installed — check the session log for an `ImportError`/`ModuleNotFoundError` near engine startup, not just at generation time. Also: the engine **caches its model list at startup**, so a newly added model file, or a newly cloned custom node, isn't visible until SimpliGen is fully restarted.
 - **"Missing render settings {{ref_image_1}}, {{ref_2_enabled}}":** the workflow has reference slots the preset doesn't declare — add the `acceptsReference*` fields (§7.5). Nothing is wrong with the workflow.
 - **"Failed to convert an input value to a FLOAT" on `h3_duration`:** a duration was never supplied, so `{{duration}}` resolved to nothing. Slider defaults are not applied when generating through the MCP — pass `durationSeconds` explicitly.
 - **Subject's head cut off in an image-to-video result:** aspect mismatch, not a model failure. First/last frame plates are centre-cropped to the output shape (§7.5).
-- **Downloads that restart forever:** a gated HuggingFace repo with no API key configured (§11). Check the repo's `gated` field.
+- **Downloads that restart forever:** a gated HuggingFace repo with no API key configured (§12). Check the repo's `gated` field.
 - **Poor quality:** verify CLIP skip, the creator's prefix/negative, native resolution, sampler/scheduler/steps/CFG, correct VAE, and whether the creator used a hi-res second pass you haven't implemented. Don't mask a missing hi-res pass by inflating steps/CFG.
 - **Uninstalling a pack never deletes model weights.** `deletePresetPack` removes the pack JSON, its DB rows, previews and workflows, then returns — it does not touch `engine\models\`. It guards shared previews and shared workflows, but has no equivalent guard for models because it never deletes them. So reinstalling a pack costs nothing in re-downloads; and reclaiming model space is always manual, and always needs a check that no *other* installed pack references the file first.
 
 ---
 
-## 15. Agent working practices
+## 16. Agent working practices
 - Do JSON edits and file deletions in a real language (e.g. Python `json` with `ensure_ascii=False`, `os.remove`, `shutil.rmtree`) rather than fragile shell one-liners.
 - Keep source and installed copies in sync on every change (source = relative `previewImage`, installed = absolute).
 - Pack `id` stays stable; only the display `name` carries any grouping prefix.
@@ -413,5 +520,5 @@ Auto-download gotchas (these will bite the recipient, not you):
 
 ---
 
-## 16. Final principle
+## 17. Final principle
 Treat a preset as a small integration, not a label on a checkpoint. The checkpoint, prompt encoding, model sampling, VAE, resolution, workflow graph, LoRA marker, installer encoding, thumbnail URL, and SimpliGen loader must all agree. Most failures come from one layer being locally correct but incompatible with the next.
