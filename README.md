@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 132 ready-to-run presets in 41 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 137 ready-to-run presets in 43 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 41 packs, 132 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 43 packs, 137 presets.">
 </p>
 
 **Image packs**
@@ -54,6 +54,8 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (Turbo, Fully Accelerated) | 3 | MiniMax H3 (pruned INT8) | Every technique stacked — Turbo + SageAttention + Sigma Shift + Spectrum + Sol-Attn. 10 steps for roughly what 6 used to cost |
 | MiniMax H3 (PDD Acc 8-Step) | 3 | MiniMax H3 (pruned INT8) | Alibaba's **official** 8-step distill (Parallel Decoding Distillation), loaded through its own node pack because a plain LoRA loader silently drops it. Euler only, CFG 1, 8 steps fixed and enforced; multistep samplers flicker with this and any turbo distill. T2V + I2V + R2V on the FL2VA weights, All three cards verified in-app 2026-09-07 at 864x480 / 5 s on a 4070 Ti: T2V 106 s, I2V 113 s, R2V 117 s, with the R2V run holding identity from one design sheet through a headphone lift. Same speed as Fully Accelerated; pick this one for a single official component instead of a stacked chain. Do not stack with Turbo, lightx2v, Spectrum or EasyCache |
 | MiniMax H3 (Singularity) | 3 | MiniMax H3 Singularity v1.3 ref2va (pruned INT8) | WarmBloodAban's HDR merge-and-finetune, one 21 GB checkpoint for T2V, I2V and R2V on the official 20-step graphs. Measured over three seeds against the official checkpoint: close-up faces ~30% sharper and distant faces readable in action, but ~20 points darker, lower contrast and a quarter to a third less motion. A look, not a free upgrade. Card claims Apache-2.0; it is an H3 derivative, so the H3 Community License applies |
+| MiniMax H3 (Z-Image Graft) | 3 | MiniMax H3 x Z-Image zs05 (pruned INT8, FL2VA + ref2va) | joeygambino's spatial detail graft: stock H3 with Z-Image's attention-normalisation statistics transplanted, so surfaces render richer at the same identity, speed and VRAM. Measured against the official pruned int8 on the same seed and graph: rust-wall crop sharpness 596 vs 411, face crop 353 vs 243, a touch brighter, motion unchanged, same ~200 s per clip. The pick for sets, materials and weathered surfaces |
+| MiniMax H3 (SparseRef15) | 2 | SparseRef15 Hybrid v1.0 (pruned partial-INT8) | Aki7777777's FL2VA-based hybrid with a sparse Ref2VA influence in 15 blocks. Measured the same way: face crop sharpness 396 vs 243, the stillest locked-off shot and the most motion in the tracking shot of the 20-step arms, same ~200 s. Text and image to video only: the author's long-form identity claim is untested on our side, so no reference card yet. Use FL2VA LoRAs |
 | MiniMax H3 (10Eros Max) | 3 | MiniMax H3 (**non-pruned** INT8) | Different base — a separate 20.94 GiB download. Plain 20-step, T2V + I2V + R2V |
 | MiniMax H3 (10Eros Max + Turbo) | 3 | MiniMax H3 (**non-pruned** INT8) | The same base at 6 steps — the fastest preset here. Shares the 20.94 GiB download with the pack above |
 | MiniMax H3 (10Eros Max beta5) | 3 | 10Eros Max beta5 hybrid (INT8) | TenStrip's current beta5, one 21 GB **hybrid** file so R2V runs on true reference character. Same-seed bake-off vs the original: cleaner faces, real motion, ~20% faster at 20 steps (202 vs 250 s vanilla; 127 s for 5 s at 480p in-app). Separate download; the original packs are unchanged |
