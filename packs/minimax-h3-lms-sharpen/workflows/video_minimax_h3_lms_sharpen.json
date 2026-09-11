@@ -1,0 +1,33 @@
+{
+  "h3_unet": {"inputs": {"unet_name": "{{unet}}", "weight_dtype": "default"}, "class_type": "UNETLoader", "_meta": {"title": "Load MiniMax H3 Reference (pruned int8)"}},
+  "h3_clip": {"inputs": {"clip_name": "{{clip}}", "type": "minimax", "device": "default"}, "class_type": "CLIPLoader", "_meta": {"title": "Qwen3-VL Text Encoder (MiniMax)"}},
+  "h3_video_vae": {"inputs": {"vae_name": "{{vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Video VAE"}},
+  "h3_audio_vae": {"inputs": {"vae_name": "{{audio_vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Audio VAE"}},
+  "simpligen_lora_1": {"inputs": {"PowerLoraLoaderHeaderWidget": {"type": "PowerLoraLoaderHeaderWidget"}, "➕ Add Lora": "", "model": ["h3_unet", 0], "clip": ["h3_clip", 0]}, "class_type": "Power Lora Loader (rgthree)", "_meta": {"title": "SimpliGen User LoRAs"}},
+  "lms_lora": {"inputs": {"model": ["simpligen_lora_1", 0], "lora_name": "minimax_h3_lms_v1.0_r64.safetensors", "strength_model": 1.0}, "class_type": "LoraLoaderModelOnly", "_meta": {"title": "LMS sharpening LoRA (Alissonerdx, rank 64)"}},
+
+  "sgopt_ref_video_1__load": {"inputs": {"file": "{{ref_video_1}}"}, "class_type": "LoadVideo", "_meta": {"title": "Source clip"}},
+  "sgopt_ref_video_1__trim": {"inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": 15, "strict_duration": false}, "class_type": "Video Slice", "_meta": {"title": "Trim source to 15 s"}},
+  "sgopt_ref_video_1__components": {"inputs": {"video": ["sgopt_ref_video_1__trim", 0]}, "class_type": "GetVideoComponents", "_meta": {"title": "Source frames + sound"}},
+
+  "src_count": {"inputs": {"image": ["sgopt_ref_video_1__components", 0]}, "class_type": "GetImageSizeAndCount", "_meta": {"title": "Source size + frame count"}},
+  "src_len": {"inputs": {"expression": "a - ((a - 5) % 17)", "values.a": ["src_count", 3]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Snap frame count down to the 17k+5 grid"}},
+  "out_w": {"inputs": {"expression": "a - (a % 32)", "values.a": ["src_count", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Output width = source width on the 32 grid"}},
+  "out_h": {"inputs": {"expression": "a - (a % 32)", "values.a": ["src_count", 2]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Output height = source height on the 32 grid"}},
+  "src_frames": {"inputs": {"image": ["src_count", 0], "batch_index": 0, "length": ["src_len", 1]}, "class_type": "ImageFromBatch", "_meta": {"title": "Frames on the H3 grid"}},
+  "guide_frames": {"inputs": {"image": ["src_frames", 0], "upscale_method": "lanczos", "width": ["out_w", 1], "height": ["out_h", 1], "crop": "center"}, "class_type": "ImageScale", "_meta": {"title": "Guide frames at the output size (aligned guide needs the same grid)"}},
+
+  "h3_conditioning": {"inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "audio_vae": ["h3_audio_vae", 0], "prompt": "Enhance this video with sharp, crisp details while preserving a natural photorealistic appearance. {{prompt}}", "width": ["out_w", 1], "height": ["out_h", 1], "length": ["src_len", 1], "ref_image_size": "match"}, "class_type": "MiniMaxH3ReferenceToVideo", "_meta": {"title": "MiniMax H3 conditioning (LMS caption + optional note)"}},
+  "h3_guide": {"inputs": {"positive": ["h3_conditioning", 0], "latent": ["h3_conditioning", 1], "vae": ["h3_video_vae", 0], "image": ["guide_frames", 0], "frame_idx": 0}, "class_type": "MiniMaxH3AddGuide", "_meta": {"title": "Aligned guide: whole source clip at frame 0 (what the LoRA was trained on)"}},
+
+  "h3_pdd_shift": {"inputs": {"model": ["lms_lora", 0], "shift_video": 12.0, "shift_audio": 3.0}, "class_type": "MiniMaxH3SigmaShift", "_meta": {"title": "Sigma Shift 12/3 (required by PDD)"}},
+  "h3_pdd_apply": {"inputs": {"model": ["h3_pdd_shift", 0], "pdd_file": "MiniMax-H3-Ref2VA-Acc-8Step.safetensors", "nfe": "8", "lora_strength": 1.0, "head_strength": 1.0, "on_off_grid": "error"}, "class_type": "MiniMaxH3PDDAccApply", "_meta": {"title": "MiniMax H3 PDD Acc LoRA (Apply, Ref2VA)"}},
+  "h3_noise": {"inputs": {"noise_seed": "{{seed}}"}, "class_type": "RandomNoise", "_meta": {"title": "Random Noise"}},
+  "h3_guider": {"inputs": {"model": ["h3_pdd_apply", 0], "conditioning": ["h3_guide", 0]}, "class_type": "BasicGuider", "_meta": {"title": "Basic Guider"}},
+  "h3_sampler": {"inputs": {"sampler_name": "euler"}, "class_type": "KSamplerSelect", "_meta": {"title": "KSampler Select (euler)"}},
+  "h3_sampling": {"inputs": {"noise": ["h3_noise", 0], "guider": ["h3_guider", 0], "sampler": ["h3_sampler", 0], "sigmas": ["h3_pdd_apply", 1], "latent_image": ["h3_conditioning", 1]}, "class_type": "SamplerCustomAdvanced", "_meta": {"title": "PDD 8-step, full denoise, from the guide"}},
+
+  "h3_decode_video": {"inputs": {"samples": ["h3_sampling", 0], "vae": ["h3_video_vae", 0]}, "class_type": "VAEDecode", "_meta": {"title": "VAE Decode"}},
+  "h3_create_video": {"inputs": {"images": ["h3_decode_video", 0], "fps": 24, "audio": ["sgopt_ref_video_1__components", 1], "bit_depth": 8}, "class_type": "CreateVideo", "_meta": {"title": "Create Video (source audio untouched)"}},
+  "h3_save": {"inputs": {"video": ["h3_create_video", 0], "filename_prefix": "video/MiniMax_H3_lms_sharpen", "format": "auto", "codec": "auto"}, "class_type": "SaveVideo", "_meta": {"title": "Save Video"}}
+}

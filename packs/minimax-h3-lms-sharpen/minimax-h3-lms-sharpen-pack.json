@@ -1,0 +1,127 @@
+{
+  "id": "minimax-h3-lms-sharpen-pack",
+  "name": "Community — MiniMax H3 (LMS Sharpen)",
+  "version": "1.0.0",
+  "author": "Alissonerdx + alibaba-pai + Jalen-Brunson",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.33.0",
+  "description": "Sharpen a finished MiniMax H3 clip at its own size with Alissonerdx's LMS LoRA (rank 64, Apache-2.0), used the way it was trained: the whole source clip goes in as an aligned latent guide through ComfyUI's native Add Guide at frame 0, and the model re-renders it from the guide with the LoRA's own caption. Not an upscaler (that is the Video Refine pack): output is the source size on the 32-pixel grid. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. Best on H3 clips that came out a little soft; a 4-5 minute pass per 5 s at 480p.",
+  "tags": [
+    "Local",
+    "Video",
+    "V2V",
+    "Sharpen",
+    "Refine",
+    "MiniMax H3",
+    "LoRA",
+    "PDD",
+    "8-step"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-lms-sharpen",
+      "name": "MiniMax H3 LMS Sharpen (same size)",
+      "icon": "✨",
+      "previewImage": "previews/minimax-h3-lms-sharpen.jpg",
+      "tagline": "Sharpen an H3 clip in place - guide-latent LoRA, source audio kept",
+      "tags": [
+        "Video",
+        "V2V",
+        "Sharpen",
+        "Refine",
+        "PDD",
+        "8-step"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "description": "Drop a finished H3 clip in Reference Video 1. The prompt is optional (the LoRA's caption is prepended for you); add a short note only if the clip needs steering. Output = the clip at its own size, re-rendered from an aligned guide latent with the LMS sharpening LoRA at 1.0 and Alibaba's PDD 8-step at full denoise, source audio passed through. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. Duration follows the clip (trimmed to 15 s, snapped to the 17k+5 frame grid). Pick Video Refine instead when you want a higher tier; this pass does not change the size.",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Reference (pruned int8) + LMS sharpen LoRA + Alibaba PDD Acc",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_lms_sharpen.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 1,
+          "soundtrack": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "pdd_acc",
+            "filename": "MiniMax-H3-Ref2VA-Acc-8Step.safetensors",
+            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-Ref2VA-Acc-8Step.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-MiniMax-H3-PDD-Acc",
+            "url": "https://github.com/Jalen-Brunson/ComfyUI-MiniMax-H3-PDD-Acc.git",
+            "pinnedCommit": "83353308bc14dc49b2d82e263a1cafb94169b849",
+            "description": "Loads Alibaba's official PDD acceleration LoRA (trunk + parallel-decoding head bank + trained sigma schedule with partial denoise). NOT pre-installed by SimpliGen."
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6",
+            "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage). Not used by the graph itself."
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "supportsSage": true,
+        "reclaimVramBeforeDecode": true,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 44,
+          "notes": "Official ref2va pruned int8 checkpoint, encoder, VAEs and the PDD Acc Ref2VA LoRA are shared with the Video Refine and PDD packs; the only new download is the 1.2 GB LMS LoRA (Alissonerdx/Minimax-H3-ComfyUI on Hugging Face, Apache-2.0). Runs the source at its own size, so VRAM matches a normal 480p-720p H3 render. Same-size only: for a higher tier use Video Refine first, then this. LICENCE: derivative of MiniMax H3, MiniMax H3 Community License applies."
+        },
+        "loras": [
+          {
+            "filename": "minimax_h3_lms_v1.0_r64.safetensors",
+            "url": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/resolve/main/loras/minimax_h3_lms_v1.0_r64.safetensors",
+            "strength": 1.0,
+            "note": "Alissonerdx LMS sharpening LoRA, rank 64, Apache-2.0"
+          }
+        ]
+      }
+    }
+  ]
+}
