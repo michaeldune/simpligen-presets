@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-refine-pack",
   "name": "Community — LTX 2.5 (Video Refine, MSR)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "LiconStudio + Lightricks",
   "nsfw": false,
   "description": "Re-render any finished clip (MiniMax H3 or otherwise) at up to 1080p with LTX 2.5, holding the faces with Licon's Multi-Subject-Reference IC-LoRA. Drop the clip in Reference Video 1, one to four face pictures in the face slots, and optionally a background plate in the fifth slot, the same layout as the official Multi-Reference preset. The clip is scaled to half the tier, encoded, upsampled 2x by the LTX latent spatial upscaler and refined by the distilled LTX 2.5 with the reference faces prepended, then decoded. The source soundtrack is muxed back untouched. LTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack; pick this one for sharpness or when a face needs a reference to hold. The prompt must be LTX style, not the H3 brief: one paragraph, '<who> <does what> in <where>, <camera>, <light>'. Requires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo); the weights are the same files the LTX 2.5 packs already use.",

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-refine-pack",
   "name": "Community — MiniMax H3 (Video Refine)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "LBH-123-AI + alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
