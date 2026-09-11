@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-lms-sharpen-pack",
   "name": "Community — MiniMax H3 (LMS Sharpen)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Alissonerdx + alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
-  "description": "Sharpen a finished MiniMax H3 clip at its own size with Alissonerdx's LMS LoRA (rank 64, Apache-2.0), used the way it was trained: the whole source clip goes in as an aligned latent guide through ComfyUI's native Add Guide at frame 0, and the model re-renders it from the guide with the LoRA's own caption. Not an upscaler (that is the Video Refine pack): output is the source size on the 32-pixel grid. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. Best on H3 clips that came out a little soft; a 4-5 minute pass per 5 s at 480p.",
+  "description": "Sharpen a finished MiniMax H3 clip at its own size with Alissonerdx's LMS LoRA (rank 64, Apache-2.0), used the way it was trained: the whole source clip goes in as an aligned latent guide through ComfyUI's native Add Guide at frame 0, and the model re-renders it from the guide with the LoRA's own caption. Not an upscaler (that is the Video Refine pack): output is the tier you pick (480p default, up to 608p), the source scaled to it; the aligned guide doubles the sequence length so 768p does not fit on 12 GB. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. Best on H3 clips that came out a little soft; a 4-5 minute pass per 5 s at 480p.",
   "tags": [
     "Local",
     "Video",
@@ -20,10 +20,10 @@
   "presets": [
     {
       "id": "minimax-h3-lms-sharpen",
-      "name": "MiniMax H3 LMS Sharpen (same size)",
+      "name": "MiniMax H3 LMS Sharpen",
       "icon": "✨",
       "previewImage": "previews/minimax-h3-lms-sharpen.jpg",
-      "tagline": "Sharpen an H3 clip in place - guide-latent LoRA, source audio kept",
+      "tagline": "Sharpen an H3 clip - guide-latent LoRA, pick the output tier, source audio kept",
       "tags": [
         "Video",
         "V2V",
@@ -39,7 +39,7 @@
         "placement": "inline-end",
         "template": " The character says{delivery}: \"{dialogue}\""
       },
-      "description": "Drop a finished H3 clip in Reference Video 1. The prompt is optional (the LoRA's caption is prepended for you); add a short note only if the clip needs steering. Output = the clip at its own size, re-rendered from an aligned guide latent with the LMS sharpening LoRA at 1.0 and Alibaba's PDD 8-step at full denoise, source audio passed through. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. Duration follows the clip (trimmed to 15 s, snapped to the 17k+5 frame grid). Pick Video Refine instead when you want a higher tier; this pass does not change the size.",
+      "description": "Drop a finished H3 clip in Reference Video 1. The prompt is optional (the LoRA's caption is prepended for you); add a short note only if the clip needs steering. Output = the clip at its own size, re-rendered from an aligned guide latent with the LMS sharpening LoRA at 1.0 and Alibaba's PDD 8-step at full denoise, source audio passed through. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: a 5 s 864x480 clip in 253 s. Same seed, same clip, guide only (LoRA off) vs guide + LoRA: native-pixel crop sharpness 712 -> 789 (+11%; source clip 683), whole-frame 808 vs 797, PSNR to the source 29.0 -> 23.7 dB (the LoRA changes more than the plain guide pass), luma a touch darker (103 -> 98). Rope, rust and barnacle detail visibly cleaner; composition, motion and audio untouched. OUTPUT SIZE: pick the tier; the source is scaled (centre-crop) to it, so match the aspect ratio of your clip. The aligned guide doubles the token count versus a normal render, so 480p is the safe tier on 12 GB and 768p sources must come DOWN to 480p/544p (a 1344x768 source at its own size runs out of memory on a 4070 Ti, 2026-09-10). Duration follows the clip (trimmed to 15 s, snapped to the 17k+5 frame grid). Pick Video Refine instead when you want a higher tier; this pass does not change the size.",
       "video": {
         "supports": [
           "local"
@@ -111,7 +111,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 44,
-          "notes": "Official ref2va pruned int8 checkpoint, encoder, VAEs and the PDD Acc Ref2VA LoRA are shared with the Video Refine and PDD packs; the only new download is the 1.2 GB LMS LoRA (Alissonerdx/Minimax-H3-ComfyUI on Hugging Face, Apache-2.0). Runs the source at its own size, so VRAM matches a normal 480p-720p H3 render. Same-size only: for a higher tier use Video Refine first, then this. LICENCE: derivative of MiniMax H3, MiniMax H3 Community License applies."
+          "notes": "Official ref2va pruned int8 checkpoint, encoder, VAEs and the PDD Acc Ref2VA LoRA are shared with the Video Refine and PDD packs; the only new download is the 1.2 GB LMS LoRA (Alissonerdx/Minimax-H3-ComfyUI on Hugging Face, Apache-2.0). The aligned guide doubles the sequence length, so the output tier is capped at 608p and 480p is the 12 GB default; a 768p source is scaled down to the tier. Sharpening, not upscaling: run this BEFORE Video Refine if you want both. LICENCE: derivative of MiniMax H3, MiniMax H3 Community License applies."
         },
         "loras": [
           {
@@ -120,7 +120,101 @@
             "strength": 1.0,
             "note": "Alissonerdx LMS sharpening LoRA, rank 64, Apache-2.0"
           }
-        ]
+        ],
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "reclaimVramBeforeSampling": true
       }
     }
   ]

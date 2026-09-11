@@ -12,12 +12,10 @@
 
   "src_count": {"inputs": {"image": ["sgopt_ref_video_1__components", 0]}, "class_type": "GetImageSizeAndCount", "_meta": {"title": "Source size + frame count"}},
   "src_len": {"inputs": {"expression": "a - ((a - 5) % 17)", "values.a": ["src_count", 3]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Snap frame count down to the 17k+5 grid"}},
-  "out_w": {"inputs": {"expression": "a - (a % 32)", "values.a": ["src_count", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Output width = source width on the 32 grid"}},
-  "out_h": {"inputs": {"expression": "a - (a % 32)", "values.a": ["src_count", 2]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Output height = source height on the 32 grid"}},
   "src_frames": {"inputs": {"image": ["src_count", 0], "batch_index": 0, "length": ["src_len", 1]}, "class_type": "ImageFromBatch", "_meta": {"title": "Frames on the H3 grid"}},
-  "guide_frames": {"inputs": {"image": ["src_frames", 0], "upscale_method": "lanczos", "width": ["out_w", 1], "height": ["out_h", 1], "crop": "center"}, "class_type": "ImageScale", "_meta": {"title": "Guide frames at the output size (aligned guide needs the same grid)"}},
+  "guide_frames": {"inputs": {"image": ["src_frames", 0], "upscale_method": "lanczos", "width": {{width}}, "height": {{height}}, "crop": "center"}, "class_type": "ImageScale", "_meta": {"title": "Guide frames scaled to the chosen output tier (aligned guide needs the same grid)"}},
 
-  "h3_conditioning": {"inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "audio_vae": ["h3_audio_vae", 0], "prompt": "Enhance this video with sharp, crisp details while preserving a natural photorealistic appearance. {{prompt}}", "width": ["out_w", 1], "height": ["out_h", 1], "length": ["src_len", 1], "ref_image_size": "match"}, "class_type": "MiniMaxH3ReferenceToVideo", "_meta": {"title": "MiniMax H3 conditioning (LMS caption + optional note)"}},
+  "h3_conditioning": {"inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "audio_vae": ["h3_audio_vae", 0], "prompt": "Enhance this video with sharp, crisp details while preserving a natural photorealistic appearance. {{prompt}}", "width": {{width}}, "height": {{height}}, "length": ["src_len", 1], "ref_image_size": "match"}, "class_type": "MiniMaxH3ReferenceToVideo", "_meta": {"title": "MiniMax H3 conditioning (LMS caption + optional note)"}},
   "h3_guide": {"inputs": {"positive": ["h3_conditioning", 0], "latent": ["h3_conditioning", 1], "vae": ["h3_video_vae", 0], "image": ["guide_frames", 0], "frame_idx": 0}, "class_type": "MiniMaxH3AddGuide", "_meta": {"title": "Aligned guide: whole source clip at frame 0 (what the LoRA was trained on)"}},
 
   "h3_pdd_shift": {"inputs": {"model": ["lms_lora", 0], "shift_video": 12.0, "shift_audio": 3.0}, "class_type": "MiniMaxH3SigmaShift", "_meta": {"title": "Sigma Shift 12/3 (required by PDD)"}},
