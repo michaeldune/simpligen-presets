@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-lipsync-pack",
   "name": "Community — MiniMax H3 Lip-Sync",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -56,7 +56,7 @@
         },
         "duration": {
           "type": "slider",
-          "min": 3,
+          "min": 5,
           "max": 15,
           "default": 10,
           "step": 1,
