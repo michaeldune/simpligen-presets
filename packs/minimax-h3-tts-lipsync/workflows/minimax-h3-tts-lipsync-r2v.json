@@ -787,6 +787,19 @@
       ]
     }
   },
+  "h3_shot_seconds": {
+    "inputs": {
+      "expression": "a / 24",
+      "values.a": [
+        "h3_length",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Shot length in seconds (frames / 24)"
+    }
+  },
   "tts_trim": {
     "class_type": "TrimAudioDuration",
     "_meta": {
@@ -798,7 +811,10 @@
         0
       ],
       "start_index": 0.0,
-      "duration": "{{duration}}"
+      "duration": [
+        "h3_shot_seconds",
+        0
+      ]
     }
   }
 }
