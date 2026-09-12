@@ -772,10 +772,7 @@
       "language": "EN",
       "duration_factor": 1.0,
       "target_duration_mode": "natural",
-      "target_duration_seconds": [
-        "h3_shot_seconds",
-        0
-      ],
+      "target_duration_seconds": "{{duration}}",
       "postprocess_preset": "off",
       "postprocess_strength": 1.0,
       "seed": "{{seed}}",
