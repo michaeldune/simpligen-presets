@@ -1,4 +1,4 @@
-# Discord note — MiniMax H3 (DaSiWa Hybrid v2) 1.0.0 — 2026-09-13
+# Discord note — MiniMax H3 (DaSiWa Hybrid v2) 1.0.0 — 2026-09-13 (posted, with the 35 s announcement video)
 
 New pack: **MiniMax H3 (DaSiWa Hybrid v2)** — Darksidewalker's Hybrid Turbo v2 (published 09-11). Same idea as the
 DaSiWa Hybrid pack (one int8 ConvRot checkpoint for T2V + I2V + R2V, distillation baked in, nothing to install), new
