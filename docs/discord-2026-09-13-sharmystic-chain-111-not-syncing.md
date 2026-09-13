@@ -1,5 +1,7 @@
 # Note draft — Clip Chaining 1.1.1 not picked up by the store (to Sharmystic, 2026-09-13)
 
+_NOT SENT: 1.1.1 synced; Michael installed it 2026-09-13 14:19 EDT (~4 h after the push). The store expanded both short pins to full SHAs itself, so they were not a blocker. Kept for the licence-badge question only._
+
 Hi Sharmystic, could you check whether the store rejected a pack update?
 
 **Pack:** `minimax-h3-chain-pack` (MiniMax H3 Clip Chaining), repo `michaeldune/simpligen-presets`.
