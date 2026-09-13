@@ -33,3 +33,18 @@ it and asked in the forum.
    supported" message would save them from breaking the engine.
 3. When a job fails, prefer the `!!! Exception during processing !!!` line over "Prompt executed in N seconds" for the
    queue card's Details. That would have made this one self-explanatory.
+
+---
+
+## Sharmystic's reply (2026-09-13 ~14:15 EDT)
+
+- **Live now:** the pre-install/pre-start requirements check has a remotely updated GPU deny list covering Pascal, Maxwell,
+  Kepler and Volta by name (GTX 10/9/7/6 series, Pascal and Volta Titans, the Quadro and Tesla lines of those
+  generations). Installed apps pick it up on their next check without an update; a 1080 Ti on 1.60.2 gets the existing
+  "This GPU isn't supported, cloud still works" dialog before any model downloads. Turing and newer untouched, tested
+  both ways.
+- **Next app release:** the queue card's Details shows the actual exception for every engine failure (the bug was that
+  every ComfyUI stderr line is tagged ERROR and the picker took the last tagged line). "no kernel image is available"
+  is recognised as an unsupported card and named in the message.
+- **Declined:** the cu126 build for old cards (no fast fp16/bf16, no int8 kernels, unknown kernel-package behaviour; a
+  tier that mostly disappoints). A clear "not supported" is the answer.
