@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-chain-pack",
   "name": "Community — MiniMax H3 (Clip Chaining)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "NikoDemon80 + seitanism (Motion Context), Comfy-Org (Add Guide)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -737,7 +737,7 @@
           ]
         },
         "acceptsReferenceVideos": {
-          "min": 1,
+          "min": 0,
           "max": 3,
           "soundtrack": true
         },
