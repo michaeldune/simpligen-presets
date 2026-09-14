@@ -1,6 +1,6 @@
-# Reply to ggz82 - H3 GGUF quants for 8-12 GB (HELD for Michael's approval)
+# Reply to ggz82 - H3 GGUF quants for 8-12 GB (POSTED)
 
-Posted: NOT YET.
+Posted: 2026-09-14 ~18:05 EDT by Michael.
 
 Context: ggz82 (5:41 PM, 2026-09-14) found Abiray's 10Eros Max GGUFs and a heavily
 quantized Qwen VL GGUF, asks if they can be added for the 8-12 GB range, and is
