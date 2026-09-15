@@ -6,7 +6,7 @@
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
-  "description": "One photo of an outfit in, one fashion-house specification board out: the exact garments and accessories on an invisible mannequin against warm ivory, a strip of three close-up detail crops, no text. Runs on the same Qwen Image Edit 2511 weights as SimpliGen's own Image Edit pack, so if that pack is installed nothing new downloads. The brief is baked in; the prompt box is for optional extra notes.",
+  "description": "One photo of an outfit in, one fashion-house specification board out: the exact garments and accessories on a plain mannequin against warm ivory, a strip of three close-up detail crops, no text. Runs on the same Qwen Image Edit 2511 weights as SimpliGen's own Image Edit pack, so if that pack is installed nothing new downloads. The brief is baked in; the prompt box is for optional extra notes.",
   "tags": [
     "Local",
     "Edit",
@@ -26,7 +26,7 @@
       "icon": "🧵",
       "enabled": true,
       "tagline": "Photo of an outfit to a fashion design board",
-      "description": "Drop in a photo of someone wearing an outfit and get a luxury lookbook-style specification board: the clothing and accessories lifted off the person onto an invisible mannequin, warm ivory ground, soft shadow, and a row of three close-ups of details that exist in the photo. The full brief is built into the preset, so the prompt can stay empty; anything you type is appended as extra notes (\"keep the sunglasses\", \"show the back of the jacket\"). No text is rendered on purpose: local models garble captions, and a caption-free board is what you want to hand to an illustrator or feed back into another generator. Best at 3:4 or 2:3.",
+      "description": "Drop in a photo of someone wearing an outfit and get a luxury lookbook-style specification board: the clothing and accessories lifted off the person onto a plain white mannequin, warm ivory ground, soft shadow, and a row of three close-ups of details that exist in the photo. The full brief is built into the preset, so the prompt can stay empty; anything you type is appended as extra notes (\"keep the sunglasses\", \"show the back of the jacket\"). No text is rendered on purpose: local models garble captions, and a caption-free board is what you want to hand to an illustrator or feed back into another generator. Best at 3:4 or 2:3.",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -129,7 +129,7 @@
           "recommendedVramGB": 24,
           "minRamGB": 32,
           "sizeGB": 22,
-          "notes": "Identical weights to SimpliGen's official Image Edit pack (Qwen Image Edit 2511 fp8mixed, Qwen2.5-VL 7B fp8 encoder, Qwen-Image VAE, lightx2v Lightning 4-step LoRA): if that pack is installed this one downloads nothing. Four steps, CFG 1, euler/simple, shift 3. The spec-sheet brief lives in the workflow's positive prompt with {{prompt}} appended, so the user's text is extra notes rather than the instruction. The reference is scaled to 1 MP before encoding, as in the official graph. Tested 2026-09-15 on four outfits (coat + trousers, printed dress, three-piece suit, single biker jacket): garment held on all four. Known limits: colour-swatch rows were dropped from the brief because the model invents colours; it can still invent a button or snap in a close-up when the garment has no hardware."
+          "notes": "Identical weights to SimpliGen's official Image Edit pack (Qwen Image Edit 2511 fp8mixed, Qwen2.5-VL 7B fp8 encoder, Qwen-Image VAE, lightx2v Lightning 4-step LoRA): if that pack is installed this one downloads nothing. Four steps, CFG 1, euler/simple, shift 3. The spec-sheet brief lives in the workflow's positive prompt with {{prompt}} appended, so the user's text is extra notes rather than the instruction. The reference is scaled to 1 MP before encoding, as in the official graph. Tested 2026-09-15 on four outfits (coat + trousers, printed dress, three-piece suit, single biker jacket): garment and accessories held on all four (in-app via the agent API, 38-85 s each on a 4070 Ti). The brief asks for an invisible mannequin but the model renders a plain white one; the description says so. Known limits: colour-swatch rows were dropped from the brief because the model invents colours; it can still invent a button or snap in a close-up when the garment has no hardware."
         }
       },
       "characterRoles": [
