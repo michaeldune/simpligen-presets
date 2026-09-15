@@ -1,0 +1,228 @@
+{
+  "sg_load_ref": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Outfit photo"
+    }
+  },
+  "sg_scale_ref": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "megapixels": 1,
+      "resolution_steps": 1,
+      "image": [
+        "sg_load_ref",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale reference to 1 MP"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "sg_lightning": {
+    "inputs": {
+      "lora_name": "Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "sg_unet",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Lightning 4-step LoRA"
+    }
+  },
+  "sg_user_loras": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_lightning",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_shift": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "sg_user_loras",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "sg_cfgnorm": {
+    "inputs": {
+      "strength": 1,
+      "model": [
+        "sg_shift",
+        0
+      ]
+    },
+    "class_type": "CFGNorm",
+    "_meta": {
+      "title": "CFGNorm"
+    }
+  },
+  "sg_pos": {
+    "inputs": {
+      "prompt": "Turn this into a professional fashion design specification board. Take the exact clothing and accessories from the photo, unchanged in every detail, and present them on an invisible mannequin, floating, centered, on a clean warm ivory studio background with a soft shadow. Remove the original background and the person. Below the outfit, a row of three square close-up crops of details that are visible in the photo, such as fabric texture, a seam or pattern, and an existing button, zip or buckle; do not add hardware that is not in the photo. Minimal luxury lookbook layout, generous white space, thin fine-line dividers, no text, no letters, no words. Ultra-realistic product photography, sharp garment edges. {{prompt}}",
+      "clip": [
+        "sg_user_loras",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "image1": [
+        "sg_scale_ref",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "_meta": {
+      "title": "Positive: spec sheet brief + user notes"
+    }
+  },
+  "sg_neg": {
+    "inputs": {
+      "prompt": "text, letters, words, watermark, logo, extra accessories, changed garment, blurry",
+      "clip": [
+        "sg_user_loras",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "image1": [
+        "sg_scale_ref",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "sg_latent": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "Empty latent"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "sg_cfgnorm",
+        0
+      ],
+      "positive": [
+        "sg_pos",
+        0
+      ],
+      "negative": [
+        "sg_neg",
+        0
+      ],
+      "latent_image": [
+        "sg_latent",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

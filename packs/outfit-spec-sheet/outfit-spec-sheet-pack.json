@@ -1,0 +1,146 @@
+{
+  "id": "outfit-spec-sheet-pack",
+  "name": "Community — Outfit Spec Sheet",
+  "version": "1.0.0",
+  "addedAt": "2026-09-15",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "description": "One photo of an outfit in, one fashion-house specification board out: the exact garments and accessories on an invisible mannequin against warm ivory, a strip of three close-up detail crops, no text. Runs on the same Qwen Image Edit 2511 weights as SimpliGen's own Image Edit pack, so if that pack is installed nothing new downloads. The brief is baked in; the prompt box is for optional extra notes.",
+  "tags": [
+    "Local",
+    "Edit",
+    "Fashion",
+    "Qwen"
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/984166f60a9b1fcede5e9b9287b7a7aebc050010/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+    "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/vae/qwen_image_vae.safetensors": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+    "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/e74da8d4e71a54b341de86aa9f8d2509165aa513/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors": "2a32ce938ec71db2b49a817b4844ae86995569518dea56ee0ddc209cbe8e1377"
+  },
+  "presets": [
+    {
+      "id": "outfit-spec-sheet",
+      "name": "Outfit Spec Sheet",
+      "icon": "🧵",
+      "enabled": true,
+      "tagline": "Photo of an outfit to a fashion design board",
+      "description": "Drop in a photo of someone wearing an outfit and get a luxury lookbook-style specification board: the clothing and accessories lifted off the person onto an invisible mannequin, warm ivory ground, soft shadow, and a row of three close-ups of details that exist in the photo. The full brief is built into the preset, so the prompt can stay empty; anything you type is appended as extra notes (\"keep the sunglasses\", \"show the back of the jacket\"). No text is rendered on purpose: local models garble captions, and a caption-free board is what you want to hand to an illustrator or feed back into another generator. Best at 3:4 or 2:3.",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Fashion",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/outfit-spec-sheet.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image"
+        ],
+        "displayModel": "Qwen Image Edit 2511 + Lightning 4-step",
+        "workflow": "workflows/image_outfit_spec_sheet.json",
+        "unet": "qwen_image_edit_2511_fp8mixed.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/984166f60a9b1fcede5e9b9287b7a7aebc050010/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/vae/qwen_image_vae.safetensors",
+        "clip": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors",
+            "url": "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/e74da8d4e71a54b341de86aa9f8d2509165aa513/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 4,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 2,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2.5,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Photo of the outfit"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 16,
+          "recommendedVramGB": 24,
+          "minRamGB": 32,
+          "sizeGB": 22,
+          "notes": "Identical weights to SimpliGen's official Image Edit pack (Qwen Image Edit 2511 fp8mixed, Qwen2.5-VL 7B fp8 encoder, Qwen-Image VAE, lightx2v Lightning 4-step LoRA): if that pack is installed this one downloads nothing. Four steps, CFG 1, euler/simple, shift 3. The spec-sheet brief lives in the workflow's positive prompt with {{prompt}} appended, so the user's text is extra notes rather than the instruction. The reference is scaled to 1 MP before encoding, as in the official graph. Tested 2026-09-15 on four outfits (coat + trousers, printed dress, three-piece suit, single biker jacket): garment held on all four. Known limits: colour-swatch rows were dropped from the brief because the model invents colours; it can still invent a button or snap in a close-up when the garment has no hardware."
+        }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1"
+      }
+    }
+  ]
+}
