@@ -1,0 +1,824 @@
+{
+  "id": "duchaiten-pack",
+  "name": "Community — DucHaiten",
+  "version": "1.0.0",
+  "author": "DucHaiten",
+  "nsfw": true,
+  "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
+  "tags": [
+    "Local",
+    "DucHaiten",
+    "SD 1.5",
+    "SDXL",
+    "NoobAI",
+    "Pony",
+    "3D"
+  ],
+  "presets": [
+    {
+      "id": "duchaiten-goldenlife-v10",
+      "name": "DucHaiten GoldenLife v1.0",
+      "tagline": "Pixar-meets-3D-anime SD 1.5",
+      "icon": "✨",
+      "previewImage": "previews/duchaiten-goldenlife-v10.jpg",
+      "description": "DucHaiten GoldenLife - a 3D blend the author describes as 30% Pixar, 20% 3D realism, 50% 3D anime, trained with a focus on eyes and skin. Natural-language or tag prompts. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "3D",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten GoldenLife v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-goldenlife-v10.json",
+        "checkpoint": "duchaitenGoldenlife_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/108544",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "illustration, 3d, 2d, painting, cartoons, sketch, (worst quality:1.9), (low quality:1.9), (normal quality:1.9), lowres, bad anatomy, bad hands, ((monochrome)), ((grayscale)), collapsed eyeshadow, multiple eyebrow, (cropped), oversaturated, extra limb, missing limbs, deformed hands, long neck, long body, imperfect, (bad hands), signature, watermark, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, bad image, bad photo",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.4,
+          "notes": "SD 1.5 with CLIP Skip 2 and the checkpoint's baked VAE. DPM++ 2M Karras. ~512px."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-noobai-cinematic-v10",
+      "name": "DucHaiten NoobAI-Cinematic v1.0",
+      "tagline": "Cinematic pore-level realism",
+      "icon": "🎬",
+      "previewImage": "previews/duchaiten-noobai-cinematic-v10.jpg",
+      "description": "DucHaiten NoobAI-Cinematic - a NoobAI (SDXL) model the author built for skin detail down to every pore, a successor to his Pony-Real. Natural-language or tag prompts. Skip hires on close-ups; it softens skin.",
+      "tags": [
+        "NoobAI",
+        "SDXL",
+        "Realistic",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten NoobAI-Cinematic v1.0",
+        "baseModels": [
+          "noobai",
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/duchaiten-noobai-cinematic-v10.json",
+        "checkpoint": "duchaitenNoobai_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1749501",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "(worst quality:1.5), (low quality:1.5), (normal quality:1.5), lowres, bad anatomy, bad hands, multiple eyebrow, cropped, extra limb, missing limbs, deformed hands, long neck, long body, signature, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.0,
+          "notes": "NoobAI (SDXL, eps) with CLIP Skip 2 and baked VAE. Euler a / Normal."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-noobai-cinematic-snapvu-v10",
+      "name": "DucHaiten NoobAI-Cinematic Snapvu",
+      "tagline": "Cinematic realism with a hires pass",
+      "icon": "🎥",
+      "previewImage": "previews/duchaiten-noobai-cinematic-snapvu-v10.jpg",
+      "description": "The Snapvu build of NoobAI-Cinematic: finer light through skin and sharper pores, rendered in two passes (base, then a 1.5x hires pass). Slower than the plain card. Author's recipe: DPM++ 3M SDE, Simple, 32 steps, CFG 4, hires denoise 0.3 at CFG 3.",
+      "tags": [
+        "NoobAI",
+        "SDXL",
+        "Realistic",
+        "Cinematic",
+        "Hires",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten NoobAI-Cinematic Snapvu",
+        "baseModels": [
+          "noobai",
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/duchaiten-noobai-cinematic-snapvu-v10.json",
+        "checkpoint": "duchaitenNoobai_v10Snapvu.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1762133",
+        "steps": 32,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "(worst quality:1.5), (low quality:1.5), (normal quality:1.5), lowres, bad anatomy, bad hands, multiple eyebrow, cropped, extra limb, missing limbs, deformed hands, long neck, long body, signature, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 4.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.1,
+          "notes": "Snapvu needs the hires pass (it blotches without one) and only behaves at CFG 3-4.5. Two passes: base, then 4x-UltraSharpV2 scaled to 1.5x and re-sampled at denoise 0.3. Author's NickelbackFS upscaler is not on a public host, so UltraSharpV2 stands in."
+        },
+        "upscaler": "4x-UltraSharpV2.pth",
+        "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.pth"
+      }
+    },
+    {
+      "id": "duchaiten-gameart-unrealengine-v10",
+      "name": "DucHaiten GameArt UnrealEngine V1.0",
+      "tagline": "AAA game-cutscene 3D",
+      "icon": "🎮",
+      "previewImage": "previews/duchaiten-gameart-unrealengine-v10.jpg",
+      "description": "DucHaiten GameArt UnrealEngine V1.0 - a Pony model tuned toward the look of Unreal Engine 5 game cutscenes. Built on the author's no-score Pony base, so no score tags are needed.",
+      "tags": [
+        "Pony",
+        "SDXL",
+        "3D",
+        "Game Art",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten GameArt UnrealEngine V1.0",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/duchaiten-gameart-unrealengine-v10.json",
+        "checkpoint": "duchaitenGameart_unrealengineV10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/692973",
+        "steps": 30,
+        "cfg": 8,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, jpeg artifacts, extra digits, signature, watermark, username, text",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.0,
+          "notes": "Pony (SDXL) with CLIP Skip 2 and baked VAE. Author's settings: DPM++ SDE, Karras (important), 30 steps, CFG 8-9."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-xl-golden-age-v10",
+      "name": "DucHaitenXL Golden-Age v1.0",
+      "tagline": "Vintage 2.5D illustration",
+      "icon": "🏛️",
+      "previewImage": "previews/duchaiten-xl-golden-age-v10.jpg",
+      "description": "DucHaitenXL Golden-Age - the author's SDXL merge of his best SDXL models with several dozen style LoRAs, aimed at a classic, golden-age illustrated look across 2D and 2.5D. The author gives no special settings; it is meant to be easy.",
+      "tags": [
+        "SDXL",
+        "2.5D",
+        "Vintage",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaitenXL Golden-Age v1.0",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/duchaiten-xl-golden-age-v10.json",
+        "checkpoint": "duchaitenxlGoldenAge_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/418910",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, jpeg artifacts, extra digits, signature, watermark, username, text",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 45,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.0,
+          "notes": "SDXL 1.0 with baked VAE. DPM++ 2M Karras, 30 steps, CFG 7. No CLIP skip."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-real3d-nsfw-v10",
+      "name": "DucHaiten Real3D-NSFW v1.0",
+      "tagline": "Realistic 3D, thicker bodies",
+      "icon": "🔥",
+      "previewImage": "previews/duchaiten-real3d-nsfw-v10.jpg",
+      "description": "DucHaiten Real3D-NSFW - realistic 3D figures with detailed skin and fuller body types; the author notes a distinctive Asian face that is his own style rather than the common one. Narrow prompt range by design. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "3D",
+        "Realistic",
+        "NSFW",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten Real3D-NSFW v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-real3d-nsfw-v10.json",
+        "checkpoint": "duchaitenReal3dNSFW_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/262358",
+        "steps": 30,
+        "cfg": 9,
+        "denoise": 1,
+        "negativePrompt": "illustration, 3d, 2d, painting, cartoons, sketch, (worst quality:1.9), (low quality:1.9), (normal quality:1.9), lowres, bad anatomy, bad hands, ((monochrome)), ((grayscale)), collapsed eyeshadow, multiple eyebrow, (cropped), oversaturated, extra limb, missing limbs, deformed hands, long neck, long body, imperfect, (bad hands), signature, watermark, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, bad image, bad photo",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.4,
+          "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. Author's settings: DPM++ 2M Karras, 30 steps, CFG 9, his negative prompt."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-retro-v20",
+      "name": "DucHaiten Retro v2.0",
+      "tagline": "50s-90s film and pin-up",
+      "icon": "📼",
+      "previewImage": "previews/duchaiten-retro-v20.jpg",
+      "description": "DucHaiten Retro v2.0 - vintage photographic looks from the 50s to the 90s, pin-up and film stills, plus some live-action-anime range. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "Retro",
+        "Vintage",
+        "Photoreal",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten Retro v2.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-retro-v20.json",
+        "checkpoint": "duchaitenRetro_v20.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/123949",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "illustration, 3d, 2d, painting, cartoons, sketch, (worst quality:1.9), (low quality:1.9), (normal quality:1.9), lowres, bad anatomy, bad hands, ((monochrome)), ((grayscale)), collapsed eyeshadow, multiple eyebrow, (cropped), oversaturated, extra limb, missing limbs, deformed hands, long neck, long body, imperfect, (bad hands), signature, watermark, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, bad image, bad photo",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.4,
+          "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. DPM++ 2M Karras. ~512px."
+        }
+      }
+    },
+    {
+      "id": "duchaiten-pack-thiccboi-v10",
+      "name": "DucHaiTen ThiccBoi v1.0",
+      "tagline": "Stylized SD 1.5 (DucHaiTen)",
+      "icon": "🎨",
+      "previewImage": "previews/duchaiten-pack-thiccboi-v10.jpg",
+      "description": "DucHaiten ThiccBoi - bright NijiCute colours, MindBreak hips and FancyxFancy toned builds, with western-comic influence; cartoon, Pixar-like 3D and 2.5D. Very consistent, so edit prompts rather than copying them. Danbooru tags. Best near 512px.",
+      "tags": [
+        "SD 1.5",
+        "Anime",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiTen ThiccBoi v1.0",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-pack-thiccboi-v10.json",
+        "checkpoint": "duchaitenThiccboi_v10.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/116087",
+        "vae": "kl-f8-anime2.ckpt",
+        "steps": 30,
+        "cfg": 7,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, missing fingers, extra digits, fewer digits, blurry, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, extra limbs, cropped, worst quality, low quality, normal quality, jpeg artifacts, watermark, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 512,
+            "height": 512
+          },
+          "2:3": {
+            "width": 512,
+            "height": 768
+          },
+          "3:2": {
+            "width": 768,
+            "height": 512
+          },
+          "3:4": {
+            "width": 512,
+            "height": 680
+          },
+          "4:3": {
+            "width": 680,
+            "height": 512
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 10,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.4,
+          "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. ~512px."
+        },
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+      }
+    },
+    {
+      "id": "duchaiten-stylelikeme-v15",
+      "name": "DucHaiten StyleLikeMe v1.5",
+      "tagline": "Surreal, painterly, all-in-one",
+      "icon": "🌀",
+      "previewImage": "previews/duchaiten-stylelikeme-v15.jpg",
+      "description": "DucHaiten StyleLikeMe - heavy on artistic and surreal elements with very high detail; flexible across anime, 3D art, painting, cartoon and landscape. Simple prompts work. Runs at high CFG and 50 steps by the author's advice.",
+      "tags": [
+        "SD 1.5",
+        "Surreal",
+        "Painterly",
+        "Art",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DucHaiten StyleLikeMe v1.5",
+        "baseModels": [
+          "sd15"
+        ],
+        "workflow": "workflows/duchaiten-stylelikeme-v15.json",
+        "checkpoint": "duchaitenStylelikeme_v15Fp16NoEma.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/47085",
+        "steps": 50,
+        "cfg": 12,
+        "denoise": 1,
+        "negativePrompt": "(worst quality:1.5), (low quality:1.5), (normal quality:1.5), lowres, bad anatomy, bad hands, ((monochrome)), ((grayscale)), collapsed eyeshadow, multiple eyebrow, (cropped), oversaturated, extra limb, missing limbs, deformed hands, long neck, long body, imperfect, (bad hands), signature, watermark, username, artist name, conjoined fingers, deformed fingers, ugly eyes, imperfect eyes, skewed eyes, unnatural face, unnatural body, error",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 768,
+            "height": 768
+          },
+          "2:3": {
+            "width": 704,
+            "height": 1024
+          },
+          "3:2": {
+            "width": 1024,
+            "height": 704
+          },
+          "3:4": {
+            "width": 672,
+            "height": 896
+          },
+          "4:3": {
+            "width": 896,
+            "height": 672
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 60,
+            "step": 1
+          },
+          "cfg": {
+            "min": 7,
+            "max": 15,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 4,
+          "recommendedVramGB": 6,
+          "minRamGB": 8,
+          "sizeGB": 2.1,
+          "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. DPM++ 2M Karras. Author's settings: 50 steps, CFG 11-15, native up to 768 (704x1024 at 2:3)."
+        }
+      }
+    }
+  ]
+}

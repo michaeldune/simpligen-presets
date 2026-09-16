@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 142 ready-to-run presets in 45 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 151 ready-to-run presets in 46 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 45 packs, 142 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 46 packs, 151 presets.">
 </p>
 
 **Image packs**
@@ -23,6 +23,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Illustrious Realism | 6 | Illustrious (SDXL) | Photoreal & semi-real |
 | Illustrious Anime | 8 | Illustrious (SDXL) | Anime, incl. V-Pred models |
 | SD 1.5 Anime | 3 | SD 1.5 | External kl-f8-anime2 VAE, 512-base |
+| DucHaiten | 9 | SD 1.5 ×5, SDXL ×1, NoobAI ×2, Pony ×1 | DucHaiten's checkpoint family: GoldenLife, Retro, Real3D-NSFW, StyleLikeMe and ThiccBoi on SD 1.5 (512-base, CLIP Skip 2); GoldenAge on SDXL; NoobAI-Cinematic plain and Snapvu hires; GameArt UnrealEngine on Pony. ThiccBoi also lives in SD 1.5 Anime, same checkpoint |
 | Reij's Merges | 6 | Illustrious (SDXL) | reijlita merge family |
 | Anima Anime | 5 | Anima (Cosmos) | UNet + Qwen encoder + Qwen-Image VAE |
 | Anima Realism | 3 | Anima (Cosmos) | Same stack, photoreal |
