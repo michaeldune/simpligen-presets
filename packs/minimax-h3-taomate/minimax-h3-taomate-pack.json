@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-taomate-pack",
   "name": "Community — MiniMax H3 (TaoMate 3-Step)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Alibaba TaoLive AIGC Team (LoRA); Kijai (ComfyUI conversion)",
   "nsfw": false,
   "description": "Alibaba TaoLive's TaoMate-H3 three-step distillation LoRA on the standard MiniMax H3 FL2VA weights. Three sampling steps instead of twenty, no classifier-free guidance, Euler. Text and image to video only; the LoRA stops using reference pictures, so there is no reference-to-video card. WHAT IT IS FOR. Bake 2026-09-16 on a 12 GB RTX 4070 Ti against the Turbo Accelerated pack at its default ten steps, same seeds and prompts, 5 s at 480p: a talking head rendered in 50 s against 83 s and came out sharper (Laplacian 46 vs 29) with the line verbatim and the mouth closing on the last word; a product turntable was a draw; a beach run lost sharpness (58 vs 102) and motion (frame-to-frame energy 4.5 vs 7.2), the dog smearing and the strides shortening. So: dialogue, presenters, product and other low-motion shots. Keep the turbo packs for action. Same base weights as the MiniMax H3 pack, so with that installed only the 173 MB LoRA downloads. Kijai's rank-19 averaged conversion of the official rank-128 adapter; MiniMax H3 community licence.",
@@ -105,7 +105,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -323,7 +323,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus a 173 MB LoRA. Three steps, no CFG, Euler/simple. Same base files as the MiniMax H3 pack."
+          "notes": "About 40 GB of weights streamed through system RAM plus a 173 MB LoRA. Three steps, no CFG, Euler/simple. Same base files as the MiniMax H3 pack. Defaults to 480p: a 15 s shot at the 768p tier does not fit in 12 GB."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_t2v_cloud.json",
         "checksums": {
@@ -446,7 +446,7 @@
             "affectsCost": true
           }
         },
-        "defaultResolutionTier": 4,
+        "defaultResolutionTier": 0,
         "resolutionOptions": [
           {
             "label": "480p",
@@ -664,7 +664,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus a 173 MB LoRA. Three steps, no CFG, Euler/simple. Same base files as the MiniMax H3 pack."
+          "notes": "About 40 GB of weights streamed through system RAM plus a 173 MB LoRA. Three steps, no CFG, Euler/simple. Same base files as the MiniMax H3 pack. Defaults to 480p: a 15 s shot at the 768p tier does not fit in 12 GB."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_i2v_cloud.json",
         "checksums": {
