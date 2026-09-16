@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 153 ready-to-run presets in 47 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 155 ready-to-run presets in 48 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 47 packs, 153 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 48 packs, 155 presets.">
 </p>
 
 **Image packs**
@@ -63,6 +63,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (10Eros Max beta5) | 3 | 10Eros Max beta5 hybrid (INT8) | TenStrip's current beta5, one 21 GB **hybrid** file so R2V runs on true reference character. Same-seed bake-off vs the original: cleaner faces, real motion, ~20% faster at 20 steps (202 vs 250 s vanilla; 127 s for 5 s at 480p in-app). Separate download; the original packs are unchanged |
 | MiniMax H3 (10Eros Max beta5, Turbo) | 3 | 10Eros Max beta5 TURBO-hybrid (INT8) | beta5 with the turbo **baked into the checkpoint**: 8 steps, res_multistep/simple, no LoRA. ~105 s for 5 s at 480p on vanilla, same wall as the larryvrh Turbo at 6; on a face-visible I2V it was sharper than 20-step beta5 at half the time. Its own 21 GB file, so pick this or the plain beta5 unless you want both |
 | MiniMax H3 (TaoMate 3-Step) | 2 | MiniMax H3 FL2VA (INT8) + LoRA | Alibaba TaoLive's three-step distill LoRA (Kijai rank-19 conversion, 173 MB) on the standard FL2VA weights: 3 steps, no CFG, Euler. T2V and I2V only, the LoRA ignores references. Bake vs Turbo Accelerated at 10 steps, same seeds: talking head 50 s vs 83 s and sharper (Laplacian 46 vs 29); product a draw; beach run softer (58 vs 102) with less motion. Dialogue and static shots, not action |
+| MiniMax H3 (FastH3 8-Step V2) | 2 | FastVideo FastH3 V2 (INT8) | FastVideo's DMD2 distill with VSA block-sparse attention, Comfy-Org repack (20.6 GB, its own checkpoint), official template graph: 8 steps, no CFG, sigma shift 10/3, VSA keep 10%. **Needs engine 0.36+ (beta channel as of 2026-09-16)**, store-gated with minComfyuiVersion. Bake vs TaoMate and Turbo Accelerated, same seeds: sharper on every scene (talk 68 vs 46 vs 29, product 257 vs 111 vs 121, run 138 vs 58 vs 102) with motion kept (6.7 vs the turbo's 7.2); ~80 s per 5 s at 480p. T2V + I2V, no R2V |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 | LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |
 | LTX 2.5 REDgraft Fast 2K (T2V + I2V) | 2 | LTX 2.5 REDgraft (INT8) | Text-to-video with generated audio or image-to-video from a source image. Separate NSFW finetune; reuses the official LTX 2.5 companion stack |
