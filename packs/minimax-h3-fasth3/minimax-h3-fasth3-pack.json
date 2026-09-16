@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-pack",
   "name": "Community — MiniMax H3 (FastH3 8-Step V2)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minAppVersion": "1.63.0",
   "minComfyuiVersion": "v0.36.0",
   "author": "FastVideo (hao-ai-lab); Comfy-Org repack",
@@ -41,13 +41,9 @@
         "placement": "inline-end",
         "template": " The character says{delivery}: \"{dialogue}\""
       },
-      "cloud": {
-        "appGroup": "minimax-h3"
-      },
       "video": {
         "supports": [
-          "local",
-          "cloud"
+          "local"
         ],
         "displayModel": "FastVideo FastH3 8-Step V2 (int8 + ConvRot)",
         "baseModels": [
@@ -331,7 +327,6 @@
           "sizeGB": 40.6,
           "notes": "20.6 GB distilled checkpoint plus the shared text encoder and VAEs (about 20 GB, same files as the MiniMax H3 pack). Eight steps, no CFG, res_multistep/simple, sigma shift 10/3, VSA keep 10%. Needs engine 0.36+. Defaults to 480p."
         },
-        "cloudWorkflow": "presets/workflows/video_minimax_h3_t2v_cloud.json",
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
@@ -369,13 +364,9 @@
         "placement": "inline-end",
         "template": " The character says{delivery}: \"{dialogue}\""
       },
-      "cloud": {
-        "appGroup": "minimax-h3"
-      },
       "video": {
         "supports": [
-          "local",
-          "cloud"
+          "local"
         ],
         "displayModel": "FastVideo FastH3 8-Step V2 (int8 + ConvRot)",
         "baseModels": [
@@ -667,7 +658,6 @@
           "sizeGB": 40.6,
           "notes": "20.6 GB distilled checkpoint plus the shared text encoder and VAEs (about 20 GB, same files as the MiniMax H3 pack). Eight steps, no CFG, res_multistep/simple, sigma shift 10/3, VSA keep 10%. Needs engine 0.36+. Defaults to 480p."
         },
-        "cloudWorkflow": "presets/workflows/video_minimax_h3_i2v_cloud.json",
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
