@@ -94,7 +94,7 @@
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
             "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 8,
@@ -428,7 +428,7 @@
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
             "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 8,
