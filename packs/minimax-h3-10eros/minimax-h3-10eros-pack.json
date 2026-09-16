@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-pack",
   "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "DmitryDB",
   "nsfw": true,
   "description": "MiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
@@ -84,8 +84,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 20,
@@ -390,8 +390,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 20,
@@ -705,8 +705,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 20,

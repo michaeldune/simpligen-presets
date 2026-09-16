@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-beta5-turbo-pack",
   "name": "Community — MiniMax H3 (10Eros Max beta5, Turbo)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "TenStrip",
   "nsfw": true,
   "description": "MiniMax H3 on TenStrip's 10Eros Max beta5 TURBO-hybrid: the same beta5 hybrid checkpoint with the turbo delta baked into the weights, so it runs at 8 steps with no Turbo LoRA to download or hold in memory (the author's figure: 4.2 GB saved against loading the LoRAs). One 21 GB INT8 file carries first-frame and reference-to-video character, so text-, image- and reference-to-video all run on it. Two-seed bake-off on a 12 GB RTX 4070 Ti at 480p, 5 s: about 105 s per clip, the same wall as the larryvrh Turbo LoRA at 6 steps, and on a face-visible image-to-video test the 8-step turbo was sharper than the 20-step plain beta5 at half the time, identity and dialogue held. Sampler is res_multistep / simple, the author's pick for motion quality; LCM was softer on faces in our tests. This is a separate download from the plain beta5 pack (different file); pick one unless you want both. Grafted character from LTX 2.3, Wan 2.2 and Krea 2 means their community licences apply alongside the MiniMax H3 licence.",
@@ -84,8 +84,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 8,
@@ -390,8 +390,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 8,
@@ -705,8 +705,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict",
-            "pinnedCommit": "0aeac5434db6743b7201226f8c484c0bf795710d"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
           }
         ],
         "steps": 8,
