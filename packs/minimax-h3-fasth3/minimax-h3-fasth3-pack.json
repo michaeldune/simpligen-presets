@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-pack",
   "name": "Community — MiniMax H3 (FastH3 8-Step V2)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.63.0",
   "minComfyuiVersion": "v0.36.0",
   "author": "FastVideo (hao-ai-lab); Comfy-Org repack",
@@ -85,12 +85,14 @@
         "extensions": [
           {
             "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git"
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
@@ -419,12 +421,14 @@
         "extensions": [
           {
             "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git"
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           },
           {
             "name": "ComfyUI-KJNodes",
             "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in"
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           },
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
