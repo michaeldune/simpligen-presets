@@ -20,7 +20,7 @@
       "tagline": "A full song with lyrics, delivered as an MP4 with its album art",
       "icon": "🎵",
       "previewImage": "previews/yue2-song-album-art.jpg",
-      "description": "Type a style, add lyrics, get a finished song as an MP4 with its album art - the way a Sora song ships with a thumbnail. SimpliGen has no audio-only output yet, so the song is delivered as a video: your album art (or art painted for you) held on screen for the whole track.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the style as short tags: voice, genre, instruments, mood, tempo. e.g. \"female vocal, indie pop, warm acoustic guitar, soft drums, 100 bpm, intimate, bright chorus\".\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, one line per sung line, with section tags on their own lines: [verse] [chorus] [bridge] [outro]. Separate sections with a blank line.\n3. DURATION = the longest the song may run. YuE2 often ends the song earlier on its own; the video always matches the song it actually made.\n4. REFERENCE IMAGE (optional) = your album art. A Character works too - your artist on every song. Leave it empty and Flux 2 Klein 4B paints album art from the style (art only, no title lettering). The art is centre-cropped to the aspect ratio you pick; 1:1 is the album shape.\n\nWant a different picture later? The Swap Album Art card puts new art on a finished song without touching the audio. The Delivery dropdown next to Dialogue does nothing here.\n\nLORAS: YuE2 style LoRAs work - for example Atomtan Studio's DreamPop and Old School Hip-Hop (huggingface.co/atomtanstudio/lora-library). Import them with base model YuE2 and put the LoRA's trigger word first in the style, e.g. \"sv_dreampop, dream pop, shimmering guitars\". LoRAs change the song only, not the painted album art.\n\nYuE2 is licensed CC-BY-NC-4.0: non-commercial use only.",
+      "description": "Type a style, add lyrics, get a finished song as an MP4 with its album art - the way a Sora song ships with a thumbnail. SimpliGen has no audio-only output yet, so the song is delivered as a video: your album art (or art painted for you) held on screen for the whole track.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the style as short tags, starting with the language: language, voice, genre, instruments, mood, tempo. e.g. \"English, female vocal, indie pop, warm acoustic guitar, soft drums, 100 bpm, intimate, bright chorus\".\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, one line per sung line, with section tags on their own lines: [verse] [chorus] [bridge] [outro]. Separate sections with a blank line.\n3. DURATION = the longest the song may run. YuE2 often ends the song earlier on its own; the video always matches the song it actually made.\n4. REFERENCE IMAGE (optional) = your album art. A Character works too - your artist on every song. Leave it empty and Flux 2 Klein 4B paints album art from the style (art only, no title lettering). The art is centre-cropped to the aspect ratio you pick; 1:1 is the album shape.\n\nWant a different picture later? The Swap Album Art card puts new art on a finished song without touching the audio. The Delivery dropdown next to Dialogue does nothing here.\n\nLORAS: YuE2 style LoRAs work - for example Atomtan Studio's DreamPop and Old School Hip-Hop (huggingface.co/atomtanstudio/lora-library). Import them with base model YuE2 and put the LoRA's trigger word first in the style, e.g. \"sv_dreampop, dream pop, shimmering guitars\". LoRAs change the song only, not the painted album art.\n\nYuE2 is licensed CC-BY-NC-4.0: non-commercial use only.",
       "tags": [
         "Music",
         "Song",
@@ -147,7 +147,7 @@
       "tagline": "Your lyrics and style over the melody of a song you upload",
       "icon": "🎤",
       "previewImage": "previews/yue2-cover-song-album-art.jpg",
-      "description": "Make a cover of a song you already have: YuE2 keeps the original's melody and sings YOUR lyrics in YOUR style over it - the same tune as a jazz ballad, a punk track, a lullaby. Delivered as an MP4 with album art, like the other cards in this pack.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags: voice, genre, instruments, mood, tempo. e.g. \"soulful jazz-pop, expressive male vocal, Rhodes piano, upright bass, brushed drums, 88 bpm\".\n3. CHARACTER DIALOGUE (turn it on) = the lyrics to sing, with [verse] / [chorus] tags in the same order as the source song. To keep the ORIGINAL words, paste them here (Suno shows them on the song page). Leave it off and YuE2 writes NEW words to the same tune - only the melody is taken from the source, never its words.\n4. DURATION = how much of the source to cover, from the start (SimpliGen trims the source to it). Paste only the lyrics for that part; extra lines get crammed or dropped.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody into a score, and YuE2 performs it in melody mode, which leaves the arrangement free to change. Transcription mistakes carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once. SheetSage2 goes into a new audio_encoders model folder, and the engine only picks up new folders when it starts.\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
+      "description": "Make a cover of a song you already have: YuE2 keeps the original's melody and sings YOUR lyrics in YOUR style over it - the same tune as a jazz ballad, a punk track, a lullaby. Delivered as an MP4 with album art, like the other cards in this pack.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. e.g. \"English, soulful jazz-pop, expressive male vocal, Rhodes piano, upright bass, brushed drums\". Leave the tempo (BPM) out: a cover keeps the source song's tempo, which is written into the transcribed score, and a different BPM in the style works against it. Describe the feel instead (\"relaxed\", \"driving\").\n3. CHARACTER DIALOGUE (turn it on) = the lyrics to sing, with [verse] / [chorus] tags in the same order as the source song. To keep the ORIGINAL words, paste them here (Suno shows them on the song page). Leave it off and YuE2 writes NEW words to the same tune - only the melody is taken from the source, never its words.\n4. DURATION = how much of the source to cover, from the start (SimpliGen trims the source to it). Paste only the lyrics for that part; extra lines get crammed or dropped.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody into a score, and YuE2 performs it in melody mode, which leaves the arrangement free to change. Transcription mistakes carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once. SheetSage2 goes into a new audio_encoders model folder, and the engine only picks up new folders when it starts.\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
       "tags": [
         "Music",
         "Cover Song",
@@ -279,6 +279,147 @@
           "minRamGB": 32,
           "sizeGB": 13.7,
           "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
+        }
+      }
+    },
+    {
+      "id": "yue2-faithful-cover-song-album-art",
+      "name": "YuE2 Faithful Cover + Album Art",
+      "tagline": "Keeps the source song's melody AND chords, sung your way",
+      "icon": "🎸",
+      "previewImage": "previews/yue2-faithful-cover-song-album-art.jpg",
+      "description": "A cover that stays closer to the original: YuE2 keeps the source song's melody AND its chords, and sings your lyrics in your style over them. The plain Cover Song card keeps only the tune and lets the arrangement go anywhere; this one follows the original harmony, so the result sounds more like the same song played by a different band. Delivered as an MP4 with album art.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. Leave the tempo (BPM) out - the cover keeps the source's tempo from the score.\n3. CHARACTER DIALOGUE (turn it on) = the lyrics, with [verse] / [chorus] tags in the same order as the source. Paste the original words to keep them; leave it off and YuE2 writes new words to the same tune.\n4. DURATION = how much of the source to cover, from the start. Paste only the lyrics for that part.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody and chords into a score, and YuE2 performs that score in full mode. Transcription mistakes - a wrong chord especially - carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once (new audio_encoders model folder).\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
+      "tags": [
+        "Music",
+        "Cover Song",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "atmosphere"
+        ]
+      },
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "template": "[lyrics]\n{dialogue}",
+        "placement": "section"
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SheetSage2 + YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "baseModels": [
+          "yue2"
+        ],
+        "workflow": "workflows/yue2-faithful-cover-song-album-art.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 1,
+          "slotLabels": [
+            "Album art (optional)"
+          ]
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 1
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 1
+        },
+        "duration": {
+          "type": "slider",
+          "min": 30,
+          "max": 360,
+          "default": 120,
+          "step": 10,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
+        "sheetsage": "sheetsage2_bf16.safetensors",
+        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
+        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
+        "cover_vae": "flux2-vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "checkpoints",
+            "filename": "yue2_3b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+          },
+          {
+            "dir": "audio_encoders",
+            "filename": "sheetsage2_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/audio_encoders/sheetsage2_bf16.safetensors"
+          },
+          {
+            "dir": "diffusion_models",
+            "filename": "flux-2-klein-4b-fp8.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+          },
+          {
+            "dir": "clip",
+            "filename": "qwen_3_4b_fp4_flux2.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+          },
+          {
+            "dir": "vae",
+            "filename": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+          }
+        ],
+        "steps": 32,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOptions": [
+          {
+            "label": "Album art",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 768,
+                "height": 768
+              },
+              "16:9": {
+                "width": 1024,
+                "height": 576
+              },
+              "9:16": {
+                "width": 576,
+                "height": 1024
+              },
+              "4:3": {
+                "width": 896,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 896
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 13.7,
+          "notes": "Score-conditioned cover with melody AND harmony (the yue2-music skill's 'cot=full' cover): SheetSage2 bf16 transcribes melody + chords (mode full), YuE2 3B int8 performs that score in full mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Same models, source slots, album art and first-use restart as the Cover Song card. YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
       }
     },
