@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 155 ready-to-run presets in 48 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 157 ready-to-run presets in 49 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
-Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, and a Wan 2.2 image-to-video pack.
+Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 songs with album art.
 
 **Getting a pack takes three steps:** download the pack zip from the [Releases page](https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest), unzip it, and run `install.cmd`. The installer downloads the models for you, verifies them, and the pack appears in SimpliGen's preset picker under `Community — `.
 
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 48 packs, 155 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 49 packs, 157 presets.">
 </p>
 
 **Image packs**
@@ -71,6 +71,14 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (DaSiWa Hybrid v2) | 3 | DaSiWa Hybrid Turbo v2 (int8 + ConvRot) | **The natural-skin one.** Darksidewalker's v2 Turbo (2026-09-11): FL2VA weights with a baked REF2VA delta, one 19.5 GB checkpoint for T2V + I2V + R2V, distillation baked in, nothing to install. Measured 2026-09-13 against the v1 pack on the same seed and prompts: at 4 steps it is softer than v1, at **8 steps** (default, ~100 s per 5 s shot at 480p) it gives the cleanest skin of every H3 turbo we ship - no oily sheen, no blown key light - where v1 reads bright and crunchy. Keep v1 for speed, use this for faces. Identity held on every reference test. Needs a Civitai API key (free model, sign-in required). |
 | MiniMax H3 Lip-Sync | 1 | MiniMax H3 (pruned INT8) | Audio-driven lip sync with up to 9 reference images, so a whole band stays recognisable in a wide. Trims your track to the shot automatically; 10 s default. Reuses the H3 Turbo weights |
 | MiniMax H3 Emotion TTS Lip-Sync | 1 | IndexTTS 2.5 + MiniMax H3 (pruned INT8) | Type the line in quotes, add an optional [emotion: ...] tag, supply a voice sample in the audio slot: IndexTTS 2.5 clones the voice and speaks the line with that emotion, H3 lip-syncs your reference character to it, all in one generation. Adds 7.7 GB of TTS weights and a node that downgrades the engine's transformers (allowed, persistent). English lines only. Requires SimpliGen 1.59.2 or newer (older apps skip the dotted TTS model folders) |
+
+**Music packs**
+
+SimpliGen has no audio-only output yet, so these deliver each song as an MP4: the track plus its album art held on screen, the way a Sora song ships with a thumbnail.
+
+| Pack | Presets | Architecture | Notes |
+|---|---|---|---|
+| Song + Album Art | 2 | YuE2 3B (INT8) + Flux 2 Klein 4B | **YuE2 Song + Album Art:** style tags in Subject & Action, lyrics in Character Dialogue with `[verse]`/`[chorus]` tags (any case), optional album art or a Character; leave it empty and Klein 4B paints art from the style. The song decides its own length up to the 240 s cap: a 3:04 song rendered in 74 s on a 4070 Ti, 60 s in 38 s. **Swap Album Art:** new picture on a finished song, audio untouched, about 10 s. YuE2 is CC-BY-NC-4.0 (non-commercial). MiniMax Music 3 is held back: it renders noise in SimpliGen's engine until an upstream ComfyUI CUDA-graph bug is fixed |
 
 Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all seven, each preset at its own default step count. **SimpliGen 1.50.0, engine v0.33.1**, ~19 GB system RAM free at the start of each run:
 

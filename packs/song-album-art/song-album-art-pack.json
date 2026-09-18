@@ -1,0 +1,234 @@
+{
+  "id": "song-album-art-pack",
+  "name": "Community — Song + Album Art",
+  "version": "1.0.0",
+  "author": "m-a-p (YuE2) + Black Forest Labs (Flux 2 Klein 4B)",
+  "nsfw": false,
+  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 writes full songs with lyrics from a style and a lyric sheet. Plus a Swap Album Art card to put new art on a finished song. YuE2 is CC-BY-NC-4.0 (non-commercial).",
+  "tags": [
+    "Local",
+    "Music",
+    "YuE2",
+    "Audio"
+  ],
+  "addedAt": "2026-09-18",
+  "presets": [
+    {
+      "id": "yue2-song-album-art",
+      "name": "YuE2 Song + Album Art",
+      "tagline": "A full song with lyrics, delivered as an MP4 with its album art",
+      "icon": "🎵",
+      "previewImage": "previews/yue2-song-album-art.jpg",
+      "description": "Type a style, add lyrics, get a finished song as an MP4 with its album art - the way a Sora song ships with a thumbnail. SimpliGen has no audio-only output yet, so the song is delivered as a video: your album art (or art painted for you) held on screen for the whole track.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the style as short tags: voice, genre, instruments, mood, tempo. e.g. \"female vocal, indie pop, warm acoustic guitar, soft drums, 100 bpm, intimate, bright chorus\".\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, one line per sung line, with section tags on their own lines: [verse] [chorus] [bridge] [outro]. Separate sections with a blank line.\n3. DURATION = the longest the song may run. YuE2 often ends the song earlier on its own; the video always matches the song it actually made.\n4. REFERENCE IMAGE (optional) = your album art. A Character works too - your artist on every song. Leave it empty and Flux 2 Klein 4B paints album art from the style (art only, no title lettering). The art is centre-cropped to the aspect ratio you pick; 1:1 is the album shape.\n\nWant a different picture later? The Swap Album Art card puts new art on a finished song without touching the audio. The Delivery dropdown next to Dialogue does nothing here.\n\nYuE2 is licensed CC-BY-NC-4.0: non-commercial use only.",
+      "tags": [
+        "Music",
+        "Song",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "atmosphere"
+        ]
+      },
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "template": "[lyrics]\n{dialogue}",
+        "placement": "section"
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "baseModels": [
+          "yue2"
+        ],
+        "workflow": "workflows/yue2-song-album-art.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 1,
+          "slotLabels": [
+            "Album art (optional)"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 30,
+          "max": 240,
+          "default": 90,
+          "step": 10,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
+        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
+        "cover_clip": "qwen_3_4b.safetensors",
+        "cover_vae": "flux2-vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "checkpoints",
+            "filename": "yue2_3b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+          },
+          {
+            "dir": "diffusion_models",
+            "filename": "flux-2-klein-4b-fp8.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+          },
+          {
+            "dir": "clip",
+            "filename": "qwen_3_4b.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors"
+          },
+          {
+            "dir": "vae",
+            "filename": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+          }
+        ],
+        "steps": 32,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOptions": [
+          {
+            "label": "Album art",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 720
+              },
+              "9:16": {
+                "width": 720,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1152,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1152
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 16.4,
+          "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Flux 2 Klein 4B fp8 (BFL, Apache-2.0, 4.1 GB) + qwen_3_4b (8.0 GB, shared with Z-Image/Klein) + Flux 2 VAE, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
+        }
+      }
+    },
+    {
+      "id": "song-swap-album-art",
+      "name": "Swap Album Art",
+      "tagline": "New album art on a finished song, audio untouched",
+      "icon": "🖼",
+      "previewImage": "previews/song-swap-album-art.jpg",
+      "description": "Put new album art on a song you already made with a Song + Album Art card. The audio is copied untouched and the new picture is held for the same length - no model loads, it takes seconds.\n\nHOW TO USE IT\n1. REFERENCE VIDEO = the song MP4.\n2. REFERENCE IMAGE = the new album art (centre-cropped to the aspect ratio you pick).\n3. PROMPT = anything, e.g. \"new art\". SimpliGen requires a prompt on every card; this one ignores it.",
+      "tags": [
+        "Music",
+        "Album Art",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio"
+        ]
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Remux only (no model)",
+        "baseModels": [
+          "yue2"
+        ],
+        "workflow": "workflows/song-swap-album-art.json",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "New album art"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 1
+        },
+        "duration": {
+          "type": "enum",
+          "values": [
+            240
+          ],
+          "default": 240,
+          "unit": "seconds"
+        },
+        "steps": 1,
+        "negativePrompt": "",
+        "resolutionOptions": [
+          {
+            "label": "Album art",
+            "minVramGB": 0,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 720
+              },
+              "9:16": {
+                "width": 720,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1152,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1152
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "requirements": {
+          "minVramGB": 0,
+          "recommendedVramGB": 0,
+          "minRamGB": 16,
+          "sizeGB": 0,
+          "notes": "No model. Reads the song MP4's audio, frame count and fps, and writes the same audio under the new picture. Duration is pinned at 240 s because the app trims reference clips to it; the song itself decides the length."
+        }
+      }
+    }
+  ]
+}

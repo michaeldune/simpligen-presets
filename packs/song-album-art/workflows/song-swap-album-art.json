@@ -1,0 +1,112 @@
+{
+  "song_load": {
+    "inputs": {
+      "file": "{{ref_video_1}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Song MP4"
+    }
+  },
+  "song_parts": {
+    "inputs": {
+      "video": [
+        "song_load",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Frames + audio + fps"
+    }
+  },
+  "song_size": {
+    "inputs": {
+      "image": [
+        "song_parts",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Frame count of the original"
+    }
+  },
+  "cover_load": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "New album art"
+    }
+  },
+  "cover_fit": {
+    "inputs": {
+      "image": [
+        "cover_load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Fit album art to the output size"
+    }
+  },
+  "frames": {
+    "inputs": {
+      "image": [
+        "cover_fit",
+        0
+      ],
+      "amount": [
+        "song_size",
+        2
+      ]
+    },
+    "class_type": "RepeatImageBatch",
+    "_meta": {
+      "title": "Hold the album art for the same frame count"
+    }
+  },
+  "video": {
+    "inputs": {
+      "images": [
+        "frames",
+        0
+      ],
+      "fps": [
+        "song_parts",
+        2
+      ],
+      "audio": [
+        "song_parts",
+        1
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "New album art + same audio"
+    }
+  },
+  "9000": {
+    "inputs": {
+      "video": [
+        "video",
+        0
+      ],
+      "filename_prefix": "video/song_swap_album_art",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save MP4"
+    }
+  }
+}
