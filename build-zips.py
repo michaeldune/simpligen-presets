@@ -14,6 +14,11 @@ OUT_DIR = r'D:\SimpliGen-Backups\zips'
 
 # ── Custom node registry ──────────────────────────────────────────────────────
 CUSTOM_NODES = {
+    'MiniMaxMusic3DisableLayerGraphs': {
+        'name': 'ComfyUI-MiniMax-Music3-GraphFix',
+        'url':  'https://github.com/michaeldune/ComfyUI-MiniMax-Music3-GraphFix',
+        'note': 'One CLIP-in/CLIP-out node (MIT, no requirements) that turns off the MiniMax Music 3 text encoder\'s per-layer CUDA graphs. Upstream ar.py never passes decode_buffers, so the graphs replay a freed buffer and SimpliGen\'s --disable-cuda-malloc engine produces noise. NOT pre-installed by SimpliGen. Pin f978334 or later; drop it once a ComfyUI release carries the ar.py fix.',
+    },
     'MiniMaxH3Director': {
         'name': 'ComfyUI_MiniMaxH3_Director',
         'url':  'https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director',

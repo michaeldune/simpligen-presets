@@ -2,13 +2,14 @@
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
   "version": "1.0.0",
-  "author": "m-a-p (YuE2) + Black Forest Labs (Flux 2 Klein 4B)",
+  "author": "m-a-p (YuE2) + MiniMax (Music 3) + Black Forest Labs (Flux 2 Klein 4B)",
   "nsfw": false,
-  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 writes full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial).",
+  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0.",
   "tags": [
     "Local",
     "Music",
     "YuE2",
+    "MiniMax",
     "Audio"
   ],
   "addedAt": "2026-09-18",
@@ -279,6 +280,141 @@
           "sizeGB": 13.7,
           "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
+      }
+    },
+    {
+      "id": "minimax-music3-song-album-art",
+      "name": "MiniMax Music 3 Song + Album Art",
+      "tagline": "A full song from MiniMax Music 3, delivered as an MP4 with its album art",
+      "icon": "🎶",
+      "previewImage": "previews/minimax-music3-song-album-art.jpg",
+      "description": "MiniMax Music 3 writes a full song from a style description and your lyrics, delivered as an MP4 with album art like the other cards in this pack.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the music. MiniMax's own format works best: \"Global Metadata: lo-fi hip-hop, 78 BPM, D flat major, laid-back and dreamy. Vocal Details: soft female vocal, half-sung. Arrangement: dusty boom-bap drums, Rhodes, vinyl crackle.\"\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, with [Intro] [Verse] [Chorus] [Bridge] [Outro] tags. Leave it off for an instrumental.\n3. DURATION = a ceiling, not a target (up to 300 s, Music 3's limit). The lyrics decide the length; the model ends the song itself.\n4. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nThis card includes a small fix node for a ComfyUI bug that otherwise turns every MiniMax Music 3 song into noise inside SimpliGen's engine.\n\nMiniMax Music 3 is licensed Apache-2.0.",
+      "tags": [
+        "Music",
+        "Song",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "atmosphere"
+        ]
+      },
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "template": "[lyrics]\n{dialogue}",
+        "placement": "section"
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "MiniMax Music 3 (int8) + Flux 2 Klein 4B album art",
+        "baseModels": [
+          "minimax-music3"
+        ],
+        "workflow": "workflows/minimax-music3-song-album-art.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 1,
+          "slotLabels": [
+            "Album art (optional)"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 30,
+          "max": 300,
+          "default": 300,
+          "step": 10,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "unet": "minimax_music3_dit_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/diffusion_models/minimax_music3_dit_int8_convrot.safetensors",
+        "clip": "minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/text_encoders/minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+        "vae": "minimax_music3_dav.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/vae/minimax_music3_dav.safetensors",
+        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
+        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
+        "cover_vae": "flux2-vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "diffusion_models",
+            "filename": "flux-2-klein-4b-fp8.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+          },
+          {
+            "dir": "clip",
+            "filename": "qwen_3_4b_fp4_flux2.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+          },
+          {
+            "dir": "vae",
+            "filename": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+          }
+        ],
+        "steps": 30,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOptions": [
+          {
+            "label": "Album art",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 768,
+                "height": 768
+              },
+              "16:9": {
+                "width": 1024,
+                "height": 576
+              },
+              "9:16": {
+                "width": 576,
+                "height": 1024
+              },
+              "4:3": {
+                "width": 896,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 896
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 20.2,
+          "notes": "MiniMax Music 3 int8 DiT (2.5 GB) + pruned int8 text encoder (9.2 GB) + DAV (0.2 GB), Comfy-Org repacks, Apache-2.0; official template settings (euler/simple, cfg 1.7, top_k 50, 30 steps). Includes MiniMaxMusic3DisableLayerGraphs: Music 3's AR loop never passes decode_buffers, so its per-layer CUDA graphs read freed memory under SimpliGen's --disable-cuda-malloc (all-NaN audio). Album art: Flux 2 Klein 4B + fp4 encoder, only when no art is supplied."
+        },
+        "extensions": [
+          {
+            "name": "ComfyUI-MiniMax-Music3-GraphFix",
+            "url": "https://github.com/michaeldune/ComfyUI-MiniMax-Music3-GraphFix",
+            "pinnedCommit": "f978334fed76134ff714dff82445559bba0d6ed8",
+            "description": "Turns off the Music 3 text encoder's per-layer CUDA graphs (upstream bug: ar.py never passes decode_buffers)."
+          }
+        ]
       }
     },
     {

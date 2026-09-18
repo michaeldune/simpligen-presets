@@ -3,7 +3,7 @@ Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art
 
 ---
 
-:musical_note: **New pack: Song + Album Art** (3 cards) - songs and cover songs in SimpliGen
+:musical_note: **New pack: Song + Album Art** (4 cards) - songs and cover songs in SimpliGen
 
 SimpliGen can't output audio on its own yet, so this pack delivers each song as an MP4: the track playing under its
 album art, the way a Sora song ships with its thumbnail. It plays in the gallery, and the MP4 goes anywhere a video goes.
@@ -28,8 +28,10 @@ as-is, int8. About 12 GB to download (YuE2 4 GB, Klein 4B 4 GB, its fp4 text enc
 
 :warning: YuE2 and SheetSage2 are licensed **CC-BY-NC-4.0: non-commercial use only.** Only cover recordings you have the rights to use.
 
-MiniMax Music 3 was supposed to be in here too, but it renders noise in SimpliGen's engine right now (an upstream
-ComfyUI bug, already reported). It'll come as an extra card once that's fixed.
+**MiniMax Music 3 Song + Album Art:** MiniMax's own format (Global Metadata / Vocal Details / Arrangement) plus lyrics,
+up to 300 s, Apache-2.0. It installs a tiny fix node with it: ComfyUI's Music 3 code replays a freed buffer in its
+CUDA graphs, which turns every song into noise inside SimpliGen's engine. Thanks to Sharmystic for pinning down the
+exact cause. The node goes away once ComfyUI fixes it upstream.
 
 :inbox_tray: Zip: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
 

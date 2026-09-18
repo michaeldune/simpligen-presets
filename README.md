@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 158 ready-to-run presets in 49 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 159 ready-to-run presets in 49 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
-Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 songs and cover songs with album art.
+Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
 
 **Getting a pack takes three steps:** download the pack zip from the [Releases page](https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest), unzip it, and run `install.cmd`. The installer downloads the models for you, verifies them, and the pack appears in SimpliGen's preset picker under `Community — `.
 
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 49 packs, 158 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 49 packs, 159 presets.">
 </p>
 
 **Image packs**
@@ -78,7 +78,7 @@ SimpliGen has no audio-only output yet, so these deliver each song as an MP4: th
 
 | Pack | Presets | Architecture | Notes |
 |---|---|---|---|
-| Song + Album Art | 3 | YuE2 3B (INT8) + SheetSage2 + Flux 2 Klein 4B | **YuE2 Song + Album Art:** style tags in Subject & Action, lyrics in Character Dialogue with `[verse]`/`[chorus]` tags (any case), optional album art or a Character; leave it empty and Klein 4B paints art from the style. The song decides its own length up to the 6-minute cap: a 3:04 song rendered in 74 s on a 4070 Ti, 60 s in 38 s. YuE2 style LoRAs work (e.g. Atomtan Studio's DreamPop). **YuE2 Cover Song + Album Art:** upload a song (MP3/WAV/M4A, or an MP4's soundtrack), SheetSage2 transcribes its melody and YuE2 sings your lyrics in your style over it (paste the original lyrics to keep the words; leave them out and YuE2 writes new ones to the same tune); a full-length 4:25 cover took 126 s. First use needs one SimpliGen restart after the download (new audio_encoders folder). **Swap Album Art:** new picture on a finished song, audio untouched, about 10 s. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial). MiniMax Music 3 is held back: it renders noise in SimpliGen's engine until an upstream ComfyUI CUDA-graph bug is fixed |
+| Song + Album Art | 4 | YuE2 3B (INT8) + SheetSage2 + MiniMax Music 3 (INT8) + Flux 2 Klein 4B | **YuE2 Song + Album Art:** style tags in Subject & Action, lyrics in Character Dialogue with `[verse]`/`[chorus]` tags (any case), optional album art or a Character; leave it empty and Klein 4B paints art from the style. The song decides its own length up to the 6-minute cap: a 3:04 song rendered in 74 s on a 4070 Ti, 60 s in 38 s. YuE2 style LoRAs work (e.g. Atomtan Studio's DreamPop). **YuE2 Cover Song + Album Art:** upload a song (MP3/WAV/M4A, or an MP4's soundtrack), SheetSage2 transcribes its melody and YuE2 sings your lyrics in your style over it (paste the original lyrics to keep the words; leave them out and YuE2 writes new ones to the same tune); a full-length 4:25 cover took 126 s. First use needs one SimpliGen restart after the download (new audio_encoders folder). **Swap Album Art:** new picture on a finished song, audio untouched, about 10 s. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial). **MiniMax Music 3 Song + Album Art:** MiniMax's structured caption (Global Metadata / Vocal Details / Arrangement) plus lyrics, up to 300 s, Apache-2.0; 61 s in 114 s. It ships with a one-node extension, [ComfyUI-MiniMax-Music3-GraphFix](https://github.com/michaeldune/ComfyUI-MiniMax-Music3-GraphFix), which turns off the Music 3 text encoder's per-layer CUDA graphs: upstream they replay a freed buffer, and under SimpliGen's `--disable-cuda-malloc` every song came out as noise |
 
 Measured on a 12 GB RTX 4070 Ti — T2V, 5 s at 480p (864×480), one prompt and one seed across all seven, each preset at its own default step count. **SimpliGen 1.50.0, engine v0.33.1**, ~19 GB system RAM free at the start of each run:
 

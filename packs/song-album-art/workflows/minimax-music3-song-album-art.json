@@ -1,0 +1,477 @@
+{
+  "split_style": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\A(.*?)\\s*(?:\\[lyrics\\]|\\Z)",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "Style = text before [lyrics]"
+    }
+  },
+  "split_lyrics": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\[lyrics\\]\\s*(.*)\\Z",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "Lyrics = text after [lyrics]"
+    }
+  },
+  "music_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "MiniMax Music 3 DiT"
+    }
+  },
+  "music_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "MiniMax Music 3 text encoder"
+    }
+  },
+  "music_graphfix": {
+    "inputs": {
+      "clip": [
+        "music_clip",
+        0
+      ]
+    },
+    "class_type": "MiniMaxMusic3DisableLayerGraphs",
+    "_meta": {
+      "title": "Disable Music 3 layer CUDA graphs"
+    }
+  },
+  "music_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "MiniMax Music 3 DAV"
+    }
+  },
+  "music_encode": {
+    "inputs": {
+      "clip": [
+        "music_graphfix",
+        0
+      ],
+      "caption": [
+        "split_style",
+        0
+      ],
+      "lyrics": [
+        "split_lyrics",
+        0
+      ],
+      "seed": "{{seed}}",
+      "max_duration": "{{duration}}",
+      "cfg_scale": 1.7,
+      "top_k": 50
+    },
+    "class_type": "MiniMaxMusic3TextEncode",
+    "_meta": {
+      "title": "Caption + lyrics -> song tokens"
+    }
+  },
+  "music_negative": {
+    "inputs": {
+      "conditioning": [
+        "music_encode",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (zeroed)"
+    }
+  },
+  "music_latent": {
+    "inputs": {
+      "seconds": [
+        "music_encode",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyMiniMaxMusic3LatentAudio",
+    "_meta": {
+      "title": "Latent sized to the song the encoder made"
+    }
+  },
+  "music_sampler": {
+    "inputs": {
+      "model": [
+        "music_unet",
+        0
+      ],
+      "positive": [
+        "music_encode",
+        0
+      ],
+      "negative": [
+        "music_negative",
+        0
+      ],
+      "latent_image": [
+        "music_latent",
+        0
+      ],
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": 1.7,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Music 3 sampler"
+    }
+  },
+  "music_decode": {
+    "inputs": {
+      "samples": [
+        "music_sampler",
+        0
+      ],
+      "vae": [
+        "music_vae",
+        0
+      ],
+      "tile_size": 1536,
+      "overlap": 64
+    },
+    "class_type": "VAEDecodeAudioTiled",
+    "_meta": {
+      "title": "Decode song"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Your album art"
+    }
+  },
+  "sgopt_ref_image_1__fit": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Fit album art to the output size"
+    }
+  },
+  "sgopt_ref_image_1__flag": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Album art supplied"
+    }
+  },
+  "cover_prompt": {
+    "inputs": {
+      "string_a": "Album cover artwork, a single striking image with no text, no letters, no logos and no border, visualizing this music:",
+      "string_b": [
+        "split_style",
+        0
+      ],
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Album art prompt"
+    }
+  },
+  "cover_unet": {
+    "inputs": {
+      "unet_name": "{{cover_unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Flux 2 Klein 4B"
+    }
+  },
+  "cover_clip": {
+    "inputs": {
+      "clip_name": "{{cover_clip}}",
+      "type": "flux2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Qwen 3 4B encoder"
+    }
+  },
+  "cover_vae": {
+    "inputs": {
+      "vae_name": "{{cover_vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Flux 2 VAE"
+    }
+  },
+  "cover_positive": {
+    "inputs": {
+      "text": [
+        "cover_prompt",
+        0
+      ],
+      "clip": [
+        "cover_clip",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Album art prompt encode"
+    }
+  },
+  "cover_negative": {
+    "inputs": {
+      "conditioning": [
+        "cover_positive",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (zeroed, distilled)"
+    }
+  },
+  "cover_guider": {
+    "inputs": {
+      "model": [
+        "cover_unet",
+        0
+      ],
+      "positive": [
+        "cover_positive",
+        0
+      ],
+      "negative": [
+        "cover_negative",
+        0
+      ],
+      "cfg": 1
+    },
+    "class_type": "CFGGuider",
+    "_meta": {
+      "title": "CFG 1"
+    }
+  },
+  "cover_sched": {
+    "inputs": {
+      "steps": 4,
+      "width": "{{width}}",
+      "height": "{{height}}"
+    },
+    "class_type": "Flux2Scheduler",
+    "_meta": {
+      "title": "4 steps"
+    }
+  },
+  "cover_ksel": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "euler"
+    }
+  },
+  "cover_noise": {
+    "inputs": {
+      "noise_seed": "{{seed}}"
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Noise"
+    }
+  },
+  "cover_latent": {
+    "inputs": {
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "batch_size": 1
+    },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Album art latent"
+    }
+  },
+  "cover_sample": {
+    "inputs": {
+      "noise": [
+        "cover_noise",
+        0
+      ],
+      "guider": [
+        "cover_guider",
+        0
+      ],
+      "sampler": [
+        "cover_ksel",
+        0
+      ],
+      "sigmas": [
+        "cover_sched",
+        0
+      ],
+      "latent_image": [
+        "cover_latent",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Paint album art"
+    }
+  },
+  "cover_decode": {
+    "inputs": {
+      "samples": [
+        "cover_sample",
+        0
+      ],
+      "vae": [
+        "cover_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode album art"
+    }
+  },
+  "cover_supplied": {
+    "inputs": {
+      "values.value0": false,
+      "values.value1": [
+        "sgopt_ref_image_1__flag",
+        0
+      ]
+    },
+    "class_type": "ComfyOrNode",
+    "_meta": {
+      "title": "Was album art supplied?"
+    }
+  },
+  "cover_pick": {
+    "inputs": {
+      "switch": [
+        "cover_supplied",
+        0
+      ],
+      "on_true": [
+        "sgopt_ref_image_1__fit",
+        0
+      ],
+      "on_false": [
+        "cover_decode",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Your album art, else Klein"
+    }
+  },
+  "frame_count": {
+    "inputs": {
+      "expression": "ceil(a * 1)",
+      "values.a": [
+        "music_encode",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Frames = ceil(song seconds x fps)"
+    }
+  },
+  "frames": {
+    "inputs": {
+      "image": [
+        "cover_pick",
+        0
+      ],
+      "amount": [
+        "frame_count",
+        1
+      ]
+    },
+    "class_type": "RepeatImageBatch",
+    "_meta": {
+      "title": "Hold the album art"
+    }
+  },
+  "video": {
+    "inputs": {
+      "images": [
+        "frames",
+        0
+      ],
+      "fps": 1,
+      "audio": [
+        "music_decode",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Album art + song"
+    }
+  },
+  "9000": {
+    "inputs": {
+      "video": [
+        "video",
+        0
+      ],
+      "filename_prefix": "video/MiniMax_Music3_album_art",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save MP4"
+    }
+  }
+}
