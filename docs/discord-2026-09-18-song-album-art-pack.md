@@ -14,6 +14,10 @@ guitar, 100 bpm, bright chorus"). Turn on Character Dialogue and write the lyric
 and Flux 2 Klein 4B paints art from the style. YuE2 decides the song's length itself, up to the 240 s cap, and the
 video matches the song.
 
+**LoRAs work.** YuE2 style LoRAs load through the usual LoRA picker, for example Atomtan Studio's DreamPop and Old
+School Hip-Hop (huggingface.co/atomtanstudio/lora-library). Import them with base model YuE2 and start the style with
+the trigger word (`sv_dreampop, dream pop, ...`).
+
 **Swap Album Art:** put a new picture on a song you already made, without touching the audio. It takes about 10 seconds.
 
 On a 4070 Ti, a 3:04 song took 74 s and a 60 s one took 38 s. The ComfyUI Text to Music (YuE2) settings are used
