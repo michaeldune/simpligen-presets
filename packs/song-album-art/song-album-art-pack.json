@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "m-a-p (YuE2) + Black Forest Labs (Flux 2 Klein 4B)",
   "nsfw": false,
-  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 writes full songs with lyrics from a style and a lyric sheet. Plus a Swap Album Art card to put new art on a finished song. YuE2 is CC-BY-NC-4.0 (non-commercial).",
+  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 writes full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial).",
   "tags": [
     "Local",
     "Music",
@@ -137,6 +137,147 @@
           "minRamGB": 32,
           "sizeGB": 16.4,
           "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Flux 2 Klein 4B fp8 (BFL, Apache-2.0, 4.1 GB) + qwen_3_4b (8.0 GB, shared with Z-Image/Klein) + Flux 2 VAE, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
+        }
+      }
+    },
+    {
+      "id": "yue2-cover-song-album-art",
+      "name": "YuE2 Cover Song + Album Art",
+      "tagline": "Your lyrics and style over the melody of a song you upload",
+      "icon": "🎤",
+      "previewImage": "previews/yue2-cover-song-album-art.jpg",
+      "description": "Make a cover of a song you already have: YuE2 keeps the original's melody and sings YOUR lyrics in YOUR style over it - the same tune as a jazz ballad, a punk track, a lullaby. Delivered as an MP4 with album art, like the other cards in this pack.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags: voice, genre, instruments, mood, tempo. e.g. \"soulful jazz-pop, expressive male vocal, Rhodes piano, upright bass, brushed drums, 88 bpm\".\n3. CHARACTER DIALOGUE (turn it on) = the lyrics to sing, with [verse] / [chorus] tags in the same order as the source song. Use the original words or write new ones with a similar syllable count per line.\n4. DURATION = how much of the source to cover, from the start (SimpliGen trims the source to it).\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody into a score, and YuE2 performs it in melody mode, which leaves the arrangement free to change. Transcription mistakes carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once. SheetSage2 goes into a new audio_encoders model folder, and the engine only picks up new folders when it starts.\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
+      "tags": [
+        "Music",
+        "Cover Song",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "atmosphere"
+        ]
+      },
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "template": "[lyrics]\n{dialogue}",
+        "placement": "section"
+      },
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SheetSage2 + YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "baseModels": [
+          "yue2"
+        ],
+        "workflow": "workflows/yue2-cover-song-album-art.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 1,
+          "slotLabels": [
+            "Album art (optional)"
+          ]
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 1
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 1
+        },
+        "duration": {
+          "type": "slider",
+          "min": 30,
+          "max": 240,
+          "default": 90,
+          "step": 10,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
+        "sheetsage": "sheetsage2_bf16.safetensors",
+        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
+        "cover_clip": "qwen_3_4b.safetensors",
+        "cover_vae": "flux2-vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "checkpoints",
+            "filename": "yue2_3b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+          },
+          {
+            "dir": "audio_encoders",
+            "filename": "sheetsage2_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/audio_encoders/sheetsage2_bf16.safetensors"
+          },
+          {
+            "dir": "diffusion_models",
+            "filename": "flux-2-klein-4b-fp8.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+          },
+          {
+            "dir": "clip",
+            "filename": "qwen_3_4b.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors"
+          },
+          {
+            "dir": "vae",
+            "filename": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+          }
+        ],
+        "steps": 32,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOptions": [
+          {
+            "label": "Album art",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 720
+              },
+              "9:16": {
+                "width": 720,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1152,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1152
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 0,
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 17.8,
+          "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
       }
     },
