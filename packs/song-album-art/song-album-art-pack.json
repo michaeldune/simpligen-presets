@@ -60,15 +60,15 @@
         "duration": {
           "type": "slider",
           "min": 30,
-          "max": 240,
-          "default": 90,
+          "max": 360,
+          "default": 120,
           "step": 10,
           "unit": "seconds",
           "vramScalesWithDuration": false
         },
         "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
         "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b.safetensors",
+        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
         "cover_vae": "flux2-vae.safetensors",
         "extraModels": [
           {
@@ -83,8 +83,8 @@
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors"
+            "filename": "qwen_3_4b_fp4_flux2.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
           },
           {
             "dir": "vae",
@@ -108,24 +108,24 @@
             "minVramGB": 8,
             "aspects": {
               "1:1": {
-                "width": 1024,
-                "height": 1024
+                "width": 768,
+                "height": 768
               },
               "16:9": {
-                "width": 1280,
-                "height": 720
+                "width": 1024,
+                "height": 576
               },
               "9:16": {
-                "width": 720,
-                "height": 1280
+                "width": 576,
+                "height": 1024
               },
               "4:3": {
-                "width": 1152,
-                "height": 864
+                "width": 896,
+                "height": 672
               },
               "3:4": {
-                "width": 864,
-                "height": 1152
+                "width": 672,
+                "height": 896
               }
             }
           }
@@ -135,8 +135,8 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 16.4,
-          "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Flux 2 Klein 4B fp8 (BFL, Apache-2.0, 4.1 GB) + qwen_3_4b (8.0 GB, shared with Z-Image/Klein) + Flux 2 VAE, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
+          "sizeGB": 12.3,
+          "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Flux 2 Klein 4B fp8 (BFL, Apache-2.0, 4.1 GB) + qwen_3_4b_fp4_flux2 (3.85 GB) + Flux 2 VAE, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
         }
       }
     },
@@ -195,8 +195,8 @@
         "duration": {
           "type": "slider",
           "min": 30,
-          "max": 240,
-          "default": 90,
+          "max": 360,
+          "default": 120,
           "step": 10,
           "unit": "seconds",
           "vramScalesWithDuration": false
@@ -204,7 +204,7 @@
         "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
         "sheetsage": "sheetsage2_bf16.safetensors",
         "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b.safetensors",
+        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
         "cover_vae": "flux2-vae.safetensors",
         "extraModels": [
           {
@@ -224,8 +224,8 @@
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors"
+            "filename": "qwen_3_4b_fp4_flux2.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
           },
           {
             "dir": "vae",
@@ -249,24 +249,24 @@
             "minVramGB": 8,
             "aspects": {
               "1:1": {
-                "width": 1024,
-                "height": 1024
+                "width": 768,
+                "height": 768
               },
               "16:9": {
-                "width": 1280,
-                "height": 720
+                "width": 1024,
+                "height": 576
               },
               "9:16": {
-                "width": 720,
-                "height": 1280
+                "width": 576,
+                "height": 1024
               },
               "4:3": {
-                "width": 1152,
-                "height": 864
+                "width": 896,
+                "height": 672
               },
               "3:4": {
-                "width": 864,
-                "height": 1152
+                "width": 672,
+                "height": 896
               }
             }
           }
@@ -276,7 +276,7 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 17.8,
+          "sizeGB": 13.7,
           "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
       }
@@ -326,9 +326,9 @@
         "duration": {
           "type": "enum",
           "values": [
-            240
+            360
           ],
-          "default": 240,
+          "default": 360,
           "unit": "seconds"
         },
         "steps": 1,
@@ -339,24 +339,24 @@
             "minVramGB": 0,
             "aspects": {
               "1:1": {
-                "width": 1024,
-                "height": 1024
+                "width": 768,
+                "height": 768
               },
               "16:9": {
-                "width": 1280,
-                "height": 720
+                "width": 1024,
+                "height": 576
               },
               "9:16": {
-                "width": 720,
-                "height": 1280
+                "width": 576,
+                "height": 1024
               },
               "4:3": {
-                "width": 1152,
-                "height": 864
+                "width": 896,
+                "height": 672
               },
               "3:4": {
-                "width": 864,
-                "height": 1152
+                "width": 672,
+                "height": 896
               }
             }
           }
@@ -367,7 +367,7 @@
           "recommendedVramGB": 0,
           "minRamGB": 16,
           "sizeGB": 0,
-          "notes": "No model. Reads the song MP4's audio, frame count and fps, and writes the same audio under the new picture. Duration is pinned at 240 s because the app trims reference clips to it; the song itself decides the length."
+          "notes": "No model. Reads the song MP4's audio, frame count and fps, and writes the same audio under the new picture. Duration is pinned at 360 s because the app trims reference clips to it; the song itself decides the length."
         }
       }
     }

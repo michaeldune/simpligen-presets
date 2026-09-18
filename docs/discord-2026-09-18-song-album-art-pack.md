@@ -11,7 +11,7 @@ album art, the way a Sora song ships with its thumbnail. It plays in the gallery
 **YuE2 Song + Album Art:** put the style in Subject & Action as short tags ("female vocal, indie pop, warm acoustic
 guitar, 100 bpm, bright chorus"). Turn on Character Dialogue and write the lyrics there with `[verse]` / `[chorus]` /
 `[bridge]` tags. Add a picture for the album art, or pick a Character so your artist is on every song. Leave it empty
-and Flux 2 Klein 4B paints art from the style. YuE2 decides the song's length itself, up to the 240 s cap, and the
+and Flux 2 Klein 4B paints art from the style. YuE2 decides the song's length itself, up to the 6-minute cap, and the
 video matches the song.
 
 **LoRAs work.** YuE2 style LoRAs load through the usual LoRA picker, for example Atomtan Studio's DreamPop and Old
@@ -23,8 +23,8 @@ the trigger word (`sv_dreampop, dream pop, ...`).
 **Swap Album Art:** put a new picture on a song you already made, without touching the audio. It takes about 10 seconds.
 
 On a 4070 Ti, a 3:04 song took 74 s and a 60 s one took 38 s. The ComfyUI Text to Music (YuE2) settings are used
-as-is, int8. About 16 GB to download (YuE2 4 GB, Klein 4B 4 GB, its Qwen 3 4B encoder 8 GB). If you already have
-Z-Image or Klein, that encoder is already on your drive.
+as-is, int8. About 12 GB to download (YuE2 4 GB, Klein 4B 4 GB, its fp4 text encoder 3.9 GB), plus SheetSage2
+(1.4 GB) for the Cover Song card. A full-length 4:25 cover took 126 s.
 
 :warning: YuE2 and SheetSage2 are licensed **CC-BY-NC-4.0: non-commercial use only.** Only cover recordings you have the rights to use.
 
