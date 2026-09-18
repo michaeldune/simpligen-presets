@@ -393,11 +393,53 @@
       "title": "Album art supplied"
     }
   },
+  "art_clean_triggers": {
+    "inputs": {
+      "string": [
+        "split_style",
+        0
+      ],
+      "regex_pattern": "\\b[\\w-]*_[\\w-]*\\b[,.;]?\\s*",
+      "replace": ""
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: drop LoRA trigger words"
+    }
+  },
+  "art_clean_bpm": {
+    "inputs": {
+      "string": [
+        "art_clean_triggers",
+        0
+      ],
+      "regex_pattern": "(?i)\\b\\d{2,3}\\s*-?\\s*bpm\\b[,.;]?\\s*",
+      "replace": ""
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: drop tempos"
+    }
+  },
+  "art_clean_labels": {
+    "inputs": {
+      "string": [
+        "art_clean_bpm",
+        0
+      ],
+      "regex_pattern": "(?i)\\b(global metadata|vocal details|arrangement)\\s*:\\s*",
+      "replace": ""
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: drop section labels"
+    }
+  },
   "cover_prompt": {
     "inputs": {
       "string_a": "Album cover artwork, a single striking image with no text, no letters, no logos and no border, visualizing this music:",
       "string_b": [
-        "split_style",
+        "art_clean_labels",
         0
       ],
       "delimiter": " "
