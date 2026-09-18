@@ -150,10 +150,30 @@
       "title": "YuE2 3B int8"
     }
   },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "yue2_ckpt",
+        0
+      ],
+      "clip": [
+        "yue2_ckpt",
+        1
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
   "yue2_abc": {
     "inputs": {
       "clip": [
-        "yue2_ckpt",
+        "simpligen_lora_1",
         1
       ],
       "style": [
@@ -181,7 +201,7 @@
   "yue2_music": {
     "inputs": {
       "clip": [
-        "yue2_ckpt",
+        "simpligen_lora_1",
         1
       ],
       "style": [
@@ -237,7 +257,7 @@
   "yue2_sampler": {
     "inputs": {
       "model": [
-        "yue2_ckpt",
+        "simpligen_lora_1",
         0
       ],
       "positive": [
