@@ -1,5 +1,5 @@
 HELD - not posted. Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
-Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art/song-album-art-announcement.mp4
+Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
 
