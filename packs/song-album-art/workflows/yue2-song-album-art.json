@@ -335,14 +335,30 @@
       "title": "Album art supplied"
     }
   },
-  "art_clean_triggers": {
+  "art_imagery": {
     "inputs": {
       "string": [
         "split_style",
         0
       ],
+      "regex_pattern": "(?is)^.*?application scenarios\\s*&\\s*imagery\\s*:\\s*([^\\n]+).*$",
+      "replace": "\\1",
+      "case_insensitive": true
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: use MiniMax's Imagery line when present"
+    }
+  },
+  "art_clean_triggers": {
+    "inputs": {
+      "string": [
+        "art_imagery",
+        0
+      ],
       "regex_pattern": "\\b[\\w-]*_[\\w-]*\\b[,.;]?\\s*",
-      "replace": ""
+      "replace": "",
+      "case_insensitive": true
     },
     "class_type": "RegexReplace",
     "_meta": {
@@ -355,33 +371,65 @@
         "art_clean_triggers",
         0
       ],
-      "regex_pattern": "(?i)\\b\\d{2,3}\\s*-?\\s*bpm\\b[,.;]?\\s*",
-      "replace": ""
+      "regex_pattern": "(?i)\\b(bpm\\s*(is\\s*)?\\d{2,3}|\\d{2,3}\\s*-?\\s*bpm)\\b[,.;]?\\s*",
+      "replace": "",
+      "case_insensitive": true
     },
     "class_type": "RegexReplace",
     "_meta": {
       "title": "Art prompt: drop tempos"
     }
   },
-  "art_clean_labels": {
+  "art_clean_key": {
     "inputs": {
       "string": [
         "art_clean_bpm",
         0
       ],
-      "regex_pattern": "(?i)\\b(global metadata|vocal details|arrangement)\\s*:\\s*",
-      "replace": ""
+      "regex_pattern": "(?i:key\\s+is\\s+)[A-Ga-g](?:\\s*(?i:flat|sharp)|#|b)?(?=[\\s,.;]|$)[,.;]?\\s*(?i:and\\s+)?(?i:scale\\s+is\\s+)?(?i:major|minor)?[,.;]?\\s*|\\b[A-G](?:\\s*(?i:flat|sharp)|#|b)?\\s+(?i:major|minor)\\b[,.;]?\\s*",
+      "replace": "",
+      "case_insensitive": false
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: drop keys and scales"
+    }
+  },
+  "art_clean_labels": {
+    "inputs": {
+      "string": [
+        "art_clean_key",
+        0
+      ],
+      "regex_pattern": "(?im)\\b(global metadata|basic attributes|global emotional progression|vocal details|arrangement)\\s*:\\s*|^\\s*(global metadata|basic attributes|global emotional progression|vocal details|arrangement)\\s*$",
+      "replace": "",
+      "case_insensitive": true
     },
     "class_type": "RegexReplace",
     "_meta": {
       "title": "Art prompt: drop section labels"
     }
   },
+  "art_cap_words": {
+    "inputs": {
+      "string": [
+        "art_clean_labels",
+        0
+      ],
+      "regex_pattern": "(?s)^\\s*((?:\\S+\\s+){59}\\S+).*$",
+      "replace": "\\1",
+      "case_insensitive": true
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Art prompt: keep the first 60 words"
+    }
+  },
   "cover_prompt": {
     "inputs": {
       "string_a": "Album cover artwork, a single striking image with no text, no letters, no logos and no border, visualizing this music:",
       "string_b": [
-        "art_clean_labels",
+        "art_cap_words",
         0
       ],
       "delimiter": " "
