@@ -1,4 +1,4 @@
-POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video; the thread reply below may still be unsent). Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
+POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). The VDOFX thread reply below is NOT sent (confirmed 21:18) and was updated for 5 cards. Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
 Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
@@ -39,9 +39,12 @@ exact cause. The node goes away once ComfyUI fixes it upstream.
 
 ---
 
-**Reply in the "YuE2 Music Generator?" thread:**
+**Reply in the "YuE2 Music Generator?" thread (NOT sent - Michael, 2026-09-18 21:18; updated for 5 cards):**
 
-It's in SimpliGen now, as a community pack: **Song + Album Art**. Style tags in the prompt, lyrics in Character
-Dialogue, and you get the song back as an MP4 with album art. The art is either painted for you or your own picture,
-since SimpliGen has no audio output yet. There's also a card that puts new art on a song you already made. Details
-and a short video in the announcement: <link>
+It's in the Store now, as a community pack: **Song + Album Art**. Style tags in the prompt, lyrics in Character
+Dialogue, and YuE2 gives you back the whole song, up to 6 minutes, as an MP4 with album art (SimpliGen has no audio
+output yet). The art is painted for you, or use your own picture. YuE2 style LoRAs work too.
+
+It can also cover a song: upload an MP3 or MP4 and **Cover Song** keeps the tune while singing your lyrics in a new
+style, or **Faithful Cover** keeps the chords as well. There's a MiniMax Music 3 card and one that swaps the art on a
+song you already made. Details and a short video in the announcement: <link>
