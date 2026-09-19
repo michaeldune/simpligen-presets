@@ -1,4 +1,4 @@
-POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). The VDOFX thread reply below is NOT sent (confirmed 21:18) and was updated for 5 cards. Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
+POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). The VDOFX thread reply below was SENT by Michael ~21:30 (updated 5-card text). Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
 Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
@@ -39,7 +39,7 @@ exact cause. The node goes away once ComfyUI fixes it upstream.
 
 ---
 
-**Reply in the "YuE2 Music Generator?" thread (NOT sent - Michael, 2026-09-18 21:18; updated for 5 cards):**
+**Reply in the "YuE2 Music Generator?" thread (SENT by Michael 2026-09-18 ~21:30; 5-card text):**
 
 It's in the Store now, as a community pack: **Song + Album Art**. Style tags in the prompt, lyrics in Character
 Dialogue, and YuE2 gives you back the whole song, up to 6 minutes, as an MP4 with album art (SimpliGen has no audio
