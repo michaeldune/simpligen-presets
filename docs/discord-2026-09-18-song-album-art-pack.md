@@ -1,4 +1,4 @@
-HELD - not posted. Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
+POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video; the thread reply below may still be unsent). Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
 Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
