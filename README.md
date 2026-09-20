@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 160 ready-to-run presets in 49 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 163 ready-to-run presets in 50 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 49 packs, 160 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 50 packs, 163 presets.">
 </p>
 
 **Image packs**
@@ -71,6 +71,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (DaSiWa Hybrid v2) | 3 | DaSiWa Hybrid Turbo v2 (int8 + ConvRot) | **The natural-skin one.** Darksidewalker's v2 Turbo (2026-09-11): FL2VA weights with a baked REF2VA delta, one 19.5 GB checkpoint for T2V + I2V + R2V, distillation baked in, nothing to install. Measured 2026-09-13 against the v1 pack on the same seed and prompts: at 4 steps it is softer than v1, at **8 steps** (default, ~100 s per 5 s shot at 480p) it gives the cleanest skin of every H3 turbo we ship - no oily sheen, no blown key light - where v1 reads bright and crunchy. Keep v1 for speed, use this for faces. Identity held on every reference test. Needs a Civitai API key (free model, sign-in required). |
 | MiniMax H3 Lip-Sync | 1 | MiniMax H3 (pruned INT8) | Audio-driven lip sync with up to 9 reference images, so a whole band stays recognisable in a wide. Trims your track to the shot automatically; 10 s default. Reuses the H3 Turbo weights |
 | MiniMax H3 Emotion TTS Lip-Sync | 1 | IndexTTS 2.5 + MiniMax H3 (pruned INT8) | Type the line in quotes, add an optional [emotion: ...] tag, supply a voice sample in the audio slot: IndexTTS 2.5 clones the voice and speaks the line with that emotion, H3 lip-syncs your reference character to it, all in one generation. Adds 7.7 GB of TTS weights and a node that downgrades the engine's transformers (allowed, persistent). English lines only. Requires SimpliGen 1.59.2 or newer (older apps skip the dotted TTS model folders) |
+| MiniMax H3 Music Video Chain | 3 | MiniMax H3 fl2va (pruned INT8) + lightx2v fl2v Turbo v1.2 | A long single-take singing shot to YOUR song: 14, 21 or 27 s from 2, 3 or 4 H3 clips chained in one job. The song is locked into every clip and the finished file carries the original track (0.98-0.99 against the source, zero lag); each clip continues from the previous clip's latent, not from saved frames, so exposure, framing and sharpness stay flat and the cuts sit inside normal motion. Prompt: shared text first, then one `[Shot N]` block per clip. 480p; about 3 min per clip on a 4070 Ti. Steady rather than lively: for a performer singing to camera, not action |
 
 **Music packs**
 
