@@ -152,6 +152,25 @@ hosted account). Ideas worth borrowing for our own bridge:
     SimpliGen's engine (bypasses the app, second client on one 31 GB machine); vanilla only if ever. Worth borrowing if
     we come back: its role-tag convention for discovering workflow inputs (`(Input:prompt)`, `(Output:video)`) and its
     LLM rewrite of a scene into the H3 six-section format with `<Subject N>` numbering tied to reference order.
+21. **Music-video direction tools found on GitHub (Michael's search, checked 2026-09-20).** All six exist; three are live.
+    - `guigulaoshi/music-video-director-skill` (53 stars, MIT, last push 2026-07): agent skill + `mvd` CLI that CUTS EXISTING
+      FOOTAGE to a song (whisper/librosa/scenedetect -> edit decision list -> ffmpeg). Not installed: its setup edits the
+      shell profile, pip-installs --user, assumes macOS/Linux paths, works in /tmp and burns a watermark into every
+      render. Its ~220-line editorial knowledge base was the useful part: **DONE - adapted to generated shots in
+      `C:\Users\micha\.agents\references\music-video-direction.md`** (section strategy, arc, lyric-to-image matching,
+      shot grammar, beat-snapped cuts, colour, plus our own model/shot rules and a shot-list template).
+    - `Blizaine/Maestro` (570 stars, active, **WanGP Non-Commercial licence**, installs via Pinokio): a full local studio
+      on WanGP with a Director mode whose "Music Video" path analyses BPM/sections/energy, transcribes and diarises the
+      vocal, plans shots on downbeats, makes consistent start frames and renders natively on MiniMax H3 (clips to 14.4 s),
+      also LTX 2.5, Wan, YuE2. The closest existing thing to aurangcool's "Music Video Studio" request. Not installed: a
+      second whole generation stack on a 12 GB / 31 GB machine. TRY LATER, only if we want to see how its planner
+      decides shots; worth mentioning to people who ask for an automated studio.
+    - `nebrass/hve-video-director` (105 stars, MIT, active): product/explainer videos as HyperFrames motion graphics for
+      Claude Code, six human-approved phases. Not music video; overlaps the HyperFrames skills already installed.
+    - Skip: `seme-org/open-director` (quiet since 2026-05), `sheagryphon/Gemini-Music-Video-Director-AI` (no licence,
+      two days in 2025), `fresh-creations/tammy` (dead since 2023).
+    NEXT, if we make another music video: fill the reference's shot-list template BEFORE rendering, and try the 2-second
+    energy map (librosa) alongside the existing demucs + whisperx lyric timing.
 
 ## Done / dropped
 
