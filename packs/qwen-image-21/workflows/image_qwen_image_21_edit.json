@@ -1,0 +1,435 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Qwen3-VL 8B"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "class_type": "QwenImage21Cache",
+    "_meta": {
+      "title": "Reference prefix cache"
+    }
+  },
+  "sg_ref_1": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 1"
+    }
+  },
+  "sg_encode_1": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sg_ref_1",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Encode with 1 reference"
+    }
+  },
+  "sg_ref_2": {
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 2"
+    }
+  },
+  "sg_encode_2": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sg_ref_1",
+        0
+      ],
+      "images.image_2": [
+        "sg_ref_2",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Encode with 2 references"
+    }
+  },
+  "sg_ref_3": {
+    "inputs": {
+      "image": "{{ref_image_3}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 3"
+    }
+  },
+  "sg_encode_3": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sg_ref_1",
+        0
+      ],
+      "images.image_2": [
+        "sg_ref_2",
+        0
+      ],
+      "images.image_3": [
+        "sg_ref_3",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Encode with 3 references"
+    }
+  },
+  "sg_ref_4": {
+    "inputs": {
+      "image": "{{ref_image_4}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 4"
+    }
+  },
+  "sg_encode_4": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sg_ref_1",
+        0
+      ],
+      "images.image_2": [
+        "sg_ref_2",
+        0
+      ],
+      "images.image_3": [
+        "sg_ref_3",
+        0
+      ],
+      "images.image_4": [
+        "sg_ref_4",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Encode with 4 references"
+    }
+  },
+  "sg_ref_2_on": {
+    "inputs": {
+      "value": "{{ref_2_enabled}}"
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Reference 2 supplied"
+    }
+  },
+  "sg_pos_2": {
+    "inputs": {
+      "switch": [
+        "sg_ref_2_on",
+        0
+      ],
+      "on_false": [
+        "sg_encode_1",
+        0
+      ],
+      "on_true": [
+        "sg_encode_2",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "pos with 2 refs?"
+    }
+  },
+  "sg_neg_2": {
+    "inputs": {
+      "switch": [
+        "sg_ref_2_on",
+        0
+      ],
+      "on_false": [
+        "sg_encode_1",
+        1
+      ],
+      "on_true": [
+        "sg_encode_2",
+        1
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "neg with 2 refs?"
+    }
+  },
+  "sg_ref_3_on": {
+    "inputs": {
+      "value": "{{ref_3_enabled}}"
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Reference 3 supplied"
+    }
+  },
+  "sg_pos_3": {
+    "inputs": {
+      "switch": [
+        "sg_ref_3_on",
+        0
+      ],
+      "on_false": [
+        "sg_pos_2",
+        0
+      ],
+      "on_true": [
+        "sg_encode_3",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "pos with 3 refs?"
+    }
+  },
+  "sg_neg_3": {
+    "inputs": {
+      "switch": [
+        "sg_ref_3_on",
+        0
+      ],
+      "on_false": [
+        "sg_neg_2",
+        0
+      ],
+      "on_true": [
+        "sg_encode_3",
+        1
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "neg with 3 refs?"
+    }
+  },
+  "sg_ref_4_on": {
+    "inputs": {
+      "value": "{{ref_4_enabled}}"
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Reference 4 supplied"
+    }
+  },
+  "sg_pos_4": {
+    "inputs": {
+      "switch": [
+        "sg_ref_4_on",
+        0
+      ],
+      "on_false": [
+        "sg_pos_3",
+        0
+      ],
+      "on_true": [
+        "sg_encode_4",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "pos with 4 refs?"
+    }
+  },
+  "sg_neg_4": {
+    "inputs": {
+      "switch": [
+        "sg_ref_4_on",
+        0
+      ],
+      "on_false": [
+        "sg_neg_3",
+        0
+      ],
+      "on_true": [
+        "sg_encode_4",
+        1
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "neg with 4 refs?"
+    }
+  },
+  "sg_latent": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty latent"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "sg_cache",
+        0
+      ],
+      "positive": [
+        "sg_pos_4",
+        0
+      ],
+      "negative": [
+        "sg_neg_4",
+        0
+      ],
+      "latent_image": [
+        "sg_latent",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "qwen_image_21_edit",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}
