@@ -63,7 +63,7 @@
       "title": "Reference prefix cache"
     }
   },
-  "sg_ref_1": {
+  "sgopt_ref_image_1__load": {
     "inputs": {
       "image": "{{ref_image_1}}"
     },
@@ -72,7 +72,7 @@
       "title": "Reference 1"
     }
   },
-  "sg_encode_1": {
+  "sg_encode": {
     "inputs": {
       "clip": [
         "simpligen_lora_1",
@@ -86,13 +86,13 @@
       "negative_prompt": "{{negative_prompt}}",
       "resolution": 1024,
       "images.image_1": [
-        "sg_ref_1",
+        "sgopt_ref_image_1__load",
         0
       ]
     },
     "class_type": "TextEncodeQwenImage21",
     "_meta": {
-      "title": "Encode with 1 reference"
+      "title": "Prompt + references"
     }
   },
   "sg_sampler": {
@@ -108,15 +108,15 @@
         0
       ],
       "positive": [
-        "sg_encode_1",
+        "sg_encode",
         0
       ],
       "negative": [
-        "sg_encode_1",
+        "sg_encode",
         1
       ],
       "latent_image": [
-        "sg_encode_1",
+        "sg_encode",
         2
       ]
     },
