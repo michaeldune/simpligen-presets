@@ -1,0 +1,1089 @@
+{
+  "h3_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load H3 fl2va"
+    }
+  },
+  "h3_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load text encoder"
+    }
+  },
+  "h3_video_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load video VAE"
+    }
+  },
+  "h3_audio_vae": {
+    "inputs": {
+      "vae_name": "{{audio_vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load audio VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "h3_unet",
+        0
+      ],
+      "clip": [
+        "h3_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "turbo_first": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "lora_name": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+      "strength_model": 0.8
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "fl2v turbo v1.2 (first clip)"
+    }
+  },
+  "turbo_next": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "lora_name": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+      "strength_model": 0.75
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "fl2v turbo v1.2 (continuations)"
+    }
+  },
+  "sampler_first": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler (first clip)"
+    }
+  },
+  "sampler_next": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler (continuations)"
+    }
+  },
+  "sigmas_first": {
+    "inputs": {
+      "model": [
+        "turbo_first",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": "{{steps}}",
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sigmas (first clip)"
+    }
+  },
+  "sigmas_next": {
+    "inputs": {
+      "model": [
+        "turbo_next",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": "{{steps}}",
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sigmas (continuations)"
+    }
+  },
+  "song_load": {
+    "inputs": {
+      "audio": "{{audio_file}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Song"
+    }
+  },
+  "song_master": {
+    "inputs": {
+      "audio": [
+        "song_load",
+        0
+      ],
+      "start_index": "{{AUDIO_START_SECONDS}}",
+      "duration": 28.125
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "Song from start offset"
+    }
+  },
+  "song_final": {
+    "inputs": {
+      "audio": [
+        "song_master",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": 27.125
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "Soundtrack for the finished video"
+    }
+  },
+  "seed_base": {
+    "inputs": {
+      "value": {{seed}}
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "shot_header": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "^(.*?)(?:\\s*\\[Shot 1\\].*)?$",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "Shared header (text before [Shot 1])"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference image 1"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference image 2"
+    }
+  },
+  "sgopt_ref_image_3__load": {
+    "inputs": {
+      "image": "{{ref_image_3}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference image 3"
+    }
+  },
+  "sgopt_ref_image_4__load": {
+    "inputs": {
+      "image": "{{ref_image_4}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference image 4"
+    }
+  },
+  "shot_text_1": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\[Shot 1\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "[Shot 1] text"
+    }
+  },
+  "shot_prompt_1": {
+    "inputs": {
+      "string_a": [
+        "shot_header",
+        0
+      ],
+      "string_b": [
+        "shot_text_1",
+        0
+      ],
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Prompt for clip 1"
+    }
+  },
+  "clip1_cond": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": [
+        "shot_prompt_1",
+        0
+      ],
+      "width": {{width}},
+      "height": {{height}},
+      "length": 192,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Clip 1: conditioning"
+    }
+  },
+  "clip1_context": {
+    "inputs": {
+      "latent": [
+        "clip1_cond",
+        1
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "master_audio": [
+        "song_master",
+        0
+      ],
+      "clip_start_seconds": 0.0,
+      "context_length": 0,
+      "source_fps": 24.0,
+      "crop": "disabled"
+    },
+    "class_type": "MiniMaxH3SongMaskedAVContext",
+    "_meta": {
+      "title": "Clip 1: song locked"
+    }
+  },
+  "clip1_seed": {
+    "inputs": {
+      "expression": "a + 0",
+      "values.a": [
+        "seed_base",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Clip 1: seed"
+    }
+  },
+  "clip1_noise": {
+    "inputs": {
+      "noise_seed": [
+        "clip1_seed",
+        1
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Clip 1: noise"
+    }
+  },
+  "clip1_guider": {
+    "inputs": {
+      "model": [
+        "turbo_first",
+        0
+      ],
+      "conditioning": [
+        "clip1_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Clip 1: guider"
+    }
+  },
+  "clip1_sample": {
+    "inputs": {
+      "noise": [
+        "clip1_noise",
+        0
+      ],
+      "guider": [
+        "clip1_guider",
+        0
+      ],
+      "sampler": [
+        "sampler_first",
+        0
+      ],
+      "sigmas": [
+        "sigmas_first",
+        0
+      ],
+      "latent_image": [
+        "clip1_context",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Clip 1: sample"
+    }
+  },
+  "clip1_decode": {
+    "inputs": {
+      "samples": [
+        "clip1_sample",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Clip 1: decode"
+    }
+  },
+  "shot_text_2": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\[Shot 2\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "[Shot 2] text"
+    }
+  },
+  "shot_prompt_2": {
+    "inputs": {
+      "string_a": [
+        "shot_header",
+        0
+      ],
+      "string_b": [
+        "shot_text_2",
+        0
+      ],
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Prompt for clip 2"
+    }
+  },
+  "clip2_cond": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": [
+        "shot_prompt_2",
+        0
+      ],
+      "width": {{width}},
+      "height": {{height}},
+      "length": 192,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Clip 2: conditioning"
+    }
+  },
+  "clip2_context": {
+    "inputs": {
+      "latent": [
+        "clip2_cond",
+        1
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "master_audio": [
+        "song_master",
+        0
+      ],
+      "clip_start_seconds": 6.375,
+      "context_length": 39,
+      "source_fps": 24.0,
+      "crop": "disabled",
+      "source_latent": [
+        "clip1_sample",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3SongMaskedAVContext",
+    "_meta": {
+      "title": "Clip 2: song locked + latent tail of the previous clip"
+    }
+  },
+  "clip2_seed": {
+    "inputs": {
+      "expression": "a + 1",
+      "values.a": [
+        "seed_base",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Clip 2: seed"
+    }
+  },
+  "clip2_noise": {
+    "inputs": {
+      "noise_seed": [
+        "clip2_seed",
+        1
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Clip 2: noise"
+    }
+  },
+  "clip2_guider": {
+    "inputs": {
+      "model": [
+        "turbo_next",
+        0
+      ],
+      "conditioning": [
+        "clip2_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Clip 2: guider"
+    }
+  },
+  "clip2_sample": {
+    "inputs": {
+      "noise": [
+        "clip2_noise",
+        0
+      ],
+      "guider": [
+        "clip2_guider",
+        0
+      ],
+      "sampler": [
+        "sampler_next",
+        0
+      ],
+      "sigmas": [
+        "sigmas_next",
+        0
+      ],
+      "latent_image": [
+        "clip2_context",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Clip 2: sample"
+    }
+  },
+  "clip2_decode": {
+    "inputs": {
+      "samples": [
+        "clip2_sample",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Clip 2: decode"
+    }
+  },
+  "clip2_new": {
+    "inputs": {
+      "image": [
+        "clip2_decode",
+        0
+      ],
+      "batch_index": 39,
+      "length": 153
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Clip 2: drop the 39 protected context frames"
+    }
+  },
+  "shot_text_3": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\[Shot 3\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "[Shot 3] text"
+    }
+  },
+  "shot_prompt_3": {
+    "inputs": {
+      "string_a": [
+        "shot_header",
+        0
+      ],
+      "string_b": [
+        "shot_text_3",
+        0
+      ],
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Prompt for clip 3"
+    }
+  },
+  "clip3_cond": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": [
+        "shot_prompt_3",
+        0
+      ],
+      "width": {{width}},
+      "height": {{height}},
+      "length": 192,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Clip 3: conditioning"
+    }
+  },
+  "clip3_context": {
+    "inputs": {
+      "latent": [
+        "clip3_cond",
+        1
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "master_audio": [
+        "song_master",
+        0
+      ],
+      "clip_start_seconds": 12.75,
+      "context_length": 39,
+      "source_fps": 24.0,
+      "crop": "disabled",
+      "source_latent": [
+        "clip2_sample",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3SongMaskedAVContext",
+    "_meta": {
+      "title": "Clip 3: song locked + latent tail of the previous clip"
+    }
+  },
+  "clip3_seed": {
+    "inputs": {
+      "expression": "a + 2",
+      "values.a": [
+        "seed_base",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Clip 3: seed"
+    }
+  },
+  "clip3_noise": {
+    "inputs": {
+      "noise_seed": [
+        "clip3_seed",
+        1
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Clip 3: noise"
+    }
+  },
+  "clip3_guider": {
+    "inputs": {
+      "model": [
+        "turbo_next",
+        0
+      ],
+      "conditioning": [
+        "clip3_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Clip 3: guider"
+    }
+  },
+  "clip3_sample": {
+    "inputs": {
+      "noise": [
+        "clip3_noise",
+        0
+      ],
+      "guider": [
+        "clip3_guider",
+        0
+      ],
+      "sampler": [
+        "sampler_next",
+        0
+      ],
+      "sigmas": [
+        "sigmas_next",
+        0
+      ],
+      "latent_image": [
+        "clip3_context",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Clip 3: sample"
+    }
+  },
+  "clip3_decode": {
+    "inputs": {
+      "samples": [
+        "clip3_sample",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Clip 3: decode"
+    }
+  },
+  "clip3_new": {
+    "inputs": {
+      "image": [
+        "clip3_decode",
+        0
+      ],
+      "batch_index": 39,
+      "length": 153
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Clip 3: drop the 39 protected context frames"
+    }
+  },
+  "shot_text_4": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "\\[Shot 4\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": true,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "[Shot 4] text"
+    }
+  },
+  "shot_prompt_4": {
+    "inputs": {
+      "string_a": [
+        "shot_header",
+        0
+      ],
+      "string_b": [
+        "shot_text_4",
+        0
+      ],
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Prompt for clip 4"
+    }
+  },
+  "clip4_cond": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": [
+        "shot_prompt_4",
+        0
+      ],
+      "width": {{width}},
+      "height": {{height}},
+      "length": 192,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Clip 4: conditioning"
+    }
+  },
+  "clip4_context": {
+    "inputs": {
+      "latent": [
+        "clip4_cond",
+        1
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "master_audio": [
+        "song_master",
+        0
+      ],
+      "clip_start_seconds": 19.125,
+      "context_length": 39,
+      "source_fps": 24.0,
+      "crop": "disabled",
+      "source_latent": [
+        "clip3_sample",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3SongMaskedAVContext",
+    "_meta": {
+      "title": "Clip 4: song locked + latent tail of the previous clip"
+    }
+  },
+  "clip4_seed": {
+    "inputs": {
+      "expression": "a + 3",
+      "values.a": [
+        "seed_base",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Clip 4: seed"
+    }
+  },
+  "clip4_noise": {
+    "inputs": {
+      "noise_seed": [
+        "clip4_seed",
+        1
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Clip 4: noise"
+    }
+  },
+  "clip4_guider": {
+    "inputs": {
+      "model": [
+        "turbo_next",
+        0
+      ],
+      "conditioning": [
+        "clip4_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Clip 4: guider"
+    }
+  },
+  "clip4_sample": {
+    "inputs": {
+      "noise": [
+        "clip4_noise",
+        0
+      ],
+      "guider": [
+        "clip4_guider",
+        0
+      ],
+      "sampler": [
+        "sampler_next",
+        0
+      ],
+      "sigmas": [
+        "sigmas_next",
+        0
+      ],
+      "latent_image": [
+        "clip4_context",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Clip 4: sample"
+    }
+  },
+  "clip4_decode": {
+    "inputs": {
+      "samples": [
+        "clip4_sample",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Clip 4: decode"
+    }
+  },
+  "clip4_new": {
+    "inputs": {
+      "image": [
+        "clip4_decode",
+        0
+      ],
+      "batch_index": 39,
+      "length": 153
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Clip 4: drop the 39 protected context frames"
+    }
+  },
+  "mv_frames": {
+    "inputs": {
+      "images.image0": [
+        "clip1_decode",
+        0
+      ],
+      "images.image1": [
+        "clip2_new",
+        0
+      ],
+      "images.image2": [
+        "clip3_new",
+        0
+      ],
+      "images.image3": [
+        "clip4_new",
+        0
+      ]
+    },
+    "class_type": "BatchImagesNode",
+    "_meta": {
+      "title": "All clips end to end"
+    }
+  },
+  "mv_video": {
+    "inputs": {
+      "images": [
+        "mv_frames",
+        0
+      ],
+      "fps": 24,
+      "audio": [
+        "song_final",
+        0
+      ],
+      "bit_depth": 8
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Picture + the original song"
+    }
+  },
+  "h3_save": {
+    "inputs": {
+      "video": [
+        "mv_video",
+        0
+      ],
+      "filename_prefix": "minimax-h3-mv-chain-4",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}

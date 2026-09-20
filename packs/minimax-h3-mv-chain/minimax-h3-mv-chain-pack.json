@@ -1,0 +1,430 @@
+{
+  "id": "minimax-h3-mv-chain-pack",
+  "name": "Community — MiniMax H3 Music Video Chain",
+  "version": "1.0.0",
+  "addedAt": "2026-09-20",
+  "author": "michaeldune",
+  "nsfw": false,
+  "description": "Long single-take singing shots to your own song: 14, 21 or 27 seconds from 2, 3 or 4 chained H3 clips, with the original track in the finished file.",
+  "tags": [
+    "Local",
+    "Video",
+    "Lip Sync",
+    "Music Video",
+    "MiniMax H3"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-mv-chain-2",
+      "name": "H3 Music Video Chain - 2 clips (14 s)",
+      "icon": "🎤",
+      "description": "A 14-second performance shot to your own song, built as 2 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "tagline": "Your song, one singer, 14 seconds in a single take",
+      "previewImage": "previews/minimax-h3-mv-chain-2.jpg",
+      "tags": [
+        "Video",
+        "Lip Sync",
+        "Music Video",
+        "MiniMax H3",
+        "Local"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/minimax-h3-mv-chain-2.json",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 14,
+          "max": 14,
+          "default": 14,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "pinnedCommit": "a823ca7",
+            "description": "H3 Song Audio + Masked Video Context: locks the song into each clip and hands the previous clip's latent tail to the next. Same pin as the Clip Chaining pack."
+          }
+        ],
+        "steps": 7,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 5,
+            "max": 9,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": "480p",
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "2 clips of 192 frames in ONE job; every clip after the first carries a 39-frame protected context copied from the previous clip's LATENT (no decode and re-encode between clips), so each adds 153 new frames: 14.375 s in total. The song is sliced per clip from your upload, written into the clip's audio latent and protected from denoising (H3 Song Audio + Masked Video Context, seitanism, same extension and pin as the Clip Chaining pack); the finished file carries ONE slice of your original song over the whole video, not stitched clip audio. RECIPE: MiniMax H3 fl2va int8 + lightx2v fl2v Turbo 4-step v1.2 LoRA (0.8 on the first clip, 0.75 after), euler then res_multistep, 7 steps. Tested 2026-09-20 on a 4070 Ti 12 GB / 31 GB RAM, 864x480, stock ComfyUI with the app's placeholder substitution and empty-slot pruning simulated: 2 clips 370 s, 4 clips 745 s (about 3 min per clip). On the 4-clip run brightness stayed within one level for 27 s, sharpness and background were flat, all three cuts sat inside normal frame-to-frame motion, and the file's audio matched the song at 0.98-0.99 with zero lag from a 9.5 s start offset. The same graph on ref2va + Turbo v4 drifted (push-in, exposure swing), which is why this pack uses fl2va. LIMITS: 480p only - the 4-clip run left 1.4 GB of 31 GB RAM free, so close other apps. This recipe is steady but calm and a little soft; it suits a performer singing to camera, not action (the same LoRA blurred a fast motion shot in an earlier test). Your song must be at least as long as the video from the start offset. Write one [Shot N] block per clip; the text before [Shot 1] is shared by all clips. NOT yet run inside the SimpliGen app: the 3-clip card is the same generator as the tested 2- and 4-clip cards but was not rendered itself."
+        },
+        "acceptsAudio": true
+      }
+    },
+    {
+      "id": "minimax-h3-mv-chain-3",
+      "name": "H3 Music Video Chain - 3 clips (21 s)",
+      "icon": "🎤",
+      "description": "A 21-second performance shot to your own song, built as 3 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "tagline": "Your song, one singer, 21 seconds in a single take",
+      "previewImage": "previews/minimax-h3-mv-chain-3.jpg",
+      "tags": [
+        "Video",
+        "Lip Sync",
+        "Music Video",
+        "MiniMax H3",
+        "Local"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/minimax-h3-mv-chain-3.json",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 21,
+          "max": 21,
+          "default": 21,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "pinnedCommit": "a823ca7",
+            "description": "H3 Song Audio + Masked Video Context: locks the song into each clip and hands the previous clip's latent tail to the next. Same pin as the Clip Chaining pack."
+          }
+        ],
+        "steps": 7,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 5,
+            "max": 9,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": "480p",
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "3 clips of 192 frames in ONE job; every clip after the first carries a 39-frame protected context copied from the previous clip's LATENT (no decode and re-encode between clips), so each adds 153 new frames: 20.750 s in total. The song is sliced per clip from your upload, written into the clip's audio latent and protected from denoising (H3 Song Audio + Masked Video Context, seitanism, same extension and pin as the Clip Chaining pack); the finished file carries ONE slice of your original song over the whole video, not stitched clip audio. RECIPE: MiniMax H3 fl2va int8 + lightx2v fl2v Turbo 4-step v1.2 LoRA (0.8 on the first clip, 0.75 after), euler then res_multistep, 7 steps. Tested 2026-09-20 on a 4070 Ti 12 GB / 31 GB RAM, 864x480, stock ComfyUI with the app's placeholder substitution and empty-slot pruning simulated: 2 clips 370 s, 4 clips 745 s (about 3 min per clip). On the 4-clip run brightness stayed within one level for 27 s, sharpness and background were flat, all three cuts sat inside normal frame-to-frame motion, and the file's audio matched the song at 0.98-0.99 with zero lag from a 9.5 s start offset. The same graph on ref2va + Turbo v4 drifted (push-in, exposure swing), which is why this pack uses fl2va. LIMITS: 480p only - the 4-clip run left 1.4 GB of 31 GB RAM free, so close other apps. This recipe is steady but calm and a little soft; it suits a performer singing to camera, not action (the same LoRA blurred a fast motion shot in an earlier test). Your song must be at least as long as the video from the start offset. Write one [Shot N] block per clip; the text before [Shot 1] is shared by all clips. NOT yet run inside the SimpliGen app: the 3-clip card is the same generator as the tested 2- and 4-clip cards but was not rendered itself."
+        },
+        "acceptsAudio": true
+      }
+    },
+    {
+      "id": "minimax-h3-mv-chain-4",
+      "name": "H3 Music Video Chain - 4 clips (27 s)",
+      "icon": "🎤",
+      "description": "A 27-second performance shot to your own song, built as 4 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "tagline": "Your song, one singer, 27 seconds in a single take",
+      "previewImage": "previews/minimax-h3-mv-chain-4.jpg",
+      "tags": [
+        "Video",
+        "Lip Sync",
+        "Music Video",
+        "MiniMax H3",
+        "Local"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/minimax-h3-mv-chain-4.json",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 27,
+          "max": 27,
+          "default": 27,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "pinnedCommit": "a823ca7",
+            "description": "H3 Song Audio + Masked Video Context: locks the song into each clip and hands the previous clip's latent tail to the next. Same pin as the Clip Chaining pack."
+          }
+        ],
+        "steps": 7,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 5,
+            "max": 9,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": "480p",
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "4 clips of 192 frames in ONE job; every clip after the first carries a 39-frame protected context copied from the previous clip's LATENT (no decode and re-encode between clips), so each adds 153 new frames: 27.125 s in total. The song is sliced per clip from your upload, written into the clip's audio latent and protected from denoising (H3 Song Audio + Masked Video Context, seitanism, same extension and pin as the Clip Chaining pack); the finished file carries ONE slice of your original song over the whole video, not stitched clip audio. RECIPE: MiniMax H3 fl2va int8 + lightx2v fl2v Turbo 4-step v1.2 LoRA (0.8 on the first clip, 0.75 after), euler then res_multistep, 7 steps. Tested 2026-09-20 on a 4070 Ti 12 GB / 31 GB RAM, 864x480, stock ComfyUI with the app's placeholder substitution and empty-slot pruning simulated: 2 clips 370 s, 4 clips 745 s (about 3 min per clip). On the 4-clip run brightness stayed within one level for 27 s, sharpness and background were flat, all three cuts sat inside normal frame-to-frame motion, and the file's audio matched the song at 0.98-0.99 with zero lag from a 9.5 s start offset. The same graph on ref2va + Turbo v4 drifted (push-in, exposure swing), which is why this pack uses fl2va. LIMITS: 480p only - the 4-clip run left 1.4 GB of 31 GB RAM free, so close other apps. This recipe is steady but calm and a little soft; it suits a performer singing to camera, not action (the same LoRA blurred a fast motion shot in an earlier test). Your song must be at least as long as the video from the start offset. Write one [Shot N] block per clip; the text before [Shot 1] is shared by all clips. NOT yet run inside the SimpliGen app: the 3-clip card is the same generator as the tested 2- and 4-clip cards but was not rendered itself."
+        },
+        "acceptsAudio": true
+      }
+    }
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+    "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors": "c8168ebc17bbacc4296103dda2fec1ba85b24392fa08cf2bfbcef0cff0dc3cc8"
+  }
+}
