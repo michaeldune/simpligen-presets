@@ -139,6 +139,19 @@ hosted account). Ideas worth borrowing for our own bridge:
     Q4_K_M, does city96's loader take it, speed vs the 16 s int8, quality at Q4 on the text-sign and edit prompts from
     `D:\SimpliGen-Backups\qwen-image-21-test-20260920\`. If it loads on city96, add ONE low-VRAM card to the held
     `feat/qwen-image-21` pack (new card, not a change to the others). Note H3 GGUF presets ran 3-10x slower in our bake-off.
+20. **Calliope (story-to-video studio) - LOW PRIORITY, no follow-up planned** (Michael 2026-09-20: "I don't know that we
+    will follow up anytime soon"). https://github.com/benjiyaya/Calliope, MIT, 178 stars, 1.5.4 on 2026-09-18; read the
+    README + example workflows only, nothing run. A standalone app (FastAPI + SvelteKit + an OpenAI-compatible LLM) that
+    drives YOUR ComfyUI: idea -> beats/characters/locations -> per-scene script -> shot clips -> reference images ->
+    one video per clip -> ffmpeg film export. NOT packable: it is an orchestrator, not a model or workflow; inside
+    SimpliGen the nearest things are the UGC/Product studios and Recipes, and a full pipeline is an app feature for
+    Sharmystic. Came up as a Discord request; close in spirit to aurangcool's "Music Video Studio" thread (his is
+    song-driven, this is story-driven). Against SimpliGen's engine (node types only): the two Krea 2 workflows need
+    nothing extra; the five H3 r2v examples miss only `VHS_VideoCombine`; the extend workflow also needs kat3ri's
+    H3-Extend nodes; model filenames/folders differ (`minimax-h3\...`, an uncensored text encoder). Do NOT point it at
+    SimpliGen's engine (bypasses the app, second client on one 31 GB machine); vanilla only if ever. Worth borrowing if
+    we come back: its role-tag convention for discovering workflow inputs (`(Input:prompt)`, `(Output:video)`) and its
+    LLM rewrite of a scene into the H3 six-section format with `<Subject N>` numbering tied to reference order.
 
 ## Done / dropped
 
