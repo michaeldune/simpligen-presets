@@ -139,6 +139,19 @@ hosted account). Ideas worth borrowing for our own bridge:
     Q4_K_M, does city96's loader take it, speed vs the 16 s int8, quality at Q4 on the text-sign and edit prompts from
     `D:\SimpliGen-Backups\qwen-image-21-test-20260920\`. If it loads on city96, add ONE low-VRAM card to the held
     `feat/qwen-image-21` pack (new card, not a change to the others). Note H3 GGUF presets ran 3-10x slower in our bake-off.
+    **Four sources compared 2026-09-21 (metadata + hashes only, nothing downloaded or run):**
+    (1) `realrebelai/Qwen-Image-2.1_GGUFs` - Q2..Q8 "HQv3" MIXED precision (attention + img_mlp.out kept at Q8, so Q4 is
+    5.96 GB), converted from the Comfy-Org BF16 with native Comfy tensor names, author A/B'd against Comfy INT8; model only;
+    no licence field on the card. FIRST CHOICE to test. (2) `abenzerps/Qwen-Image-2.1-GGUF` - plain Q4_0..Q8_0 (Q4_K_M
+    4.60 GB), 33k downloads; ALSO hosts the encoder + VAE, byte-identical (sha256) to the Comfy-Org files we already pin.
+    It is the SAME repo as yesterday's `...-Uncensored-GGUF` link (renamed; both URLs resolve to it) and its card says
+    "original upstream base weights ... uncensored version in development": nothing about it is uncensored. Its card now
+    links `leejet/ComfyUI-GGUF`, a 3-week-old 22-star fork. (3) `0xSojalSec/Qwen-Image-2.1-Uncensored-GGUF` - a day-old
+    COPY of (2) under the old name: 4 of 5 files same sha256, the Q8_0 is the pre-re-upload one, card still points at
+    abenzerps. Skip. (4) Civitai 2952547 (molbal) - Q4_0 4.10 GB, Q8_0 7.51 GB and an "int8" GGUF 7.09 GB + two workflows;
+    recommends his own loader fork `molbal/ComfyUI-GGUF` ("reboot"). Open question for ALL of them: SimpliGen's engine has
+    city96/ComfyUI-GGUF @6ea2651 (2026-01-12, lists arch `qwen_image`); two of four authors point at forks, which hints the
+    stock loader may not take 2.1. Test the loader first. Saving is small: our INT8 is 7.26 GB, the 9.35 GB encoder dominates.
 20. **Calliope (story-to-video studio) - LOW PRIORITY, no follow-up planned** (Michael 2026-09-20: "I don't know that we
     will follow up anytime soon"). https://github.com/benjiyaya/Calliope, MIT, 178 stars, 1.5.4 on 2026-09-18; read the
     README + example workflows only, nothing run. A standalone app (FastAPI + SvelteKit + an OpenAI-compatible LLM) that
