@@ -1,5 +1,5 @@
-HELD, not sent. Update note for Outfit Spec Sheet 1.1.0. Merged on master LOCALLY 2026-09-21 (not pushed); zip built at
-D:/SimpliGen-Backups/zips/community-outfit-spec-sheet.zip (not uploaded). Example boards:
+POSTED by Michael 2026-09-21 ~16:46 on Discord. Update note for Outfit Spec Sheet 1.1.0. RELEASED 2026-09-21 16:43 (master 73538e8 pushed, zip on packs-latest). Zip built at
+D:/SimpliGen-Backups/zips/community-outfit-spec-sheet.zip. Example boards:
 D:/SimpliGen-Backups/outfit-qwen21-test-20260921/sheet_2passB_p2.jpg and sheet_inapp_card.jpg
 
 ---
