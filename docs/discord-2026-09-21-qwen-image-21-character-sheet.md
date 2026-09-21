@@ -1,5 +1,5 @@
-HELD, not sent. Update note for the Qwen Image 2.1 pack 1.1.0 (Character Sheet card). Merged on master LOCALLY 2026-09-21
-(not pushed); zip built at D:/SimpliGen-Backups/zips/community-qwen-image-21.zip (not uploaded). Example sheets:
+POSTED by Michael 2026-09-21 ~18:06 on Discord. Update note for the Qwen Image 2.1 pack 1.1.0 (Character Sheet card). RELEASED 2026-09-21 17:55 (master 542b721 pushed, zip on packs-latest). Was: merged locally
+Zip built at D:/SimpliGen-Backups/zips/community-qwen-image-21.zip. Example sheets:
 D:/SimpliGen-Backups/qwen-image-21-test-20260920/charref-lora-20260921/sheet_D_card_inapp.jpg (the card itself, in-app)
 
 ---
