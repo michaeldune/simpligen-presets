@@ -152,6 +152,11 @@ hosted account). Ideas worth borrowing for our own bridge:
     recommends his own loader fork `molbal/ComfyUI-GGUF` ("reboot"). Open question for ALL of them: SimpliGen's engine has
     city96/ComfyUI-GGUF @6ea2651 (2026-01-12, lists arch `qwen_image`); two of four authors point at forks, which hints the
     stock loader may not take 2.1. Test the loader first. Saving is small: our INT8 is 7.26 GB, the 9.35 GB encoder dominates.
+    **RUN 2026-09-21 17:10 in SimpliGen's engine (0.37.0), same graph/prompts/seeds, files sha256-verified then deleted:**
+    realrebelai Q4 LOADS on the stock loader and matches INT8 on composition, lettering and a nude prompt, but takes
+    35-38 s vs 12-13 s warm at the same ~10.5-11 GB peak VRAM. abenzerps Q4_K_M does NOT load ("Unknown model
+    architecture", 7 of 7). Verdict: no GGUF card on a 12 GB card's account; only an 8 GB-GPU request would justify one, with
+    realrebelai's file, after an edit-with-references test. Write-up: `D:\SimpliGen-Backups\qwen-image-21-test-20260920\gguf_ab\VERDICT.md`.
 20. **Calliope (story-to-video studio) - LOW PRIORITY, no follow-up planned** (Michael 2026-09-20: "I don't know that we
     will follow up anytime soon"). https://github.com/benjiyaya/Calliope, MIT, 178 stars, 1.5.4 on 2026-09-18; read the
     README + example workflows only, nothing run. A standalone app (FastAPI + SvelteKit + an OpenAI-compatible LLM) that
