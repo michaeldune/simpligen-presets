@@ -1,23 +1,28 @@
 {
   "id": "outfit-spec-sheet-pack",
   "name": "Community — Outfit Spec Sheet",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "minComfyuiVersion": "v0.37.0",
   "addedAt": "2026-09-15",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
-  "description": "One photo of an outfit in, one fashion-house specification board out: the exact garments and accessories on a plain mannequin against warm ivory, a strip of three close-up detail crops, no text. Runs on the same Qwen Image Edit 2511 weights as SimpliGen's own Image Edit pack, so if that pack is installed nothing new downloads. The brief is baked in; the prompt box is for optional extra notes.",
+  "description": "One photo of an outfit in, one fashion-house specification board out. Two cards: the original on Qwen Image Edit 2511 (Apache-2.0, same weights as SimpliGen's own Image Edit pack: garments on a mannequin, three detail crops, no text) and a two-pass Qwen-Image 2.1 card that keeps more of the outfit and adds a heading and real colour swatches (Qwen Research Licence, NON-COMMERCIAL use only; same weights as the Qwen Image 2.1 pack). The brief is baked in; the prompt box is for optional extra notes.",
   "tags": [
     "Local",
     "Edit",
     "Fashion",
-    "Qwen"
+    "Qwen",
+    "Qwen 2.1"
   ],
   "checksums": {
     "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/984166f60a9b1fcede5e9b9287b7a7aebc050010/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
     "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/vae/qwen_image_vae.safetensors": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
     "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/7beb7b647f04469fbe64ba8adc2bb0d7e5e9f73f/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
-    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/e74da8d4e71a54b341de86aa9f8d2509165aa513/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors": "2a32ce938ec71db2b49a817b4844ae86995569518dea56ee0ddc209cbe8e1377"
+    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/e74da8d4e71a54b341de86aa9f8d2509165aa513/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors": "2a32ce938ec71db2b49a817b4844ae86995569518dea56ee0ddc209cbe8e1377",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9"
   },
   "presets": [
     {
@@ -130,6 +135,121 @@
           "minRamGB": 32,
           "sizeGB": 22,
           "notes": "Identical weights to SimpliGen's official Image Edit pack (Qwen Image Edit 2511 fp8mixed, Qwen2.5-VL 7B fp8 encoder, Qwen-Image VAE, lightx2v Lightning 4-step LoRA): if that pack is installed this one downloads nothing. Four steps, CFG 1, euler/simple, shift 3. The spec-sheet brief lives in the workflow's positive prompt with {{prompt}} appended, so the user's text is extra notes rather than the instruction. The reference is scaled to 1 MP before encoding, as in the official graph. Tested 2026-09-15 on four outfits (coat + trousers, printed dress, three-piece suit, single biker jacket): garment and accessories held on all four (in-app via the agent API, 38-85 s each on a 4070 Ti). The brief asks for an invisible mannequin but the model renders a plain white one; the description says so. Known limits: colour-swatch rows were dropped from the brief because the model invents colours; it can still invent a button or snap in a close-up when the garment has no hardware."
+        }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1"
+      }
+    },
+    {
+      "id": "outfit-spec-sheet-qwen21",
+      "name": "Outfit Spec Sheet (Qwen 2.1)",
+      "icon": "🧵",
+      "enabled": true,
+      "tagline": "Outfit photo to a design board with heading and colour swatches",
+      "description": "The Outfit Spec Sheet idea on Qwen-Image 2.1, done in two passes inside one job: first the outfit is lifted off the person as a ghost-mannequin shot (clothes, hat, bag, scarf, shoes), then a specification board is built around it: the heading OUTFIT SPECIFICATION, three close-up detail crops and four colour swatches taken from the real colours of the outfit.\n\nCompared with the original card it keeps more of the outfit, removes the person reliably, and adds the heading and the swatches. It is not reliable on every try: in testing the whole outfit survived on 6 of 9 boards. A coat, or the shirt and tie under a jacket, can go missing, and once a hat appeared that was not in the photo. When that happens, generate again with a new seed. Detail crops can still invent a button or a zip. About a minute per board on a 12 GB card.\n\nMade for the 3:4 shape (the default look of a lookbook page). The brief is baked in; the prompt box is for optional extra notes about the board.\n\nLICENCE: Qwen-Image 2.1 is under the Qwen Research Licence, NON-COMMERCIAL use only. For commercial work use the original Outfit Spec Sheet card in this pack (Apache-2.0 weights). Uses the same three files as the Qwen Image 2.1 pack, so nothing new downloads if that is installed.",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Fashion",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/outfit-spec-sheet-qwen21.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8), two-pass",
+        "workflow": "workflows/image_outfit_spec_sheet_qwen21.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Photo of the outfit"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1184,
+            "height": 1184
+          },
+          "2:3": {
+            "width": 960,
+            "height": 1440
+          },
+          "3:2": {
+            "width": 1440,
+            "height": 960
+          },
+          "3:4": {
+            "width": 1024,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1344,
+            "height": 1024
+          },
+          "9:16": {
+            "width": 896,
+            "height": 1568
+          },
+          "16:9": {
+            "width": 1568,
+            "height": 896
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). Same three files and pinned commit as the Qwen Image 2.1 pack. Two 25-step passes (euler/simple, CFG 1) in one graph, models loaded once: pass 1 samples on the encoder's latent for the photo, pass 2 on an empty latent at the board size (3:4 = 1024x1344). Tested 2026-09-21 on three outfits x three seeds: complete outfit 6 of 9 (coat outfit 2 of 3: one seed dropped the overcoat; suit 1 of 3: shirt, tie or waistcoat lost under a closed jacket, and one seed ADDED a fedora; dress with hat, bag and sandals 3 of 3), person removed 9 of 9, heading spelled right, swatches from the real colours with an occasional stray chip. Small text (callouts, captions, swatch names) was tried and dropped: it comes out as gibberish. Wording that says 'no head, no hands' deletes hats and shoes, so pass 1 says where they stay instead."
         }
       },
       "characterRoles": [
