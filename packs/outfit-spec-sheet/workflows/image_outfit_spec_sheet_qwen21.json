@@ -1,0 +1,235 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Qwen-Image 2.1"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Qwen3-VL 8B encoder"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Qwen-Image 2.1 VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Photo of the outfit"
+    }
+  },
+  "p1_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "Remove the person and the background, but keep everything the person is wearing or carrying, exactly as it is in the photo and in the same positions, as a ghost mannequin product shot: the clothes keep their worn shape with nobody inside them, any hat or headwear stays floating where the head was, the shoes stay standing on the ground below the hems where the feet were, and any bag, scarf or jewellery stays where it hangs. The body itself is invisible: no face, no hair, no skin. Plain warm ivory studio background with a soft shadow. Change nothing about the items and add nothing.",
+      "negative_prompt": "",
+      "resolution": 1024,
+      "images.image_1": [
+        "sgopt_ref_image_1__load",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Pass 1: lift the outfit off the person"
+    }
+  },
+  "p1_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "p1_encode",
+        0
+      ],
+      "negative": [
+        "p1_encode",
+        1
+      ],
+      "latent_image": [
+        "p1_encode",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Pass 1 sampler"
+    }
+  },
+  "p1_decode": {
+    "inputs": {
+      "samples": [
+        "p1_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Pass 1 decode"
+    }
+  },
+  "p1_rgb": {
+    "inputs": {
+      "image": [
+        "p1_decode",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Pass 1: drop the alpha channel"
+    }
+  },
+  "p2_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "Make a fashion design specification board from this image. Keep the outfit exactly as it is, unchanged, smaller, centered in the upper two thirds of a clean warm ivory page. At the top, the heading \"OUTFIT SPECIFICATION\" in small elegant capitals; no other text anywhere. Below the outfit, a row of three square close-up crops of details that are visible in the image, such as fabric texture, a seam or pattern, and an existing fastening; do not add buttons, zips or hardware that are not there. At the bottom, a row of four plain round colour swatches sampled from the actual colours of the outfit, with no labels. Minimal luxury lookbook layout, generous white space, thin fine-line dividers. Ultra-realistic product photography, sharp garment edges. {{prompt}}",
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "p1_rgb",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Pass 2: lay out the board"
+    }
+  },
+  "p2_latent": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Board size"
+    }
+  },
+  "p2_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "p2_encode",
+        0
+      ],
+      "negative": [
+        "p2_encode",
+        1
+      ],
+      "latent_image": [
+        "p2_latent",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Pass 2 sampler"
+    }
+  },
+  "p2_decode": {
+    "inputs": {
+      "samples": [
+        "p2_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Pass 2 decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "outfit_spec_sheet_qwen21",
+      "images": [
+        "p2_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}
