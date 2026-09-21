@@ -171,6 +171,12 @@ hosted account). Ideas worth borrowing for our own bridge:
       two days in 2025), `fresh-creations/tammy` (dead since 2023).
     NEXT, if we make another music video: fill the reference's shot-list template BEFORE rendering, and try the 2-second
     energy map (librosa) alongside the existing demucs + whisperx lyric timing.
+22. **Music Video Chain: how often does a SEED push in?** (Michael 2026-09-21: "a little later".) On 2026-09-20 one of three
+    same-seed 4-clip renders drifted into an extreme face close-up; on 2026-09-21 (engine 0.37.0, Reduce system RAM usage
+    on) two same-seed renders were bit-identical and held their framing, so repeats are now pointless. Run 3-5 DIFFERENT
+    seeds of the 4-clip card (13 min each, `pushin-check-20260921/run3.py` with the clip seeds changed), judge framing from
+    a frame strip (the head-width proxy misreads the bobbed-hair singer). If some seeds drift: test a framing lock in the
+    prompt, and say "re-roll the seed" in the card text. Also unresolved: which change made renders reproducible.
 
 ## Done / dropped
 
