@@ -1,7 +1,8 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Black Forest Labs (Flux 2 Klein 4B)",
   "nsfw": false,
   "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0.",
@@ -429,7 +430,7 @@
       "tagline": "A full song from MiniMax Music 3, delivered as an MP4 with its album art",
       "icon": "🎶",
       "previewImage": "previews/minimax-music3-song-album-art.jpg",
-      "description": "MiniMax Music 3 writes a full song from a style description and your lyrics, delivered as an MP4 with album art like the other cards in this pack.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the music. MiniMax's own format works best: \"Global Metadata: lo-fi hip-hop, 78 BPM, D flat major, laid-back and dreamy. Vocal Details: soft female vocal, half-sung. Arrangement: dusty boom-bap drums, Rhodes, vinyl crackle.\" Write it in English. A longer description helps too: how the song builds section by section, and an \"Application Scenarios & Imagery:\" line describing a scene - when that line is there, the album art paints it.\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, with [Intro] [Verse] [Pre-Chorus] [Chorus] [Post-Chorus] [Bridge] [Instrumental] [Solo] [Outro] tags. For an instrumental, leave it off AND say so in the description: \"instrumental, no vocals, lead carried by saxophone\".\n3. DURATION = a ceiling, not a target (up to 300 s, Music 3's limit). The lyrics decide the length; the model ends the song itself.\n4. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nThis card includes a small fix node for a ComfyUI bug that otherwise turns every MiniMax Music 3 song into noise inside SimpliGen's engine.\n\nMiniMax Music 3 is licensed Apache-2.0.",
+      "description": "MiniMax Music 3 writes a full song from a style description and your lyrics, delivered as an MP4 with album art like the other cards in this pack.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the music. MiniMax's own format works best: \"Global Metadata: lo-fi hip-hop, 78 BPM, D flat major, laid-back and dreamy. Vocal Details: soft female vocal, half-sung. Arrangement: dusty boom-bap drums, Rhodes, vinyl crackle.\" Write it in English. A longer description helps too: how the song builds section by section, and an \"Application Scenarios & Imagery:\" line describing a scene - when that line is there, the album art paints it.\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, with [Intro] [Verse] [Pre-Chorus] [Chorus] [Post-Chorus] [Bridge] [Instrumental] [Solo] [Outro] tags. For an instrumental, leave it off AND say so in the description: \"instrumental, no vocals, lead carried by saxophone\".\n3. DURATION = a ceiling, not a target (up to 300 s, Music 3's limit). The lyrics decide the length; the model ends the song itself.\n4. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nNeeds SimpliGen engine 0.37.0 or newer.\n\nMiniMax Music 3 is licensed Apache-2.0.",
       "tags": [
         "Music",
         "Song",
@@ -546,16 +547,8 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 20.2,
-          "notes": "MiniMax Music 3 int8 DiT (2.5 GB) + pruned int8 text encoder (9.2 GB) + DAV (0.2 GB), Comfy-Org repacks, Apache-2.0; official template settings (euler/simple, cfg 1.7, top_k 50, 30 steps). Includes MiniMaxMusic3DisableLayerGraphs: Music 3's AR loop never passes decode_buffers, so its per-layer CUDA graphs read freed memory under SimpliGen's --disable-cuda-malloc (all-NaN audio). Album art: Flux 2 Klein 4B + fp4 encoder, only when no art is supplied."
-        },
-        "extensions": [
-          {
-            "name": "ComfyUI-MiniMax-Music3-GraphFix",
-            "url": "https://github.com/michaeldune/ComfyUI-MiniMax-Music3-GraphFix",
-            "pinnedCommit": "f978334fed76134ff714dff82445559bba0d6ed8",
-            "description": "Turns off the Music 3 text encoder's per-layer CUDA graphs (upstream bug: ar.py never passes decode_buffers)."
-          }
-        ]
+          "notes": "MiniMax Music 3 int8 DiT (2.5 GB) + pruned int8 text encoder (9.2 GB) + DAV (0.2 GB), Comfy-Org repacks, Apache-2.0; official template settings (euler/simple, cfg 1.7, top_k 50, 30 steps). Needs engine 0.37.0 (ComfyUI 0.37.0 fixed the Music 3 noise bug; the fix node of pack 1.0.0 is gone). Album art: Flux 2 Klein 4B + fp4 encoder, only when no art is supplied."
+        }
       }
     },
     {

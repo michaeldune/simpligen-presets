@@ -1,5 +1,5 @@
-HELD, not sent. Announcement for the Qwen Image 2.1 pack. Merged on master LOCALLY 2026-09-21 (not pushed); zip built at
-D:/SimpliGen-Backups/zips/community-qwen-image-21.zip (not uploaded). All 3 cards verified in-app on engine 0.37.0 /
+HELD, not sent. Announcement for the Qwen Image 2.1 pack. RELEASED 2026-09-21 12:11 (master 7617e7a pushed, zip on packs-latest). Zip built at
+D:/SimpliGen-Backups/zips/community-qwen-image-21.zip. All 3 cards verified in-app on engine 0.37.0 /
 app 1.64.0. Sample outputs: F:/SimpliGen/output/claude/qwen-image-21-pack*/2026-09-21_00001_.png
 
 ---

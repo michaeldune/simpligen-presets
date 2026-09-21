@@ -50,18 +50,6 @@
       "title": "MiniMax Music 3 text encoder"
     }
   },
-  "music_graphfix": {
-    "inputs": {
-      "clip": [
-        "music_clip",
-        0
-      ]
-    },
-    "class_type": "MiniMaxMusic3DisableLayerGraphs",
-    "_meta": {
-      "title": "Disable Music 3 layer CUDA graphs"
-    }
-  },
   "music_vae": {
     "inputs": {
       "vae_name": "{{vae}}"
@@ -74,7 +62,7 @@
   "music_encode": {
     "inputs": {
       "clip": [
-        "music_graphfix",
+        "music_clip",
         0
       ],
       "caption": [
