@@ -1,7 +1,37 @@
 {
-  "split_style": {
+  "title_extract": {
     "inputs": {
       "string": "{{prompt}}",
+      "regex_pattern": "^[ \\t]*\\[title\\][ \\t]*[:\\-]?[ \\t]*(.+?)[ \\t]*$",
+      "mode": "First Group",
+      "case_insensitive": true,
+      "multiline": true,
+      "dotall": false,
+      "group_index": 1
+    },
+    "class_type": "RegexExtract",
+    "_meta": {
+      "title": "Song title = the [title] line, if any"
+    }
+  },
+  "prompt_clean": {
+    "inputs": {
+      "string": "{{prompt}}",
+      "regex_pattern": "(?im)^[ \\t]*\\[title\\][^\\n]*\\n?",
+      "replace": "",
+      "case_insensitive": true
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Prompt without the [title] line"
+    }
+  },
+  "split_style": {
+    "inputs": {
+      "string": [
+        "prompt_clean",
+        0
+      ],
       "regex_pattern": "\\A(.*?)\\s*(?:\\[lyrics\\]|\\Z)",
       "mode": "First Group",
       "case_insensitive": true,
@@ -16,7 +46,10 @@
   },
   "split_lyrics": {
     "inputs": {
-      "string": "{{prompt}}",
+      "string": [
+        "prompt_clean",
+        0
+      ],
       "regex_pattern": "\\[lyrics\\]\\s*(.*)\\Z",
       "mode": "First Group",
       "case_insensitive": true,
@@ -425,9 +458,56 @@
       "title": "Art prompt: keep the first 60 words"
     }
   },
+  "cover_title_mark": {
+    "inputs": {
+      "string_a": [
+        "title_extract",
+        0
+      ],
+      "string_b": "|||",
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Title marker"
+    }
+  },
+  "cover_prefix_plain": {
+    "inputs": {
+      "string": [
+        "cover_title_mark",
+        0
+      ],
+      "regex_pattern": "^\\s*\\|\\|\\|$",
+      "replace": "Album cover artwork, a single striking image with no text, no letters, no logos and no border, visualizing this music:",
+      "case_insensitive": false
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "No title: art with no text"
+    }
+  },
+  "cover_prefix": {
+    "inputs": {
+      "string": [
+        "cover_prefix_plain",
+        0
+      ],
+      "regex_pattern": "^\\s*(.+?)\\s*\\|\\|\\|$",
+      "replace": "Album cover artwork, a single striking image with the song title \"\\1\" as large stylish lettering that belongs to the picture, spelled exactly as written, no other text, no logos and no border, visualizing this music:",
+      "case_insensitive": false
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Title: letter it on the art"
+    }
+  },
   "cover_prompt": {
     "inputs": {
-      "string_a": "Album cover artwork, a single striking image with no text, no letters, no logos and no border, visualizing this music:",
+      "string_a": [
+        "cover_prefix",
+        0
+      ],
       "string_b": [
         "art_cap_words",
         0
