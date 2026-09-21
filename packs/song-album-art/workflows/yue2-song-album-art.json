@@ -446,18 +446,18 @@
     },
     "class_type": "UNETLoader",
     "_meta": {
-      "title": "Flux 2 Klein 4B"
+      "title": "Qwen-Image 2.1"
     }
   },
   "cover_clip": {
     "inputs": {
       "clip_name": "{{cover_clip}}",
-      "type": "flux2",
+      "type": "qwen_image",
       "device": "default"
     },
     "class_type": "CLIPLoader",
     "_meta": {
-      "title": "Qwen 3 4B encoder"
+      "title": "Qwen3-VL 8B encoder"
     }
   },
   "cover_vae": {
@@ -466,85 +466,29 @@
     },
     "class_type": "VAELoader",
     "_meta": {
-      "title": "Flux 2 VAE"
+      "title": "Qwen-Image 2.1 VAE"
     }
   },
-  "cover_positive": {
+  "cover_encode": {
     "inputs": {
-      "text": [
-        "cover_prompt",
-        0
-      ],
       "clip": [
         "cover_clip",
         0
-      ]
+      ],
+      "vae": [
+        "cover_vae",
+        0
+      ],
+      "prompt": [
+        "cover_prompt",
+        0
+      ],
+      "negative_prompt": "",
+      "resolution": 1024
     },
-    "class_type": "CLIPTextEncode",
+    "class_type": "TextEncodeQwenImage21",
     "_meta": {
       "title": "Album art prompt encode"
-    }
-  },
-  "cover_negative": {
-    "inputs": {
-      "conditioning": [
-        "cover_positive",
-        0
-      ]
-    },
-    "class_type": "ConditioningZeroOut",
-    "_meta": {
-      "title": "Negative (zeroed, distilled)"
-    }
-  },
-  "cover_guider": {
-    "inputs": {
-      "model": [
-        "cover_unet",
-        0
-      ],
-      "positive": [
-        "cover_positive",
-        0
-      ],
-      "negative": [
-        "cover_negative",
-        0
-      ],
-      "cfg": 1
-    },
-    "class_type": "CFGGuider",
-    "_meta": {
-      "title": "CFG 1"
-    }
-  },
-  "cover_sched": {
-    "inputs": {
-      "steps": 4,
-      "width": "{{width}}",
-      "height": "{{height}}"
-    },
-    "class_type": "Flux2Scheduler",
-    "_meta": {
-      "title": "4 steps"
-    }
-  },
-  "cover_ksel": {
-    "inputs": {
-      "sampler_name": "euler"
-    },
-    "class_type": "KSamplerSelect",
-    "_meta": {
-      "title": "euler"
-    }
-  },
-  "cover_noise": {
-    "inputs": {
-      "noise_seed": "{{seed}}"
-    },
-    "class_type": "RandomNoise",
-    "_meta": {
-      "title": "Noise"
     }
   },
   "cover_latent": {
@@ -553,35 +497,37 @@
       "height": "{{height}}",
       "batch_size": 1
     },
-    "class_type": "EmptyFlux2LatentImage",
+    "class_type": "EmptyLatentImage",
     "_meta": {
       "title": "Album art latent"
     }
   },
   "cover_sample": {
     "inputs": {
-      "noise": [
-        "cover_noise",
+      "seed": "{{seed}}",
+      "steps": 25,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "cover_unet",
         0
       ],
-      "guider": [
-        "cover_guider",
+      "positive": [
+        "cover_encode",
         0
       ],
-      "sampler": [
-        "cover_ksel",
-        0
-      ],
-      "sigmas": [
-        "cover_sched",
-        0
+      "negative": [
+        "cover_encode",
+        1
       ],
       "latent_image": [
         "cover_latent",
         0
       ]
     },
-    "class_type": "SamplerCustomAdvanced",
+    "class_type": "KSampler",
     "_meta": {
       "title": "Paint album art"
     }
@@ -600,6 +546,18 @@
     "class_type": "VAEDecode",
     "_meta": {
       "title": "Decode album art"
+    }
+  },
+  "cover_rgb": {
+    "inputs": {
+      "image": [
+        "cover_decode",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Drop the alpha channel"
     }
   },
   "cover_supplied": {
@@ -626,13 +584,13 @@
         0
       ],
       "on_false": [
-        "cover_decode",
+        "cover_rgb",
         0
       ]
     },
     "class_type": "ComfySwitchNode",
     "_meta": {
-      "title": "Your album art, else Klein"
+      "title": "Your album art, else painted art"
     }
   },
   "frame_count": {

@@ -3,9 +3,9 @@
   "name": "Community — Song + Album Art",
   "version": "1.1.0",
   "minComfyuiVersion": "v0.37.0",
-  "author": "m-a-p (YuE2) + MiniMax (Music 3) + Black Forest Labs (Flux 2 Klein 4B)",
+  "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
-  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Flux 2 Klein 4B. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0.",
+  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Qwen-Image 2.1. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0; painted album art is Qwen-Image 2.1 (Qwen Research Licence, non-commercial).",
   "tags": [
     "Local",
     "Music",
@@ -21,7 +21,7 @@
       "tagline": "A full song with lyrics, delivered as an MP4 with its album art",
       "icon": "🎵",
       "previewImage": "previews/yue2-song-album-art.jpg",
-      "description": "Type a style, add lyrics, get a finished song as an MP4 with its album art - the way a Sora song ships with a thumbnail. SimpliGen has no audio-only output yet, so the song is delivered as a video: your album art (or art painted for you) held on screen for the whole track.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the style as short tags, starting with the language: language, voice, genre, instruments, mood, tempo. e.g. \"English, female vocal, indie pop, warm acoustic guitar, soft drums, 100 bpm, intimate, bright chorus\".\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, one line per sung line, with section tags on their own lines: [verse] [chorus] [bridge] [outro]. Separate sections with a blank line.\n3. DURATION = the longest the song may run. YuE2 often ends the song earlier on its own; the video always matches the song it actually made.\n4. REFERENCE IMAGE (optional) = your album art. A Character works too - your artist on every song. Leave it empty and Flux 2 Klein 4B paints album art from the style (art only, no title lettering). The art is centre-cropped to the aspect ratio you pick; 1:1 is the album shape.\n\nWant a different picture later? The Swap Album Art card puts new art on a finished song without touching the audio. The Delivery dropdown next to Dialogue does nothing here.\n\nLORAS: YuE2 style LoRAs work - for example Atomtan Studio's DreamPop and Old School Hip-Hop (huggingface.co/atomtanstudio/lora-library). Import them with base model YuE2 and put the LoRA's trigger word first in the style, e.g. \"sv_dreampop, dream pop, shimmering guitars\". LoRAs change the song only, not the painted album art.\n\nYuE2 is licensed CC-BY-NC-4.0: non-commercial use only.",
+      "description": "Type a style, add lyrics, get a finished song as an MP4 with its album art - the way a Sora song ships with a thumbnail. SimpliGen has no audio-only output yet, so the song is delivered as a video: your album art (or art painted for you) held on screen for the whole track.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the style as short tags, starting with the language: language, voice, genre, instruments, mood, tempo. e.g. \"English, female vocal, indie pop, warm acoustic guitar, soft drums, 100 bpm, intimate, bright chorus\".\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, one line per sung line, with section tags on their own lines: [verse] [chorus] [bridge] [outro]. Separate sections with a blank line.\n3. DURATION = the longest the song may run. YuE2 often ends the song earlier on its own; the video always matches the song it actually made.\n4. REFERENCE IMAGE (optional) = your album art. A Character works too - your artist on every song. Leave it empty and Qwen-Image 2.1 paints album art from the style (art only, no title lettering). The art is centre-cropped to the aspect ratio you pick; 1:1 is the album shape.\n\nWant a different picture later? The Swap Album Art card puts new art on a finished song without touching the audio. The Delivery dropdown next to Dialogue does nothing here.\n\nLORAS: YuE2 style LoRAs work - for example Atomtan Studio's DreamPop and Old School Hip-Hop (huggingface.co/atomtanstudio/lora-library). Import them with base model YuE2 and put the LoRA's trigger word first in the style, e.g. \"sv_dreampop, dream pop, shimmering guitars\". LoRAs change the song only, not the painted album art.\n\nYuE2 is licensed CC-BY-NC-4.0: non-commercial use only.",
       "tags": [
         "Music",
         "Song",
@@ -47,7 +47,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "displayModel": "YuE2 3B (int8) + Qwen-Image 2.1 album art",
         "baseModels": [
           "yue2"
         ],
@@ -69,9 +69,9 @@
           "vramScalesWithDuration": false
         },
         "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
-        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
-        "cover_vae": "flux2-vae.safetensors",
+        "cover_unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "cover_clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "cover_vae": "qwen_image_2.1_vae_bf16.safetensors",
         "extraModels": [
           {
             "dir": "checkpoints",
@@ -80,18 +80,18 @@
           },
           {
             "dir": "diffusion_models",
-            "filename": "flux-2-klein-4b-fp8.safetensors",
-            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+            "filename": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors"
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b_fp4_flux2.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+            "filename": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors"
           },
           {
             "dir": "vae",
-            "filename": "flux2-vae.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+            "filename": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors"
           }
         ],
         "steps": 32,
@@ -137,8 +137,8 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 12.3,
-          "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Flux 2 Klein 4B fp8 (BFL, Apache-2.0, 4.1 GB) + qwen_3_4b_fp4_flux2 (3.85 GB) + Flux 2 VAE, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
+          "sizeGB": 21.4,
+          "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Qwen-Image 2.1 int8 (7.3 GB) + Qwen3-VL 8B int8 encoder (9.4 GB) + VAE, Qwen Research Licence (non-commercial), shared with the Qwen Image 2.1 pack, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
         }
       }
     },
@@ -148,7 +148,7 @@
       "tagline": "Your lyrics and style over the melody of a song you upload",
       "icon": "🎤",
       "previewImage": "previews/yue2-cover-song-album-art.jpg",
-      "description": "Make a cover of a song you already have: YuE2 keeps the original's melody and sings YOUR lyrics in YOUR style over it - the same tune as a jazz ballad, a punk track, a lullaby. Delivered as an MP4 with album art, like the other cards in this pack.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. e.g. \"English, soulful jazz-pop, expressive male vocal, Rhodes piano, upright bass, brushed drums\". Leave the tempo (BPM) out: a cover keeps the source song's tempo, which is written into the transcribed score, and a different BPM in the style works against it. Describe the feel instead (\"relaxed\", \"driving\").\n3. CHARACTER DIALOGUE (turn it on) = the lyrics to sing, with [verse] / [chorus] tags in the same order as the source song. To keep the ORIGINAL words, paste them here (Suno shows them on the song page). Leave it off and YuE2 writes NEW words to the same tune - only the melody is taken from the source, never its words.\n4. DURATION = how much of the source to cover, from the start (SimpliGen trims the source to it). Paste only the lyrics for that part; extra lines get crammed or dropped.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody into a score, and YuE2 performs it in melody mode, which leaves the arrangement free to change. Transcription mistakes carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once. SheetSage2 goes into a new audio_encoders model folder, and the engine only picks up new folders when it starts.\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
+      "description": "Make a cover of a song you already have: YuE2 keeps the original's melody and sings YOUR lyrics in YOUR style over it - the same tune as a jazz ballad, a punk track, a lullaby. Delivered as an MP4 with album art, like the other cards in this pack.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. e.g. \"English, soulful jazz-pop, expressive male vocal, Rhodes piano, upright bass, brushed drums\". Leave the tempo (BPM) out: a cover keeps the source song's tempo, which is written into the transcribed score, and a different BPM in the style works against it. Describe the feel instead (\"relaxed\", \"driving\").\n3. CHARACTER DIALOGUE (turn it on) = the lyrics to sing, with [verse] / [chorus] tags in the same order as the source song. To keep the ORIGINAL words, paste them here (Suno shows them on the song page). Leave it off and YuE2 writes NEW words to the same tune - only the melody is taken from the source, never its words.\n4. DURATION = how much of the source to cover, from the start (SimpliGen trims the source to it). Paste only the lyrics for that part; extra lines get crammed or dropped.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Qwen-Image 2.1 paints some.\n\nHow it works: SheetSage2 transcribes the source's melody into a score, and YuE2 performs it in melody mode, which leaves the arrangement free to change. Transcription mistakes carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once. SheetSage2 goes into a new audio_encoders model folder, and the engine only picks up new folders when it starts.\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
       "tags": [
         "Music",
         "Cover Song",
@@ -174,7 +174,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "SheetSage2 + YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "displayModel": "SheetSage2 + YuE2 3B (int8) + Qwen-Image 2.1 album art",
         "baseModels": [
           "yue2"
         ],
@@ -205,9 +205,9 @@
         },
         "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
         "sheetsage": "sheetsage2_bf16.safetensors",
-        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
-        "cover_vae": "flux2-vae.safetensors",
+        "cover_unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "cover_clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "cover_vae": "qwen_image_2.1_vae_bf16.safetensors",
         "extraModels": [
           {
             "dir": "checkpoints",
@@ -221,18 +221,18 @@
           },
           {
             "dir": "diffusion_models",
-            "filename": "flux-2-klein-4b-fp8.safetensors",
-            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+            "filename": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors"
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b_fp4_flux2.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+            "filename": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors"
           },
           {
             "dir": "vae",
-            "filename": "flux2-vae.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+            "filename": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors"
           }
         ],
         "steps": 32,
@@ -278,7 +278,7 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 13.7,
+          "sizeGB": 22.8,
           "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
       }
@@ -289,7 +289,7 @@
       "tagline": "Keeps the source song's melody AND chords, sung your way",
       "icon": "🎸",
       "previewImage": "previews/yue2-faithful-cover-song-album-art.jpg",
-      "description": "A cover that stays closer to the original: YuE2 keeps the source song's melody AND its chords, and sings your lyrics in your style over them. The plain Cover Song card keeps only the tune and lets the arrangement go anywhere; this one follows the original harmony, so the result sounds more like the same song played by a different band. Delivered as an MP4 with album art.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. Leave the tempo (BPM) out - the cover keeps the source's tempo from the score.\n3. CHARACTER DIALOGUE (turn it on) = the lyrics, with [verse] / [chorus] tags in the same order as the source. Paste the original words to keep them; leave it off and YuE2 writes new words to the same tune.\n4. DURATION = how much of the source to cover, from the start. Paste only the lyrics for that part.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nHow it works: SheetSage2 transcribes the source's melody and chords into a score, and YuE2 performs that score in full mode. Transcription mistakes - a wrong chord especially - carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once (new audio_encoders model folder).\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
+      "description": "A cover that stays closer to the original: YuE2 keeps the source song's melody AND its chords, and sings your lyrics in your style over them. The plain Cover Song card keeps only the tune and lets the arrangement go anywhere; this one follows the original harmony, so the result sounds more like the same song played by a different band. Delivered as an MP4 with album art.\n\nHOW TO USE IT\n1. SOURCE SONG = REFERENCE AUDIO (mp3, wav, m4a) or REFERENCE VIDEO (an mp4 - its soundtrack is used). Fill one. A clean recording with a clear lead melody works best.\n2. SUBJECT & ACTION = the new style as short tags, starting with the language: language, voice, genre, instruments, mood. Leave the tempo (BPM) out - the cover keeps the source's tempo from the score.\n3. CHARACTER DIALOGUE (turn it on) = the lyrics, with [verse] / [chorus] tags in the same order as the source. Paste the original words to keep them; leave it off and YuE2 writes new words to the same tune.\n4. DURATION = how much of the source to cover, from the start. Paste only the lyrics for that part.\n5. REFERENCE IMAGE (optional) = album art, or leave it empty and Qwen-Image 2.1 paints some.\n\nHow it works: SheetSage2 transcribes the source's melody and chords into a score, and YuE2 performs that score in full mode. Transcription mistakes - a wrong chord especially - carry into the cover. YuE2 LoRAs work here too. Only cover recordings you have the rights to use.\n\nFIRST USE: after the models download, restart SimpliGen once (new audio_encoders model folder).\n\nYuE2 and SheetSage2 are licensed CC-BY-NC-4.0: non-commercial use only.",
       "tags": [
         "Music",
         "Cover Song",
@@ -315,7 +315,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "SheetSage2 + YuE2 3B (int8) + Flux 2 Klein 4B album art",
+        "displayModel": "SheetSage2 + YuE2 3B (int8) + Qwen-Image 2.1 album art",
         "baseModels": [
           "yue2"
         ],
@@ -346,9 +346,9 @@
         },
         "yue2_ckpt": "yue2_3b_int8_convrot.safetensors",
         "sheetsage": "sheetsage2_bf16.safetensors",
-        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
-        "cover_vae": "flux2-vae.safetensors",
+        "cover_unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "cover_clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "cover_vae": "qwen_image_2.1_vae_bf16.safetensors",
         "extraModels": [
           {
             "dir": "checkpoints",
@@ -362,18 +362,18 @@
           },
           {
             "dir": "diffusion_models",
-            "filename": "flux-2-klein-4b-fp8.safetensors",
-            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+            "filename": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors"
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b_fp4_flux2.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+            "filename": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors"
           },
           {
             "dir": "vae",
-            "filename": "flux2-vae.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+            "filename": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors"
           }
         ],
         "steps": 32,
@@ -419,7 +419,7 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 13.7,
+          "sizeGB": 22.8,
           "notes": "Score-conditioned cover with melody AND harmony (the yue2-music skill's 'cot=full' cover): SheetSage2 bf16 transcribes melody + chords (mode full), YuE2 3B int8 performs that score in full mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Same models, source slots, album art and first-use restart as the Cover Song card. YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
         }
       }
@@ -430,7 +430,7 @@
       "tagline": "A full song from MiniMax Music 3, delivered as an MP4 with its album art",
       "icon": "🎶",
       "previewImage": "previews/minimax-music3-song-album-art.jpg",
-      "description": "MiniMax Music 3 writes a full song from a style description and your lyrics, delivered as an MP4 with album art like the other cards in this pack.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the music. MiniMax's own format works best: \"Global Metadata: lo-fi hip-hop, 78 BPM, D flat major, laid-back and dreamy. Vocal Details: soft female vocal, half-sung. Arrangement: dusty boom-bap drums, Rhodes, vinyl crackle.\" Write it in English. A longer description helps too: how the song builds section by section, and an \"Application Scenarios & Imagery:\" line describing a scene - when that line is there, the album art paints it.\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, with [Intro] [Verse] [Pre-Chorus] [Chorus] [Post-Chorus] [Bridge] [Instrumental] [Solo] [Outro] tags. For an instrumental, leave it off AND say so in the description: \"instrumental, no vocals, lead carried by saxophone\".\n3. DURATION = a ceiling, not a target (up to 300 s, Music 3's limit). The lyrics decide the length; the model ends the song itself.\n4. REFERENCE IMAGE (optional) = album art, or leave it empty and Flux 2 Klein 4B paints some.\n\nNeeds SimpliGen engine 0.37.0 or newer.\n\nMiniMax Music 3 is licensed Apache-2.0.",
+      "description": "MiniMax Music 3 writes a full song from a style description and your lyrics, delivered as an MP4 with album art like the other cards in this pack.\n\nHOW TO USE IT\n1. SUBJECT & ACTION = the music. MiniMax's own format works best: \"Global Metadata: lo-fi hip-hop, 78 BPM, D flat major, laid-back and dreamy. Vocal Details: soft female vocal, half-sung. Arrangement: dusty boom-bap drums, Rhodes, vinyl crackle.\" Write it in English. A longer description helps too: how the song builds section by section, and an \"Application Scenarios & Imagery:\" line describing a scene - when that line is there, the album art paints it.\n2. CHARACTER DIALOGUE (turn it on) = the lyrics, with [Intro] [Verse] [Pre-Chorus] [Chorus] [Post-Chorus] [Bridge] [Instrumental] [Solo] [Outro] tags. For an instrumental, leave it off AND say so in the description: \"instrumental, no vocals, lead carried by saxophone\".\n3. DURATION = a ceiling, not a target (up to 300 s, Music 3's limit). The lyrics decide the length; the model ends the song itself.\n4. REFERENCE IMAGE (optional) = album art, or leave it empty and Qwen-Image 2.1 paints some.\n\nNeeds SimpliGen engine 0.37.0 or newer.\n\nMiniMax Music 3 is licensed Apache-2.0. The painted album art comes from Qwen-Image 2.1, which is under the Qwen Research Licence: non-commercial use only. Supply your own art to stay clear of it.",
       "tags": [
         "Music",
         "Song",
@@ -456,7 +456,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "MiniMax Music 3 (int8) + Flux 2 Klein 4B album art",
+        "displayModel": "MiniMax Music 3 (int8) + Qwen-Image 2.1 album art",
         "baseModels": [
           "minimax-music3"
         ],
@@ -483,24 +483,24 @@
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/text_encoders/minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
         "vae": "minimax_music3_dav.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/vae/minimax_music3_dav.safetensors",
-        "cover_unet": "flux-2-klein-4b-fp8.safetensors",
-        "cover_clip": "qwen_3_4b_fp4_flux2.safetensors",
-        "cover_vae": "flux2-vae.safetensors",
+        "cover_unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "cover_clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "cover_vae": "qwen_image_2.1_vae_bf16.safetensors",
         "extraModels": [
           {
             "dir": "diffusion_models",
-            "filename": "flux-2-klein-4b-fp8.safetensors",
-            "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors"
+            "filename": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors"
           },
           {
             "dir": "clip",
-            "filename": "qwen_3_4b_fp4_flux2.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/resolve/main/split_files/text_encoders/qwen_3_4b_fp4_flux2.safetensors"
+            "filename": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors"
           },
           {
             "dir": "vae",
-            "filename": "flux2-vae.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors"
+            "filename": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors"
           }
         ],
         "steps": 30,
@@ -546,8 +546,8 @@
           "minVramGB": 8,
           "recommendedVramGB": 12,
           "minRamGB": 32,
-          "sizeGB": 20.2,
-          "notes": "MiniMax Music 3 int8 DiT (2.5 GB) + pruned int8 text encoder (9.2 GB) + DAV (0.2 GB), Comfy-Org repacks, Apache-2.0; official template settings (euler/simple, cfg 1.7, top_k 50, 30 steps). Needs engine 0.37.0 (ComfyUI 0.37.0 fixed the Music 3 noise bug; the fix node of pack 1.0.0 is gone). Album art: Flux 2 Klein 4B + fp4 encoder, only when no art is supplied."
+          "sizeGB": 29.3,
+          "notes": "MiniMax Music 3 int8 DiT (2.5 GB) + pruned int8 text encoder (9.2 GB) + DAV (0.2 GB), Comfy-Org repacks, Apache-2.0; official template settings (euler/simple, cfg 1.7, top_k 50, 30 steps). Needs engine 0.37.0 (ComfyUI 0.37.0 fixed the Music 3 noise bug; the fix node of pack 1.0.0 is gone). Album art: Qwen-Image 2.1 (Qwen Research Licence, non-commercial), only when no art is supplied."
         }
       }
     },
