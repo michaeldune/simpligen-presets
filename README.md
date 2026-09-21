@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 163 ready-to-run presets in 50 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 166 ready-to-run presets in 51 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 50 packs, 163 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 51 packs, 166 presets.">
 </p>
 
 **Image packs**
@@ -29,6 +29,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Anima Realism | 3 | Anima (Cosmos) | Same stack, photoreal |
 | Krea 2 Identity Edit | 2 | Krea 2 Turbo + Identity Edit LoRA v1.2 | **Image editing.** Hand it a photo and an instruction in plain English. Identity Edit changes one thing and leaves the rest alone; Identity Lock holds a face while you re-stage a character sheet into a new scene, transfer a face between two images, or do virtual try-on. Takes one or two reference images — image 1 is the scene, image 2 is the subject. Shares the Krea 2 checkpoint, encoder and VAE with the Krea 2 pack, so the only new download is a 1.83 GB LoRA. No masked inpainting: SimpliGen presets cannot pass a mask |
 | Outfit Spec Sheet | 1 | Qwen Image Edit 2511 + Lightning 4-step | **Image editing, fixed brief.** One photo of an outfit in, one fashion-house specification board out: the garments and accessories lifted onto a mannequin against warm ivory, three close-up detail crops, deliberately no text. Same weights as SimpliGen's own Image Edit pack, so nothing new downloads if that is installed. The prompt box is optional extra notes |
+| Qwen Image 2.1 | 3 | Qwen-Image 2.1 7B (INT8) + Qwen3-VL 8B encoder | **One model, three jobs:** text to image (renders legible signs and captions), editing with 1–4 reference images in plain English, and a Cutout card that removes the background and saves a real transparent PNG at the source size. About 20 s per image on a 4070 Ti, under a minute for a two-reference edit. **Needs SimpliGen engine 0.37.0 or newer.** 17.3 GB download. **Licence: Qwen Research Licence, non-commercial use only** |
 | Krea 2 | 6 | Krea 2 DiT | Uncensored mixes, 8–10 step distilled. Renders at native ~2 MP (1408×1408 and equivalents) plus an Upscale slider with a gated 4-step refine pass; 2 MP costs ~5 s more than 1 MP on a 4070 Ti |
 | Krea 2 Finetunes | 4 | Krea 2 DiT | Trained checkpoints, not merges: Muse v3.5 Extended (clean SFW editorial, real 8–20 step / CFG 1–3 range, ships 12 steps / CFG 1.5), FinalCut Massive Update (matte skin instead of Krea gloss, native up to 2432×1920, NSFW-capable), Binyuan Portrait v3.2 (East Asian portrait realism, trained on ~1,000 unedited photos) and Kreamania V8 (Adel_AI's refinement of Krea 2: volumetric light, matte skin, NSFW intact, 10 steps / CFG 1). Same 2 MP + gated Upscale as the Krea 2 pack; shares its encoder and VAE Renders at native ~2 MP (1408×1408 and equivalents) plus an Upscale slider with a 4-step refine pass, matching the official Krea 2 Turbo preset; 2 MP costs ~5 s more than 1 MP on a 4070 Ti |
 | Krea Flux | 1 | Flux.1 Krea (GGUF) | CSG Foundation, low-VRAM |
