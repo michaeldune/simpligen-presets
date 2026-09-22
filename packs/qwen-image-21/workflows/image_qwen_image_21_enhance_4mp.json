@@ -36,7 +36,7 @@
       },
       "➕ Add Lora": "",
       "model": [
-        "sg_unet",
+        "sg_detail_lora",
         0
       ],
       "clip": [
@@ -49,6 +49,69 @@
       "title": "SimpliGen User LoRAs"
     }
   },
+  "sg_detail_lora": {
+    "inputs": {
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "lora_name": "elusarcas-qwen2-1-detailer-v1.safetensors",
+      "strength_model": 1
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Detail Enhancer LoRA (Elusarca)"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "class_type": "QwenImage21Cache",
+    "_meta": {
+      "title": "Reference prefix cache"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture to enhance"
+    }
+  },
+  "big": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 4.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale to about 4 MP (keeps the shape)"
+    }
+  },
+  "brief": {
+    "inputs": {
+      "string_a": "enhance this image. Enhance this image to high resolution with rich fine details. Sharpen textures and surfaces, add natural microdetails, and improve clarity and definition across the image while preserving the original composition, lighting, atmosphere, and visual style.",
+      "string_b": "{{prompt}}",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Brief + your notes"
+    }
+  },
   "sg_encode": {
     "inputs": {
       "clip": [
@@ -59,24 +122,36 @@
         "sg_vae",
         0
       ],
-      "prompt": "{{prompt}}",
+      "prompt": [
+        "brief",
+        0
+      ],
       "negative_prompt": "{{negative_prompt}}",
-      "resolution": 1024
+      "resolution": 1024,
+      "images.image_1": [
+        "big",
+        0
+      ]
     },
     "class_type": "TextEncodeQwenImage21",
     "_meta": {
-      "title": "Prompt"
+      "title": "Brief + picture"
     }
   },
   "sg_latent": {
     "inputs": {
-      "width": {{width}},
-      "height": {{height}},
-      "batch_size": 1
+      "pixels": [
+        "big",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
     },
-    "class_type": "EmptyLatentImage",
+    "class_type": "VAEEncode",
     "_meta": {
-      "title": "Empty latent"
+      "title": "Enlarged picture as the starting point"
     }
   },
   "sg_sampler": {
@@ -86,9 +161,9 @@
       "cfg": "{{cfg}}",
       "sampler_name": "euler",
       "scheduler": "simple",
-      "denoise": 1,
+      "denoise": 0.8,
       "model": [
-        "simpligen_lora_1",
+        "sg_cache",
         0
       ],
       "positive": [
@@ -127,7 +202,7 @@
   },
   "sg_save": {
     "inputs": {
-      "filename_prefix": "qwen_image_21_2k",
+      "filename_prefix": "qwen_image_21_enhance_4mp",
       "images": [
         "sg_decode",
         0
