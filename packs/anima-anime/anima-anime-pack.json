@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -105,7 +105,15 @@
           "minRamGB": 16,
           "sizeGB": 5.5,
           "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Danbooru-tag prompting."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -190,7 +198,15 @@
           "sizeGB": 5.5
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3016541"
+        "unetUrl": "https://civitai.com/api/download/models/3016541",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Distilled Anima illustration"
     },
@@ -287,7 +303,15 @@
           "minRamGB": 16,
           "sizeGB": 5.5,
           "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Manual download required from civitai.red."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -384,7 +408,15 @@
           "minRamGB": 16,
           "sizeGB": 5.2,
           "notes": "Anima UNet (diffusion_models) + model's OWN text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Encoder is a non-shared custom file - download all three parts."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -482,7 +514,15 @@
           "minRamGB": 16,
           "sizeGB": 5.2,
           "notes": "Anima UNet (diffusion_models) + the release's own Qwen text encoder (clip) + Qwen-Image VAE. Euler / Euler a with normal scheduler, ModelSamplingAuraFlow shift 3, 30 steps, CFG 4.0-5.0. Review the creator's usage restrictions before commercial use."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

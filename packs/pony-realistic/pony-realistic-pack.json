@@ -1,7 +1,7 @@
 {
   "id": "pony-realistic-pack",
   "name": "Community — Pony Realistic",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
@@ -102,7 +102,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 6.5
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -194,7 +202,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 6.6
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -287,7 +303,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 4.0
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

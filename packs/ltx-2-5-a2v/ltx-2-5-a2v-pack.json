@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-a2v-pack",
   "name": "Community — LTX 2.5 Lip-Sync (A2V)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -172,7 +172,15 @@
           "minRamGB": 32,
           "sizeGB": 34,
           "notes": "Two-pass: the first pass runs at half resolution and is upscaled x2 by the latent spatial upscaler, so 1080p output is sampled at 960x544. Your uploaded audio is encoded into the audio latent and masked out of denoising, so it is preserved exactly and drives the lip sync. Measured 165 s for 5 s at 1920x1088 on a 12 GB card. Uses only nodes the SimpliGen engine already registers - no custom node installs required."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

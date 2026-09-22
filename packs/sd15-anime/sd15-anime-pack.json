@@ -1,7 +1,7 @@
 {
   "id": "sd15-anime-pack",
   "name": "Community — SD 1.5 Anime",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "various",
   "nsfw": false,
   "description": "Local SD 1.5 anime checkpoints (CLIP Skip 2, external kl-f8-anime2 VAE), tuned for ~512px.",
@@ -93,7 +93,15 @@
           "sizeGB": 2.1,
           "notes": "SD 1.5 workflow using CLIP Skip 2 and the external kl-f8-anime2 VAE (the baked VAE renders washed-out). Native resolutions around 512 pixels work best."
         },
-        "checkpointUrl": "https://civitai.com/api/download/models/5581?fileId=5768"
+        "checkpointUrl": "https://civitai.com/api/download/models/5581?fileId=5768",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Classic SD 1.5 anime"
     },
@@ -180,7 +188,15 @@
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. ~512px."
         },
-        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

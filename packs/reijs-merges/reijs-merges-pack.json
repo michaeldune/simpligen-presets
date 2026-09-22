@@ -1,7 +1,7 @@
 {
   "id": "reijs-merges-pack",
   "name": "Community — Reij's Merges",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "reijlita",
   "nsfw": false,
   "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
@@ -94,7 +94,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 8
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -178,7 +186,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -262,7 +278,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 8
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -355,7 +379,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2M Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -448,7 +480,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2M Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -541,7 +581,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "Illustrious-based SDXL workflow using CLIP Skip 2, DPM++ 2S a Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

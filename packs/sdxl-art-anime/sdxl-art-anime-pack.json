@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -99,7 +99,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "SDXL 1.0 with baked VAE. DPM++ 2M Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -190,7 +198,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "SDXL 1.0 anime with CLIP Skip 2 and baked VAE. DPM++ 2M Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -251,7 +267,15 @@
           "sizeGB": 7
         },
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/369370"
+        "checkpointUrl": "https://civitai.com/api/download/models/369370",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Stylized SDXL (Cheyenne)"
     },
@@ -341,7 +365,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://civitai.com/api/download/models/570138"
+        "checkpointUrl": "https://civitai.com/api/download/models/570138",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Versatile stylized SDXL"
     },
@@ -434,7 +466,15 @@
           "minRamGB": 16,
           "sizeGB": 6.94,
           "notes": "SDXL 1.0 artistic merge, baked VAE. DPM++ 3M SDE / Karras, 30 steps, CFG 5 recommended by creator."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

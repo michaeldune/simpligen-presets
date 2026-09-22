@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-refine-pack",
   "name": "Community — MiniMax H3 (Video Refine)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "LBH-123-AI + alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -37,7 +37,7 @@
         "extraModels": [
           {"dir": "vae", "filename": "minimax_h3_audio_vae_fp32.safetensors", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"},
           {"dir": "pdd_acc", "filename": "MiniMax-H3-Ref2VA-Acc-8Step.safetensors", "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-Ref2VA-Acc-8Step.safetensors"},
-          {"dir": "latent_upscale_models", "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/main/minimax_h3_latent_upscaler_3d_fp16.safetensors"}
+          {"dir": "latent_upscale_models", "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"}
         ],
         "extensions": [
           {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},

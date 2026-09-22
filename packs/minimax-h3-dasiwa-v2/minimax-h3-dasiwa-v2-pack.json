@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v2-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v2)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid Turbo v2 (2026-09-11): the same drop-in int8 ConvRot finetune idea as the DaSiWa Hybrid pack, now built as the FL2VA weights with a baked-in REF2VA delta and a retuned distillation blend. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A SECOND DASIWA PACK. Measured 2026-09-13 on a 12 GB RTX 4070 Ti against the shipped 4Turbo v1 on the same seed, prompts and graphs: v2 is a different look, not a faster one. At four steps it is softer and darker than v1; at EIGHT steps it gives the most natural portrait of every H3 turbo we ship - clean skin with no oily sheen, no blown key light, defined eyes and lips - where v1 reads bright, high-contrast and crunchy. So this pack defaults to eight steps (about 100 s per five-second shot at 480p, against 72 s for v1) and the v1 pack stays as the fast, punchy option. Identity held on every reference test (solo, two-person, person plus location). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -298,7 +298,15 @@
           "minRamGB": 32,
           "sizeGB": 40,
           "notes": "ONE checkpoint serves all three presets (19.53 GB). Eight steps by default, euler/simple, sigma shift 12.0 video / 3.0 audio; the distillation is baked in, so there is no Turbo LoRA. Four steps is allowed on the slider but renders noticeably softer on this checkpoint - use the DaSiWa Hybrid (v1) pack if you want the four-step speed. MEASURED 2026-09-13 (RTX 4070 Ti 12 GB, 864x480, 5 s, seed 4242, engine only): eight steps 96-102 s per shot, four steps 72-75 s; the 20-step non-distilled Hybrid v2 gives the same look at 200 s and was not shipped. Compared with the shipped 4Turbo v1 on identical prompts the portrait is lower-contrast with natural skin instead of a bright crunchy read, and texture shots keep rust and paint detail at natural contrast. Reference to video kept every identity on three reference sets. THE DOWNLOAD NEEDS A CIVITAI API KEY: the author requires you to be signed in, so add one in Settings before installing. It is a free model, not paid access."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -590,7 +598,15 @@
             "First frame",
             "Last frame (optional)"
           ]
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -899,7 +915,15 @@
           "minRamGB": 32,
           "sizeGB": 40,
           "notes": "ONE checkpoint serves all three presets (19.53 GB). Eight steps by default, euler/simple, sigma shift 12.0 video / 3.0 audio; the distillation is baked in, so there is no Turbo LoRA. Four steps is allowed on the slider but renders noticeably softer on this checkpoint - use the DaSiWa Hybrid (v1) pack if you want the four-step speed. MEASURED 2026-09-13 (RTX 4070 Ti 12 GB, 864x480, 5 s, seed 4242, engine only): eight steps 96-102 s per shot, four steps 72-75 s; the 20-step non-distilled Hybrid v2 gives the same look at 200 s and was not shipped. Compared with the shipped 4Turbo v1 on identical prompts the portrait is lower-contrast with natural skin instead of a bright crunchy read, and texture shots keep rust and paint detail at natural contrast. Reference to video kept every identity on three reference sets. THE DOWNLOAD NEEDS A CIVITAI API KEY: the author requires you to be signed in, so add one in Settings before installing. It is a free model, not paid access."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

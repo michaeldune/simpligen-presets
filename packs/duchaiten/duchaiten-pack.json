@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -96,7 +96,15 @@
           "minRamGB": 8,
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and the checkpoint's baked VAE. DPM++ 2M Karras. ~512px."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -191,7 +199,15 @@
           "minRamGB": 16,
           "sizeGB": 7.0,
           "notes": "NoobAI (SDXL, eps) with CLIP Skip 2 and baked VAE. Euler a / Normal."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -289,7 +305,15 @@
           "notes": "Snapvu needs the hires pass (it blotches without one) and only behaves at CFG 3-4.5. Two passes: base, then 4x-UltraSharpV2 scaled to 1.5x and re-sampled at denoise 0.3. Author's NickelbackFS upscaler is not on a public host, so UltraSharpV2 stands in."
         },
         "upscaler": "4x-UltraSharpV2.pth",
-        "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.pth"
+        "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.pth",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -383,7 +407,15 @@
           "minRamGB": 16,
           "sizeGB": 7.0,
           "notes": "Pony (SDXL) with CLIP Skip 2 and baked VAE. Author's settings: DPM++ SDE, Karras (important), 30 steps, CFG 8-9."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -476,7 +508,15 @@
           "minRamGB": 16,
           "sizeGB": 7.0,
           "notes": "SDXL 1.0 with baked VAE. DPM++ 2M Karras, 30 steps, CFG 7. No CLIP skip."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -561,7 +601,15 @@
           "minRamGB": 8,
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. Author's settings: DPM++ 2M Karras, 30 steps, CFG 9, his negative prompt."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -646,7 +694,15 @@
           "minRamGB": 8,
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. DPM++ 2M Karras. ~512px."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -732,7 +788,15 @@
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. ~512px."
         },
-        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -817,7 +881,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and baked VAE. DPM++ 2M Karras. Author's settings: 50 steps, CFG 11-15, native up to 768 (704x1024 at 2:3)."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

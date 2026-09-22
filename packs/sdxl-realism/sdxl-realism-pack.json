@@ -1,7 +1,7 @@
 {
   "id": "sdxl-realism-pack",
   "name": "Community — SDXL Realism",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "various",
   "nsfw": false,
   "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
@@ -100,7 +100,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "SDXL 1.0 realism with baked VAE. DPM++ 2M Karras."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -158,7 +166,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://civitai.com/api/download/models/1522905"
+        "checkpointUrl": "https://civitai.com/api/download/models/1522905",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Photoreal SDXL realism"
     },
@@ -218,7 +234,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://civitai.com/api/download/models/1759168"
+        "checkpointUrl": "https://civitai.com/api/download/models/1759168",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Versatile photoreal SDXL"
     },
@@ -292,7 +316,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors"
+        "checkpointUrl": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Photoreal SDXL (RealVis)"
     },
@@ -386,7 +418,15 @@
           "minRamGB": 16,
           "sizeGB": 6.94,
           "notes": "SDXL 1.0 photoreal, baked VAE, no CLIP skip. DPM++ 2M SDE / Karras, 32 steps, CFG 4-7 recommended by creator."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

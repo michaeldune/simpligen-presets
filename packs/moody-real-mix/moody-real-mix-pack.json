@@ -1,7 +1,7 @@
 {
   "id": "moody-real-mix-pack",
   "name": "Community — Moody Models",
-  "version": "7.5.0",
+  "version": "7.5.1",
   "author": "catlover1937",
   "nsfw": false,
   "description": "Local Moody model variants collected into one selectable preset group.",
@@ -95,7 +95,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 24,
           "sizeGB": 6
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Z-Image photoreal portraits"
     },
@@ -183,7 +191,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 24,
           "sizeGB": 6
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Z-Image photoreal, global lighting"
     },
@@ -271,7 +287,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 24,
           "sizeGB": 6
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Z-Image expressive realism"
     },
@@ -446,7 +470,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 24,
           "sizeGB": 6
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Z-Image balanced photoreal"
     }

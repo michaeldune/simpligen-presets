@@ -1,7 +1,7 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
@@ -139,7 +139,15 @@
           "minRamGB": 32,
           "sizeGB": 21.4,
           "notes": "YuE2 3B int8 convrot (Comfy-Org repack, 4.0 GB, checkpoints\\) - LICENSE CC-BY-NC-4.0, non-commercial. Settings from the ComfyUI Text to Music (YuE2) blueprint: ABC score in full mode, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Album art: Qwen-Image 2.1 int8 (7.3 GB) + Qwen3-VL 8B int8 encoder (9.4 GB) + VAE, Qwen Research Licence (non-commercial), shared with the Qwen Image 2.1 pack, loaded only when no album art is supplied. Output: MP4 at 1 fps, H.264 + AAC. Needs native YuE2 nodes (engine v0.36.0)."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -280,7 +288,15 @@
           "minRamGB": 32,
           "sizeGB": 22.8,
           "notes": "Official ComfyUI Music Cover (YuE2) template: SheetSage2 bf16 (1.4 GB, audio_encoders\\) transcribes the source melody to ABC (melody-only), YuE2 3B int8 sings it in melody mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Source = Reference Audio or Reference Video (soundtrack read by LoadAudio). Album art as the song card. First use needs one app restart after the download: the engine maps a new audio_encoders folder only at start (verified 2026-09-18, app 1.63.1). YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -421,7 +437,15 @@
           "minRamGB": 32,
           "sizeGB": 22.8,
           "notes": "Score-conditioned cover with melody AND harmony (the yue2-music skill's 'cot=full' cover): SheetSage2 bf16 transcribes melody + chords (mode full), YuE2 3B int8 performs that score in full mode with the user's style + lyrics, KSampler dpm_2/sgm_uniform 32 steps cfg 1. Same models, source slots, album art and first-use restart as the Cover Song card. YuE2 + SheetSage2 CC-BY-NC-4.0, non-commercial."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {

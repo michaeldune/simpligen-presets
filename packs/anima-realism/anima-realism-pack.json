@@ -1,7 +1,7 @@
 {
   "id": "anima-realism-pack",
   "name": "Community — Anima Realism",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) photoreal checkpoints.",
@@ -103,7 +103,15 @@
           "minRamGB": 16,
           "sizeGB": 5.5,
           "notes": "Anima UNet + Qwen 0.6B text encoder + Qwen-Image VAE. Euler Ancestral / normal, ModelSamplingAuraFlow shift 3. CLIP Skip 2, LoRA support."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Photoreal Anima"
     },
@@ -200,7 +208,15 @@
           "notes": "Anima (Cosmos) UNet + Qwen 0.6B encoder + Qwen-Image VAE. ER-SDE/simple, ModelSamplingAuraFlow shift 3. v2.3 Turbo distilled (low steps, CFG 1)."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors"
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -296,7 +312,15 @@
           "minRamGB": 16,
           "sizeGB": 5.2,
           "notes": "Anima UNet (diffusion_models) + the release's own Qwen text encoder (clip) + Qwen-Image VAE. Euler / normal scheduler, ModelSamplingAuraFlow shift 3, 30 steps, CFG 5."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]
