@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -105,7 +105,15 @@
           "notes": "Illustrious-based SDXL workflow using CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting."
         },
         "vae": "sdxl_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -198,7 +206,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious-based SDXL with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting. Placeholder thumbnail - swap in your own preview if desired."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -291,7 +307,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious-based SDXL anime with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -384,7 +408,15 @@
           "sizeGB": 7,
           "notes": "Illustrious-based SDXL checkpoint with CLIP Skip 2, Euler Ancestral, LoRA support."
         },
-        "checkpointUrl": "https://prompthero.com/api/ai-models/nova-anime-xl-376130-download/nova-anime-xl-il-v70/file/3f2d1988-7420-4f1e-a104-8892c55599aa/download"
+        "checkpointUrl": "https://prompthero.com/api/ai-models/nova-anime-xl-376130-download/nova-anime-xl-il-v70/file/3f2d1988-7420-4f1e-a104-8892c55599aa/download",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Polished 2.5D Illustrious anime"
     },
@@ -477,7 +509,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "Illustrious-based SDXL checkpoint with CLIP Skip 2, Euler Ancestral, LoRA support."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Flexible Illustrious anime / semi-real"
     },
@@ -572,7 +612,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 6.5
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -668,7 +716,15 @@
           "notes": "Illustrious-based SDXL workflow using CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Danbooru-tag prompting."
         },
         "vae": "sdxl_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -763,7 +819,15 @@
           "minRamGB": 16,
           "sizeGB": 6.94,
           "notes": "SDXL/Illustrious-lineage checkpoint (merged in part from Illustrij), baked VAE, no CLIP skip. Euler Ancestral / Normal."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

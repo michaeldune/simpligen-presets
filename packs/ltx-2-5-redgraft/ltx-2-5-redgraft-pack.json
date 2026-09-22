@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
@@ -179,7 +179,15 @@
           "minRamGB": 32,
           "sizeGB": 17,
           "notes": "The REDgraft diffusion model is an approximately 17 GB INT8 download. The Gemma4 encoder, LTX 2.5 video/audio VAEs, and the LTX 2.3 spatial upscaler are shared companion files; this text-to-video preset does not require a source image. The supplied Civitai JSON is an I2V ComfyUI configuration export and is not a runtime dependency, so only the safetensors model and this API workflow are installed."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -345,7 +353,15 @@
           "minRamGB": 32,
           "sizeGB": 17,
           "notes": "The REDgraft diffusion model is an approximately 17 GB INT8 download. The Gemma4 encoder, LTX 2.5 video/audio VAEs, and the LTX 2.3 spatial upscaler are shared companion files; this image-to-video preset requires a source image. The supplied Civitai JSON informed this I2V workflow but is not a runtime dependency, so only the safetensors model and this API workflow are installed."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

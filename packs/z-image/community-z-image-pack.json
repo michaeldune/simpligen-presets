@@ -1,7 +1,7 @@
 {
   "id": "community-z-image",
   "name": "Community — Z-Image",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "Z-Image base checkpoints.",
@@ -95,7 +95,15 @@
           "minRamGB": 24,
           "sizeGB": 6,
           "notes": " Pinned to Civitai's fp8 file (5.73 GB): that version also publishes an 11.46 GB bf16 under the same filename, and it is the one Civitai serves by default."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Semi-real Z-Image base"
     }

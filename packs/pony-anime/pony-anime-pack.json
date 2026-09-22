@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -104,7 +104,15 @@
           "sizeGB": 7
         },
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors"
+        "checkpointUrl": "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -197,7 +205,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://civitai.com/api/download/models/1761857?fileId=1662621"
+        "checkpointUrl": "https://civitai.com/api/download/models/1761857?fileId=1662621",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -290,7 +306,15 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "checkpointUrl": "https://prompthero.com/api/ai-models/prefect-pony-xl-download/v6/file/00861c46-680f-4efd-81e4-63751f22a870/download"
+        "checkpointUrl": "https://prompthero.com/api/ai-models/prefect-pony-xl-download/v6/file/00861c46-680f-4efd-81e4-63751f22a870/download",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -385,7 +409,15 @@
           "sizeGB": 7
         },
         "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://civitai.com/api/download/models/324524"
+        "checkpointUrl": "https://civitai.com/api/download/models/324524",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

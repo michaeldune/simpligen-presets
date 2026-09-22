@@ -1,7 +1,7 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Michael Pate (community)",
   "nsfw": false,
   "minComfyuiVersion": "v0.28.0",
@@ -109,7 +109,15 @@
           "minRamGB": 32,
           "sizeGB": 18,
           "notes": "Ideogram 4 Instant INT8 (9.4 GB, diffusion_models) + qwen_3_8b_fp8mixed encoder (clip\\, HF gated - accept license) + flux2 VAE + Lenovo UltraReal LoRA (baked, 106 MB). Engine must be ComfyUI 0.28+ for int8_tensorwise support (SimpliGen updated mid-July 2026). Plain prose prompts; JSON-style prompts degrade output."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -209,7 +217,15 @@
           "minRamGB": 32,
           "sizeGB": 18,
           "notes": "Same models as the UltraReal preset (shared downloads). LoRA at 0.35 - the tested floor for filter suppression on GENERAL/SFW prompts only (0.2 re-triggers it even there; do not lower). Confirmed the filter CAN reactivate at 0.35 on suggestive/adult content (full blocks + garbled 'Image blocked by safety filter' overlay text) even though general prompts stay clean - use the UltraReal (1.0) tier for that content category instead. Engine 0.28+."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "illustrious-realism-pack",
   "name": "Community — Illustrious Realism",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
@@ -103,7 +103,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Thumbnail sourced from the model's earlier v3.0 showcase."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -197,7 +205,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -291,7 +307,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "IllustriousXL v2.0-based realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -375,7 +399,15 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       },
       "tagline": "Fast distilled Illustrious realism"
     },
@@ -469,7 +501,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious-based SDXL realism with CLIP Skip 2 and baked VAE. Euler Ancestral / Normal. Thumbnail sourced from the model's earlier v3.0 showcase."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -567,7 +607,15 @@
           "minRamGB": 16,
           "sizeGB": 6.5,
           "notes": "Illustrious/SDXL full checkpoint with baked VAE, CLIP Skip 2, and DPM++ 2M SDE / Karras defaults."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]

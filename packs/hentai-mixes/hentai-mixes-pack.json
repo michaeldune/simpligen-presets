@@ -1,7 +1,7 @@
 {
   "id": "hentai-mixes-pack",
   "name": "Community — Hentai Mixes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": true,
   "description": "Nine anime/hentai checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
@@ -86,7 +86,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "SDXL at native 1024. Uses the standard SDXL VAE rather than the baked one."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -163,7 +171,15 @@
           "minRamGB": 16,
           "sizeGB": 7,
           "notes": "SDXL at native 1024. Uses the standard SDXL VAE rather than the baked one."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -238,7 +254,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -313,7 +337,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -388,7 +420,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -463,7 +503,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -538,7 +586,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -625,7 +681,15 @@
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. Native resolutions around 512px work best."
         },
-        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt"
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     },
     {
@@ -700,7 +764,15 @@
           "minRamGB": 8,
           "sizeGB": 2.1,
           "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
-        }
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]
