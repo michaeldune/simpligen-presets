@@ -1,7 +1,7 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
@@ -553,6 +553,119 @@
           "sizeGB": 17.3,
           "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Same graph as the 1 MP card with the model card's own 2K sizes as the aspect-ratio table. Tested 2026-09-22 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0): 2048x2048 93 s at 25 steps and 146 s at 40 steps, 2752x1536 93 s at 25 steps, peak VRAM 10.7-11.1 GB. A three-line menu board and a shop sign were letter-perfect at 2048x2048 / 40 steps; at 25 steps both 2K sizes misspelled a word on the sign (2752x1536 read HANA RAMEM). Separately, at 1 MP / 25 steps CFG 4 rendered the menu correctly on 3 of 3 seeds where CFG 1 got it wrong on 3 of 3 (about 1.5x the time); the CFG slider goes to 4. Native 4MP beat a learned latent upscale (1 MP + 2x + refine) on detail at similar time. IN THE APP (2026-09-22): 2048x2048 97 s, 2752x1536 95 s, 1536x2752 93 s, all detailed; one small street sign was misspelled at 25 steps."
         }
+      }
+    },
+    {
+      "id": "qwen-image-21-edit-4mp",
+      "name": "Qwen Image 2.1 Edit 4MP",
+      "icon": "✏️",
+      "enabled": true,
+      "tagline": "Edit or combine up to four pictures, output at 4 megapixels",
+      "description": "The Edit card at the model's full size: describe the change and refer to the pictures by position (Keep the woman in <image1> unchanged, put the jacket from <image2> on her). One to four reference pictures, or up to 4 characters from the cast picker; the result comes out at about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). About 1 3/4 minutes with one picture and 3 1/2 minutes with four on a 12 GB card. Pick the aspect ratio that matches your first picture when the framing should stay the same. Non-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "4MP",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-edit-4mp.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_edit_4mp.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2400,
+            "height": 1792
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2400
+          },
+          "3:2": {
+            "width": 2528,
+            "height": 1696
+          },
+          "2:3": {
+            "width": 1696,
+            "height": 2528
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Same graph as the Edit card (sgopt_ optional reference slots, QwenImage21Cache, references encoded at about 1 MP) with the model card's 4MP sizes as the aspect-ratio table. Tested 2026-09-22 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0, NVIDIA 617.14), one seed each: one reference at 2048x2048 108 s / 9.9 GB peak, two at 2688x1536 145 s / 11.5 GB, four at 2688x1536 214 s / 11.4 GB; all four people kept face, hair and clothes. At 1 MP, six references dropped a person, so the card stays at four."
+        }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1",
+        "maxCharacters": 4
       }
     },
     {
