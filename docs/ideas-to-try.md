@@ -195,6 +195,13 @@ hosted account). Ideas worth borrowing for our own bridge:
     seeds of the 4-clip card (13 min each, `pushin-check-20260921/run3.py` with the clip seeds changed), judge framing from
     a frame strip (the head-width proxy misreads the bobbed-hair singer). If some seeds drift: test a framing lock in the
     prompt, and say "re-roll the seed" in the card text. Also unresolved: which change made renders reproducible.
+    **RUN 2026-09-21 22:20:** seeds 101/202/303/404 on the original 4-clip graph (`seed-test-20260921/seeds.py`,
+    `strips_all.jpg`): seed 101 pushes in (head-and-shoulders -> face fills the frame by 26.5 s, gradual over clips
+    3-4); 202, 303 and 404 hold. Counting yesterday's drifting control, 2 of 6 distinct seeds drift: about one in three.
+    DONE (a) 22:42: a camera_lock paragraph in the header did NOT stop seed 101 - same creep, frame for frame. The drift is in
+    the seed, not the wording. Remaining: (b) card text "if the shot creeps in, generate again with a new seed", and fix the
+    prompt-split regex that cuts the header at any "[Shot 1]" mention (see memory), both in a 1.0.2. Was: (a) test a framing lock ("the camera does not move; the framing stays exactly as in the first
+    second") on seed 101; (b) add "if the shot creeps in, re-roll the seed" to the three cards' text (1.0.2, text only).
 
 ## Done / dropped
 
