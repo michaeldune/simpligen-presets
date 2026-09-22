@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card. One 17 GB download covers every card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 2K cards: text to image at the model's full 4-megapixel size, and Enhance to 2K, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card. One 17 GB download covers every card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",
@@ -19,7 +19,8 @@
     "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
     "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
     "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
-    "https://civitai.com/api/download/models/3346353?fileId=3233294": "9aef911a6f1492bd7f3006b4e280562002b6966324892c257f47d0066e83c9d1"
+    "https://civitai.com/api/download/models/3346353?fileId=3233294": "9aef911a6f1492bd7f3006b4e280562002b6966324892c257f47d0066e83c9d1",
+    "https://civitai.com/api/download/models/3349290": "c1298f51eb090473f924314475952710a2f0322f1df65c0290f3e14997244f96"
   },
   "presets": [
     {
@@ -456,6 +457,216 @@
           "prompt"
         ],
         "inputImage": "ref_image_1"
+      }
+    },
+    {
+      "id": "qwen-image-21-2k",
+      "name": "Qwen Image 2.1 2K",
+      "icon": "🔍",
+      "enabled": true,
+      "tagline": "Text to image at the model's full 2K size",
+      "description": "The same model as the Qwen Image 2.1 card, run at the size Qwen publishes for it: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Much finer skin, hair and fabric than the 1 MP card, and small lettering comes out cleaner. About 1.5 minutes per picture on a 12 GB card at 25 steps; for signs and small lettering, raise the steps to 40 (about 2.5 minutes). Non-commercial use only (Qwen Research License).",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Qwen",
+        "2K",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-2k.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_2k.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2400,
+            "height": 1792
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2400
+          },
+          "3:2": {
+            "width": 2528,
+            "height": 1696
+          },
+          "2:3": {
+            "width": 1696,
+            "height": 2528
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Same graph as the 1 MP card with the model card's own 2K sizes as the aspect-ratio table. Tested 2026-09-22 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0): 2048x2048 93 s at 25 steps and 146 s at 40 steps, 2752x1536 93 s at 25 steps, peak VRAM 10.7-11.1 GB. A three-line menu board and a shop sign were letter-perfect at 2048x2048 / 40 steps; at 25 steps both 2K sizes misspelled a word on the sign (2752x1536 read HANA RAMEM). Separately, at 1 MP / 25 steps CFG 4 rendered the menu correctly on 3 of 3 seeds where CFG 1 got it wrong on 3 of 3 (about 1.5x the time); the CFG slider goes to 4. Native 2K beat a learned latent upscale (1 MP + 2x + refine) on detail at similar time."
+        }
+      }
+    },
+    {
+      "id": "qwen-image-21-enhance-2k",
+      "name": "Qwen Image 2.1 Enhance to 2K",
+      "icon": "✨",
+      "enabled": true,
+      "tagline": "Any picture in, the same picture at 2K with real detail",
+      "description": "Drop in a picture (one you made or any photo) and get it back at about 4 megapixels with fine detail added: skin, hair, fabric and surfaces. The composition, colours and lighting stay; the aspect ratio of your picture is kept, so the aspect ratio setting is ignored. Uses the Detail Enhancer LoRA by Elusarca (76 MB, built in). The prompt box is optional: add what should look sharper or what to keep. It does not repair things that are wrong in the picture, such as misspelled text. About 2 minutes on a 12 GB card. Non-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Upscale",
+        "2K",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-enhance-2k.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Detail Enhancer LoRA",
+        "workflow": "workflows/image_qwen_image_21_enhance_2k.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "elusarcas-qwen2-1-detailer-v1.safetensors",
+            "url": "https://civitai.com/api/download/models/3349290"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture to enhance"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.4,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). This card adds Elusarca's Qwen 2.1 Detail Enhancer LoRA (Civitai model 2956730 v1.0, 76 MB; licence: image use including commercial, credit required, no derivatives; sha256 pinned in the pack checksums) through LoraLoaderModelOnly at strength 1, ahead of SimpliGen's own LoRA slot. The picture is Lanczos-scaled to about 4 MP at its own shape (ImageScaleToTotalPixels, multiple of 32), the latent takes that size, and the encoder sees the picture at 1 MP with the author's recommended brief plus {{prompt}}. Tested 2026-09-22 on a 4070 Ti 12 GB: 1024x1024 in, 2048x2048 out in 122-124 s, peak 11.3 GB; eye colour, composition and lighting kept, texture added. Encoding the picture at 2048 instead took 250 s with no visible gain. Misspelled lettering in the source stays misspelled (sharper)."
+        }
       }
     }
   ]
