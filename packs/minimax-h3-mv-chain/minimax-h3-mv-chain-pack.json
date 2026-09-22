@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-mv-chain-pack",
   "name": "Community — MiniMax H3 Music Video Chain",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
@@ -18,7 +18,7 @@
       "id": "minimax-h3-mv-chain-2",
       "name": "H3 Music Video Chain - 2 clips (14 s)",
       "icon": "🎤",
-      "description": "A 14-second performance shot to your own song, built as 2 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "description": "A 14-second performance shot to your own song, built as 2 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Start each [Shot N] marker on its own line; a marker in the middle of a sentence is treated as ordinary text. Without [Shot] markers every clip gets the whole prompt. IF THE CAMERA CREEPS IN over the clips, generate again with a new seed: in testing about one seed in three drifted, and wording in the prompt did not stop it.",
       "tagline": "Your song, one singer, 14 seconds in a single take",
       "previewImage": "previews/minimax-h3-mv-chain-2.jpg",
       "tags": [
@@ -153,7 +153,7 @@
       "id": "minimax-h3-mv-chain-3",
       "name": "H3 Music Video Chain - 3 clips (21 s)",
       "icon": "🎤",
-      "description": "A 21-second performance shot to your own song, built as 3 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "description": "A 21-second performance shot to your own song, built as 3 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Start each [Shot N] marker on its own line; a marker in the middle of a sentence is treated as ordinary text. Without [Shot] markers every clip gets the whole prompt. IF THE CAMERA CREEPS IN over the clips, generate again with a new seed: in testing about one seed in three drifted, and wording in the prompt did not stop it.",
       "tagline": "Your song, one singer, 21 seconds in a single take",
       "previewImage": "previews/minimax-h3-mv-chain-3.jpg",
       "tags": [
@@ -288,7 +288,7 @@
       "id": "minimax-h3-mv-chain-4",
       "name": "H3 Music Video Chain - 4 clips (27 s)",
       "icon": "🎤",
-      "description": "A 27-second performance shot to your own song, built as 4 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Without [Shot] markers every clip gets the whole prompt.",
+      "description": "A 27-second performance shot to your own song, built as 4 H3 clips that continue each other with no visible cut. Your song is locked into every clip, so the finished video carries the original track, not a re-generated one, and the singer's mouth follows it. Each clip starts from the previous clip's latent, not from saved frames, which is what keeps exposure, framing and sharpness steady from the first second to the last. Use START OFFSET to pick the part of the song. PROMPT FORMAT: write what is the same in every clip first (who is in the pictures, the look, the room). Then one block per clip, starting with [Shot 1], [Shot 2], ... Each block is added to the shared part for that clip only, so put the lines sung in that clip and what the singer does there. Start each [Shot N] marker on its own line; a marker in the middle of a sentence is treated as ordinary text. Without [Shot] markers every clip gets the whole prompt. IF THE CAMERA CREEPS IN over the clips, generate again with a new seed: in testing about one seed in three drifted, and wording in the prompt did not stop it.",
       "tagline": "Your song, one singer, 27 seconds in a single take",
       "previewImage": "previews/minimax-h3-mv-chain-4.jpg",
       "tags": [
