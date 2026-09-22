@@ -1,4 +1,4 @@
-# Discord update note: Qwen Image 2.1 1.2.0, two 4MP cards (HELD, 2026-09-22)
+# Discord update note: Qwen Image 2.1 1.2.0, two 4MP cards (HELD, 2026-09-22; announcement video POSTED 2026-09-22 14:35)
 
 **Qwen Image 2.1: two new 4-megapixel cards**
 
