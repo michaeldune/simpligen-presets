@@ -1,4 +1,4 @@
-# Discord update note: Music Video Chain 1.0.2 + Qwen Image 2.1 1.1.1 (HELD, 2026-09-22)
+# Discord update note: Music Video Chain 1.0.2 + Qwen Image 2.1 1.1.1 (HELD, 2026-09-22) — SUPERSEDED by discord-2026-09-22-combined-update.md
 
 **Two small pack updates**
 
