@@ -183,10 +183,10 @@
   "shot_header": {
     "inputs": {
       "string": "{{prompt}}",
-      "regex_pattern": "^(.*?)(?:\\s*\\[Shot 1\\].*)?$",
+      "regex_pattern": "\\A(.*?)(?:^[ \\t]*\\[Shot 1\\].*)?\\Z",
       "mode": "First Group",
       "case_insensitive": true,
-      "multiline": false,
+      "multiline": true,
       "dotall": true,
       "group_index": 1
     },
@@ -238,10 +238,10 @@
   "shot_text_1": {
     "inputs": {
       "string": "{{prompt}}",
-      "regex_pattern": "\\[Shot 1\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "regex_pattern": "^[ \\t]*\\[Shot 1\\][ \\t]*(.*?)(?=\\n[ \\t]*\\[Shot \\d+\\]|\\Z)",
       "mode": "First Group",
       "case_insensitive": true,
-      "multiline": false,
+      "multiline": true,
       "dotall": true,
       "group_index": 1
     },
@@ -423,10 +423,10 @@
   "shot_text_2": {
     "inputs": {
       "string": "{{prompt}}",
-      "regex_pattern": "\\[Shot 2\\]\\s*(.*?)(?=\\s*\\[Shot \\d+\\]|$)",
+      "regex_pattern": "^[ \\t]*\\[Shot 2\\][ \\t]*(.*?)(?=\\n[ \\t]*\\[Shot \\d+\\]|\\Z)",
       "mode": "First Group",
       "case_insensitive": true,
-      "multiline": false,
+      "multiline": true,
       "dotall": true,
       "group_index": 1
     },
