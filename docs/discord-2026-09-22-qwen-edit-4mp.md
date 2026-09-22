@@ -1,4 +1,4 @@
-# Discord update note: Qwen Image 2.1 1.3.0, Edit 4MP (HELD, 2026-09-22)
+# Discord update note: Qwen Image 2.1 1.3.0, Edit 4MP (POSTED by Michael 2026-09-22 18:29)
 
 **Qwen Image 2.1 (1.3.0): Edit 4MP**
 
