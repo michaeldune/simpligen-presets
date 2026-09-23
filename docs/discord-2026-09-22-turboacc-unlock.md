@@ -1,4 +1,4 @@
-# Discord update note: MiniMax H3 Turbo Accelerated 1.5.0, unlock slider (HELD, 2026-09-22)
+# Discord update note: MiniMax H3 Turbo Accelerated 1.5.0, unlock slider (POSTED by Michael 2026-09-22 23:20)
 
 **MiniMax H3 Turbo Accelerated (1.5.0): new "unlock" slider**
 
