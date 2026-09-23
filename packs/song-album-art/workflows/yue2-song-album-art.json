@@ -549,6 +549,15 @@
       "title": "Qwen-Image 2.1 VAE"
     }
   },
+  "cover_negative": {
+    "inputs": {
+      "value": "artifacts, gpt-image, washed-out colors, low quality, low resolution, AI slop, deviantart, sloppy lines, rough sketch, blurry, indistinct, missing fingers, badly drawn hands"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Album art negative prompt"
+    }
+  },
   "cover_encode": {
     "inputs": {
       "clip": [
@@ -563,12 +572,45 @@
         "cover_prompt",
         0
       ],
-      "negative_prompt": "",
+      "negative_prompt": [
+        "cover_negative",
+        0
+      ],
       "resolution": 1024
     },
     "class_type": "TextEncodeQwenImage21",
     "_meta": {
       "title": "Album art prompt encode"
+    }
+  },
+  "cover_apg": {
+    "inputs": {
+      "model": [
+        "cover_unet",
+        0
+      ],
+      "eta": 1.0,
+      "norm_threshold": 10.0,
+      "momentum": 0.3
+    },
+    "class_type": "APG",
+    "_meta": {
+      "title": "Adaptive Projected Guidance"
+    }
+  },
+  "cover_fresca": {
+    "inputs": {
+      "model": [
+        "cover_apg",
+        0
+      ],
+      "scale_low": 1.0,
+      "scale_high": 2.0,
+      "freq_cutoff": 8
+    },
+    "class_type": "FreSca",
+    "_meta": {
+      "title": "FreSca"
     }
   },
   "cover_latent": {
@@ -585,13 +627,13 @@
   "cover_sample": {
     "inputs": {
       "seed": "{{seed}}",
-      "steps": 25,
-      "cfg": 1,
-      "sampler_name": "euler",
-      "scheduler": "simple",
+      "steps": 20,
+      "cfg": 3,
+      "sampler_name": "seeds_2",
+      "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
-        "cover_unet",
+        "cover_fresca",
         0
       ],
       "positive": [
