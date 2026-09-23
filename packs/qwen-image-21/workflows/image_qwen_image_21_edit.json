@@ -49,10 +49,40 @@
       "title": "SimpliGen User LoRAs"
     }
   },
-  "sg_cache": {
+  "sg_apg": {
     "inputs": {
       "model": [
         "simpligen_lora_1",
+        0
+      ],
+      "eta": 1.0,
+      "norm_threshold": 10.0,
+      "momentum": 0.3
+    },
+    "class_type": "APG",
+    "_meta": {
+      "title": "Adaptive Projected Guidance"
+    }
+  },
+  "sg_fresca": {
+    "inputs": {
+      "model": [
+        "sg_apg",
+        0
+      ],
+      "scale_low": 1.0,
+      "scale_high": 2.0,
+      "freq_cutoff": 8
+    },
+    "class_type": "FreSca",
+    "_meta": {
+      "title": "FreSca"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "sg_fresca",
         0
       ],
       "device": "auto",
@@ -150,8 +180,8 @@
       "seed": {{seed}},
       "steps": "{{steps}}",
       "cfg": "{{cfg}}",
-      "sampler_name": "euler",
-      "scheduler": "simple",
+      "sampler_name": "seeds_2",
+      "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
         "sg_cache",
