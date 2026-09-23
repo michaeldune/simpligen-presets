@@ -1,0 +1,157 @@
+{
+  "id": "viggle-animate-h3-pack",
+  "name": "Community — Viggle Animate for H3 (Character Swap)",
+  "version": "1.0.0",
+  "addedAt": "2026-09-23",
+  "author": "Viggle Research + drbaph (ComfyUI conversion) + Saganaki22 (nodes) + michaeldune (card)",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.37.0",
+  "description": "Put a character of your own into an existing video. Give it a driving clip and one picture of the character: Flux 2 Klein 9B repaints the clip's first frame with your character in the same pose, spot and lighting, then Viggle-Animate (Viggle's open finetune of MiniMax H3) carries that character through the clip's motion and camera in three passes, keeping the background and the clip's own soundtrack. About 3 minutes for 5.2 seconds on a 12 GB card. LICENCES: Viggle-Animate weights are a MiniMax H3 derivative under the MiniMax H3 Community License; Flux 2 Klein 9B (the repaint model) is under the FLUX Non-Commercial License. Non-commercial use only. Viggle's own terms: use reference material only from people who have consented, and label the output as AI-generated.",
+  "tags": [
+    "Local",
+    "Video",
+    "V2V",
+    "Character Swap",
+    "MiniMax H3",
+    "Viggle",
+    "Non-commercial"
+  ],
+  "checksums": {
+    "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/diffusion_models/minimax_h3_ref2va_viggle_pruned_int8_convrot.safetensors": "c16db9a453461261b7270ed6fd9e435dde0524234ba4184253ba3876bc3d3540",
+    "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/loras/viggle_animate_dmd_lora_r64.safetensors": "8dc50f293c50c9466ac0ae907fd9f904a9a56ceb81f727fb3df02fbadec54446",
+    "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/text_cond/fixed_embed_fwd_anyframe.safetensors": "86ae5987dda844cb80fa4d35d04dddc959f463d04259fbe727b41e80a07e0fde",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
+    "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/3f62d9d8ae1fec33c6e91453d5c712855b096b55/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors": "abad16806e0cbabc54e0325d6565847443fe396d5f0be38bb3cd3fe75a1201d6",
+    "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
+    "https://civitai.com/api/download/models/2658598": "865ba09f5b4c3cbd3468a4bd3acb9fcb2f8740c54317482f0bcd4ed1d3655cee"
+  },
+  "presets": [
+    {
+      "id": "viggle-animate-h3",
+      "name": "Viggle Animate - Character Swap",
+      "icon": "🎭",
+      "tagline": "Swap your character into any clip - motion, camera and sound kept",
+      "description": "Driving clip in Reference Video 1, your character's picture in the Character slot (a full-body front view or a character sheet works). The prompt box is optional notes for the repaint, most useful to name what the original person holds or wears that should go (\"Remove the sword and the long kimono train; her hands are empty\"); without that the repaint keeps it and the video carries it through. Output: the first 5.2 s (124 frames) of the clip at 0.4 MP in the clip's own aspect (the aspect picker is ignored), with its soundtrack. Pick clips where the performer is large in frame and has a similar outline to your character (loose hair, no long garments): the face follows the frame size, and a very different silhouette (a tall hairpiece) can survive into the result. Made for 24 fps clips such as H3's; at other frame rates the motion plays slower than the soundtrack. Clips shorter than 5.2 s generate fewer frames and the soundtrack runs on. LICENCES: Viggle-Animate weights are a MiniMax H3 derivative under the MiniMax H3 Community License; Flux 2 Klein 9B (the repaint model) is under the FLUX Non-Commercial License. Non-commercial use only. Viggle's own terms: use reference material only from people who have consented, and label the output as AI-generated.",
+      "previewImage": "previews/viggle-animate-h3.jpg",
+      "tags": [
+        "Video",
+        "V2V",
+        "Character Swap",
+        "Viggle"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Viggle-Animate (H3 pruned int8) + Flux 2 Klein 9B repaint",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_viggle_animate_h3.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 5,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": false
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 1,
+          "soundtrack": true
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "Character"
+          ]
+        },
+        "unet": "minimax_h3_ref2va_viggle_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/diffusion_models/minimax_h3_ref2va_viggle_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_fp16.safetensors",
+        "clip": "qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/3f62d9d8ae1fec33c6e91453d5c712855b096b55/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "klein_unet": "flux2Klein9bFp8_fp8.safetensors",
+        "klein_vae": "flux2-vae.safetensors",
+        "viggle_lora": "viggle_animate_dmd_lora_r64.safetensors",
+        "text_cond": "fixed_embed_fwd_anyframe.safetensors",
+        "extraModels": [
+          {
+            "dir": "diffusion_models",
+            "filename": "flux2Klein9bFp8_fp8.safetensors",
+            "url": "https://civitai.com/api/download/models/2658598"
+          },
+          {
+            "dir": "vae",
+            "filename": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "viggle_animate_dmd_lora_r64.safetensors",
+            "url": "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/loras/viggle_animate_dmd_lora_r64.safetensors"
+          },
+          {
+            "dir": "text_cond",
+            "filename": "fixed_embed_fwd_anyframe.safetensors",
+            "url": "https://huggingface.co/drbaph/Viggle-Animate-ComfyUI/resolve/cb3907d33a0ac57314135f86232fdaf4bdb23105/text_cond/fixed_embed_fwd_anyframe.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "ComfyUI-Viggle-Animate-H3",
+            "url": "https://github.com/michaeldune/ComfyUI-Viggle-Animate-H3.git",
+            "pinnedCommit": "6ae081af5b3175f99ef7cddebd5dfaf93390ab70",
+            "description": "Viggle Animate conditioning + fixed text-conditioning loader (v1.3.2, Apache-2.0). The original Saganaki22 repo is gone; this is a byte-identical fork. Pure Python, no requirements. NOT pre-installed by SimpliGen."
+          }
+        ],
+        "steps": 3,
+        "cfg": 1,
+        "negativePrompt": "",
+        "reclaimVramBeforeDecode": true,
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 45.6,
+          "notes": "Recipe as published by Viggle and used by Maestro: an edited frame of the driving clip as the only reference, 3 euler passes on [1, 0.857, 0.6, 0] (linspace(1,0,4) shifted by 3), CFG 1, H3 sigma shift 3/3, the fixed 362-token text embedding (no text encoder), one 124-frame window. Weights: drbaph/Viggle-Animate-ComfyUI pruned int8 ConvRot (21.0 GB) + DMD LoRA r64 (0.94 GB) + fixed embed, H3 fp16 video VAE; for the repaint Flux 2 Klein 9B fp8 (9.4 GB), its Qwen3 8B fp8mixed encoder (8.7 GB) and the Flux 2 VAE. Repaint = Klein 4 steps, CFG 1, frame 0 as reference 1 at its own size (sets the canvas), the character as reference 2 at 1 MP, Maestro's swap prompt without 'props' (with it, Klein kept the source's sword on 6 of 6 repaints). The user LoRA slot and app accelerators are deliberately absent: Viggle's recipe disables LoRAs, Turbo, Sol and caching. Custom node: ComfyUI-Viggle-Animate-H3 v1.3.2; its author's GitHub account was deleted on 2026-09-23, so the pack pins michaeldune's fork (of bhardwajRahul's fork) at 6ae081af, byte-identical to the Comfy Registry 1.3.2 zip; pure Python, no pip deps. Tested 2026-09-23 on a 4070 Ti 12 GB / 31 GB RAM on a standalone engine: 12 clips across 3 driving videos x 3 repaint seeds held identity and outfit once the repaint prompt named the props to remove; full-body subjects at 480p give ~35 px faces and weak likeness, a medium close-up gives a close match. One job (repaint + animation, cold loads) took 168 s. IN THE APP (2026-09-23, app with engine 0.37.0): prepare downloaded the text_cond file and installed the node, and the engine restart that the node install triggers also mapped the new text_cond folder, so no manual restart was needed; a sea clip + the character sheet rendered in 169 s, 896x480, 124 frames, 5.167 s, soundtrack identical to the source (envelope correlation 1.000). Agents: pass the clip as referenceVideos on POST /generate; the SimpliGen MCP 0.2.0 generate tool only has `video`, which fills the video_file placeholder, and the job fails with missing ref_video_1."
+        }
+      }
+    }
+  ]
+}

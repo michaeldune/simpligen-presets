@@ -14,6 +14,16 @@ OUT_DIR = r'D:\SimpliGen-Backups\zips'
 
 # ── Custom node registry ──────────────────────────────────────────────────────
 CUSTOM_NODES = {
+    'ViggleAnimateConditioning': {
+        'name': 'ComfyUI-Viggle-Animate-H3',
+        'url':  'https://github.com/michaeldune/ComfyUI-Viggle-Animate-H3',
+        'note': 'Viggle-Animate conditioning + fixed text-conditioning loader (v1.3.2, Apache-2.0, pure Python, no requirements). NOT pre-installed by SimpliGen. The original Saganaki22 repo was deleted with its account on 2026-09-23; michaeldune\'s fork is byte-identical to the Comfy Registry 1.3.2 zip. Pin 6ae081af.',
+    },
+    'ViggleTextCondLoader': {
+        'name': 'ComfyUI-Viggle-Animate-H3',
+        'url':  'https://github.com/michaeldune/ComfyUI-Viggle-Animate-H3',
+        'note': 'Viggle fixed text-conditioning loader (see above).',
+    },
     'MiniMaxMusic3DisableLayerGraphs': {
         'name': 'ComfyUI-MiniMax-Music3-GraphFix',
         'url':  'https://github.com/michaeldune/ComfyUI-MiniMax-Music3-GraphFix',

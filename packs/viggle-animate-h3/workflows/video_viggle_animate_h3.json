@@ -1,0 +1,617 @@
+{
+  "clip_load": {
+    "inputs": {
+      "file": "{{ref_video_1}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Driving clip"
+    }
+  },
+  "clip_trim": {
+    "inputs": {
+      "video": [
+        "clip_load",
+        0
+      ],
+      "start_time": 0,
+      "duration": 5.1667,
+      "strict_duration": false
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "First 124 frames at 24 fps (one Viggle window)"
+    }
+  },
+  "clip_parts": {
+    "inputs": {
+      "video": [
+        "clip_trim",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Clip frames + soundtrack"
+    }
+  },
+  "tier_mp": {
+    "inputs": {
+      "expression": "a * b / 1000000",
+      "values.a": {{width}},
+      "values.b": {{height}}
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Tier size in megapixels (aspect follows the clip)"
+    }
+  },
+  "clip_scale": {
+    "inputs": {
+      "image": [
+        "clip_parts",
+        0
+      ],
+      "upscale_method": "bicubic",
+      "megapixels": [
+        "tier_mp",
+        0
+      ],
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale the clip to the tier, keeping its aspect"
+    }
+  },
+  "frame0": {
+    "inputs": {
+      "image": [
+        "clip_scale",
+        0
+      ],
+      "batch_index": 0,
+      "length": 1
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Frame 0 (the frame that gets repainted)"
+    }
+  },
+  "char_load": {
+    "inputs": {
+      "image": "{{ref_image_1}}",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Character"
+    }
+  },
+  "char_scale": {
+    "inputs": {
+      "image": [
+        "char_load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 1
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Character at 1 MP"
+    }
+  },
+  "klein_unet": {
+    "inputs": {
+      "unet_name": "{{klein_unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Flux 2 Klein 9B (repaint)"
+    }
+  },
+  "klein_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "flux2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Qwen3 8B (Klein encoder)"
+    }
+  },
+  "klein_vae": {
+    "inputs": {
+      "vae_name": "{{klein_vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Flux 2 VAE"
+    }
+  },
+  "swap_head": {
+    "inputs": {
+      "string_a": "Replace the main character in source frame with character in second image.",
+      "string_b": "{{prompt}}",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Swap instruction + the user's notes (e.g. what to remove)"
+    }
+  },
+  "swap_prompt": {
+    "inputs": {
+      "string_a": [
+        "swap_head",
+        0
+      ],
+      "string_b": "Preserve the exact pose, body orientation, hands, background, camera framing, lighting and image dimensions.",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Repaint prompt (no 'props': Klein keeps whatever it is told to preserve)"
+    }
+  },
+  "klein_text": {
+    "inputs": {
+      "clip": [
+        "klein_clip",
+        0
+      ],
+      "text": [
+        "swap_prompt",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Encode repaint prompt"
+    }
+  },
+  "klein_neg": {
+    "inputs": {
+      "conditioning": [
+        "klein_text",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Empty negative"
+    }
+  },
+  "enc_frame": {
+    "inputs": {
+      "pixels": [
+        "frame0",
+        0
+      ],
+      "vae": [
+        "klein_vae",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "Encode frame 0 (image 1)"
+    }
+  },
+  "enc_char": {
+    "inputs": {
+      "pixels": [
+        "char_scale",
+        0
+      ],
+      "vae": [
+        "klein_vae",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "Encode character (image 2)"
+    }
+  },
+  "pos_ref1": {
+    "inputs": {
+      "conditioning": [
+        "klein_text",
+        0
+      ],
+      "latent": [
+        "enc_frame",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "Ref: frame 0"
+    }
+  },
+  "pos_ref2": {
+    "inputs": {
+      "conditioning": [
+        "pos_ref1",
+        0
+      ],
+      "latent": [
+        "enc_char",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "Ref: character"
+    }
+  },
+  "neg_ref1": {
+    "inputs": {
+      "conditioning": [
+        "klein_neg",
+        0
+      ],
+      "latent": [
+        "enc_frame",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "Neg ref: frame 0"
+    }
+  },
+  "neg_ref2": {
+    "inputs": {
+      "conditioning": [
+        "neg_ref1",
+        0
+      ],
+      "latent": [
+        "enc_char",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "Neg ref: character"
+    }
+  },
+  "frame_size": {
+    "inputs": {
+      "image": [
+        "frame0",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Frame size = repaint canvas"
+    }
+  },
+  "klein_latent": {
+    "inputs": {
+      "width": [
+        "frame_size",
+        0
+      ],
+      "height": [
+        "frame_size",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Repaint latent at the frame's own size"
+    }
+  },
+  "klein_sched": {
+    "inputs": {
+      "steps": 4,
+      "width": [
+        "frame_size",
+        0
+      ],
+      "height": [
+        "frame_size",
+        1
+      ]
+    },
+    "class_type": "Flux2Scheduler",
+    "_meta": {
+      "title": "Klein 4 steps"
+    }
+  },
+  "klein_guider": {
+    "inputs": {
+      "model": [
+        "klein_unet",
+        0
+      ],
+      "positive": [
+        "pos_ref2",
+        0
+      ],
+      "negative": [
+        "neg_ref2",
+        0
+      ],
+      "cfg": 1.0
+    },
+    "class_type": "CFGGuider",
+    "_meta": {
+      "title": "Klein guider (CFG 1)"
+    }
+  },
+  "klein_sampler": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "euler"
+    }
+  },
+  "klein_noise": {
+    "inputs": {
+      "noise_seed": {{seed}}
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Repaint seed"
+    }
+  },
+  "klein_sample": {
+    "inputs": {
+      "noise": [
+        "klein_noise",
+        0
+      ],
+      "guider": [
+        "klein_guider",
+        0
+      ],
+      "sampler": [
+        "klein_sampler",
+        0
+      ],
+      "sigmas": [
+        "klein_sched",
+        0
+      ],
+      "latent_image": [
+        "klein_latent",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Repaint frame 0"
+    }
+  },
+  "repaint": {
+    "inputs": {
+      "samples": [
+        "klein_sample",
+        0
+      ],
+      "vae": [
+        "klein_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Repainted frame 0"
+    }
+  },
+  "viggle_text": {
+    "inputs": {
+      "text_cond": "{{text_cond}}"
+    },
+    "class_type": "ViggleTextCondLoader",
+    "_meta": {
+      "title": "Viggle fixed text conditioning"
+    }
+  },
+  "viggle_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "H3 video VAE"
+    }
+  },
+  "viggle_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Viggle-Animate (pruned int8)"
+    }
+  },
+  "viggle_lora": {
+    "inputs": {
+      "model": [
+        "viggle_unet",
+        0
+      ],
+      "lora_name": "{{viggle_lora}}",
+      "strength_model": 1.0
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Viggle DMD 3-pass adapter"
+    }
+  },
+  "viggle_shift": {
+    "inputs": {
+      "model": [
+        "viggle_lora",
+        0
+      ],
+      "shift_video": 3.0,
+      "shift_audio": 3.0
+    },
+    "class_type": "MiniMaxH3SigmaShift",
+    "_meta": {
+      "title": "Shift 3"
+    }
+  },
+  "viggle_cond": {
+    "inputs": {
+      "cond_video": [
+        "clip_scale",
+        0
+      ],
+      "ref_image": [
+        "repaint",
+        0
+      ],
+      "text_cond": [
+        "viggle_text",
+        0
+      ],
+      "vae": [
+        "viggle_vae",
+        0
+      ],
+      "width": 0,
+      "height": 0,
+      "length": 124
+    },
+    "class_type": "ViggleAnimateConditioning",
+    "_meta": {
+      "title": "Viggle conditioning (clip + repainted frame)"
+    }
+  },
+  "viggle_noise": {
+    "inputs": {
+      "noise_seed": {{seed}}
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Animation seed"
+    }
+  },
+  "viggle_guider": {
+    "inputs": {
+      "model": [
+        "viggle_shift",
+        0
+      ],
+      "conditioning": [
+        "viggle_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Guider (CFG 1)"
+    }
+  },
+  "viggle_sampler": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "euler"
+    }
+  },
+  "viggle_sigmas": {
+    "inputs": {
+      "sigmas": "1.0, 0.8571428571428571, 0.6, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "3 passes: linspace(1,0,4) shifted by 3"
+    }
+  },
+  "viggle_sample": {
+    "inputs": {
+      "noise": [
+        "viggle_noise",
+        0
+      ],
+      "guider": [
+        "viggle_guider",
+        0
+      ],
+      "sampler": [
+        "viggle_sampler",
+        0
+      ],
+      "sigmas": [
+        "viggle_sigmas",
+        0
+      ],
+      "latent_image": [
+        "viggle_cond",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Animate"
+    }
+  },
+  "viggle_decode": {
+    "inputs": {
+      "samples": [
+        "viggle_sample",
+        0
+      ],
+      "vae": [
+        "viggle_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode video"
+    }
+  },
+  "out_video": {
+    "inputs": {
+      "images": [
+        "viggle_decode",
+        0
+      ],
+      "fps": 24,
+      "audio": [
+        "clip_parts",
+        1
+      ],
+      "bit_depth": 8
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Mux the clip's own soundtrack back"
+    }
+  },
+  "out_save": {
+    "inputs": {
+      "video": [
+        "out_video",
+        0
+      ],
+      "filename_prefix": "video/viggle_animate_h3",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}
