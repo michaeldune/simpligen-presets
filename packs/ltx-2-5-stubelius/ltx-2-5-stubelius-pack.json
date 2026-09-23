@@ -1,0 +1,374 @@
+{
+  "id": "ltx-2-5-stubelius-pack",
+  "name": "Community — LTX 2.5 Stubelius Remix (Anime)",
+  "version": "1.0.0",
+  "author": "Stubelius (model) + michaeldune (pack)",
+  "nsfw": true,
+  "addedAt": "2026-09-23",
+  "description": "LTX 2.5 text-to-video and image-to-video with Stubelius Remix beta 2, a community LTX 2.5 checkpoint that carries the 2D/stylized and NSFW lineage of TenStrip's LTX 2.3 finetunes (10Eros, Sulphur 2) onto LTX 2.5 by task-vector arithmetic, with the LTX distilled LoRA merged in. It is an anime-first model: 2D / 2.5D and stylized characters stay stylized where REDgraft drifts toward semi-real, and live-action prompts still come out realistic. Measured against REDgraft on the same graph, prompts and seeds (2026-09-23, 4 prompts x 2 seeds): it followed staging less reliably (a character never turned to camera, a second character never arrived, 2 of 2 seeds each) and took about twice as long per clip. Treat it as an NSFW model: on clothed prompts it still sexualises women (see-through or ridden-up clothing on 3 of 3 clothed test prompts, including one that specified a buttoned-up raincoat), so it is not suitable for SFW work. Same two-pass graphs, companion files and settings as the REDgraft pack (CFG 1, 8 steps + upscale), so only the 21.5 GB model is new if REDgraft is installed. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs. Licence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "LTX",
+    "Anime",
+    "Stylized",
+    "NSFW"
+  ],
+  "checksums": {
+    "https://huggingface.co/Stuubs/Stubelius_Remix/resolve/c187c35336400c41bc4e70154dd1eff07b5ea911/ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors": "f108d8db65f8a0a32f9fbbcf718dd80d191e96406acfb383af0912ff9aef6285"
+  },
+  "presets": [
+    {
+      "id": "stubelius-ltx-25-anime-t2v",
+      "name": "LTX 2.5 Stubelius Anime (T2V, NSFW)",
+      "icon": "🌸",
+      "description": "Text to video with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for NSFW work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "tagline": "Anime-first LTX 2.5 text-to-video with generated audio",
+      "previewImage": "previews/stubelius-ltx-25-anime-t2v.jpg",
+      "tags": [
+        "Video",
+        "T2V",
+        "LTX 2.5",
+        "Anime",
+        "Stylized",
+        "INT8",
+        "NSFW"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 Stubelius Remix beta 2 (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/stubelius-ltx-25-anime-t2v.json",
+        "requiresImage": false,
+        "unet": "ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Stuubs/Stubelius_Remix/resolve/c187c35336400c41bc4e70154dd1eff07b5ea911/ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 21.5,
+          "notes": "Stubelius Remix beta 2 INT8 ConvRot (Stuubs/Stubelius_Remix @ c187c353, 21.5 GB, sha256 pinned in the pack checksums; distilled LoRA already merged). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the REDgraft pack uses. Workflows are REDgraft's, byte-identical apart from the save prefix and a node title. Tested 2026-09-23 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0, 480p 16:9, 5 s, seeds 11/12): 81-96 s per clip, peak VRAM 11.6 GB; REDgraft on the same graph 39-54 s. In the app (2026-09-23): T2V 97 s, I2V 132 s, both 832x448, 121 frames, with audio (audio not judged by ear). The T2V test asked for a buttoned-up raincoat and got it see-through. "
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stubelius-ltx-25-anime-i2v",
+      "name": "LTX 2.5 Stubelius Anime (I2V, NSFW)",
+      "icon": "🌸",
+      "description": "Animate a source image with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for NSFW work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "tagline": "Anime-first LTX 2.5 image-to-video with generated audio",
+      "previewImage": "previews/stubelius-ltx-25-anime-i2v.jpg",
+      "tags": [
+        "Video",
+        "I2V",
+        "LTX 2.5",
+        "Anime",
+        "Stylized",
+        "INT8",
+        "NSFW"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 Stubelius Remix beta 2 (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/stubelius-ltx-25-anime-i2v.json",
+        "requiresImage": true,
+        "unet": "ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Stuubs/Stubelius_Remix/resolve/c187c35336400c41bc4e70154dd1eff07b5ea911/ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 21.5,
+          "notes": "Stubelius Remix beta 2 INT8 ConvRot (Stuubs/Stubelius_Remix @ c187c353, 21.5 GB, sha256 pinned in the pack checksums; distilled LoRA already merged). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the REDgraft pack uses. Workflows are REDgraft's, byte-identical apart from the save prefix and a node title. Tested 2026-09-23 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0, 480p 16:9, 5 s, seeds 11/12): 81-96 s per clip, peak VRAM 11.6 GB; REDgraft on the same graph 39-54 s. In the app (2026-09-23): T2V 97 s, I2V 132 s, both 832x448, 121 frames, with audio (audio not judged by ear). The T2V test asked for a buttoned-up raincoat and got it see-through. This image-to-video preset requires a source image."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    }
+  ]
+}

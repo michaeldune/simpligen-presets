@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 173 ready-to-run presets in 52 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 175 ready-to-run presets in 53 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 52 packs, 173 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 53 packs, 175 presets.">
 </p>
 
 **Image packs**
@@ -68,6 +68,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (FastH3 8-Step V2) | 2 | FastVideo FastH3 V2 (INT8) | FastVideo's DMD2 distill with VSA block-sparse attention, Comfy-Org repack (20.6 GB, its own checkpoint), official template graph: 8 steps, no CFG, sigma shift 10/3, VSA keep 10%. **Needs engine 0.36+ (beta channel as of 2026-09-16)**, store-gated with minComfyuiVersion. Bake vs TaoMate and Turbo Accelerated, same seeds: sharper on every scene (talk 68 vs 46 vs 29, product 257 vs 111 vs 121, run 138 vs 58 vs 102) with motion kept (6.7 vs the turbo's 7.2); ~80 s per 5 s at 480p. T2V + I2V, no R2V |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 | LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |
+| LTX 2.5 Stubelius Remix (Anime, T2V + I2V) | 2 | LTX 2.5 Stubelius Remix beta 2 (INT8) | **Anime-first LTX 2.5.** Stubelius's port of the 10Eros / Sulphur 2 stylized lineage onto LTX 2.5, distill merged: 2D, 2.5D and stylized characters stay stylized where REDgraft drifts semi-real; live action still comes out realistic. Same graphs and companion files as REDgraft, so only the 21.5 GB model is new. Against REDgraft on the same prompts and seeds it skipped staging beats more often and took about twice as long (80-95 s for 5 s at 480p on 12 GB). NSFW model: it sexualised clothed women on 3 of 3 clothed test prompts, so not for SFW work. Gated LTX 2.5 companion files (HF key + licence acceptance). **LTX-2 Community License** |
 | LTX 2.5 REDgraft Fast 2K (T2V + I2V) | 2 | LTX 2.5 REDgraft (INT8) | Text-to-video with generated audio or image-to-video from a source image. Separate NSFW finetune; reuses the official LTX 2.5 companion stack |
 | MiniMax H3 (DaSiWa Hybrid) | 4 | MiniMax H3 (int8 + ConvRot) | **The fast one.** Darksidewalker's finetune with the distillation baked in: 4 steps, no Turbo LoRA, nothing extra to install. ONE checkpoint covers T2V + I2V + R2V where every other H3 pack needs two, so it is ~19.5 GB lighter. Roughly 70-140 s per 5 s shot against ~180. Reads brighter and wider than stock — pick another H3 pack for the darker look. Needs a Civitai API key (free model, sign-in required). 1.1.0 adds **Character PV**: one design sheet in, a 15 s 13-shot reveal trailer with five typography cards and a name/title card out (316 s at 480p on a 4070 Ti). How-to with both prompt templates: [docs/character-pv-guide.md](docs/character-pv-guide.md) |
 | MiniMax H3 (DaSiWa Hybrid v2) | 3 | DaSiWa Hybrid Turbo v2 (int8 + ConvRot) | **The natural-skin one.** Darksidewalker's v2 Turbo (2026-09-11): FL2VA weights with a baked REF2VA delta, one 19.5 GB checkpoint for T2V + I2V + R2V, distillation baked in, nothing to install. Measured 2026-09-13 against the v1 pack on the same seed and prompts: at 4 steps it is softer than v1, at **8 steps** (default, ~100 s per 5 s shot at 480p) it gives the cleanest skin of every H3 turbo we ship - no oily sheen, no blown key light - where v1 reads bright and crunchy. Keep v1 for speed, use this for faces. Identity held on every reference test. Needs a Civitai API key (free model, sign-in required). |
