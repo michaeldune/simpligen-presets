@@ -65,7 +65,7 @@
         "steps": 20,
         "cfg": 3,
         "denoise": 1,
-        "negativePrompt": "artifacts, gpt-image, washed-out colors, low quality, low resolution, AI slop, deviantart, sloppy lines, rough sketch, blurry, indistinct, missing fingers, badly drawn hands",
+        "negativePrompt": "",
         "controls": {
           "steps": {
             "min": 12,
@@ -114,7 +114,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 17.3,
-          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Tested 2026-09-20 on a 4070 Ti 12 GB (stock ComfyUI master): 16 s per 1024x1024 or 1344x768 picture at 25 steps, about 9.4 GB VRAM in use; a five-word shop sign came out letter-perfect; the RGBA prompt produced real alpha. SINCE 1.4.0 (2026-09-22): guided sampling - CFG 3, 20 steps, seeds_2/sgm_uniform, Adaptive Projected Guidance (1/10/0.3) and FreSca (1/2/8), with a negative prompt - replacing the Comfy template's CFG 1. Tested on 2 prompts x 3 seeds (text to image) and 2 seeds (edit, 1 and 4 references): lettering on signs and menus went from mostly garbled to readable, colour stayed natural, identities held; about 2.4x the time (1 MP text to image ~34 s, one-reference edit ~88 s, four references ~6 min on a 4070 Ti)."
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Tested 2026-09-20 on a 4070 Ti 12 GB (stock ComfyUI master): 16 s per 1024x1024 or 1344x768 picture at 25 steps, about 9.4 GB VRAM in use; a five-word shop sign came out letter-perfect; the RGBA prompt produced real alpha. SINCE 1.4.0 (2026-09-22): guided sampling - CFG 3, 20 steps, seeds_2/sgm_uniform, Adaptive Projected Guidance (1/10/0.3) and FreSca (1/2/8), with a negative prompt - replacing the Comfy template's CFG 1. Tested on 2 prompts x 3 seeds (text to image) and 2 seeds (edit, 1 and 4 references): lettering on signs and menus went from mostly garbled to readable, colour stayed natural, identities held; about 2.4x the time (1 MP text to image ~34 s, one-reference edit ~88 s, four references ~6 min on a 4070 Ti). IN THE APP (2026-09-22): text to image 44 s with a letter-perfect sign and menu; one-reference edit 95 s, identity and clothes kept. The negative prompt is built into the workflow (StringConcatenate) because the app sends an empty negative_prompt; anything the user types is appended."
         }
       }
     },
@@ -160,7 +160,7 @@
         "steps": 20,
         "cfg": 3,
         "denoise": 1,
-        "negativePrompt": "artifacts, gpt-image, washed-out colors, low quality, low resolution, AI slop, deviantart, sloppy lines, rough sketch, blurry, indistinct, missing fingers, badly drawn hands",
+        "negativePrompt": "",
         "controls": {
           "steps": {
             "min": 12,
@@ -216,7 +216,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 17.3,
-          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Reference loaders use the sgopt_ optional-slot naming, so the app removes an empty slot and its images.image_N input before the job is queued; one encoder serves one to four pictures. References are resized to about 1 MP before encoding (the node's resolution input). Every extra reference lengthens the sequence: on a 4070 Ti 12 GB one reference took 22 s, two took 52 s and four took 106 s at 25 steps (2026-09-20, stock ComfyUI master); identity, a sticker character, a lettered sign and a street scene all carried into one four-reference picture. SINCE 1.4.0 (2026-09-22): guided sampling - CFG 3, 20 steps, seeds_2/sgm_uniform, Adaptive Projected Guidance (1/10/0.3) and FreSca (1/2/8), with a negative prompt - replacing the Comfy template's CFG 1. Tested on 2 prompts x 3 seeds (text to image) and 2 seeds (edit, 1 and 4 references): lettering on signs and menus went from mostly garbled to readable, colour stayed natural, identities held; about 2.4x the time (1 MP text to image ~34 s, one-reference edit ~88 s, four references ~6 min on a 4070 Ti)."
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Reference loaders use the sgopt_ optional-slot naming, so the app removes an empty slot and its images.image_N input before the job is queued; one encoder serves one to four pictures. References are resized to about 1 MP before encoding (the node's resolution input). Every extra reference lengthens the sequence: on a 4070 Ti 12 GB one reference took 22 s, two took 52 s and four took 106 s at 25 steps (2026-09-20, stock ComfyUI master); identity, a sticker character, a lettered sign and a street scene all carried into one four-reference picture. SINCE 1.4.0 (2026-09-22): guided sampling - CFG 3, 20 steps, seeds_2/sgm_uniform, Adaptive Projected Guidance (1/10/0.3) and FreSca (1/2/8), with a negative prompt - replacing the Comfy template's CFG 1. Tested on 2 prompts x 3 seeds (text to image) and 2 seeds (edit, 1 and 4 references): lettering on signs and menus went from mostly garbled to readable, colour stayed natural, identities held; about 2.4x the time (1 MP text to image ~34 s, one-reference edit ~88 s, four references ~6 min on a 4070 Ti). IN THE APP (2026-09-22): text to image 44 s with a letter-perfect sign and menu; one-reference edit 95 s, identity and clothes kept. The negative prompt is built into the workflow (StringConcatenate) because the app sends an empty negative_prompt; anything the user types is appended."
         }
       },
       "characterRoles": [

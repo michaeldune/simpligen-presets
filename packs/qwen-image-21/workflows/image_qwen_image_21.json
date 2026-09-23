@@ -60,7 +60,10 @@
         0
       ],
       "prompt": "{{prompt}}",
-      "negative_prompt": "{{negative_prompt}}",
+      "negative_prompt": [
+        "sg_negative",
+        0
+      ],
       "resolution": 1024
     },
     "class_type": "TextEncodeQwenImage21",
@@ -107,6 +110,17 @@
     "class_type": "FreSca",
     "_meta": {
       "title": "FreSca"
+    }
+  },
+  "sg_negative": {
+    "inputs": {
+      "string_a": "artifacts, gpt-image, washed-out colors, low quality, low resolution, AI slop, deviantart, sloppy lines, rough sketch, blurry, indistinct, missing fingers, badly drawn hands",
+      "string_b": "{{negative_prompt}}",
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Built-in negative + yours"
     }
   },
   "sg_sampler": {
