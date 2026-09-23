@@ -205,6 +205,14 @@ hosted account). Ideas worth borrowing for our own bridge:
 
 ## Done / dropped
 
+- **2026-09-22/23, M3_Unlocked_V2 LoRA on every H3 model (Shar's "Unlocked" cards):** same SFW prompt and seed, 480p,
+  no LoRA vs 0.5, 11 models. Only Turbo Accelerated showed a real, pleasant variation at no time cost; it SHIPPED as an
+  unlock slider (1.5.0, default 0, pixel-identical at 0). DaSiWa v1 reshuffled the scene and sexualised a background
+  painting. SolAttn, Z-Image graft, SparseRef15, FastH3, 10Eros v1/beta5/beta5 Turbo, DaSiWa v2 and Singularity: near
+  no-op (at most a changed painting, +0-16 s). Decision: add it nowhere else. Shar's sharper look was mostly his 768p
+  default; at matched 768p DaSiWa won on hair. Untested: NSFW prompts, more seeds.
+  `D:\SimpliGen-Backups\unlocked-lora-dasiwa-20260922\`.
+
 - **2026-09-19, item 2 (singing):** BITB 9.5-24.58 s, lead close-up, stem + backing -14 dB, join mid-phrase.
   The pack's `digital_human` mode locks the supplied audio (output vs song waveform corr 0.976). Mouth-vs-vocal r:
   fresh clip +0.616, continuation after the join +0.573, single long generation +0.497/+0.340 (framed wider, so
