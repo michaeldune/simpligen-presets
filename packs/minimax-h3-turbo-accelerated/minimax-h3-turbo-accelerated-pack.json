@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-turbo-accelerated-pack",
   "name": "Community — MiniMax H3 (Turbo, Fully Accelerated)",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "author": "larryvrh + kijai + xmarre",
   "nsfw": false,
   "description": "BEST WITH FASTER ATTENTION. Turn on SimpliGen's faster-attention support (Settings > Advanced) for the speeds quoted here. It is no longer required: SageAttention is applied by the app rather than baked into the workflow, so if faster attention crashes your GPU and SimpliGen switches it off, these presets still generate on Turbo LoRA + Sigma Shift + Spectrum + Sol-Attn - slower, but they run. MiniMax H3 text-to-video with every acceleration technique stacked: MiniMax H3 Turbo LoRA (v4-600 EMA, applied via the dedicated ComfyUI-MiniMax-H3-Turbo loader - required on our pruned int8 base, since a generic LoRA loader silently drops the adaln timing-curve weights) + MiniMax H3 Turbo Sampler (dual-schedule aware, auto-detects native ModelSamplingAV) + SageAttention (applied by SimpliGen's faster-attention setting) + MiniMax H3 Sigma Shift (native noise-schedule control) + Spectrum (xmarre's spectral-feature-forecasting accelerator, ~30-40% fewer transformer evaluations) + Sol-Attn (sparse attention, reduced VRAM). Stack order and recommended settings sourced from the community workflow this pack is based on. Steps reduced from the official 20 down to 10 (can go as low as 4 per the source video, at a quality cost). Tested T2V at 5s/480p/10 steps: 84.1s on engine v0.31.0 (was 99.1s on v0.30.1), LoRA log-confirmed fully applied (208/208 backbone modules + 51 adaln modules, zero dropped keys) - clean video output across sampled frames, no artifacts, no visible plastic-skin/over-sharp-grain look. That is 2.03x the official 20-step MiniMax H3 preset measured the same way, making this the first preset here to pass 2x. Research/experimental preset - Spectrum is an approximate accelerator (not bit-identical output). IMPORTANT, from Spectrum's own maintainer as of 2026-08-13: few-step acceleration LoRAs - explicitly including Turbo - are NOT recommended alongside Spectrum for quality-critical work. Reported degradation covers composition, action and motion, reduced natural detail, and a smooth/plasticky look. He also found the same degradation running the acceleration LoRA WITHOUT Spectrum, so this is the Turbo LoRA's character rather than a Spectrum interaction - but it means this pack stacks two things whose author does not recommend combining them. Use it for speed; use the Sol-Attn + EasyCache pack at 20 steps when fidelity matters. Settings here are blend_weight 0.50, audio_blend_weight 0.00, offline_smoothing_replay on. Note audio_blend_weight 0 does NOT make a forecast step equivalent to a real transformer evaluation - it only stops direct spectral blending of audio rows; Spectrum still substitutes predicted hidden features on forecast steps. At 10 steps this preset runs roughly 5 real evaluations and 5 forecasts, which is the short-trajectory regime the maintainer flags as having few actual anchors. Pinned against Spectrum v0.2.5; v0.2.6 and v0.2.7 since added native ER-SDE support and model-aware forecasting, which this workflow does not yet configure.",
@@ -76,6 +76,12 @@
             "dir": "loras",
             "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
             "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "M3_Unlocked_V2.safetensors",
+            "url": "https://civitai.com/api/download/models/3310653",
+            "description": "MiniMax H3 Unlocked by The Midnight Lab (Civitai 2925727), used only when the unlock slider is above 0"
           }
         ],
         "extensions": [
@@ -118,6 +124,11 @@
             "max": 20,
             "step": 1,
             "affectsCost": true
+          },
+          "unlock": {
+            "min": 0,
+            "max": 1,
+            "step": 0.05
           }
         },
         "defaultResolutionTier": 0,
@@ -338,9 +349,10 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested. SINCE 1.5.0 (2026-09-22): an unlock slider (default 0) applies M3_Unlocked_V2 by The Midnight Lab (Civitai 2925727, 164 MB, sha256 pinned) after the turbo LoRA, wired like SimpliGen's official H3 Unlocked cards. At 0 the output is unchanged. Tested on the t2v card at 480p, one seed: at 0.5 it varied the scene and sweater texture at no extra time (147 s vs 151 s) and did not sexualise a clean prompt; on the DaSiWa checkpoint it did, so it is only offered on stock-H3 cards. IN THE APP (2026-09-22): unlock 0 rendered pixel-identical frames to 1.4.2 on the same seed (PSNR inf); unlock 0.5 reached the LoRA and gave the background painting a bare shoulder, so expect it to pull toward sensual content when raised."
         },
-        "supportsSage": true
+        "supportsSage": true,
+        "unlock": 0
       }
     },
     {
@@ -409,6 +421,12 @@
             "dir": "loras",
             "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
             "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "M3_Unlocked_V2.safetensors",
+            "url": "https://civitai.com/api/download/models/3310653",
+            "description": "MiniMax H3 Unlocked by The Midnight Lab (Civitai 2925727), used only when the unlock slider is above 0"
           }
         ],
         "extensions": [
@@ -451,6 +469,11 @@
             "max": 20,
             "step": 1,
             "affectsCost": true
+          },
+          "unlock": {
+            "min": 0,
+            "max": 1,
+            "step": 0.05
           }
         },
         "defaultResolutionTier": 0,
@@ -671,9 +694,10 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested. SINCE 1.5.0 (2026-09-22): an unlock slider (default 0) applies M3_Unlocked_V2 by The Midnight Lab (Civitai 2925727, 164 MB, sha256 pinned) after the turbo LoRA, wired like SimpliGen's official H3 Unlocked cards. At 0 the output is unchanged. Tested on the t2v card at 480p, one seed: at 0.5 it varied the scene and sweater texture at no extra time (147 s vs 151 s) and did not sexualise a clean prompt; on the DaSiWa checkpoint it did, so it is only offered on stock-H3 cards. IN THE APP (2026-09-22): unlock 0 rendered pixel-identical frames to 1.4.2 on the same seed (PSNR inf); unlock 0.5 reached the LoRA and gave the background painting a bare shoulder, so expect it to pull toward sensual content when raised."
         },
-        "supportsSage": true
+        "supportsSage": true,
+        "unlock": 0
       }
     },
     {
@@ -754,6 +778,12 @@
             "dir": "loras",
             "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
             "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "M3_Unlocked_V2.safetensors",
+            "url": "https://civitai.com/api/download/models/3310653",
+            "description": "MiniMax H3 Unlocked by The Midnight Lab (Civitai 2925727), used only when the unlock slider is above 0"
           }
         ],
         "extensions": [
@@ -796,6 +826,11 @@
             "max": 20,
             "step": 1,
             "affectsCost": true
+          },
+          "unlock": {
+            "min": 0,
+            "max": 1,
+            "step": 0.05
           }
         },
         "defaultResolutionTier": 0,
@@ -1016,10 +1051,14 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested."
+          "notes": "Same base weights as SimpliGen's official MiniMax H3 pack (pruned int8 + nvfp4 encoder) plus the ~744MB Turbo LoRA - no new downloads beyond that. Needs FOUR custom nodes: ComfyUI-MiniMax-H3-Turbo (LoRA loader + dual-schedule sampler - required on this pruned base, a generic LoRA loader silently drops the adaln timing-curve weights), ComfyUI-KJNodes, ComfyUI-Spectrum-MiniMax-H3, and ComfyUI-SolAttn_triton (Sol-Attn also needs SimpliGen 1.43.x+ and Faster Attention enabled - see the extension note). Directly measured by this repo's maintainer: 5s/480p/10 steps in 84.1s on engine v0.31.0 (99.1s when first measured on v0.30.1), with the LoRA log-confirmed fully applied (zero dropped keys). Recommend 10 steps for quality; can go as low as 4 for speed per the source video, at a real quality cost. RAM requirement verified downward: every preset in this pack has been run repeatedly on a 32GB machine (31.2GB usable) with a 12GB RTX 4070 Ti, so the earlier 48GB figure was too conservative. The engine streams model weights rather than holding them resident, which is what makes a ~20GB checkpoint workable well under its own size. 16GB has not been tested. SINCE 1.5.0 (2026-09-22): an unlock slider (default 0) applies M3_Unlocked_V2 by The Midnight Lab (Civitai 2925727, 164 MB, sha256 pinned) after the turbo LoRA, wired like SimpliGen's official H3 Unlocked cards. At 0 the output is unchanged. Tested on the t2v card at 480p, one seed: at 0.5 it varied the scene and sweater texture at no extra time (147 s vs 151 s) and did not sexualise a clean prompt; on the DaSiWa checkpoint it did, so it is only offered on stock-H3 cards. IN THE APP (2026-09-22): unlock 0 rendered pixel-identical frames to 1.4.2 on the same seed (PSNR inf); unlock 0.5 reached the LoRA and gave the background painting a bare shoulder, so expect it to pull toward sensual content when raised."
         },
-        "supportsSage": true
+        "supportsSage": true,
+        "unlock": 0
       }
     }
-  ]
+  ],
+  "checksums": {
+    "https://civitai.com/api/download/models/3310653": "8138e5ec1c6cc79706f1129311e90dcd04cc0ef708336c494161b09057f34c07"
+  }
 }
