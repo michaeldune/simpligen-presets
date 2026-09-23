@@ -52,7 +52,7 @@
   "sg_cache": {
     "inputs": {
       "model": [
-        "simpligen_lora_1",
+        "sg_fresca",
         0
       ],
       "device": "auto",
@@ -110,7 +110,10 @@
         0
       ],
       "prompt": "{{prompt}}",
-      "negative_prompt": "{{negative_prompt}}",
+      "negative_prompt": [
+        "sg_negative",
+        0
+      ],
       "resolution": 1024,
       "images.image_1": [
         "sgopt_ref_image_1__load",
@@ -145,13 +148,54 @@
       "title": "Empty latent"
     }
   },
+  "sg_apg": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "eta": 1.0,
+      "norm_threshold": 10.0,
+      "momentum": 0.3
+    },
+    "class_type": "APG",
+    "_meta": {
+      "title": "Adaptive Projected Guidance"
+    }
+  },
+  "sg_fresca": {
+    "inputs": {
+      "model": [
+        "sg_apg",
+        0
+      ],
+      "scale_low": 1.0,
+      "scale_high": 2.0,
+      "freq_cutoff": 8
+    },
+    "class_type": "FreSca",
+    "_meta": {
+      "title": "FreSca"
+    }
+  },
+  "sg_negative": {
+    "inputs": {
+      "string_a": "artifacts, gpt-image, washed-out colors, low quality, low resolution, AI slop, deviantart, sloppy lines, rough sketch, blurry, indistinct, missing fingers, badly drawn hands",
+      "string_b": "{{negative_prompt}}",
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Built-in negative + yours"
+    }
+  },
   "sg_sampler": {
     "inputs": {
       "seed": {{seed}},
       "steps": "{{steps}}",
       "cfg": "{{cfg}}",
-      "sampler_name": "euler",
-      "scheduler": "simple",
+      "sampler_name": "seeds_2",
+      "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
         "sg_cache",
