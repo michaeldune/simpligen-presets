@@ -1,4 +1,4 @@
-# Discord update note: Qwen Image 2.1 1.4.0 + Song + Album Art 1.2.0, guided sampling (HELD, 2026-09-22)
+# Discord update note: Qwen Image 2.1 1.4.0 + Song + Album Art 1.2.0, guided sampling (POSTED by Michael 2026-09-22 20:31)
 
 **Qwen Image 2.1 (1.4.0): sharper text and detail on the main cards**
 
