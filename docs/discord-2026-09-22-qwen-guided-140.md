@@ -1,4 +1,4 @@
-# Discord update note: Qwen Image 2.1 1.4.0, guided sampling on the 1 MP cards (HELD, 2026-09-22)
+# Discord update note: Qwen Image 2.1 1.4.0 + Song + Album Art 1.2.0, guided sampling (HELD, 2026-09-22)
 
 **Qwen Image 2.1 (1.4.0): sharper text and detail on the main cards**
 
@@ -8,4 +8,6 @@ So **Qwen Image 2.1** and **Qwen Image 2.1 Edit** now run with CFG 3, Adaptive P
 
 The cost is time: about 35 seconds per picture instead of 16, and about 1½ minutes for an edit with one picture instead of 20 seconds. Nothing to change on your side; just update the pack.
 
-The other five cards (Cutout, Character Sheet, Enhance to 4MP, 4MP, Edit 4MP) are unchanged. Credit to e-n-v-y for sharing his settings. Non-commercial use only (Qwen Research License).
+**Song + Album Art (1.2.0)** gets the same treatment for its painted album art: song titles from a `[title]` line are lettered noticeably cleaner, and art without a title stays text-free. It adds about 10 seconds to a song.
+
+The other five Qwen cards (Cutout, Character Sheet, Enhance to 4MP, 4MP, Edit 4MP) are unchanged. Credit to e-n-v-y for sharing his settings. Non-commercial use only (Qwen Research License).
