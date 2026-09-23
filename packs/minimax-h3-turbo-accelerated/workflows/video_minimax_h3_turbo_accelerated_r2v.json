@@ -73,10 +73,24 @@
       "title": "MiniMax H3 Turbo LoRA"
     }
   },
+  "h3_unlocked_lora": {
+    "inputs": {
+      "lora_name": "M3_Unlocked_V2.safetensors",
+      "strength_model": {{unlock}},
+      "model": [
+        "h3_turbo_lora",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Unlock LoRA (M3_Unlocked_V2, strength = unlock slider)"
+    }
+  },
   "h3_sigma_shift": {
     "inputs": {
       "model": [
-        "h3_turbo_lora",
+        "h3_unlocked_lora",
         0
       ],
       "shift_video": 12.0,
