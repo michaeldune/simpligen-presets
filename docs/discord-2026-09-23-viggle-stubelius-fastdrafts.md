@@ -1,4 +1,4 @@
-HELD - not posted. Discord update note for 2026-09-23: Qwen Image 2.1 1.5.0 (869a3da), Viggle Animate for H3 1.0.0 (deead5a),
+POSTED by Michael 2026-09-23 18:52 in #preset-news (pasted from the rendered chat, so bold headings and tip bullets were lost). Discord update note for 2026-09-23: Qwen Image 2.1 1.5.0 (869a3da), Viggle Animate for H3 1.0.0 (deead5a),
 LTX 2.5 Stubelius Remix 1.0.0 (4347ed7), Flux 2 Klein 1.2.2 (aba7fc1). All cards verified in the app on engine 0.37.0. Post only
 after the store has synced the new versions.
 
