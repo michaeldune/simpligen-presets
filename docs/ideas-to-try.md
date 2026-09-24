@@ -224,3 +224,5 @@ hosted account). Ideas worth borrowing for our own bridge:
   and identity carried, latent hand-off +0.3% luma vs -2.2% through pixels. Continuation ~4x slower. His
   `MiniMaxH3TurboLoRA` node did not apply the LoRA on our int8 base; stock loader used. Full write-up:
   `D:\SimpliGen-Backups\satodive-continuation-test-20260919\VERDICT.md`.
+
+- **Qwen 2.1 Enhance to 4MP: note on textured backgrounds** (2026-09-24). In-app test on 1.65.1 (1344x768 edit output -> 2720x1536, info panel showed produced + requested sizes correctly) flattened the source's mottled paper grain to near-flat red while faces/armour improved. A one-line description warning ("smooths textured or grainy backgrounds") is a description-only 1.5.2 patch; deliberately NOT shipped unless a user reports it, to avoid an update badge for one sentence. Batch with the next Qwen 2.1 housekeeping if any.
