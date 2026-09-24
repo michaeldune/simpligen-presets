@@ -1,7 +1,7 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
@@ -835,32 +835,32 @@
         },
         "resolutionOverrides": {
           "1:1": {
-            "width": 1024,
-            "height": 1024
+            "width": 2048,
+            "height": 2048
           },
           "2:3": {
-            "width": 832,
-            "height": 1216
+            "width": 1696,
+            "height": 2528
           },
           "3:2": {
-            "width": 1216,
-            "height": 832
+            "width": 2528,
+            "height": 1696
           },
           "3:4": {
-            "width": 896,
-            "height": 1152
+            "width": 1792,
+            "height": 2400
           },
           "4:3": {
-            "width": 1152,
-            "height": 896
+            "width": 2400,
+            "height": 1792
           },
           "9:16": {
-            "width": 768,
-            "height": 1344
+            "width": 1536,
+            "height": 2752
           },
           "16:9": {
-            "width": 1344,
-            "height": 768
+            "width": 2752,
+            "height": 1536
           }
         },
         "requirements": {
