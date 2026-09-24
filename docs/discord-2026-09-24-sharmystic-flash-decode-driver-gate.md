@@ -27,3 +27,9 @@ Two things look off from the outside:
 
 Telling the user to update the driver, which I expect to fix it. Flagging it because the failure names neither the
 driver nor a minimum, and a user on an old driver with an otherwise healthy machine has nothing to go on.
+
+---
+
+**Sharmystic's reply (2026-09-24):** "good one, ill ship it in the next hotfix" — so the old-driver case will fall back
+to the non-flash KV path instead of failing the job. Watch for it in the next app/engine hotfix; until then, a
+pre-Turing-era driver on YuE2 still needs the user to update their NVIDIA driver.
