@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). One 17 GB download covers every other card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). The Fast Edit card (since 1.6.0) edits with PrunaAI's 8-step LoRA (adds 336 MB): about 20 seconds for a one-picture edit instead of about 80, best with one picture. One 17 GB download covers every other card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",
@@ -21,7 +21,8 @@
     "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
     "https://civitai.com/api/download/models/3346353?fileId=3233294": "9aef911a6f1492bd7f3006b4e280562002b6966324892c257f47d0066e83c9d1",
     "https://civitai.com/api/download/models/3349290": "c1298f51eb090473f924314475952710a2f0322f1df65c0290f3e14997244f96",
-    "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo/resolve/e57a0bbc496f25277773f725be6ddb8f6b109010/Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors": "7fd196e14629160c9d1470a698fbb65ccb95f725b72397ef554648ce468ad825"
+    "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo/resolve/e57a0bbc496f25277773f725be6ddb8f6b109010/Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors": "7fd196e14629160c9d1470a698fbb65ccb95f725b72397ef554648ce468ad825",
+    "https://huggingface.co/PrunaAI/Pruna-Qwen-Image-2.1/resolve/113e63bb993001b3411eb3470b84fc444040cd7e/p_qwen_image_2.1_8step_v0.1.safetensors": "f0865d68b02511a3a0ed232d9d1aa99cac3a94166f574b38bcbab1a7a297bb15"
   },
   "presets": [
     {
@@ -318,6 +319,103 @@
         ],
         "inputImage": "ref_image_1",
         "maxCharacters": 4
+      }
+    },
+    {
+      "id": "qwen-image-21-fast-edit",
+      "name": "Qwen Image 2.1 Fast Edit",
+      "icon": "⚡",
+      "enabled": true,
+      "tagline": "Picture edits in about 20 seconds",
+      "description": "Describe the edit and refer to the pictures by position, as on the main Edit card: Change the thread in <image1> to green. Eight steps with PrunaAI's few-step LoRA (v0.1, built in) instead of guided sampling, so a one-picture edit takes about 20 seconds on a 12 GB card instead of about 80. Best with ONE picture: colour and clothing changes, weather and time of day, swapping a word on a sign all held up in testing. With two or three pictures it is still much faster than the main Edit card but less reliable: small objects can deform and a picture can end up partly hidden, so re-roll the seed or use the main Edit card for a final multi-picture composite. Up to three pictures. Steps and CFG are fixed by the distillation, so there are no sliders. Non-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Qwen",
+        "Fast",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-fast-edit.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Pruna 8-step LoRA v0.1",
+        "workflow": "workflows/image_qwen_image_21_fast_edit.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 3,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.6,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE); the Pruna LoRA is a derivative under the same licence. Same int8 base, encoder and VAE as the other cards plus PrunaAI/Pruna-Qwen-Image-2.1 p_qwen_image_2.1_8step_v0.1 (336 MB, rank-64 DMD distillation, trained at 1K with up to 3 references; pinned to revision 113e63b, sha256 f0865d68...bb15). Recipe per the model card: LoRA strength 1.0, euler, CFG 1, empty negative, sigmas 1, 14/15, 6/7, 10/13, 2/3, 6/11, 0.4, 2/9, 0 used UNSHIFTED (ManualSigmas). Graph = the Edit card minus APG/FreSca/negative prompt, LoRA before the reference prefix cache; the fourth reference slot is removed because the distillation covers three. Tested 2026-09-25 on a 4070 Ti 12 GB (SimpliGen engine), same seeds against the main Edit card. One reference, 3 sources: 3/3 correct (dress colour + lanterns with the face kept, snow + a changed chalkboard word with the shop sign intact, thread colour + an added magnifier), sampler 5 s vs 54 s. Two or three references, 3 cases: 2/3 usable (a woman placed at a shop door; woman + shop + cat on her lap) and 1/3 failed (tweezers stretched into a blade, part of a menu hidden), sampler 11-19 s vs 138-216 s. PrunaAI call v0.1 work in progress; re-pin when they publish a new version. IN THE APP (2026-09-25, test pack): one-reference menu edit (a price changed from 5 to 7, a coffee cup drawn in) 20.7 s including the cold model load, every other menu line untouched; two-reference edit (woman from one picture at the door of the bakery in the other, holding a bread bag) 28.4 s, shop sign and chalkboard unchanged."
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "p_qwen_image_2.1_8step_v0.1.safetensors",
+            "url": "https://huggingface.co/PrunaAI/Pruna-Qwen-Image-2.1/resolve/113e63bb993001b3411eb3470b84fc444040cd7e/p_qwen_image_2.1_8step_v0.1.safetensors"
+          }
+        ]
       }
     },
     {

@@ -1,0 +1,231 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Qwen3-VL 8B"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "sg_turbo",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "class_type": "QwenImage21Cache",
+    "_meta": {
+      "title": "Reference prefix cache"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 1"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 2"
+    }
+  },
+  "sgopt_ref_image_3__load": {
+    "inputs": {
+      "image": "{{ref_image_3}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference 3"
+    }
+  },
+  "sg_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": "{{prompt}}",
+      "negative_prompt": "",
+      "resolution": 1024,
+      "images.image_1": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "images.image_2": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "images.image_3": [
+        "sgopt_ref_image_3__load",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Prompt + references"
+    }
+  },
+  "sg_latent": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty latent"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": {{seed}},
+      "cfg": 1.0,
+      "model": [
+        "sg_cache",
+        0
+      ],
+      "positive": [
+        "sg_encode",
+        0
+      ],
+      "negative": [
+        "sg_encode",
+        1
+      ],
+      "sampler": [
+        "sg_sampler_select",
+        0
+      ],
+      "sigmas": [
+        "sg_sigmas",
+        0
+      ],
+      "latent_image": [
+        "sg_latent",
+        0
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "Sampler (8 steps, CFG 1)"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "qwen_image_21_fast_edit",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  },
+  "sg_turbo": {
+    "inputs": {
+      "lora_name": "p_qwen_image_2.1_8step_v0.1.safetensors",
+      "strength_model": 1.0,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Pruna 8-step v0.1"
+    }
+  },
+  "sg_sigmas": {
+    "inputs": {
+      "sigmas": "1.000000, 0.933333, 0.857143, 0.769231, 0.666667, 0.545455, 0.400000, 0.222222, 0.000000"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "Pruna 8-step sigmas (unshifted)"
+    }
+  },
+  "sg_sampler_select": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  }
+}
