@@ -1,10 +1,10 @@
 {
   "id": "krea2-finetunes-pack",
   "name": "Community — Krea 2 Finetunes",
-  "version": "1.2.1",
-  "author": "Stable Yogi / Felldude / Binyuan / Adel_AI",
+  "version": "1.3.0",
+  "author": "Stable Yogi / Felldude / Binyuan / Adel_AI / lodestones (quant: silveroxides)",
   "nsfw": true,
-  "description": "Four trained Krea 2 checkpoints, as opposed to the merges in the Krea 2 pack — each with a specific, tested purpose. Muse v3.5 Extended: clean SFW editorial portraits with a real 8-20 step / CFG 1-3 range (ships 12 steps / CFG 1.5). FinalCut v2: matte skin instead of Krea 2's glossy 'wet skin', native up to 2432x1920, NSFW-capable. Binyuan Portrait v3.2: East Asian portrait realism trained on ~1,000 unedited studio photos. Kreamania V8: Adel_AI's refinement of Krea 2 for volumetric light and matte skin, NSFW intact. All four render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass. They share the Qwen3VL 4B encoder and Qwen-Image VAE with the Krea 2 pack, so each preset costs only its 12.8-14.5 GB checkpoint.",
+  "description": "Five trained Krea 2 checkpoints, as opposed to the merges in the Krea 2 pack — each with a specific, tested purpose. Muse v3.5 Extended: clean SFW editorial portraits with a real 8-20 step / CFG 1-3 range (ships 12 steps / CFG 1.5). FinalCut v2: matte skin instead of Krea 2's glossy 'wet skin', native up to 2432x1920, NSFW-capable. Binyuan Portrait v3.2: East Asian portrait realism trained on ~1,000 unedited studio photos. Kreamania V8: Adel_AI's refinement of Krea 2 for volumetric light and matte skin, NSFW intact. Kroma v0.3 Turbo (since 1.3.0): lodestones' Krea 2 fine-tune on the Chroma dataset, more artistic range, uncensored, fixed at CFG 1. All five render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass. They share the Qwen3VL 4B encoder and Qwen-Image VAE with the Krea 2 pack, so each preset costs only its 12.8-14.5 GB checkpoint.",
   "tags": [
     "Local",
     "Krea",
@@ -238,6 +238,124 @@
           "minRamGB": 16,
           "sizeGB": 13.8,
           "notes": "Krea-2 DiT (diffusion_models, INT8 Comfy_Quant_V3, 13.8 GB, SHA256 17910207…) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Successor to the withdrawn v2 file; v2 timings (1408x1408 ~27 s, 2432x1920 ~66 s on a 4070 Ti) are expected to carry over but are not re-measured on this file."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "characterRoles": [
+        "base"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "description"
+        ]
+      }
+    },
+    {
+      "id": "kroma-v03-txtfusion-turbo",
+      "name": "Kroma v0.3 Turbo (INT8)",
+      "tagline": "Krea 2 trained on the Chroma dataset: more artistic range, uncensored",
+      "icon": "🎨",
+      "previewImage": "previews/kroma-v03-txtfusion-turbo.jpg",
+      "description": "lodestones' Kroma: a full fine-tune of Krea 2 on the Chroma dataset (the maker of Chroma), here the v0.3 'txtfusion edition' turbo checkpoint in silveroxides' INT8 ConvRot conversion. Community reports call it more artistic and less 'clean' than stock Krea 2, and uncensored out of the box, so treat it as NSFW-capable. In our tests it followed clothing and colour instructions (a yellow oilskin, a red coat with a green scarf, three described people at a cafe table), kept shop-sign and small card lettering readable, and did clean anime line art, on par with FinalCut on 15 of 15 pictures. 8 steps, CFG fixed at 1: above that the picture breaks up into speckle, so there is no CFG slider. About 25 seconds at 1408x1408 on a 12 GB card. Upscale slider as on the other cards.",
+      "tags": [
+        "Krea",
+        "Artistic",
+        "NSFW",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Kroma v0.3 txtfusion turbo (INT8 ConvRot, silveroxides)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/kroma-v03-txtfusion-turbo.json",
+        "unet": "kroma-v0.3-txtfusion-edition-turbo-int8-convrot-simple.safetensors",
+        "unetUrl": "https://huggingface.co/silveroxides/Kroma-Quant/resolve/f4bd93f2c4368067d1987c38a5d89e7852799af6/kroma-v0.3-txtfusion-edition-turbo-int8-convrot-simple.safetensors",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 10,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 14.1,
+          "notes": "Krea-2 DiT (diffusion_models): silveroxides/Kroma-Quant kroma-v0.3-txtfusion-edition-turbo-int8-convrot-simple.safetensors, 14,135,109,632 B, SHA256 8dd20fe0aea42ba160f7827b31ce737d77b70d677586b84e32a337f622ce1686, pinned to revision f4bd93f; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Same graph as FinalCut: euler/simple, 8 steps, CFG 1, negative zeroed. LICENCE: the Krea 2 community licence governs the base weights (lodestones release their fine-tune under MIT). Tested 2026-09-25 on a 4070 Ti 12 GB (SimpliGen engine): 5 prompts x 3 seeds at 1408x1408 against FinalCut, all 15 correct (clothing colours, three described people, a shop sign plus a small window card, anime). 12 steps / CFG 1.5 brings back a speckle mosaic, hence no CFG control and steps capped at 10. Timing: 23-27 s per 1408 picture vs 34-41 s for FinalCut in the same run. Do NOT use Hiccup1234/Kroma-v0.3-INT8-ConvRot (a conversion of the v0.3 BASE): it renders speckle at every step/CFG/shift we tried."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
