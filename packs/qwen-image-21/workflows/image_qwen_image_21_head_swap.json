@@ -1,0 +1,184 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Qwen3-VL 8B"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "class_type": "QwenImage21Cache",
+    "_meta": {
+      "title": "Reference prefix cache"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture to change"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Head and hair to use"
+    }
+  },
+  "brief": {
+    "inputs": {
+      "string_a": "Replace the entire head and hair of the person in <image1> with the head, facial identity, facial hair and hairstyle of the person in <image2>. Keep the exact skull shape, hairline, hair colour and texture, and every distinguishing mark of the face in <image2>, adding nothing that is not in <image2>, turned to the same angle as the head in <image1>. Keep the body, clothing, pose and background of <image1> unchanged. Blend smoothly at the neck and collar, and relight the new head and hair to match the direction and colour of the lighting in <image1>.",
+      "string_b": "{{prompt}}",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Brief + your notes"
+    }
+  },
+  "sg_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": [
+        "brief",
+        0
+      ],
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "images.image_2": [
+        "sgopt_ref_image_2__load",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Brief + pictures"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "sg_cache",
+        0
+      ],
+      "positive": [
+        "sg_encode",
+        0
+      ],
+      "negative": [
+        "sg_encode",
+        1
+      ],
+      "latent_image": [
+        "sg_encode",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "qwen_image_21_head_swap",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}

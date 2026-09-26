@@ -1,0 +1,184 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Qwen3-VL 8B"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_cache": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "class_type": "QwenImage21Cache",
+    "_meta": {
+      "title": "Reference prefix cache"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "The person"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "The outfit"
+    }
+  },
+  "brief": {
+    "inputs": {
+      "string_a": "Dress the person in <image1> in the exact outfit shown in <image2>. First take away everything the person in <image1> is wearing or carrying, then put on every item shown in <image2>, garments, shoes and accessories alike, and nothing that is not in <image2>. Whatever <image2> shows worn on the head replaces whatever is on the head in <image1>; if <image2> shows nothing for the head, the head is left bare with the person's own hair. Keep the person's face, body, pose and the background of <image1> completely identical. Tailor the outfit from <image2> naturally to their pose, with physically accurate drape, realistic creases at the elbows and natural collar contact along the neckline.",
+      "string_b": "{{prompt}}",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Brief + your notes"
+    }
+  },
+  "sg_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": [
+        "brief",
+        0
+      ],
+      "negative_prompt": "{{negative_prompt}}",
+      "resolution": 1024,
+      "images.image_1": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "images.image_2": [
+        "sgopt_ref_image_2__load",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Brief + pictures"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "seed": {{seed}},
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "sg_cache",
+        0
+      ],
+      "positive": [
+        "sg_encode",
+        0
+      ],
+      "negative": [
+        "sg_encode",
+        1
+      ],
+      "latent_image": [
+        "sg_encode",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "qwen_image_21_outfit_swap",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  }
+}
