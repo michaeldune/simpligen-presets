@@ -1,7 +1,7 @@
 {
   "id": "viggle-animate-h3-pack",
   "name": "Community — Viggle Animate for H3 (Character Swap)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-09-23",
   "author": "Viggle Research + drbaph (ComfyUI conversion) + Saganaki22 (nodes) + michaeldune (card)",
   "nsfw": false,
@@ -50,6 +50,7 @@
           "minimax-h3"
         ],
         "workflow": "workflows/video_viggle_animate_h3.json",
+        "promptOptional": true,
         "duration": {
           "type": "slider",
           "min": 5,

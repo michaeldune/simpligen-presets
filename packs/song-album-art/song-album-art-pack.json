@@ -1,7 +1,7 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
@@ -581,7 +581,7 @@
       "tagline": "New album art on a finished song, audio untouched",
       "icon": "🖼",
       "previewImage": "previews/song-swap-album-art.jpg",
-      "description": "Put new album art on a song you already made with a Song + Album Art card. The audio is copied untouched and the new picture is held for the same length - no model loads, it takes seconds.\n\nHOW TO USE IT\n1. REFERENCE VIDEO = the song MP4.\n2. REFERENCE IMAGE = the new album art (centre-cropped to the aspect ratio you pick).\n3. PROMPT = anything, e.g. \"new art\". SimpliGen requires a prompt on every card; this one ignores it.",
+      "description": "Put new album art on a song you already made with a Song + Album Art card. The audio is copied untouched and the new picture is held for the same length - no model loads, it takes seconds.\n\nHOW TO USE IT\n1. REFERENCE VIDEO = the song MP4.\n2. REFERENCE IMAGE = the new album art (centre-cropped to the aspect ratio you pick).\n3. PROMPT = leave it empty; this card ignores it (SimpliGen versions before prompt-optional cards still need a word, e.g. \"new art\").",
       "tags": [
         "Music",
         "Album Art",
@@ -606,6 +606,7 @@
           "yue2"
         ],
         "workflow": "workflows/song-swap-album-art.json",
+        "promptOptional": true,
         "acceptsReferenceImages": {
           "min": 1,
           "max": 1,

@@ -1,7 +1,7 @@
 {
   "id": "vosr2-refine-pack",
   "name": "Community — VOSR 2.0 (Video Refine)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "CSWRY + ylchen333",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -23,6 +23,7 @@
         "displayModel": "VOSR 2.0 one-step SR (1.4B LightningDiT + Qwen-Image 2D VAE + DINOv2-L)",
         "baseModels": ["vosr2"],
         "workflow": "workflows/video_vosr2_refine_x2.json",
+        "promptOptional": true,
         "duration": {"type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": false},
         "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
         "extensions": [
