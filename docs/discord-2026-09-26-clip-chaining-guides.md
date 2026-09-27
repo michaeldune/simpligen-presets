@@ -1,3 +1,5 @@
+_Posted by Michael 2026-09-26 ~22:44 EDT (all three messages)._
+
 Discord guides for the three cards in Community — MiniMax H3 (Clip Chaining) 1.1.1, 2026-09-26. One message per card, each under
 Discord's 2,000-character limit. Facts from the pack manifest, the workflows (Continue Clip trims the pinned 22 frames and outputs the
 NEW part only; the clip tail is centre-cropped to the chosen width/height; the Director splits on [Shot 2] and carries segment 1's tail
