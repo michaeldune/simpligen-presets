@@ -1,0 +1,309 @@
+{
+  "id": "ming-image-pack",
+  "name": "Community — Ming Image Design",
+  "version": "1.0.0",
+  "addedAt": "2026-09-30",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minComfyuiVersion": "v0.38.0",
+  "description": "Ming-Image 0.1 Design from inclusionAI, a 6B model made for design work: app screens, web pages, posters, menus, infographics and ads, with the headlines, buttons and labels you ask for spelled correctly. Describe the layout, the sections and the exact words in quotes. Three cards: Design (about 1 megapixel, about 20 seconds on a 12 GB card), Design 4MP (the model's native 2048 size, about 35 seconds) and Masked Edit, which changes only the area you mark in a second, black-and-white picture and leaves the rest of the design exactly as it was. Headlines, buttons and navigation come out right; long lists and small text can slip a word or garble, so check the lettering and re-roll when needed. It is not a photo model: people and photos come out flat. One 19 GB download covers all three cards. MIT licence.",
+  "tags": [
+    "Local",
+    "Design",
+    "Text",
+    "Edit",
+    "Transparent"
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/diffusion_models/ming_image_0.1_design_int8_convrot.safetensors": "0d3f5bcc6d2cb830578ea6d0925b30b9fb66058bcb651cc8633e60760dceb1d0",
+    "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/text_encoders/ming_image_0.1_ling_mini_2.0_w4a8.safetensors": "91de4cd0718bec1452b74ff3b0df0dfde280493dab384f0eb4007c18bf932ccd",
+    "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/vae/ming_image_vae_bf16.safetensors": "7f5bed402dc8c77dc2e0ab1929a85d4df433b7cf7b599dfa8c353da98db0b90a"
+  },
+  "presets": [
+    {
+      "id": "ming-image-design",
+      "name": "Ming Image Design",
+      "icon": "🎨",
+      "enabled": true,
+      "tagline": "App screens, web pages and posters with lettering that spells",
+      "description": "Text to image for design: app screens, web pages, posters, menus, infographics, ads. Describe it the way you would brief a designer: the kind of page, the sections from top to bottom, the colours, and every piece of text in quotes (a button labelled \"Pay Bills\"). Headlines, buttons and navigation come out spelled right; long lists of short items (a menu, a price list) and small text the model adds on its own can slip a word or garble, so quote everything that matters, check the result, and re-roll the seed for a slipped word. About 20 seconds per picture on a 12 GB card; the 4MP card is sharper for small lettering. The picture is saved as a PNG with an alpha channel. Not meant for photos of people, which look flat. MIT licence.",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Design",
+        "Text",
+        "UI",
+        "Local"
+      ],
+      "previewImage": "previews/ming-image-design.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "ming-image"
+        ],
+        "displayModel": "Ming-Image 0.1 Design (int8) + w4a8 encoder",
+        "workflow": "workflows/image_ming_image_design.json",
+        "unet": "ming_image_0.1_design_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/diffusion_models/ming_image_0.1_design_int8_convrot.safetensors",
+        "clip": "ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/text_encoders/ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "vae": "ming_image_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/vae/ming_image_vae_bf16.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 12,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 19.2,
+          "notes": "LICENCE: MIT (inclusionAI/Ming-Image-0.1-Design). Weights: Comfy-Org/Ming-Image pinned to commit 53654871: the int8 ConvRot model (6.2 GB), the w4a8 Ling-Mini 2.0 text encoder with its vision tower (12.8 GB; the template's int8 encoder is 19.5 GB) and the VAE (0.25 GB), sha256 pinned in the pack checksums. Needs ComfyUI v0.38.0 or newer (first release with Ming-Image, core PRs 16482 + 16514). Sampling as the official Comfy template image_ming_image_01_design_t2i: attention backend comfy kitchen attention (Nvidia/AMD only), ModelSamplingFlux 1.15/0.5 at the latent size, euler/simple, 12 steps, CFG 1 (BasicGuider), no negative prompt; the template's Qwen3.8-27B prompt expander is left out (another 16 GB). The model writes RGBA; SaveImage keeps the alpha channel. TESTED 2026-09-30 on a 4070 Ti 12 GB (SimpliGen 1.67.0, engine ComfyUI 0.38.0). Bare engine, same graph: 1024x1024 in 17.8 s cold (text encode ~6 s, ~2 it/s); the template's retro e-commerce page and a banking-app prompt at 2048x2048 in 28-34 s; every quoted string exact, only unquoted small body text the model invented garbled. IN THE APP (2026-09-30): 16:9 (1344x768) coffee-subscription landing page, seed 101, 22.5 s including the cold model load, RGBA PNG: logo, four nav links, headline, subline and button all letter-perfect; small print the model added on the coffee bags garbled. FRESH-INSTALL CHECK (2026-09-30): all three weights moved out of models/, prepare_preset downloaded them from the pinned URLs in ~2 min at the exact sizes, and the next job (3:4 896x1152 cafe chalkboard menu, seed 303, 30 s) rendered: title, both headings and 4 of 6 menu lines exact; Cinnamon Knot split across two lines and a garbled ghost line appeared above Sourdough Toast. Across the three app renders, headlines, buttons and navigation were always right; dense lists and small lettering were where words slipped."
+        }
+      }
+    },
+    {
+      "id": "ming-image-design-4mp",
+      "name": "Ming Image Design 4MP",
+      "icon": "🔍",
+      "enabled": true,
+      "tagline": "The same design model at its native 2048 size",
+      "description": "The Ming Image Design card at the size the model was published for: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Icons, fine lines and textures come out cleaner than on the 1 MP card. About 35 seconds per picture on a 12 GB card. Brief it the same way: the kind of page, the sections, the colours and every piece of text in quotes. Small quoted text such as a web address can still slip a letter; check it and re-roll the seed if needed. MIT licence.",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Design",
+        "Text",
+        "4MP",
+        "Local"
+      ],
+      "previewImage": "previews/ming-image-design-4mp.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "ming-image"
+        ],
+        "displayModel": "Ming-Image 0.1 Design (int8) + w4a8 encoder",
+        "workflow": "workflows/image_ming_image_design.json",
+        "unet": "ming_image_0.1_design_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/diffusion_models/ming_image_0.1_design_int8_convrot.safetensors",
+        "clip": "ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/text_encoders/ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "vae": "ming_image_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/vae/ming_image_vae_bf16.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 12,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "2:3": {
+            "width": 1664,
+            "height": 2496
+          },
+          "3:2": {
+            "width": 2496,
+            "height": 1664
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2368
+          },
+          "4:3": {
+            "width": 2368,
+            "height": 1792
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 19.2,
+          "notes": "LICENCE: MIT (inclusionAI/Ming-Image-0.1-Design). Weights: Comfy-Org/Ming-Image pinned to commit 53654871: the int8 ConvRot model (6.2 GB), the w4a8 Ling-Mini 2.0 text encoder with its vision tower (12.8 GB; the template's int8 encoder is 19.5 GB) and the VAE (0.25 GB), sha256 pinned in the pack checksums. Needs ComfyUI v0.38.0 or newer (first release with Ming-Image, core PRs 16482 + 16514). Sampling as the official Comfy template image_ming_image_01_design_t2i: attention backend comfy kitchen attention (Nvidia/AMD only), ModelSamplingFlux 1.15/0.5 at the latent size, euler/simple, 12 steps, CFG 1 (BasicGuider), no negative prompt; the template's Qwen3.8-27B prompt expander is left out (another 16 GB). The model writes RGBA; SaveImage keeps the alpha channel. TESTED 2026-09-30 on a 4070 Ti 12 GB (SimpliGen 1.67.0, engine ComfyUI 0.38.0). Bare engine: 2048x2048 in 28-34 s (~2 s/it). IN THE APP (2026-09-30): 3:2 (2496x1664) concert poster, seed 202, 35.8 s, RGBA PNG. Band name, venue, date, Doors 7 PM and Tickets $38 correct; the quoted URL came out maszeyhall.com and small text beside the venue garbled, so even quoted small lettering is not guaranteed at 4MP. The model drew the poster as a portrait sheet on a wall inside the 3:2 frame."
+        }
+      }
+    },
+    {
+      "id": "ming-image-masked-edit",
+      "name": "Ming Image Masked Edit",
+      "icon": "🖌️",
+      "enabled": true,
+      "tagline": "Change one part of a design and keep the rest exactly",
+      "description": "PICTURE 1 = the design to change. PICTURE 2 = a mask: the same picture shape, black everywhere, painted white over the area you want changed (any paint program will do; a white rectangle is enough). Then describe the change: Change the greeting to \"Good evening, Sam\" and the balance to \"$9,876.54\".\n\nWhy the mask: Ming redraws the whole picture when it edits, and on its own it changes things you did not ask for, such as other prices and small text. This card pastes the edit back ONLY inside the white area, so everything outside it stays exactly as it was, pixel for pixel, at the picture's full size.\n\nMake the white area cover everything that should change, with a little margin, and keep it tight: on a flat colour the pasted area can show as a faint box, because the redrawn part comes back a shade lighter or darker. The edit is drawn at about 1 megapixel and scaled up to your picture's size, so inside the white area a large picture comes out slightly softer. If the edit itself looks wrong (a smudged or speckled area), generate again with a new seed. The aspect ratio setting is ignored; the result has the size of picture 1. About 25 seconds on a 12 GB card. MIT licence.",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Design",
+        "Mask",
+        "Local"
+      ],
+      "previewImage": "previews/ming-image-masked-edit.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "ming-image"
+        ],
+        "displayModel": "Ming-Image 0.1 Design (int8) + w4a8 encoder",
+        "workflow": "workflows/image_ming_image_masked_edit.json",
+        "unet": "ming_image_0.1_design_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/diffusion_models/ming_image_0.1_design_int8_convrot.safetensors",
+        "clip": "ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/text_encoders/ming_image_0.1_ling_mini_2.0_w4a8.safetensors",
+        "vae": "ming_image_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Ming-Image/resolve/53654871e47a5d2daed7b3a986cbf1010ef81c78/vae/ming_image_vae_bf16.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 12,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 19.2,
+          "notes": "LICENCE: MIT (inclusionAI/Ming-Image-0.1-Design). Weights: Comfy-Org/Ming-Image pinned to commit 53654871: the int8 ConvRot model (6.2 GB), the w4a8 Ling-Mini 2.0 text encoder with its vision tower (12.8 GB; the template's int8 encoder is 19.5 GB) and the VAE (0.25 GB), sha256 pinned in the pack checksums. Needs ComfyUI v0.38.0 or newer (first release with Ming-Image, core PRs 16482 + 16514). Sampling as the official Comfy template image_ming_image_01_design_t2i: attention backend comfy kitchen attention (Nvidia/AMD only), ModelSamplingFlux 1.15/0.5 at the latent size, euler/simple, 12 steps, CFG 1 (BasicGuider), no negative prompt; the template's Qwen3.8-27B prompt expander is left out (another 16 GB). The model writes RGBA; SaveImage keeps the alpha channel. Graph: TextEncodeMingImageEdit (clip, vae, prompt, images.image_1 = picture 1 scaled to ~1 MP in steps of 64) sampled at that size with the text-to-image settings; the edit is scaled back to picture 1's own size and pasted onto the untouched original through picture 2 (scaled to the same size, nearest-exact, blurred 4 px, red channel) with ImageCompositeMasked. SimpliGen presets cannot pass a MASK, so the mask is an ordinary picture in reference slot 2. WHY: unmasked, Ming redraws the whole picture and changes unrequested text on every seed (2 edits x 2 seeds, 2026-09-30: -$6.45 -> -$4.45, +$2,150.00 -> +$11,30.00 / +$1,130.00, -$112.80 -> -$112.00 / -$12.81, $75 -> $$$), although the requested change landed exactly every time. A diff-based mask was tried and rejected: the unwanted changes are in the diff too, and restricting to changed pixels inside the box left ghost fragments of the old glyphs. With the user mask, 2 edits x 2 seeds: outside the mask the result is pixel-identical to the original (max difference 0/255), all drifted amounts restored. Residuals: the pasted area can show as a faint box on flat colours (the edit's tone differs slightly), and a bad edit seed stays bad inside the mask (one car recolour seed covered its area in black speckle; reroll). IN THE APP (2026-09-30): 2048x2048 banking-app design + a 1024 rectangle mask (scaled up by the card), seed 44, 22.6 s: greeting and balance exact and crisp, everything outside the mask identical, faint tone boxes visible around both edited areas."
+        },
+        "acceptsReferenceImages": {
+          "min": 2,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Design to change",
+            "Mask (white = area to change)"
+          ]
+        }
+      }
+    }
+  ]
+}

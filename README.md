@@ -35,6 +35,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Krea Flux | 1 | Flux.1 Krea (GGUF) | CSG Foundation, low-VRAM |
 | Flux 2 Klein | 2 | Flux 2 | 9B + 4B, 4-step distilled — **non-commercial license (BFL)**. A third preset, MiracleIn NSFW, was retired 2026-08-30 when Civitai's author put paid access on every version of that checkpoint; it is kept in `packs/flux2-klein/retired/` for manual install |
 | Ideogram 4 | 2 | Ideogram 4 (INT8) | Best-in-class text rendering; UltraReal photo + Graphic/Poster tiers — **requires engine 0.28+** |
+| Ming Image Design | 3 | Ming-Image 0.1 Design 6B (INT8) + Ling-Mini 2.0 encoder (W4A8) | **Design work:** app screens, web pages, posters, menus, infographics and ads, briefed like a designer with the text in quotes. **Design** (~1 MP, about 20 s on 12 GB) and **Design 4MP** (the model's native 2048 size, about 35 s); headlines, buttons and navigation come out spelled right, long lists and small print can slip a word. PNG with an alpha channel. **Masked Edit:** picture 1 is the design, picture 2 a black-and-white mask (white = may change); the edit is pasted back only inside the mask, so the rest stays pixel for pixel, because unmasked Ming edits also change text you did not ask for. Not a photo model. 19.2 GB download. **Needs SimpliGen engine 0.38.0 or newer.** MIT licence |
 | SeFi-Image | 2 | SeFi 5B (Q8) | Turbo, 4- and 8-step tiers |
 | Moody Models | 5 | Z-Image / Flux | NSFW-biased/uncensored |
 | Z-Image | 1 | Z-Image | Semi-real/anime |

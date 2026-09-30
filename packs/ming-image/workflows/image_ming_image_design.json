@@ -1,0 +1,211 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Ming-Image 0.1 Design"
+    }
+  },
+  "sg_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Ling-Mini 2.0 encoder"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "clip": [
+        "sg_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_attn": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "attention": "comfy kitchen attention"
+    },
+    "class_type": "ModelAttentionBackend",
+    "_meta": {
+      "title": "Attention backend (as the Comfy template)"
+    }
+  },
+  "sg_encode": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "text": "{{prompt}}"
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "sg_shift": {
+    "inputs": {
+      "model": [
+        "sg_attn",
+        0
+      ],
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": {{width}},
+      "height": {{height}}
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "Shift (size must match the latent)"
+    }
+  },
+  "sg_guider": {
+    "inputs": {
+      "model": [
+        "sg_shift",
+        0
+      ],
+      "conditioning": [
+        "sg_encode",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Guider (CFG 1)"
+    }
+  },
+  "sg_sched": {
+    "inputs": {
+      "model": [
+        "sg_shift",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": {{steps}},
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Scheduler"
+    }
+  },
+  "sg_samplersel": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "sg_noise": {
+    "inputs": {
+      "noise_seed": {{seed}}
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "sg_latent": {
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Latent"
+    }
+  },
+  "sg_sample": {
+    "inputs": {
+      "noise": [
+        "sg_noise",
+        0
+      ],
+      "guider": [
+        "sg_guider",
+        0
+      ],
+      "sampler": [
+        "sg_samplersel",
+        0
+      ],
+      "sigmas": [
+        "sg_sched",
+        0
+      ],
+      "latent_image": [
+        "sg_latent",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Sample"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sample",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "filename_prefix": "ming_image_design",
+      "images": [
+        "sg_decode",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save (RGBA PNG)"
+    }
+  }
+}
