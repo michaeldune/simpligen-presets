@@ -78,7 +78,9 @@ Source: https://github.com/SatoDive/Minimax-H3-Latent-Continuation, tutorial htt
    our current continuation sampler on one join.
 9. **Fixed-count latent relay as a pack.** His save/load-from-disk nodes are not packable (folder-scanned
    dropdown, JS UI). A fixed 2- or 3-segment in-graph chain is. Revisit when his v2 (one master prompt, 6+ clips,
-   constant VRAM) ships.
+   constant VRAM) ships. CHECKED 2026-09-26: v2 not out; main still 4142527 (09-18, what vanilla has). A side branch
+   `claude/comfyui-lora-merge-nodes-owkv88` (9562b4e, 09-25, unmerged) adds an unrelated "LoRA Merge Studio" node pack
+   with example workflows for Klein 9B, Krea 2, Qwen 2.1 Edit and Z-Image Turbo.
 
 ### From thedotmack/claude-mem (2026-09-19)
 Source: https://github.com/thedotmack/claude-mem (README only, not installed). Verdict: covered by our agentmemory
@@ -202,6 +204,46 @@ hosted account). Ideas worth borrowing for our own bridge:
     the seed, not the wording. Remaining: (b) card text "if the shot creeps in, generate again with a new seed", and fix the
     prompt-split regex that cuts the header at any "[Shot 1]" mention (see memory), both in a 1.0.2. Was: (a) test a framing lock ("the camera does not move; the framing stays exactly as in the first
     second") on seed 101; (b) add "if the shot creeps in, re-roll the seed" to the three cards' text (1.0.2, text only).
+23. **H3 Planner node suite (AI Jigyasa, YouTube PwV9Hvtr7EA, watched as transcript 2026-09-26).** 12 nodes on the Comfy
+    registry ("H3 Planner", free; the ready workflow is a paid $4 extra). For LONG MULTI-CUT music videos on 8-12 GB cards:
+    an LLM (Ollama Qwen3-VL 8B or an API) or a no-LLM slicer splits one long H3 prompt / an idea into ~6 s segments that all
+    repeat the same subject definitions; librosa beat map puts cuts on the beat; per-segment slices of the song; draft pass
+    (~0.5 MP) then final (latent upscale + refine); a "vault" tracks pending/done/locked segments with auto-advance, redo and
+    range runs; ffmpeg stitches with the song or the clips' own audio. Segments are HARD CUTS, not continuations (no tail or
+    latent hand-off), so it is the opposite trade to our Clip Chaining / MV Chain (one continuous take). Tested up to 3-4 min
+    by the author. Not packable as a SimpliGen card (interactive timeline/vault UI, LLM step). Nearest SimpliGen equivalent
+    would be a Recipe that fans one brief out into N card jobs. Only try if Michael wants long multi-cut videos.
+    Side find: he runs a ~12 GB "W4A8 mixed" pruned H3 ref2va (vs our 21 GB int8). Not a Comfy-Org file; community builds
+    exist (HF `koongrizzly/MiniMax_H3_int4_W4A8_ConvRot_Pruned`, `AX1Y2JP/MiniMax-H3-W4A8-ConvRot`,
+    `cicalooo/MiniMax-H3-hybrid-b45-49-rtx3090-w4a8-int8`). Unchecked: licence, loader support in engine 0.37, quality and
+    speed vs int8. Could ease the 31 GB RAM pressure behind the checkpoint-swap stalls.
+24. **Songssx/ComfyUI-MiniMaxH3-TimelineDirector - HIGH PRIORITY to test (found 2026-09-26).** GitHub, GPL-3.0, 486 stars,
+    main @ a81f13b (2026-09-22, v0.7+). Demo video: Smart Bobo, YouTube 0h1BK0h3NQY (35 s single-take shots, 8 min at
+    1280x720 / ~10 min at ~1 MP on a 4090 24 GB, int8 + one accel LoRA, 8 steps). What it does in ONE execution:
+    N overlapping segments of one continuous take, each started from the previous segment's AV-LATENT tail (no VAE round
+    trip), "Drift-Control" masking (re-noises only the disposable prefix; adapted from ethanfel/ComfyUI-MiniMaxH3-Contex-Loop,
+    GPL-3.0), "Soft AV" audio overlap, overlap trim + final AV assembly; per-segment prompts and per-segment reference
+    images; "Locked Original Audio" slices an uploaded song/voice onto the timeline through the native AV mask/sigma path
+    (lip sync stays audio-driven, the soundtrack is the untouched original); bundled SelfLift two-stage sampling (e.g. 6
+    low-res steps + H3 latent upscaler + 2 high-res steps). Overlaps align down to H3's grid (24 -> 22, 48 -> 39), so the
+    finished video is shorter than the sum of segments (4 x 10 s -> 35 s); write prompts knowing the overlap repeats.
+    WHY IT MATTERS: it is ideas 2d (multi-hop latent chain in ONE workflow) and 2a (audio-locked singing/lip sync) already
+    built, plus a drift fix we never had. It could supersede the MV Chain pack and extend Clip Chaining past 2 segments.
+    OPEN QUESTIONS before any card: (1) the Material Planner is an interactive timeline widget whose state is saved in the
+    workflow JSON; can a card drive a FIXED plan with {{placeholders}} for media/prompts, or via the split native-loop nodes
+    (Initialize/Select/Plan Encoder/Prepare/Accumulate/Finish)? (2) two-stage needs an H3 latent-upscaler checkpoint; the
+    LBH-123-AI upscaler we have in vanilla has NO LICENCE (not shippable), so a card would use one-stage unless a licensed
+    upscaler exists; (3) VRAM/RAM on 12 GB / 31 GB at 480p. First test: vanilla ComfyUI, one-stage, 3 x 8 s at 480p with one
+    reference image, then locked-song singing; compare the joins and drift with MV Chain on the same song.
+    **TESTED 2026-09-26 (vanilla, one-stage, 864x480, 8-step ref2v turbo): it works on 12 GB.** 3x8 s take 680 s, joins
+    invisible; 4x8 s locked-song singing 27.1 s in ~14-15 min, soundtrack = the original song (0.994). Reference pictures
+    are centre-cropped to the output shape by the planner (portrait in 16:9 -> eyes cut off): pad them. Lip metric falls
+    per segment in both runs (0.77->0.46 / 0.44->0.28), confounded with song content. Next: (a) Michael watches
+    `D:\SimpliGen-Backups\timelinedirector-test-20260926\B2_sing_4x8_locked_169ref.mp4`; (b) control for the lip decline;
+    (c) fair A/B vs MV Chain with the same singer; (d) card design (JSON plan from placeholders + auto-padding).
+    **(a) DONE 23:49: Michael watched B2 - "the lipsync was perfect, I didn't notice any joins".** The metric's per-segment
+    decline is not visible; (b) is dropped unless a later render shows a problem. Card design (d) is the next step.
+    Details: that folder's VERDICT.md.
 
 ## Done / dropped
 
