@@ -247,6 +247,11 @@ hosted account). Ideas worth borrowing for our own bridge:
 
 ## Done / dropped
 
+- **2026-10-01, PDMD 4-step LoRA for H3 (pdmd2026, Kijai rank-57 conversion):** loads clean on the pruned fl2va base;
+  T2V 1 seed x 3 prompts vs TaoMate 3-step and DaSiWa v1 4-step. Speech tied on all three (Michael listened), PDMD
+  ~48 s sampling vs TaoMate ~36 s and DaSiWa ~60 s, weakest motion (no clear ollie) and less detail than DaSiWa.
+  DROPPED: no niche. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+
 - **2026-09-22/23, M3_Unlocked_V2 LoRA on every H3 model (Shar's "Unlocked" cards):** same SFW prompt and seed, 480p,
   no LoRA vs 0.5, 11 models. Only Turbo Accelerated showed a real, pleasant variation at no time cost; it SHIPPED as an
   unlock slider (1.5.0, default 0, pixel-identical at 0). DaSiWa v1 reshuffled the scene and sexualised a background
