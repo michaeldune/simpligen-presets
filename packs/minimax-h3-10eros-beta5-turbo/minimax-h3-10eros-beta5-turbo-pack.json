@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-beta5-turbo-pack",
   "name": "Community — MiniMax H3 (10Eros Max beta5, Turbo)",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "TenStrip",
   "nsfw": true,
   "description": "MiniMax H3 on TenStrip's 10Eros Max beta5 TURBO-hybrid: the same beta5 hybrid checkpoint with the turbo delta baked into the weights, so it runs at 8 steps with no Turbo LoRA to download or hold in memory (the author's figure: 4.2 GB saved against loading the LoRAs). One 21 GB INT8 file carries first-frame and reference-to-video character, so text-, image- and reference-to-video all run on it. Two-seed bake-off on a 12 GB RTX 4070 Ti at 480p, 5 s: about 105 s per clip, the same wall as the larryvrh Turbo LoRA at 6 steps, and on a face-visible image-to-video test the 8-step turbo was sharper than the 20-step plain beta5 at half the time, identity and dialogue held. Sampler is res_multistep / simple, the author's pick for motion quality; LCM was softer on faces in our tests. This is a separate download from the plain beta5 pack (different file); pick one unless you want both. Grafted character from LTX 2.3, Wan 2.2 and Krea 2 means their community licences apply alongside the MiniMax H3 licence. Since 1.1.0 a fourth card, Character PV: one character design sheet in, a 15-second 13-shot reveal trailer with typography cards, music and a name card out (about 4 1/2 minutes at 480p).",
@@ -59,8 +59,8 @@
         "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {
@@ -365,8 +365,8 @@
         "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {
@@ -680,8 +680,8 @@
         "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {
@@ -1010,8 +1010,8 @@
         "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/main/10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {

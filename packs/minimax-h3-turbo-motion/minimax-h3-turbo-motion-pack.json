@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-turbo-motion-pack",
   "name": "Community — MiniMax H3 (Turbo LoRA, Fast Motion)",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "larryvrh",
   "nsfw": false,
   "description": "MiniMax H3 video with the v1-850 Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — a focused 4-step option for heavy or fast motion, where the v4-600 line can produce motion-smear or trailing ghosting. It keeps audio in sync and caps at 6 steps because v1 over-sharpens at higher step counts. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
@@ -57,8 +57,8 @@
         "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {
@@ -386,8 +386,8 @@
         "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {
@@ -690,8 +690,8 @@
         "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "extraModels": [
           {

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-motion-transfer-pack",
   "name": "Community — MiniMax H3 Motion Transfer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "addedAt": "2026-10-01",
   "author": "alibaba-pai + kijai + Comfy-Org + larryvrh + xmarre",
   "nsfw": false,
@@ -63,8 +63,8 @@
         "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "vae": "minimax_h3_video_vae_fp16.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_fp16.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
         "model_patch": "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
         "pose_checkpoint": "sdpose_wholebody_fp16.safetensors",
@@ -169,7 +169,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 50,
-          "notes": "49.8 GB if nothing is installed yet: H3 base 21.0, text encoder 15.7, video VAE 5.2, audio VAE 0.6, Turbo LoRA 0.8, ControlNet 4.5, SDPose 1.9, RT-DETR 0.1. Any other H3 pack already supplies the first five (43.3 GB)."
+          "notes": "47.4 GB if nothing is installed yet: H3 base 21.0, text encoder 15.7, video VAE 2.8 (int8 ConvRot), audio VAE 0.6, Turbo LoRA 0.8, ControlNet 4.5, SDPose 1.9, RT-DETR 0.1. Any other H3 pack already supplies the first five (40.9 GB)."
         }
       }
     }
