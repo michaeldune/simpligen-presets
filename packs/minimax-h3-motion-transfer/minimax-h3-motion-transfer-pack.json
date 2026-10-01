@@ -1,0 +1,177 @@
+{
+  "id": "minimax-h3-motion-transfer-pack",
+  "name": "Community — MiniMax H3 Motion Transfer",
+  "version": "1.0.0",
+  "addedAt": "2026-10-01",
+  "author": "alibaba-pai + kijai + Comfy-Org + larryvrh + xmarre",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.38.0",
+  "description": "Pose-controlled MiniMax H3: a reference clip's body motion, read by SDPose, drives a new video through the Fun ControlNet union 2.0. One card, Turbo + Spectrum + Sol-Attn, 480p.",
+  "tags": [
+    "Local",
+    "Video",
+    "V2V",
+    "MiniMax H3",
+    "ControlNet",
+    "Pose",
+    "Motion Transfer",
+    "Experimental"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-motion-transfer",
+      "name": "MiniMax H3 Motion Transfer",
+      "icon": "🕺",
+      "previewImage": "previews/minimax-h3-motion-transfer.jpg",
+      "description": "Motion transfer: a dance or movement clip drives a brand-new MiniMax H3 video. Put the clip in Reference Video 1 and describe the NEW shot in the prompt - who it is, what they wear, where they are, how the camera sees them (\"a man in a black leather jacket and cargo pants dances on a neon-lit rooftop at night, full body, static camera\"). Do not describe the moves; they come from the clip. SDPose reads a whole-body skeleton (body, hands, face, feet) from every frame and the Fun ControlNet union 2.0 holds H3 to it, so only the motion carries over: the person, clothes, setting and lighting all come from your prompt. OUTPUT: the clip's own aspect ratio at the chosen tier's size (the aspect picker is ignored) and the clip's own frame rate, so a 30 fps clip plays at its real speed. The duration slider sets how much of the clip is used (from its start); a clip shorter than that holds its last pose to the end. SOUND: the clip's own soundtrack, trimmed to the output, so dance music stays on the beat. With the soundtrack removed, or a clip that has none, the card asks H3 for upbeat instrumental dance music (a fixed line is added to your prompt for that case only), because left to itself H3 invented a voice - singing, laughing, made-up words - on every test render. WORKS BEST with one or two people whose whole body is in frame and a steady camera. Long dresses, coats and baggy clothes hide the legs from the pose reader, so leg motion follows more loosely; fast spins drift more than steps and arm moves. Tested 2026-10-01 on two clips x three seeds: the pose held on every render, and the generated video never borrowed the source's background or clothing. SPEED AND MEMORY on a 12 GB RTX 4070 Ti with 32 GB RAM, 480p: 5 s takes about 3 min 40 s; 10 s takes about 16 min, and a 1080p 30 fps phone clip at 10 s used nearly all 32 GB of system RAM (the clip is decoded at full size), so close other heavy apps for long clips. REQUIRES SimpliGen Settings > Advanced > Faster Attention ON (Sol-Attn needs the triton package that toggle installs) and SimpliGen engine 0.38.0 or newer (ControlNet union 2.0 support). LICENCES: MiniMax H3 and the Fun ControlNet are under the MiniMax H3 Community License; SDPose is MIT; RT-DETR v4 is Apache-2.0. Use clips of people who have agreed to it.",
+      "tagline": "A dance clip drives a new H3 video - same moves, new person and place",
+      "tags": [
+        "Video",
+        "V2V",
+        "Motion Transfer",
+        "ControlNet",
+        "Pose",
+        "Turbo",
+        "Sol-Attn"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 (pruned int8) + Turbo LoRA + Fun ControlNet union 2.0 (SDPose pose) + Spectrum + Sol-Attn",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_motion_transfer.json",
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 1,
+          "soundtrack": true
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 10,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_fp16.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "model_patch": "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+        "pose_checkpoint": "sdpose_wholebody_fp16.safetensors",
+        "detector": "rt_detr_v4-x-hgnet_fp16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/43a74557ac3f6539db8e0f2a959d03feb7a81480/minimax_h3_turbo_v4_step600_ema.safetensors"
+          },
+          {
+            "dir": "model_patches",
+            "filename": "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/model_patches/minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+            "description": "MiniMax H3 Fun ControlNet union 2.0 (alibaba-pai, int8 by Kijai/Comfy-Org)"
+          },
+          {
+            "dir": "checkpoints",
+            "filename": "sdpose_wholebody_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/SDPose/resolve/acb43fbe8142b54d9ebd52b720b81dd4e14c8d81/checkpoints/sdpose_wholebody_fp16.safetensors",
+            "description": "SDPose whole-body pose reader (MIT)"
+          },
+          {
+            "dir": "diffusion_models",
+            "filename": "rt_detr_v4-x-hgnet_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/SDPose/resolve/acb43fbe8142b54d9ebd52b720b81dd4e14c8d81/diffusion_models/rt_detr_v4-x-hgnet_fp16.safetensors",
+            "description": "RT-DETR v4 person detector (Apache-2.0)"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-MiniMax-H3-Turbo",
+            "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+            "description": "Turbo LoRA loader + dual-schedule sampler",
+            "pinnedCommit": "4274783a23afcfdbea3b4876cb79effd6c510785"
+          },
+          {
+            "name": "ComfyUI-Spectrum-MiniMax-H3",
+            "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
+            "description": "Spectrum accelerator, baked on the H3 chain only (same pin as the Turbo Accelerated pack)",
+            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+          },
+          {
+            "name": "ComfyUI-SolAttn_triton",
+            "url": "https://github.com/kijai/ComfyUI-SolAttn_triton.git",
+            "description": "Sol-Attn sparse attention, baked on the H3 chain only. Needs Settings > Advanced > Faster Attention ON (triton).",
+            "pinnedCommit": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc"
+          }
+        ],
+        "steps": 10,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 20,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 50,
+          "notes": "49.8 GB if nothing is installed yet: H3 base 21.0, text encoder 15.7, video VAE 5.2, audio VAE 0.6, Turbo LoRA 0.8, ControlNet 4.5, SDPose 1.9, RT-DETR 0.1. Any other H3 pack already supplies the first five (43.3 GB)."
+        }
+      }
+    }
+  ]
+}

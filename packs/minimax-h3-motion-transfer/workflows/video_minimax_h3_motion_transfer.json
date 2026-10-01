@@ -1,0 +1,769 @@
+{
+  "h3_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load MiniMax H3 (pruned int8)"
+    }
+  },
+  "h3_clip": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "h3_video_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "h3_audio_vae": {
+    "inputs": {
+      "vae_name": "{{audio_vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "h3_unet",
+        0
+      ],
+      "clip": [
+        "h3_clip",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "h3_turbo_lora": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
+      "strength": 1,
+      "low_vram": false
+    },
+    "class_type": "MiniMaxH3TurboLoRA",
+    "_meta": {
+      "title": "MiniMax H3 Turbo LoRA"
+    }
+  },
+  "h3_sigma_shift": {
+    "inputs": {
+      "model": [
+        "h3_turbo_lora",
+        0
+      ],
+      "shift_video": 12.0,
+      "shift_audio": 3.0
+    },
+    "class_type": "MiniMaxH3SigmaShift",
+    "_meta": {
+      "title": "MiniMax H3 Sigma Shift"
+    }
+  },
+  "clip_load": {
+    "inputs": {
+      "file": "{{ref_video_1}}"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Motion clip (Reference Video 1)"
+    }
+  },
+  "clip_probe": {
+    "inputs": {
+      "video": [
+        "clip_load",
+        0
+      ],
+      "start_frame": 0,
+      "length": 1
+    },
+    "class_type": "VideoTemporalCrop",
+    "_meta": {
+      "title": "First frame only (to read fps)"
+    }
+  },
+  "clip_probe_parts": {
+    "inputs": {
+      "video": [
+        "clip_probe",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Clip frame rate"
+    }
+  },
+  "h3_duration": {
+    "inputs": {
+      "value": {{duration}}
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration (seconds)"
+    }
+  },
+  "h3_length": {
+    "inputs": {
+      "expression": "min(362, max(124, max(5, round(a * b)) + (17 - (max(5, round(a * b)) - 5) % 17) % 17))",
+      "values.a": [
+        "h3_duration",
+        0
+      ],
+      "values.b": [
+        "clip_probe_parts",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Frame Length (17n+5 at the clip's fps)"
+    }
+  },
+  "clip_crop": {
+    "inputs": {
+      "video": [
+        "clip_load",
+        0
+      ],
+      "start_frame": 0,
+      "length": [
+        "h3_length",
+        1
+      ]
+    },
+    "class_type": "VideoTemporalCrop",
+    "_meta": {
+      "title": "Keep only the frames H3 makes"
+    }
+  },
+  "clip_parts": {
+    "inputs": {
+      "video": [
+        "clip_crop",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Clip frames"
+    }
+  },
+  "out_seconds": {
+    "inputs": {
+      "expression": "a / b",
+      "values.a": [
+        "h3_length",
+        1
+      ],
+      "values.b": [
+        "clip_probe_parts",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Output seconds (frames / clip fps)"
+    }
+  },
+  "tier_mp": {
+    "inputs": {
+      "expression": "a * b / 1000000",
+      "values.a": {{width}},
+      "values.b": {{height}}
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Tier megapixels"
+    }
+  },
+  "frame0": {
+    "inputs": {
+      "image": [
+        "clip_parts",
+        0
+      ],
+      "batch_index": 0,
+      "length": 1
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "First clip frame"
+    }
+  },
+  "frame0_fit": {
+    "inputs": {
+      "image": [
+        "frame0",
+        0
+      ],
+      "upscale_method": "bicubic",
+      "megapixels": [
+        "tier_mp",
+        0
+      ],
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Fit to tier"
+    }
+  },
+  "out_size": {
+    "inputs": {
+      "image": [
+        "frame0_fit",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Output size"
+    }
+  },
+  "pose_resize": {
+    "inputs": {
+      "input": [
+        "clip_parts",
+        0
+      ],
+      "resize_type": "scale longer dimension",
+      "scale_method": "lanczos",
+      "resize_type.longer_size": 1024
+    },
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Pose input (longer side 1024)"
+    }
+  },
+  "pose_det_model": {
+    "inputs": {
+      "unet_name": "{{detector}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "RT-DETR person detector"
+    }
+  },
+  "pose_detect": {
+    "inputs": {
+      "model": [
+        "pose_det_model",
+        0
+      ],
+      "image": [
+        "pose_resize",
+        0
+      ],
+      "threshold": 0.5,
+      "class_name": "person",
+      "max_detections": 2
+    },
+    "class_type": "RTDETR_detect",
+    "_meta": {
+      "title": "Find people (up to 2)"
+    }
+  },
+  "pose_model": {
+    "inputs": {
+      "ckpt_name": "{{pose_checkpoint}}"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "SDPose whole-body"
+    }
+  },
+  "pose_keypoints": {
+    "inputs": {
+      "model": [
+        "pose_model",
+        0
+      ],
+      "vae": [
+        "pose_model",
+        2
+      ],
+      "image": [
+        "pose_resize",
+        0
+      ],
+      "batch_size": 16,
+      "bboxes": [
+        "pose_detect",
+        0
+      ]
+    },
+    "class_type": "SDPoseKeypointExtractor",
+    "_meta": {
+      "title": "Body, hand and face keypoints"
+    }
+  },
+  "pose_draw": {
+    "inputs": {
+      "keypoints": [
+        "pose_keypoints",
+        0
+      ],
+      "draw_body": true,
+      "draw_hands": true,
+      "draw_face": true,
+      "draw_feet": true,
+      "stick_width": 4,
+      "face_point_size": 2,
+      "score_threshold": 0.51,
+      "draw_head": true
+    },
+    "class_type": "SDPoseDrawKeypoints",
+    "_meta": {
+      "title": "Draw skeletons"
+    }
+  },
+  "pose_fit": {
+    "inputs": {
+      "image": [
+        "pose_draw",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": [
+        "out_size",
+        0
+      ],
+      "height": [
+        "out_size",
+        1
+      ],
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Skeletons at output size"
+    }
+  },
+  "cn_patch": {
+    "inputs": {
+      "name": "{{model_patch}}"
+    },
+    "class_type": "ModelPatchLoader",
+    "_meta": {
+      "title": "Fun ControlNet union 2.0"
+    }
+  },
+  "cn_apply": {
+    "inputs": {
+      "model": [
+        "h3_sigma_shift",
+        0
+      ],
+      "model_patch": [
+        "cn_patch",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "strength": 1.0,
+      "start_percent": 0.0,
+      "end_percent": 1.0,
+      "control_video": [
+        "pose_fit",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3FunControlNetApply",
+    "_meta": {
+      "title": "Apply pose control"
+    }
+  },
+  "h3_spectrum": {
+    "inputs": {
+      "model": [
+        "cn_apply",
+        0
+      ],
+      "enabled": true,
+      "blend_weight": 0.5,
+      "degree": 1,
+      "ridge_lambda": 0.1,
+      "window_size": 2.0,
+      "flex_window": 0.75,
+      "warmup_steps": 1,
+      "tail_actual_steps": 1,
+      "max_history": 8,
+      "debug": false,
+      "history_storage": "system_ram",
+      "bootstrap_first_forecast": true,
+      "anchor_residual_feedback": false,
+      "selective_rollback_correction": false,
+      "offline_smoothing_replay": true,
+      "audio_blend_weight": 0.0,
+      "offline_archive_storage": "system_ram"
+    },
+    "class_type": "SpectrumApplyMiniMaxH3",
+    "_meta": {
+      "title": "Spectrum Apply MiniMax H3"
+    }
+  },
+  "h3_sol_attn": {
+    "inputs": {
+      "model": [
+        "h3_spectrum",
+        0
+      ],
+      "tau": 1.3,
+      "start_percent": 0.2,
+      "end_percent": 0.9,
+      "min_tokens": 4096,
+      "int8_qk": true,
+      "sink_conditioning": "exact_kv_and_rows",
+      "morton": false,
+      "morton_curve": "2d_frame",
+      "int8_pv": true,
+      "verbose": false,
+      "use_tma": false,
+      "dense_blocks": ""
+    },
+    "class_type": "SolAttnPatch",
+    "_meta": {
+      "title": "Patch Sol-Attn"
+    }
+  },
+  "sgopt_ref_video_audio_1__flag": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Soundtrack supplied"
+    }
+  },
+  "sound_supplied": {
+    "inputs": {
+      "values.value0": false,
+      "values.value1": [
+        "sgopt_ref_video_audio_1__flag",
+        0
+      ]
+    },
+    "class_type": "ComfyOrNode",
+    "_meta": {
+      "title": "Was a soundtrack supplied?"
+    }
+  },
+  "prompt_user": {
+    "inputs": {
+      "value": "{{prompt}}"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Your prompt"
+    }
+  },
+  "prompt_music": {
+    "inputs": {
+      "string_a": [
+        "prompt_user",
+        0
+      ],
+      "string_b": "The soundtrack is upbeat instrumental dance music with a strong steady drum beat, bass and brass, playing from start to end; the dancing lands on the beat. The music has no vocals: no singing, no humming, no spoken words. Every person's lips stay closed in a smile throughout.",
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Your prompt + instrumental music"
+    }
+  },
+  "prompt_pick": {
+    "inputs": {
+      "switch": [
+        "sound_supplied",
+        0
+      ],
+      "on_true": [
+        "prompt_user",
+        0
+      ],
+      "on_false": [
+        "prompt_music",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Add the music line only without a soundtrack"
+    }
+  },
+  "h3_conditioning": {
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ],
+      "audio_vae": [
+        "h3_audio_vae",
+        0
+      ],
+      "prompt": [
+        "prompt_pick",
+        0
+      ],
+      "width": [
+        "out_size",
+        0
+      ],
+      "height": [
+        "out_size",
+        1
+      ],
+      "length": [
+        "h3_length",
+        1
+      ],
+      "ref_image_size": "match"
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 conditioning"
+    }
+  },
+  "h3_noise": {
+    "inputs": {
+      "noise_seed": "{{seed}}"
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Random Noise"
+    }
+  },
+  "h3_guider": {
+    "inputs": {
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
+      "conditioning": [
+        "h3_conditioning",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Guider"
+    }
+  },
+  "h3_sampler": {
+    "inputs": {},
+    "class_type": "MiniMaxH3TurboSampler",
+    "_meta": {
+      "title": "MiniMax H3 Turbo Sampler"
+    }
+  },
+  "h3_sigmas": {
+    "inputs": {
+      "model": [
+        "h3_sol_attn",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": {{steps}},
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Scheduler"
+    }
+  },
+  "h3_sampling": {
+    "inputs": {
+      "noise": [
+        "h3_noise",
+        0
+      ],
+      "guider": [
+        "h3_guider",
+        0
+      ],
+      "sampler": [
+        "h3_sampler",
+        0
+      ],
+      "sigmas": [
+        "h3_sigmas",
+        0
+      ],
+      "latent_image": [
+        "h3_conditioning",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Sample"
+    }
+  },
+  "h3_decode_video": {
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_video_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video"
+    }
+  },
+  "h3_decode_audio": {
+    "inputs": {
+      "samples": [
+        "h3_sampling",
+        0
+      ],
+      "vae": [
+        "h3_audio_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "h3_audio_trim": {
+    "inputs": {
+      "audio": [
+        "h3_decode_audio",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": [
+        "out_seconds",
+        0
+      ]
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "H3 music to output length"
+    }
+  },
+  "sgopt_ref_video_audio_1__load": {
+    "inputs": {
+      "audio": "{{ref_video_audio_1}}"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Clip soundtrack"
+    }
+  },
+  "sgopt_ref_video_audio_1__trim": {
+    "inputs": {
+      "audio": [
+        "sgopt_ref_video_audio_1__load",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": [
+        "out_seconds",
+        0
+      ]
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "Soundtrack to output length"
+    }
+  },
+  "sound_pick": {
+    "inputs": {
+      "switch": [
+        "sound_supplied",
+        0
+      ],
+      "on_true": [
+        "sgopt_ref_video_audio_1__trim",
+        0
+      ],
+      "on_false": [
+        "h3_audio_trim",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Clip soundtrack, else H3 music"
+    }
+  },
+  "h3_create_video": {
+    "inputs": {
+      "images": [
+        "h3_decode_video",
+        0
+      ],
+      "fps": [
+        "clip_probe_parts",
+        2
+      ],
+      "audio": [
+        "sound_pick",
+        0
+      ],
+      "bit_depth": 8
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video (at the clip's fps)"
+    }
+  },
+  "h3_save": {
+    "inputs": {
+      "video": [
+        "h3_create_video",
+        0
+      ],
+      "filename_prefix": "video/MiniMax_H3_motion_transfer",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  }
+}
