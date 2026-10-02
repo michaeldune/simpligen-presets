@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 184 ready-to-run presets in 55 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 186 ready-to-run presets in 56 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image and SeFi — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 55 packs, 184 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 56 packs, 186 presets.">
 </p>
 
 **Image packs**
@@ -67,6 +67,7 @@ All the MiniMax H3 packs generate video *with synchronized stereo audio*. The fi
 | MiniMax H3 (10Eros Max beta5) | 3 | 10Eros Max beta5 hybrid (INT8) | TenStrip's current beta5, one 21 GB **hybrid** file so R2V runs on true reference character. Same-seed bake-off vs the original: cleaner faces, real motion, ~20% faster at 20 steps (202 vs 250 s vanilla; 127 s for 5 s at 480p in-app). Separate download; the original packs are unchanged |
 | MiniMax H3 (10Eros Max beta5, Turbo) | 3 | 10Eros Max beta5 TURBO-hybrid (INT8) | beta5 with the turbo **baked into the checkpoint**: 8 steps, res_multistep/simple, no LoRA. ~105 s for 5 s at 480p on vanilla, same wall as the larryvrh Turbo at 6; on a face-visible I2V it was sharper than 20-step beta5 at half the time. Its own 21 GB file, so pick this or the plain beta5 unless you want both |
 | MiniMax H3 (TaoMate 3-Step) | 2 | MiniMax H3 FL2VA (INT8) + LoRA | Alibaba TaoLive's three-step distill LoRA (Kijai rank-19 conversion, 173 MB) on the standard FL2VA weights: 3 steps, no CFG, Euler. T2V and I2V only, the LoRA ignores references. Bake vs Turbo Accelerated at 10 steps, same seeds: talking head 50 s vs 83 s and sharper (Laplacian 46 vs 29); product a draw; beach run softer (58 vs 102) with less motion. Dialogue and static shots, not action |
+| MiniMax H3 (HyperFlow 8-Step) | 2 | MiniMax H3 FL2VA (INT8) + LoRA | Video Rebirth's HyperFlow 8-step distill as a plain LoRA (drbaph's pruned-base conversion, rank 20, 316 MB) on HyperFlow's fixed sigma grid, core nodes only: 8 steps, no CFG, Euler. Same cost as PDD Acc 8-Step (90-96 s vs 91 s for 5 s at 480p in SimpliGen); on the same three seeds it kept a locked-off camera still and a tracking shot continuous where PDD Acc pushed in and jumped mid-clip. Runs the LoRA part only: the released model's second time embedding needs an unpruned base. T2V and I2V |
 | MiniMax H3 (FastH3 8-Step V2) | 2 | FastVideo FastH3 V2 (INT8) | FastVideo's DMD2 distill with VSA block-sparse attention, Comfy-Org repack (20.6 GB, its own checkpoint), official template graph: 8 steps, no CFG, sigma shift 10/3, VSA keep 10%. **Needs engine 0.36+ (beta channel as of 2026-09-16)**, store-gated with minComfyuiVersion. Bake vs TaoMate and Turbo Accelerated, same seeds: sharper on every scene (talk 68 vs 46 vs 29, product 257 vs 111 vs 121, run 138 vs 58 vs 102) with motion kept (6.7 vs the turbo's 7.2); ~80 s per 5 s at 480p. T2V + I2V, no R2V |
 | Wan 2.2 I2V (GGUF) | 1 | Wan 2.2 14B | Image-to-video, Q4 GGUF, 12 GB-friendly |
 | LTX 2.5 Lip-Sync (A2V) | 1 | LTX 2.5 distilled 22B | Drive a shot with your own audio. Two-pass to 1080p; 165 s for 5 s at 1920x1088. Reuses the official LTX 2.5 weights |

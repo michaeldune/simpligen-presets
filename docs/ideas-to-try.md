@@ -245,6 +245,56 @@ hosted account). Ideas worth borrowing for our own bridge:
     decline is not visible; (b) is dropped unless a later render shows a problem. Card design (d) is the next step.
     Details: that folder's VERDICT.md.
 
+### From Michael's Recall saves (triaged 2026-10-02)
+Source: app.recall.it/items, read through webcmd. Only H3 / Qwen-Image 2.1 / current-pipeline items that were not
+already in TOOLING-STATE, memory or this file; older or off-topic saves (TTS lists, Wan 1.3B, FLUX/SDXL LoRAs) left out.
+Titles are as saved; open the Recall item for the link.
+
+25. **HyperFlow 8-step H3 LoRA (Video Rebirth).** GitHub `Video-Rebirth/hyperflow`, HF `videorebirth/hyperflow`; built
+    for the diffusers Modular Pipeline, so first check whether the LoRA loads in ComfyUI core. If it does, bake it against
+    DaSiWa and TaoMate on 3 seeds x 2 prompts (sampler time, not wall clock). Highest-value H3 item here.
+    **TESTED 2026-10-02 (vanilla, t2v, pruned fl2va int8, 480p 5 s, seeds 4242/5151/6262 x bake prompts).** Not a plain
+    LoRA (two-time embedder our pruned bases lack); tried the plain-LoRA conversion (core nodes + ManualSigmas) and the
+    Adudeguyman node with curve refit. Same cost as PDD Acc (~102-106 s vs 107 s; TaoMate 51 s), so no speed win. On
+    frames, both held "camera locked off" 3/3 and tracked coherently 3/3, where PDD pushed in 3/3 and jumped 2/3. The node
+    route crashes when run right after a PDD render (PDD's leftover final-layer patch); the plain-LoRA route does not.
+    Michael watched pdd vs hfA (p2motion 5151): "pretty much the same except the pdd one had the turn in the middle".
+    IN THE APP (test pack hyperflow-test-pack, same day): t2v 3 seeds 90-96 s (PDD Acc in-app 91 s), all coherent;
+    i2v works (picture via referenceImages). Audio not listened to. Next: decide the card's home (new card beside PDD
+    Acc), r2v on the ref2va base, then remove the test pack.
+    Possible outcome: a core-nodes-only "HyperFlow 8-Step" card as a steadier alternative to PDD Acc.
+    `D:\SimpliGen-Backups\hyperflow-test-20261002\VERDICT.md`.
+26. **Qwen 2.1 Frame-Lock LoRA** (Wildminder tweet): pins edits to the original frame so nothing shifts. Directly targets
+    the edit drift we fought on Ming mask-back; A/B on our Edit / Fast Edit cards with the same inputs.
+27. **AnyAngle LoRA for Qwen-Image 2.1** (R@aiaicreate tweet): changes the camera angle while keeping the style. Possible
+    new Qwen card; compare with the Character Sheet card's head angles.
+28. **Qwen 2.1 pixel-drift fix nodes** (R@aiaicreate tweet): two ComfyUI nodes, a plain re-alignment and one with colour
+    correction + mask. Same problem as 26; check whether they are core-node-only or need a custom pack.
+29. **Qwen-Image 2.1 PE "Pocket" 2B and 0.8B** (HF `ML-Intern-lab/Qwen-Image-2.1-PE-T2I-Pocket-2B` / `-0.8B`): small
+    versions of the official prompt enhancer. Changes the 2026-10-02 verdict on the PE (9B was too slow at 12 GB); a 2B
+    in core Generate Text might be fast enough for a "write the prompt for me" Qwen card. Needs a with/without-PE image A/B.
+30. **ComfyUI-SongLRC** (GitHub `TheAwaken1/ComfyUI-SongLRC`): timed .lrc lyrics from YuE2 / MiniMax Music 3 output.
+    Compare with our demucs + whisperx lyric timing (lyric-video pipeline); could replace that step or become a card output.
+31. **Other Qwen 2.1 add-ons:** Outpaint LoRA (Linoy Tsaban tweet), Relight Space (`linoyts`), Felldude `QWEN_2.1_HDR_VAE`,
+    Ollin Boer Bohan's two Qwen 2.1 autoencoder variants (tweet; likely a tiny preview VAE), anime2real-2511 Qwen LoRA +
+    the civitai "Anime to Real: 10 workflows compared" guide, NSFW Qwen 2.1 LoRA (civitai), uncensored Qwen 2.1 roundups
+    (AI少年, Md Ismail tweets) plus the Heretic creator's PSA against heretic models as text encoders (Reddit; read before
+    trying any). Index: GitHub `wildminder/awesome-qwen-image`.
+32. **Other H3 add-ons:** BUNNY Motion Repair LoRA V2 (Stable Diffusion Tutorials tweet), "best H3 LoRA for high-action
+    scenes" (AI Search tweet), AI Search's roundup (upscaler, head swap, style transfer), Ai-Hakase's "H3 as uncensored
+    image editor" workflow, astropuzzo `ComfyUI-MiniMax-H3-Image-Studio`, Simply Advanced H3 workflows v1.5.3 (civitai).
+    Index: GitHub `wildminder/awesome-minimax-H3`.
+33. **H3 prompting reading** (feeds the minimax-h3-prompt skill, not cards): PromptSama "MiniMax H3 Prompting Field
+    Guide", instasd "MiniMax H3 Claude Skill" and "H3 Text Encoders in ComfyUI: Files, VRAM, Myths", "How I write motion
+    graphics prompts for MiniMax H3 Max", Reddit "Most important tip I've learned so far with MiniMax-H3", Reddit
+    "turbo / fast / sla attention - best current method".
+34. **Unread link-only saves:** toyxyz tweet, two R@aiaicreate tweets that are only a t.co link, a Matt Jaynes reply to
+    @blizaine, an "Untitled" X post, a bare Reddit link, "You no longer need Grok Imagine" (Reddit). Open and sort.
+35. **ethanfel/ComfyUI-MiniMaxH3-Context-Loop - check for usable updates** (Michael, 2026-10-02). GPL-3.0; the
+    TimelineDirector node (item 24) adapted its "Drift-Control" masking from it. When there is time: read its commits
+    since 2026-09-22 and see whether anything (drift control, loop/continuation nodes) improves Clip Chaining, MV Chain
+    or a future TimelineDirector card. Not cloned yet.
+
 ## Done / dropped
 
 - **2026-10-01, LongLive-Plug 4-step LoRA for H3 (NVIDIA Efficient-Large-Model, Kijai conversion):** needs the lcm
