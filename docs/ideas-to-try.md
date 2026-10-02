@@ -266,10 +266,19 @@ Titles are as saved; open the Recall item for the link.
     `D:\SimpliGen-Backups\hyperflow-test-20261002\VERDICT.md`.
 26. **Qwen 2.1 Frame-Lock LoRA** (Wildminder tweet): pins edits to the original frame so nothing shifts. Directly targets
     the edit drift we fought on Ming mask-back; A/B on our Edit / Fast Edit cards with the same inputs.
+    **TESTED 2026-10-02:** it is ausboss/Qwen-Image-2.1-Consistency-LoRA (step 1500, 159 MB, Qwen Research License).
+    Shipped Edit card, 3 sources x 7 edits x 2 seeds: restyle drift median 44 px -> 5 px, local and head-turn edits
+    pixel-locked (0.1 px), look unchanged, +32% time; it still turned the head. 2- and 4-picture edits also passed
+    (all pictures placed, no extra time). SHIPPED as the "Qwen Image 2.1 Edit (Steady Frame)" card, Qwen pack 1.8.0.
+    `D:\SimpliGen-Backups\qwen-drift-test-20261002\VERDICT.md`.
 27. **AnyAngle LoRA for Qwen-Image 2.1** (R@aiaicreate tweet): changes the camera angle while keeping the style. Possible
     new Qwen card; compare with the Character Sheet card's head angles.
+    **READ 2026-10-02, PARKED:** lilylilith/QI_2.1_AnyAngle needs a coarse render from the target angle as picture 2,
+    made via a Gaussian splat / 3D model + Blender. Untested shortcut: an H3 orbit-clip frame as that render.
 28. **Qwen 2.1 pixel-drift fix nodes** (R@aiaicreate tweet): two ComfyUI nodes, a plain re-alignment and one with colour
     correction + mask. Same problem as 26; check whether they are core-node-only or need a custom pack.
+    **TESTED 2026-10-02 (AusBoss Realign to Source, MIT, no deps):** lines a drifted edit back up, but big restyle drifts
+    leave stretched edge strips (up to 7%). The LoRA (26) avoids the drift instead; Realign stays a fallback.
 29. **Qwen-Image 2.1 PE "Pocket" 2B and 0.8B** (HF `ML-Intern-lab/Qwen-Image-2.1-PE-T2I-Pocket-2B` / `-0.8B`): small
     versions of the official prompt enhancer. Changes the 2026-10-02 verdict on the PE (9B was too slow at 12 GB); a 2B
     in core Generate Text might be fast enough for a "write the prompt for me" Qwen card. Needs a with/without-PE image A/B.
