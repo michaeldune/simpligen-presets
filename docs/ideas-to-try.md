@@ -247,6 +247,16 @@ hosted account). Ideas worth borrowing for our own bridge:
 
 ## Done / dropped
 
+- **2026-10-01, LongLive-Plug 4-step LoRA for H3 (NVIDIA Efficient-Large-Model, Kijai conversion):** needs the lcm
+  sampler (their scheduler re-noises with fresh noise each step) and sigmas 1.0, 0.973, 0.9231, 0.8, 0.0. Best of the
+  four distills on seed 11, but over seeds 22/33/44 DaSiWa was sharper on every fisherman and better on one
+  skateboarder, and TaoMate matched it ~12 s faster. DROPPED: no slot. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+
+- **2026-10-01, FlashGen 4-step LoRA for H3 (Beidouqixing, Kijai rank-13 conversion):** its model-card schedule
+  [1.0, 0.7, 0.4, 0.15, 0.0] must be shift-12 converted for ComfyUI (1.0, 0.9655, 0.8889, 0.6792, 0.0) or the video
+  smears. Clean once fixed; ~45 s sampling like PDMD, no ollie on the skateboarder, softer than DaSiWa, speech tied
+  (Michael listened). DROPPED: no niche. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+
 - **2026-10-01, PDMD 4-step LoRA for H3 (pdmd2026, Kijai rank-57 conversion):** loads clean on the pruned fl2va base;
   T2V 1 seed x 3 prompts vs TaoMate 3-step and DaSiWa v1 4-step. Speech tied on all three (Michael listened), PDMD
   ~48 s sampling vs TaoMate ~36 s and DaSiWa ~60 s, weakest motion (no clear ollie) and less detail than DaSiWa.
