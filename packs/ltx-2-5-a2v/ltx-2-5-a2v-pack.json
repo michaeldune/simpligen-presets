@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-a2v-pack",
   "name": "Community — LTX 2.5 Lip-Sync (A2V)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -142,19 +142,19 @@
         "workflow": "workflows/ltx-2-5-a2v-int8.json",
         "requiresImage": true,
         "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
         "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
-        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
         "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
-        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
         "spatialUpscaler": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
-        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
         "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
         "extraModels": [
           {
             "dir": "vae",
             "filename": "ltx-2.5-audio-vae-bf16.safetensors",
-            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"
           }
         ],
         "cfg": 1,

@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
@@ -147,21 +147,21 @@
         "unet": "redgraftLTX25Fast2K_ltx25RedgraftNSFW.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3250230?fileId=3133376",
         "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
-        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
         "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
-        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
         "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
         "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
         "extraModels": [
           {
             "dir": "vae",
             "filename": "ltx-2.5-audio-vae-bf16.safetensors",
-            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"
           },
           {
             "dir": "latent_upscale_models",
             "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
-            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/3c6a4e66e5d0a684231950b9c74dd4ded7b6fadc/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
           }
         ],
         "cfg": 1,
@@ -321,21 +321,21 @@
         "unet": "redgraftLTX25Fast2K_ltx25RedgraftNSFW.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3250230?fileId=3133376",
         "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
-        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
         "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
-        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
         "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
         "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
         "extraModels": [
           {
             "dir": "vae",
             "filename": "ltx-2.5-audio-vae-bf16.safetensors",
-            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"
           },
           {
             "dir": "latent_upscale_models",
             "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
-            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/3c6a4e66e5d0a684231950b9c74dd4ded7b6fadc/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
           }
         ],
         "cfg": 1,

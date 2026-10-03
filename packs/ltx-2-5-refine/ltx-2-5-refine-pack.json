@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-refine-pack",
   "name": "Community — LTX 2.5 (Video Refine, MSR)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "LiconStudio + Lightricks",
   "nsfw": false,
   "description": "Re-render any finished clip (MiniMax H3 or otherwise) at up to 1080p with LTX 2.5, holding the faces with Licon's Multi-Subject-Reference IC-LoRA. Drop the clip in Reference Video 1, one to four face pictures in the face slots, and optionally a background plate in the fifth slot, the same layout as the official Multi-Reference preset. The clip is scaled to half the tier, encoded, upsampled 2x by the LTX latent spatial upscaler and refined by the distilled LTX 2.5 with the reference faces prepended, then decoded. The source soundtrack is muxed back untouched. LTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack; pick this one for sharpness or when a face needs a reference to hold. The prompt must be LTX style, not the H3 brief: one paragraph, '<who> <does what> in <where>, <camera>, <light>'. Requires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo); the weights are the same files the LTX 2.5 packs already use.",
@@ -26,16 +26,16 @@
         "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
         "acceptsReferenceImages": {"min": 1, "max": 5, "slotLabels": ["Face 1", "Face 2", "Face 3", "Face 4", "Background"]},
         "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
         "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
-        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
         "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
-        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
         "spatialUpscaler": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
-        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "spatialUpscalerUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
         "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
         "extraModels": [
-          {"dir": "vae", "filename": "ltx-2.5-audio-vae-bf16.safetensors", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors"},
+          {"dir": "vae", "filename": "ltx-2.5-audio-vae-bf16.safetensors", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"},
           {"dir": "loras", "filename": "LTX-2.5-Licon-MSR-V1.safetensors", "url": "https://huggingface.co/LiconStudio/LTX-2.5-Multiple-Subject-Reference/resolve/9a053e6d63e54cd6970b1cda9419f1339457bd8c/LTX-2.5-Licon-MSR-V1.safetensors"}
         ],
         "extensions": [
