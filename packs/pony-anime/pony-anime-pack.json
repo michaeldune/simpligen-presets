@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -103,8 +103,8 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
-        "checkpointUrl": "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/main/v6.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/6f5909a7e596173e25d4e97b07fd19cdf9611c76/sdxl_vae.safetensors",
+        "checkpointUrl": "https://huggingface.co/AstraliteHeart/pony-diffusion-v6/resolve/5ec9c05863255568f1b59753e3838107befaa712/v6.safetensors",
         "extensions": [
           {
             "name": "rgthree-comfy",
@@ -408,7 +408,7 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/6f5909a7e596173e25d4e97b07fd19cdf9611c76/sdxl_vae.safetensors",
         "checkpointUrl": "https://civitai.com/api/download/models/324524",
         "extensions": [
           {

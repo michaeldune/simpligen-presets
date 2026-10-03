@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-tts-lipsync-pack",
   "name": "Community — MiniMax H3 Emotion TTS Lip-Sync",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "T8mars + IndexTeam + larryvrh",
   "nsfw": false,
   "description": "Type the line, pick the mood, get the character saying it. IndexTTS 2.5 speaks your quoted dialogue in the voice you supply, with the emotion you name, and MiniMax H3 lip-syncs the reference character to that speech in one generation.\n\nHOW TO USE IT\n1. AUDIO SLOT = a VOICE SAMPLE, 3-10 s of clean speech from the voice you want. It is cloned, not lip-synced. Any language sample works; the spoken line is English.\n2. REFERENCE IMAGES = the character(s), up to nine, exactly like the Lip-Sync preset.\n3. PROMPT = a normal H3 shot description that contains the line in double quotes. The first \"quoted\" run of text is what gets spoken, e.g.: A woman in a leather jacket at a microphone, hard blue key light, looks into the camera and says \"You are leaving tomorrow, and nobody told me.\" Static shot.\n4. EMOTION (optional) = an [emotion: ...] tag anywhere in the prompt, in plain words: [emotion: angry, clipped], [emotion: sad and tired], [emotion: bright and happy]. The tag is removed from the prompt before H3 sees it. Without a tag the emotion is copied from the voice sample.\n\nThe preset prepends the <Audio 1>: fully_copy binding to your prompt automatically. That line is what makes H3 reproduce the speech instead of keeping only the timbre and inventing its own words - three runs without it did exactly that. Do not write your own <Audio 1> line.\n\nVerified 2026-09-02 on a 12 GB RTX 4070 Ti (SimpliGen 1.58.2 / engine ComfyUI 0.34.2, weights hand-placed) and again 2026-09-09 on SimpliGen 1.59.2 with the weights fresh-downloaded by the app: a 6 s angry line at 864x480 with one reference image took 191 s end to end through the agent API (307 s on the cold 1.59.2 run with the TTS weights loading from disk for the first time), and the output transcribes word-perfect against the written line, with the mouth on the words and the emotion in the delivery.\n\nWHAT TO EXPECT. The spoken line is trimmed to the shot length. A line LONGER than the duration is fine - H3 compresses the delivery and keeps all of it (a 55 word line in a 13 s shot came back complete). A line SHORTER than the duration needs one thing from your prompt: IndexTTS speaks at roughly five words a second, so a single sentence is about six seconds, and H3 generates audio for the WHOLE shot. Leave the remaining time unclaimed and it fills the gap by repeating and mangling your line - you get extra words you never wrote.\n\nTHE FIX IS IN THE PROMPT AND IT WORKS COMPLETELY. After the quoted line write three things: the closure as an event (\"the instant that sentence ends, her lips close completely and all speaking motion stops\"), an observable end state for the leftover time (\"for the entire remainder of the shot she stays silent with her lips closed and still, hands resting on the desk\"), and the failure as a prohibition (\"she speaks only once, does not repeat any part of the line, and no further words or vocal sound occur\"). Verified 2026-09-12: the same 29 word line and the same seed that produced invented words twice came back clean, with 6.4 s of held silence at the end.\n\nWHAT DOES NOT WORK: \"do not pad for length\", \"keep it short\", or anything else aimed at the generator rather than the scene - H3 has no referent for it. \"She should close her mouth\" is weaker than describing the closure happening, and a prompt that only covers the moment speech ends merely relocates the extra words into the unclaimed remainder. If you would rather not write this every time, the Fit to Shot card in this pack paces the line to fill the shot instead - at the cost of never being able to hold a silence. Duration default 6 s. Keep lines to one or two sentences per shot. IndexTTS takes 3-5 s per line plus a one-time model load; the H3 part is the Lip-Sync preset's Turbo chain, 6 steps.\n\nDEPENDENCIES, READ BEFORE INSTALLING. Adds the comfyui-indextts25-T8 custom node (pinned) and 7.7 GB of IndexTTS 2.5 weights into the engine's models/TTS folder. The node pins transformers below 5 and its install DOWNGRADES the engine's transformers (5.15.1 -> 4.57.x). SimpliGen's maintainer has confirmed this is allowed and sticks across engine updates; every other shipped pack has been re-verified against it, but any future pack that pins transformers 5 will conflict with this one in the shared engine. If a later IndexTTS node starts on the first run but cannot find its weights, restart SimpliGen once: the models/TTS folder is registered at engine start. REQUIRES SimpliGen 1.59.2 OR NEWER. IndexTTS 2.5 keeps its weights in folders with a dot in the name, and app versions before 1.59.2 refused to download into those, so the install silently skipped all 26 files. 1.59.2 fixed that rule; verified 2026-09-09 with the weights removed first: the app downloaded all 26 files (7.7 GB) into models/TTS/IndexTTS-2.5 on its own, the engine loaded them from there after one restart, and a 6 s line rendered word-perfect through the agent API. If your app is older, update it before installing this pack.",
@@ -68,9 +68,9 @@
           "vramScalesWithDuration": true
         },
         "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -78,12 +78,12 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           },
           {
             "dir": "loras",
             "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
-            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/43a74557ac3f6539db8e0f2a959d03feb7a81480/minimax_h3_turbo_v4_step600_ema.safetensors"
           },
           {
             "dir": "TTS/IndexTTS-2.5",
@@ -521,9 +521,9 @@
           "vramScalesWithDuration": true
         },
         "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -531,12 +531,12 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           },
           {
             "dir": "loras",
             "filename": "minimax_h3_turbo_v4_step600_ema.safetensors",
-            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors"
+            "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/43a74557ac3f6539db8e0f2a959d03feb7a81480/minimax_h3_turbo_v4_step600_ema.safetensors"
           },
           {
             "dir": "TTS/IndexTTS-2.5",

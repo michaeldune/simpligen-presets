@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-taomate-pack",
   "name": "Community — MiniMax H3 (TaoMate 3-Step)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Alibaba TaoLive AIGC Team (LoRA); Kijai (ComfyUI conversion)",
   "nsfw": false,
   "description": "Alibaba TaoLive's TaoMate-H3 three-step distillation LoRA on the standard MiniMax H3 FL2VA weights. Three sampling steps instead of twenty, no classifier-free guidance, Euler. Text and image to video only; the LoRA stops using reference pictures, so there is no reference-to-video card. WHAT IT IS FOR. Bake 2026-09-16 on a 12 GB RTX 4070 Ti against the Turbo Accelerated pack at its default ten steps, same seeds and prompts, 5 s at 480p: a talking head rendered in 50 s against 83 s and came out sharper (Laplacian 46 vs 29) with the line verbatim and the mouth closing on the last word; a product turntable was a draw; a beach run lost sharpness (58 vs 102) and motion (frame-to-frame energy 4.5 vs 7.2), the dog smearing and the strides shortening. So: dialogue, presenters, product and other low-motion shots. Keep the turbo packs for action. Same base weights as the MiniMax H3 pack, so with that installed only the 173 MB LoRA downloads. Kijai's rank-19 averaged conversion of the official rank-128 adapter; MiniMax H3 community licence.",
@@ -340,7 +340,7 @@
           {
             "filename": "minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
             "strength": 1.0,
-            "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy/resolve/main/loras/minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy/resolve/098f8c48fccead9a93191c166ca31a130659d3bd/loras/minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
             "description": "TaoMate-H3 step-3000 EMA adapter, Kijai rank-19 average, bf16"
           }
         ]
@@ -678,7 +678,7 @@
           {
             "filename": "minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
             "strength": 1.0,
-            "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy/resolve/main/loras/minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy/resolve/098f8c48fccead9a93191c166ca31a130659d3bd/loras/minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
             "description": "TaoMate-H3 step-3000 EMA adapter, Kijai rank-19 average, bf16"
           }
         ]

@@ -1,7 +1,7 @@
 {
   "id": "krea2-identity-edit-pack",
   "name": "Community — Krea 2 Identity Edit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "lbouaraba / conradlocke",
   "nsfw": false,
   "editCapable": true,
@@ -41,16 +41,16 @@
         "displayModel": "Krea 2 Turbo + Identity Edit LoRA v1.2",
         "workflow": "workflows/image_krea2_identity_edit.json",
         "unet": "krea2_turbo_fp8_scaled.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/eb1eddd3983a54678545a9b2c178c5853b30f7be/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "extraModels": [
           {
             "dir": "loras",
             "filename": "krea2_identity_edit_v1_2.safetensors",
-            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/89e9e7a09ee2e5c9331e952063d79b1b8a703280/krea2_identity_edit_v1_2.safetensors"
           }
         ],
         "extensions": [
@@ -170,16 +170,16 @@
         "displayModel": "Krea 2 Turbo + Identity Edit LoRA v1.2",
         "workflow": "workflows/image_krea2_identity_lock.json",
         "unet": "krea2_turbo_fp8_scaled.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Krea-2/resolve/eb1eddd3983a54678545a9b2c178c5853b30f7be/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
         "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
         "vae": "qwen_image_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "extraModels": [
           {
             "dir": "loras",
             "filename": "krea2_identity_edit_v1_2.safetensors",
-            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/89e9e7a09ee2e5c9331e952063d79b1b8a703280/krea2_identity_edit_v1_2.safetensors"
           }
         ],
         "extensions": [

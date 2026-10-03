@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -266,7 +266,7 @@
           "minRamGB": 16,
           "sizeGB": 7
         },
-        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/6f5909a7e596173e25d4e97b07fd19cdf9611c76/sdxl_vae.safetensors",
         "checkpointUrl": "https://civitai.com/api/download/models/369370",
         "extensions": [
           {

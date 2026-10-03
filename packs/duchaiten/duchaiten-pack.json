@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -305,7 +305,7 @@
           "notes": "Snapvu needs the hires pass (it blotches without one) and only behaves at CFG 3-4.5. Two passes: base, then 4x-UltraSharpV2 scaled to 1.5x and re-sampled at denoise 0.3. Author's NickelbackFS upscaler is not on a public host, so UltraSharpV2 stands in."
         },
         "upscaler": "4x-UltraSharpV2.pth",
-        "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.pth",
+        "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/2d1db39ff692c111da92112d49f833e4ad7035ae/4x-UltraSharpV2.pth",
         "extensions": [
           {
             "name": "rgthree-comfy",
@@ -788,7 +788,7 @@
           "sizeGB": 2.4,
           "notes": "SD 1.5 with CLIP Skip 2 and external kl-f8-anime2 VAE. DPM++ 2M Karras. ~512px."
         },
-        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+        "vaeUrl": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/6b239e9a5f0cdeba45131cde0fade1753179da4f/vae/kl-f8-anime2.ckpt",
         "extensions": [
           {
             "name": "rgthree-comfy",

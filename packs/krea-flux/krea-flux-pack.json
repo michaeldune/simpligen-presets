@@ -1,7 +1,7 @@
 {
   "id": "krea-flux-pack",
   "name": "Community — Krea Flux",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "Community",
   "nsfw": false,
   "description": "Flux.1 Krea community presets (BFL FLUX.1 Krea dev generation). Krea-CSG Foundation: a GGUF Flux.1 Krea fine-tune (Cyber Supergirl) with strong anime and photoreal range, 35-step euler/beta, lower VRAM than the Krea 2 DiT presets.",
@@ -53,11 +53,11 @@
         "clips": [
           {
             "filename": "clip_l_hidream.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_l_hidream.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/0703a0bd5983e85e5f5b007577263164938de251/split_files/text_encoders/clip_l_hidream.safetensors"
           },
           {
             "filename": "t5xxl_fp8_e4m3fn_scaled.safetensors",
-            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn_scaled.safetensors"
+            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/6af2a98e3f615bdfa612fbd85da93d1ed5f69ef5/t5xxl_fp8_e4m3fn_scaled.safetensors"
           }
         ],
         "steps": 35,
@@ -113,7 +113,7 @@
           "sizeGB": 11.9,
           "notes": "GGUF quantized Flux.1 Krea. UnetLoaderGGUF + Flux dual text encoder (clip_l + T5-XXL fp8 scaled, ~5.4 GB, downloaded on install) + Flux ae VAE. euler/beta, CFG 1, negative zeroed. Lower VRAM than the FP8 Krea-2 turbo presets."
         },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/vae/ae.safetensors",
         "extensions": [
           {
             "name": "rgthree-comfy",

@@ -1,7 +1,7 @@
 {
   "id": "anima-realism-pack",
   "name": "Community — Anima Realism",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) photoreal checkpoints.",
@@ -48,9 +48,9 @@
         "unet": "novaRealityAM_v10.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3054111",
         "clip": "qwen_3_06b_base.safetensors",
-        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
         "vae": "qwen_image_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
         "steps": 25,
         "cfg": 5,
         "denoise": 1,
@@ -207,8 +207,8 @@
           "sizeGB": 5,
           "notes": "Anima (Cosmos) UNet + Qwen 0.6B encoder + Qwen-Image VAE. ER-SDE/simple, ModelSamplingAuraFlow shift 3. v2.3 Turbo distilled (low steps, CFG 1)."
         },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
         "extensions": [
           {
             "name": "rgthree-comfy",

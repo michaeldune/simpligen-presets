@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v2-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v2)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid Turbo v2 (2026-09-11): the same drop-in int8 ConvRot finetune idea as the DaSiWa Hybrid pack, now built as the FL2VA weights with a baked-in REF2VA delta and a retuned distillation blend. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A SECOND DASIWA PACK. Measured 2026-09-13 on a 12 GB RTX 4070 Ti against the shipped 4Turbo v1 on the same seed, prompts and graphs: v2 is a different look, not a faster one. At four steps it is softer and darker than v1; at EIGHT steps it gives the most natural portrait of every H3 turbo we ship - clean skin with no oily sheen, no blown key light, defined eyes and lips - where v1 reads bright, high-contrast and crunchy. So this pack defaults to eight steps (about 100 s per five-second shot at 480p, against 72 s for v1) and the v1 pack stays as the fast, punchy option. Identity held on every reference test (solo, two-person, person plus location). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -58,7 +58,7 @@
         "unet": "DasiwaMinimaxH3_dasiwaHybridTurboV2.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3314686?fileId=3203135",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -66,7 +66,7 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           }
         ],
         "steps": 8,
@@ -350,7 +350,7 @@
         "unet": "DasiwaMinimaxH3_dasiwaHybridTurboV2.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3314686?fileId=3203135",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -358,7 +358,7 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           }
         ],
         "steps": 8,
@@ -675,7 +675,7 @@
         "unet": "DasiwaMinimaxH3_dasiwaHybridTurboV2.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3314686?fileId=3203135",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -683,7 +683,7 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           }
         ],
         "steps": 8,

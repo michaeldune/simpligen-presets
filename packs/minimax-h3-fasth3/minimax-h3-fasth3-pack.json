@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-pack",
   "name": "Community — MiniMax H3 (FastH3 8-Step V2)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minAppVersion": "1.63.0",
   "minComfyuiVersion": "v0.36.0",
   "author": "FastVideo (hao-ai-lab); Comfy-Org repack",
@@ -65,7 +65,7 @@
           "vramScalesWithDuration": true
         },
         "unet": "fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/FastVideo/FastVideo-FastH3-Comfy/resolve/main/diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/FastVideo/FastVideo-FastH3-Comfy/resolve/ec1e3aa374a91c57b0b94a1623b7e657c0498cf2/diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
@@ -396,7 +396,7 @@
           "vramScalesWithDuration": true
         },
         "unet": "fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/FastVideo/FastVideo-FastH3-Comfy/resolve/main/diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/FastVideo/FastVideo-FastH3-Comfy/resolve/ec1e3aa374a91c57b0b94a1623b7e657c0498cf2/diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",

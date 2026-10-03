@@ -1,7 +1,7 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "Michael Pate (community)",
   "nsfw": false,
   "minComfyuiVersion": "v0.28.0",
@@ -52,9 +52,9 @@
         "unet": "Ideogram4-instant_int8-convrot-simple.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3131396",
         "clip": "qwen_3_8b_fp8mixed.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/3f62d9d8ae1fec33c6e91453d5c712855b096b55/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
         "vae": "flux2-vae.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
         "loras": [
           {
             "filename": "lenovo_ideogram4.safetensors",
@@ -160,9 +160,9 @@
         "unet": "Ideogram4-instant_int8-convrot-simple.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3131396",
         "clip": "qwen_3_8b_fp8mixed.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/3f62d9d8ae1fec33c6e91453d5c712855b096b55/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
         "vae": "flux2-vae.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
         "loras": [
           {
             "filename": "lenovo_ideogram4.safetensors",

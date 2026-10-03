@@ -1,7 +1,7 @@
 {
   "id": "wan22-i2v-gguf-pack",
   "name": "Community — Wan 2.2 I2V (GGUF)",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Wan-AI",
   "nsfw": false,
   "description": "Wan 2.2 14B image-to-video, GGUF Q4 quant for lower VRAM (12 GB-friendly). Dual high/low-noise experts + 4-step lightx2v LoRAs. Reuses the umt5 encoder + Wan VAE.",
@@ -50,29 +50,29 @@
         "unets": [
           {
             "filename": "Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf",
-            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/main/HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf"
+            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/6c6717459277b9cd1f72579d78a0fd62a79e57dc/HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf"
           },
           {
             "filename": "Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf",
-            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/main/LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf"
+            "url": "https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/6c6717459277b9cd1f72579d78a0fd62a79e57dc/LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf"
           }
         ],
         "loras": [
           {
             "filename": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
             "strength": 1
           },
           {
             "filename": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
             "strength": 1
           }
         ],
         "clip": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
         "vae": "wan_2.1_vae.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/vae/wan_2.1_vae.safetensors",
         "steps": 4,
         "high_steps": 2,
         "low_steps": 2,

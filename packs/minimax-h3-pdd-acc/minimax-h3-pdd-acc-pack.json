@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pdd-acc-pack",
   "name": "Community — MiniMax H3 (PDD Acc 8-Step)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -60,9 +60,9 @@
           "vramScalesWithDuration": true
         },
         "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -70,12 +70,12 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           },
           {
             "dir": "pdd_acc",
             "filename": "MiniMax-H3-FL2VA-Acc-8Step.safetensors",
-            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
+            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/335001fb9e5455d68a0caa18ec2e319072150328/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
           }
         ],
         "extensions": [
@@ -380,9 +380,9 @@
           "vramScalesWithDuration": true
         },
         "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -390,12 +390,12 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           },
           {
             "dir": "pdd_acc",
             "filename": "MiniMax-H3-FL2VA-Acc-8Step.safetensors",
-            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
+            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/335001fb9e5455d68a0caa18ec2e319072150328/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
           }
         ],
         "extensions": [
@@ -712,9 +712,9 @@
           "vramScalesWithDuration": true
         },
         "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
         "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
         "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
@@ -722,12 +722,12 @@
           {
             "dir": "vae",
             "filename": "minimax_h3_audio_vae_fp32.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
           },
           {
             "dir": "pdd_acc",
             "filename": "MiniMax-H3-FL2VA-Acc-8Step.safetensors",
-            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/main/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
+            "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs/resolve/335001fb9e5455d68a0caa18ec2e319072150328/MiniMax-H3-FL2VA-Acc-8Step.safetensors"
           }
         ],
         "extensions": [

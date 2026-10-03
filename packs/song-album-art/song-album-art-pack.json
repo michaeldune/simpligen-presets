@@ -1,7 +1,7 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
@@ -76,7 +76,7 @@
           {
             "dir": "checkpoints",
             "filename": "yue2_3b_int8_convrot.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/2f76ca75e6ee094169de899cc7fc99d6887e2196/checkpoints/yue2_3b_int8_convrot.safetensors"
           },
           {
             "dir": "diffusion_models",
@@ -220,12 +220,12 @@
           {
             "dir": "checkpoints",
             "filename": "yue2_3b_int8_convrot.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/2f76ca75e6ee094169de899cc7fc99d6887e2196/checkpoints/yue2_3b_int8_convrot.safetensors"
           },
           {
             "dir": "audio_encoders",
             "filename": "sheetsage2_bf16.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/audio_encoders/sheetsage2_bf16.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/2f76ca75e6ee094169de899cc7fc99d6887e2196/audio_encoders/sheetsage2_bf16.safetensors"
           },
           {
             "dir": "diffusion_models",
@@ -369,12 +369,12 @@
           {
             "dir": "checkpoints",
             "filename": "yue2_3b_int8_convrot.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_int8_convrot.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/2f76ca75e6ee094169de899cc7fc99d6887e2196/checkpoints/yue2_3b_int8_convrot.safetensors"
           },
           {
             "dir": "audio_encoders",
             "filename": "sheetsage2_bf16.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/audio_encoders/sheetsage2_bf16.safetensors"
+            "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/2f76ca75e6ee094169de899cc7fc99d6887e2196/audio_encoders/sheetsage2_bf16.safetensors"
           },
           {
             "dir": "diffusion_models",
@@ -502,11 +502,11 @@
           "vramScalesWithDuration": false
         },
         "unet": "minimax_music3_dit_int8_convrot.safetensors",
-        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/diffusion_models/minimax_music3_dit_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/9e364ccd290a401561091fb441ed19cd7de92550/diffusion_models/minimax_music3_dit_int8_convrot.safetensors",
         "clip": "minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/text_encoders/minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/9e364ccd290a401561091fb441ed19cd7de92550/text_encoders/minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
         "vae": "minimax_music3_dav.safetensors",
-        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/main/vae/minimax_music3_dav.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-Music-3/resolve/9e364ccd290a401561091fb441ed19cd7de92550/vae/minimax_music3_dav.safetensors",
         "cover_unet": "qwen_image_2.1_int8_convrot.safetensors",
         "cover_clip": "qwen3vl_8b_int8_convrot.safetensors",
         "cover_vae": "qwen_image_2.1_vae_bf16.safetensors",
