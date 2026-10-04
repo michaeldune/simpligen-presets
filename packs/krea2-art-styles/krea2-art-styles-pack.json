@@ -1,0 +1,466 @@
+{
+  "id": "krea2-art-styles-pack",
+  "name": "Community — Krea 2 Art & Styles",
+  "version": "1.0.0",
+  "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi",
+  "nsfw": false,
+  "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
+  "tags": [
+    "Local",
+    "Krea",
+    "Artistic",
+    "Anime",
+    "Stylized",
+    "Anthro"
+  ],
+  "presets": [
+    {
+      "id": "equinox-krea2-semi-real",
+      "name": "Equinox Krea 2 (Semi-Realistic)",
+      "tagline": "Crisp, idealised semi-real characters and illustration",
+      "icon": "🌗",
+      "previewImage": "previews/equinox-krea2-semi-real.jpg",
+      "description": "llikswonskcalb's Equinox, the long-running semi-realistic model, in its first Krea 2 release (INT8 ConvRot; the author calls it experimental). In our side-by-side it was the most distinct of six Krea 2 checkpoints: it composes its own picture instead of repeating stock Krea 2's, and renders crisp, idealised faces with sharp eyes and clean shading on anime, fantasy and illustration prompts. It restyles photo prompts too (younger, prettier, glossier), so use a Krea 2 realism card for candid photography. 8 steps, CFG 1, euler/simple. Upscale slider as on the other Krea 2 cards.",
+      "tags": [
+        "Krea",
+        "Semi-Realistic",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "[BSS] Equinox Krea2 (INT8 ConvRot)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/equinox-krea2-semi-real.json",
+        "unet": "BSSEquinoxSemi_krea2Int8Convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3370191?fileId=3258362",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.1,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 1833737, version 3370191 'Krea2_int8_ConvRot', file 3258362, 13,149,954,464 B, SHA256 73730408f3b33d92a0ef79658adcafe7e7046bb0d17285d5f9f80fcfec889852; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. The author gives no Krea 2 settings (the page text is for the SDXL versions), so this uses the Krea 2 Turbo convention: euler/simple, 8 steps, CFG 1, negative zeroed. Tested 2026-10-03 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo and Realia; then 3 seeds through the app at 1216x1632 (3:4), all rendered, and Upscale 1.5 clean on the engine. Median 16 s per picture. LICENCE (Civitai): credit required, no derivatives/merges, image-commercial use not granted."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fascium-krea-art-painterly",
+      "name": "Fascium KREA ART (Painterly)",
+      "tagline": "Paints everything: oil, engraving and poster styles by name",
+      "icon": "🖌️",
+      "previewImage": "previews/fascium-krea-art-painterly.jpg",
+      "description": "FASCIUM's painterly Krea 2: a merge of 99 artist-style LoRAs (old-master oil, Baroque, Impressionist, Art Nouveau, engraving, poster lithography, anime production art), INT8 ConvRot v2.0. Painterly only, by design: in our test it turned every prompt into paint, including a maid portrait and an anime schoolgirl, which came out as a painted illustration rather than cel anime. Call a style by name: 'in the manner of Rembrandt', 'in the style of Gustav Klimt', 'in the manner of Alphonse Mucha', 'Piranesi style', 'in the style of J.M.W. Turner'. SFW by design. 10 steps, CFG 1, Euler a (the author's sampler). For photographs use a Krea 2 realism card.",
+      "tags": [
+        "Krea",
+        "Painterly",
+        "Artistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Fascium KREA ART ConvRot 99-Voice v2.0 (INT8)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/fascium-krea-art-painterly.json",
+        "unet": "fasciumKREAARTConvrot99Voice_v20_int8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3371592?fileId=3259917",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.1,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2960566, version 3371592 'v2.0', file 3259917 (int8_convrot), 13,149,020,736 B, SHA256 56f3607410a612c30e0dab15fb13a10522282ee14da9baf8ef8d14a2944e0cb9; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Author's settings: Euler a, 8-12 steps, CFG 1-3, 1024x1536 or 1536x1024; this card runs euler_ancestral/simple, 10 steps, CFG 1 (CFG above 1 not tested here, so no CFG slider). Tested 2026-10-03 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo and Realia; then 3 seeds through the app at 1216x1632 (3:4), all rendered, and Upscale 1.5 clean on the engine. Median 21 s per picture. An int4 build (6.9 GB) exists on the same page for low VRAM; not tested. LICENCE (Civitai): commercial use, merges and derivatives allowed."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fwaun-tune-krea2-semi-chibi",
+      "name": "Fwaun Tune Krea 2 (Semi-Chibi)",
+      "tagline": "Flat colour, no line art, big-headed characters",
+      "icon": "🍡",
+      "previewImage": "previews/fwaun-tune-krea2-semi-chibi.jpg",
+      "description": "fwaunstp733's Fwaun Tune for Krea 2 (krea2_turbo_v5.0): a full fine-tune for one look, flat colour with no outlines and softly deformed, big-headed characters. The style is strong: in our test it redrew every prompt this way, including a photo prompt and a Rembrandt oil painting. The card adds the trigger 'semi-chibi style.' in front of your prompt for you. The author's other triggers also work when you type them: 'monochrome' and 'photorealistic background' (a flat character over a photo-like scene). 8 steps, CFG 1, euler/simple.",
+      "tags": [
+        "Krea",
+        "Anime",
+        "Chibi",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Fwaun Tune krea2_turbo_v5.0 (INT8 ConvRot)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/fwaun-tune-krea2-semi-chibi.json",
+        "unet": "fwaunTune_krea2TurboV50_int8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3220385?fileId=3102474",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 14.0,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2846802 (Fwaun Tune), version 3220385 'krea2_turbo_v5.0', file 3102474 (int8 + ConvRot), 13,963,603,120 B, SHA256 1d21e6a6489b4f3580f4f1d9e4682c63df075244fce5f1c0779dc67881146bf4. Note the model page's NEWEST version is for Qwen-Image 2.1; this card pins the Krea 2 one. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. No settings published for the Krea 2 build; uses euler/simple, 8 steps, CFG 1, negative zeroed. The workflow prepends 'semi-chibi style. ' to the prompt, and the card blanks the app's default quality suffix (image.values.quality): with 'high quality, detailed, sharp focus' the background turned photoreal on 3 of 3. Tested 2026-10-03 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo and Realia; then 3 seeds through the app at 1216x1632 (3:4), all rendered, and Upscale 1.5 clean on the engine. Median 18 s per picture. 'monochrome' and 'photorealistic background' triggers are the author's and were not tested here. LICENCE (Civitai): image-commercial use allowed, derivatives allowed."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
+    },
+    {
+      "id": "wulver-krea2-anthro",
+      "name": "Wulver Krea 2 (Anthro)",
+      "tagline": "Anthro and kemono characters that stay animals",
+      "icon": "🐺",
+      "previewImage": "previews/wulver-krea2-anthro.jpg",
+      "description": "VaelicoAi's Wulver v0.5: a full fine-tune of Krea 2 (not a merge) for anthro, furry and kemono characters. In our test, where stock Krea 2 drew a small anime cat-wolf, Wulver drew a real wolf-headed character with a muzzle, fur and paws, three times out of three. Prompt in prose (60-120 words, describe the background) or in booru/e621 tags. The card puts the rating tag 'sfw,' in front of your prompt, as the model expects. It also knows 1,113 artist tokens (@name, typed first; list on the model's Hugging Face page), with two catches we saw on every render: a token can write the artist's name on the picture as a signature, and the character can lose clothing you asked for. Even without a token, a faint signature scribble sometimes appears in a corner. 8 steps, CFG 1 (higher CFG burns the picture, so there is no CFG slider).",
+      "tags": [
+        "Krea",
+        "Anthro",
+        "Furry",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Wulver v0.5 Turbo (fp8)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/wulver-krea2-anthro.json",
+        "unet": "Wulver_v0.5_fp8_e4m3fn.safetensors",
+        "unetUrl": "https://huggingface.co/Vaelico/Wulver/resolve/c77ac3a1d5e28522cfcbdd3c58e9c684da4a8b08/Wulver_v0.5_fp8_e4m3fn.safetensors",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 10,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.8,
+          "notes": "Krea-2 DiT (diffusion_models): Hugging Face Vaelico/Wulver Wulver_v0.5_fp8_e4m3fn.safetensors, pinned to revision c77ac3a, 12,821,599,836 B, SHA256 ef8b8e1cf596e9564df79d9688af3c6faf85772b3226f1ba880db9970271619e (same file as Civitai model 2881657, version 3361227, file 3249021); + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Author's settings: euler/simple, 8 steps, CFG 1.0, trained to 1024 px; rating tag first, then an optional @artist token. The workflow prepends 'sfw, '. Tested 2026-10-03 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 6 prompts x 3 seeds at 1024x1024 against base Krea 2 Turbo, then 3 seeds through the app at 1216x1632 (coherent above its 1024 training size). The card blanks the app's default quality suffix (image.values.quality), which otherwise gives a glossier rendered look. Artist tokens @kenket, @blotch, @honovy: subtle style shift, artist name written on the picture 6 of 6 for two of them, shorts dropped 9 of 9. Author's known issue: some pictures have a smeared top or bottom edge. LICENCE: Krea 2 Community License (see the Hugging Face repo); Civitai page asks for credit."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
+    }
+  ]
+}
