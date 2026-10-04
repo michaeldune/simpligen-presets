@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). The Fast Edit card (since 1.6.0) edits with PrunaAI's 8-step LoRA (adds 336 MB): about 20 seconds for a one-picture edit instead of about 80, best with one picture. The Edit (Steady Frame) card (since 1.8.0) adds ausboss's 159 MB Consistency LoRA so an edit stays on the original's frame instead of shifting or resizing. Two swap cards (since 1.7.0): Head Swap puts one person's face and hair into another picture, and Outfit Swap dresses a person in the clothes and shoes from another picture; about 1 minute each. One 17 GB download covers every other card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). The Fast (HDR) card (since 1.9.0) is Fast Drafts decoded through Felldude's HDR VAE (adds 1.35 GB): punchier colour and crisper detail for photo-style prompts, at the cost of clipped whites. The Fast Edit card (since 1.6.0) edits with PrunaAI's 8-step LoRA (adds 336 MB): about 20 seconds for a one-picture edit instead of about 80, best with one picture. The Edit (Steady Frame) card (since 1.8.0) adds ausboss's 159 MB Consistency LoRA so an edit stays on the original's frame instead of shifting or resizing. Two swap cards (since 1.7.0): Head Swap puts one person's face and hair into another picture, and Outfit Swap dresses a person in the clothes and shoes from another picture; about 1 minute each. One 17 GB download covers every other card. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",
@@ -22,7 +22,8 @@
     "https://civitai.com/api/download/models/3346353?fileId=3233294": "9aef911a6f1492bd7f3006b4e280562002b6966324892c257f47d0066e83c9d1",
     "https://civitai.com/api/download/models/3349290": "c1298f51eb090473f924314475952710a2f0322f1df65c0290f3e14997244f96",
     "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo/resolve/e57a0bbc496f25277773f725be6ddb8f6b109010/Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors": "7fd196e14629160c9d1470a698fbb65ccb95f725b72397ef554648ce468ad825",
-    "https://huggingface.co/PrunaAI/Pruna-Qwen-Image-2.1/resolve/113e63bb993001b3411eb3470b84fc444040cd7e/p_qwen_image_2.1_8step_v0.1.safetensors": "f0865d68b02511a3a0ed232d9d1aa99cac3a94166f574b38bcbab1a7a297bb15"
+    "https://huggingface.co/PrunaAI/Pruna-Qwen-Image-2.1/resolve/113e63bb993001b3411eb3470b84fc444040cd7e/p_qwen_image_2.1_8step_v0.1.safetensors": "f0865d68b02511a3a0ed232d9d1aa99cac3a94166f574b38bcbab1a7a297bb15",
+    "https://civitai.com/api/download/models/3379093?fileId=3267624": "9298a6274a0c7ce12fc9a8f644d1fc40829db25446960f37261b5d77c48dbb5f"
   },
   "presets": [
     {
@@ -199,6 +200,96 @@
           "minRamGB": 32,
           "sizeGB": 18.7,
           "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE); the Viggle LoRA is a derivative under the same licence. Shares the pack's Qwen-Image 2.1 weights (int8 ConvRot model 7.3 GB, int8 Qwen3-VL 8B encoder 9.4 GB, VAE 0.7 GB) and adds Viggle/Qwen-Image-2.1-viggle-turbo v0.2 (Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors, rank 256, 1.36 GB, DMD-distilled; repo commit e57a0bb, sha256 pinned in the pack checksums) through LoraLoaderModelOnly at strength 1 after SimpliGen's LoRA slot. Sampling per the model card: 5 steps, euler, CFG 1, no negative, on the nodes [1, 0.875, 0.75, 0.5, 0.25]; those are RAW nodes that diffusers time-shifts, and ManualSigmas skips the model shift, so the workflow carries them pre-shifted for ~1 MP (mu 0.6935: 1, 0.93446, 0.85833, 0.66667, 0.4, 0); every aspect ratio in the table is within 0.4% of that mu. Tested 2026-09-23 on a 4070 Ti 12 GB (SimpliGen engine, int8 base), 5 prompts x 3 seeds against the 25-step base: portrait, poster and a one-reference edit on par; a small shop sign garbled more (1 of 3 misspelled, 1 of 3 with a doubled accordion) and a product edit merged the shoe on 1 of 3 - this card is text-to-image only. Steady state ~3 s per new seed vs ~12 s for the old 25-step base (text encode ~4 s more on a new prompt, same for both); the first run after another Qwen card spends ~5 s patching the LoRA in. Peak VRAM ~11.5 GB. IN THE APP (2026-09-23): 4 pictures (3:4 poster, two 16:9 photo seeds, 9:16 interior) at 11.1 s each; the app re-encodes the prompt and re-applies the LoRA on every job, so the 3 s reseed seen on the bare engine does not happen in the app. Poster headline and tagline letter-perfect, a small chalkboard sign readable, nothing doubled."
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors",
+            "url": "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo/resolve/e57a0bbc496f25277773f725be6ddb8f6b109010/Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors"
+          }
+        ]
+      }
+    },
+    {
+      "id": "qwen-image-21-fast-hdr",
+      "name": "Qwen Image 2.1 Fast (HDR)",
+      "icon": "🌅",
+      "enabled": true,
+      "tagline": "Fast drafts with punchier colour and crisper detail",
+      "description": "The Fast Drafts card with a different finish. Same 5-step picture, decoded through Felldude's HDR VAE for Qwen Image 2.1, which pushes colour, contrast and fine detail harder than the standard one: richer skin and sky tones, crisper pores, fabric and lettering. It is a look, not a quality upgrade, and it comes at a cost: bright areas clip sooner, so white clothing, snow and flat anime shading can blow out and lose their detail, and dark areas go blacker. It is also a few seconds slower per picture. Use it for photo-style prompts; use Fast Drafts for anime, line art and anything with large white areas. Adds a 1.35 GB VAE. Non-commercial use only (Qwen Research License).",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Qwen",
+        "Fast",
+        "HDR",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-fast-hdr.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Viggle turbo v0.2 LoRA + HDR VAE",
+        "workflow": "workflows/image_qwen_image_21_fast.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "hdrVAEForQwenImage21_v10.safetensors",
+        "vaeUrl": "https://civitai.com/api/download/models/3379093?fileId=3267624",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 5,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 19.4,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE); the Viggle LoRA is a derivative under the same licence. Shares the pack's Qwen-Image 2.1 weights (int8 ConvRot model 7.3 GB, int8 Qwen3-VL 8B encoder 9.4 GB, VAE 0.7 GB) and adds Viggle/Qwen-Image-2.1-viggle-turbo v0.2 (Qwen-Image-2.1-viggle-turbo-v0.2-5step-lora-r256.safetensors, rank 256, 1.36 GB, DMD-distilled; repo commit e57a0bb, sha256 pinned in the pack checksums) through LoraLoaderModelOnly at strength 1 after SimpliGen's LoRA slot. Sampling per the model card: 5 steps, euler, CFG 1, no negative, on the nodes [1, 0.875, 0.75, 0.5, 0.25]; those are RAW nodes that diffusers time-shifts, and ManualSigmas skips the model shift, so the workflow carries them pre-shifted for ~1 MP (mu 0.6935: 1, 0.93446, 0.85833, 0.66667, 0.4, 0); every aspect ratio in the table is within 0.4% of that mu. Tested 2026-09-23 on a 4070 Ti 12 GB (SimpliGen engine, int8 base), 5 prompts x 3 seeds against the 25-step base: portrait, poster and a one-reference edit on par; a small shop sign garbled more (1 of 3 misspelled, 1 of 3 with a doubled accordion) and a product edit merged the shoe on 1 of 3 - this card is text-to-image only. Steady state ~3 s per new seed vs ~12 s for the old 25-step base (text encode ~4 s more on a new prompt, same for both); the first run after another Qwen card spends ~5 s patching the LoRA in. Peak VRAM ~11.5 GB. IN THE APP (2026-09-23): 4 pictures (3:4 poster, two 16:9 photo seeds, 9:16 interior) at 11.1 s each; the app re-encodes the prompt and re-applies the LoRA on every job, so the 3 s reseed seen on the bare engine does not happen in the app. Poster headline and tagline letter-perfect, a small chalkboard sign readable, nothing doubled. HDR CARD (since 1.9.0): the Fast Drafts graph with the VAE swapped for Felldude/QWEN_2.1_HDR_VAE (a fine-tune of the Qwen-Image 2.1 autoencoder, Qwen Research License). Felldude's Hugging Face file is diffusers format and does not load in ComfyUI's VAELoader, so the card downloads the ComfyUI-format conversion by StrugglingSorceror (Civitai model 2980907, version 3379093, file 3267624, hdrVAEForQwenImage21_v10.safetensors, 1,350,990,568 B, fp32, sha256 9298a627...bb5f); all 238 tensors were checked byte-identical to Felldude's revision 202a839. Tested 2026-10-04 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0): 4 prompts x 2 seeds at 1024x1024, each latent decoded with the standard and the HDR VAE so the VAE was the only difference. Mean brightness unchanged on all 8; mean saturation +0.04 to +0.055; pores, linen weave and a painted sign visibly crisper; a sunset gradient stayed smooth. Clipped highlights rose from about 1% of pixels to 13-15% on an anime picture with a white dress (fold shading lost), and clipped shadows from 4.2% to 7.3% on a hard-sun market scene. IN THE APP (2026-10-04, SimpliGen 1.67.3): 2 prompts x 3 seeds against Fast Drafts, 12 of 12 rendered, the HDR VAE confirmed in the queued graph; same compositions per seed, saturation +0.04 to +0.06, market shadows clipped 7.5-15.5% of pixels against 4.1-9.9%, and about 14-15 s per picture against about 11 s (order not alternated, so approximate). The encoder half of this VAE was also checked on the Fast Edit graph and changes nothing visible; the look comes from the decoder."
         },
         "extraModels": [
           {
