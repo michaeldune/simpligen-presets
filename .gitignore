@@ -28,3 +28,6 @@ MEMORY.md
 
 # frame contact sheets / audio samples from reviewing generated video
 .video-analysis/
+
+# local test sheets, eval renders and tool logs
+logs/
