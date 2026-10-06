@@ -1,7 +1,7 @@
 {
   "id": "wan22-i2v-gguf-pack",
   "name": "Community — Wan 2.2 I2V (GGUF)",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": "Wan-AI",
   "nsfw": false,
   "description": "Wan 2.2 14B image-to-video, GGUF Q4 quant for lower VRAM (12 GB-friendly). Dual high/low-noise experts + 4-step lightx2v LoRAs. Reuses the umt5 encoder + Wan VAE.",
@@ -81,9 +81,9 @@
         "extensions": [
           {
             "name": "ComfyUI-GGUF",
-            "url": "https://github.com/city96/ComfyUI-GGUF.git",
+            "url": "https://github.com/molbal/ComfyUI-GGUF.git",
             "description": "Provides UnetLoaderGGUF - required to load the Q4_K_M GGUF experts",
-            "pinnedCommit": "6ea2651e7df66d7585f6ffee804b20e92fb38b8a"
+            "pinnedCommit": "48de657b3aa830ae6981960e928b31cb51fd16aa"
           },
           {
             "name": "rgthree-comfy",
@@ -159,7 +159,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 20,
-          "notes": "Wan 2.2 14B I2V GGUF Q4_K_M (2 experts ~9 GB each, diffusion_models via UnetLoaderGGUF) + umt5 encoder (clip\\) + Wan 2.1 VAE + the wan2.2 i2v lightx2v 4-step LoRAs (high+low). 4-step dual-expert split (high 0-2, low 2-4), euler/simple, cfg 1. GGUF is lighter than the built-in fp8 Wan 2.2 I2V (min 16 GB) - runs 480p on ~8 GB, 720p needs ~16 GB (14B model); 12 GB cards should use 480p + short clips. Needs KJNodes + RES4LYF extensions (bundled in engine)."
+          "notes": "Wan 2.2 14B I2V GGUF Q4_K_M (2 experts ~9 GB each, diffusion_models via UnetLoaderGGUF) + umt5 encoder (clip\\) + Wan 2.1 VAE + the wan2.2 i2v lightx2v 4-step LoRAs (high+low). 4-step dual-expert split (high 0-2, low 2-4), euler/simple, cfg 1. GGUF is lighter than the built-in fp8 Wan 2.2 I2V (min 16 GB) - runs 480p on ~8 GB, 720p needs ~16 GB (14B model); 12 GB cards should use 480p + short clips. Needs KJNodes + RES4LYF extensions (bundled in engine). LOADER SWITCH (1.3.0): ComfyUI-GGUF moved from city96 6ea2651 to molbal/ComfyUI-GGUF 48de657 together with SimpliGen's own GGUF packs. Tested 2026-10-04 in plain ComfyUI 0.37.2 with this card's graph: frames are bit-identical between the two loaders, so results do not change."
         }
       }
     }

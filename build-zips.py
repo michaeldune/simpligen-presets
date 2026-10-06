@@ -121,7 +121,7 @@ CUSTOM_NODES = {
     },
     'UnetLoaderGGUF': {
         'name': 'ComfyUI-GGUF',
-        'url':  'https://github.com/city96/ComfyUI-GGUF',
+        'url':  'https://github.com/molbal/ComfyUI-GGUF',
         'note': 'Required for GGUF quantised models. Usually pre-installed by SimpliGen.',
     },
     'ConditioningKrea2Rebalance': {
