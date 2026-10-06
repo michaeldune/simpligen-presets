@@ -1,35 +1,52 @@
-Something you may want on your radar, from chasing down YaShiRo's distorted-faces report.
+Chasing down YaShiRo's distorted-faces report turned into something I think you will want.
 
-The short version: **Faster Attention visibly damages faces narrower than about 80 pixels on H3 i2v, and leaves
-larger ones alone.** Three seeds out of three.
+Short version: **it is Sol-Attn, not Spectrum, and Spectrum on its own is both clean and nearly as
+fast.** Dropping Sol-Attn costs about 5% of the speed-up and fixes the faces.
 
-Setup: the official `minimax-h3-i2v` card, YaShiRo's own two frames and prompt, 480x864, 8 s, 20 steps, first and
-last frame. Toggle-on renders went through the agent route so the graph is whatever the app actually builds, not
-something I assembled; I read it back off the engine's `/queue` to be sure. For the record it comes out as
+Setup: the official `minimax-h3-i2v` card, YaShiRo's own two frames and prompt, 480x864, 8 s, 20
+steps, first and last frame. Five configurations, three seeds each, fifteen clips. Everything with
+an accelerator went through the agent route so the graph is whatever the app actually builds; I read
+it back off the engine's `/queue` rather than assembling it myself. For the record, toggle-on is
 
-    simpligen_lora_1 -> sage_1 (PathchSageAttentionKJ, "auto")
+    simpligen_lora_1 -> sage_1 (PathchSageAttentionKJ "auto")
                      -> simpligen_sigma_shift_1 (MiniMaxH3SigmaShift, shift_video 12, shift_audio 3)
-                     -> simpligen_spectrum_1
-                     -> simpligen_sol_attn_1
+                     -> simpligen_spectrum_1 -> simpligen_sol_attn_1
 
-Toggle-off is the shipped template with none of the four, which I ran as the control.
+and the sigma shift is gated on Spectrum, so Spectrum-only keeps it and Sol-Attn-only does not.
 
-In the 45-80 px band, the toggle-on clips lose face structure on every seed: eye sockets collapse into a dark band,
-brows merge into the shadow, beards become a solid mass. The control's faces in the same band stay readable, with
-eye, nose and beard edge drawn. Over about 100 px both look fine, which is why this only bites on wide shots with
-people at a distance. YaShiRo's faces measure 26-60 px, median 53, so they sit right in it.
+| configuration | faces in the 45-80 px band | seconds |
+|---|---|---|
+| Sage + Sigma + Spectrum + Sol-Attn (toggle on) | damaged, 3 of 3 seeds | ~220 |
+| Spectrum + Sol-Attn, no Sage | damaged, 3 of 3 | ~241 |
+| Sage + Sol-Attn | damaged, 2 of 3 | ~290 |
+| **Sage + Sigma + Spectrum** | **clean, 3 of 3** | **~230** |
+| nothing (toggle off) | clean, 3 of 3 | ~481 |
 
-One extra data point that narrows it slightly. Before running the real toggle I had hand-built an arm with **only**
-Spectrum and Sol-Attn, no Sage and no sigma shift. That arm shows the same damage on the same three seeds. So
-Spectrum and Sol-Attn together are sufficient, and Sage and the sigma shift are not required for it. I cannot tell
-you which of those two is responsible, since the app always injects them as a pair. Happy to run the single-variable
-split if it would help.
+Sol-Attn present, faces damaged. Sol-Attn absent, faces clean. That holds across all fifteen clips.
+The one seed where Sol-Attn-only did not clearly show it was under-sampled rather than contradicting
+(the detector mostly found trouser legs on that one).
 
-Cost on a 4070 Ti was about 220 s with the toggle on and 481 s with it off, so roughly 2x.
+The damage is eye sockets collapsing into a dark band, brows merging into the shadow, beards going to
+a solid mass. Faces over about 100 px are fine in every configuration, so it only bites on wide shots
+with people at a distance. YaShiRo's faces measure 26-60 px, median 53, right in the middle of it.
 
-I am not suggesting you change the default. The trade is clearly worth it for close-ups and it is a big speed win.
-It might be worth a line in the UI or the docs, though, something to the effect that Faster Attention can cost fine
-detail on small subjects, since nothing on screen currently connects "my distant faces look melted" to that toggle.
-A user hitting this has no way to guess at it.
+There is now an independent confirmation of this from the user's own machine, and it is a useful one. YaShiRo went
+off and ran their own "Faster Attention OFF" test, which still came out with faulty faces. The workflow they attached
+shows why: they had removed the SageAttention node and left everything else in place, so `h3_guider` and `h3_sigmas`
+were both still reading from `simpligen_sol_attn_1`. That is precisely the Spectrum + Sol-Attn configuration from my
+second row, on the same seed I used, and it failed the same way, down to the same dark smear across the eye sockets.
+Different machine, same result.
 
-I have the nine clips and the comparison sheets if you want to look at them.
+Worth noting what they assumed, because I suspect others will assume it too: that turning Faster Attention off means
+taking out the Sage node. Nothing told them it also governs a sigma shift, Spectrum and Sol-Attn.
+
+So the thing I would actually suggest: **consider dropping Sol-Attn from the H3 i2v injection**, or
+splitting it out of the combined toggle. Spectrum is where essentially all the speed comes from, and
+it does not hurt faces. Right now a user cannot make that choice themselves, since `use_sage_attention`
+is the only persisted setting and the Advanced panel has one combined switch, so anyone who hits this
+has to give up the whole 2.2x to get their faces back.
+
+Happy to be wrong about the mechanism, this is fifteen clips on one prompt. If you want a different
+scene or more seeds before changing anything, say the word and I will run it.
+
+I have all fifteen clips and the per-seed comparison sheets if you want to look.
