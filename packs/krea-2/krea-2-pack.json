@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0.",
+  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai.",
   "tags": [
     "Local",
     "Krea",
@@ -613,7 +613,7 @@
       "tagline": "Aggressive uncensored Krea 2, fast",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-fp8.jpg",
-      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition). High-contrast film look with pale skin and a wider, more environmental framing. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition). High-contrast film look with pale skin and a wider, more environmental framing. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x. Note for new installs: the creator has since made this FP8 file paid on Civitai, so it no longer downloads here. If you do not already have it, use the Dark Beast GGUF cards instead.",
       "tags": [
         "Krea",
         "Turbo",
@@ -721,6 +721,254 @@
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           }
         ]
+      }
+    },
+    {
+      "id": "dark-beast-krea2-gguf-q8",
+      "name": "Dark Beast Krea 2 (GGUF Q8)",
+      "tagline": "Aggressive uncensored Krea 2, the free Q8 build",
+      "icon": "🐺",
+      "previewImage": "previews/dark-beast-krea2-gguf-q8.jpg",
+      "description": "The same Dark Beast Krea 2 \"Aggressive Edition\" as the FP8 card, in molbal's free GGUF conversion (Q8). Use this one if you cannot download the FP8 file, which is now paid on Civitai. In our side-by-side it gave the same picture as the FP8 original for the same seed: uncensored, bold, high-contrast, 8 steps at CFG 1. About 40 seconds for a 1408 px picture on a 12 GB card. It is a 14.6 GB download; if disk space or VRAM matters more than an exact match, use the Q4 card. Renders at native ~2 MP with the same Upscale slider.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Realistic",
+        "GGUF",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Dark Beast KREA 2 (GGUF Q8)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/dark-beast-krea2-gguf.json",
+        "unet": "darkBeastKrea2Aggressive_v10_q80.gguf",
+        "unetUrl": "https://civitai.com/api/download/models/3092542?fileId=2972074",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 16,
+          "sizeGB": 15.2,
+          "notes": "Krea-2 DiT as GGUF (diffusion_models) through UnetLoaderGGUFDynamicVRAM + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Q8_0 GGUF, 14,563,660,832 B, sha256 0C832D89..., Civitai model 2749127 (molbal) version 3092542 file 2972074: a conversion of AiMetatron's version 3078453, the file the FP8 card ships. Tested 2026-10-04 in plain ComfyUI 0.37.2 on a 4070 Ti 12 GB with molbal/ComfyUI-GGUF 48de657, 2 prompts x 2 seeds at 1408x1408 against the FP8 file: same composition and subject on 4 of 4 (24-31 dB), 47-78 s against 29-33 s. Verified in the SimpliGen app 2026-10-06 (engine 0.38.0, 4070 Ti 12 GB): 3 prompts per card at ~2 MP, 6 of 6 clean, 39-40 s each (4 s/step); the Q8 and Q4 portraits are byte-identical to the plain-ComfyUI renders of the same seed. Uses the fork's UnetLoaderGGUFDynamicVRAM with reclaimVramBeforeSampling; its legacy UnetLoaderGGUF ran 60-110 s/step here. The standard city96 loader cannot read this file (\"Unexpected architecture type in GGUF file: 'krea2'\"), so the card needs the molbal fork. Same graph as the FP8 card apart from the loader: euler/simple, 8 steps, CFG 1, negative zeroed, gated 4-step refine above Upscale 1."
+        },
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-GGUF",
+            "url": "https://github.com/molbal/ComfyUI-GGUF.git",
+            "description": "UnetLoaderGGUFDynamicVRAM (loads the .gguf model)",
+            "pinnedCommit": "48de657b3aa830ae6981960e928b31cb51fd16aa"
+          }
+        ],
+        "reclaimVramBeforeSampling": true
+      }
+    },
+    {
+      "id": "dark-beast-krea2-gguf-q4",
+      "name": "Dark Beast Krea 2 (GGUF Q4)",
+      "tagline": "Dark Beast for 8 GB cards, free download",
+      "icon": "🐺",
+      "previewImage": "previews/dark-beast-krea2-gguf-q4.jpg",
+      "description": "Dark Beast Krea 2 \"Aggressive Edition\" in molbal's free GGUF conversion at Q4: an 8.3 GB file for cards that cannot hold the 12-15 GB builds. Same uncensored, high-contrast look, 8 steps at CFG 1. The heavier compression changes the picture: for the same seed it composes differently from the FP8 and Q8 builds, but the results were clean in our test. About 40 seconds for a 1408 px picture on a 12 GB card. Renders at native ~2 MP with the same Upscale slider.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Realistic",
+        "GGUF",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Dark Beast KREA 2 (GGUF Q4)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/dark-beast-krea2-gguf.json",
+        "unet": "darkBeastKrea2Aggressive_v10_q40.gguf",
+        "unetUrl": "https://civitai.com/api/download/models/3092542?fileId=2972048",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 8.9,
+          "notes": "Krea-2 DiT as GGUF (diffusion_models) through UnetLoaderGGUFDynamicVRAM + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Q4_0 GGUF, 8,314,016,800 B, sha256 FEA2385E..., Civitai model 2749127 (molbal) version 3092542 file 2972048. Tested 2026-10-04 in plain ComfyUI 0.37.2 on a 4070 Ti 12 GB with molbal/ComfyUI-GGUF 48de657, 2 prompts x 2 seeds at 1408x1408: clean pictures, same subject as the FP8 file but different composition (17-21 dB), 33-47 s. Verified in the SimpliGen app 2026-10-06 (engine 0.38.0, 4070 Ti 12 GB): 3 prompts per card at ~2 MP, 6 of 6 clean, 39-40 s each (4 s/step); the Q8 and Q4 portraits are byte-identical to the plain-ComfyUI renders of the same seed. Uses the fork's UnetLoaderGGUFDynamicVRAM with reclaimVramBeforeSampling; its legacy UnetLoaderGGUF ran 60-110 s/step here. The standard city96 loader cannot read this file (\"Unexpected architecture type in GGUF file: 'krea2'\"), so the card needs the molbal fork. Same graph as the FP8 card apart from the loader: euler/simple, 8 steps, CFG 1, negative zeroed, gated 4-step refine above Upscale 1."
+        },
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-GGUF",
+            "url": "https://github.com/molbal/ComfyUI-GGUF.git",
+            "description": "UnetLoaderGGUFDynamicVRAM (loads the .gguf model)",
+            "pinnedCommit": "48de657b3aa830ae6981960e928b31cb51fd16aa"
+          }
+        ],
+        "reclaimVramBeforeSampling": true
       }
     }
   ]
