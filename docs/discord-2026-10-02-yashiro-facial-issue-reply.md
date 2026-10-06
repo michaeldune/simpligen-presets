@@ -1,25 +1,37 @@
-Thanks for the details, that was enough to test it properly.
+Thanks for sending the images, the prompt and your settings. I reproduced it, and I think I can tell you what is
+happening and what to do about it.
 
-I ran your exact setup here: MiniMax H3 Image to Video (Turbo, Fully Accelerated), 480p, 15 seconds, 10 steps, Faster
-Attention on, a first frame and a last frame. The face held all the way through the clip: profile at the start,
-three-quarter in the middle, straight to camera at the end, with no melting or warping. So the preset and those
-settings on their own don't produce what you are seeing, which means the difference is in what goes into it.
+I rebuilt your job here (your two frames, your prompt, your seed, 480x864, 20 steps, first and last frame; 8 seconds
+rather than 15, to keep the test affordable) and ran it twice: once with **Faster Attention on**, exactly as you had
+it, and once with it off. Everything else was identical. Then I did the same with two more seeds, so three pairs in
+total.
 
-Could you post:
+**The faces come apart with Faster Attention on, and hold with it off. Three seeds out of three.**
 
-1. **The two images you used** (first frame and last frame), as files rather than screenshots if you can, so I get the
-   real resolution.
-2. **The exact prompt** you gave it, copied as text.
+With it on, every face narrower than about 80 pixels loses its structure: the eye sockets collapse into a dark band,
+the brows merge into the shadow, a beard goes to a solid mass. With it off, faces the same size in the same clip stay
+readable, with the eye, nose and beard edge all drawn. Faces larger than about 100 pixels were fine either way, which
+is why this shows up on a wide room shot and not on a close-up.
 
-With those I can run your job here and see the same thing you see, instead of guessing.
+In your clip the faces measure between 26 and 60 pixels wide, median 53. That is right in the middle of the band that
+breaks.
 
-Two things I'd look at in the meantime, because they are the usual causes when a face comes apart in the middle of a
-clip:
+So, two things to change:
 
-- **How big the face is in frame.** At 480p a person at that distance gets maybe 100 pixels of face, and H3 has very
-  little to work with. Jumping to 768p is one click and is the biggest single improvement for faces.
-- **How much has to happen between your two frames.** The first and last frames are pinned, and everything between
-  them is invented. If the pose, angle or distance changes a lot across 15 seconds, the middle has the furthest to
-  travel. Shorter clips, or a last frame closer to the first, give the face an easier job.
+**1. Turn off Settings > Advanced > Faster Attention for shots like this.**
+It is the single thing that fixed it in my tests. The cost is real: it roughly doubled my render time (220 seconds
+became 481 for an 8-second clip). For a wide shot full of distant people that trade is worth it. For close-ups,
+leave it on, it costs you nothing there.
 
-If the prompt asks for speech, strong motion, or a camera move, mention that too; all three make faces harder.
+**2. Render the people bigger.**
+At 480x864 your movers only ever get ~50 pixels of face, which is very little for H3 to work with even without the
+accelerator. Switching to 768p takes the same framing to roughly 85 pixels of face, which is out of the band where I
+saw the damage. Pulling the camera in, or framing waist-up instead of the full room, does the same thing for free.
+
+Worth saying as well: an upscaler will not rescue this one. Upscaling makes what is there bigger and cleaner, but it
+cannot rebuild an eye that was never drawn in the first place, so a face that came out structurally wrong stays
+structurally wrong however far you enlarge it. This has to be fixed at generation time.
+
+Nothing to fix in the preset itself, for what it is worth. It is the official Image to Video card doing what it
+should, and the accelerator is an app-level setting that sits on top of it. Your prompt is genuinely good, the
+choreography came through cleanly in every single run.
