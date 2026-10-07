@@ -4,7 +4,8 @@ Mr.Anderson asked two things today: is DaSiWa v3 coming, and why were the DaSiWa
 **Faster Attention now works on the DaSiWa packs** (Settings > Advanced > Faster attention)
 - **MiniMax H3 (DaSiWa Hybrid) 1.3.0**, all four cards: 67-71 s per shot with it on, about 80 s before.
 - **MiniMax H3 (DaSiWa Hybrid v2) 1.2.0**, all three cards: 78-83 s with it on, about 100 s before.
-- Same picture and same spoken line as before, just sooner. Nothing else in either pack changed.
+- Same shot as before, just sooner. Nothing else in either pack changed.
+- One of our ten test renders slurred a word with the toggle on (an image-to-video line spoken over a violin) and was clean with it off. If a line comes out wrong, try another seed or switch the toggle off for that shot.
 
 **New pack: MiniMax H3 (DaSiWa Hybrid v3)**
 Darksidewalker's v3 Turbo from 1 October, eight steps, one checkpoint for all three cards:
