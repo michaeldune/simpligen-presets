@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-dasiwa-v2-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v2)",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Darksidewalker",
   "nsfw": false,
-  "description": "Darksidewalker's DaSiWa Hybrid Turbo v2 (2026-09-11): the same drop-in int8 ConvRot finetune idea as the DaSiWa Hybrid pack, now built as the FL2VA weights with a baked-in REF2VA delta and a retuned distillation blend. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A SECOND DASIWA PACK. Measured 2026-09-13 on a 12 GB RTX 4070 Ti against the shipped 4Turbo v1 on the same seed, prompts and graphs: v2 is a different look, not a faster one. At four steps it is softer and darker than v1; at EIGHT steps it gives the most natural portrait of every H3 turbo we ship - clean skin with no oily sheen, no blown key light, defined eyes and lips - where v1 reads bright, high-contrast and crunchy. So this pack defaults to eight steps (about 100 s per five-second shot at 480p, against 72 s for v1) and the v1 pack stays as the fast, punchy option. Identity held on every reference test (solo, two-person, person plus location). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
+  "description": "Darksidewalker's DaSiWa Hybrid Turbo v2 (2026-09-11): the same drop-in int8 ConvRot finetune idea as the DaSiWa Hybrid pack, now built as the FL2VA weights with a baked-in REF2VA delta and a retuned distillation blend. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A SECOND DASIWA PACK. Measured 2026-09-13 on a 12 GB RTX 4070 Ti against the shipped 4Turbo v1 on the same seed, prompts and graphs: v2 is a different look, not a faster one. At four steps it is softer and darker than v1; at EIGHT steps it gives the most natural portrait of every H3 turbo we ship - clean skin with no oily sheen, no blown key light, defined eyes and lips - where v1 reads bright, high-contrast and crunchy. So this pack defaults to eight steps (about 100 s per five-second shot at 480p, against 72 s for v1) and the v1 pack stays as the fast, punchy option. Identity held on every reference test (solo, two-person, person plus location). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free. ADDED IN 1.2.0: all three cards now work with the app's Faster Attention toggle. Checked in the app 2026-10-07 with it on: 78-83 s per five-second shot at 480p, same picture, speech word for word.",
   "tags": [
     "Hybrid",
     "I2V",
@@ -46,6 +46,7 @@
           "minimax-h3"
         ],
         "workflow": "workflows/video_minimax_h3_dasiwa_v2_t2v.json",
+        "supportsSage": true,
         "duration": {
           "type": "slider",
           "min": 5,
@@ -305,6 +306,12 @@
             "url": "https://github.com/rgthree/rgthree-comfy.git",
             "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           }
         ]
       }
@@ -338,6 +345,7 @@
           "minimax-h3"
         ],
         "workflow": "workflows/video_minimax_h3_dasiwa_v2_i2v.json",
+        "supportsSage": true,
         "duration": {
           "type": "slider",
           "min": 5,
@@ -605,6 +613,12 @@
             "url": "https://github.com/rgthree/rgthree-comfy.git",
             "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           }
         ]
       }
@@ -639,6 +653,7 @@
           "minimax-h3"
         ],
         "workflow": "workflows/video_minimax_h3_dasiwa_v2_r2v.json",
+        "supportsSage": true,
         "acceptsReferenceImages": {
           "min": 0,
           "max": 9,
@@ -922,6 +937,12 @@
             "url": "https://github.com/rgthree/rgthree-comfy.git",
             "description": "Power Lora Loader (user LoRA slot)",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
           }
         ]
       }
