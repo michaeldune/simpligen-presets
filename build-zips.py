@@ -4,13 +4,13 @@ build-zips.py
 Generate readme.html + install.cmd + install.ps1 for each pack, then zip.
 
 Run: python build-zips.py
-Output: D:\\SimpliGen-Backups\\zips\\community-<slug>.zip
+Output: F:\\Claude-Work\\zips\\community-<slug>.zip
 """
 
 import os, re, json, zipfile
 
 BASE    = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'packs')
-OUT_DIR = r'D:\SimpliGen-Backups\zips'
+OUT_DIR = r'F:\Claude-Work\zips'
 
 # ── Custom node registry ──────────────────────────────────────────────────────
 CUSTOM_NODES = {

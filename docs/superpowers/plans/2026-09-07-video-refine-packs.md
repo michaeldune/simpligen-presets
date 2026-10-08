@@ -221,7 +221,7 @@ Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
 **Files:**
 - Modify: `packs/minimax-h3-refine/minimax-h3-refine-pack.json` (requirements.notes, description numbers)
 - Replace: `packs/minimax-h3-refine/previews/minimax-h3-refine-pdd.jpg`
-- Create: `D:\SimpliGen-Backups\video-refine-verify-20260907\` (renders + sheets)
+- Create: `F:\Claude-Work\video-refine-verify-20260907\` (renders + sheets)
 
 - [ ] **Step 1: Upload the 5 s source and render at 768p**
 
@@ -253,7 +253,7 @@ ffprobe -v error -show_entries stream=codec_type,width,height,nb_frames -of comp
 ffmpeg -i "$v" -af volumedetect -f null - 2>&1 | grep -o "max_volume: .*"
 ffmpeg -v error -y -i "$v" -vf "select='not(mod(n\,20))',scale=432:-1,tile=6x1" -frames:v 1 /c/Users/micha/AppData/Local/Temp/refine_pdd_5s_sheet.jpg
 ```
-Expected: `width=1344|height=768`, `nb_frames=124`, audio stream present, `max_volume` within 3 dB of the source's `-21.8 dB`. Read the sheet with the Read tool and compare to `D:\SimpliGen-Backups\pdd-acc-verify-20260907\pdd_r2v_sheet.jpg`: same man, same headphone lift, sharper. If faces drift, lower `denoise` in `h3_pdd_sigmas` to `0.125` (one block) and re-run once; record which value shipped.
+Expected: `width=1344|height=768`, `nb_frames=124`, audio stream present, `max_volume` within 3 dB of the source's `-21.8 dB`. Read the sheet with the Read tool and compare to `F:\Claude-Work\pdd-acc-verify-20260907\pdd_r2v_sheet.jpg`: same man, same headphone lift, sharper. If faces drift, lower `denoise` in `h3_pdd_sigmas` to `0.125` (one block) and re-run once; record which value shipped.
 
 - [ ] **Step 3: 10 s render to exercise two windows**
 
@@ -267,8 +267,8 @@ ffmpeg -v error -y -i "$v10" -vf "select='not(mod(n\,20))',scale=320:-1,tile=13x
 ```bash
 v=$(ls /f/SimpliGen/output/community--minimax-h3-refine-packminimax-h3-refine-pdd/*.mp4 | head -1)
 ffmpeg -v error -y -ss 3.5 -i "$v" -frames:v 1 -q:v 3 packs/minimax-h3-refine/previews/minimax-h3-refine-pdd.jpg
-mkdir -p /d/SimpliGen-Backups/video-refine-verify-20260907
-cp /f/SimpliGen/output/community--minimax-h3-refine-packminimax-h3-refine-pdd/*.mp4 /c/Users/micha/AppData/Local/Temp/refine_pdd_*_sheet.jpg /d/SimpliGen-Backups/video-refine-verify-20260907/
+mkdir -p /f/Claude-Work/video-refine-verify-20260907
+cp /f/SimpliGen/output/community--minimax-h3-refine-packminimax-h3-refine-pdd/*.mp4 /c/Users/micha/AppData/Local/Temp/refine_pdd_*_sheet.jpg /f/Claude-Work/video-refine-verify-20260907/
 ```
 Edit `requirements.notes` in the pack JSON to read (fill the two numbers): `Measured 2026-09-07 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2, Sage attention on: 864x480 -> 1344x768, 5 s in <N5> s, 10 s (two 73-frame windows) in <N10> s. Shares the ref2va base with every R2V pack; new downloads are the 1.37 GB Ref2VA PDD distill and the 0.69 GB LBH upscaler if you lack Two-Stage. Duration follows the source clip up to 15 s. Below ~2 GB free system RAM the decode can fail with 'HostBuffer.read_file_slice failed'.` Replace `see the pack notes for the numbers` in the preset description with `5 s in <N5> s, 10 s in <N10> s`.
 
@@ -513,7 +513,7 @@ Same ffprobe / volumedetect / 6-frame sheet as Task 3 Step 2. Expected `width=19
 ```bash
 v=$(ls /f/SimpliGen/output/community--ltx-2-5-refine-packltx-2-5-refine-msr/*.mp4 | head -1)
 ffmpeg -v error -y -ss 3.5 -i "$v" -frames:v 1 -q:v 3 packs/ltx-2-5-refine/previews/ltx-2-5-refine-msr.jpg
-cp "$v" /c/Users/micha/AppData/Local/Temp/refine_msr_5s_sheet.jpg /d/SimpliGen-Backups/video-refine-verify-20260907/
+cp "$v" /c/Users/micha/AppData/Local/Temp/refine_msr_5s_sheet.jpg /f/Claude-Work/video-refine-verify-20260907/
 ```
 Fill `requirements.notes`: `Measured 2026-09-07 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.34.2: 864x480 H3 clip -> 1920x1088 in <N> s for 5 s, one reference face, sigmas <shipped list>. Shares every LTX 2.5 file with the A2V and official LTX packs; the only new download is the 1.3 GB MSR V1 LoRA. Duration follows the source clip up to 15 s. Gated HF repo: needs an API key and licence acceptance.` Replace `see the pack notes for the numbers` in the preset description with `5 s to 1080p in <N> s`.
 
@@ -556,7 +556,7 @@ After the PDD Acc row at `CUSTOM-PRESET-AUTHORING-GUIDE.md:304` add:
 ```bash
 uv run python build-zips.py 2>&1 | grep -i "refine\|built\|skipped"
 gh auth switch -u michaeldune
-gh release upload packs-latest /d/SimpliGen-Backups/zips/community-minimax-h3-refine.zip /d/SimpliGen-Backups/zips/community-ltx-2-5-refine.zip --clobber --repo michaeldune/simpligen-presets
+gh release upload packs-latest /f/Claude-Work/zips/community-minimax-h3-refine.zip /f/Claude-Work/zips/community-ltx-2-5-refine.zip --clobber --repo michaeldune/simpligen-presets
 gh release view packs-latest --repo michaeldune/simpligen-presets --json assets -q '.assets[] | select(.name|test("refine")) | "\(.name) \(.size) \(.updatedAt)"'
 gh auth switch -u michaelkpate
 ssh -T git@github.com-dune 2>&1 | head -1

@@ -10,7 +10,7 @@ Source: https://github.com/SatoDive/Minimax-H3-Latent-Continuation, tutorial htt
 
 1. **Lip sync across a Native Guide join.** PARTLY DONE 2026-09-19 (see Done section): speech and picture survive
    the join; lip sync itself could not be measured at 480p and needs Michael to watch
-   `D:\SimpliGen-Backups\satodive-continuation-test-20260919\clip2_stitched_00001_.mp4`. If he wants a number,
+   `F:\Claude-Work\satodive-continuation-test-20260919\clip2_stitched_00001_.mp4`. If he wants a number,
    re-run at 768p with a tight face so the mouth is big enough to score.
 1b. **Make the continuation cheaper.** It took 780 s vs 200 s for a fresh clip because the 8 s `seed_ref_video` is
    encoded as a reference. Try a 2 s tail, or no `seed_ref_video` when the framing does not change.
@@ -23,7 +23,7 @@ Source: https://github.com/SatoDive/Minimax-H3-Latent-Continuation, tutorial htt
    clip (the shipped card already carries a trimmed track: waveform corr 0.943 vs 0.951 locked, same lip sync). In a
    one-hop continuation the guide's audio falls to 0.827 while the lock holds 0.952; sync equal at one hop. So the
    card worth building is a locked-track CHAIN card, and 2c decides how much it matters. One seed, one span.
-   `D:\SimpliGen-Backups\h3-native-audio-lock-20260920\VERDICT.md`.
+   `F:\Claude-Work\h3-native-audio-lock-20260920\VERDICT.md`.
 2b. **Repeat the singing chain on two more song spans and a second singer** before trusting it (one-clip rule).
 2c. **3-hop singing chain** (A + B + C) to see whether sync or brightness degrades with depth.
    **DONE 2026-09-20 on our native graph, guide vs lock:** audio does NOT compound on the guide path once the 22
@@ -52,8 +52,8 @@ Source: https://github.com/SatoDive/Minimax-H3-Latent-Continuation, tutorial htt
    base / LoRA / sampler / steps carries it; whether the pixel-tail chain is also fine on this recipe; a second shot.
    **2e (card): "H3 Music Video Chain" - N clips in one workflow, master song in, `[Shot N]` prompt split, native
    assembly (no VHS), fl2va recipe.** Everything it needs is already in the engine.
-   `D:\SimpliGen-Backups\h3-latent-mv-chain-20260920\VERDICT.md`.
-   `D:\SimpliGen-Backups\h3-native-audio-lock-20260920\VERDICT.md`.
+   `F:\Claude-Work\h3-latent-mv-chain-20260920\VERDICT.md`.
+   `F:\Claude-Work\h3-native-audio-lock-20260920\VERDICT.md`.
 2. **Same test with singing.** DONE 2026-09-19, see Done section. If (1) holds for speech, repeat with a vocal stem + backing at -14 dB. This decides
    whether music-video singing shots can be chained instead of one 345-frame generation.
    **2b REPEAT DONE 2026-09-20:** two more spans (verse 2 with the lead, chorus with the guitarist as a second singer).
@@ -61,7 +61,7 @@ Source: https://github.com/SatoDive/Minimax-H3-Latent-Continuation, tutorial htt
    pick between chain and long, "both are spot on"; chorus/guitarist: "the same, both spot on". 3 of 3 spans now. Caveats: the continuation steps a few luma levels brighter at the
    join, and it inherits the previous clip's drift (the guitarist shot pushed in and brightened in BOTH arms), which
    will compound over more hops: that is what 2c has to measure. The lip metric is blind on continuous singing.
-   Details: `D:\SimpliGen-Backups\satodive-singing-test-20260919\VERDICT.md` (REPEAT section).
+   Details: `F:\Claude-Work\satodive-singing-test-20260919\VERDICT.md` (REPEAT section).
 3. **Separate context reference from the handoff clip.** Continue from a close-up while feeding an earlier wide
    master as `<Video 1>`, then ask for a wide. Check the room layout holds. Could fix cuts in the Clip Chaining
    and Two-Shot Director cards.
@@ -139,7 +139,7 @@ hosted account). Ideas worth borrowing for our own bridge:
     files MIGHT load unpatched - unknown until one is downloaded; (b) needs the 0.37 engine like the rest of 2.1;
     (c) a day-old personal upload (Comfy-Org-first rule). WHEN: after a 0.37 engine exists. Test in vanilla: download
     Q4_K_M, does city96's loader take it, speed vs the 16 s int8, quality at Q4 on the text-sign and edit prompts from
-    `D:\SimpliGen-Backups\qwen-image-21-test-20260920\`. If it loads on city96, add ONE low-VRAM card to the held
+    `F:\Claude-Work\qwen-image-21-test-20260920\`. If it loads on city96, add ONE low-VRAM card to the held
     `feat/qwen-image-21` pack (new card, not a change to the others). Note H3 GGUF presets ran 3-10x slower in our bake-off.
     **Four sources compared 2026-09-21 (metadata + hashes only, nothing downloaded or run):**
     (1) `realrebelai/Qwen-Image-2.1_GGUFs` - Q2..Q8 "HQv3" MIXED precision (attention + img_mlp.out kept at Q8, so Q4 is
@@ -158,7 +158,7 @@ hosted account). Ideas worth borrowing for our own bridge:
     realrebelai Q4 LOADS on the stock loader and matches INT8 on composition, lettering and a nude prompt, but takes
     35-38 s vs 12-13 s warm at the same ~10.5-11 GB peak VRAM. abenzerps Q4_K_M does NOT load ("Unknown model
     architecture", 7 of 7). Verdict: no GGUF card on a 12 GB card's account; only an 8 GB-GPU request would justify one, with
-    realrebelai's file, after an edit-with-references test. Write-up: `D:\SimpliGen-Backups\qwen-image-21-test-20260920\gguf_ab\VERDICT.md`.
+    realrebelai's file, after an edit-with-references test. Write-up: `F:\Claude-Work\qwen-image-21-test-20260920\gguf_ab\VERDICT.md`.
 20. **Calliope (story-to-video studio) - LOW PRIORITY, no follow-up planned** (Michael 2026-09-20: "I don't know that we
     will follow up anytime soon"). https://github.com/benjiyaya/Calliope, MIT, 178 stars, 1.5.4 on 2026-09-18; read the
     README + example workflows only, nothing run. A standalone app (FastAPI + SvelteKit + an OpenAI-compatible LLM) that
@@ -239,7 +239,7 @@ hosted account). Ideas worth borrowing for our own bridge:
     invisible; 4x8 s locked-song singing 27.1 s in ~14-15 min, soundtrack = the original song (0.994). Reference pictures
     are centre-cropped to the output shape by the planner (portrait in 16:9 -> eyes cut off): pad them. Lip metric falls
     per segment in both runs (0.77->0.46 / 0.44->0.28), confounded with song content. Next: (a) Michael watches
-    `D:\SimpliGen-Backups\timelinedirector-test-20260926\B2_sing_4x8_locked_169ref.mp4`; (b) control for the lip decline;
+    `F:\Claude-Work\timelinedirector-test-20260926\B2_sing_4x8_locked_169ref.mp4`; (b) control for the lip decline;
     (c) fair A/B vs MV Chain with the same singer; (d) card design (JSON plan from placeholders + auto-padding).
     **(a) DONE 23:49: Michael watched B2 - "the lipsync was perfect, I didn't notice any joins".** The metric's per-segment
     decline is not visible; (b) is dropped unless a later render shows a problem. Card design (d) is the next step.
@@ -263,14 +263,14 @@ Titles are as saved; open the Recall item for the link.
     i2v works (picture via referenceImages). Audio not listened to. Next: decide the card's home (new card beside PDD
     Acc), r2v on the ref2va base, then remove the test pack.
     Possible outcome: a core-nodes-only "HyperFlow 8-Step" card as a steadier alternative to PDD Acc.
-    `D:\SimpliGen-Backups\hyperflow-test-20261002\VERDICT.md`.
+    `F:\Claude-Work\hyperflow-test-20261002\VERDICT.md`.
 26. **Qwen 2.1 Frame-Lock LoRA** (Wildminder tweet): pins edits to the original frame so nothing shifts. Directly targets
     the edit drift we fought on Ming mask-back; A/B on our Edit / Fast Edit cards with the same inputs.
     **TESTED 2026-10-02:** it is ausboss/Qwen-Image-2.1-Consistency-LoRA (step 1500, 159 MB, Qwen Research License).
     Shipped Edit card, 3 sources x 7 edits x 2 seeds: restyle drift median 44 px -> 5 px, local and head-turn edits
     pixel-locked (0.1 px), look unchanged, +32% time; it still turned the head. 2- and 4-picture edits also passed
     (all pictures placed, no extra time). SHIPPED as the "Qwen Image 2.1 Edit (Steady Frame)" card, Qwen pack 1.8.0.
-    `D:\SimpliGen-Backups\qwen-drift-test-20261002\VERDICT.md`.
+    `F:\Claude-Work\qwen-drift-test-20261002\VERDICT.md`.
 27. **AnyAngle LoRA for Qwen-Image 2.1** (R@aiaicreate tweet): changes the camera angle while keeping the style. Possible
     new Qwen card; compare with the Character Sheet card's head angles.
     **READ 2026-10-02, PARKED:** lilylilith/QI_2.1_AnyAngle needs a coarse render from the target angle as picture 2,
@@ -309,17 +309,17 @@ Titles are as saved; open the Recall item for the link.
 - **2026-10-01, LongLive-Plug 4-step LoRA for H3 (NVIDIA Efficient-Large-Model, Kijai conversion):** needs the lcm
   sampler (their scheduler re-noises with fresh noise each step) and sigmas 1.0, 0.973, 0.9231, 0.8, 0.0. Best of the
   four distills on seed 11, but over seeds 22/33/44 DaSiWa was sharper on every fisherman and better on one
-  skateboarder, and TaoMate matched it ~12 s faster. DROPPED: no slot. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+  skateboarder, and TaoMate matched it ~12 s faster. DROPPED: no slot. Kit: F:\Claude-Work\pdmd-ab-20261001\.
 
 - **2026-10-01, FlashGen 4-step LoRA for H3 (Beidouqixing, Kijai rank-13 conversion):** its model-card schedule
   [1.0, 0.7, 0.4, 0.15, 0.0] must be shift-12 converted for ComfyUI (1.0, 0.9655, 0.8889, 0.6792, 0.0) or the video
   smears. Clean once fixed; ~45 s sampling like PDMD, no ollie on the skateboarder, softer than DaSiWa, speech tied
-  (Michael listened). DROPPED: no niche. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+  (Michael listened). DROPPED: no niche. Kit: F:\Claude-Work\pdmd-ab-20261001\.
 
 - **2026-10-01, PDMD 4-step LoRA for H3 (pdmd2026, Kijai rank-57 conversion):** loads clean on the pruned fl2va base;
   T2V 1 seed x 3 prompts vs TaoMate 3-step and DaSiWa v1 4-step. Speech tied on all three (Michael listened), PDMD
   ~48 s sampling vs TaoMate ~36 s and DaSiWa ~60 s, weakest motion (no clear ollie) and less detail than DaSiWa.
-  DROPPED: no niche. Kit: D:\SimpliGen-Backups\pdmd-ab-20261001\.
+  DROPPED: no niche. Kit: F:\Claude-Work\pdmd-ab-20261001\.
 
 - **2026-09-22/23, M3_Unlocked_V2 LoRA on every H3 model (Shar's "Unlocked" cards):** same SFW prompt and seed, 480p,
   no LoRA vs 0.5, 11 models. Only Turbo Accelerated showed a real, pleasant variation at no time cost; it SHIPPED as an
@@ -327,19 +327,19 @@ Titles are as saved; open the Recall item for the link.
   painting. SolAttn, Z-Image graft, SparseRef15, FastH3, 10Eros v1/beta5/beta5 Turbo, DaSiWa v2 and Singularity: near
   no-op (at most a changed painting, +0-16 s). Decision: add it nowhere else. Shar's sharper look was mostly his 768p
   default; at matched 768p DaSiWa won on hair. Untested: NSFW prompts, more seeds.
-  `D:\SimpliGen-Backups\unlocked-lora-dasiwa-20260922\`.
+  `F:\Claude-Work\unlocked-lora-dasiwa-20260922\`.
 
 - **2026-09-19, item 2 (singing):** BITB 9.5-24.58 s, lead close-up, stem + backing -14 dB, join mid-phrase.
   The pack's `digital_human` mode locks the supplied audio (output vs song waveform corr 0.976). Mouth-vs-vocal r:
   fresh clip +0.616, continuation after the join +0.573, single long generation +0.497/+0.340 (framed wider, so
   not a fair win). Chain 460 s = long 460 s; a 2 s context tail fixed the 4x continuation slowdown (item 1b DONE).
-  Awaiting Michael's eyes. `D:\SimpliGen-Backups\satodive-singing-test-20260919\VERDICT.md`.
+  Awaiting Michael's eyes. `F:\Claude-Work\satodive-singing-test-20260919\VERDICT.md`.
 
 - **2026-09-19, item 1 (first pass) + item 4 (his nodes):** SatoDive pack @4142527 in vanilla ComfyUI, fisherman
   reference, 8 s clip + 10 s continuation. Both lines word-exact across the join, picture join corr 0.997, framing
   and identity carried, latent hand-off +0.3% luma vs -2.2% through pixels. Continuation ~4x slower. His
   `MiniMaxH3TurboLoRA` node did not apply the LoRA on our int8 base; stock loader used. Full write-up:
-  `D:\SimpliGen-Backups\satodive-continuation-test-20260919\VERDICT.md`.
+  `F:\Claude-Work\satodive-continuation-test-20260919\VERDICT.md`.
 
 - **Qwen 2.1 Enhance to 4MP: note on textured backgrounds** (2026-09-24). In-app test on 1.65.1 (1344x768 edit output -> 2720x1536, info panel showed produced + requested sizes correctly) flattened the source's mottled paper grain to near-flat red while faces/armour improved. A one-line description warning ("smooths textured or grainy backgrounds") is a description-only 1.5.2 patch; deliberately NOT shipped unless a user reports it, to avoid an update badge for one sentence. Batch with the next Qwen 2.1 housekeeping if any.
 

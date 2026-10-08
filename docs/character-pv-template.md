@@ -251,7 +251,7 @@ Shots 5 and 12, and the identity card with "MARA" and "NIGHT SIGNAL" both
 readable. Identity and wardrobe held throughout; the photoreal medium of the
 sheet carried into the video. Only weak spots: the eye crop in Shot 9 lost its
 type layer, and Shot 8's turn was mostly a silhouette pass. Artifacts at
-`D:\SimpliGen-Backups\character-pv-20260906\` (graph, prompt, sheet, video,
+`F:\Claude-Work\character-pv-20260906\` (graph, prompt, sheet, video,
 contact sheet).
 
 Sheet-step note: Qwen Image Edit produced a usable sheet in 37 s but ignored
