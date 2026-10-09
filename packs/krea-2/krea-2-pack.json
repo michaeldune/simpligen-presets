@@ -1,16 +1,17 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai.",
+  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai. Since 1.8.0: two cards from VXP's experimental Krea 2 beta series (INT8, about 14 s a picture at 1 MP): Beta 4 for anime and illustration, Beta 3 for the same look on photographs. Both put a dark, backlit, high-contrast grade on everything, which none of the other cards here give.",
   "tags": [
     "Local",
     "Krea",
     "Turbo",
     "Fast",
-    "Quality"
+    "Quality",
+    "Anime"
   ],
   "presets": [
     {
@@ -969,6 +970,230 @@
           }
         ],
         "reclaimVramBeforeSampling": true
+      }
+    },
+    {
+      "id": "vxp-krea2-beta4-anime-int8",
+      "name": "VXP Krea 2 Beta 4 (Anime)",
+      "tagline": "Backlit, high-contrast anime and illustration",
+      "icon": "🌅",
+      "previewImage": "previews/vxp-krea2-beta4-anime-int8.jpg",
+      "description": "VXP's Krea 2 Beta 4, the anime branch of an experimental beta series (INT8). It puts one look on everything: strong backlight, rim-lit hair, deep shadows and a dark, high-contrast grade. In our side-by-side none of the other Krea 2 cards gave that picture. Anime and semi-real illustration are its home ground; it also turns photo prompts into illustration, so use Beta 3 or a realism card for photographs. Uncensored, but on clothed prompts it kept the clothes on in our test. 8 steps, CFG 1, euler/simple.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Anime",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "VXP Krea2 (nsfw) Beta 4 (Anime) INT8",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/vxp-krea2-beta4-anime-int8.json",
+        "unet": "vxpKrea2Nsfw_beta4AnimeINT8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3375540?fileId=3263832",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.3,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2938537, version 3375540 'Beta 4 (Anime) INT8', file 3263832, 13,320,458,040 B, SHA256 d5eba08564bd3891ad7143463e9c3c8096dea6667b458ac7b46720aeb47f0a65; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards (the files on the model page are byte-identical to them). euler/simple, 8 steps, CFG 1, negative zeroed. Tested 2026-10-08 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 6 prompts x 3 seeds at 1024x1536 against base Krea 2 Turbo, Equinox, Moody, BF95 Dark Realism and Dark Beast, all at 8 steps / CFG 1. Median 14 s per picture. The author publishes no settings; a probe showed 4, 8 and 12 steps at CFG 1 clean and 20 steps at CFG 3.5 as heavy noise, so there is no CFG slider. LICENCE (Civitai): credit not required, no derivatives/merges, commercial use limited to generation services. Verified in the app 2026-10-08 (SimpliGen 1.71.0, engine 0.38.0): 3 seeds at 1216x1632 (3:4), all rendered in 24-26 s, queued checkpoint, seed, steps and sampler read back from the engine. Upscale above 1 and LoRAs not tested on this card."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vxp-krea2-beta3-int8",
+      "name": "VXP Krea 2 Beta 3 (Hybrid)",
+      "tagline": "The same dark, backlit look on photos and illustration",
+      "icon": "🌙",
+      "previewImage": "previews/vxp-krea2-beta3-int8.jpg",
+      "description": "VXP's Krea 2 Beta 3, the hybrid branch of an experimental beta series (INT8): anime, semi-real and realistic from one checkpoint. It shares Beta 4's dark, backlit, high-contrast look, and on anime and semi-real prompts the two are close. The difference is photographs: Beta 3 keeps them photographic (moody window light, real skin texture) where Beta 4 turns them into illustration. Uncensored. A separate branch, not an older Beta 4. 8 steps, CFG 1, euler/simple.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "NSFW",
+        "Semi-Realistic",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "VXP Krea2 (nsfw) Beta 3 INT8",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/vxp-krea2-beta3-int8.json",
+        "unet": "vxpKrea2Nsfw_beta3INT8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3366950?fileId=3254970",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.3,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2938537, version 3366950 'Beta 3 INT8', file 3254970 (the diffusion model; the page's text encoder and VAE are the stock files), 13,320,458,040 B, SHA256 8024ad57fd47cae32de416d5bc546d1b4e6071ef5bcc614b8bfce18a902b90e3; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards (the files on the model page are byte-identical to them). euler/simple, 8 steps, CFG 1, negative zeroed. Tested 2026-10-08 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 6 prompts x 3 seeds at 1024x1536 against base Krea 2 Turbo, Equinox, Moody, BF95 Dark Realism and Dark Beast, all at 8 steps / CFG 1. Median 14 s per picture. The author publishes no settings; a probe showed 4, 8 and 12 steps at CFG 1 clean and 20 steps at CFG 3.5 as heavy noise, so there is no CFG slider. LICENCE (Civitai): credit not required, no derivatives/merges, commercial use limited to generation services. Verified in the app 2026-10-08 (SimpliGen 1.71.0, engine 0.38.0): 3 seeds at 1216x1632 (3:4), all rendered in 24-26 s, queued checkpoint, seed, steps and sampler read back from the engine. Upscale above 1 and LoRAs not tested on this card."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]
