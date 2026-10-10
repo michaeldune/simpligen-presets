@@ -304,6 +304,25 @@ Titles are as saved; open the Recall item for the link.
     since 2026-09-22 and see whether anything (drift control, loop/continuation nodes) improves Clip Chaining, MV Chain
     or a future TimelineDirector card. Not cloned yet.
 
+### From the H3 preset test session (2026-10-09)
+
+36. **10Eros + Semantic Bridge + Ultimate Upscale two-stage workflow** (Michael, 2026-10-09). A text/image-to-video
+    graph by Wilderness_19 (v1.0, 2026-09-07) aimed at 8 GB cards. Stage 1: 10Eros TURBO-hybrid at 0.3-0.4 MP,
+    6 steps, euler/simple, no extra speed LoRA. Semantic Bridge: an ~11 MB conditioning adapter blended into the H3
+    text conditioning (alpha 0.10, per_token), claimed to tighten prompt structure. Stage 2: MMH3 Ultimate Upscale
+    with the official H3 3D latent upscaler, tiled, denoise 0.18, to about 0.9 MP.
+    Why: two questions from today's test. (a) Does the Semantic Bridge improve prompt-following on prose the way
+    the structured rewrite did (same seed, 480p, 15 s snow-globe prompt, results in
+    `F:\Claude-Work\h3-preset-test-20261009\`)? (b) Does low-res-then-latent-upscale get a 15 s clip to 768p-class
+    output on the 12 GB card without the RAM stall the 1344x768 15 s Midnight run hit? Compare with our own
+    Two-Stage Latent Upscale card before assuming it is new.
+    Cost: two third-party custom nodes, neither reviewed: `bbaudio-2025/Comfyui-MMH3-UltimateUpscale` (GitHub) and
+    the Semantic Bridge node, which ships as a zip on Hugging Face (`speach1sdef178/MiniMax-H3-Semantic-Bridge`,
+    not in ComfyUI-Manager). Small weights (bridge ~11 MB, latent upscaler from `LBH-123-AI/Minimax_h3_latent_Upscaler`);
+    the workflow names a 10Eros beta3 skip-edges INT8 file we do not have, so try our beta5 TURBO first. Vanilla
+    ComfyUI only, not SimpliGen's engine. Nothing downloaded or installed yet.
+    Source: https://civitai.com/models/2920367 (Michael's link was the civitai.red mirror of the same page).
+
 ## Done / dropped
 
 - **2026-10-01, LongLive-Plug 4-step LoRA for H3 (NVIDIA Efficient-Large-Model, Kijai conversion):** needs the lcm
