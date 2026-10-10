@@ -1,5 +1,4 @@
-POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). The VDOFX thread reply below was SENT by Michael ~21:30 (updated 5-card text). Two drafts: the pack announcement (post with the video) and a reply for VDOFX's "YuE2 Music
-Generator?" thread. Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
+POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
 
@@ -36,15 +35,3 @@ CUDA graphs, which turns every song into noise inside SimpliGen's engine. Thanks
 exact cause. The node goes away once ComfyUI fixes it upstream.
 
 :inbox_tray: Zip: https://github.com/michaeldune/simpligen-presets/releases/tag/packs-latest
-
----
-
-**Reply in the "YuE2 Music Generator?" thread (SENT by Michael 2026-09-18 ~21:30; 5-card text):**
-
-It's in the Store now, as a community pack: **Song + Album Art**. Style tags in the prompt, lyrics in Character
-Dialogue, and YuE2 gives you back the whole song, up to 6 minutes, as an MP4 with album art (SimpliGen has no audio
-output yet). The art is painted for you, or use your own picture. YuE2 style LoRAs work too.
-
-It can also cover a song: upload an MP3 or MP4 and **Cover Song** keeps the tune while singing your lyrics in a new
-style, or **Faithful Cover** keeps the chords as well. There's a MiniMax Music 3 card and one that swaps the art on a
-song you already made. Details and a short video in the announcement: <link>
