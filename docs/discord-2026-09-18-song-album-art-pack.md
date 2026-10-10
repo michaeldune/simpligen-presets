@@ -1,4 +1,4 @@
-POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). Video: D:/SimpliGen-Backups/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
+POSTED by Michael 2026-09-18 ~21:15 (announcement + v2 video). Video: F:/Claude-Work/announce-20260918/song-album-art-v2/song-album-art-announcement-v2.mp4 (v2, 5 cards; v1 superseded)
 
 ---
 
