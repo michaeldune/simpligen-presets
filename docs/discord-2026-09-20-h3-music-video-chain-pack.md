@@ -1,5 +1,5 @@
 POSTED by Michael 2026-09-20 ~19:12 as a SCHEDULED Discord post (delayed a few hours so the store sync can catch up), with the announcement video. Announcement for the MiniMax H3 Music Video Chain pack. Pack RELEASED 2026-09-20 19:08 (master 52a416f pushed, zip on packs-latest). Was: merged on master locally
-(52a416f). Announcement video APPROVED by Michael 19:04: D:/SimpliGen-Backups/announce-20260920/mv-chain/h3-mv-chain-announcement.mp4 Sample renders (in-app): D:/SimpliGen-Backups/h3-mv-chain-card-20260920/
+(52a416f). Announcement video APPROVED by Michael 19:04: F:/Claude-Work/announce-20260920/mv-chain/h3-mv-chain-announcement.mp4 Sample renders (in-app): F:/Claude-Work/h3-mv-chain-card-20260920/
 app_2clips_off9.mp4, app_3clips.mp4, app_4clips.mp4.
 
 ---

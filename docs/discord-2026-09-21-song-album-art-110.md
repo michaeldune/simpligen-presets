@@ -1,5 +1,5 @@
 POSTED by Michael 2026-09-21 ~14:43 on Discord. Update note for Song + Album Art 1.1.0. RELEASED 2026-09-21 14:36 (master 2f4ffee pushed, zip on
-packs-latest). Example art: D:/SimpliGen-Backups/music3-graphfix-ab-20260921/inapp_110_title_cover.jpg and inapp_110_covers.jpg
+packs-latest). Example art: F:/Claude-Work/music3-graphfix-ab-20260921/inapp_110_title_cover.jpg and inapp_110_covers.jpg
 
 ---
 

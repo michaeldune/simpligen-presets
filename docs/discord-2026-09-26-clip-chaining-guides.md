@@ -5,7 +5,7 @@ Discord's 2,000-character limit. Facts from the pack manifest, the workflows (Co
 NEW part only; the clip tail is centre-cropped to the chosen width/height; the Director splits on [Shot 2] and carries segment 1's tail
 into segment 2) and the 2026-09-10 / 09-13 support replies. Example prompts follow the minimax-h3-prompt skill (camera stated, <d>
 tags, lip closure as an event, the leftover time claimed). ALL THREE EXAMPLE PROMPTS RENDERED 2026-09-26 (480p, 16:9, 5 s, seed 2026) and
-checked: see D:\SimpliGen-Backups\clip-chaining-guides-20260926\VERDICT.md. Examples 2 and 3 were revised after their first render.
+checked: see F:\Claude-Work\clip-chaining-guides-20260926\VERDICT.md. Examples 2 and 3 were revised after their first render.
 
 === MESSAGE 1 ===
 
