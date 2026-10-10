@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -419,6 +419,108 @@
         ]
       },
       "tagline": "Polished 2.5D Illustrious anime"
+    },
+    {
+      "id": "wai-illustrious-sdxl-v170",
+      "name": "WAI Illustrious SDXL v17",
+      "icon": "🌸",
+      "previewImage": "previews/wai-illustrious-sdxl-v170.jpg",
+      "description": "WAI-illustrious-SDXL v17.0, one of the most used Illustrious anime checkpoints: clean colour, strong character knowledge, good with Danbooru tags. Keep prompts lean, the author warns that piling on quality tags or a long negative makes pictures blurrier, so the card adds only three. Rating tags work (general, sensitive, nsfw, explicit); put \"nsfw\" in your prompt or leave it out as you need. For an older-looking character add (aged up:1.2) or (mature female:1.2) at the start.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "NSFW",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "WAI Illustrious SDXL v17.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/wai-illustrious-sdxl-v170.json",
+        "checkpoint": "waiIllustriousSDXL_v170.safetensors",
+        "steps": 25,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "bad quality, worst quality, worst detail, sketch, censor, signature, watermark",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 15,
+            "max": 30,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 827184 version 2883731 by WAI0731, sha256 F116B0C78FF4...). CLIP Skip 2, Euler Ancestral / normal, 25 steps at CFG 6 (author: Euler a, 15-30 steps, CFG 5-7, sizes above 1024x1024). Short quality prefix and short negative on the author's advice. Verified in the app (1.72.0) 2026-10-10: 3 prompts at 3:4, 2:3 and 16:9, all clean, about 12 s each on a 4070 Ti 12 GB; in the two-character prompt the glasses landed on the other girl, the usual SDXL attribute swap."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2883731",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "The popular all-round Illustrious anime model"
     },
     {
       "id": "perfectdeliberate-v90",

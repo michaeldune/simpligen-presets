@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -105,6 +105,111 @@
           "minRamGB": 16,
           "sizeGB": 5.5,
           "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Danbooru-tag prompting."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vxp-anima-turbo-v1",
+      "name": "VXP Anima Turbo V1",
+      "tagline": "Polished anime look in 14 steps",
+      "icon": "💠",
+      "previewImage": "previews/vxp-anima-turbo-v1.jpg",
+      "description": "VXP's Anima checkpoint with a strong, consistent anime style: clean linework, rich colour, solid faces. Built to finish in 12-15 steps: about 12 seconds for a 1 MP picture on a 12 GB card. Prompt with Danbooru tags, plain sentences, or both; for a known character, look up its exact tag on animadex.net first. Keep CFG around 3-4, higher looks forced.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Turbo",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "VXP Anima Turbo V1",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/vxp-anima-turbo-v1.json",
+        "unet": "vxpAnimaTurboV1_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3298469",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 14,
+        "cfg": 3.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 20,
+            "step": 1
+          },
+          "cfg": {
+            "min": 2,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB; Civitai model 2915642 version 3298469 by VXP, sha256 8073505BC509...) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. Euler / simple, ModelSamplingAuraFlow shift 3, 14 steps at CFG 3.5 (author: 12-15 steps, CFG 3-4; alternative ER SDE / beta). The author forbids re-uploading the model to PixAI; this card only links the Civitai file. Verified in the app (1.72.0) 2026-10-10: 3 prompts (tags, sentences, two characters) at 3:4, 16:9 and 1:1, all clean, 12-14 s each on a 4070 Ti 12 GB."
         },
         "extensions": [
           {
