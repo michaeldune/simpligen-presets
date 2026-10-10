@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). The Fast (HDR) card (since 1.9.0) is Fast Drafts decoded through Felldude's HDR VAE (adds 1.35 GB): punchier colour and crisper detail for photo-style prompts, at the cost of clipped whites. The Fast Edit card (since 1.6.0) edits with PrunaAI's 8-step LoRA (adds 336 MB): about 20 seconds for a one-picture edit instead of about 80, best with one picture. The Edit (Steady Frame) card (since 1.8.0) adds ausboss's 159 MB Consistency LoRA so an edit stays on the original's frame instead of shifting or resizing. Two swap cards (since 1.7.0): Head Swap puts one person's face and hair into another picture, and Outfit Swap dresses a person in the clothes and shoes from another picture; about 1 minute each. One 17 GB download covers every other card. The Turbo card (since 1.10.0) is Qwen's official 8-step Turbo as a LoRA (adds 0.9 GB): as quick as Fast Drafts and much better at small lettering inside a scene. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Qwen-Image 2.1, the 7B model that writes, edits and cuts out in one: text-to-image with accurate lettering, editing from up to four reference pictures, and background removal to a real transparent PNG. A fourth card turns one picture of a person into a front / back / head-angles character sheet (adds a 328 MB LoRA). Two 4MP cards: text to image at the model's full 4-megapixel size, and Enhance to 4MP, which adds real detail to any picture you give it (adds a 76 MB LoRA). About 16 seconds for a 1024 px picture on a 12 GB card; the Fast Drafts card (since 1.5.0) makes one in about 11 seconds with Viggle's 5-step turbo LoRA (adds 1.36 GB). The Fast (HDR) card (since 1.9.0) is Fast Drafts decoded through Felldude's HDR VAE (adds 1.35 GB): punchier colour and crisper detail for photo-style prompts, at the cost of clipped whites. The Fast Edit card (since 1.6.0) edits with PrunaAI's 8-step LoRA (adds 336 MB): about 20 seconds for a one-picture edit instead of about 80, best with one picture. The Edit (Steady Frame) card (since 1.8.0) adds ausboss's 159 MB Consistency LoRA so an edit stays on the original's frame instead of shifting or resizing. Two swap cards (since 1.7.0): Head Swap puts one person's face and hair into another picture, and Outfit Swap dresses a person in the clothes and shoes from another picture; about 1 minute each. One 17 GB download covers every other card. The Turbo card (since 1.10.0) is Qwen's official 8-step Turbo as a LoRA (adds 0.9 GB): as quick as Fast Drafts and much better at small lettering inside a scene. Turbo 4MP (since 1.11.0) is the Turbo card at the full 4-megapixel size: about 40 seconds a picture instead of about 1.5 minutes. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",
@@ -1261,6 +1261,96 @@
           "sizeGB": 17.3,
           "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Same graph as the 1 MP card with the model card's own 2K sizes as the aspect-ratio table. Tested 2026-09-22 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0): 2048x2048 93 s at 25 steps and 146 s at 40 steps, 2752x1536 93 s at 25 steps, peak VRAM 10.7-11.1 GB. A three-line menu board and a shop sign were letter-perfect at 2048x2048 / 40 steps; at 25 steps both 2K sizes misspelled a word on the sign (2752x1536 read HANA RAMEM). Separately, at 1 MP / 25 steps CFG 4 rendered the menu correctly on 3 of 3 seeds where CFG 1 got it wrong on 3 of 3 (about 1.5x the time); the CFG slider goes to 4. Native 4MP beat a learned latent upscale (1 MP + 2x + refine) on detail at similar time. IN THE APP (2026-09-22): 2048x2048 97 s, 2752x1536 95 s, 1536x2752 93 s, all detailed; one small street sign was misspelled at 25 steps."
         }
+      }
+    },
+    {
+      "id": "qwen-image-21-turbo-4mp",
+      "name": "Qwen Image 2.1 Turbo 4MP",
+      "icon": "🚀",
+      "enabled": true,
+      "tagline": "Full 4-megapixel pictures in about 40 seconds",
+      "description": "The Turbo card at Qwen's full size: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide) in 8 steps. About 40 seconds a picture on a 12 GB card, against about 1.5 minutes for the 4MP card, with skin, hair and small faces on a par with it in our side-by-side. This is where Turbo looks best: at 1 MP it smooths skin and softens faces that are small in the frame, at 4 MP that detail is back. It tends to give the same centred framing from seed to seed, so change the prompt, not the seed, for a different shot; and count people and read every word before you use a picture. Steps and CFG are fixed by the distillation. Non-commercial use only (Qwen Research License).",
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "tags": [
+        "Qwen",
+        "Fast",
+        "4MP",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-turbo-4mp.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + official Turbo LoRA",
+        "workflow": "workflows/image_qwen_image_21_turbo.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2400,
+            "height": 1792
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2400
+          },
+          "3:2": {
+            "width": 2528,
+            "height": 1696
+          },
+          "2:3": {
+            "width": 1696,
+            "height": 2528
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 18.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo/blob/main/LICENSE). Same files and graph as the Turbo card (pack model + official Turbo LoRA 913 MB, euler, CFG 1, the Turbo checkpoint's 8 published sample_sigmas), at the 4MP card's sizes. Tested 2026-10-10 on engine 0.38.0, 4070 Ti 12 GB: 3 prompts x 3 seeds at 2048x2048, 9 of 9 completed in 35-37 s each (26 s sampling, 3.3 s/step) against 91 s for the 4MP card's 25 steps; an in-scene sign was correct 3 of 3; one group picture drew six people for five. Verified in the app (1.73.0) the same day at 2752x1536, 1792x2400 and 2048x2048: 3 of 3 clean in about 40 s each (26-27 s sampling); faces small in a wide shot were sharp at native pixels and a recipe card's six lines of lettering were all correct; a sign asked for as \"Café Luna\" came out as \"Cafe Luna\", without the accent."
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/df94239739eef7205973a145ffa6f441f7b64e84/loras/qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors"
+          }
+        ]
       }
     },
     {
