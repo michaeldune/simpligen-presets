@@ -1,16 +1,15 @@
 {
   "id": "moss-nsfw-finetunes-pack",
-  "name": "Community — MOSS-Image NSFW Finetunes",
-  "version": "1.1.0",
+  "name": "Community — MOSS-Image Figure Finetunes",
+  "version": "1.1.1",
   "addedAt": "2026-10-19",
   "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
   "nsfw": true,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Four NSFW MOSS-Image finetunes from Civitai that avoid the anatomy errors the MOSS-Image cards make on NSFW prompts. Two fast ones: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds. Two slower ones: PornMaster Moss, the base model's look and faces with the anatomy fixed, 50 steps, about 50 seconds; Prime Lust Moss, the most explicit, with a glamour look, 25 steps, about 37 seconds. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Four mature MOSS-Image finetunes from Civitai that avoid the anatomy errors the MOSS-Image cards make on figure work. Two fast ones: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds. Two slower ones: Anatomy Fix Moss, the base model's look and faces with the anatomy corrected, 50 steps, about 50 seconds; Prime Lust Moss, the most direct of the four, with a glamour look, 25 steps, about 37 seconds. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
-    "NSFW",
     "Local"
   ],
   "checksums": {
@@ -24,16 +23,15 @@
   "presets": [
     {
       "id": "moss-nsfw-pornmaster",
-      "name": "PornMaster Moss",
-      "icon": "🔞",
+      "name": "Anatomy Fix Moss",
+      "icon": "🧍",
       "enabled": true,
       "template": "sdxl",
-      "tagline": "MOSS-Image with the anatomy fixed for NSFW",
+      "tagline": "MOSS-Image with the anatomy fixed",
       "description": "iamddtla's PornMaster Moss: MOSS-Image with LoRAs merged in to fix NSFW anatomy and add poses, while keeping the base model's look and faces. In our test it avoided the anatomy errors the MOSS-Image cards made. SFW prompts come out close to MOSS-Image, lettering included (quote every word you want on the picture). 50 steps as the author runs it, about 50 seconds a picture on a 12 GB card; 25-30 steps is about twice as fast. Character LoRAs work with it (the author tested them).",
       "tags": [
         "Image",
         "MOSS",
-        "NSFW",
         "Local"
       ],
       "previewImage": "previews/moss_nsfw_pornmaster.jpg",
@@ -132,12 +130,11 @@
       "icon": "⚡",
       "enabled": true,
       "template": "sdxl",
-      "tagline": "Fast NSFW MOSS-Image in 8 steps",
+      "tagline": "Fast MOSS-Image in 8 steps",
       "description": "neuroshaman's Artius Moss: a fast MOSS-Image finetune, 8 steps at CFG 1, about 15 seconds a picture on a 12 GB card. In our test it avoided the anatomy errors the MOSS-Image cards made on NSFW prompts. The look is smooth and retouched, and on SFW prompts it follows directions less closely than MOSS-Image and can add made-up small text; keep the words you want in quotes and check small print.",
       "tags": [
         "Image",
         "MOSS",
-        "NSFW",
         "Local"
       ],
       "previewImage": "previews/moss_nsfw_artius.jpg",
@@ -236,12 +233,11 @@
       "icon": "📷",
       "enabled": true,
       "template": "sdxl",
-      "tagline": "Fast NSFW photos with a natural, amateur look",
+      "tagline": "Fast photos with a natural, amateur look",
       "description": "J1B's Jib Mix Moss Realistic V2: MOSS-Image with an 8-step speed LoRA merged in, tuned for an amateur-photo look with natural skin and lived-in rooms. 12 steps at CFG 1, about 13 seconds a picture on a 12 GB card, the fastest card in the pack. In our test it drew the sharpest anatomy; on some sex positions it drew a different pose, so name the position in the first sentence. Write the prompt as sentences, not a tag list.",
       "tags": [
         "Image",
         "MOSS",
-        "NSFW",
         "Local"
       ],
       "previewImage": "previews/moss_nsfw_jibmix.jpg",
@@ -340,12 +336,11 @@
       "icon": "🔥",
       "enabled": true,
       "template": "sdxl",
-      "tagline": "Explicit NSFW MOSS-Image with a glamour look",
+      "tagline": "MOSS-Image with a glossy glamour look",
       "description": "CrHasher's Prime Lust MOSS: a MOSS-Image finetune made for explicit NSFW, with a glossy, tanned glamour look. 25 steps at CFG 3.5, about 37 seconds a picture on a 12 GB card. In our test its sex scenes were the most explicit and the easiest to read; check close-up anatomy on complex positions. The author notes a lean toward Asian faces, so describe the look you want.",
       "tags": [
         "Image",
         "MOSS",
-        "NSFW",
         "Local"
       ],
       "previewImage": "previews/moss_nsfw_primelust.jpg",
