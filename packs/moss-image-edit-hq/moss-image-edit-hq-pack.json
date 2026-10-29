@@ -1,0 +1,142 @@
+{
+  "id": "moss-image-edit-hq-pack",
+  "name": "MOSS-Image Edit HQ",
+  "version": "1.0.0",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minAppVersion": "1.76.2",
+  "minComfyuiVersion": "v0.43.0",
+  "addedAt": "2026-10-29",
+  "tags": [
+    "Image",
+    "Edit",
+    "Local"
+  ],
+  "description": "The same job as the MOSS-Image Edit card — hand it a picture and a sentence naming the change and what to keep — on a different edit LoRA: akhaliq's MOSS-Image-Edit-HQ (armV5), which is Apache-2.0. The MOSS-Image Edit card runs chinoll's LoRA, whose weights declare no licence at all, so this pack exists for anyone who needs a clean licence on everything they install. It is an alternative, not a replacement, and not an upgrade: measured head to head over 54 arms, chinoll holds the untouched parts of a picture a little closer. Lettering is a dead draw — both come through letter-exact. This card runs warmer and a touch looser. 495 MB on top of the three base weights the MOSS-Image pack already downloads. Unofficial community fine-tune of MOSS-Image-SFT, not an OpenMOSS release. Needs a SimpliGen engine with the MOSS-Image edit nodes, which landed in ComfyUI after the v0.42.1 tag.",
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/diffusion_models/moss_image_sft_int8_convrot.safetensors": "b4d1475bc7eeffd7b809e82ea13a1fba1fb85c4e18365af3813722faa5c0fe4f",
+    "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors": "4cc6a1543ad2061806da46f35f90cadb4801dcba246c44782cf42ec0feb6407c",
+    "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
+    "https://huggingface.co/akhaliq/MOSS-Image-Edit-HQ/resolve/ee1493ba577437e70b88bc4499b85cc7aa4594ca/weights/armV5/armV5.safetensors": "1fbfae4eaaafc62c66a298e63e16fc5211566e1e3de1c58f83c35c6bc226c9f9"
+  },
+  "presets": [
+    {
+      "id": "moss-image-edit-hq",
+      "name": "MOSS-Image Edit HQ",
+      "tagline": "Apache-2.0 edit LoRA; lettering still survives",
+      "icon": "✏️",
+      "previewImage": "previews/moss-image-edit-hq.jpg",
+      "description": "Give it a picture and a sentence. Name the change and name what to keep: \"Change only the dark green paintwork to deep navy blue. Keep both signs, their lettering, the bread in the window and the brickwork exactly as they are.\" Colour, outfit, lighting, season and visual-style changes all work, and text in the picture comes through letter-exact even under a full restyle. Pick the aspect ratio that matches your picture — on a mismatched ratio it is centre-cropped first and the edit gets looser. CFG is fixed at 1: the author's own card suggests CFG 3 with 50 steps, and on these int8 weights that costs 2.4x the time and visibly drifts faces, so this card does not offer it.",
+      "tags": [
+        "Edit",
+        "MOSS-Image",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "values": {
+          "quality": ""
+        },
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "MOSS-Image SFT int8 + MOSS-Image-Edit-HQ armV5 LoRA",
+        "baseModels": [
+          "moss-image"
+        ],
+        "workflow": "workflows/image_moss_image_edit_hq.json",
+        "unet": "moss_image_sft_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/diffusion_models/moss_image_sft_int8_convrot.safetensors",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "moss_image_edit_hq_armv5.safetensors",
+            "url": "https://huggingface.co/akhaliq/MOSS-Image-Edit-HQ/resolve/ee1493ba577437e70b88bc4499b85cc7aa4594ca/weights/armV5/armV5.safetensors",
+            "description": "akhaliq MOSS-Image-Edit-HQ armV5 LoRA (ai-toolkit format), 495 MB, Apache-2.0. An unofficial community fine-tune of MOSS-Image-SFT; not affiliated with or endorsed by OpenMOSS. armV5 is the author's recommended checkpoint; armV6 is published but the author states it did not improve on v5."
+          }
+        ],
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ],
+        "minEngineVersion": "v0.43.0",
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture to edit"
+          ]
+        },
+        "steps": 30,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 13.6,
+          "notes": "Weights: the same three files the moss-image pack uses (MOSS-Image SFT int8 ConvRot 5.4 GB, Qwen3.5 9B w4a8 7.3 GB, Flux 2 autoencoder 0.31 GB) plus akhaliq's MOSS-Image-Edit-HQ armV5 LoRA (495 MB, Apache-2.0). A user who already has the MOSS-Image pack downloads only the LoRA. Graph is the moss-image-edit graph node-for-node with exactly three input changes: lora_name, edit_format 'ai-toolkit' (armV5's training layout; chinoll's LoRA uses 'Moss-Image-Edit'), and the save prefix. CFG 1, 30 steps, euler/simple, SkipLayerGuidanceDiTSimple layer 22 over the whole run, the reference scaled to the OUTPUT size, ConditioningZeroOut as the negative. TESTED 2026-10-29 engine-direct on a 4070 Ti 12 GB, vanilla ComfyUI v0.43.0 (426f5eea): 54-arm head-to-head against the chinoll card over 3 sources x 3 instruction types x 2 seeds, plus a 6-arm reference-size sweep and 36 shift arms. About 20 s per 1 MP picture, the same as the chinoll card. RESULT, stated honestly: chinoll wins 8 of 9 source+edit pairs on holding the region the instruction said to keep (mean keep-region MAD 37.7 vs 47.1); this card wins the watercolour restyle. Lettering is a DRAW - 'GOLDEN CRUST' came through letter-exact in all nine shopfront arms on both LoRAs, across recolour, rainy-evening and flat-vector restyle. This card runs warmer and a little looser than chinoll's. The reason to pick it is the LICENCE: Apache-2.0 against chinoll's undeclared weights. REFERENCE SIZE MATTERS: the author's card says references are downscaled to <=384x384 automatically, but pre-shrinking the reference here destroys lettering - at a 384 max edge the sign came back as gibberish, at 512 it was reframed, and only a full-size reference stayed letter-exact; the author's own 'Recommended settings' line agrees ('reference at source resolution'). CFG IS PINNED AT 1 ON PURPOSE: the author's card recommends CFG 3 with 50 steps, and on these int8 weights that arm cost 2.4x the time and visibly drifted identity (washed skin with freckling the source does not have, blown golden-hour, faces fading to pale sketch in the watercolour). The author states the pipeline wants ~20 GB+ bf16, so that drift may be specific to int8 and not to the checkpoint. SHIFT CANNOT BE APPLIED: the author's recommended 'shift 5.0' has no working control on the core ComfyUI route - ModelSamplingSD3 corrupts MOSS's sigma schedule and returns pure coloured static, while ModelSamplingAuraFlow is accepted and is a silent no-op (18 arms came back pixel-identical to the shift-free renders, MAD 0.0000); the author's own native-ComfyUI section lists no shift either, so this graph's shift-free form IS that recipe. NOT YET VERIFIED IN-APP: everything above is engine-direct plus this pack file's own workflow run through the app's substitution rules on the same engine. The in-app render, the rgthree user-LoRA marker on this graph, multi-reference editing, NSFW sources and the MOSS-Image Base weight are all untested. Untested in the head-to-head: instructions carrying no 'keep ...' clause, other resolutions, and bf16 weights."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "unet_loader": {
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    },
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    }
+  },
+  "clip_loader": {
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    },
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "moss_image",
+      "device": "default"
+    }
+  },
+  "vae_loader": {
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    },
+    "inputs": {
+      "vae_name": "{{vae}}"
+    }
+  },
+  "edit_lora": {
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "MOSS-Image Edit HQ LoRA (armV5)"
+    },
+    "inputs": {
+      "lora_name": "moss_image_edit_hq_armv5.safetensors",
+      "strength_model": 1.0,
+      "model": [
+        "unet_loader",
+        0
+      ]
+    }
+  },
+  "simpligen_lora_1": {
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    },
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "edit_lora",
+        0
+      ],
+      "clip": [
+        "clip_loader",
+        0
+      ]
+    }
+  },
+  "slg": {
+    "class_type": "SkipLayerGuidanceDiTSimple",
+    "_meta": {
+      "title": "Skip Layer Guidance (layer 22)"
+    },
+    "inputs": {
+      "double_layers": "",
+      "single_layers": "22",
+      "start_percent": 0.0,
+      "end_percent": 1.0,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ]
+    }
+  },
+  "simpligen_width": {
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Width"
+    },
+    "inputs": {
+      "value": "{{width}}"
+    }
+  },
+  "simpligen_height": {
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Height"
+    },
+    "inputs": {
+      "value": "{{height}}"
+    }
+  },
+  "img1": {
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture to edit"
+    },
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    }
+  },
+  "ref_scale": {
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Reference to output size"
+    },
+    "inputs": {
+      "upscale_method": "lanczos",
+      "width": [
+        "simpligen_width",
+        0
+      ],
+      "height": [
+        "simpligen_height",
+        0
+      ],
+      "crop": "center",
+      "image": [
+        "img1",
+        0
+      ]
+    }
+  },
+  "positive": {
+    "class_type": "TextEncodeMOSSImageEdit",
+    "_meta": {
+      "title": "Text Encode MOSS-Image Edit"
+    },
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "prompt": "{{prompt}}",
+      "vae": [
+        "vae_loader",
+        0
+      ],
+      "edit_format": "ai-toolkit",
+      "images.image_0": [
+        "ref_scale",
+        0
+      ],
+      "image_strength": 1.0
+    }
+  },
+  "negative": {
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Zeroed negative (CFG 1)"
+    },
+    "inputs": {
+      "conditioning": [
+        "positive",
+        0
+      ]
+    }
+  },
+  "latent": {
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Empty Latent"
+    },
+    "inputs": {
+      "width": [
+        "simpligen_width",
+        0
+      ],
+      "height": [
+        "simpligen_height",
+        0
+      ],
+      "batch_size": 1
+    }
+  },
+  "sampler": {
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    },
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0,
+      "model": [
+        "slg",
+        0
+      ],
+      "positive": [
+        "positive",
+        0
+      ],
+      "negative": [
+        "negative",
+        0
+      ],
+      "latent_image": [
+        "latent",
+        0
+      ]
+    }
+  },
+  "decode": {
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    },
+    "inputs": {
+      "samples": [
+        "sampler",
+        0
+      ],
+      "vae": [
+        "vae_loader",
+        0
+      ]
+    }
+  },
+  "save": {
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    },
+    "inputs": {
+      "filename_prefix": "MOSS-Image-Edit-HQ",
+      "images": [
+        "decode",
+        0
+      ]
+    }
+  }
+}
