@@ -54,6 +54,16 @@ CUSTOM_NODES = {
         'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
         'note': 'H3 Motion Context Trim node (see above) - removes the pinned head from picture and sound together.',
     },
+    'MiniMaxH3GeneratedAVMaskedContext': {
+        'name': 'ComfyUI-H3-Motion-Context-MultiRef',
+        'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
+        'note': 'H3 generated-AV masked context node (see above) - continues the next clip from the previous clip\'s picture and sound latents. Used by the Scene Chain pack. Pin a823ca7 or later.',
+    },
+    'MiniMaxH3VAEDecodeFast': {
+        'name': 'ComfyUI-MiniMaxH3_LatentUpscaler',
+        'url':  'https://github.com/TripleHeadedMonkey/ComfyUI-MiniMaxH3_LatentUpscaler',
+        'note': 'X2 Detail VAE decode for MiniMax H3: decodes a half-size latent at 2x. Used by the X2 Draft pack. NOT pre-installed by SimpliGen. Pin 2e568dfe.',
+    },
     'T8_IndexTTS25_ModelLoader': {
         'name': 'comfyui-indextts25-T8',
         'url':  'https://github.com/T8mars/comfyui-indextts25-T8',

@@ -1,0 +1,514 @@
+{
+  "id": "minimax-h3-scene-chain-pack",
+  "name": "Community — MiniMax H3 Scene Chain",
+  "author": "lonechaos (pack); michaeldune (Music Video Chain recipe); seitanism (H3 Motion Context MultiRef nodes); lightx2v (fl2v Turbo LoRA)",
+  "version": "1.0.0",
+  "addedAt": "2026-10-29",
+  "nsfw": false,
+  "tags": [
+    "Local",
+    "Video",
+    "MiniMax H3"
+  ],
+  "description": "Long single takes from one first frame with generated sound: 3, 4 or 5 chained H3 clips.",
+  "presets": [
+    {
+      "id": "minimax-h3-scene-chain-3",
+      "icon": "🎬",
+      "enabled": true,
+      "template": "wan-video",
+      "name": "H3 Scene Chain - 3 clips (20.75 s)",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "MiniMax H3",
+        "Local"
+      ],
+      "tagline": "One first frame, 20.75 seconds in a single take, sound included",
+      "description": "A 20.75-second single take from one first frame, built as 3 H3 clips that continue each other: each clip starts from the previous clip's latent (picture and sound), not from saved frames. PROMPT FORMAT: shared text first, then one block per clip starting with [Shot 1], [Shot 2], ... each on its own line. Without [Shot] markers every clip gets the whole prompt. USE IT FOR one continuous shot of one scene that must run longer than 8 s, with the clip's own generated sound (for a performance to your own song, use the Music Video Chain instead). Put the reference line and the full scene in [Shot 1]; begin every later block with 'the existing camera motion and sound continue uninterrupted, do not restart' and describe only what happens next. Each later clip adds only 6.375 s: its first 1.625 s repeat the previous clip's end. EXPECT: picture gets softer by clip 3 (measured 0.72-0.83x of clip 1), then holds. Render time on a DGX Spark (GB10) at 544p, 7 steps: about 10 min (587 s measured; 3, 4 and 5 clips took 587, 780 and 985 s). The 480p draft tier took 450 s for 3 clips but is softer (edge 0.55x of 544p). Tested only on a DGX Spark (GB10, 128 GB unified memory); 12-16 GB cards and 32-64 GB RAM PCs are untested.",
+      "video": {
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+          "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors": "c8168ebc17bbacc4296103dda2fec1ba85b24392fa08cf2bfbcef0cff0dc3cc8"
+        },
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "commit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3",
+            "description": "H3 Generated AV Masked Context: hands the previous clip's picture and sound latent tail to the next clip. Same commit as the Music Video Chain and Clip Chaining packs.",
+            "pinnedCommit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3"
+          }
+        ],
+        "extraModels": [
+          {
+            "dir": "vae",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "controls": {
+          "steps": {
+            "max": 9,
+            "min": 5,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "negativePrompt": "",
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "steps": 7,
+        "supports": [
+          "local"
+        ],
+        "workflow": "workflows/minimax-h3-scene-chain-3.json",
+        "duration": {
+          "max": 21,
+          "min": 21,
+          "step": 1,
+          "type": "slider",
+          "unit": "seconds",
+          "default": 21,
+          "vramScalesWithDuration": false
+        },
+        "acceptsAudio": false,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "First frame"
+          ]
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p draft (softer)",
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              }
+            },
+            "minVramGB": 12
+          },
+          {
+            "label": "544p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 1,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 64,
+          "sizeGB": 42.0,
+          "notes": "3 clips of 192 frames in ONE job. Every clip after the first starts from the previous clip's sampler latent: its last 39 frames of picture AND sound are copied in and protected from denoising (H3 Generated AV Masked Context, same extension and pin as the Music Video Chain pack), so each adds 153 new frames: 20.75 s in total. The sound is the clips' own generated sound; it switches clip 0.5 s before the end of each shared context, where both clips carry the same signal. RECIPE: the Music Video Chain's (fl2va int8 + fl2v Turbo v1.2, 0.8 then 0.75, euler then res_multistep, 7 steps)."
+        }
+      },
+      "previewImage": "previews/minimax-h3-scene-chain-3.jpg"
+    },
+    {
+      "id": "minimax-h3-scene-chain-4",
+      "icon": "🎬",
+      "enabled": true,
+      "template": "wan-video",
+      "name": "H3 Scene Chain - 4 clips (27.125 s)",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "MiniMax H3",
+        "Local"
+      ],
+      "tagline": "One first frame, 27.125 seconds in a single take, sound included",
+      "description": "A 27.125-second single take from one first frame, built as 4 H3 clips that continue each other: each clip starts from the previous clip's latent (picture and sound), not from saved frames. PROMPT FORMAT: shared text first, then one block per clip starting with [Shot 1], [Shot 2], ... each on its own line. Without [Shot] markers every clip gets the whole prompt. USE IT FOR one continuous shot of one scene that must run longer than 8 s, with the clip's own generated sound (for a performance to your own song, use the Music Video Chain instead). Put the reference line and the full scene in [Shot 1]; begin every later block with 'the existing camera motion and sound continue uninterrupted, do not restart' and describe only what happens next. Each later clip adds only 6.375 s: its first 1.625 s repeat the previous clip's end. EXPECT: picture gets softer by clip 3 (measured 0.72-0.83x of clip 1), then holds. Render time on a DGX Spark (GB10) at 544p, 7 steps: about 13 min (780 s measured; 3, 4 and 5 clips took 587, 780 and 985 s). The 480p draft tier took 450 s for 3 clips but is softer (edge 0.55x of 544p). Tested only on a DGX Spark (GB10, 128 GB unified memory); 12-16 GB cards and 32-64 GB RAM PCs are untested.",
+      "video": {
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+          "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors": "c8168ebc17bbacc4296103dda2fec1ba85b24392fa08cf2bfbcef0cff0dc3cc8"
+        },
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "commit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3",
+            "description": "H3 Generated AV Masked Context: hands the previous clip's picture and sound latent tail to the next clip. Same commit as the Music Video Chain and Clip Chaining packs.",
+            "pinnedCommit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3"
+          }
+        ],
+        "extraModels": [
+          {
+            "dir": "vae",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "controls": {
+          "steps": {
+            "max": 9,
+            "min": 5,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "negativePrompt": "",
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "steps": 7,
+        "supports": [
+          "local"
+        ],
+        "workflow": "workflows/minimax-h3-scene-chain-4.json",
+        "duration": {
+          "max": 27,
+          "min": 27,
+          "step": 1,
+          "type": "slider",
+          "unit": "seconds",
+          "default": 27,
+          "vramScalesWithDuration": false
+        },
+        "acceptsAudio": false,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "First frame"
+          ]
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p draft (softer)",
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              }
+            },
+            "minVramGB": 12
+          },
+          {
+            "label": "544p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 1,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 64,
+          "sizeGB": 42.0,
+          "notes": "4 clips of 192 frames in ONE job. Every clip after the first starts from the previous clip's sampler latent: its last 39 frames of picture AND sound are copied in and protected from denoising (H3 Generated AV Masked Context, same extension and pin as the Music Video Chain pack), so each adds 153 new frames: 27.125 s in total. The sound is the clips' own generated sound; it switches clip 0.5 s before the end of each shared context, where both clips carry the same signal. RECIPE: the Music Video Chain's (fl2va int8 + fl2v Turbo v1.2, 0.8 then 0.75, euler then res_multistep, 7 steps)."
+        }
+      },
+      "previewImage": "previews/minimax-h3-scene-chain-4.jpg"
+    },
+    {
+      "id": "minimax-h3-scene-chain-5",
+      "icon": "🎬",
+      "enabled": true,
+      "template": "wan-video",
+      "name": "H3 Scene Chain - 5 clips (33.5 s)",
+      "tags": [
+        "Video",
+        "I2V",
+        "Audio",
+        "MiniMax H3",
+        "Local"
+      ],
+      "tagline": "One first frame, 33.5 seconds in a single take, sound included",
+      "description": "A 33.5-second single take from one first frame, built as 5 H3 clips that continue each other: each clip starts from the previous clip's latent (picture and sound), not from saved frames. PROMPT FORMAT: shared text first, then one block per clip starting with [Shot 1], [Shot 2], ... each on its own line. Without [Shot] markers every clip gets the whole prompt. USE IT FOR one continuous shot of one scene that must run longer than 8 s, with the clip's own generated sound (for a performance to your own song, use the Music Video Chain instead). Put the reference line and the full scene in [Shot 1]; begin every later block with 'the existing camera motion and sound continue uninterrupted, do not restart' and describe only what happens next. Each later clip adds only 6.375 s: its first 1.625 s repeat the previous clip's end. EXPECT: picture gets softer by clip 3 (measured 0.72-0.83x of clip 1), then holds. Render time on a DGX Spark (GB10) at 544p, 7 steps: about 16.5 min (985 s measured; 3, 4 and 5 clips took 587, 780 and 985 s). The 480p draft tier took 450 s for 3 clips but is softer (edge 0.55x of 544p). Tested only on a DGX Spark (GB10, 128 GB unified memory); 12-16 GB cards and 32-64 GB RAM PCs are untested.",
+      "video": {
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+          "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors": "c8168ebc17bbacc4296103dda2fec1ba85b24392fa08cf2bfbcef0cff0dc3cc8"
+        },
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "url": "https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef.git",
+            "name": "ComfyUI-H3-Motion-Context-MultiRef",
+            "commit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3",
+            "description": "H3 Generated AV Masked Context: hands the previous clip's picture and sound latent tail to the next clip. Same commit as the Music Video Chain and Clip Chaining packs.",
+            "pinnedCommit": "a823ca7d094e9982b031d5a7e33bb2f4f316aec3"
+          }
+        ],
+        "extraModels": [
+          {
+            "dir": "vae",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/3ec17a324ced54151364f24f8b5fb6bf7e26414f/minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+            "filename": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors"
+          }
+        ],
+        "controls": {
+          "steps": {
+            "max": 9,
+            "min": 5,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "negativePrompt": "",
+        "displayModel": "MiniMax H3 fl2va + fl2v Turbo v1.2",
+        "steps": 7,
+        "supports": [
+          "local"
+        ],
+        "workflow": "workflows/minimax-h3-scene-chain-5.json",
+        "duration": {
+          "max": 34,
+          "min": 34,
+          "step": 1,
+          "type": "slider",
+          "unit": "seconds",
+          "default": 34,
+          "vramScalesWithDuration": false
+        },
+        "acceptsAudio": false,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "First frame"
+          ]
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p draft (softer)",
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              }
+            },
+            "minVramGB": 12
+          },
+          {
+            "label": "544p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          }
+        ],
+        "defaultResolutionTier": 1,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 64,
+          "sizeGB": 42.0,
+          "notes": "5 clips of 192 frames in ONE job. Every clip after the first starts from the previous clip's sampler latent: its last 39 frames of picture AND sound are copied in and protected from denoising (H3 Generated AV Masked Context, same extension and pin as the Music Video Chain pack), so each adds 153 new frames: 33.5 s in total. The sound is the clips' own generated sound; it switches clip 0.5 s before the end of each shared context, where both clips carry the same signal. RECIPE: the Music Video Chain's (fl2va int8 + fl2v Turbo v1.2, 0.8 then 0.75, euler then res_multistep, 7 steps)."
+        }
+      },
+      "previewImage": "previews/minimax-h3-scene-chain-5.jpg"
+    }
+  ]
+}
