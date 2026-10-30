@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are NSFW-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai. Since 1.8.0: two cards from VXP's experimental Krea 2 beta series (INT8, about 14 s a picture at 1 MP): Beta 4 for anime and illustration, Beta 3 for the same look on photographs. Both put a dark, backlit, high-contrast grade on everything, which none of the other cards here give. Since 1.9.0: DaSiWa Krea2 DarkDesire V3 (Darksidewalker, INT8), added on request; it stays close to stock Krea 2 Turbo, with richer painted skies, bolder anime lines and deeper reds.",
+  "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are mature-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai. Since 1.8.0: two cards from VXP's experimental Krea 2 beta series (INT8, about 14 s a picture at 1 MP): Beta 4 for anime and illustration, Beta 3 for the same look on photographs. Both put a dark, backlit, high-contrast grade on everything, which none of the other cards here give. Since 1.9.0: DaSiWa Krea2 DarkDesire V3 (Darksidewalker, INT8), added on request; it stays close to stock Krea 2 Turbo, with richer painted skies, bolder anime lines and deeper reds.",
   "tags": [
     "Local",
     "Krea",
@@ -147,7 +147,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Realistic",
         "Local"
       ],
@@ -386,7 +386,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Realistic",
         "Local"
       ],
@@ -618,7 +618,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Realistic",
         "Local"
       ],
@@ -734,7 +734,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Realistic",
         "GGUF",
         "Local"
@@ -858,7 +858,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Realistic",
         "GGUF",
         "Local"
@@ -982,7 +982,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Anime",
         "Illustration",
         "Local"
@@ -1005,7 +1005,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "VXP Krea2 (nsfw) Beta 4 (Anime) INT8",
+        "displayModel": "VXP Krea2 Beta 4 (Anime) INT8",
         "baseModels": [
           "krea2"
         ],
@@ -1094,7 +1094,7 @@
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Semi-Realistic",
         "Realistic",
         "Local"
@@ -1117,7 +1117,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "VXP Krea2 (nsfw) Beta 3 INT8",
+        "displayModel": "VXP Krea2 Beta 3 INT8",
         "baseModels": [
           "krea2"
         ],
@@ -1202,11 +1202,11 @@
       "tagline": "Darksidewalker's Krea 2 mix: richer anime skies, darker accents; close to stock",
       "icon": "🖤",
       "previewImage": "previews/dasiwa-krea2-darkdesire-v3-int8.jpg",
-      "description": "Darksidewalker's DaSiWa Krea2 (the maker of our DaSiWa H3 packs), DarkDesire V3 Turbo UC: Krea 2 Turbo pushed toward his own darker, anime-friendly style. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed; the differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it. 8 steps, CFG 1, euler/linear_quadratic as the author recommends, about 22 seconds a picture on a 12 GB card. NSFW-capable. The author does not allow merges of it.",
+      "description": "Darksidewalker's DaSiWa Krea2 (the maker of our DaSiWa H3 packs), DarkDesire V3 Turbo UC: Krea 2 Turbo pushed toward his own darker, anime-friendly style. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed; the differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it. 8 steps, CFG 1, euler/linear_quadratic as the author recommends, about 22 seconds a picture on a 12 GB card. mature-capable. The author does not allow merges of it.",
       "tags": [
         "Krea",
         "Turbo",
-        "NSFW",
+        "Mature",
         "Anime",
         "Dark",
         "Local"

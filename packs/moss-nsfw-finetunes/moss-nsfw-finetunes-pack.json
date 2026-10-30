@@ -1,7 +1,7 @@
 {
   "id": "moss-nsfw-finetunes-pack",
   "name": "Community — MOSS-Image Figure Finetunes",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "addedAt": "2026-10-19",
   "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
   "nsfw": true,
@@ -28,7 +28,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with the anatomy fixed",
-      "description": "iamddtla's PornMaster Moss: MOSS-Image with LoRAs merged in to fix NSFW anatomy and add poses, while keeping the base model's look and faces. In our test it avoided the anatomy errors the MOSS-Image cards made. SFW prompts come out close to MOSS-Image, lettering included (quote every word you want on the picture). 50 steps as the author runs it, about 50 seconds a picture on a 12 GB card; 25-30 steps is about twice as fast. Character LoRAs work with it (the author tested them).",
+      "description": "iamddtla's mature MOSS merge: MOSS-Image with LoRAs merged in to fix anatomy and add poses, while keeping the base model's look and faces. In our test it avoided the anatomy errors the MOSS-Image cards made. SFW prompts come out close to MOSS-Image, lettering included (quote every word you want on the picture). 50 steps as the author runs it, about 50 seconds a picture on a 12 GB card; 25-30 steps is about twice as fast. Character LoRAs work with it (the author tested them).",
       "tags": [
         "Image",
         "MOSS",
@@ -46,7 +46,7 @@
         "provider": "comfyui",
         "promptStyle": "natural",
         "negativePrompt": "",
-        "displayModel": "PornMaster Moss V1 (int8)",
+        "displayModel": "Anatomy Fix Moss V1 (int8)",
         "workflow": "workflows/moss_nsfw_pornmaster.json",
         "unet": "pornmasterMoss_v1.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3413227?fileId=3305738",
@@ -111,7 +111,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 12.6,
-          "notes": "Civitai model 3008033 (PornMaster Moss by iamddtla), version 3413227 'V1', file pornmasterMoss_v1.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit. The author's pinned comment: a merge of LoRAs from their Krea 2 training set to fix NSFW anatomy and add poses; 50 steps, example pictures at 25-30. No CFG or sampler given: CFG 2.5, er_sde / simple are the MOSS-Image defaults. Measured ~49 s per picture at 50 steps, ~28 s at 25. Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-19 through the app on a 4070 Ti 12 GB: SFW, against both MOSS-Image cards on nine prompts at seed 11; NSFW by Michael against the MOSS-Image cards, where both finetunes avoided the anatomy errors (body horror) the base cards made."
+          "notes": "Civitai model 3008033 (PornMaster Moss by iamddtla), version 3413227 'V1', file pornmasterMoss_v1.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit. The author's pinned comment: a merge of LoRAs from their Krea 2 training set to fix anatomy and add poses; 50 steps, example pictures at 25-30. No CFG or sampler given: CFG 2.5, er_sde / simple are the MOSS-Image defaults. Measured ~49 s per picture at 50 steps, ~28 s at 25. Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-19 through the app on a 4070 Ti 12 GB: SFW, against both MOSS-Image cards on nine prompts at seed 11; NSFW by Michael against the MOSS-Image cards, where both finetunes avoided the anatomy errors (body horror) the base cards made."
         },
         "extensions": [
           {
@@ -131,7 +131,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Fast MOSS-Image in 8 steps",
-      "description": "neuroshaman's Artius Moss: a fast MOSS-Image finetune, 8 steps at CFG 1, about 15 seconds a picture on a 12 GB card. In our test it avoided the anatomy errors the MOSS-Image cards made on NSFW prompts. The look is smooth and retouched, and on SFW prompts it follows directions less closely than MOSS-Image and can add made-up small text; keep the words you want in quotes and check small print.",
+      "description": "neuroshaman's Artius Moss: a fast MOSS-Image finetune, 8 steps at CFG 1, about 15 seconds a picture on a 12 GB card. In our test it avoided the anatomy errors the MOSS-Image cards made on mature prompts. The look is smooth and retouched, and on SFW prompts it follows directions less closely than MOSS-Image and can add made-up small text; keep the words you want in quotes and check small print.",
       "tags": [
         "Image",
         "MOSS",
@@ -317,7 +317,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 12.6,
-          "notes": "Civitai model 3016339 (Jib Mix Moss Realistic by J1B), version 3435334 'V2 - Reality Renew', file jibMixMossRealistic_v2RealityRenew.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit, Rent. The 8-step speed LoRA is merged in. Author: 12 steps for V2 (4-9 for V1), CFG 1, er_sde / bong_tangent; bong_tangent is not a core ComfyUI scheduler, so beta. Measured ~13 s per picture in the app at 1024x1024 (~8 s engine-direct with the model already loaded). Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-28 on a 4070 Ti 12 GB: engine-direct on six NSFW prompts at seeds 11 and 42 against PornMaster and Artius (most natural skin, sharpest anatomy; on missionary both seeds drew the couple sitting face to face), and by Michael through the app on his own prompts against the other three cards."
+          "notes": "Civitai model 3016339 (Jib Mix Moss Realistic by J1B), version 3435334 'V2 - Reality Renew', file jibMixMossRealistic_v2RealityRenew.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit, Rent. The 8-step speed LoRA is merged in. Author: 12 steps for V2 (4-9 for V1), CFG 1, er_sde / bong_tangent; bong_tangent is not a core ComfyUI scheduler, so beta. Measured ~13 s per picture in the app at 1024x1024 (~8 s engine-direct with the model already loaded). Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-28 on a 4070 Ti 12 GB: engine-direct on six mature prompts at seeds 11 and 42 against PornMaster and Artius (most natural skin, sharpest anatomy; on missionary both seeds drew the couple sitting face to face), and by Michael through the app on his own prompts against the other three cards."
         },
         "extensions": [
           {
@@ -337,7 +337,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with a glossy glamour look",
-      "description": "CrHasher's Prime Lust MOSS: a MOSS-Image finetune made for explicit NSFW, with a glossy, tanned glamour look. 25 steps at CFG 3.5, about 37 seconds a picture on a 12 GB card. In our test its sex scenes were the most explicit and the easiest to read; check close-up anatomy on complex positions. The author notes a lean toward Asian faces, so describe the look you want.",
+      "description": "CrHasher's Prime Lust MOSS: a MOSS-Image finetune made for explicit mature work, with a glossy, tanned glamour look. 25 steps at CFG 3.5, about 37 seconds a picture on a 12 GB card. In our test its sex scenes were the most explicit and the easiest to read; check close-up anatomy on complex positions. The author notes a lean toward Asian faces, so describe the look you want.",
       "tags": [
         "Image",
         "MOSS",
@@ -355,7 +355,7 @@
         "provider": "comfyui",
         "promptStyle": "natural",
         "negativePrompt": "",
-        "displayModel": "Prime Lust MOSS v1.0 max-nsfw (int8)",
+        "displayModel": "Prime Lust MOSS v1.0 (int8)",
         "workflow": "workflows/moss_nsfw_primelust.json",
         "unet": "primeLust_mossSFTV10MaxNsfw_int8.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3425008?fileId=3319850",
@@ -420,7 +420,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 12.6,
-          "notes": "Civitai model 2793689 (Prime Lust by CrHasher), version 3425008 'MOSS SFT v1.0 (max-nsfw)', file primeLust_mossSFTV10MaxNsfw_int8.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit, Rent. Author's MOSS settings: 20+ steps, CFG 3.5+, exp_heun_2_x0_sde, sgm_uniform. exp_heun_2_x0_sde evaluates the model twice per step, so 25 steps cost about 50 model calls. Measured ~37 s per picture in the app at 1024x1024 (~31 s engine-direct with the model already loaded). Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-28 on a 4070 Ti 12 GB: engine-direct on six NSFW prompts at seeds 11 and 42 against PornMaster and Artius (most explicit; one missionary seed placed the anatomy wrong), and by Michael through the app on his own prompts against the other three cards."
+          "notes": "Civitai model 2793689 (Prime Lust by CrHasher), version 3425008 'MOSS SFT v1.0 (max-nsfw)', file primeLust_mossSFTV10MaxNsfw_int8.safetensors (int8, 5.04 GB, sha256 pinned). NSFW. Licence flags on Civitai: Image, RentCivit, Rent. Author's MOSS settings: 20+ steps, CFG 3.5+, exp_heun_2_x0_sde, sgm_uniform. exp_heun_2_x0_sde evaluates the model twice per step, so 25 steps cost about 50 model calls. Measured ~37 s per picture in the app at 1024x1024 (~31 s engine-direct with the model already loaded). Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-28 on a 4070 Ti 12 GB: engine-direct on six mature prompts at seeds 11 and 42 against PornMaster and Artius (most explicit; one missionary seed placed the anatomy wrong), and by Michael through the app on his own prompts against the other three cards."
         },
         "extensions": [
           {

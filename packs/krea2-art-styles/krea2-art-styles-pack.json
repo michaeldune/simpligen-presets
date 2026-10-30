@@ -1,7 +1,7 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Community — Krea 2 Art & Styles",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114",
   "nsfw": false,
   "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
@@ -465,14 +465,14 @@
     {
       "id": "krea2-anime-v2",
       "name": "Krea2-Anime v2.0 (fp8)",
-      "tagline": "Clean, bright anime with thin linework; NSFW-trained",
+      "tagline": "Clean, bright anime with thin linework; mature-trained",
       "icon": "🌸",
       "previewImage": "previews/krea2-anime-v2.jpg",
-      "description": "youneedanewname's Krea2-Anime: Krea 2 Turbo trained further on a million-picture NSFW anime set (about a quarter of the planned training, by the author's account). In our test it drew the cleanest, flattest anime of the Krea 2 cards, thin lines and bright even light, with its own poses. It wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model. 12 steps, CFG 1, about 28 seconds a picture at 2 MP on a 12 GB card. Artist tags barely work, and the author advises against 4-step LoRAs.",
+      "description": "youneedanewname's Krea2-Anime: Krea 2 Turbo trained further on a million-picture mature anime set (about a quarter of the planned training, by the author's account). In our test it drew the cleanest, flattest anime of the Krea 2 cards, thin lines and bright even light, with its own poses. It wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model. 12 steps, CFG 1, about 28 seconds a picture at 2 MP on a 12 GB card. Artist tags barely work, and the author advises against 4-step LoRAs.",
       "tags": [
         "Krea",
         "Anime",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,
@@ -803,6 +803,7 @@
     },
     {
       "id": "krea2-full-v1-anime",
+      "nsfw": true,
       "name": "Krea 2 Full v1.0 Anime (INT8)",
       "tagline": "Community-favourites Krea 2 mix, anime cut",
       "icon": "🧩",
@@ -811,7 +812,7 @@
       "tags": [
         "Krea",
         "Anime",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,

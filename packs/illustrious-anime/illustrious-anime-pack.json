@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -430,7 +430,7 @@
         "Anime",
         "Illustrious",
         "SDXL",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,
@@ -831,6 +831,7 @@
     },
     {
       "id": "unrealvision-illustrious-v10",
+      "nsfw": true,
       "name": "UnrealVision (Illustrious) v1.0",
       "tagline": "Glossy 3D-render style anime, uncensored",
       "icon": "✨",
@@ -841,7 +842,7 @@
         "Anime",
         "3D-Render",
         "SDXL",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,

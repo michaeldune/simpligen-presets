@@ -1,7 +1,7 @@
 {
   "id": "sdxl-realism-pack",
   "name": "Community — SDXL Realism",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "various",
   "nsfw": false,
   "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
@@ -17,7 +17,7 @@
       "tagline": "Photoreal SDXL (realism)",
       "icon": "🎨",
       "previewImage": "previews/sdxl-triple-headed-monkeys-v10.jpg",
-      "description": "SDXL Triple Headed Monkey's Realism - photoreal SDXL for lifelike people and scenes (NSFW & SFW). Natural-language prompting, baked VAE.",
+      "description": "SDXL Triple Headed Monkey's Realism - photoreal SDXL for lifelike people and scenes (mature and general subjects). Natural-language prompting, baked VAE.",
       "tags": [
         "SDXL",
         "Realistic",
@@ -330,7 +330,8 @@
     },
     {
       "id": "pure-tukano-nsfw-v10",
-      "name": "Pure Tukano NSFW v1.0",
+      "nsfw": true,
+      "name": "Pure Tukano v1.0",
       "tagline": "Raw high-fidelity realism, uncensored",
       "icon": "🌆",
       "previewImage": "previews/pure-tukano-nsfw-v10.jpg",
@@ -339,7 +340,7 @@
         "SDXL",
         "Realistic",
         "Photoreal",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,
@@ -359,7 +360,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "Pure Tukano NSFW v1.0",
+        "displayModel": "Pure Tukano v1.0",
         "baseModels": [
           "sdxl"
         ],

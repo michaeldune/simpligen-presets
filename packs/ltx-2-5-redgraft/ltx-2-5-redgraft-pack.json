@@ -1,11 +1,11 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
-  "description": "LTX 2.5 text-to-video and image-to-video using the REDgraft NSFW INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 - the text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
+  "description": "LTX 2.5 text-to-video and image-to-video using the REDgraft mature INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 - the text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
   "tags": [
     "Local",
     "Video",
@@ -13,12 +13,12 @@
     "I2V",
     "LTX",
     "REDgraft",
-    "NSFW"
+    "Mature"
   ],
   "presets": [
     {
       "id": "redgraft-ltx-25-fast2k-t2v",
-      "name": "LTX 2.5 REDgraft Fast 2K (T2V, NSFW)",
+      "name": "LTX 2.5 REDgraft Fast 2K (T2V, Mature)",
       "icon": "⚡",
       "description": "Generate video directly from a text prompt with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX T2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
       "tagline": "Fast LTX 2.5 text-to-video with generated audio",
@@ -29,7 +29,7 @@
         "LTX 2.5",
         "REDgraft",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,
@@ -193,7 +193,7 @@
     },
     {
       "id": "redgraft-ltx-25-fast2k-i2v",
-      "name": "LTX 2.5 REDgraft Fast 2K (I2V, NSFW)",
+      "name": "LTX 2.5 REDgraft Fast 2K (I2V, Mature)",
       "icon": "🖼️",
       "description": "Animate a source image with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX I2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
       "tagline": "Fast LTX 2.5 image-to-video with generated audio",
@@ -204,7 +204,7 @@
         "LTX 2.5",
         "REDgraft",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,

@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -536,7 +536,7 @@
         "Anime",
         "Illustration",
         "Booru",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,
@@ -740,7 +740,7 @@
       "tagline": "Glossy, high-contrast anime with dramatic light",
       "icon": "💎",
       "previewImage": "previews/anima-element7-nexus-prism-iv.jpg",
-      "description": "Triple_Seven's Element 7 suite, Nexus Prism IV branch (the most anime of the suite; IV fixes lighting and shadows). In our test it gave a glossy, high-contrast finish with strong backlight and sparks, and leaned toward its own poses rather than the base model's. 30 steps at CFG 4.5, about 17 seconds a picture on a 12 GB card. Tags, sentences or both work. Can drift into NSFW on its own; the author suggests adding nsfw to the negative prompt if you don't want it.",
+      "description": "Triple_Seven's Element 7 suite, Nexus Prism IV branch (the most anime of the suite; IV fixes lighting and shadows). In our test it gave a glossy, high-contrast finish with strong backlight and sparks, and leaned toward its own poses rather than the base model's. 30 steps at CFG 4.5, about 17 seconds a picture on a 12 GB card. Tags, sentences or both work. Can drift into mature content on its own; the author suggests adding nsfw to the negative prompt if you don't want it.",
       "tags": [
         "Anima",
         "Anime",
@@ -950,7 +950,7 @@
       "tagline": "Flat cel shading, bold outlines, fast",
       "icon": "🤿",
       "previewImage": "previews/diving-anima-v8.jpg",
-      "description": "DivingSuit's Diving series for Anima, v8.0 (earlier versions added retro, mature and flat anime looks). In our test it gave the flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. 20 steps of Euler a at CFG 4 on the author's settings, about 11 seconds a picture on a 12 GB card. NSFW-capable. Personal use only: the author prohibits selling it.",
+      "description": "DivingSuit's Diving series for Anima, v8.0 (earlier versions added retro, mature and flat anime looks). In our test it gave the flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. 20 steps of Euler a at CFG 4 on the author's settings, about 11 seconds a picture on a 12 GB card. mature-capable. Personal use only: the author prohibits selling it.",
       "tags": [
         "Anima",
         "Anime",
@@ -1994,7 +1994,7 @@
       "tagline": "Crisp, polished Anima anime; follows long prompts closely",
       "icon": "🌒",
       "previewImage": "previews/unholy-desire-dark-serenity-v3.jpg",
-      "description": "UnholyDesiresStudio's Unholy Desire Mix, Dark Serenity v3.0 on the standard 2B Anima. In our side-by-side test it gave crisp, polished anime with clean faces and careful detail on armour, hair and clothing, and it kept every attribute of a busy two-character prompt in place. 24 steps at CFG 4 with the author's quality tags and negative, about 15 seconds a picture on a 12 GB card. The author's own minimum is 16 steps at CFG 1, which renders in about 5 seconds but in our test dropped details (a sword became a spear, capes went missing) and mixed up who wears what; the CFG slider goes down to 1 if you want that speed. NSFW-capable.",
+      "description": "UnholyDesiresStudio's Unholy Desire Mix, Dark Serenity v3.0 on the standard 2B Anima. In our side-by-side test it gave crisp, polished anime with clean faces and careful detail on armour, hair and clothing, and it kept every attribute of a busy two-character prompt in place. 24 steps at CFG 4 with the author's quality tags and negative, about 15 seconds a picture on a 12 GB card. The author's own minimum is 16 steps at CFG 1, which renders in about 5 seconds but in our test dropped details (a sword became a spear, capes went missing) and mixed up who wears what; the CFG slider goes down to 1 if you want that speed. mature-capable.",
       "tags": [
         "Anima",
         "Anime",

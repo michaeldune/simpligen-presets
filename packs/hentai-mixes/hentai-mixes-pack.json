@@ -1,7 +1,7 @@
 {
   "id": "hentai-mixes-pack",
   "name": "Community — Hentai Mixes",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "various",
   "nsfw": true,
   "description": "Nine anime/hentai checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
@@ -9,7 +9,7 @@
     "Local",
     "Image",
     "Anime",
-    "NSFW",
+    "Mature",
     "SD 1.5",
     "SDXL"
   ],
@@ -24,7 +24,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SDXL"
       ],
       "enabled": true,
@@ -107,7 +107,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SDXL",
         "Pony"
       ],
@@ -192,7 +192,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,
@@ -275,7 +275,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,
@@ -358,7 +358,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,
@@ -441,7 +441,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,
@@ -524,7 +524,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,
@@ -603,11 +603,11 @@
       "tagline": "Explicit SD 1.5 anime",
       "icon": "🔞",
       "previewImage": "previews/ultimate-hentai-v50.jpg",
-      "description": "SD 1.5 anime checkpoint for explicit/NSFW content. Danbooru-tag prompting; uses the kl-f8-anime2 VAE for vivid color. Best near 512px.",
+      "description": "SD 1.5 anime checkpoint for explicit mature content. Danbooru-tag prompting; uses the kl-f8-anime2 VAE for vivid color. Best near 512px.",
       "tags": [
         "SD 1.5",
         "Anime",
-        "NSFW",
+        "Mature",
         "Booru",
         "Local"
       ],
@@ -702,7 +702,7 @@
       "tags": [
         "Image",
         "Anime",
-        "NSFW",
+        "Mature",
         "SD 1.5"
       ],
       "enabled": true,

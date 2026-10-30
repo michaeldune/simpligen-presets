@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -521,16 +521,16 @@
     },
     {
       "id": "duchaiten-real3d-nsfw-v10",
-      "name": "DucHaiten Real3D-NSFW v1.0",
+      "name": "DucHaiten Real3D Figure v1.0",
       "tagline": "Realistic 3D, thicker bodies",
       "icon": "🔥",
       "previewImage": "previews/duchaiten-real3d-nsfw-v10.jpg",
-      "description": "DucHaiten Real3D-NSFW - realistic 3D figures with detailed skin and fuller body types; the author notes a distinctive Asian face that is his own style rather than the common one. Narrow prompt range by design. Best near 512px.",
+      "description": "DucHaiten's mature Real3D build - realistic 3D figures with detailed skin and fuller body types; the author notes a distinctive Asian face that is his own style rather than the common one. Narrow prompt range by design. Best near 512px.",
       "tags": [
         "SD 1.5",
         "3D",
         "Realistic",
-        "NSFW",
+        "Mature",
         "Local"
       ],
       "enabled": true,
@@ -550,7 +550,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "DucHaiten Real3D-NSFW v1.0",
+        "displayModel": "DucHaiten Real3D Figure v1.0",
         "baseModels": [
           "sd15"
         ],

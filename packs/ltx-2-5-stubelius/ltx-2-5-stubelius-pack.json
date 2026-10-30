@@ -1,11 +1,11 @@
 {
   "id": "ltx-2-5-stubelius-pack",
   "name": "Community — LTX 2.5 Stubelius Remix (Anime)",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Stubelius (model) + michaeldune (pack)",
   "nsfw": true,
   "addedAt": "2026-09-23",
-  "description": "LTX 2.5 text-to-video and image-to-video with Stubelius Remix, a community LTX 2.5 checkpoint that carries the 2D/stylized and NSFW lineage of TenStrip's LTX 2.3 finetunes (10Eros, Sulphur 2) onto LTX 2.5 by task-vector arithmetic, with the LTX distilled LoRA merged in. It is an anime-first model: 2D / 2.5D and stylized characters stay stylized where REDgraft drifts toward semi-real, and live-action prompts still come out realistic. Measured against REDgraft on the same graph, prompts and seeds (2026-09-23, 4 prompts x 2 seeds): it followed staging less reliably (a character never turned to camera, a second character never arrived, 2 of 2 seeds each) and took about twice as long per clip. Treat it as an NSFW model: on clothed prompts it still sexualises women (see-through or ridden-up clothing on 3 of 3 clothed test prompts, including one that specified a buttoned-up raincoat), so it is not suitable for SFW work. Same two-pass graphs, companion files and settings as the REDgraft pack (CFG 1, 8 steps + upscale), so only the 21.5 GB model is new if REDgraft is installed. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs. Licence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only. Added 2026-10-11: two v1 cards (beta 2 plus the OmniNFT quality fine-tune, a separate 21.5 GB download). Against beta 2 on the same prompts and seeds, v1 text-to-video was visibly crisper on 9 of 9 clips with more motion; image-to-video looked the same; the NSFW-only caveat and the staging misses are unchanged. The beta 2 cards stay as they were.",
+  "description": "LTX 2.5 text-to-video and image-to-video with Stubelius Remix, a community LTX 2.5 checkpoint that carries the 2D/stylized and mature lineage of TenStrip's LTX 2.3 finetunes (10Eros, Sulphur 2) onto LTX 2.5 by task-vector arithmetic, with the LTX distilled LoRA merged in. It is an anime-first model: 2D / 2.5D and stylized characters stay stylized where REDgraft drifts toward semi-real, and live-action prompts still come out realistic. Measured against REDgraft on the same graph, prompts and seeds (2026-09-23, 4 prompts x 2 seeds): it followed staging less reliably (a character never turned to camera, a second character never arrived, 2 of 2 seeds each) and took about twice as long per clip. Treat it as a mature model: on clothed prompts it still sexualises women (see-through or ridden-up clothing on 3 of 3 clothed test prompts, including one that specified a buttoned-up raincoat), so it is not suitable for SFW work. Same two-pass graphs, companion files and settings as the REDgraft pack (CFG 1, 8 steps + upscale), so only the 21.5 GB model is new if REDgraft is installed. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs. Licence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only. Added 2026-10-11: two v1 cards (beta 2 plus the OmniNFT quality fine-tune, a separate 21.5 GB download). Against beta 2 on the same prompts and seeds, v1 text-to-video was visibly crisper on 9 of 9 clips with more motion; image-to-video looked the same; the mature-only caveat and the staging misses are unchanged. The beta 2 cards stay as they were.",
   "tags": [
     "Local",
     "Video",
@@ -14,7 +14,7 @@
     "LTX",
     "Anime",
     "Stylized",
-    "NSFW"
+    "Mature"
   ],
   "checksums": {
     "https://huggingface.co/Stuubs/Stubelius_Remix/resolve/c187c35336400c41bc4e70154dd1eff07b5ea911/ltx2.5-Stubelius_remix_beta2_int8_convrot.safetensors": "f108d8db65f8a0a32f9fbbcf718dd80d191e96406acfb383af0912ff9aef6285",
@@ -23,9 +23,9 @@
   "presets": [
     {
       "id": "stubelius-v1-ltx-25-anime-t2v",
-      "name": "LTX 2.5 Stubelius v1 Anime (T2V, NSFW)",
+      "name": "LTX 2.5 Stubelius v1 Anime (T2V, Mature)",
       "icon": "🌸",
-      "description": "Text to video with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Against the beta 2 card on the same prompts and seeds (3 prompts x 3 seeds) every clip was visibly crisper, with more motion and slightly less saturated colour. Still anime-first and still NSFW-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
+      "description": "Text to video with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Against the beta 2 card on the same prompts and seeds (3 prompts x 3 seeds) every clip was visibly crisper, with more motion and slightly less saturated colour. Still anime-first and still mature-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
       "tagline": "Sharper anime-first LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-t2v.jpg",
       "tags": [
@@ -35,7 +35,7 @@
         "Anime",
         "Stylized",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,
@@ -200,9 +200,9 @@
     },
     {
       "id": "stubelius-v1-ltx-25-anime-i2v",
-      "name": "LTX 2.5 Stubelius v1 Anime (I2V, NSFW)",
+      "name": "LTX 2.5 Stubelius v1 Anime (I2V, Mature)",
       "icon": "🌸",
-      "description": "Animate a source image with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. On image-to-video it looked the same as the beta 2 card in our test (1 image x 3 seeds), so either card will do; the sharper picture showed up on text-to-video. Still anime-first and still NSFW-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
+      "description": "Animate a source image with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. On image-to-video it looked the same as the beta 2 card in our test (1 image x 3 seeds), so either card will do; the sharper picture showed up on text-to-video. Still anime-first and still mature-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
       "tagline": "Anime-first LTX 2.5 image-to-video on Stubelius Remix v1",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-i2v.jpg",
       "tags": [
@@ -212,7 +212,7 @@
         "Anime",
         "Stylized",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,
@@ -377,9 +377,9 @@
     },
     {
       "id": "stubelius-ltx-25-anime-t2v",
-      "name": "LTX 2.5 Stubelius Anime (T2V, NSFW)",
+      "name": "LTX 2.5 Stubelius Anime (T2V, Mature)",
       "icon": "🌸",
-      "description": "Text to video with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for NSFW work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "description": "Text to video with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for mature work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
       "tagline": "Anime-first LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/stubelius-ltx-25-anime-t2v.jpg",
       "tags": [
@@ -389,7 +389,7 @@
         "Anime",
         "Stylized",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,
@@ -554,9 +554,9 @@
     },
     {
       "id": "stubelius-ltx-25-anime-i2v",
-      "name": "LTX 2.5 Stubelius Anime (I2V, NSFW)",
+      "name": "LTX 2.5 Stubelius Anime (I2V, Mature)",
       "icon": "🌸",
-      "description": "Animate a source image with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for NSFW work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "description": "Animate a source image with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for mature work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
       "tagline": "Anime-first LTX 2.5 image-to-video with generated audio",
       "previewImage": "previews/stubelius-ltx-25-anime-i2v.jpg",
       "tags": [
@@ -566,7 +566,7 @@
         "Anime",
         "Stylized",
         "INT8",
-        "NSFW"
+        "Mature"
       ],
       "template": "wan-video",
       "enabled": true,

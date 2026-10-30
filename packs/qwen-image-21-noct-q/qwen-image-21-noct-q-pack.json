@@ -1,16 +1,16 @@
 {
   "id": "qwen-image-21-noct-q-pack",
   "name": "Community — Qwen Image 2.1 Noct Q",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-10-12",
   "author": "Noctaluna",
   "nsfw": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Noct Q V4 by Noctaluna: Qwen-Image 2.1 with the censorship taken out, so nudes and explicit scenes render without a LoRA. One text-to-image card at the author's settings (25 steps, CFG 3). It uses the same text encoder and VAE as the Qwen Image 2.1 pack, so if that is installed this adds only the 7.3 GB model. NSFW. Qwen Research Licence, non-commercial use only.",
+  "description": "Noct Q V4 by Noctaluna: Qwen-Image 2.1 with the censorship taken out, so nudes and explicit scenes render without a LoRA. One text-to-image card at the author's settings (25 steps, CFG 3). It uses the same text encoder and VAE as the Qwen Image 2.1 pack, so if that is installed this adds only the 7.3 GB model. Mature. Qwen Research Licence, non-commercial use only.",
   "tags": [
     "Local",
     "Qwen",
-    "NSFW",
+    "Mature",
     "Realistic",
     "Non-commercial"
   ],
@@ -31,7 +31,7 @@
       "promptStyle": "natural",
       "tags": [
         "Qwen",
-        "NSFW",
+        "Mature",
         "Realistic",
         "Local"
       ],
