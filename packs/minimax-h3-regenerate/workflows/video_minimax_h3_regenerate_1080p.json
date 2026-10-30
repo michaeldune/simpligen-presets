@@ -1,0 +1,33 @@
+{
+  "h3_unet": {"inputs": {"unet_name": "{{unet}}", "weight_dtype": "default"}, "class_type": "UNETLoader", "_meta": {"title": "Load MiniMax H3 FL2VA (pruned int8)"}},
+  "h3_clip": {"inputs": {"clip_name": "{{clip}}", "type": "minimax", "device": "default"}, "class_type": "CLIPLoader", "_meta": {"title": "Qwen3-VL Text Encoder (MiniMax)"}},
+  "h3_video_vae": {"inputs": {"vae_name": "{{vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Video VAE"}},
+  "h3_audio_vae": {"inputs": {"vae_name": "{{audio_vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Audio VAE"}},
+  "simpligen_lora_1": {"inputs": {"PowerLoraLoaderHeaderWidget": {"type": "PowerLoraLoaderHeaderWidget"}, "➕ Add Lora": "", "model": ["h3_unet", 0], "clip": ["h3_clip", 0]}, "class_type": "Power Lora Loader (rgthree)", "_meta": {"title": "SimpliGen User LoRAs"}},
+  "regen_lora": {"inputs": {"model": ["simpligen_lora_1", 0], "lora_name": "minimax_h3_open_regenerate_2k_refiner_rank_384_bf16.safetensors", "strength_model": 1.0}, "class_type": "LoraLoaderModelOnly", "_meta": {"title": "NVIDIA Open-H3 Regenerate refiner (Kijai rank-384 extraction)"}},
+
+  "sgopt_ref_video_1__load": {"inputs": {"file": "{{ref_video_1}}"}, "class_type": "LoadVideo", "_meta": {"title": "Source clip"}},
+  "sgopt_ref_video_1__trim": {"inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": 5.2, "strict_duration": false}, "class_type": "Video Slice", "_meta": {"title": "Trim source to its first 5 s (124 frames, the tested length)"}},
+  "sgopt_ref_video_1__components": {"inputs": {"video": ["sgopt_ref_video_1__trim", 0]}, "class_type": "GetVideoComponents", "_meta": {"title": "Source frames + sound"}},
+
+  "refine_count": {"inputs": {"image": ["sgopt_ref_video_1__components", 0]}, "class_type": "GetImageSizeAndCount", "_meta": {"title": "Source size + frame count"}},
+  "refine_len": {"inputs": {"expression": "a - ((a - 5) % 17)", "values.a": ["refine_count", 3]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Snap frame count down to the 17k+5 grid"}},
+  "refine_frames": {"inputs": {"image": ["refine_count", 0], "batch_index": 0, "length": ["refine_len", 1]}, "class_type": "ImageFromBatch", "_meta": {"title": "Frames on the grid"}},
+  "regen_first": {"inputs": {"image": ["refine_count", 0], "batch_index": 0, "length": 1}, "class_type": "ImageFromBatch", "_meta": {"title": "Source frame 0 (identity anchor)"}},
+  "regen_first_up": {"inputs": {"image": ["regen_first", 0], "upscale_method": "lanczos", "width": {{width}}, "height": {{height}}, "crop": "disabled"}, "class_type": "ImageScale", "_meta": {"title": "Frame 0 to output size"}},
+  "refine_encode": {"inputs": {"pixels": ["refine_frames", 0], "vae": ["h3_video_vae", 0]}, "class_type": "VAEEncode", "_meta": {"title": "Encode source"}},
+  "refine_upscale": {"inputs": {"latent": ["refine_encode", 0], "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "mode": "target dimensions", "mode.width": {{width}}, "mode.height": {{height}}, "align": 32, "enable_temporal_chunking": true, "force_unload": true, "device": "cuda", "precision": "fp16"}, "class_type": "MinimaxH3LatentUpscaler3D", "_meta": {"title": "LBH 3D latent upscaler to output size"}},
+  "refine_audio_encode": {"inputs": {"audio": ["sgopt_ref_video_1__components", 1], "vae": ["h3_audio_vae", 0]}, "class_type": "VAEEncodeAudio", "_meta": {"title": "Encode source sound"}},
+  "refine_av_join": {"inputs": {"video_latent": ["refine_upscale", 0], "audio_latent": ["refine_audio_encode", 0]}, "class_type": "LTXVConcatAVLatent", "_meta": {"title": "Join picture + sound latents"}},
+
+  "h3_conditioning": {"inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "prompt": "{{prompt}}", "width": {{width}}, "height": {{height}}, "length": ["refine_len", 1], "first_frame": ["regen_first_up", 0]}, "class_type": "MiniMaxH3ImageToVideo", "_meta": {"title": "Brief + frame 0 conditioning"}},
+  "h3_guider": {"inputs": {"model": ["regen_lora", 0], "conditioning": ["h3_conditioning", 0]}, "class_type": "BasicGuider", "_meta": {"title": "Guider (CFG 1)"}},
+  "h3_noise": {"inputs": {"noise_seed": {{seed}}}, "class_type": "RandomNoise", "_meta": {"title": "Noise"}},
+  "h3_sampler": {"inputs": {"sampler_name": "euler"}, "class_type": "KSamplerSelect", "_meta": {"title": "Euler"}},
+  "h3_sigmas": {"inputs": {"sigmas": "0.909375, 0.857143, 0.666667, 0.0"}, "class_type": "ManualSigmas", "_meta": {"title": "NVIDIA's 3-step regenerate schedule"}},
+  "h3_sample": {"inputs": {"noise": ["h3_noise", 0], "guider": ["h3_guider", 0], "sampler": ["h3_sampler", 0], "sigmas": ["h3_sigmas", 0], "latent_image": ["refine_av_join", 0]}, "class_type": "SamplerCustomAdvanced", "_meta": {"title": "Regenerate (3 steps)"}},
+  "h3_split": {"inputs": {"av_latent": ["h3_sample", 0]}, "class_type": "LTXVSeparateAVLatent", "_meta": {"title": "Split picture latent"}},
+  "h3_decode_video": {"inputs": {"samples": ["h3_split", 0], "vae": ["h3_video_vae", 0]}, "class_type": "VAEDecode", "_meta": {"title": "Decode"}},
+  "h3_create_video": {"inputs": {"images": ["h3_decode_video", 0], "fps": 24, "audio": ["sgopt_ref_video_1__components", 1], "bit_depth": 8}, "class_type": "CreateVideo", "_meta": {"title": "Create Video (source audio untouched)"}},
+  "h3_save": {"inputs": {"video": ["h3_create_video", 0], "filename_prefix": "video/MiniMax_H3_regenerate_1080p", "format": "auto", "codec": "auto"}, "class_type": "SaveVideo", "_meta": {"title": "Save Video"}}
+}
