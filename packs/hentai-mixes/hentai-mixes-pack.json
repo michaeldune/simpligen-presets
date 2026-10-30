@@ -1,10 +1,10 @@
 {
   "id": "hentai-mixes-pack",
-  "name": "Community — Hentai Mixes",
+  "name": "Community — Mature Anime",
   "version": "1.2.3",
   "author": "various",
   "nsfw": true,
-  "description": "Nine anime/hentai checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
+  "description": "Nine mature anime checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
   "tags": [
     "Local",
     "Image",
