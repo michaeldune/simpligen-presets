@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-orb360-pack",
   "name": "Community — MiniMax H3 ORB360 Orbit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-10-14",
   "author": "MATLOWAI + Comfy-Org",
   "nsfw": false,
@@ -40,6 +40,7 @@
       "enabled": true,
       "template": "wan-video",
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
