@@ -1,10 +1,10 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Community — Krea 2 Art & Styles",
-  "version": "1.2.1",
-  "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114",
+  "version": "1.3.0",
+  "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114 / lonecatone23",
   "nsfw": false,
-  "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
+  "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. Since 1.3.0, Animosity v2.0, also by request and clearly different: dark, ornate, heavily coloured semi-real anime, with a fix for same-looking faces. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
   "tags": [
     "Local",
     "Krea",
@@ -1011,6 +1011,120 @@
           "minRamGB": 16,
           "sizeGB": 15.9,
           "notes": "Krea-2 DiT (diffusion_models): Hugging Face easygoing0114/Krea-2-Nippon_clear at 4cd1444c9ed4b077d1091d65e8513d65a2539990, Krea-2-Nippon_clear_Int8_ConvRot_HQ.safetensors, 15,867,709,836 B, SHA256 d37052a4e58775bb0fab3bcba63fd931fca5f64a87bb77316e36fe11bf6c3fbb (the same file as Civitai model 3014463, version 3421934). + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine, direct submission): 5 prompts (photo, anime, Japanese shrine photo, gothic portrait, sci-fi wide) x 2 seeds at 1024x1536 against stock Krea 2 Turbo (run twice, pixel-identical), FinalCut Massive Update and Moody Krea 2 Mix (F:\\Claude-Work\\krea2-wishlist-20261024). Author: euler/normal, 8-12 steps, CFG 1 (their embedded ComfyUI graph: 8 steps, CFG 1, zeroed negative); the card's main pass runs euler/normal, the optional 4-step refine keeps the pack's euler/simple. The Civitai link in the request was the 25.7 GB BF16 build; the INT8 ConvRot HQ build of the same model was used for 12 GB cards. FP8 svd-scaled (15.9 GB), MXFP8 and NVFP4 builds exist (not tested). Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route, right after an app restart: a photo sentence at 3:4 (1216x1632, 25.6 s), two anime characters with a quoted sign at 16:9 (1888x1056, 24.8 s, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408, 24.6 s) and the same at Upscale 1.5 (2112x2112, 56.8 s). All four rendered cleanly; the graph ran euler/normal as built. LICENCE: Krea 2 Community License + Nippon LoRA terms, non-commercial use only (author)."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
+    },
+    {
+      "id": "animosity-krea2-v2-int8",
+      "nsfw": true,
+      "name": "Animosity v2.0 (INT8)",
+      "tagline": "Dark, ornate, heavily coloured semi-real anime",
+      "icon": "🥀",
+      "previewImage": "previews/animosity-krea2-v2-int8.jpg",
+      "description": "lonecatone23's Animosity v2.0 for Krea 2, where anime clashes with realism. In our test (against stock Krea 2 Turbo and Moody) it was clearly its own look: darker and more ornate, with richer colour and a lot of fine detail, and it likes to add gold ornament and glowing red eyes to dark subjects. It stays dark and heavily graded on photo prompts too. v2.0 trains in 224 varied faces to break the same-face lock of v1.0, which the author measured falling from 10.7% to 0.9%. 8 steps, CFG 1, about 28 seconds a picture at 2 MP on a 12 GB card.",
+      "tags": [
+        "Krea",
+        "Anime",
+        "Semi-Real",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Animosity v2.0 (INT8 ConvRot)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/animosity-krea2-v2-int8.json",
+        "unet": "animosity_v20Int8Convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3437942?fileId=3335254",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.2,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2596298 (Animosity by lonecatone23), version 3437942 'V2.0', fileId 3335254 (int8 ConvRot), 13.15 GB, SHA256 7527a2515978238cc5af36b97ef2c31ce5f3d44b25bd0d8d715d24716162c4f5. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against stock Krea 2 Turbo and Moody Krea 2 Mix, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). The request linked v1.0; v2.0 was published 2026-10-29 with the face fix. Author publishes no Krea settings; the Krea 2 Turbo defaults of euler / simple, 8 steps, CFG 1 used. Engine-direct median 18.2 s at 1024x1536. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a photo sentence at 3:4 (1216x1632) on 2 seeds, two anime characters with a quoted sign at 16:9 (1888x1056, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408) and the same at Upscale 1.5 (2112x2112, 61 s); 26-30 s otherwise. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; no derivatives; no credit required."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",

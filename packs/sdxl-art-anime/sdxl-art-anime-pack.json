@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -475,6 +475,108 @@
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           }
         ]
+      }
+    },
+    {
+      "id": "gockso-anime-love-song",
+      "name": "Gock So Anime Love Song",
+      "tagline": "Warm, glowing SDXL anime with close framing",
+      "icon": "💌",
+      "previewImage": "previews/gockso-anime-love-song.jpg",
+      "description": "GockSo's Anime Love Song, an SDXL merge of AnythingXL and a Blue Archive model, fine-tuned for colour. In our test it gave warm, glowing, bloom-heavy anime with close framing; on long prompts it followed less closely than the Anima cards, so check hair colours and costume details. 28 steps of Euler a at CFG 6 with the author's short quality tags and negative, about 13 seconds a picture on a 12 GB card. Please credit GockSo when you share what you make.",
+      "tags": [
+        "SDXL",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Gock So Anime Love Song",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/gockso-anime-love-song.json",
+        "checkpoint": "gockSoAnimeLoveSong_gocksoanimeLoveSong.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2667738?fileId=2554582",
+        "steps": 28,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, ((monochrome)), ((grayscale)), bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, jpeg artifacts, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 36,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "SDXL 1.0 checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 768580 / version 2667738 / fileId 2554582 by GockSo, sha256 c16ab9656a3ac8550751e9faa430444401593006c7fbc3ee291375223dca2010). The author gives prompts only: their short 'cute, masterpiece, best quality, cinematic, soft lighting' tags, the quality half of their negative, and CLIP Skip 2, Euler Ancestral / normal, 28 steps, CFG 6 as tested. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1216 on the Anima bake's 5 prompts x 2 seeds against each other, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Engine-direct median 9.1 s. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a tag prompt at 3:4 on 3 seeds, a two-character prompt at 16:9 and a scenery prompt at 1:1, all clean, 11-16 s each; prompt reached the engine without the app's quality suffix. SDXL renders on this engine flip between two near-identical results run to run (mean difference 1.79), with or without the card's LoRA node. LICENCE (Civitai): on-site generation allowed (RentCivit, Rent), derivatives allowed; credit required; selling images is not listed."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
       }
     }
   ]

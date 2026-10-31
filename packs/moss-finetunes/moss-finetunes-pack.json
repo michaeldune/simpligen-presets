@@ -1,13 +1,13 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "addedAt": "2026-10-19",
-  "author": "toya_san / catlover1937 / lodestones (pack: michaeldune)",
+  "author": "toya_san / catlover1937 / lodestones / malcolmrey / lonecatone23 / nuko_masshigura (pack: michaeldune)",
   "nsfw": false,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Three MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Six MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Since 1.2.0, three the community asked for: Moss Serenity (brighter and flatter, about 23 seconds), AniMOSSity (deepest colour and contrast, bf16 only, about 53 seconds) and MOSS Cat Tower (the most polished anime, 50 steps with Skip Layer Guidance, about 34 seconds, engine v0.43.0 or later). Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
     "Text",
@@ -19,7 +19,10 @@
     "https://civitai.com/api/download/models/3416093?fileId=3309079": "718ce17015d5d0fc63a7b21bc961e6af0a793cc5b657e727612c0a32137ed560",
     "https://civitai.com/api/download/models/3414956?fileId=3307706": "68bc68c1c30ed7c222d721493629b2a42ec31893071aa395549001149b6fdfcf",
     "https://huggingface.co/lodestones/Kromoss/resolve/7f9bb7b06d7b6c27d294b0bab5a2b3056c379279/diffusion_models/kromoss_int8_convrot.safetensors": "cacff0dd25cd2cf531e1f5ddae7872c3d57a54dbf66f1a1279f2f118514e7905",
-    "https://huggingface.co/lodestones/Kromoss/resolve/7f9bb7b06d7b6c27d294b0bab5a2b3056c379279/8-steps-dmd2-lora.safetensors": "7683fe1fb51f73f5d690f24dd6b7f46f31ab9a9873729a854ac5c9a420ffe6f2"
+    "https://huggingface.co/lodestones/Kromoss/resolve/7f9bb7b06d7b6c27d294b0bab5a2b3056c379279/8-steps-dmd2-lora.safetensors": "7683fe1fb51f73f5d690f24dd6b7f46f31ab9a9873729a854ac5c9a420ffe6f2",
+    "https://civitai.com/api/download/models/3432032?fileId=3328199": "d5fc52c117d6da0975ed9135ba75cadb443caa1df8ac7b0e7162b9a4d9d0ce17",
+    "https://civitai.com/api/download/models/3416779?fileId=3309934": "053e93a581d8274bf9d268eaad36e771389c6d63e38a4c3abe3f60c30129e851",
+    "https://civitai.com/api/download/models/3426780?fileId=3321854": "ad39fb65e1609e2c6584ac76ad80fcef8028c50e3d023b8da9ae0949074aedef"
   },
   "presets": [
     {
@@ -331,6 +334,323 @@
             "filename": "kromoss_8step_dmd2_lora.safetensors",
             "url": "https://huggingface.co/lodestones/Kromoss/resolve/7f9bb7b06d7b6c27d294b0bab5a2b3056c379279/8-steps-dmd2-lora.safetensors",
             "description": "lodestones Kromoss 8-step DMD2 LoRA (Apache-2.0), 1.19 GB"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-ft-serenity",
+      "name": "Moss Serenity v1.0",
+      "icon": "🕊️",
+      "enabled": true,
+      "template": "sdxl",
+      "tagline": "Brighter, flatter MOSS-Image with looser lettering",
+      "description": "malcolmrey's Moss Serenity, a true finetune of MOSS-Image with no LoRAs merged in; this is a snapshot at 210,000 training steps and the author plans to train it further. In our test it was brighter and flatter than MOSS-Image, with looser, more calligraphic poster lettering, and a figure can cover a word on a sign, so check your text. It reads semi-real rather than anime when you ask for anime. Put every word you want in quotes. 25 steps at CFG 3 (the author gives no settings), about 23 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/moss_ft_serenity.jpg",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "",
+        "displayModel": "Moss Serenity v1.0 (int8)",
+        "workflow": "workflows/moss_ft_serenity.json",
+        "unet": "mossSerenity_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3432032?fileId=3328199",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 25,
+        "cfg": 3,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 13,
+          "notes": "Civitai model 3022405 (Moss Serenity by malcolmrey), version 3432032 'v1.0', fileId 3328199 (int8, 5.41 GB, sha256 pinned). The author gives no sampler settings; euler / simple, 25 steps, CFG 3 tested. Engine-direct median 15.3 s. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9, which came out semi-real rather than anime; 21-25 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required."
+        },
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-ft-animossity",
+      "name": "AniMOSSity v1.0 (bf16)",
+      "icon": "🎭",
+      "enabled": true,
+      "template": "sdxl",
+      "tagline": "Deepest colour and contrast of the MOSS cards; slow",
+      "description": "lonecatone23's AniMOSSity, the MOSS-Image version of their Animosity, trained on its own images rather than merged: anime meets realism, with a lot of colour. In our test it had the deepest colour and contrast of the MOSS cards and kept lettering good. It only comes as a 10 GB bf16 file, so it is the slow one here: about 53 seconds a picture on a 12 GB card. 25 steps at CFG 3 (the author gives no settings). Put every word you want in quotes. Please credit lonecatone23 when you share what you make.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/moss_ft_animossity.jpg",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "",
+        "displayModel": "AniMOSSity v1.0 (bf16)",
+        "workflow": "workflows/moss_ft_animossity.json",
+        "unet": "animossityMOSS_v10SFTBf16.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3416779?fileId=3309934",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 25,
+        "cfg": 3,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 17.8,
+          "notes": "Civitai model 3010746 (AniMOSSity by lonecatone23), version 3416779 'v1.0 SFT bf16', fileId 3309934 (bf16, 10.16 GB, sha256 pinned; no int8 published). The author gives no sampler settings; euler / simple, 25 steps, CFG 3 tested. Engine-direct median 48.4 s against 15 s for an int8 MOSS file, because bf16 does not fit beside the rest on 12 GB. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9; 51-55 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; credit required; no derivatives."
+        },
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-ft-cat-tower",
+      "name": "MOSS Cat Tower v1.0",
+      "icon": "🐈",
+      "enabled": true,
+      "template": "sdxl",
+      "tagline": "The most polished anime on MOSS-Image, 50 steps",
+      "description": "nuko_masshigura's MOSS Cat Tower, a merge of full MOSS-Image finetunes tuned for anime. In our test it gave the most polished anime of the MOSS cards. It runs the author's recipe: 50 steps at CFG 3 with Skip Layer Guidance on layers 22, 24 and 26. The author says the art style and bodies suffer without that guidance; in our test it changed the pictures a little and cost no extra time: about 34 seconds a picture on a 12 GB card. The author trained it on natural-language captions and Danbooru tags, so either kind of prompt works. Put every word you want in quotes.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/moss_ft_cat_tower.jpg",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.43.0",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "worst quality, bad anatomy, watermark, jpeg artifact",
+        "displayModel": "MOSS Cat Tower v1.0 (int8)",
+        "workflow": "workflows/moss_ft_cat_tower.json",
+        "unet": "mossCatTower_v10_3321854.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3426780?fileId=3321854",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 50,
+        "cfg": 3,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 60,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 13,
+          "notes": "Civitai model 3018379 (MOSS Cat Tower by nuko_masshigura), version 3426780 'v1.0', fileId 3321854 (int8, 5.41 GB, sha256 pinned). Author's settings: 1-2 MP, 50 steps, CFG 3, euler / simple, SkipLayerGuidanceDiTSimple single layers 22,24,26, start 0.35, end 0.7. The core SLG node sits between the LoRA node and the sampler. The author asks for ComfyUI v0.42.1 or later; the card is gated on v0.43.0, the engine it was tested on. With and without SLG took the same time (29.5 vs 30.3 s median) and differed by a mean absolute 8.9-21.3 on all 12 images, so it is active. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9; SkipLayerGuidanceDiTSimple 22,24,26 confirmed in the graph the engine ran; 34-38 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed, derivatives allowed; no selling; no credit required."
+        },
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
           }
         ]
       }

@@ -1,0 +1,172 @@
+{
+  "unet_loader": {
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load AniMOSSity v1.0 (bf16)"
+    },
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    }
+  },
+  "clip_loader": {
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    },
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "moss_image",
+      "device": "default"
+    }
+  },
+  "vae_loader": {
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    },
+    "inputs": {
+      "vae_name": "{{vae}}"
+    }
+  },
+  "simpligen_lora_1": {
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    },
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "unet_loader",
+        0
+      ],
+      "clip": [
+        "clip_loader",
+        0
+      ]
+    }
+  },
+  "positive": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive)"
+    },
+    "inputs": {
+      "text": "{{prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    }
+  },
+  "negative": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative)"
+    },
+    "inputs": {
+      "text": "{{negative_prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    }
+  },
+  "simpligen_width": {
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Width"
+    },
+    "inputs": {
+      "value": "{{width}}"
+    }
+  },
+  "simpligen_height": {
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Height"
+    },
+    "inputs": {
+      "value": "{{height}}"
+    }
+  },
+  "latent": {
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Empty Latent"
+    },
+    "inputs": {
+      "width": [
+        "simpligen_width",
+        0
+      ],
+      "height": [
+        "simpligen_height",
+        0
+      ],
+      "batch_size": 1
+    }
+  },
+  "sampler": {
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    },
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "positive",
+        0
+      ],
+      "negative": [
+        "negative",
+        0
+      ],
+      "latent_image": [
+        "latent",
+        0
+      ]
+    }
+  },
+  "decode": {
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    },
+    "inputs": {
+      "samples": [
+        "sampler",
+        0
+      ],
+      "vae": [
+        "vae_loader",
+        0
+      ]
+    }
+  },
+  "save": {
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    },
+    "inputs": {
+      "filename_prefix": "moss-ft-animossity",
+      "images": [
+        "decode",
+        0
+      ]
+    }
+  }
+}

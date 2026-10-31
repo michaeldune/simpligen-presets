@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -419,6 +419,109 @@
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           }
         ]
+      }
+    },
+    {
+      "id": "osorubeshi-ultra-anime-v1",
+      "name": "Osorubeshi-Ultra Anime-V1",
+      "tagline": "Bright, clean Pony anime, wide and airy",
+      "icon": "👘",
+      "previewImage": "previews/osorubeshi-ultra-anime-v1.jpg",
+      "description": "OsorubeshiAI's Osorubeshi-Ultra, the Anime-V1 Pony checkpoint. In our test it gave bright, clean, sunlit anime with wide compositions and clear eyes. It follows prompts loosely: hair colours and uniform details can drift, and with no hair colour in the prompt it drew the same silver-haired face on all three test seeds, so name the hair and check the result. 30 steps of Euler a at CFG 5.5 with Pony score tags, about 13 seconds a picture on a 12 GB card. The author publishes no settings. Please credit OsorubeshiAI when you share what you make.",
+      "tags": [
+        "Pony",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Osorubeshi-Ultra Anime-V1",
+        "baseModels": [
+          "pony",
+          "sdxl"
+        ],
+        "workflow": "workflows/osorubeshi-ultra-anime-v1.json",
+        "checkpoint": "osorubeshiUltra_animeV1.safetensors",
+        "steps": 30,
+        "cfg": 5.5,
+        "denoise": 1,
+        "negativePrompt": "score_4, score_5, score_6, source_pony, source_furry, lowres, bad anatomy, bad hands, watermark, signature, text",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 8,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Pony SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 596501 / version 666362 'Anime-V1' / fileId 581932 by OsorubeshiAI, sha256 3677f6170e108aaca1f3bfe32042ac4944ed1c94804e4b29d7eaa3d30f2fb215). No settings published; CLIP Skip 2, Euler Ancestral / normal, 30 steps, CFG 5.5, Pony score tags. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1216 on the Anima bake's 5 prompts x 2 seeds against each other, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Engine-direct median 8.3 s. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a tag prompt on 3 seeds (run at 768x1344; the card now uses 896x1152 for 3:4, checked on the engine), a two-character prompt at 16:9 and a scenery prompt at 1:1, all clean, 11-17 s each. With no hair colour in the prompt all three seeds drew the same silver-haired face. LICENCE (Civitai): on-site generation allowed (RentCivit); credit required; no derivatives."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/666362?fileId=581932",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
       }
     }
   ]

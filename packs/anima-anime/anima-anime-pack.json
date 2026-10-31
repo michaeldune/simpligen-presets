@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -2102,6 +2102,218 @@
           "minRamGB": 16,
           "sizeGB": 5.4,
           "notes": "Anima UNet (diffusion_models, bf16, 4.08 GB, sha256 f1281893f717f70fc3d789e0537424f9d5bca544c23f060b8d1cb39e810f8bb3, Civitai model 2692236 / version 3334245 'v3.0_Anima2B' / fileId 3220803) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt (the 2026-10-24 rule: several Anima models letter it into pictures). Author (v1-v2, none for v3): 16+ steps, CFG 1+, their quality prefix and negative (used here; the negative only acts above CFG 1). Baked 2026-10-25 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission) on the 2026-10-15 Anima prompts x 2 seeds at 896x1152 against Anima base (re-rendered: pixel-identical) and every shipped Anima card (F:\\Claude-Work\\dante-request-20261025). Two arms: 16 steps CFG 1 (median 4.8 s; lost details and swapped attributes) and 24 steps CFG 4 (median 13.9 s; all attributes held) - the card ships the second. Nearest card: RDBT b1 (12.9 dB at CFG 1), 11.7 dB at CFG 4: no near-duplicate. The model page also has a 2.9B v2.0 build (not tested). Civitai asks for a sign-in to download (API key). Verified in the app (1.77.0, engine v0.42.0) 2026-10-25 through the agent route, card negative passed explicitly: the two-character hoodie test at 3:4 on seeds 11/22/33/44 (every attribute on the right girl, the hoodie blank on all four: no lettering of any kind) and a single-character prompt at 16:9 (1344x768). 15.1-16.6 s each; graph read back from /history: er_sde/simple, 24 steps, CFG 4, author's prefix and negative, no system prompt. LICENCE (Civitai): image use, on-site generation and selling images allowed; derivatives allowed."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pawhibited-anima-29b-v1",
+      "name": "Pawhibited Anima 2.9B v1.0",
+      "tagline": "Dramatic light and close framing on the 2.9B Anima",
+      "icon": "🐾",
+      "previewImage": "previews/pawhibited-anima-29b-v1.jpg",
+      "description": "Meiyue's Pawhibited, made with CatgirlContraband: a finetune of Anima-2.9B, the 40-layer Anima. In our test it gave dramatic, detailed pictures with closer framing than Anima base; golden-hour scenery can tip into a heavy gold cast. 28 steps of Euler at CFG 4 on the authors' settings, about 27 seconds a picture on a 12 GB card. The authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Dramatic",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pawhibited Anima 2.9B v1.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/pawhibited-anima-29b-v1.json",
+        "unet": "pawhibitedAnima29b_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3429588?fileId=3325362",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 28,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.1,
+          "notes": "Anima-2.9B UNet (diffusion_models, bf16, 5.84 GB, sha256 422436633524c29a9f2f8a32f57b9699f939e5746c0d7ecd5a3bdd5139585b22, Civitai model 3020561 / version 3429588 'v1.0' / fileId 3325362, by Meiyue with CatgirlContraband) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Authors: 28-50 steps, CFG 3.5-5, Euler + sgm_uniform (also res_multistep + linear_quadratic, er_sde, beta). Engine-direct median 23.3 s at 28 steps, 40.4 s at 50, no visible gain from 50. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a two-character prompt with a plain black hoodie at 3:4 on 4 seeds (11/22/33/44) and a single-character prompt at 16:9, all clean, no system-prompt lettering, 25-28 s each. Seed, size, prompt and negative read back from engine /history. LICENCE (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cocoamix-anima-v4",
+      "name": "CocoaMix Anima v4.0",
+      "tagline": "Clean, soft, bright anime with the cocoaface look",
+      "icon": "🍫",
+      "previewImage": "previews/cocoamix-anima-v4.jpg",
+      "description": "ccooccoo's CocoaMix Anima v4.0, a merge of Anima base with the author's own training. In our test it gave clean, soft, bright pictures. It added a small made-up print to a plain hoodie on all four test seeds, so check clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too; add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative. 30 steps at CFG 4.5 (the author gives no settings), about 22 seconds a picture on a 12 GB card. Pictures made with it are non-commercial; ask the author about commercial use. This is a different model from Krea2 CocoaMix.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Soft",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "CocoaMix Anima v4.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/cocoamix-anima-v4.json",
+        "unet": "cocoamixAnima_v40.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3382543?fileId=3271205",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, worst finger, bad quality, censor, censored, mosaic, extra digits, failure, deformed nail, bad hand, bad fingers, soft shine lighting, ears, human ears, real",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB, sha256 85fa848534779c0628371139e32cb0ad51846e22b99e34a66217623fc1385eb2, Civitai model 2810241 / version 3382543 'v4.0' / fileId 3271205, by ccooccoo) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Author's quality prompt and negative; no steps or sampler published, so the Anima base card's er_sde / simple, 30 steps, CFG 4.5. Engine-direct median 17.4 s. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a two-character prompt with a plain black hoodie at 3:4 on 4 seeds (11/22/33/44) and a single-character prompt at 16:9, no system-prompt lettering, 19-23 s each. All four seeds put a small made-up print on the plain hoodie (scribble, two garbled box logos, a cat). Seed, size, prompt and negative read back from engine /history. LICENCE: author: images non-commercial unless agreed; Civitai flags RentCivit only, no derivatives, and a fee for reprinting the model, so the card links to Civitai and does not rehost."
         },
         "extensions": [
           {
