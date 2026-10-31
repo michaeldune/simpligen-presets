@@ -1,7 +1,7 @@
 {
   "id": "fibo2-edit-pack",
   "name": "Fibo 2.0 Edit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -36,6 +36,7 @@
       "template": "sdxl",
       "promptStyle": "natural",
       "image": {
+        "promptFamily": "fibo-edit",
         "values": {
           "quality": ""
         },

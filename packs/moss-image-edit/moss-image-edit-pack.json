@@ -1,7 +1,7 @@
 {
   "id": "moss-image-edit-pack",
   "name": "MOSS-Image Edit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -37,6 +37,7 @@
       "template": "sdxl",
       "promptStyle": "natural",
       "image": {
+        "promptFamily": "moss-image-edit",
         "values": {
           "quality": ""
         },

@@ -1,7 +1,7 @@
 {
   "id": "moss-nsfw-finetunes-pack",
   "name": "Community — MOSS-Image Figure Finetunes",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "addedAt": "2026-10-19",
   "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
   "nsfw": true,
@@ -36,6 +36,7 @@
       ],
       "previewImage": "previews/moss_nsfw_pornmaster.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -139,6 +140,7 @@
       ],
       "previewImage": "previews/moss_nsfw_artius.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -242,6 +244,7 @@
       ],
       "previewImage": "previews/moss_nsfw_jibmix.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -345,6 +348,7 @@
       ],
       "previewImage": "previews/moss_nsfw_primelust.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],

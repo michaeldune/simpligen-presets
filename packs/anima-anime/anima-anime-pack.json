@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -38,6 +38,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -143,6 +144,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -246,6 +248,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -341,6 +344,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -446,6 +450,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -552,6 +557,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -656,6 +662,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -761,6 +768,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -866,6 +874,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -971,6 +980,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1076,6 +1086,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1181,6 +1192,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1286,6 +1298,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1386,6 +1399,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1490,6 +1504,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1595,6 +1610,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1700,6 +1716,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1805,6 +1822,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -1910,6 +1928,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],
@@ -2015,6 +2034,7 @@
         ]
       },
       "image": {
+        "promptFamily": "anima",
         "supports": [
           "local"
         ],

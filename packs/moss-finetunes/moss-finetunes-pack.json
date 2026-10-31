@@ -1,7 +1,7 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "addedAt": "2026-10-19",
   "author": "toya_san / catlover1937 / lodestones (pack: michaeldune)",
   "nsfw": false,
@@ -38,6 +38,7 @@
       ],
       "previewImage": "previews/moss_ft_sam_turbo.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -137,6 +138,7 @@
       ],
       "previewImage": "previews/moss_ft_moody.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -241,6 +243,7 @@
       ],
       "previewImage": "previews/moss_ft_kromoss_turbo.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],

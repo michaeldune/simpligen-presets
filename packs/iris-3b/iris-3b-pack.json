@@ -1,7 +1,7 @@
 {
   "id": "iris-3b-pack",
   "name": "Community — Iris-3B",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Speridlabs",
   "nsfw": false,
   "description": "Iris-3B by Speridlabs: a small (3B) text-to-image model that paints pixels directly, with no VAE. Two cards: the base model (50 steps, about 35 s a picture on a 12 GB card) and the official 4-step Turbo (about 10 s a picture). Both render at about 1 megapixel and share the Qwen3VL 4B text encoder the Krea 2 cards already use, so the base card adds only a 3.4 GB download. Runs through the ComfyUI-Iris pack by Nynxz, which the app installs for you. The base card's file is INT8 and needs an RTX 20-series card or newer. Apache-2.0.",
@@ -44,6 +44,7 @@
         ]
       },
       "image": {
+        "promptFamily": "iris",
         "supports": [
           "local"
         ],
@@ -160,6 +161,7 @@
         ]
       },
       "image": {
+        "promptFamily": "iris",
         "supports": [
           "local"
         ],

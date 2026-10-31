@@ -1,7 +1,7 @@
 {
   "id": "moss-image-pack",
   "name": "Community — MOSS-Image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-10-18",
   "author": "michaeldune",
   "nsfw": false,
@@ -36,6 +36,7 @@
       ],
       "previewImage": "previews/moss-image.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],
@@ -140,6 +141,7 @@
       ],
       "previewImage": "previews/moss-image-fast.jpg",
       "image": {
+        "promptFamily": "moss-image",
         "supports": [
           "local"
         ],

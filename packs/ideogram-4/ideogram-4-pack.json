@@ -1,7 +1,7 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "author": "Michael Pate (community)",
   "nsfw": false,
   "minComfyuiVersion": "v0.28.0",
@@ -40,6 +40,7 @@
         ]
       },
       "image": {
+        "promptFamily": "ideogram-4",
         "supports": [
           "local"
         ],
@@ -148,6 +149,7 @@
         ]
       },
       "image": {
+        "promptFamily": "ideogram-4",
         "supports": [
           "local"
         ],
