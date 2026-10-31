@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v4-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v4)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid v4 Turbo (2026-10-09): the fourth release of the drop-in int8 ConvRot finetune, and a four-step distill again where v2 and v3 Turbo wanted eight. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A FOURTH DASIWA PACK. It is an option, not a replacement: the v1, v2 and v3 packs stay as they are. Measured 2026-10-17 on a 12 GB RTX 4070 Ti against the v3 pack on the same seeds, prompts, references and graphs, both with faster attention on: about 40% faster (42-54 s per five-second shot at 480p at four steps, against 63-81 s for v3 at eight), every identity held on three reference sets over three seeds, and a scripted line came out word for word on three of three seeds. The look: more contrast and more background detail than v3, which keeps a darker, quieter frame. On one seed in three a person-plus-location reference shot opened on the person's own photo for under two seconds before cutting into the scene; v3 did not do that. Works with the app's Faster Attention toggle. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -37,6 +37,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -336,6 +337,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -644,6 +646,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

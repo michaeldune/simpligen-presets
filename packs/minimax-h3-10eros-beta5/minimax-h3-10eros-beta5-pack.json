@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-beta5-pack",
   "name": "Community — MiniMax H3 (10Eros Max beta5)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "TenStrip",
   "nsfw": true,
   "description": "MiniMax H3 on TenStrip's 10Eros Max beta5, the current release of the finetune (the author calls beta5 the only functional build; betas 3 and 4 are withdrawn). This is the HYBRID file: one 21 GB INT8 checkpoint carries both the first-frame and the reference-to-video character, so text-, image- and reference-to-video all run on it and reference shots no longer borrow the first-frame base. Built from seven concept-grouped grafts and consensus merges of 20+ LoRAs on the delta1024 H3 merge, with transferred character from LTX 2.3, Wan 2.2 and Krea 2 (their community licences apply to those portions alongside the MiniMax H3 licence). Same-seed bake-off against the original 10Eros Max pack on a 12 GB RTX 4070 Ti, 5 s at 480p: cleaner faces (no mouth smear), real motion on action prompts, and about 20% faster at the same 20 steps. The original 10Eros Max packs stay available unchanged; this is a separate download.",
@@ -35,6 +35,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -341,6 +342,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -656,6 +658,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

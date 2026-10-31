@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-omni-pack",
   "name": "Community — MiniMax H3 (FastH3 Omni)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "FastVideo + Nuva Lab",
   "nsfw": false,
   "description": "FastVideo's FastH3 Omni (released 2026-10-20, co-developed with Nuva Lab): an eight-step MiniMax H3 distill built for references, taking up to nine pictures, three clips and three audio files per shot. One card, reference to video. WHY. Measured 2026-10-21 on a 12 GB RTX 4070 Ti against the DaSiWa v4 and Midnight reference cards on the same seeds, prompts and references: every identity held, every spoken line came out word for word, and the picture was the crispest of the three with more of the background in focus. Speed sits between them (about 75 s per five-second 480p shot, against 44 s for DaSiWa v4 and 97 s for Midnight). Audio references work: a voice clip carries its voice into new words, and a song's vocal stem, with its lyrics and their times in the prompt, comes back as the soundtrack with the singer lip-synced to it. Needs the v0.42.0 engine.",
@@ -37,6 +37,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -307,6 +308,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

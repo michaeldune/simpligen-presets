@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-hyperflow-pack",
   "name": "Community — MiniMax H3 (HyperFlow 8-Step)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Video Rebirth (HyperFlow); drbaph (ComfyUI conversion)",
   "nsfw": false,
   "description": "Video Rebirth's HyperFlow 8-step distill for MiniMax H3, as a plain LoRA on the standard pruned FL2VA weights: eight sampling steps on HyperFlow's own fixed schedule, no classifier-free guidance, Euler, core ComfyUI nodes only. WHAT IT IS FOR. A steadier eight-step option. Tested 2026-10-02 on a 12 GB RTX 4070 Ti at 480p, 5 s, against the PDD Acc 8-Step pack on the same three seeds and two prompts: the same cost (about 90-96 s in SimpliGen against 91 s), and on those seeds it held a locked-off camera and a continuous tracking shot where PDD Acc pushed in on the still shot and jumped mid-clip on the moving one. It is not faster than PDD Acc, and TaoMate 3-Step is about twice as fast. WHAT IT IS NOT. The released HyperFlow also conditions every step on a second time embedding that pruned H3 checkpoints do not have; this pack runs the LoRA part only (drbaph's ComfyUI conversion, rank 20, 316 MB), which is what makes it work on these weights without a custom node. Text and image to video; no reference-to-video card yet. Same base weights as the MiniMax H3 pack, so with that installed only the 316 MB LoRA downloads. Weights under the MiniMax H3 community licence; conversion Apache-2.0.",
@@ -37,6 +37,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -362,6 +363,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

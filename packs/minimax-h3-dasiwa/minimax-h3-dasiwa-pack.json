@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid)",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "The fast MiniMax H3 pack. Darksidewalker's DaSiWa Hybrid 4Turbo is a finetune of the pruned int8 ConvRot weights with the distillation baked in, so it runs at four steps with no Turbo LoRA and nothing to install beyond what SimpliGen already ships — unlike the other H3 packs, which need the ComfyUI-MiniMax-H3-Turbo node cloned in by hand. One checkpoint covers text, image and reference to video plus a Character PV reveal-trailer preset, where every other H3 pack needs two - about 19.5 GB less to download for the same three presets. Roughly 1.7-2.3 minutes per five-second shot against about 3 for the six-step Turbo LoRA preset, with no audible change to the generated audio. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free. ADDED IN 1.3.0: all four cards now work with the app's Faster Attention toggle. Checked in the app 2026-10-07 with it on: 67-71 s per five-second shot at 480p.",
@@ -39,6 +39,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -344,6 +345,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -658,6 +660,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

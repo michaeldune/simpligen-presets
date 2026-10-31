@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v3-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v3)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid Turbo v3 (2026-10-01): the third release of the drop-in int8 ConvRot finetune, with what the author describes as a retuned distillation blend, better motion and more detail on anime and stylised subjects. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A THIRD DASIWA PACK. It is an option, not a replacement: the v1 and v2 packs stay as they are. Measured 2026-10-07 on a 12 GB RTX 4070 Ti against the v2 pack on the same seed, prompts, references and graphs: the same speed (about 100 s per five-second shot at 480p, eight steps), every identity held on three reference sets (solo, two-person, person plus location), and a scripted line came out word for word on three of three seeds. The look is different rather than plainly better: on our comparison seed v3 was darker and cleaner, kept a studio light out of frame where v2 put it in the shot, and showed less surface grain and less movement. Try both and keep the one you like. Works with the app's Faster Attention toggle (76-85 s per shot with it on). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -37,6 +37,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -336,6 +337,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -644,6 +646,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

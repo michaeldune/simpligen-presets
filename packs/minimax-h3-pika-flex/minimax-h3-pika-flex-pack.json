@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pika-flex-pack",
   "name": "Community — MiniMax H3 (Pika H3 Flex 6-Step)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Pika Labs (adapters); Comfy-Org (ComfyUI repack)",
   "nsfw": false,
   "description": "Pika Labs' Pika H3 Flex (released 2026-10-29): MiniMax H3 post-trained on video, audio and reference examples, distilled to six steps and refined with reward feedback. It ships as two adapters on the standard H3 weights, one for text and first/last-frame video (FL2VA) and one for reference-to-video (Ref2VA), so with the MiniMax H3 pack installed only the 1.96 GB adapter downloads. The cards run Pika's published schedule exactly as the Comfy-Org templates do: lcm sampler, a fixed seven-value sigma list, CFG 1. There is no step control and no Spectrum or Sol-Attn, because the adapter is already distilled and Pika warn that a second accelerator breaks the output; do not add a turbo or speed LoRA in the LoRA slot either. Tested 2026-10-29 on a 12 GB RTX 4070 Ti with 32 GB RAM, one seed per card on Pika's own template prompts: 5 s at 480p in 81 s (text), 89 s (first + last frame) and 93 s (two references); 5 s at 768p in 4 min 12 s. All three followed their prompt beat for beat, the first/last-frame card landed on both pictures, and the reference card held a helmet and a space station from one picture each. Run again through SimpliGen itself (faster attention on), the same three shots took 79, 82 and 83 s and matched the engine runs beat for beat. The 'seconds, not minutes' speeds in Pika's announcement are datacenter-GPU numbers. Pika's prompting notes: give every camera move a stopping point, describe a wide shot as content ('small inside a large empty room'), and expect a hand told to stop just short to make contact. MiniMax H3 Community License; read its territorial and commercial-use terms before commercial use.",
@@ -38,6 +38,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -353,6 +354,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -675,6 +677,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

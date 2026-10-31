@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pinkcherry-v18-pack",
   "name": "Community — MiniMax H3 (PinkCherry v1.8 Hybrid)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "SexGod1979",
   "nsfw": true,
   "description": "MiniMax H3 on SexGod1979's PinkCherry v1.8 Hybrid: an adult fine-tune (the author publishes its explicit training captions), INT8, 21.1 GB, Apache-2.0. This card runs the author's full-step setting with no turbo LoRA: euler / simple, 30 steps. It is slow: about 19 minutes for a 15-second clip at 480p on a 12 GB card. In a one-seed check on a fully clothed stop-motion scene it behaved much like stock H3, so the fine-tune has not cost it general ability. The author trains at high resolution and recommends 0.7 megapixels or more; our test ran at 864x480 and held up. Text to video only in this first release. The author's faster route, the lightx2v 8-step turbo LoRA at 12 steps, is not offered here because we have not tested it.",
@@ -35,6 +35,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -334,6 +335,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -642,6 +644,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

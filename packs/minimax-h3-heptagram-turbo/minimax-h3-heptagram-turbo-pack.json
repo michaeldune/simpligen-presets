@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-heptagram-turbo-pack",
   "name": "Community — MiniMax H3 (Heptagram Turbo)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "eatyet",
   "nsfw": true,
   "description": "MiniMax H3 on eatyet's Heptagram Turbo v1.0: by the author's description a merge of several community H3 checkpoints with LoRA fine-tuning and the TaoMate and HyperFlow speed LoRAs built in. One 21.0 GB file from Civitai, no Turbo LoRA. Runs at the author's settings: res_multistep / simple, 8 steps, sigma shift 12 video / 3 audio (his ranges are 4 to 8 steps and shift 6 to 16). The author says it suits game, anime and 3D styles, and that matches what we saw: asked for felt stop-motion, it drifted to a smooth 3D-animated look on two of three prompt versions. Pick it when you want that look, and pick another card for handmade or photographic texture. The author also notes that this version's audio has flaws. Text to video only in this first release.",
@@ -35,6 +35,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -334,6 +335,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -642,6 +644,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

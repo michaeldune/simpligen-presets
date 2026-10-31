@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-beta7-pack",
   "name": "Community — MiniMax H3 (10Eros Max beta7)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "TenStrip",
   "nsfw": true,
   "description": "MiniMax H3 on TenStrip's 10Eros Max beta7 8-step TURBO: FL2VA base, FastH3 Omni timestep table, turbo built into the weights, 22.9 GB INT8 HQ. Three single-pass cards at 8 steps and two 768p two-pass cards. Runs dense rather than the author's sparse attention; the card text says why. A separate download from the beta5 and beta6 packs. The 10Eros terms on the author's page apply alongside the MiniMax H3 licence.",
@@ -37,6 +37,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -343,6 +344,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -657,6 +659,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -988,6 +991,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -1306,6 +1310,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

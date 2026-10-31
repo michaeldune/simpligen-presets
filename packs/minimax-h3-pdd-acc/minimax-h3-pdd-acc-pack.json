@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pdd-acc-pack",
   "name": "Community — MiniMax H3 (PDD Acc 8-Step)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -42,6 +42,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -354,6 +355,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -674,6 +676,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

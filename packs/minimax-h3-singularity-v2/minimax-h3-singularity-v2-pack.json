@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-singularity-v2-pack",
   "name": "Community — MiniMax H3 (Singularity v2)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "WarmBloodAban (AIGC-Singularity)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -42,6 +42,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -351,6 +352,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -668,6 +670,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-pack",
   "name": "Community — MiniMax H3 (FastH3 8-Step V2)",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minAppVersion": "1.63.0",
   "minComfyuiVersion": "v0.36.0",
   "author": "FastVideo (hao-ai-lab); Comfy-Org repack",
@@ -43,6 +43,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -366,6 +367,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -698,6 +700,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -1023,6 +1026,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

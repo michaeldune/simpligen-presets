@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-beta6-pack",
   "name": "Community — MiniMax H3 (10Eros Max beta6)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "TenStrip",
   "nsfw": true,
   "description": "MiniMax H3 on TenStrip's 10Eros Max beta6 8-step TURBO: a mostly-reference hybrid with a custom turbo built into the weights. The author describes it as a slow 8 to 12 step model meant to look and sound like FastH3 v2. One 21.7 GB INT8 file, no Turbo LoRA to download or hold in memory. The card runs the author's own settings: euler / simple, 10 steps, sigma shift 10 video / 3 audio. Text to video only in this first release; image and reference cards follow once they have been tested. The author warns that sparse attention breaks this checkpoint, so Sol-Attn and Spectrum are not offered here. This is a separate download from the beta5 packs (different file); pick one unless you want both. The 10Eros terms on the author's page apply alongside the MiniMax H3 licence.",
@@ -35,6 +35,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -334,6 +335,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
@@ -642,6 +644,7 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],
