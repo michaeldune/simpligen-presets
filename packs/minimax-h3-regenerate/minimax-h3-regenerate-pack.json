@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-regenerate-pack",
   "name": "Community — MiniMax H3 (Regenerate 1080p)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "NVIDIA (Open-H3-Regenerate-2K) + Kijai + LBH-123-AI",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -19,7 +19,7 @@
       "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
-      "description": "Drop a finished H3 clip (480p or 768p) in Reference Video 1 and paste the same brief that made it. Output is the clip's first 5 s regenerated at 1080p in three steps by NVIDIA's Open-H3-Regenerate-2K refiner, with the source's first frame as an identity anchor and the source soundtrack kept. Pick the aspect that matches your clip; the duration slider is ignored. Detail comes up a lot, most from 480p clips; the person stays the same but can pick up small changes such as added stubble or a lowered gaze opened up. Measured on a 12 GB RTX 4070 Ti: 5 s to 1920x1088 in about 7 min. It needs most of 32 GB of system RAM: close other apps, or it can take several times longer. Use the Video Refine pack when the clip must stay exactly as it is.",
+      "description": "Regenerates a finished H3 clip at 1080p with new fine detail in three steps, using NVIDIA's Open-H3-Regenerate-2K refiner. The source soundtrack is kept untouched.\n\nPut a 480p or 768p H3 clip in Reference Video 1, paste the same brief that made it, and pick the aspect that matches your clip. Only the first 5 s is used, and the duration slider is ignored.\n\nDetail comes up a lot, most from 480p clips: hair strands, knit, skin and readable lettering appear. The source's first frame anchors the identity, so the person stays the same, but they can pick up small changes such as added stubble or a lowered gaze opened up. Use the Video Refine pack when the clip must stay exactly as it is.\n\nA 5-second clip to 1920x1088 takes about 7 minutes on a 12 GB card. It needs most of 32 GB of system RAM: close other apps, or it can take several times longer. Below about 2 GB free the decode can fail.\n\nThe refiner is NVIDIA's, under the MiniMax H3 Community License.",
       "video": {
         "promptFamily": "minimax-h3-video",
         "supports": ["local"],

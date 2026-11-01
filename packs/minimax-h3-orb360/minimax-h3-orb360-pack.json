@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-orb360-pack",
   "name": "Community — MiniMax H3 ORB360 Orbit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "addedAt": "2026-10-14",
   "author": "MATLOWAI + Comfy-Org",
   "nsfw": false,
@@ -26,7 +26,7 @@
       "name": "MiniMax H3 ORB360 Orbit",
       "icon": "🔄",
       "tagline": "One photo in, a frozen 360-degree camera orbit out",
-      "description": "Turns one photo into a frozen-moment 360-degree orbit: the camera circles the subject once, clockwise, and comes back to the photo's own view, while the subject and everything around it stay still. Built on MATLOWAI's ORB360 LoRA (step 1500) for the H3 reference model, with the author's own orbit prompt built in (minus one clause about falling snow and dust, which put frozen specks on the picture).\n\nPICTURE 1 (required) = the photo. One subject in the middle of the frame works best: a person, an object on a table, a statue. Its back and the rest of the room are invented, because the photo cannot show them.\n\nTHE PROMPT BOX IS NOT USED: the card always sends the author's orbit prompt, whose timestamps need exactly 124 frames, so the length is fixed at 5 seconds. The clip is silent.\n\nWhat to expect: in our tests (2026-10-14: a woman full body, a man head and shoulders, a camera on a table, two seeds each, once at 768x768 outside the app and once at 480p in the app) the camera went all the way round and showed the back of the subject in 5 of 6 clips both times. The miss was the full-body woman both times (a different seed each time): the background kept turning but she turned on the spot instead of the camera passing behind her. If that happens, try another seed. The turn is uneven: it spends longer on the first half and is facing the front again a little early. Whatever the photo does not show is invented and can drift: one living room opened onto a lake halfway round. The last frame is close to the photo but not identical, so a loop has a small jump.\n\nAbout 2 1/4 minutes at 480p and 7 minutes at 768p (864x1184) on a 12 GB card. MiniMax H3 Community License.",
+      "description": "Turns one photo into a frozen-moment orbit: the camera circles the subject once and comes back to the start while everything stays still. Always 5 seconds, with no sound.\n\nPicture 1 is the photo. One subject in the middle works best: a person, an object on a table, a statue. The prompt box is not used.\n\nWhat to expect: the camera got all the way round in 5 of 6 test clips. If a full-body person turns on the spot instead, try another seed. Anything the photo doesn't show is invented and can drift, and the last frame is close to the photo but not identical, so a loop has a small jump.\n\nAbout 2 1/4 minutes at 480p and 7 minutes at 768p on a 12 GB card. MiniMax H3 Community License.",
       "previewImage": "previews/minimax-h3-orb360.jpg",
       "tags": [
         "Video",

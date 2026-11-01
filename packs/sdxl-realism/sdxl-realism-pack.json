@@ -1,7 +1,7 @@
 {
   "id": "sdxl-realism-pack",
   "name": "Community — SDXL Realism",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "various",
   "nsfw": false,
   "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
@@ -17,7 +17,7 @@
       "tagline": "Photoreal SDXL (realism)",
       "icon": "🎨",
       "previewImage": "previews/sdxl-triple-headed-monkeys-v10.jpg",
-      "description": "SDXL Triple Headed Monkey's Realism - photoreal SDXL for lifelike people and scenes (mature and general subjects). Natural-language prompting, baked VAE.",
+      "description": "Photoreal SDXL for lifelike people and scenes, mature and general subjects alike. Prompt in natural language.",
       "tags": [
         "SDXL",
         "Realistic",
@@ -339,7 +339,7 @@
       "tagline": "Raw high-fidelity realism, uncensored",
       "icon": "🌆",
       "previewImage": "previews/pure-tukano-nsfw-v10.jpg",
-      "description": "Photoreal SDXL trained for explicit adult content with realistic female anatomy, natural skin texture, and flawless proportions - avoids the common 'plastic skin' look. Baked VAE, no CLIP skip. DPM++ 2M SDE / Karras recommended by the creator.",
+      "description": "Photoreal SDXL trained for explicit adult content, with realistic female anatomy, natural skin texture and flawless proportions. It avoids the common 'plastic skin' look.",
       "tags": [
         "SDXL",
         "Realistic",

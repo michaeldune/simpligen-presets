@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "author": "Krea AI",
   "nsfw": true,
   "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are mature-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai. Since 1.8.0: two cards from VXP's experimental Krea 2 beta series (INT8, about 14 s a picture at 1 MP): Beta 4 for anime and illustration, Beta 3 for the same look on photographs. Both put a dark, backlit, high-contrast grade on everything, which none of the other cards here give. Since 1.9.0: DaSiWa Krea2 DarkDesire V3 (Darksidewalker, INT8), added on request; it stays close to stock Krea 2 Turbo, with richer painted skies, bolder anime lines and deeper reds.",
@@ -20,7 +20,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix",
       "icon": "🌙",
       "previewImage": "previews/moody-krea2-mix-v10.jpg",
-      "description": "Uncensored Krea 2 diffusion-transformer mix tuned for moody, photoreal output. Best skin texture and natural anatomy of the Krea presets. 8-step distilled at CFG 1. Warm, freckled, natural skin; the reference look of the pack. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Uncensored, moody photoreal pictures with warm, freckled, natural skin. The best skin texture and natural anatomy of the Krea cards.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 25 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 10 seconds. 2048x2048 also works on 12 GB, in about 70 seconds.",
       "tags": [
         "Krea",
         "Turbo",
@@ -144,7 +144,7 @@
       "tagline": "Uncensored Krea 2 red-mix, 10-step",
       "icon": "🔥",
       "previewImage": "previews/redcraft-krea2-red-mix.jpg",
-      "description": "Uncensored Krea 2 'Red Mix' (Raw + Turbo merge). Zero-censorship realism with strong detail. 10-step euler/simple at CFG 1. Warm and freckled with the strongest micro-detail of the six. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Uncensored realism with the strongest micro-detail of the six Krea mixes, warm and freckled. A merge of Krea 2 Raw and Turbo.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 35 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 5 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
       "tags": [
         "Krea",
         "Turbo",
@@ -261,7 +261,7 @@
       "tagline": "Photoreal Krea 2 realism mix, 8-step",
       "icon": "📷",
       "previewImage": "previews/realia-krea2-v10.jpg",
-      "description": "Realia Krea 2 — a photoreal Krea 2 diffusion-transformer mix tuned for natural realism and skin detail. 8-step distilled at CFG 1 (bump to 10-12 steps for extra detail). Soft, natural, slightly cooler skin than Moody; the most 'unedited photo' look. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Natural photoreal skin that is soft and slightly cooler than Moody's: the most 'unedited photo' look of the Krea mixes. Raise the steps to 10-12 for extra detail.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 30 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 8 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
       "tags": [
         "Krea",
         "Turbo",
@@ -385,7 +385,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix, 8-step",
       "icon": "💎",
       "previewImage": "previews/fascium-krea2-v3.jpg",
-      "description": "FASCIUM Krea 2 (v3) — uncensored Krea 2 diffusion-transformer mix tuned for photoreal detail. 8-step distilled at CFG 1. Muted, desaturated palette with matte skin; reads more editorial than the others. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Uncensored photoreal detail with a muted, desaturated palette and matte skin. It reads more editorial than the other Krea mixes.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 6 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
       "tags": [
         "Krea",
         "Turbo",
@@ -502,7 +502,7 @@
       "tagline": "Dark cinematic photoreal Krea 2 mix",
       "icon": "🌑",
       "previewImage": "previews/bf95-krea2-dark-realism-v30.jpg",
-      "description": "BF95 Krea 2 Dark Realism v3.0 - Krea 2 DiT mix (Realism Engine + Ideogram 4 + Krea 2) tuned for dark, cinematic photoreal output. 8-step euler/simple at CFG 1. Cool, cinematic grade with clean skin and strong background separation. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x.",
+      "description": "Dark, cinematic photoreal pictures with a cool grade, clean skin and strong background separation. A mix of Realism Engine, Ideogram 4 and Krea 2.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 28 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 6 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
       "tags": [
         "Krea",
         "Turbo",
@@ -619,7 +619,7 @@
       "tagline": "Aggressive uncensored Krea 2, fast",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-fp8.jpg",
-      "description": "Dark Beast Krea 2 \"Aggressive Edition\" (FP8) - uncensored Krea 2 DiT mix tuned for bold, high-contrast output at speed. 8-step euler/simple at CFG 1 (try 6 for the 2x-speed edition). High-contrast film look with pale skin and a wider, more environmental framing. Renders at native ~2 MP; the Upscale slider (1.1-2x) adds a 4-step detail-refine pass, verified clean at 1.5x. Note for new installs: the creator has since made this FP8 file paid on Civitai, so it no longer downloads here. If you do not already have it, use the Dark Beast GGUF cards instead.",
+      "description": "Uncensored, bold and fast: a high-contrast film look with pale skin and wider, more environmental framing. This is the 2x-speed edition, so you can try 6 steps.\n\nFor new installs: the creator has made this FP8 file paid on Civitai, so it no longer downloads here. If you do not already have it, use the Dark Beast GGUF cards instead.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 7 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
       "tags": [
         "Krea",
         "Turbo",
@@ -736,7 +736,7 @@
       "tagline": "Aggressive uncensored Krea 2, the free Q8 build",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-gguf-q8.jpg",
-      "description": "The same Dark Beast Krea 2 \"Aggressive Edition\" as the FP8 card, in molbal's free GGUF conversion (Q8). Use this one if you cannot download the FP8 file, which is now paid on Civitai. In our side-by-side it gave the same picture as the FP8 original for the same seed: uncensored, bold, high-contrast, 8 steps at CFG 1. About 40 seconds for a 1408 px picture on a 12 GB card. It is a 14.6 GB download; if disk space or VRAM matters more than an exact match, use the Q4 card. Renders at native ~2 MP with the same Upscale slider.",
+      "description": "The free build of Dark Beast, for when you cannot download the FP8 file, which is now paid on Civitai. In our side-by-side it gave the same picture as the FP8 original for the same seed: uncensored, bold and high-contrast.\n\nIt is a 14.6 GB download. If disk space or VRAM matters more than an exact match, use the Q4 card.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.",
       "tags": [
         "Krea",
         "Turbo",
@@ -861,7 +861,7 @@
       "tagline": "Dark Beast for 8 GB cards, free download",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-gguf-q4.jpg",
-      "description": "Dark Beast Krea 2 \"Aggressive Edition\" in molbal's free GGUF conversion at Q4: an 8.3 GB file for cards that cannot hold the 12-15 GB builds. Same uncensored, high-contrast look, 8 steps at CFG 1. The heavier compression changes the picture: for the same seed it composes differently from the FP8 and Q8 builds, but the results were clean in our test. About 40 seconds for a 1408 px picture on a 12 GB card. Renders at native ~2 MP with the same Upscale slider.",
+      "description": "A free, smaller Dark Beast: an 8.3 GB file for cards that cannot hold the 12-15 GB builds. It fits 8 GB cards. Same uncensored, high-contrast look.\n\nThe heavier compression changes the picture: for the same seed it composes differently from the FP8 and Q8 builds, but the results were clean in our test.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.",
       "tags": [
         "Krea",
         "Turbo",
@@ -986,7 +986,7 @@
       "tagline": "Backlit, high-contrast anime and illustration",
       "icon": "🌅",
       "previewImage": "previews/vxp-krea2-beta4-anime-int8.jpg",
-      "description": "VXP's Krea 2 Beta 4, the anime branch of an experimental beta series (INT8). It puts one look on everything: strong backlight, rim-lit hair, deep shadows and a dark, high-contrast grade. In our side-by-side none of the other Krea 2 cards gave that picture. Anime and semi-real illustration are its home ground; it also turns photo prompts into illustration, so use Beta 3 or a realism card for photographs. Uncensored, but on clothed prompts it kept the clothes on in our test. 8 steps, CFG 1, euler/simple.",
+      "description": "Backlit, high-contrast anime and illustration, from an experimental beta series. It puts one look on everything: strong backlight, rim-lit hair, deep shadows and a dark grade. In our side-by-side none of the other Krea 2 cards gave that picture.\n\nAnime and semi-real illustration are its home ground. It also turns photo prompts into illustration, so use Beta 3 or a realism card for photographs.\n\nUncensored, but on clothed prompts it kept the clothes on in our test.\n\nAbout 14 seconds a picture at 1 MP on a 12 GB card, and 24-26 seconds at 1216x1632. Upscale above 1 and LoRAs are untested on this card.\n\nLicence (Civitai): credit not required, no derivatives or merges, commercial use limited to generation services.",
       "tags": [
         "Krea",
         "Turbo",
@@ -1099,7 +1099,7 @@
       "tagline": "The same dark, backlit look on photos and illustration",
       "icon": "🌙",
       "previewImage": "previews/vxp-krea2-beta3-int8.jpg",
-      "description": "VXP's Krea 2 Beta 3, the hybrid branch of an experimental beta series (INT8): anime, semi-real and realistic from one checkpoint. It shares Beta 4's dark, backlit, high-contrast look, and on anime and semi-real prompts the two are close. The difference is photographs: Beta 3 keeps them photographic (moody window light, real skin texture) where Beta 4 turns them into illustration. Uncensored. A separate branch, not an older Beta 4. 8 steps, CFG 1, euler/simple.",
+      "description": "The same dark, backlit, high-contrast look as Beta 4, but it covers anime, semi-real and realistic from one checkpoint. This is a separate branch of the experimental beta series, not an older Beta 4.\n\nOn anime and semi-real prompts the two are close. The difference is photographs: Beta 3 keeps them photographic (moody window light, real skin texture) where Beta 4 turns them into illustration.\n\nUncensored.\n\nAbout 14 seconds a picture at 1 MP on a 12 GB card, and 24-26 seconds at 1216x1632. Upscale above 1 and LoRAs are untested on this card.\n\nLicence (Civitai): credit not required, no derivatives or merges, commercial use limited to generation services.",
       "tags": [
         "Krea",
         "Turbo",
@@ -1212,7 +1212,7 @@
       "tagline": "Darksidewalker's Krea 2 mix: richer anime skies, darker accents; close to stock",
       "icon": "🖤",
       "previewImage": "previews/dasiwa-krea2-darkdesire-v3-int8.jpg",
-      "description": "Darksidewalker's DaSiWa Krea2 (the maker of our DaSiWa H3 packs), DarkDesire V3 Turbo UC: Krea 2 Turbo pushed toward his own darker, anime-friendly style. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed; the differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it. 8 steps, CFG 1, euler/linear_quadratic as the author recommends, about 22 seconds a picture on a 12 GB card. mature-capable. The author does not allow merges of it.",
+      "description": "Krea 2 Turbo pushed toward a darker, anime-friendly style by Darksidewalker, the maker of our DaSiWa H3 packs. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed. The differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it.\n\nAbout 22 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). The author does not allow merges of it. Licence (Civitai): image use and on-site generation allowed; no derivatives.",
       "tags": [
         "Krea",
         "Turbo",

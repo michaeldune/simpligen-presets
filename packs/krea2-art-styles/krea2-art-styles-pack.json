@@ -1,7 +1,7 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Community — Krea 2 Art & Styles",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114 / lonecatone23",
   "nsfw": false,
   "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. Since 1.3.0, Animosity v2.0, also by request and clearly different: dark, ornate, heavily coloured semi-real anime, with a fix for same-looking faces. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
@@ -20,7 +20,7 @@
       "tagline": "Crisp, idealised semi-real characters and illustration",
       "icon": "🌗",
       "previewImage": "previews/equinox-krea2-semi-real.jpg",
-      "description": "llikswonskcalb's Equinox, the long-running semi-realistic model, in its first Krea 2 release (INT8 ConvRot; the author calls it experimental). In our side-by-side it was the most distinct of six Krea 2 checkpoints: it composes its own picture instead of repeating stock Krea 2's, and renders crisp, idealised faces with sharp eyes and clean shading on anime, fantasy and illustration prompts. It restyles photo prompts too (younger, prettier, glossier), so use a Krea 2 realism card for candid photography. 8 steps, CFG 1, euler/simple. Upscale slider as on the other Krea 2 cards.",
+      "description": "Text to image with crisp, idealised semi-real characters: sharp eyes, clean shading and compositions of its own instead of stock Krea 2's. It works best on anime, fantasy and illustration prompts, and it was the most distinct of the six Krea 2 checkpoints we compared. This is the first Krea 2 release of the Equinox model, and the author calls it experimental.\n\nIt restyles photo prompts too (younger, prettier, glossier), so use a Krea 2 realism card for candid photography.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 16 seconds a picture at 1024x1536 on a 12 GB card.\n\nLicence (Civitai): credit required, no derivatives or merges, commercial use of images not granted.",
       "tags": [
         "Krea",
         "Semi-Realistic",
@@ -131,7 +131,7 @@
       "tagline": "Paints everything: oil, engraving and poster styles by name",
       "icon": "🖌️",
       "previewImage": "previews/fascium-krea-art-painterly.jpg",
-      "description": "FASCIUM's painterly Krea 2: a merge of 99 artist-style LoRAs (old-master oil, Baroque, Impressionist, Art Nouveau, engraving, poster lithography, anime production art), INT8 ConvRot v2.0. Painterly only, by design: in our test it turned every prompt into paint, including a maid portrait and an anime schoolgirl, which came out as a painted illustration rather than cel anime. Call a style by name: 'in the manner of Rembrandt', 'in the style of Gustav Klimt', 'in the manner of Alphonse Mucha', 'Piranesi style', 'in the style of J.M.W. Turner'. SFW by design. 10 steps, CFG 1, Euler a (the author's sampler). For photographs use a Krea 2 realism card.",
+      "description": "Text to image that paints everything: a merge of 99 artist styles covering old-master oil, Baroque, Impressionist, Art Nouveau, engraving, poster lithography and anime production art. It is painterly by design. In our test every prompt turned into paint, and even an anime schoolgirl came out as a painted illustration rather than cel anime.\n\nCall a style by name: 'in the manner of Rembrandt', 'in the style of Gustav Klimt', 'in the manner of Alphonse Mucha', 'Piranesi style', 'in the style of J.M.W. Turner'.\n\nSFW by design. For photographs use a Krea 2 realism card.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 21 seconds a picture at 1024x1536 on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
       "tags": [
         "Krea",
         "Painterly",
@@ -242,7 +242,7 @@
       "tagline": "Flat colour, no line art, big-headed characters",
       "icon": "🍡",
       "previewImage": "previews/fwaun-tune-krea2-semi-chibi.jpg",
-      "description": "fwaunstp733's Fwaun Tune for Krea 2 (krea2_turbo_v5.0): a full fine-tune for one look, flat colour with no outlines and softly deformed, big-headed characters. The style is strong: in our test it redrew every prompt this way, including a photo prompt and a Rembrandt oil painting. The card adds the trigger 'semi-chibi style.' in front of your prompt for you. The author's other triggers also work when you type them: 'monochrome' and 'photorealistic background' (a flat character over a photo-like scene). 8 steps, CFG 1, euler/simple.",
+      "description": "Text to image in one look: flat colour, no outlines, and softly deformed, big-headed characters. The style is strong. In our test it redrew every prompt this way, including a photo prompt and a Rembrandt oil painting.\n\nThe card adds the trigger 'semi-chibi style.' in front of your prompt for you. The author's other triggers also work when you type them: 'monochrome', and 'photorealistic background' for a flat character over a photo-like scene.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 18 seconds a picture at 1024x1536 on a 12 GB card.\n\nLicence (Civitai): commercial use of images allowed, derivatives allowed.",
       "tags": [
         "Krea",
         "Anime",
@@ -357,7 +357,7 @@
       "tagline": "Anthro and kemono characters that stay animals",
       "icon": "🐺",
       "previewImage": "previews/wulver-krea2-anthro.jpg",
-      "description": "VaelicoAi's Wulver v0.5: a full fine-tune of Krea 2 (not a merge) for anthro, furry and kemono characters. In our test, where stock Krea 2 drew a small anime cat-wolf, Wulver drew a real wolf-headed character with a muzzle, fur and paws, three times out of three. Prompt in prose (60-120 words, describe the background) or in booru/e621 tags. The card puts the rating tag 'sfw,' in front of your prompt, as the model expects. It also knows 1,113 artist tokens (@name, typed first; list on the model's Hugging Face page), with two catches we saw on every render: a token can write the artist's name on the picture as a signature, and the character can lose clothing you asked for. Even without a token, a faint signature scribble sometimes appears in a corner. 8 steps, CFG 1 (higher CFG burns the picture, so there is no CFG slider).",
+      "description": "Text to image for anthro, furry and kemono characters that stay animals. In our test stock Krea 2 drew a small anime cat-wolf, while this drew a real wolf-headed character with a muzzle, fur and paws every time. It is a full fine-tune of Krea 2, not a merge.\n\nPrompt in prose (60-120 words, and describe the background) or in booru/e621 tags. The card puts the rating tag 'sfw,' in front of your prompt, as the model expects.\n\nIt also knows 1,113 artist tokens (@name, typed first; the list is on the model's Hugging Face page). There are two catches, and we saw them on every render: a token can write the artist's name on the picture as a signature, and the character can lose clothing you asked for. Even without a token, a faint signature scribble sometimes appears in a corner. The author also reports a smeared top or bottom edge on some pictures.\n\nThere is no CFG slider because higher CFG burns the picture.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nLicence: Krea 2 Community License (see the Hugging Face repo). The Civitai page asks for credit.",
       "tags": [
         "Krea",
         "Anthro",
@@ -472,7 +472,7 @@
       "tagline": "Clean, bright anime with thin linework; mature-trained",
       "icon": "🌸",
       "previewImage": "previews/krea2-anime-v2.jpg",
-      "description": "youneedanewname's Krea2-Anime: Krea 2 Turbo trained further on a million-picture mature anime set (about a quarter of the planned training, by the author's account). In our test it drew the cleanest, flattest anime of the Krea 2 cards, thin lines and bright even light, with its own poses. It wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model. 12 steps, CFG 1, about 28 seconds a picture at 2 MP on a 12 GB card. Artist tags barely work, and the author advises against 4-step LoRAs.",
+      "description": "Text to image for clean, bright anime with thin lines, even light and its own poses. In our test it drew the cleanest, flattest anime of the Krea 2 cards. It is Krea 2 Turbo trained further on a million-picture mature anime set, about a quarter of the planned training by the author's account.\n\nIt wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model.\n\nArtist tags barely work, and the author advises against 4-step LoRAs.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
       "tags": [
         "Krea",
         "Anime",
@@ -586,7 +586,7 @@
       "tagline": "Soft, cute anime faces with bright eye highlights",
       "icon": "🍫",
       "previewImage": "previews/cocoamix-krea2-v003.jpg",
-      "description": "ccooccoo's CocoaMix for Krea 2 (a Krea 2 Turbo merge with the author's own training, beta 3). In our test it gave softer, rounder, cuter faces than stock Krea 2, with blush and bright eye highlights. The author's style cue is 'cocoart of no pupils eyes with eye highlights on top'; for an animal girl write 'animal ears, no ears' (their wording). 8 steps, CFG 1, about 22 seconds a picture at 2 MP on a 12 GB card. Images are for non-commercial use only, and the author asks for permission before selling images or releasing merges.",
+      "description": "Text to image with softer, rounder, cuter anime faces than stock Krea 2, with blush and bright eye highlights. This is a beta: a Krea 2 Turbo merge with the author's own training.\n\nThe author's style cue is 'cocoart of no pupils eyes with eye highlights on top'. For an animal girl write 'animal ears, no ears' (their wording).\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence: images are for non-commercial use only, and the author asks for permission before selling images or releasing merges. Civitai flags: no derivatives.",
       "tags": [
         "Krea",
         "Anime",
@@ -700,7 +700,7 @@
       "tagline": "Detailed anime scenes, elf and kitsune triggers",
       "icon": "👾",
       "previewImage": "previews/see-krea2-genesis-v2.jpg",
-      "description": "SeeSeeLP's See-Krea2 Genesis V2, an anime checkpoint on Krea 2 Turbo trained at higher resolution for detailed characters and backgrounds. In our test it stayed fairly close to stock Krea 2, with warmer, more painterly faces and busier scenes. Two trained characters: seesee_elf and seesee_kitsune. The author also trained a pixel-art look ('pixel' or '16Bit'), but in our test stock Krea 2 drew sharper pixel art from the same prompt; this card came out as detailed illustration. 8 steps, CFG 1, about 22 seconds a picture at 2 MP on a 12 GB card.",
+      "description": "Text to image for detailed anime characters and backgrounds. In our test it stayed fairly close to stock Krea 2, with warmer, more painterly faces and busier scenes. It is here because users asked for it.\n\nIt has two trained characters: seesee_elf and seesee_kitsune.\n\nThe author also trained a pixel-art look ('pixel' or '16Bit'), but in our test stock Krea 2 drew sharper pixel art from the same prompt, and this card came out as detailed illustration.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
       "tags": [
         "Krea",
         "Anime",
@@ -815,7 +815,7 @@
       "tagline": "Community-favourites Krea 2 mix, anime cut",
       "icon": "🧩",
       "previewImage": "previews/krea2-full-v1-anime.jpg",
-      "description": "nvo76's Krea 2 Full, described by the author as a censor-free Krea 2 checkpoint mixed from the community's favourites; this is the v1.0 Anime build. In our test it stayed close to stock Krea 2 Turbo (which already draws nudity), with softer faces and finer lines on anime prompts. 8 steps, CFG 1, about 16 seconds a picture at 2 MP on a 12 GB card, the fastest of the Krea 2 anime cards.",
+      "description": "Text to image from a mix of the community's favourites, in the anime build. The author describes it as a censor-free Krea 2 checkpoint. In our test it stayed close to stock Krea 2 Turbo (which already draws nudity), with softer faces and finer lines on anime prompts. It is here because users asked for it.\n\nThis is the fastest of the Krea 2 anime cards: about 16 seconds a picture at 2 MP on a 12 GB card.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nLicence: Krea 2 Community License Agreement, per the author. Civitai: merges and derivatives allowed.",
       "tags": [
         "Krea",
         "Anime",
@@ -929,7 +929,7 @@
       "tagline": "Japanese look, clean bright anime, deep blues; close to stock",
       "icon": "🏮",
       "previewImage": "previews/nippon-clear-krea2-int8.jpg",
-      "description": "easygoing0114's Krea-2-Nippon_clear: their Krea-2-Turbo_clear with the Nippon LoRA merged in and re-tuned, for Japanese subjects, anime and photographs alike. In our test (against stock Krea 2 Turbo, CyberRealistic, FinalCut and Moody) it stayed the closest to stock Turbo, with the same compositions from the same seed; the differences are cleaner, brighter cel-anime faces, more saturated colour and deeper blues. It is here because the community asked for it, and you may prefer it on your own prompts. 8 steps, CFG 1, euler/normal as the author runs it, about 25 seconds a picture at 2 MP on a 12 GB card. At 15.9 GB it is the largest Krea 2 card. Non-commercial use only (Krea 2 Community License plus the Nippon LoRA's terms).",
+      "description": "Text to image for Japanese subjects, anime and photographs alike. It stayed the closest to stock Krea 2 Turbo in our test, with the same compositions from the same seed. The differences are cleaner, brighter cel-anime faces, more saturated colour and deeper blues.\n\nIt is here because the community asked for it, and you may prefer it on your own prompts. It is the largest Krea 2 card to download.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds a picture at 2 MP on a 12 GB card.\n\nNon-commercial use only (Krea 2 Community License plus the Nippon LoRA's terms).",
       "tags": [
         "Krea",
         "Anime",
@@ -1044,7 +1044,7 @@
       "tagline": "Dark, ornate, heavily coloured semi-real anime",
       "icon": "🥀",
       "previewImage": "previews/animosity-krea2-v2-int8.jpg",
-      "description": "lonecatone23's Animosity v2.0 for Krea 2, where anime clashes with realism. In our test (against stock Krea 2 Turbo and Moody) it was clearly its own look: darker and more ornate, with richer colour and a lot of fine detail, and it likes to add gold ornament and glowing red eyes to dark subjects. It stays dark and heavily graded on photo prompts too. v2.0 trains in 224 varied faces to break the same-face lock of v1.0, which the author measured falling from 10.7% to 0.9%. 8 steps, CFG 1, about 28 seconds a picture at 2 MP on a 12 GB card.",
+      "description": "Text to image where anime clashes with realism: dark, ornate semi-real pictures with rich colour and a lot of fine detail. In our test it was clearly its own look. It likes to add gold ornament and glowing red eyes to dark subjects, and it stays dark and heavily graded on photo prompts too.\n\nThis version was trained to break the same-face habit of v1.0, and the author reports the same face turning up far less often.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, about 1 minute at 1.5x. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives; no credit required.",
       "tags": [
         "Krea",
         "Anime",
@@ -1134,7 +1134,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 13.2,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2596298 (Animosity by lonecatone23), version 3437942 'V2.0', fileId 3335254 (int8 ConvRot), 13.15 GB, SHA256 7527a2515978238cc5af36b97ef2c31ce5f3d44b25bd0d8d715d24716162c4f5. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against stock Krea 2 Turbo and Moody Krea 2 Mix, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). The request linked v1.0; v2.0 was published 2026-10-29 with the face fix. Author publishes no Krea settings; the Krea 2 Turbo defaults of euler / simple, 8 steps, CFG 1 used. Engine-direct median 18.2 s at 1024x1536. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a photo sentence at 3:4 (1216x1632) on 2 seeds, two anime characters with a quoted sign at 16:9 (1888x1056, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408) and the same at Upscale 1.5 (2112x2112, 61 s); 26-30 s otherwise. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; no derivatives; no credit required."
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2596298 (Animosity by lonecatone23), version 3437942 'V2.0', fileId 3335254 (int8 ConvRot), 13.15 GB, SHA256 7527a2515978238cc5af36b97ef2c31ce5f3d44b25bd0d8d715d24716162c4f5. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against stock Krea 2 Turbo and Moody Krea 2 Mix, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). The request linked v1.0; v2.0 was published 2026-10-29 with the face fix. Author publishes no Krea settings; the Krea 2 Turbo defaults of euler / simple, 8 steps, CFG 1 used. Engine-direct median 18.2 s at 1024x1536. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a photo sentence at 3:4 (1216x1632) on 2 seeds, two anime characters with a quoted sign at 16:9 (1888x1056, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408) and the same at Upscale 1.5 (2112x2112, 61 s); 26-30 s otherwise. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; no derivatives; no credit required. v2.0 trains in 224 varied faces to break the same-face lock of v1.0, which the author measured falling from 10.7% to 0.9%."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",

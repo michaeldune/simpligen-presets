@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-a2v-pack",
   "name": "Community — LTX 2.5 Lip-Sync (A2V)",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -18,7 +18,7 @@
       "id": "ltx-2-5-a2v-int8",
       "name": "LTX 2.5 Lip-Sync (Audio-to-Video)",
       "icon": "🎤",
-      "description": "Drive an LTX 2.5 shot with your own audio track. Supply a character image and an audio file; the model lip-syncs to it and bakes the audio into the output. Two-pass upscaled to 1080p.",
+      "description": "Makes a character sing or speak your own audio. Give it a character image and an audio file: the character lip-syncs to the track, and your audio goes into the finished video unchanged. Two passes take the result up to 1080p. A 5-second clip at 1920x1088 takes about 2 3/4 minutes on a 12 GB card.\n\nThis uses the same weights as the official LTX 2.5 pack, so there is no extra download if you have that installed. If you don't, those weights are on a gated Hugging Face repository: you need a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5. Approval is instant. Without a key the download will retry rather than prompting.",
       "tagline": "Make a character sing or speak your own audio, in LTX 2.5",
       "previewImage": "previews/ltx-2-5-a2v-int8.jpg",
       "tags": [

@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-stubelius-pack",
   "name": "Community — LTX 2.5 Stubelius Remix (Anime)",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Stubelius (model) + michaeldune (pack)",
   "nsfw": true,
   "addedAt": "2026-09-23",
@@ -25,7 +25,7 @@
       "id": "stubelius-v1-ltx-25-anime-t2v",
       "name": "LTX 2.5 Stubelius v1 Anime (T2V, Mature)",
       "icon": "🌸",
-      "description": "Text to video with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Against the beta 2 card on the same prompts and seeds (3 prompts x 3 seeds) every clip was visibly crisper, with more motion and slightly less saturated colour. Still anime-first and still mature-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
+      "description": "Text to video with generated sound for anime, 2.5D and stylized characters, using the sharper v1 of Stubelius Remix. Against the beta 2 card on the same prompts and seeds, every clip was visibly crisper, with more motion and slightly less saturated colour.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
       "tagline": "Sharper anime-first LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-t2v.jpg",
       "tags": [
@@ -187,7 +187,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 21.5,
-          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. "
+          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. On 3 of 3 seeds a clothed anime prompt came out with exposed skin, and on 3 of 3 seeds a second character in a two-person prompt was missing from the sampled frames, the same as beta 2."
         },
         "extensions": [
           {
@@ -203,7 +203,7 @@
       "id": "stubelius-v1-ltx-25-anime-i2v",
       "name": "LTX 2.5 Stubelius v1 Anime (I2V, Mature)",
       "icon": "🌸",
-      "description": "Animate a source image with Stubelius Remix v1 (beta 2 plus the OmniNFT quality fine-tune) on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. On image-to-video it looked the same as the beta 2 card in our test (1 image x 3 seeds), so either card will do; the sharper picture showed up on text-to-video. Still anime-first and still mature-only: a clothed anime prompt came out with exposed skin on 3 of 3 seeds, and a second character in a two-person prompt was missing from the sampled frames on 3 of 3 seeds, the same as beta 2. About 85-100 s for 5 s at 480p on a 12 GB card, the same as the beta 2 card.",
+      "description": "Animates a source image and generates its sound, for anime, 2.5D and stylized characters, using v1 of Stubelius Remix. On image to video it looked the same as the beta 2 card in our test, so either card will do. The sharper picture showed up on text to video.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
       "tagline": "Anime-first LTX 2.5 image-to-video on Stubelius Remix v1",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-i2v.jpg",
       "tags": [
@@ -365,7 +365,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 21.5,
-          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. This image-to-video preset requires a source image."
+          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. This image-to-video preset requires a source image. On 3 of 3 seeds a clothed anime prompt came out with exposed skin, and on 3 of 3 seeds a second character in a two-person prompt was missing from the sampled frames, the same as beta 2."
         },
         "extensions": [
           {
@@ -381,7 +381,7 @@
       "id": "stubelius-ltx-25-anime-t2v",
       "name": "LTX 2.5 Stubelius Anime (T2V, Mature)",
       "icon": "🌸",
-      "description": "Text to video with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for mature work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "description": "Text to video with generated sound, best for anime, 2.5D and stylized characters. They stay stylized where REDgraft drifts toward semi-real, and live-action prompts still come out realistic.\n\nUse it for mature work only: it sexualises clothed women even when the prompt specifies modest clothing. It also follows staging less reliably than REDgraft, so re-roll when a beat such as a turn or a second person arriving is skipped.\n\nAbout 80-95 seconds for 5 seconds at 480p on a 12 GB card, roughly twice REDgraft's time. The v1 card is crisper with more motion on text to video.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
       "tagline": "Anime-first LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/stubelius-ltx-25-anime-t2v.jpg",
       "tags": [
@@ -559,7 +559,7 @@
       "id": "stubelius-ltx-25-anime-i2v",
       "name": "LTX 2.5 Stubelius Anime (I2V, Mature)",
       "icon": "🌸",
-      "description": "Animate a source image with Stubelius Remix beta 2 on the official two-pass LTX 2.5 graph: generated audio, CFG 1, 8 steps plus the x2 upscale pass. Best for anime, 2.5D and stylized characters; it sexualises clothed women even when the prompt specifies modest clothing, so use it for mature work only, and re-roll when a staging beat (a turn, a second person arriving) is skipped. About 80-95 s for 5 s at 480p on a 12 GB card, roughly twice REDgraft's time.",
+      "description": "Animates a source image and generates its sound, best for anime, 2.5D and stylized characters. They stay stylized where REDgraft drifts toward semi-real, and live-action prompts still come out realistic.\n\nUse it for mature work only: it sexualises clothed women even when the prompt specifies modest clothing. It also follows staging less reliably than REDgraft, so re-roll when a beat such as a turn or a second person arriving is skipped.\n\nAbout 80-95 seconds for 5 seconds at 480p on a 12 GB card, roughly twice REDgraft's time. The v1 image card looked the same as this one in our test.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
       "tagline": "Anime-first LTX 2.5 image-to-video with generated audio",
       "previewImage": "previews/stubelius-ltx-25-anime-i2v.jpg",
       "tags": [

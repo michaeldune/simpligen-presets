@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v4-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v4)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid v4 Turbo (2026-10-09): the fourth release of the drop-in int8 ConvRot finetune, and a four-step distill again where v2 and v3 Turbo wanted eight. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A FOURTH DASIWA PACK. It is an option, not a replacement: the v1, v2 and v3 packs stay as they are. Measured 2026-10-17 on a 12 GB RTX 4070 Ti against the v3 pack on the same seeds, prompts, references and graphs, both with faster attention on: about 40% faster (42-54 s per five-second shot at 480p at four steps, against 63-81 s for v3 at eight), every identity held on three reference sets over three seeds, and a scripted line came out word for word on three of three seeds. The look: more contrast and more background detail than v3, which keeps a darker, quieter frame. On one seed in three a person-plus-location reference shot opened on the person's own photo for under two seconds before cutting into the scene; v3 did not do that. Works with the app's Faster Attention toggle. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -21,7 +21,7 @@
       "name": "MiniMax H3 Text to Video (DaSiWa Hybrid v4)",
       "icon": "⛩️",
       "previewImage": "previews/minimax-h3-dasiwa-v4-t2v.jpg",
-      "description": "Text to video with synchronised audio on DaSiWa Hybrid v4 Turbo, four steps by default. About 40% faster than the v3 pack, roughly 45 s per five-second shot at 480p on a 12 GB card, with more contrast and background detail.",
+      "description": "Describe a scene and get video with synchronised audio, four steps by default. About 40% faster than the v3 pack, roughly 45 s per five-second shot at 480p on a 12 GB card with faster attention on.\n\nIt has more contrast and background detail than v3, which keeps a darker, quieter frame. This is an option beside the earlier DaSiWa packs, not a replacement.\n\nTested at four steps only: the slider allows up to eight, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
       "tagline": "DaSiWa's fourth release; four steps",
       "tags": [
         "Video",
@@ -321,7 +321,7 @@
       "name": "MiniMax H3 Image to Video (DaSiWa Hybrid v4)",
       "icon": "🖼️",
       "previewImage": "previews/minimax-h3-dasiwa-v4-i2v.jpg",
-      "description": "Animate a supplied first frame, with optional last frame, on DaSiWa Hybrid v4 Turbo at four steps.",
+      "description": "Animate a picture with synchronised audio, four steps by default. Your picture is the first frame; an optional second picture is the last frame.\n\nAbout 40% faster than the v3 pack: 49-51 s per five-second shot at 480p on a 12 GB card with the app's Faster Attention toggle on. It has more contrast and background detail than v3, which keeps a darker, quieter frame.\n\nTested at four steps only: the slider allows up to eight, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
       "tagline": "Start from a picture; four steps",
       "tags": [
         "Video",
@@ -629,7 +629,7 @@
       "name": "MiniMax H3 Reference to Video (DaSiWa Hybrid v4)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-dasiwa-v4-r2v.jpg",
-      "description": "Reference to video on DaSiWa Hybrid v4 Turbo at four steps. Checked 2026-10-17 on a solo reference, a two-person shot and a person-plus-location set over three seeds: every identity held.",
+      "description": "Make video with synchronised audio from up to nine reference pictures, four steps by default. Every identity held on a solo reference, a two-person shot and a person-plus-location set.\n\nAbout 40% faster than the v3 pack: 45-54 s per five-second shot at 480p on a 12 GB card with faster attention on. It has more contrast and background detail than v3, which keeps a darker, quieter frame.\n\nOn one seed in three, a person-plus-location shot opened on the person's own photo for under two seconds before cutting into the scene. The v3 pack did not do that, so try another seed if you see it.\n\nTested at four steps only: the slider allows up to eight, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
       "tagline": "Up to nine references; four steps",
       "tags": [
         "Video",

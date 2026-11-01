@@ -1,7 +1,7 @@
 {
   "id": "hentai-mixes-pack",
   "name": "Community — Mature Anime",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "various",
   "nsfw": true,
   "description": "Nine mature anime checkpoints from Civitai — seven SD 1.5 and two SDXL (one of them Pony-based). SD 1.5 presets run at 512-768 with CLIP Skip 2 and the kl-f8-anime2 VAE; the SDXL pair run at native 1024 with the standard SDXL VAE. Every checkpoint here ships a baked VAE as well, so they will still work if you skip the VAE download.\n\nBoth variants of Ultimate Hentai v5.0 are here — the standard cel-shaded one and the softer Realistic build. They are separate checkpoints, not two versions of one file.",
@@ -20,7 +20,7 @@
       "tagline": "SDXL.",
       "icon": "🌸",
       "previewImage": "previews/hentai-mix-xl-v50.jpg",
-      "description": "SDXL. The most capable of the group at native 1024 and complex compositions.",
+      "description": "The most capable of the Mature Anime group at native 1024 and complex compositions. An SDXL checkpoint.",
       "tags": [
         "Image",
         "Anime",
@@ -104,7 +104,7 @@
       "tagline": "Pony XL.",
       "icon": "🌸",
       "previewImage": "previews/wai-ani-hentai-ponyxl-v60.jpg",
-      "description": "Pony XL. Uses Pony score tags; strong on character consistency and anime linework.",
+      "description": "Mature anime with strong character consistency and linework. A Pony XL checkpoint at native 1024: use Pony score tags in the prompt.",
       "tags": [
         "Image",
         "Anime",
@@ -189,7 +189,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/xe-hentai-anime-sd15.jpg",
-      "description": "SD 1.5, the largest of the 1.5 group at 3.6 GB. Clean anime rendering.",
+      "description": "Clean mature anime rendering. The largest of the SD 1.5 checkpoints in this pack. Runs at 512-768.",
       "tags": [
         "Image",
         "Anime",
@@ -254,7 +254,7 @@
           "recommendedVramGB": 6,
           "minRamGB": 8,
           "sizeGB": 2.1,
-          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs."
+          "notes": "SD 1.5 with CLIP Skip 2 and the kl-f8-anime2 VAE. The checkpoint ships a baked VAE too; the external one is used for consistency with the other SD 1.5 packs. The checkpoint is 3.6 GB."
         },
         "extensions": [
           {
@@ -272,7 +272,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/earths-hentai-elite-v10.jpg",
-      "description": "SD 1.5. Polished, illustration-leaning output.",
+      "description": "Polished, illustration-leaning mature anime. An SD 1.5 checkpoint that runs at 512-768.",
       "tags": [
         "Image",
         "Anime",
@@ -355,7 +355,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/falkons-anime-hentai-v13.jpg",
-      "description": "SD 1.5. One of the older mixes here and still a solid general anime base.",
+      "description": "A solid general anime base and one of the older mixes in this pack. An SD 1.5 checkpoint that runs at 512-768.",
       "tags": [
         "Image",
         "Anime",
@@ -438,7 +438,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/nova-hentai-v10.jpg",
-      "description": "SD 1.5. Bright, saturated anime styling.",
+      "description": "Bright, saturated mature anime. An SD 1.5 checkpoint that runs at 512-768.",
       "tags": [
         "Image",
         "Anime",
@@ -521,7 +521,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/hentaimodel-v10.jpg",
-      "description": "SD 1.5. Straightforward general-purpose mix.",
+      "description": "A straightforward general-purpose mature anime mix. An SD 1.5 checkpoint that runs at 512-768.",
       "tags": [
         "Image",
         "Anime",
@@ -604,7 +604,7 @@
       "tagline": "Explicit SD 1.5 anime",
       "icon": "🔞",
       "previewImage": "previews/ultimate-hentai-v50.jpg",
-      "description": "SD 1.5 anime checkpoint for explicit mature content. Danbooru-tag prompting; uses the kl-f8-anime2 VAE for vivid color. Best near 512px.",
+      "description": "Anime checkpoint for explicit mature content, with vivid colour. Prompt with Danbooru tags. Best near 512px.\n\nThe softer Realistic build is a separate card in this pack.",
       "tags": [
         "SD 1.5",
         "Anime",
@@ -699,7 +699,7 @@
       "tagline": "SD 1.",
       "icon": "🌸",
       "previewImage": "previews/ultimate-hentai-realistic-v50.jpg",
-      "description": "SD 1.5. The semi-real variant of Ultimate Hentai — softer shading, less flat cel look. The standard v5.0 sits alongside it in this pack.",
+      "description": "The semi-real variant of Ultimate Hentai, with softer shading and less of a flat cel look. An SD 1.5 checkpoint that runs at 512-768.\n\nThe standard v5.0 is a separate checkpoint on its own card in this pack.",
       "tags": [
         "Image",
         "Anime",

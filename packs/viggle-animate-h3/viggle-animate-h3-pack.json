@@ -1,7 +1,7 @@
 {
   "id": "viggle-animate-h3-pack",
   "name": "Community — Viggle Animate for H3 (Character Swap)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "addedAt": "2026-09-23",
   "author": "Viggle Research + drbaph (ComfyUI conversion) + Saganaki22 (nodes) + michaeldune (card)",
   "nsfw": false,
@@ -31,7 +31,7 @@
       "name": "Viggle Animate - Character Swap",
       "icon": "🎭",
       "tagline": "Swap your character into any clip - motion, camera and sound kept",
-      "description": "Driving clip in Reference Video 1, your character's picture in the Character slot (a full-body front view or a character sheet works). The prompt box is optional notes for the repaint, most useful to name what the original person holds or wears that should go (\"Remove the sword and the long kimono train; her hands are empty\"); without that the repaint keeps it and the video carries it through. Output: the first 5.2 s (124 frames) of the clip at 0.4 MP in the clip's own aspect (the aspect picker is ignored), with its soundtrack. Pick clips where the performer is large in frame and has a similar outline to your character (loose hair, no long garments): the face follows the frame size, and a very different silhouette (a tall hairpiece) can survive into the result. Made for 24 fps clips such as H3's; at other frame rates the motion plays slower than the soundtrack. Clips shorter than 5.2 s generate fewer frames and the soundtrack runs on. LICENCES: Viggle-Animate weights are a MiniMax H3 derivative under the MiniMax H3 Community License; Flux 2 Klein 9B (the repaint model) is under the FLUX Non-Commercial License. Non-commercial use only. Viggle's own terms: use reference material only from people who have consented, and label the output as AI-generated.",
+      "description": "Puts your own character into an existing video, keeping the clip's motion, camera, background and soundtrack.\n\nReference Video 1 is the driving clip. The Character slot is your character's picture: a full-body front view or a character sheet works.\n\nThe prompt box is optional notes for the repaint. It is most useful for naming what the original person holds or wears that should go, for example \"Remove the sword and the long kimono train; her hands are empty\". Without that, the repaint keeps it and the video carries it through.\n\nYou get the first 5.2 seconds (124 frames) of the clip at 0.4 megapixels in the clip's own aspect, with its soundtrack. The aspect picker is ignored.\n\nPick clips where the performer is large in frame and has a similar outline to your character (loose hair, no long garments). The face follows the frame size, and a very different silhouette, such as a tall hairpiece, can survive into the result.\n\nIt is made for 24 fps clips such as H3's. At other frame rates the motion plays slower than the soundtrack. Clips shorter than 5.2 seconds generate fewer frames and the soundtrack runs on.\n\nAbout 3 minutes for 5.2 seconds on a 12 GB card.\n\nLicences: Viggle-Animate weights are a MiniMax H3 derivative under the MiniMax H3 Community License; Flux 2 Klein 9B (the repaint model) is under the FLUX Non-Commercial License. Non-commercial use only. Viggle's own terms: use reference material only from people who have consented, and label the output as AI-generated.",
       "previewImage": "previews/viggle-animate-h3.jpg",
       "tags": [
         "Video",

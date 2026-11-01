@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-turbo-pack",
   "name": "Community — MiniMax H3 (10Eros Max, Turbo)",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "DmitryDB",
   "nsfw": true,
   "description": "MiniMax H3 on the 10Eros Max finetune with larryvrh's Turbo LoRA: six steps instead of twenty. Text-to-video, image-to-video and reference-to-video. Uses the same 10Eros Max weights as the plain pack, plus the Turbo LoRA - if you have the plain pack installed this costs one extra file.",
@@ -19,7 +19,7 @@
       "name": "MiniMax H3 Text to Video (10Eros Max + Turbo)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-10eros-turbo-t2v.jpg",
-      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "description": "Describe a scene and get video with sound on the 10Eros Max finetune, in six steps instead of twenty. The speed comes from a Turbo LoRA, so if you already have the plain 10Eros Max pack this costs one extra file.\n\nA five-second 480p shot takes a little over a minute on a 12 GB card, about 1.7 times as fast as the official 20-step card. Free system RAM matters more than VRAM here.\n\nOn long, detail-heavy prompts the app's accelerator toggles can cost more time than they save. If a 15-second character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off. In testing the output looked the same and it ran roughly twice as fast without them.",
       "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
@@ -316,7 +316,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 22,
-          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here. Measured 67.9 s at 5 s/480p/6 steps with about 19 GB system RAM free, 1.70x the official 20-step preset. Warm re-measure: 66.6 s against stock 113.2 s; an earlier 1.82x figure was against a slower stock baseline (123.5 s). The Turbo LoRA works on this non-pruned base: the node reports it active with 47 patches attached."
         },
         "supportsSage": true,
         "supportsSpectrum": true,
@@ -329,7 +329,7 @@
       "name": "MiniMax H3 Image to Video (10Eros Max + Turbo)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-10eros-turbo-i2v.jpg",
-      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "description": "Animate a picture with sound on the 10Eros Max finetune, in six steps instead of twenty. Your picture is the first frame; an optional second picture is the last frame. The speed comes from a Turbo LoRA, so if you already have the plain 10Eros Max pack this costs one extra file.\n\nA five-second 480p shot takes a little over a minute on a 12 GB card, about 1.7 times as fast as the official 20-step card. Free system RAM matters more than VRAM here.\n\nOn long, detail-heavy prompts the app's accelerator toggles can cost more time than they save. If a 15-second character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off. In testing the output looked the same and it ran roughly twice as fast without them.",
       "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
@@ -626,7 +626,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 22,
-          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here. Measured 67.9 s at 5 s/480p/6 steps with about 19 GB system RAM free, 1.70x the official 20-step preset. Warm re-measure: 66.6 s against stock 113.2 s; an earlier 1.82x figure was against a slower stock baseline (123.5 s). The Turbo LoRA works on this non-pruned base: the node reports it active with 47 patches attached."
         },
         "supportsSage": true,
         "supportsSpectrum": true,
@@ -647,7 +647,7 @@
       "name": "MiniMax H3 Reference to Video (10Eros Max + Turbo)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-10eros-turbo-r2v.jpg",
-      "description": "The 10Eros Max finetune paired with the v4-600 EMA Turbo LoRA at 6 steps. **The fastest preset in this collection.**\n\nMeasured 67.9s at 5s/480p/6 steps on SimpliGen 1.50.0 / engine v0.33.1, a 12 GB RTX 4070 Ti and ~19 GB system RAM free — 1.70x the official 20-step preset. Re-measured 2026-08-27 on the beta engine warm at seed 77777: 66.6s against stock 113.2s. The earlier 1.82x was against a slower stock baseline (123.5s), not a faster turbo.\n\nThe Turbo LoRA composes cleanly with this non-pruned base, which was not obvious in advance. Its adaln update lives in the 2688-dim silu(t_emb) space and is re-injected at runtime on to the adaln projection's OUTPUT (96768 wide on both the stock pruned base and this one), so the differing input compression never enters into it. Verified in practice: the node reports the LoRA active with 47 patches attached and a clean RMS trajectory.\n\nNote: on long, detail-heavy prompts the app's accelerator toggles can cost more time than they save on this hardware. If a 15s character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off — output was indistinguishable in testing and it measured roughly twice as fast without them.",
+      "description": "Make video with sound from up to nine reference pictures on the 10Eros Max finetune, in six steps instead of twenty. The speed comes from a Turbo LoRA, so if you already have the plain 10Eros Max pack this costs one extra file.\n\nA five-second 480p shot takes a little over a minute on a 12 GB card, about 1.7 times as fast as the official 20-step card. Free system RAM matters more than VRAM here.\n\nOn long, detail-heavy prompts the app's accelerator toggles can cost more time than they save. If a 15-second character-and-dialogue prompt runs slower than you expect, try turning Spectrum and Sol-Attn off. In testing the output looked the same and it ran roughly twice as fast without them.",
       "tagline": "10Eros base with the v4-600 EMA Turbo LoRA, 6 steps",
       "tags": [
         "Video",
@@ -944,7 +944,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 22,
-          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here."
+          "notes": "Non-pruned int8 base, 20.94 GiB - about 2 GB more than the stock pruned H3 weights and roughly 24 GB staged in total with the shared text encoder. RAM headroom matters more than VRAM here. Measured 67.9 s at 5 s/480p/6 steps with about 19 GB system RAM free, 1.70x the official 20-step preset. Warm re-measure: 66.6 s against stock 113.2 s; an earlier 1.82x figure was against a slower stock baseline (123.5 s). The Turbo LoRA works on this non-pruned base: the node reports it active with 47 patches attached."
         },
         "supportsSage": true,
         "supportsSpectrum": true,

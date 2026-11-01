@@ -1,7 +1,7 @@
 {
   "id": "pony-realistic-pack",
   "name": "Community — Pony Realistic",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
@@ -119,7 +119,7 @@
       "tagline": "Pony blend with semi-realistic proportions",
       "icon": "🎨",
       "previewImage": "previews/semi-realistic-pony-v10.jpg",
-      "description": "Checkpoint merger blending Pony V6 with semi-realistic aesthetics. CLIP Skip 2, baked VAE, euler_ancestral sampler.",
+      "description": "Blends Pony V6 with semi-realistic looks and proportions.",
       "tags": [
         "Pony",
         "SDXL",
@@ -219,7 +219,7 @@
       "tagline": "Community-tuned photoreal Pony with fixed anatomy & hands",
       "icon": "📷",
       "previewImage": "previews/realism-stable-yogi-pony-v65.jpg",
-      "description": "Photorealistic Pony SDXL tuned over community feedback - improved anatomy, hand grips, expressions, and full-body proportions. Trigger word 99rbsy99 and score-up tags are applied automatically; CLIP Skip 2, baked VAE, DPM++ 2M SDE Karras.",
+      "description": "Photorealistic Pony SDXL tuned over community feedback, with improved anatomy, hand grips, expressions and full-body proportions. The trigger word 99rbsy99 and score-up tags are applied automatically, so you don't need to type them.",
       "tags": [
         "Pony",
         "Realistic",

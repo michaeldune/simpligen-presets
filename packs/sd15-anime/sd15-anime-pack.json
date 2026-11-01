@@ -1,7 +1,7 @@
 {
   "id": "sd15-anime-pack",
   "name": "Community — SD 1.5 Anime",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "various",
   "nsfw": false,
   "description": "Local SD 1.5 anime checkpoints (CLIP Skip 2, external kl-f8-anime2 VAE), tuned for ~512px.",
@@ -16,7 +16,7 @@
       "name": "AnythingElse V4.5",
       "icon": "🌸",
       "previewImage": "previews/anythingelse-v45.jpg",
-      "description": "Classic detailed anime rendering with strong character work and Danbooru-tag prompting.",
+      "description": "Classic detailed SD 1.5 anime with strong character work. Prompt with Danbooru tags. Sizes around 512 pixels work best.",
       "tags": [
         "Anime",
         "SD 1.5",
@@ -111,7 +111,7 @@
       "tagline": "Stylized SD 1.5 (DucHaiTen)",
       "icon": "🎨",
       "previewImage": "previews/duchaiten-thiccboi-v10.jpg",
-      "description": "DucHaiTen ThiccBoi - a stylized, curvy 2.5D SD 1.5 model. Danbooru-tag prompting; uses kl-f8-anime2 VAE. Best near 512px.",
+      "description": "A stylized, curvy 2.5D SD 1.5 model. Prompt with Danbooru tags. Sizes around 512 pixels work best.",
       "tags": [
         "SD 1.5",
         "Anime",

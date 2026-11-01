@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-omni-pack",
   "name": "Community — MiniMax H3 (FastH3 Omni)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "FastVideo + Nuva Lab",
   "nsfw": false,
   "description": "FastVideo's FastH3 Omni (released 2026-10-20, co-developed with Nuva Lab): an eight-step MiniMax H3 distill built for references, taking up to nine pictures, three clips and three audio files per shot. One card, reference to video. WHY. Measured 2026-10-21 on a 12 GB RTX 4070 Ti against the DaSiWa v4 and Midnight reference cards on the same seeds, prompts and references: every identity held, every spoken line came out word for word, and the picture was the crispest of the three with more of the background in focus. Speed sits between them (about 75 s per five-second 480p shot, against 44 s for DaSiWa v4 and 97 s for Midnight). Audio references work: a voice clip carries its voice into new words, and a song's vocal stem, with its lyrics and their times in the prompt, comes back as the soundtrack with the singer lip-synced to it. Needs the v0.42.0 engine.",
@@ -20,7 +20,7 @@
       "name": "MiniMax H3 Reference to Video (FastH3 Omni)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-fasth3-omni-r2v.jpg",
-      "description": "Reference to video on FastVideo's FastH3 Omni, an eight-step distill trained on picture, video and audio references. Checked 2026-10-21 over three seeds each: solo, two-person and walking shots held every identity with every line word for word; a voice clip as an audio reference carried its voice; a sung vocal stem as an audio reference, with its lyrics and timings written in the prompt, came back as the soundtrack with the singer in sync. On a 12 GB card keep 768p shots to about 8 s: 768p took 4 min for 5 s and 8.5 min for 8 s, while 12 s runs out of video memory and takes over an hour. Use 480p for long shots: 12 s in 3.5 min, the full 15 s in under 5 min.",
+      "description": "Reference to video on an eight-step model built for references: up to nine pictures, three clips and three audio files per shot.\n\nIn side-by-side tests with the DaSiWa v4 and Midnight reference cards, every identity held, every spoken line came out word for word, and this card gave the crispest picture of the three, with more of the background in focus. It sits between them on speed: about 75 s per five-second 480p shot, against 44 s for DaSiWa v4 and 97 s for Midnight.\n\nAudio references work. A voice clip carries its voice into new words. A sung vocal stem, with its lyrics and their times written in the prompt, comes back as the soundtrack with the singer in sync.\n\nOn a 12 GB card keep 768p shots to about 8 s: 768p took 4 minutes for 5 s and 8.5 minutes for 8 s, while 12 s runs out of video memory and takes over an hour. Use 480p for long shots: 12 s in 3.5 minutes, the full 15 s in under 5 minutes. Times roughly double when other apps hold RAM.\n\nThe Sparse card runs the same model faster at 768p. Needs the v0.42.0 engine.",
       "tagline": "Pictures, clips and audio as references; eight steps",
       "tags": [
         "Video",
@@ -291,7 +291,7 @@
       "name": "MiniMax H3 Reference to Video (FastH3 Omni, Sparse)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-fasth3-omni-r2v-vsa.jpg",
-      "description": "The same FastH3 Omni reference-to-video card with FastVideo's own sparse attention (VSA, keep 10%) switched on, the way the model was trained to run. Measured 2026-10-22 on a 12 GB RTX 4070 Ti against the standard card on the same references and seeds: about 10% faster at 480p, 1.4x faster at 768p for 5 s (2 min 42 s against 3 min 50 s) and 1.6x for 8 s (5 min 18 s against 8 min 22 s), with the same faces and every spoken line word for word, and a slightly crisper picture. It gives a somewhat different shot from the standard card on the same seed. 768p at 12 s still runs out of video memory on a 12 GB card; use 480p for long shots.",
+      "description": "The FastH3 Omni reference card with FastVideo's own sparse attention switched on, the way the model was trained to run. There is no extra download.\n\nPick this over the standard card for 768p. On a 12 GB card it was about 10% faster at 480p, 1.4 times as fast at 768p for 5 s (2 min 42 s against 3 min 50 s) and 1.6 times for 8 s (5 min 18 s against 8 min 22 s). Faces matched, every spoken line came out word for word, and the picture was slightly crisper.\n\nIt gives a somewhat different shot from the standard card on the same seed. The app's Faster Attention is not used on this card.\n\n768p at 12 s still runs out of video memory on a 12 GB card, so use 480p for long shots.\n\nNot yet tested on this card: audio and video references, and 480p beyond 5 s. Needs the v0.42.0 engine.",
       "tagline": "Same model with sparse attention; faster at 768p",
       "tags": [
         "Video",

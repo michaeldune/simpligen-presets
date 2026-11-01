@@ -1,7 +1,7 @@
 {
   "id": "community-ideogram-4",
   "name": "Community — Ideogram 4",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "author": "Michael Pate (community)",
   "nsfw": false,
   "minComfyuiVersion": "v0.28.0",
@@ -19,7 +19,7 @@
       "tagline": "8-step photoreal with best-in-class text rendering",
       "icon": "🔠",
       "previewImage": "previews/ideogram4-instant-int8.jpg",
-      "description": "Distilled 8-step one-pass Ideogram 4, INT8-quantized (9.4 GB), with the Lenovo UltraReal realism LoRA baked in at 1.0. Excellent signage/text rendering and candid photographic look. Plain-prose prompts only; no negative prompt (single-model guidance). Needs engine 0.28+.",
+      "description": "Photoreal pictures with a candid photographic look and excellent signage and text, in 8 steps. The Lenovo UltraReal realism LoRA is built in at full strength.\n\nUse plain-prose prompts: JSON-style prompts degrade the picture. There is no negative prompt.\n\nNeeds a SimpliGen engine with int8 support. The text encoder is a gated download on Hugging Face, so accept its licence there first.",
       "tags": [
         "Ideogram 4",
         "Realistic",
@@ -127,7 +127,7 @@
       "tagline": "Flat graphic design, posters & typography",
       "icon": "🎨",
       "previewImage": "previews/ideogram4-instant-graphic.jpg",
-      "description": "Same Instant INT8 base with the UltraReal LoRA reduced to 0.35 - keeps the safety filter suppressed for general/SFW prompts while freeing Ideogram's native clean-graphic look. Best for posters, flat design, saturated color, and big typography. NOT validated for suggestive/adult content - the filter can reactivate at this strength on that category; use the UltraReal (1.0) tier for that instead. Plain-prose prompts; engine 0.28+.",
+      "description": "Flat graphic design, posters, saturated colour and big typography. It uses the same model as the UltraReal card with the UltraReal LoRA turned down to 0.35. That keeps the safety filter quiet for general prompts while freeing Ideogram's clean graphic look.\n\nNot validated for suggestive or adult content: at this strength the filter can come back on that category, with blocked pictures and garbled 'Image blocked by safety filter' text. Use the UltraReal card for that.\n\nUse plain-prose prompts. Needs a SimpliGen engine with int8 support. The text encoder is a gated download on Hugging Face, so accept its licence there first.",
       "tags": [
         "Ideogram 4",
         "Graphic Design",

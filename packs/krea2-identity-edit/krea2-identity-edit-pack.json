@@ -1,7 +1,7 @@
 {
   "id": "krea2-identity-edit-pack",
   "name": "Community — Krea 2 Identity Edit",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "lbouaraba / conradlocke",
   "nsfw": false,
   "editCapable": true,
@@ -20,7 +20,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Change one thing, keep the rest",
-      "description": "Edits the image you supply while leaving everything else alone - swap an outfit, change a colour, relight the scene. Reference fidelity sits at 1.0, the neutral setting, so the model follows your instruction without pulling the result back toward the reference. Supply a second image to bring a person or an object in from elsewhere: image 1 is the scene, image 2 is the subject, and that order is what the model was trained on.",
+      "description": "Edits the image you supply and leaves everything else alone: swap an outfit, change a colour, relight the scene. Describe the change in plain English. Reference fidelity sits at 1.0, the neutral setting, so the model follows your instruction without pulling the result back toward the reference.\n\nSupply a second image to bring in a person or an object from elsewhere. Image 1 is the scene and image 2 is the subject. The model was trained in that order, and swapping them gives a worse result with no error.\n\nThere is no masked inpainting, because SimpliGen presets cannot pass a mask.\n\nTo hold a face, use Krea 2 Identity Lock.",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -149,7 +149,7 @@
       "icon": "🧿",
       "enabled": true,
       "tagline": "Hold the face; restage from a character sheet",
-      "description": "The same editor with reference fidelity turned up to 4.0, which is what holds a face. Use it to re-stage a character sheet into a new scene (\"re-stage this woman on a rainy street at night\"), to put the face from image 2 onto the person in image 1, or for virtual try-on. Image 1 is the scene, image 2 is the subject. If a result comes back over-baked or plasticky, use the Identity Edit preset instead - that is the same graph at fidelity 1.0.",
+      "description": "Edits an image while holding a face, with reference fidelity turned up to 4.0. Use it to re-stage a character sheet into a new scene (\"re-stage this woman on a rainy street at night\"), to put the face from image 2 onto the person in image 1, or for virtual try-on.\n\nImage 1 is the scene and image 2 is the subject. The model was trained in that order, and swapping them gives a worse result with no error.\n\nIf a result comes back over-baked or plasticky, use Krea 2 Identity Edit, which is this card at fidelity 1.0.\n\nThere is no masked inpainting, because SimpliGen presets cannot pass a mask.",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [

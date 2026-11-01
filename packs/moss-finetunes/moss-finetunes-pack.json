@@ -1,7 +1,7 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "addedAt": "2026-10-19",
   "author": "toya_san / catlover1937 / lodestones / malcolmrey / lonecatone23 / nuko_masshigura (pack: michaeldune)",
   "nsfw": false,
@@ -32,7 +32,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Natural-looking MOSS pictures in 8 steps",
-      "description": "toya_san's Sam_MOSS Turbo v2, a MOSS-Image finetune with the speed built in: 8 steps, about 12 seconds a picture on a 12 GB card, no speed LoRA. Its skin and light look natural rather than retouched, and it keeps the light and mood you ask for, so it suits portraits and photo-style prompts better than MOSS-Image Fast. Lettering is MOSS-good: put every word you want in quotes. It can still drop a word from a small label now and then, so check signs and buttons.",
+      "description": "Natural-looking pictures with the speed built in: toya_san's MOSS-Image finetune needs no speed LoRA and takes about 12 seconds a picture on a 12 GB card.\n\nSkin and light look natural rather than retouched, and it keeps the light and mood you ask for, so it suits portraits and photo-style prompts better than MOSS-Image Fast.\n\nPut every word you want on the picture in quotes. Lettering is good, but it can still drop a word from a small label now and then, so check signs and buttons.",
       "tags": [
         "Image",
         "MOSS",
@@ -132,7 +132,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with deeper contrast and richer colour",
-      "description": "catlover1937's Moody Moss Mix, a MOSS-Image finetune with more contrast and saturation than the base model: darker shadows, richer colour, painterly when you ask for illustration. Lettering stays exact: put every word you want in quotes. 25 steps at CFG 3, about 27 seconds a picture on a 12 GB card. Pick it for a punchier look; for a neutral one, use MOSS-Image.",
+      "description": "MOSS-Image with more contrast and saturation: darker shadows, richer colour, and a painterly look when you ask for illustration. By catlover1937.\n\nLettering stays exact. Put every word you want on the picture in quotes.\n\nAbout 27 seconds a picture on a 12 GB card. Pick it for a punchier look; for a neutral one, use MOSS-Image.",
       "tags": [
         "Image",
         "MOSS",
@@ -237,7 +237,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Photographic MOSS in 8 steps, with more variety per seed",
-      "description": "lodestones' Kromoss, a full fine-tune of MOSS-Image Base on 704,000 pictures, with its own 8-step speed LoRA: about 4 seconds a picture on a 12 GB card. It follows layout and composition directions more literally than MOSS-Image, gives much more variety between seeds, and its photos look natural rather than retouched; posters can come out looking like real printed paper. Lettering: big headlines in quotes come out right, but small signs and thin fonts can lose or garble a word, so for text that must be exact use MOSS-Image. Ask for a \"woman\" or \"man\" and give an age: with \"girl\" it draws teenagers, and people can look younger than with MOSS-Image even then.",
+      "description": "A full fine-tune of MOSS-Image Base by lodestones, with its own 8-step speed LoRA: about 4 seconds a picture on a 12 GB card.\n\nIt follows layout and composition directions more literally than MOSS-Image and gives much more variety between seeds. Photos look natural rather than retouched, and posters can come out looking like real printed paper.\n\nLettering: big headlines in quotes come out right, but small signs and thin fonts can lose or garble a word. For text that must be exact, use MOSS-Image.\n\nAsk for a \"woman\" or \"man\" and give an age. With \"girl\" it draws teenagers, and people can look younger than with MOSS-Image even then.",
       "tags": [
         "Image",
         "MOSS",
@@ -317,7 +317,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 14.2,
-          "notes": "lodestones/Kromoss pinned to commit 7f9bb7b0 (2026-10-20, update 11000 EMA, Apache-2.0): kromoss_int8_convrot.safetensors (ConvRot W8A8 like Comfy-Org's SFT int8, 5.41 GB) and 8-steps-dmd2-lora (DMD then DMD2's GAN stage, distilled from MOSS-Image-Base, rank 128, 1.19 GB, saved as kromoss_8step_dmd2_lora.safetensors), both sha256 pinned. Author settings: 8 steps, CFG 1, euler / simple, no negative branch. TESTED 2026-10-20 engine-direct on nine prompts at seed 11 and four prompts at seeds 7, 11 and 42 against both MOSS-Image cards (F:/Claude-Work/kromoss-20261020): ~4 s per picture; composition followed the prompt 6/6 where the MOSS cards did about half; a 1970s poster's shop sign lost or garbled a word on 3 of 6 renders (MOSS cards 5/6 right); 'photo of a girl' drew teenagers, 'woman' gave adults on 2 of 3 seeds. The author's small FLUX.2 decoder was not used; the shared Flux 2 VAE works. Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-19 through the app on a 4070 Ti 12 GB against both MOSS-Image cards on nine prompts (six posters, three photos), seed 11."
+          "notes": "lodestones/Kromoss pinned to commit 7f9bb7b0 (2026-10-20, update 11000 EMA, Apache-2.0): kromoss_int8_convrot.safetensors (ConvRot W8A8 like Comfy-Org's SFT int8, 5.41 GB) and 8-steps-dmd2-lora (DMD then DMD2's GAN stage, distilled from MOSS-Image-Base, rank 128, 1.19 GB, saved as kromoss_8step_dmd2_lora.safetensors), both sha256 pinned. Author settings: 8 steps, CFG 1, euler / simple, no negative branch. TESTED 2026-10-20 engine-direct on nine prompts at seed 11 and four prompts at seeds 7, 11 and 42 against both MOSS-Image cards (F:/Claude-Work/kromoss-20261020): ~4 s per picture; composition followed the prompt 6/6 where the MOSS cards did about half; a 1970s poster's shop sign lost or garbled a word on 3 of 6 renders (MOSS cards 5/6 right); 'photo of a girl' drew teenagers, 'woman' gave adults on 2 of 3 seeds. The author's small FLUX.2 decoder was not used; the shared Flux 2 VAE works. Shares the Qwen3.5 9B w4a8 text encoder (7.3 GB) and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Needs native MOSS-Image support in the engine (ComfyUI PRs 17095 + 17099), the same gate as the MOSS-Image pack. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. TESTED 2026-10-19 through the app on a 4070 Ti 12 GB against both MOSS-Image cards on nine prompts (six posters, three photos), seed 11. Kromoss was trained on 704,000 pictures."
         },
         "extensions": [
           {
@@ -345,7 +345,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Brighter, flatter MOSS-Image with looser lettering",
-      "description": "malcolmrey's Moss Serenity, a true finetune of MOSS-Image with no LoRAs merged in; this is a snapshot at 210,000 training steps and the author plans to train it further. In our test it was brighter and flatter than MOSS-Image, with looser, more calligraphic poster lettering, and a figure can cover a word on a sign, so check your text. It reads semi-real rather than anime when you ask for anime. Put every word you want in quotes. 25 steps at CFG 3 (the author gives no settings), about 23 seconds a picture on a 12 GB card.",
+      "description": "A brighter, flatter take on MOSS-Image, with looser, more calligraphic poster lettering. It is malcolmrey's true finetune with no LoRAs merged in, a snapshot at 210,000 training steps that the author plans to train further.\n\nPut every word you want in quotes, and check your text: a figure can cover a word on a sign. It reads semi-real rather than anime when you ask for anime.\n\n25 steps at CFG 3 (the author gives no settings), about 23 seconds a picture on a 12 GB card.",
       "tags": [
         "Image",
         "MOSS",
@@ -450,7 +450,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Deepest colour and contrast of the MOSS cards; slow",
-      "description": "lonecatone23's AniMOSSity, the MOSS-Image version of their Animosity, trained on its own images rather than merged: anime meets realism, with a lot of colour. In our test it had the deepest colour and contrast of the MOSS cards and kept lettering good. It only comes as a 10 GB bf16 file, so it is the slow one here: about 53 seconds a picture on a 12 GB card. 25 steps at CFG 3 (the author gives no settings). Put every word you want in quotes. Please credit lonecatone23 when you share what you make.",
+      "description": "Anime meets realism, with a lot of colour: in our test it had the deepest colour and contrast of the MOSS cards and kept lettering good. By lonecatone23, the MOSS-Image version of their Animosity, trained on its own images rather than merged.\n\nIt only comes as a 10 GB bf16 file, so it is the slow one here: about 53 seconds a picture on a 12 GB card. 25 steps at CFG 3 (the author gives no settings).\n\nPut every word you want in quotes. Please credit lonecatone23 when you share what you make.",
       "tags": [
         "Image",
         "MOSS",
@@ -556,7 +556,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "The most polished anime on MOSS-Image, 50 steps",
-      "description": "nuko_masshigura's MOSS Cat Tower, a merge of full MOSS-Image finetunes tuned for anime. In our test it gave the most polished anime of the MOSS cards. It runs the author's recipe: 50 steps at CFG 3 with Skip Layer Guidance on layers 22, 24 and 26. The author says the art style and bodies suffer without that guidance; in our test it changed the pictures a little and cost no extra time: about 34 seconds a picture on a 12 GB card. The author trained it on natural-language captions and Danbooru tags, so either kind of prompt works. Put every word you want in quotes.",
+      "description": "The most polished anime of the MOSS cards in our test. It is nuko_masshigura's merge of full MOSS-Image finetunes, tuned for anime.\n\nIt runs the author's recipe: 50 steps at CFG 3 with Skip Layer Guidance. The author says the art style and bodies suffer without that guidance. In our test it changed the pictures a little and cost no extra time: about 34 seconds a picture on a 12 GB card.\n\nThe author trained it on natural-language captions and Danbooru tags, so either kind of prompt works. Put every word you want in quotes.",
       "tags": [
         "Image",
         "MOSS",
@@ -642,7 +642,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 32,
           "sizeGB": 13,
-          "notes": "Civitai model 3018379 (MOSS Cat Tower by nuko_masshigura), version 3426780 'v1.0', fileId 3321854 (int8, 5.41 GB, sha256 pinned). Author's settings: 1-2 MP, 50 steps, CFG 3, euler / simple, SkipLayerGuidanceDiTSimple single layers 22,24,26, start 0.35, end 0.7. The core SLG node sits between the LoRA node and the sampler. The author asks for ComfyUI v0.42.1 or later; the card is gated on v0.43.0, the engine it was tested on. With and without SLG took the same time (29.5 vs 30.3 s median) and differed by a mean absolute 8.9-21.3 on all 12 images, so it is active. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9; SkipLayerGuidanceDiTSimple 22,24,26 confirmed in the graph the engine ran; 34-38 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed, derivatives allowed; no selling; no credit required."
+          "notes": "Civitai model 3018379 (MOSS Cat Tower by nuko_masshigura), version 3426780 'v1.0', fileId 3321854 (int8, 5.41 GB, sha256 pinned). Author's settings: 1-2 MP, 50 steps, CFG 3, euler / simple, SkipLayerGuidanceDiTSimple single layers 22,24,26, start 0.35, end 0.7. The core SLG node sits between the LoRA node and the sampler. The author asks for ComfyUI v0.42.1 or later; the card is gated on v0.43.0, the engine it was tested on. With and without SLG took the same time (29.5 vs 30.3 s median) and differed by a mean absolute 8.9-21.3 on all 12 images, so it is active. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9; SkipLayerGuidanceDiTSimple 22,24,26 confirmed in the graph the engine ran; 34-38 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed, derivatives allowed; no selling; no credit required. Skip Layer Guidance runs on layers 22, 24 and 26."
         },
         "extensions": [
           {

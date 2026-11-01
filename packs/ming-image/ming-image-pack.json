@@ -1,7 +1,7 @@
 {
   "id": "ming-image-pack",
   "name": "Community — Ming Image Design",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "addedAt": "2026-09-30",
   "author": "michaeldune",
   "nsfw": false,
@@ -27,7 +27,7 @@
       "icon": "🎨",
       "enabled": true,
       "tagline": "App screens, web pages and posters with lettering that spells",
-      "description": "Text to image for design: app screens, web pages, posters, menus, infographics, ads. Describe it the way you would brief a designer: the kind of page, the sections from top to bottom, the colours, and every piece of text in quotes (a button labelled \"Pay Bills\"). Headlines, buttons and navigation come out spelled right; long lists of short items (a menu, a price list) and small text the model adds on its own can slip a word or garble, so quote everything that matters, check the result, and re-roll the seed for a slipped word. About 20 seconds per picture on a 12 GB card; the 4MP card is sharper for small lettering. The picture is saved as a PNG with an alpha channel. Not meant for photos of people, which look flat. MIT licence.",
+      "description": "Text to image for design: app screens, web pages, posters, menus, infographics, ads.\n\nDescribe it the way you would brief a designer: the kind of page, the sections from top to bottom, the colours, and every piece of text in quotes (a button labelled \"Pay Bills\").\n\nHeadlines, buttons and navigation come out spelled right. Long lists of short items (a menu, a price list) and small text the model adds on its own can slip a word or garble, so quote everything that matters, check the result, and re-roll the seed for a slipped word.\n\nAbout 20 seconds per picture on a 12 GB card. The 4MP card is sharper for small lettering. The picture is saved as a PNG with an alpha channel.\n\nNot meant for photos of people, which look flat. MIT licence.",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -119,7 +119,7 @@
       "icon": "🔍",
       "enabled": true,
       "tagline": "The same design model at its native 2048 size",
-      "description": "The Ming Image Design card at the size the model was published for: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Icons, fine lines and textures come out cleaner than on the 1 MP card. About 35 seconds per picture on a 12 GB card. Brief it the same way: the kind of page, the sections, the colours and every piece of text in quotes. Small quoted text such as a web address can still slip a letter; check it and re-roll the seed if needed. MIT licence.",
+      "description": "Text to image for design at the size the model was published for: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Icons, fine lines and textures come out cleaner than on the 1 MP Ming Image Design card. About 35 seconds per picture on a 12 GB card.\n\nBrief it like a designer: the kind of page, the sections, the colours and every piece of text in quotes.\n\nSmall quoted text such as a web address can still slip a letter. Check it and re-roll the seed if needed.\n\nMIT licence.",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -211,7 +211,7 @@
       "icon": "🖌️",
       "enabled": true,
       "tagline": "Change one part of a design and keep the rest exactly",
-      "description": "PICTURE 1 = the design to change. PICTURE 2 = a mask: the same picture shape, black everywhere, painted white over the area you want changed (any paint program will do; a white rectangle is enough). Then describe the change: Change the greeting to \"Good evening, Sam\" and the balance to \"$9,876.54\".\n\nWhy the mask: Ming redraws the whole picture when it edits, and on its own it changes things you did not ask for, such as other prices and small text. This card pastes the edit back ONLY inside the white area, so everything outside it stays exactly as it was, pixel for pixel, at the picture's full size.\n\nMake the white area cover everything that should change, with a little margin, and keep it tight: on a flat colour the pasted area can show as a faint box, because the redrawn part comes back a shade lighter or darker. The edit is drawn at about 1 megapixel and scaled up to your picture's size, so inside the white area a large picture comes out slightly softer. If the edit itself looks wrong (a smudged or speckled area), generate again with a new seed. The aspect ratio setting is ignored; the result has the size of picture 1. About 25 seconds on a 12 GB card. MIT licence.",
+      "description": "Changes one part of a design and keeps the rest exactly as it was.\n\nPicture 1 is the design to change. Picture 2 is a mask: the same picture shape, black everywhere, painted white over the area you want changed. Any paint program will do, and a white rectangle is enough. Then describe the change: Change the greeting to \"Good evening, Sam\" and the balance to \"$9,876.54\".\n\nThe mask is there because Ming redraws the whole picture when it edits, and on its own it changes things you did not ask for, such as other prices and small text. This card pastes the edit back only inside the white area, so everything outside it stays exactly as it was, pixel for pixel, at the picture's full size.\n\nMake the white area cover everything that should change, with a little margin, and keep it tight. On a flat colour the pasted area can show as a faint box, because the redrawn part comes back a shade lighter or darker. The edit is drawn at about 1 megapixel and scaled up to your picture's size, so inside the white area a large picture comes out slightly softer.\n\nIf the edit itself looks wrong (a smudged or speckled area), generate again with a new seed. The aspect ratio setting is ignored; the result has the size of picture 1.\n\nAbout 25 seconds on a 12 GB card. MIT licence.",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-pack",
   "name": "Community — MiniMax H3 (FastH3 8-Step V2)",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "minAppVersion": "1.63.0",
   "minComfyuiVersion": "v0.36.0",
   "author": "FastVideo (hao-ai-lab); Comfy-Org repack",
@@ -25,7 +25,7 @@
       "name": "MiniMax H3 Text to Video (FastH3 8-Step V2)",
       "icon": "🚀",
       "previewImage": "previews/minimax-h3-fasth3-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound from FastVideo's eight-step distilled H3 checkpoint, running the official ComfyUI template graph with VSA sparse attention. About 80 s per five-second shot at 480p on a 12 GB card, sharper than the 10-step turbo packs on every scene we baked, with real motion kept. Needs SimpliGen engine 0.36 or later.",
+      "description": "Describe a scene and get video with matching stereo sound from FastVideo's eight-step distilled H3 model. About 80 s per five-second shot at 480p on a 12 GB card.\n\nIt was sharper than the 10-step turbo packs on every scene in our tests and kept real motion. Dialogue came out word for word, with the mouth closing on the last word. FastVideo warn that difficult motion, fine detail and some audio may fall below the base model. Three test seeds did not show it, but that is only three seeds.\n\nThe model has its own built-in attention pattern, so the app's SageAttention and Sol-Attn are switched off on this card.\n\nNeeds SimpliGen engine 0.36 or later. On older engines the card shows as needing repair.",
       "tagline": "Eight steps, VSA sparse attention",
       "tags": [
         "8-Step",
@@ -326,7 +326,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 40.6,
-          "notes": "20.6 GB distilled checkpoint plus the shared text encoder and VAEs (about 20 GB, same files as the MiniMax H3 pack). Eight steps, no CFG, res_multistep/simple, sigma shift 10/3, VSA keep 10%. Needs engine 0.36+. Defaults to 480p."
+          "notes": "20.6 GB distilled checkpoint plus the shared text encoder and VAEs (about 20 GB, same files as the MiniMax H3 pack). Eight steps, no CFG, res_multistep/simple, sigma shift 10/3, VSA keep 10%. Needs engine 0.36+. Defaults to 480p. Sharpness (Laplacian) against TaoMate 3-Step and Turbo Accelerated 10-step, in that order after FastH3: talking head 68 vs 46 vs 29, product 257 vs 111 vs 121, beach run 138 vs 58 vs 102. Motion on the run: frame-to-frame energy 6.7 against the turbo pack's 7.2, TaoMate 4.5."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -348,7 +348,7 @@
       "name": "MiniMax H3 Image to Video (FastH3 8-Step V2)",
       "icon": "🚀",
       "previewImage": "previews/minimax-h3-fasth3-i2v.jpg",
-      "description": "Your picture is the first frame; add a last frame and it animates between them, with stereo sound, on FastVideo's eight-step distilled H3 checkpoint. About 80 s per five-second shot at 480p on a 12 GB card, sharper than the 10-step turbo packs on every scene we baked, with real motion kept. Needs SimpliGen engine 0.36 or later.",
+      "description": "Your picture is the first frame; add a last frame and it animates between them, with stereo sound, on FastVideo's eight-step distilled H3 model. About 80 s per five-second shot at 480p on a 12 GB card.\n\nIt was sharper than the 10-step turbo packs on every scene in our tests and kept real motion, and it kept the presenter and studio from the still. FastVideo warn that difficult motion, fine detail and some audio may fall below the base model. Three test seeds did not show it, but that is only three seeds.\n\nThe model has its own built-in attention pattern, so the app's SageAttention and Sol-Attn are switched off on this card.\n\nNeeds SimpliGen engine 0.36 or later. On older engines the card shows as needing repair.",
       "tagline": "Eight steps from a first frame",
       "tags": [
         "8-Step",
@@ -679,7 +679,7 @@
       "name": "MiniMax H3 Text to Video (FastH3 Trim 8-Step)",
       "icon": "🚀",
       "previewImage": "previews/minimax-h3-fasth3-trim-t2v.jpg",
-      "description": "FastVideo's experimental Trim model: FastH3 with 42 of H3's 50 blocks, in a 17.6 GB download. Same eight-step graph as the V2 card and about a quarter less sampling time (54 s against 72 s for a five-second 480p shot on a 12 GB card). In our bake, talking heads and product shots matched V2 and dialogue came out word for word; wide action shots were softer on small faces and quieter in the soundtrack. Pick the V2 card when quality matters most. Needs SimpliGen engine 0.36 or later.",
+      "description": "Text to video on FastVideo's experimental Trim model, a lighter FastH3 with 42 of H3's 50 blocks. It takes about a quarter less sampling time than the V2 card: 54 s against 72 s for a five-second 480p shot on a 12 GB card.\n\nIn our tests talking heads and product shots matched V2 and dialogue came out word for word. Wide action shots are where it gives ground: the runner came out smaller, her face softer and the soundtrack quieter, and one product clip came out silent.\n\nFastVideo say it trades some quality for speed. Pick the V2 card when quality matters most.\n\nNeeds SimpliGen engine 0.36 or later.",
       "tagline": "Eight steps on a lighter 42-block model",
       "tags": [
         "8-Step",
@@ -1004,7 +1004,7 @@
       "name": "MiniMax H3 Image to Video (FastH3 Trim 8-Step)",
       "icon": "🚀",
       "previewImage": "previews/minimax-h3-fasth3-trim-i2v.jpg",
-      "description": "Your picture is the first frame; add a last frame and it animates between them, with stereo sound, on FastVideo's experimental Trim model (42 of H3's 50 blocks, a 17.6 GB download). Faster than the V2 card on the same graph. In our bake the presenter from the still kept her face across three seeds and the spoken line came out word for word. FastVideo trained Trim on text-to-video and call it experimental, so pick the V2 card when quality matters most. Needs SimpliGen engine 0.36 or later.",
+      "description": "Your picture is the first frame; add a last frame and it animates between them, with stereo sound, on FastVideo's experimental Trim model, a lighter FastH3 with 42 of H3's 50 blocks. It is faster than the V2 card.\n\nIn our tests the presenter from the still kept her face across three seeds and the spoken line came out word for word.\n\nFastVideo trained Trim on text to video and call it experimental, so pick the V2 card when quality matters most.\n\nNeeds SimpliGen engine 0.36 or later.",
       "tagline": "Eight steps from a first frame, lighter model",
       "tags": [
         "8-Step",

@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -18,7 +18,7 @@
       "tagline": "Classic Pony character base",
       "icon": "🎠",
       "previewImage": "previews/pony-diffusion-v6-xl.jpg",
-      "description": "Versatile character and illustration generation with Pony V6 quality tags and CLIP Skip 2.",
+      "description": "Versatile character and illustration generation with Pony V6 quality tags.",
       "tags": [
         "Pony",
         "SDXL",
@@ -121,7 +121,7 @@
       "tagline": "Anime Pony characters",
       "icon": "🌌",
       "previewImage": "previews/aniverse-pony-xl-v60.jpg",
-      "description": "AniVerse Pony XL V6 character and illustration generation with its baked VAE and 4n1v3rs3 trigger.",
+      "description": "Anime character and illustration generation with the 4n1v3rs3 trigger.",
       "tags": [
         "Pony",
         "SDXL",
@@ -222,7 +222,7 @@
       "tagline": "Polished Pony characters",
       "icon": "🦄",
       "previewImage": "previews/prefect-pony-xl-v6.jpg",
-      "description": "Prefect Pony XL V6 character generation with CLIP Skip 2, baked VAE, and broad LoRA compatibility.",
+      "description": "Polished character generation with broad LoRA compatibility.\n\nThe download comes from Civitai, which asks for a sign-in (an API key).",
       "tags": [
         "Pony",
         "SDXL",
@@ -305,7 +305,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7,
-          "notes": "Download moved 2026-10-24 (pack 1.1.3) from a prompthero.com mirror, which now answers 410 'File is not downloadable' and made the store keep the pack at its previous version, to the author's own Civitai file: Prefect Pony XL (Goofy_Ai) model 439889, version 2114187 'v6', file 2008663, sha256 20fecc2ec6af6ccffd71f093bd37bb181898dffd97b6480b73b9e269421a151b (filename unchanged). Civitai asks for a sign-in to download it (an API key)."
+          "notes": "Download moved 2026-10-24 (pack 1.1.3) from a prompthero.com mirror, which now answers 410 'File is not downloadable' and made the store keep the pack at its previous version, to the author's own Civitai file: Prefect Pony XL (Goofy_Ai) model 439889, version 2114187 'v6', file 2008663, sha256 20fecc2ec6af6ccffd71f093bd37bb181898dffd97b6480b73b9e269421a151b (filename unchanged). Civitai asks for a sign-in to download it (an API key). Uses CLIP Skip 2 and a baked VAE."
         },
         "checkpointUrl": "https://civitai.com/api/download/models/2114187?fileId=2008663",
         "extensions": [
@@ -427,7 +427,7 @@
       "tagline": "Bright, clean Pony anime, wide and airy",
       "icon": "👘",
       "previewImage": "previews/osorubeshi-ultra-anime-v1.jpg",
-      "description": "OsorubeshiAI's Osorubeshi-Ultra, the Anime-V1 Pony checkpoint. In our test it gave bright, clean, sunlit anime with wide compositions and clear eyes. It follows prompts loosely: hair colours and uniform details can drift, and with no hair colour in the prompt it drew the same silver-haired face on all three test seeds, so name the hair and check the result. 30 steps of Euler a at CFG 5.5 with Pony score tags, about 13 seconds a picture on a 12 GB card. The author publishes no settings. Please credit OsorubeshiAI when you share what you make.",
+      "description": "Bright, clean, sunlit anime with wide compositions and clear eyes, from OsorubeshiAI's Pony checkpoint.\n\nIt follows prompts loosely: hair colours and uniform details can drift. With no hair colour in the prompt it drew the same silver-haired face on all three test seeds, so name the hair and check the result.\n\nUse Pony score tags. About 13 seconds a picture on a 12 GB card. The author publishes no settings.\n\nPlease credit OsorubeshiAI when you share what you make.",
       "tags": [
         "Pony",
         "Anime",

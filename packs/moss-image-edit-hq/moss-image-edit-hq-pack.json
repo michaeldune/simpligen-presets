@@ -1,7 +1,7 @@
 {
   "id": "moss-image-edit-hq-pack",
   "name": "MOSS-Image Edit HQ",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -27,7 +27,7 @@
       "tagline": "Apache-2.0 edit LoRA; lettering still survives",
       "icon": "✏️",
       "previewImage": "previews/moss-image-edit-hq.jpg",
-      "description": "Give it a picture and a sentence. Name the change and name what to keep: \"Change only the dark green paintwork to deep navy blue. Keep both signs, their lettering, the bread in the window and the brickwork exactly as they are.\" Colour, outfit, lighting, season and visual-style changes all work, and text in the picture comes through letter-exact even under a full restyle. Pick the aspect ratio that matches your picture — on a mismatched ratio it is centre-cropped first and the edit gets looser. CFG is fixed at 1: the author's own card suggests CFG 3 with 50 steps, and on these int8 weights that costs 2.4x the time and visibly drifts faces, so this card does not offer it.",
+      "description": "Give it a picture and a sentence. Name the change and name what to keep: \"Change only the dark green paintwork to deep navy blue. Keep both signs, their lettering, the bread in the window and the brickwork exactly as they are.\"\n\nColour, outfit, lighting, season and visual-style changes all work, and text in the picture comes through letter-exact even under a full restyle.\n\nThe reason to pick this over the MOSS-Image Edit card is the licence: this LoRA is Apache-2.0, while that card's weights declare no licence at all. It is an alternative, not an upgrade. The MOSS-Image Edit card holds the untouched parts of a picture a little closer, lettering is a draw, and this card runs warmer and a touch looser. It is an unofficial community fine-tune of MOSS-Image-SFT, not an OpenMOSS release.\n\nPick the aspect ratio that matches your picture. On a mismatched ratio it is centre-cropped first and the edit gets looser.\n\nCFG is fixed at 1. The author suggests CFG 3 with 50 steps, but on these int8 weights that costs 2.4x the time and visibly drifts faces, so this card does not offer it.",
       "tags": [
         "Edit",
         "MOSS-Image",

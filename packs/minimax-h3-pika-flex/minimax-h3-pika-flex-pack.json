@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pika-flex-pack",
   "name": "Community — MiniMax H3 (Pika H3 Flex 6-Step)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Pika Labs (adapters); Comfy-Org (ComfyUI repack)",
   "nsfw": false,
   "description": "Pika Labs' Pika H3 Flex (released 2026-10-29): MiniMax H3 post-trained on video, audio and reference examples, distilled to six steps and refined with reward feedback. It ships as two adapters on the standard H3 weights, one for text and first/last-frame video (FL2VA) and one for reference-to-video (Ref2VA), so with the MiniMax H3 pack installed only the 1.96 GB adapter downloads. The cards run Pika's published schedule exactly as the Comfy-Org templates do: lcm sampler, a fixed seven-value sigma list, CFG 1. There is no step control and no Spectrum or Sol-Attn, because the adapter is already distilled and Pika warn that a second accelerator breaks the output; do not add a turbo or speed LoRA in the LoRA slot either. Tested 2026-10-29 on a 12 GB RTX 4070 Ti with 32 GB RAM, one seed per card on Pika's own template prompts: 5 s at 480p in 81 s (text), 89 s (first + last frame) and 93 s (two references); 5 s at 768p in 4 min 12 s. All three followed their prompt beat for beat, the first/last-frame card landed on both pictures, and the reference card held a helmet and a space station from one picture each. Run again through SimpliGen itself (faster attention on), the same three shots took 79, 82 and 83 s and matched the engine runs beat for beat. The 'seconds, not minutes' speeds in Pika's announcement are datacenter-GPU numbers. Pika's prompting notes: give every camera move a stopping point, describe a wide shot as content ('small inside a large empty room'), and expect a hand told to stop just short to make contact. MiniMax H3 Community License; read its territorial and commercial-use terms before commercial use.",
@@ -21,7 +21,7 @@
       "name": "MiniMax H3 Text to Video (Pika H3 Flex 6-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-pika-flex-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound in Pika's six-step schedule: 81 s for a five-second shot at 480p and about 4 minutes at 768p on a 12 GB card (one run each). On Pika's own sample prompt it played every timed beat in order. Write the prompt the H3 way (style, then each shot with its camera move, then sound) and give each camera move an end point.",
+      "description": "Describe a scene and get video with matching stereo sound in six steps. A five-second shot takes about 1.5 minutes at 480p and about 4 minutes at 768p on a 12 GB card.\n\nWrite the prompt the H3 way: style, then each shot with its camera move, then sound. Give each camera move an end point.",
       "tagline": "Pika's six-step H3, from a prompt",
       "tags": [
         "6-Step",
@@ -336,7 +336,7 @@
       "name": "MiniMax H3 Image to Video (Pika H3 Flex 6-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-pika-flex-i2v.jpg",
-      "description": "Your picture is the first frame; add a last frame and Pika H3 Flex animates between them, with stereo sound, in six steps: 89 s for five seconds at 480p on a 12 GB card. On Pika's sample pair it opened on the first picture and ended on the second. Pictures are centre-cropped to the output shape, so pick the aspect ratio that matches them. Describe the path between the frames, not the frames themselves.",
+      "description": "Your picture is the first frame. Add a last frame and the video animates between the two, with stereo sound, in six steps. A five-second 480p shot takes about 1.5 minutes on a 12 GB card.\n\nPictures are centre-cropped to the output shape, so pick the aspect ratio that matches them. In the prompt, describe the path between the frames, not the frames themselves, and give each camera move an end point. On Pika's sample pair the video opened on the first picture and ended on the second.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
       "tagline": "Six steps between a first and last frame",
       "tags": [
         "6-Step",
@@ -628,7 +628,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 39.3,
-          "notes": "About 37 GB of standard MiniMax H3 weights streamed through system RAM plus a 1.96 GB Pika adapter. Six steps, lcm, fixed sigmas, CFG 1, as in Pika's templates. Measured on a 12 GB RTX 4070 Ti with 32 GB RAM: 5 s at 480p in 81-93 s, 5 s at 768p in 4 min 12 s, one run each. Defaults to 480p."
+          "notes": "About 37 GB of standard MiniMax H3 weights streamed through system RAM plus a 1.96 GB Pika adapter. Six steps, lcm, fixed sigmas, CFG 1, as in Pika's templates. Measured on a 12 GB RTX 4070 Ti with 32 GB RAM: 5 s at 480p in 81-93 s, 5 s at 768p in 4 min 12 s, one run each. Defaults to 480p. This card took 89 s for five seconds at 480p on a 12 GB card, one run."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -659,7 +659,7 @@
       "name": "MiniMax H3 Reference to Video (Pika H3 Flex 6-Step)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-pika-flex-r2v.jpg",
-      "description": "Up to nine reference pictures, three reference clips and three sounds steer the people, props, places and voices of a shot generated in Pika's six steps: 93 s for five seconds at 480p on a 12 GB card with two pictures. On Pika's sample it kept a pilot's helmet and a space station from one picture each. The pictures never appear in the video, so the prompt must describe the whole shot; name each picture as <Picture 1>, <Picture 2> and so on, as in H3's full reference format. Reference clips and sounds are wired but were not tested.",
+      "description": "Steers the people, props, places and voices of a shot with up to nine reference pictures, three reference clips and three sounds, generated in six steps. A five-second 480p shot with two pictures takes about 1.5 minutes on a 12 GB card.\n\nThe pictures never appear in the video, so the prompt must describe the whole shot. Name each picture as <Picture 1>, <Picture 2> and so on, as in H3's full reference format. Give each camera move an end point.\n\nOn Pika's sample it kept a pilot's helmet and a space station from one picture each. Reference clips and sounds are wired but were not tested.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
       "tagline": "Six-step H3 from reference pictures",
       "tags": [
         "6-Step",
@@ -960,7 +960,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 39.3,
-          "notes": "About 37 GB of standard MiniMax H3 weights streamed through system RAM plus a 1.96 GB Pika adapter. Six steps, lcm, fixed sigmas, CFG 1, as in Pika's templates. Measured on a 12 GB RTX 4070 Ti with 32 GB RAM: 5 s at 480p in 81-93 s, 5 s at 768p in 4 min 12 s, one run each. Defaults to 480p."
+          "notes": "About 37 GB of standard MiniMax H3 weights streamed through system RAM plus a 1.96 GB Pika adapter. Six steps, lcm, fixed sigmas, CFG 1, as in Pika's templates. Measured on a 12 GB RTX 4070 Ti with 32 GB RAM: 5 s at 480p in 81-93 s, 5 s at 768p in 4 min 12 s, one run each. Defaults to 480p. This card took 93 s for five seconds at 480p on a 12 GB card with two pictures, one run."
         },
         "supportsSage": true,
         "checksums": {

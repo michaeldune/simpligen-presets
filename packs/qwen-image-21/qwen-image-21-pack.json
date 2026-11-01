@@ -1,7 +1,7 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Community — Qwen Image 2.1",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
@@ -34,7 +34,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "Fast text-to-image with lettering that spells",
-      "description": "Text-to-image with Qwen-Image 2.1. Follows long natural-language prompts and renders quoted text on signs, labels and posters correctly. For a transparent result, start the prompt with: This is an RGBA image with transparency. and end it with: The image has alpha channel and the background is transparent. Since 1.4.0 it uses guided sampling for much cleaner lettering and detail: about 35 seconds per picture on a 12 GB card. Non-commercial use only (Qwen Research License).",
+      "description": "Text to image that follows long prompts and spells lettering correctly. Put the words you want on signs, labels and posters in quotes. About 35 seconds per picture on a 12 GB card.\n\nFor a transparent background, start the prompt with: This is an RGBA image with transparency.\n\nThen end it with: The image has alpha channel and the background is transparent.\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -129,7 +129,7 @@
       "icon": "⚡",
       "enabled": true,
       "tagline": "Five-step drafts in a few seconds",
-      "description": "Qwen-Image 2.1 text-to-image in 5 steps instead of 20-25, using Viggle's turbo LoRA (v0.2 preview, built in). About 11 seconds per picture on a 12 GB card, against about 40 for the main card, so it is the card for trying ideas and seeds quickly; move a keeper to the main Qwen Image 2.1 card for the final picture. Photos, portraits and poster headlines hold up well; small or long lettering garbles more often than on the main card, and now and then an object comes out doubled, so re-roll the seed. Steps and CFG are fixed by the distillation, so there are no sliders. Non-commercial use only (Qwen Research License).",
+      "description": "Text to image in 5 steps, for trying ideas and seeds quickly: about 11 seconds per picture on a 12 GB card, against about 40 for the main card. Move a keeper to the main Qwen Image 2.1 card for the final picture.\n\nPhotos, portraits and poster headlines hold up well. Small or long lettering garbles more often than on the main card, and now and then an object comes out doubled, so re-roll the seed.\n\nSteps and CFG are fixed by Viggle's built-in turbo LoRA (a v0.2 preview), so there are no sliders.\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -218,7 +218,7 @@
       "icon": "🌅",
       "enabled": true,
       "tagline": "Fast drafts with punchier colour and crisper detail",
-      "description": "The Fast Drafts card with a different finish. Same 5-step picture, decoded through Felldude's HDR VAE for Qwen Image 2.1, which pushes colour, contrast and fine detail harder than the standard one: richer skin and sky tones, crisper pores, fabric and lettering. It is a look, not a quality upgrade, and it comes at a cost: bright areas clip sooner, so white clothing, snow and flat anime shading can blow out and lose their detail, and dark areas go blacker. It is also a few seconds slower per picture. Use it for photo-style prompts; use Fast Drafts for anime, line art and anything with large white areas. Adds a 1.35 GB VAE. Non-commercial use only (Qwen Research License).",
+      "description": "The Fast Drafts card with a different finish. It makes the same 5-step picture but decodes it through Felldude's HDR VAE, which pushes colour, contrast and fine detail harder: richer skin and sky tones, crisper pores, fabric and lettering.\n\nIt is a look, not a quality upgrade, and it has a cost. Bright areas clip sooner, so white clothing, snow and flat anime shading can blow out and lose their detail, and dark areas go blacker. It is also a few seconds slower per picture.\n\nUse it for photo-style prompts. Use Fast Drafts for anime, line art and anything with large white areas.\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -308,7 +308,7 @@
       "icon": "🚀",
       "enabled": true,
       "tagline": "Qwen's own 8-step Turbo, small text included",
-      "description": "Qwen-Image 2.1 text-to-image in 8 steps, using Qwen's official Turbo distillation as a LoRA on the pack's model (Comfy-Org's extraction, adds 0.9 GB). About 15 seconds per picture on a 12 GB card, the same as Fast Drafts, and it keeps what Fast Drafts loses: in our side-by-side a small hand-painted sign inside a street scene came out correct on 3 of 3 seeds here and on none with Fast Drafts, and the scene followed the prompt more closely. Use this card for pictures with lettering in them; Fast Drafts stays for the very quickest tries. Steps and CFG are fixed by the distillation, so there are no sliders. Non-commercial use only (Qwen Research License).",
+      "description": "Text to image in 8 steps, using Qwen's official Turbo as a LoRA. About 15 seconds per picture on a 12 GB card, the same as Fast Drafts, and it keeps what Fast Drafts loses: in our side-by-side a small hand-painted sign inside a street scene came out correct on 3 of 3 seeds here and on none with Fast Drafts, and the scene followed the prompt more closely.\n\nUse this card for pictures with lettering in them. Fast Drafts stays for the very quickest tries.\n\nSteps and CFG are fixed by the LoRA, so there are no sliders.\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -398,7 +398,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit or combine up to four pictures by describing the change",
-      "description": "Describe the edit in plain words and refer to the pictures by position: Keep the woman in <image1> unchanged, put the jacket from <image2> on her. One to four reference pictures; each extra one adds time (about 1 1/2 minutes for one and 6 minutes for four on a 12 GB card, since 1.4.0 switched to guided sampling for cleaner detail). The result uses the aspect ratio you pick, so choose the one that matches your first picture when the framing should stay the same. Non-commercial use only (Qwen Research License).",
+      "description": "Describe the edit in plain words and refer to the pictures by position: Keep the woman in <image1> unchanged, put the jacket from <image2> on her.\n\nUse one to four reference pictures. Each extra one adds time: about 1 1/2 minutes for one and 6 minutes for four on a 12 GB card.\n\nThe result uses the aspect ratio you pick, so choose the one that matches your first picture when the framing should stay the same.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -510,7 +510,7 @@
       "icon": "📌",
       "enabled": true,
       "tagline": "Edit without the picture shifting or resizing",
-      "description": "The Edit card, but the picture stays where it is. Plain Qwen Image 2.1 edits drift: a restyle comes back a few percent taller or nudged sideways, so it no longer lines up with your original. This card adds ausboss's Consistency LoRA (159 MB), which makes the edit on the original's frame. Use it for restyles, recolours, relights and small changes you want to lay over the original. Same pictures, same wording as the Edit card (refer to them as <image1>, <image2>...); about a third slower with one picture, about the same with several. Non-commercial use only (Qwen Research License).",
+      "description": "The Edit card, but the picture stays where it is. Plain Qwen Image 2.1 edits drift: a restyle comes back a few percent taller or nudged sideways, so it no longer lines up with your original. This card adds ausboss's Consistency LoRA, which keeps the edit on the original's frame.\n\nUse it for restyles, recolours, relights and small changes you want to lay over the original.\n\nSame pictures and same wording as the Edit card: refer to them as <image1>, <image2> and so on. About a third slower with one picture, about the same with several.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -630,7 +630,7 @@
       "icon": "⚡",
       "enabled": true,
       "tagline": "Picture edits in about 20 seconds",
-      "description": "Describe the edit and refer to the pictures by position, as on the main Edit card: Change the thread in <image1> to green. Eight steps with PrunaAI's few-step LoRA (v0.1, built in) instead of guided sampling, so a one-picture edit takes about 20 seconds on a 12 GB card instead of about 80. Best with ONE picture: colour and clothing changes, weather and time of day, swapping a word on a sign all held up in testing. With two or three pictures it is still much faster than the main Edit card but less reliable: small objects can deform and a picture can end up partly hidden, so re-roll the seed or use the main Edit card for a final multi-picture composite. Up to three pictures. Steps and CFG are fixed by the distillation, so there are no sliders. If an edit comes back harsh and grainy with the change only half made, change the seed: this happens when the edit uses the same seed that generated the picture you are editing. Non-commercial use only (Qwen Research License).",
+      "description": "Describe the edit and refer to the pictures by position, as on the main Edit card: Change the thread in <image1> to green. A one-picture edit takes about 20 seconds on a 12 GB card instead of about 80, thanks to PrunaAI's built-in few-step LoRA (v0.1).\n\nIt works best with one picture: colour and clothing changes, weather and time of day, and swapping a word on a sign all held up in testing.\n\nIt takes up to three pictures. With two or three it is still much faster than the main Edit card but less reliable: small objects can deform and a picture can end up partly hidden. Re-roll the seed, or use the main Edit card for a final multi-picture composite.\n\nIf an edit comes back harsh and grainy with the change only half made, change the seed. This happens when the edit uses the same seed that generated the picture you are editing.\n\nSteps and CFG are fixed by the LoRA, so there are no sliders.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -727,7 +727,7 @@
       "icon": "✂️",
       "enabled": true,
       "tagline": "Remove the background, get a transparent PNG",
-      "description": "One picture in, the subject out on a transparent background, hair and soft edges included. The instruction is built in; use the prompt box only to say what to keep (for example: keep the microphone and the cable). The result always has the size and shape of your picture; the aspect ratio setting is ignored. Non-commercial use only (Qwen Research License).",
+      "description": "One picture in, the subject out on a transparent background, hair and soft edges included. A picture with no clear subject, such as a street scene, comes back mostly or fully transparent.\n\nThe instruction is built in. Use the prompt box only to say what to keep, for example: keep the microphone and the cable.\n\nThe result always has the size and shape of your picture; the aspect ratio setting is ignored.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -834,7 +834,7 @@
       "icon": "🧍",
       "enabled": true,
       "tagline": "One picture of a person in, a front / back / head-angles sheet out",
-      "description": "Turns one picture of a person into a character reference sheet on a white background: a large head in the middle, a headless full-body front view on the left, a full-body back view on the right, and two small side profiles facing each other underneath. The layout comes from the Portrait2CharRef LoRA by b675051045971, which is built in, and so is the brief; the prompt box is only for extra notes.\n\nPICTURE 1 (required) = the person. A full-body picture keeps the whole outfit, bag and shoes included. A head-and-shoulders portrait works too, but the clothes below the shoulders are then invented and change with the seed.\nPICTURE 2 (optional) = an outfit. Add a picture of clothes and the sheet dresses the person in them.\n\nSET THE ASPECT RATIO TO 3:2. The LoRA was trained for that shape and other shapes break the layout. About 30 s on a 12 GB card, about 50 s with an outfit picture. The large head keeps the angle of your picture, so use a front-facing one for a front-facing head. The back view sometimes keeps its head; only the front view is meant to be headless.\n\nNon-commercial use only (Qwen Research License). The LoRA itself is free to use (Civitai, all permissions open).",
+      "description": "Turns one picture of a person into a character reference sheet on a white background: a large head in the middle, a headless full-body front view on the left, a full-body back view on the right, and two small side profiles facing each other underneath. The layout comes from the built-in Portrait2CharRef LoRA by b675051045971. The brief is built in too, so the prompt box is only for extra notes.\n\nPicture 1 (required) is the person. A full-body picture keeps the whole outfit, bag and shoes included. A head-and-shoulders portrait works too, but the clothes below the shoulders are then invented and change with the seed.\n\nPicture 2 (optional) is an outfit. Add a picture of clothes and the sheet dresses the person in them.\n\nSet the aspect ratio to 3:2. The LoRA was trained for that shape and other shapes break the layout.\n\nAbout 30 seconds on a 12 GB card, about 50 seconds with an outfit picture.\n\nThe large head keeps the angle of your picture, so use a front-facing one for a front-facing head. The back view sometimes keeps its head; only the front view is meant to be headless.\n\nNon-commercial use only (Qwen Research License). The LoRA itself is free to use (Civitai, all permissions open).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -958,7 +958,7 @@
       "icon": "🔁",
       "enabled": true,
       "tagline": "Put one person's face and hair into another picture",
-      "description": "PICTURE 1 = the picture to change. PICTURE 2 = the person whose face and hair you want (a clear, front-facing photo works best). The head from picture 2 goes into picture 1 with that picture's lighting, and the body, clothes, pose and background of picture 1 stay as they are. The hair comes along too: this is a whole-head swap, which is what keeps it clean when the two people's hair is very different.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes (SimpliGen versions before prompt-optional cards still need a few words, for example: head swap). If the person in picture 1 is looking sharply away, the new head sometimes turns towards the camera; try another seed. About 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
+      "description": "Puts one person's face and hair into another picture. Picture 1 is the picture to change. Picture 2 is the person whose face and hair you want; a clear, front-facing photo works best.\n\nThe head from picture 2 goes into picture 1 with that picture's lighting, and the body, clothes, pose and background of picture 1 stay as they are. The hair comes along too: this is a whole-head swap, which is what keeps it clean when the two people's hair is very different.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes. SimpliGen versions before prompt-optional cards still need a few words, for example: head swap.\n\nIf the person in picture 1 is looking sharply away, the new head sometimes turns towards the camera, so try another seed.\n\nAbout 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -1066,7 +1066,7 @@
       "icon": "👗",
       "enabled": true,
       "tagline": "Dress a person in the clothes from another picture",
-      "description": "PICTURE 1 = the person. PICTURE 2 = the outfit: a photo of someone wearing it, or a flat lay of the clothes. The clothes and shoes from picture 2 replace the ones in picture 1, fitted to the person's pose; the face, hair, pose and background of picture 1 stay.\n\nWhat to expect: clothes and shoes come across reliably. Hats do not change: a hat in picture 2 is left off, and a hat already on the person usually stays. Bags and other carried items come across on some seeds and not others, and now and then nothing changes at all; generate again with a new seed.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes such as: the trousers are full length (SimpliGen versions before prompt-optional cards still need a few words, for example: outfit swap). About 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
+      "description": "Dresses a person in the clothes from another picture. Picture 1 is the person. Picture 2 is the outfit: a photo of someone wearing it, or a flat lay of the clothes.\n\nThe clothes and shoes from picture 2 replace the ones in picture 1, fitted to the person's pose. The face, hair, pose and background of picture 1 stay.\n\nWhat to expect: clothes and shoes come across reliably. Hats do not change: a hat in picture 2 is left off, and a hat already on the person usually stays. Bags and other carried items come across on some seeds and not others, and now and then nothing changes at all, so generate again with a new seed.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes such as: the trousers are full length. SimpliGen versions before prompt-optional cards still need a few words, for example: outfit swap.\n\nAbout 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -1174,7 +1174,7 @@
       "icon": "🧍",
       "enabled": true,
       "tagline": "Put a person into the pose of a 3D doll",
-      "description": "PICTURE 1 = a full-body photo of the person (or pick a saved character). PICTURE 2 = a Pose Studio doll in the pose you want. The person is moved into the doll's pose and keeps their face, hair, clothes and the photo's background.\n\nGet dolls from the free gallery: https://michaeldune.github.io/simpligen-pose-gallery/ . Pick the doll in the same shape as your photo (square or 3:4 portrait) and download it. The person lands where the doll stands, at the doll's size: the gallery's dolls all stand near the bottom of the frame, so use a photo with the floor visible down to the bottom edge, or a low pose (kneeling, crawling, sitting) can come out floating.\n\nThe result has the doll picture's size and shape; the aspect ratio setting is ignored. The prompt box is optional, for extra notes about the scene. About a minute on a 12 GB card.\n\nWhat to expect: in our tests (two people, four poses, two seeds, square and 3:4) every result stood or knelt on the floor in the doll's pose once the dolls were framed this way. A side-view doll can come out as a three-quarter view, and different seeds give nearly the same picture.\n\nChanged in pack 1.12.1: the person now goes in picture 1 and the doll in picture 2 (it was the other way round in 1.12.0).\n\nPose Studio and its pose LoRA are by MiuProject (VNCCS, MIT), used with the author's permission. Gallery poses by Totemistyk. Non-commercial use only (Qwen Research License).",
+      "description": "Puts a person into the pose of a 3D doll. Picture 1 is a full-body photo of the person, or pick a saved character. Picture 2 is a Pose Studio doll in the pose you want. The person moves into the doll's pose and keeps their face, hair, clothes and the photo's background.\n\nGet dolls from the free gallery: https://michaeldune.github.io/simpligen-pose-gallery/ . Pick the doll in the same shape as your photo (square or 3:4 portrait) and download it.\n\nThe person lands where the doll stands, at the doll's size. The gallery's dolls all stand near the bottom of the frame, so use a photo with the floor visible down to the bottom edge, or a low pose (kneeling, crawling, sitting) can come out floating.\n\nThe result has the doll picture's size and shape; the aspect ratio setting is ignored. The prompt box is optional, for extra notes about the scene. About a minute on a 12 GB card.\n\nWhat to expect: in our tests (two people, four poses, two seeds, square and 3:4) every result stood or knelt on the floor in the doll's pose once the dolls were framed this way. A side-view doll can come out as a three-quarter view, and different seeds give nearly the same picture.\n\nPose Studio and its pose LoRA are by MiuProject (VNCCS, MIT), used with the author's permission. Gallery poses by Totemistyk. Non-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -1290,7 +1290,7 @@
       "icon": "🔍",
       "enabled": true,
       "tagline": "Text to image at the model's full 4-megapixel size",
-      "description": "The same model as the Qwen Image 2.1 card, run at the size Qwen publishes for it: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Much finer skin, hair and fabric than the 1 MP card, and small lettering comes out cleaner. About 1.5 minutes per picture on a 12 GB card at 25 steps; for signs and small lettering, raise the steps to 40 (about 2.5 minutes). Non-commercial use only (Qwen Research License).",
+      "description": "Text to image at the size Qwen publishes for the model: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). Much finer skin, hair and fabric than the 1 MP card, and small lettering comes out cleaner.\n\nAbout 1.5 minutes per picture on a 12 GB card at 25 steps. For signs and small lettering, raise the steps to 40 (about 2.5 minutes).\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -1386,7 +1386,7 @@
       "icon": "🚀",
       "enabled": true,
       "tagline": "Full 4-megapixel pictures in about 40 seconds",
-      "description": "The Turbo card at Qwen's full size: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide) in 8 steps. About 40 seconds a picture on a 12 GB card, against about 1.5 minutes for the 4MP card, with skin, hair and small faces on a par with it in our side-by-side. This is where Turbo looks best: at 1 MP it smooths skin and softens faces that are small in the frame, at 4 MP that detail is back. It tends to give the same centred framing from seed to seed, so change the prompt, not the seed, for a different shot; and count people and read every word before you use a picture. Steps and CFG are fixed by the distillation. Non-commercial use only (Qwen Research License).",
+      "description": "The Turbo card at Qwen's full size: about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide) in 8 steps. About 40 seconds a picture on a 12 GB card, against about 1.5 minutes for the 4MP card, with skin, hair and small faces on a par with it in our side-by-side.\n\nThis is where Turbo looks best. At 1 MP it smooths skin and softens faces that are small in the frame; at 4 MP that detail is back.\n\nIt tends to give the same centred framing from seed to seed, so change the prompt, not the seed, for a different shot. Count people and read every word before you use a picture.\n\nSteps and CFG are fixed by the LoRA.\n\nNon-commercial use only (Qwen Research License).",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [
@@ -1476,7 +1476,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit or combine up to four pictures, output at 4 megapixels",
-      "description": "The Edit card at the model's full size: describe the change and refer to the pictures by position (Keep the woman in <image1> unchanged, put the jacket from <image2> on her). One to four reference pictures, or up to 4 characters from the cast picker; the result comes out at about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide). About 2 minutes with one picture and under 4 minutes with four on a 12 GB card. With four people a piece of clothing can change; generate again with a new seed if it does. Pick the aspect ratio that matches your first picture when the framing should stay the same. Non-commercial use only (Qwen Research License).",
+      "description": "The Edit card at the model's full size. Describe the change and refer to the pictures by position: Keep the woman in <image1> unchanged, put the jacket from <image2> on her.\n\nUse one to four reference pictures, or up to 4 characters from the cast picker. The result comes out at about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide).\n\nAbout 2 minutes with one picture and under 4 minutes with four on a 12 GB card. With four people a piece of clothing can change; generate again with a new seed if it does.\n\nPick the aspect ratio that matches your first picture when the framing should stay the same.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -1589,7 +1589,7 @@
       "icon": "✨",
       "enabled": true,
       "tagline": "Any picture in, the same picture at 4 megapixels with real detail",
-      "description": "Drop in a picture (one you made or any photo) and get it back at about 4 megapixels with fine detail added: skin, hair, fabric and surfaces. The composition, faces, lettering, colours and lighting stay; the aspect ratio of your picture is kept, so the aspect ratio setting is ignored. Uses the Detail Enhancer LoRA by Elusarca (76 MB, built in). The prompt box is optional: add what should look sharper or what to keep. It does not repair things that are wrong in the picture, such as misspelled text. About 2 minutes on a 12 GB card. Non-commercial use only (Qwen Research License).",
+      "description": "Drop in a picture, one you made or any photo, and get it back at about 4 megapixels with fine detail added to skin, hair, fabric and surfaces. Uses the built-in Detail Enhancer LoRA by Elusarca.\n\nThe composition, faces, lettering, colours and lighting stay. Your picture's shape is kept, so the aspect ratio setting is ignored. It does not repair things that are wrong in the picture, such as misspelled text.\n\nThe prompt box is optional: add what should look sharper or what to keep.\n\nAbout 2 minutes on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [

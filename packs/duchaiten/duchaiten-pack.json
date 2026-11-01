@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -21,7 +21,7 @@
       "tagline": "Pixar-meets-3D-anime SD 1.5",
       "icon": "✨",
       "previewImage": "previews/duchaiten-goldenlife-v10.jpg",
-      "description": "DucHaiten GoldenLife - a 3D blend the author describes as 30% Pixar, 20% 3D realism, 50% 3D anime, trained with a focus on eyes and skin. Natural-language or tag prompts. Best near 512px.",
+      "description": "A 3D blend the author describes as 30% Pixar, 20% 3D realism and 50% 3D anime, trained with a focus on eyes and skin.\n\nNatural-language or tag prompts both work. Best near 512px.",
       "tags": [
         "SD 1.5",
         "3D",
@@ -113,7 +113,7 @@
       "tagline": "Cinematic pore-level realism",
       "icon": "🎬",
       "previewImage": "previews/duchaiten-noobai-cinematic-v10.jpg",
-      "description": "DucHaiten NoobAI-Cinematic - a NoobAI (SDXL) model the author built for skin detail down to every pore, a successor to his Pony-Real. Natural-language or tag prompts. Skip hires on close-ups; it softens skin.",
+      "description": "Cinematic realism with skin detail down to every pore. The author built it as a successor to his Pony-Real.\n\nNatural-language or tag prompts both work. Skip hires on close-ups; it softens skin.\n\nFor a sharper two-pass version, see the Snapvu card.",
       "tags": [
         "NoobAI",
         "SDXL",
@@ -217,7 +217,7 @@
       "tagline": "Cinematic realism with a hires pass",
       "icon": "🎥",
       "previewImage": "previews/duchaiten-noobai-cinematic-snapvu-v10.jpg",
-      "description": "The Snapvu build of NoobAI-Cinematic: finer light through skin and sharper pores, rendered in two passes (base, then a 1.5x hires pass). Slower than the plain card. Author's recipe: DPM++ 3M SDE, Simple, 32 steps, CFG 4, hires denoise 0.3 at CFG 3.",
+      "description": "The Snapvu build of NoobAI-Cinematic: finer light through skin and sharper pores. It renders in two passes, the base picture and then a 1.5x hires pass, so it is slower than the plain card.\n\nThis build needs the hires pass and only behaves at CFG 3-4.5, so keep the CFG in that range.",
       "tags": [
         "NoobAI",
         "SDXL",
@@ -304,7 +304,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7.1,
-          "notes": "Snapvu needs the hires pass (it blotches without one) and only behaves at CFG 3-4.5. Two passes: base, then 4x-UltraSharpV2 scaled to 1.5x and re-sampled at denoise 0.3. Author's NickelbackFS upscaler is not on a public host, so UltraSharpV2 stands in."
+          "notes": "Snapvu needs the hires pass (it blotches without one) and only behaves at CFG 3-4.5. Two passes: base, then 4x-UltraSharpV2 scaled to 1.5x and re-sampled at denoise 0.3. Author's NickelbackFS upscaler is not on a public host, so UltraSharpV2 stands in. Author's recipe: DPM++ 3M SDE, Simple, 32 steps, CFG 4, hires denoise 0.3 at CFG 3."
         },
         "upscaler": "4x-UltraSharpV2.pth",
         "upscalerUrl": "https://huggingface.co/Kim2091/UltraSharpV2/resolve/2d1db39ff692c111da92112d49f833e4ad7035ae/4x-UltraSharpV2.pth",
@@ -324,7 +324,7 @@
       "tagline": "AAA game-cutscene 3D",
       "icon": "🎮",
       "previewImage": "previews/duchaiten-gameart-unrealengine-v10.jpg",
-      "description": "DucHaiten GameArt UnrealEngine V1.0 - a Pony model tuned toward the look of Unreal Engine 5 game cutscenes. Built on the author's no-score Pony base, so no score tags are needed.",
+      "description": "Tuned toward the look of Unreal Engine 5 game cutscenes. No score tags are needed, because it is built on the author's no-score Pony base.\n\nThe author recommends CFG 8-9.",
       "tags": [
         "Pony",
         "SDXL",
@@ -426,7 +426,7 @@
       "tagline": "Vintage 2.5D illustration",
       "icon": "🏛️",
       "previewImage": "previews/duchaiten-xl-golden-age-v10.jpg",
-      "description": "DucHaitenXL Golden-Age - the author's SDXL merge of his best SDXL models with several dozen style LoRAs, aimed at a classic, golden-age illustrated look across 2D and 2.5D. The author gives no special settings; it is meant to be easy.",
+      "description": "A classic, golden-age illustrated look across 2D and 2.5D, merged from the author's best SDXL models and several dozen style LoRAs.\n\nThe author gives no special settings; it is meant to be easy.",
       "tags": [
         "SDXL",
         "2.5D",
@@ -528,7 +528,7 @@
       "tagline": "Realistic 3D, thicker bodies",
       "icon": "🔥",
       "previewImage": "previews/duchaiten-real3d-nsfw-v10.jpg",
-      "description": "DucHaiten's mature Real3D build - realistic 3D figures with detailed skin and fuller body types; the author notes a distinctive Asian face that is his own style rather than the common one. Narrow prompt range by design. Best near 512px.",
+      "description": "The author's mature build: realistic 3D figures with detailed skin and fuller body types. He notes a distinctive Asian face that is his own style rather than the common one.\n\nIt has a narrow prompt range by design. Best near 512px.",
       "tags": [
         "SD 1.5",
         "3D",
@@ -621,7 +621,7 @@
       "tagline": "50s-90s film and pin-up",
       "icon": "📼",
       "previewImage": "previews/duchaiten-retro-v20.jpg",
-      "description": "DucHaiten Retro v2.0 - vintage photographic looks from the 50s to the 90s, pin-up and film stills, plus some live-action-anime range. Best near 512px.",
+      "description": "Vintage photographic looks from the 50s to the 90s, pin-up and film stills, plus some live-action-anime range.\n\nBest near 512px.",
       "tags": [
         "SD 1.5",
         "Retro",
@@ -714,7 +714,7 @@
       "tagline": "Stylized SD 1.5 (DucHaiTen)",
       "icon": "🎨",
       "previewImage": "previews/duchaiten-pack-thiccboi-v10.jpg",
-      "description": "DucHaiten ThiccBoi - bright NijiCute colours, MindBreak hips and FancyxFancy toned builds, with western-comic influence; cartoon, Pixar-like 3D and 2.5D. Very consistent, so edit prompts rather than copying them. Danbooru tags. Best near 512px.",
+      "description": "Stylised bodies and bright colour: NijiCute colours, MindBreak hips and FancyxFancy toned builds, with western-comic influence. It covers cartoon, Pixar-like 3D and 2.5D.\n\nPrompt with Danbooru tags. It is very consistent, so edit prompts rather than copying them. Best near 512px.",
       "tags": [
         "SD 1.5",
         "Anime",
@@ -808,7 +808,7 @@
       "tagline": "Surreal, painterly, all-in-one",
       "icon": "🌀",
       "previewImage": "previews/duchaiten-stylelikeme-v15.jpg",
-      "description": "DucHaiten StyleLikeMe - heavy on artistic and surreal elements with very high detail; flexible across anime, 3D art, painting, cartoon and landscape. Simple prompts work. Runs at high CFG and 50 steps by the author's advice.",
+      "description": "Surreal, painterly pictures with very high detail. It is flexible across anime, 3D art, painting, cartoon and landscape, and simple prompts work.\n\nOn the author's advice it runs at high CFG and 50 steps; he suggests CFG 11-15. Native size goes up to 768.",
       "tags": [
         "SD 1.5",
         "Surreal",

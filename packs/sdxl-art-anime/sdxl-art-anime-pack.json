@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -18,7 +18,7 @@
       "tagline": "Artistic SDXL (YamerMIX)",
       "icon": "🎨",
       "previewImage": "previews/yamermix-v11-rundiffusion.jpg",
-      "description": "SDXL Unstable Diffusers (YamerMIX) V11 + RunDiffusion - versatile artistic/illustration SDXL. Natural-language prompting, baked VAE.",
+      "description": "Versatile artistic and illustration SDXL model. Prompt in natural language.",
       "tags": [
         "SDXL",
         "Local"
@@ -117,7 +117,7 @@
       "tagline": "Niji-style anime SDXL",
       "icon": "🎨",
       "previewImage": "previews/sdxl-niji-seven.jpg",
-      "description": "Niji-style anime SDXL with vivid color and clean linework. CLIP Skip 2; works with tags and natural language.",
+      "description": "Niji-style anime SDXL with vivid color and clean linework. Works with both tags and natural language.",
       "tags": [
         "SDXL",
         "Anime",
@@ -216,7 +216,7 @@
       "name": "Cheyenne 1.6",
       "icon": "🖼️",
       "previewImage": "previews/cheyenne-v16.jpg",
-      "description": "Graphic-novel and comics illustration with CFG-driven control from rough sketches to bold outlined color.",
+      "description": "Graphic-novel and comics illustration. The CFG setting controls the look, from rough sketches to bold outlined color.",
       "tags": [
         "SDXL",
         "Graphic Novel",
@@ -387,7 +387,7 @@
       "tagline": "Painterly artistic style, warm color palette",
       "icon": "🎨",
       "previewImage": "previews/legacy-atelier-v10.jpg",
-      "description": "Artistic-leaning SDXL merge (Rayctifier + Midnight lineage), sister checkpoint to Art Studio Complete. Painterly brushwork aesthetic with rich, warm color grading. Baked VAE. DPM++ 3M SDE / Karras recommended by the creator.",
+      "description": "Artistic SDXL merge with painterly brushwork and rich, warm color grading. Sister checkpoint to Art Studio Complete.",
       "tags": [
         "SDXL",
         "Artistic",
@@ -470,7 +470,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 6.94,
-          "notes": "SDXL 1.0 artistic merge, baked VAE. DPM++ 3M SDE / Karras, 30 steps, CFG 5 recommended by creator."
+          "notes": "SDXL 1.0 artistic merge, baked VAE. DPM++ 3M SDE / Karras, 30 steps, CFG 5 recommended by creator. Legacy Atelier is a Rayctifier + Midnight lineage merge."
         },
         "extensions": [
           {
@@ -488,7 +488,7 @@
       "tagline": "Warm, glowing SDXL anime with close framing",
       "icon": "💌",
       "previewImage": "previews/gockso-anime-love-song.jpg",
-      "description": "GockSo's Anime Love Song, an SDXL merge of AnythingXL and a Blue Archive model, fine-tuned for colour. In our test it gave warm, glowing, bloom-heavy anime with close framing; on long prompts it followed less closely than the Anima cards, so check hair colours and costume details. 28 steps of Euler a at CFG 6 with the author's short quality tags and negative, about 13 seconds a picture on a 12 GB card. Please credit GockSo when you share what you make.",
+      "description": "Warm, glowing, bloom-heavy anime with close framing, from GockSo's SDXL merge of AnythingXL and a Blue Archive model, fine-tuned for colour. It uses the author's short quality tags and negative.\n\nOn long prompts it followed less closely than the Anima cards, so check hair colours and costume details.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nLicence: credit is required, so please credit GockSo when you share what you make. Selling images is not listed as allowed.",
       "tags": [
         "SDXL",
         "Anime",

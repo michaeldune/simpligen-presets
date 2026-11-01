@@ -1,7 +1,7 @@
 {
   "id": "wan22-i2v-gguf-pack",
   "name": "Community — Wan 2.2 I2V (GGUF)",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "Wan-AI",
   "nsfw": false,
   "description": "Wan 2.2 14B image-to-video, GGUF Q4 quant for lower VRAM (12 GB-friendly). Dual high/low-noise experts + 4-step lightx2v LoRAs. Reuses the umt5 encoder + Wan VAE.",
@@ -17,7 +17,7 @@
       "name": "Wan 2.2 I2V (GGUF Q4)",
       "icon": "🎬",
       "previewImage": "previews/wan-22-i2v-gguf-q4.jpg",
-      "description": "Wan 2.2 14B image-to-video in GGUF Q4_K_M — lighter on VRAM than the fp8 build, tuned for 12 GB cards. 4-step dual-expert (high steps 0-2, low steps 2-4) with the lightx2v distill LoRAs. Animate a still image with a motion prompt.",
+      "description": "Animates a still image from a motion prompt, in 4 steps. This GGUF Q4 build of Wan 2.2 14B is lighter on memory than the fp8 build and tuned for 12 GB cards.\n\nOn a 12 GB card, use 480p and short clips. 720p needs about 16 GB.",
       "tags": [
         "Wan",
         "Video",

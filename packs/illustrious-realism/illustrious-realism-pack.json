@@ -1,7 +1,7 @@
 {
   "id": "illustrious-realism-pack",
   "name": "Community — Illustrious Realism",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "various",
   "nsfw": false,
   "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
@@ -326,7 +326,7 @@
       "name": "IllustriousSAT Real V3",
       "icon": "🎞️",
       "previewImage": "previews/illustrioussat-real-v3.jpg",
-      "description": "Photorealistic Illustrious generation with strong character knowledge, dynamic composition, and cinematic scene handling.",
+      "description": "Fast photorealistic Illustrious pictures with strong character knowledge, dynamic composition and cinematic scene handling.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -421,7 +421,7 @@
       "tagline": "Semi-realistic Illustrious (anime and photoreal)",
       "icon": "📷",
       "previewImage": "previews/semi-real-illustrious-v30.jpg",
-      "description": "Semi-realistic Illustrious model (MM) blending anime and photoreal aesthetics. CLIP Skip 2, baked VAE, euler_ancestral. Danbooru tags + descriptive prompts.",
+      "description": "Semi-realistic pictures that blend anime and photoreal looks. Prompt with Danbooru tags plus description.",
       "tags": [
         "Illustrious",
         "SemiRealistic",
@@ -523,7 +523,7 @@
       "tagline": "Natural portrait realism with flexible LoRA blending",
       "icon": "📷",
       "previewImage": "previews/babes-illustrious-v55-fp16.jpg",
-      "description": "Stable Yogi's Illustrious v5.5 FP16 checkpoint, tuned for realistic skin, diverse faces, stronger anatomy, and controlled portrait lighting.",
+      "description": "Natural portrait realism: realistic skin, diverse faces, stronger anatomy and controlled portrait lighting.",
       "tags": [
         "Illustrious",
         "Realistic",

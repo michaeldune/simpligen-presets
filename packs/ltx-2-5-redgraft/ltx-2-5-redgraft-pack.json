@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
@@ -20,7 +20,7 @@
       "id": "redgraft-ltx-25-fast2k-t2v",
       "name": "LTX 2.5 REDgraft Fast 2K (T2V, Mature)",
       "icon": "⚡",
-      "description": "Generate video directly from a text prompt with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX T2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
+      "description": "Turns a text prompt into video with generated sound, using the REDgraft mature finetune of LTX 2.5. It runs two passes on a fast 8-step schedule. No source image is needed.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5. The text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
       "tagline": "Fast LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/redgraft-ltx-25-fast2k-t2v.jpg",
       "tags": [
@@ -196,7 +196,7 @@
       "id": "redgraft-ltx-25-fast2k-i2v",
       "name": "LTX 2.5 REDgraft Fast 2K (I2V, Mature)",
       "icon": "🖼️",
-      "description": "Animate a source image with the LTX 2.5 REDgraft Sulphur2-port INT8 model. The preset uses the official two-pass LTX I2V graph, generated audio, CFG 1, and a fast 8-step schedule.",
+      "description": "Animates a source image and generates its sound, using the REDgraft mature finetune of LTX 2.5. It runs two passes on a fast 8-step schedule. A source image is required.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5. The text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
       "tagline": "Fast LTX 2.5 image-to-video with generated audio",
       "previewImage": "previews/redgraft-ltx-25-fast2k-i2v.jpg",
       "tags": [

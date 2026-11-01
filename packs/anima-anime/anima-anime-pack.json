@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -17,7 +17,7 @@
       "tagline": "Flexible base anime & illustration model",
       "icon": "🌸",
       "previewImage": "previews/anima-base-v1.jpg",
-      "description": "True base Anima model with maximum style flexibility and diversity. Danbooru-tag prompting; specify artist and quality tags for stronger aesthetics.",
+      "description": "The plain base Anima model, with the widest range of styles of the Anima cards.\n\nPrompt with Danbooru tags, and name artist and quality tags for a stronger look.",
       "tags": [
         "Anima",
         "Anime",
@@ -123,7 +123,7 @@
       "tagline": "Polished anime look in 14 steps",
       "icon": "💠",
       "previewImage": "previews/vxp-anima-turbo-v1.jpg",
-      "description": "VXP's Anima checkpoint with a strong, consistent anime style: clean linework, rich colour, solid faces. Built to finish in 12-15 steps: about 12 seconds for a 1 MP picture on a 12 GB card. Prompt with Danbooru tags, plain sentences, or both; for a known character, look up its exact tag on animadex.net first. Keep CFG around 3-4, higher looks forced.",
+      "description": "Fast anime pictures with one strong, consistent style: clean linework, rich colour and solid faces. Built to finish in 12-15 steps, about 12 seconds for a 1 MP picture on a 12 GB card.\n\nPrompt with Danbooru tags, plain sentences, or both. For a known character, look up its exact tag on animadex.net first. Keep CFG around 3-4; higher looks forced.\n\nThe author forbids re-uploading the model to PixAI.",
       "tags": [
         "Anima",
         "Anime",
@@ -228,7 +228,7 @@
       "name": "RDBT Anima b1 v0.39.b",
       "icon": "🎨",
       "previewImage": "previews/rdbt-anima-b1-v039b.jpg",
-      "description": "Fast guidance-distilled Anima generation. Specify an art style explicitly for predictable results.",
+      "description": "Fast distilled Anima for illustration. Name an art style in the prompt for predictable results.",
       "tags": [
         "Anima",
         "Anime",
@@ -324,7 +324,7 @@
       "tagline": "Illustrious merge fine-tuned for male anime characters",
       "icon": "⚔️",
       "previewImage": "previews/male-ggmix-illustrious-anima-v11.jpg",
-      "description": "Illustrious/Anima merge optimized for male anime characters. Strong male anatomy, expressive faces, versatile for action, fantasy, and portrait scenes.",
+      "description": "An Illustrious and Anima merge made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.\n\nThe model is a manual download from civitai.red.",
       "tags": [
         "Anima",
         "Anime",
@@ -429,7 +429,7 @@
       "tagline": "Illustrious-flavored Anima mix with its own text encoder",
       "icon": "🌀",
       "previewImage": "previews/ri-mix-illustrious-anima.jpg",
-      "description": "Anima mix infused with Illustrious aesthetics for clean, vibrant anime. Ships its own text encoder. Danbooru-tag prompting; ER-SDE / simple, ModelSamplingAuraFlow shift 3.",
+      "description": "An Anima mix with Illustrious aesthetics, for clean, vibrant anime. Prompt with Danbooru tags.\n\nIt comes with its own text encoder that the other Anima cards don't share, so download all three parts.",
       "tags": [
         "Anima",
         "Anime",
@@ -535,7 +535,7 @@
       "tagline": "MiaoMiao Harem's Anima mainline v1.6",
       "icon": "👑",
       "previewImage": "previews/miaomiao-harem-anima-v16.jpg",
-      "description": "Anima v1.6 anime checkpoint from MIAOKA, tuned for expressive anime illustration, skin detail, and mixed tag/natural-language prompting. Uses the release's bundled Qwen text encoder.",
+      "description": "Anime illustration tuned for expression and skin detail. Prompts can mix tags and natural language. It uses the text encoder that comes with the release.\n\nReview the creator's usage restrictions before commercial use.",
       "tags": [
         "Anima",
         "Anime",
@@ -642,7 +642,7 @@
       "tagline": "Newer RDBT: painterly, moody, no default style",
       "icon": "🖌️",
       "previewImage": "previews/rdbt-anima-v23-16s.jpg",
-      "description": "reakaakasky's RDBT v2.3, the newest of the distilled 16-step RDBT checkpoints (the b1 card above is an older build). Finishes in 16 steps at CFG 1, about 6 seconds a picture on a 12 GB card. Next to b1 it comes out softer, more painterly and darker-lit. RDBT has no built-in style on purpose, so name one (an @artist tag or a style in words) or the look will wander. No quality tags needed. The author has stopped updating the distilled versions, so this is the last one.",
+      "description": "Painterly, moody anime in 16 steps, about 6 seconds a picture on a 12 GB card. Next to the RDBT b1 card it comes out softer, more painterly and darker-lit.\n\nThis model has no built-in style on purpose, so name one (an @artist tag or a style in words) or the look will wander. No quality tags needed.\n\nThis is the newest of the distilled RDBT versions and the last one: the author has stopped updating them. The author does not allow sharing merges of this model.",
       "tags": [
         "Anima",
         "Anime",
@@ -747,7 +747,7 @@
       "tagline": "Glossy, high-contrast anime with dramatic light",
       "icon": "💎",
       "previewImage": "previews/anima-element7-nexus-prism-iv.jpg",
-      "description": "Triple_Seven's Element 7 suite, Nexus Prism IV branch (the most anime of the suite; IV fixes lighting and shadows). In our test it gave a glossy, high-contrast finish with strong backlight and sparks, and leaned toward its own poses rather than the base model's. 30 steps at CFG 4.5, about 17 seconds a picture on a 12 GB card. Tags, sentences or both work. Can drift into mature content on its own; the author suggests adding nsfw to the negative prompt if you don't want it.",
+      "description": "Glossy, high-contrast anime with strong backlight and sparks. This is the most anime branch of the Element 7 suite, and this version fixes lighting and shadows. It leans toward its own poses rather than the base model's.\n\nTags, sentences or both work. About 17 seconds a picture on a 12 GB card.\n\nIt can drift into mature content on its own. The author suggests adding nsfw to the negative prompt if you don't want it.\n\nThe author asks that it not be used for commissions.",
       "tags": [
         "Anima",
         "Anime",
@@ -853,7 +853,7 @@
       "tagline": "Beginner-friendly: good pictures from plain prompts",
       "icon": "💗",
       "previewImage": "previews/one-obsession-anima-v4.jpg",
-      "description": "maxfeifei8's One Obsession for Anima, v4.0. The author built it so a short prompt with no artist tags or LoRAs still gives a finished picture, and the card adds their recommended quality tags for you. In our test: bright, polished anime with clean faces and full backgrounds. 30 steps at CFG 4.5, about 20 seconds a picture on a 12 GB card. Artist tags work if you want a style: start them with @, for example @piromizu.",
+      "description": "Beginner-friendly anime: a short prompt with no artist tags or LoRAs still gives a finished picture, because the card adds the author's recommended quality tags for you. Expect bright, polished anime with clean faces and full backgrounds.\n\nArtist tags work if you want a style: start them with @, for example @piromizu.\n\nAbout 20 seconds a picture on a 12 GB card.",
       "tags": [
         "Anima",
         "Anime",
@@ -959,7 +959,7 @@
       "tagline": "Flat cel shading, bold outlines, fast",
       "icon": "🤿",
       "previewImage": "previews/diving-anima-v8.jpg",
-      "description": "DivingSuit's Diving series for Anima, v8.0 (earlier versions added retro, mature and flat anime looks). In our test it gave the flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. 20 steps of Euler a at CFG 4 on the author's settings, about 11 seconds a picture on a 12 GB card. mature-capable. Personal use only: the author prohibits selling it.",
+      "description": "The flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. About 11 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nPersonal use only: the author prohibits selling it.",
       "tags": [
         "Anima",
         "Anime",
@@ -1065,7 +1065,7 @@
       "tagline": "Bigger Anima, newer characters (to July 2026)",
       "icon": "📚",
       "previewImage": "previews/anima-29b-v1.jpg",
-      "description": "gazingstars321's Anima-2.9B: Anima grown from 28 to 40 layers and trained on 1.7 million more anime pictures, with characters and series up to July 2026. It runs in SimpliGen as is; the author's custom node is not needed. In our test it gave the most different pictures of the Anima cards, with its own compositions and a warm, saturated palette. It needs detailed prompts: name the series after every character, describe the background, and keep the year tag the card adds. 30 steps at CFG 4, about 24 seconds a picture on a 12 GB card. An early preview, by the author's own account.",
+      "description": "A bigger Anima, grown from 28 to 40 layers and trained on 1.7 million more anime pictures, with characters and series up to July 2026. In our test it gave the most different pictures of the Anima cards, with its own compositions and a warm, saturated palette.\n\nIt needs detailed prompts: name the series after every character, describe the background, and keep the year tag the card adds. A one-sentence prompt left most of the frame empty in our test.\n\nAbout 24 seconds a picture on a 12 GB card. An early preview, by the author's own account.\n\nLicence: CircleStone Labs Non-Commercial License (derivative model).",
       "tags": [
         "Anima",
         "Anime",
@@ -1171,7 +1171,7 @@
       "tagline": "Bright, clean anime with detailed skin",
       "icon": "🍊",
       "previewImage": "previews/nova-orange-am-v4.jpg",
-      "description": "Crody's Nova Orange AM, a tribute to the OrangeMixes and the Anima version of Nova Orange XL (a different model from Nova Reality AM in the Anima Realism pack). v4.0 moves to the larger Anima 2.9B base. In our test: bright, clean, polished anime with soft skin shading and lots of light. 25 steps of Euler a at CFG 5 with the author's quality prefix and negative, about 20 seconds a picture on a 12 GB card. Generated images are not for commercial use unless edited, per the author.",
+      "description": "Bright, clean, polished anime with soft skin shading and lots of light, on the larger Anima 2.9B base. It uses the author's quality prefix and negative. About 20 seconds a picture on a 12 GB card.\n\nThis is the Anima version of Nova Orange XL, and a different model from Nova Reality AM in the Anima Realism pack.\n\nGenerated images are not for commercial use unless edited, per the author.",
       "tags": [
         "Anima",
         "Anime",
@@ -1277,7 +1277,7 @@
       "tagline": "The official fast Anima: 10 steps, about 6 seconds",
       "icon": "⚡",
       "previewImage": "previews/anima-turbo-v11.jpg",
-      "description": "CircleStone Labs' own distilled Anima (the makers of the base model, with Comfy Org), turbo-v1.1. 10 steps at CFG 1, about 6 seconds a picture on a 12 GB card, the fastest Anima card. In our test it drew crisp lines and strong contrast with a confident default style; the authors say the distillation trades some variety for stability, and recommend starting here and iterating on prompts quickly. Artist tags work (start them with @). The card leaves out the Anima system prompt: with it, this model printed part of that sentence across the top of one bake picture.",
+      "description": "The official fast Anima from the makers of the base model, and the fastest Anima card: about 6 seconds a picture on a 12 GB card, in 10 steps.\n\nExpect crisp lines, strong contrast and a confident default style. The authors say the speed trades some variety for stability, and recommend starting here and iterating on prompts quickly.\n\nArtist tags work: start them with @.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.",
       "tags": [
         "Anima",
         "Anime",
@@ -1378,7 +1378,7 @@
       "tagline": "Soft, cool-toned 2.5D on the bigger 2.9B Anima",
       "icon": "🔷",
       "previewImage": "previews/anima-delta-mix-29b-v7-flat.jpg",
-      "description": "_Luner_'s Delta Mix, a merge on Anima-2.9B (the 40-layer Anima), DeltaMix v7.0 Flat. In our test it gave soft, cool-toned, glossy 2.5D pictures with gentle light, and some kemonomimi leaning by the author's account. 30 steps of Euler a at CFG 4.5 on the author's settings, about 24 seconds a picture on a 12 GB card. It runs in SimpliGen as is: the author's page asks for a loader patch, but the engine loaded all 40 layers in our test with clean pictures. Non-commercial (Anima licence); do not sell the weights.",
+      "description": "Soft, cool-toned, glossy 2.5D pictures with gentle light, on the bigger 40-layer Anima 2.9B. The author says it leans a little toward kemonomimi. About 24 seconds a picture on a 12 GB card.\n\nIt runs in SimpliGen as is: the author's page asks for a loader patch, but it loaded correctly with clean pictures in our test.\n\nNon-commercial (Anima licence); do not sell the weights.",
       "tags": [
         "Anima",
         "Anime",
@@ -1484,7 +1484,7 @@
       "tagline": "Bright, saturated, glossy anime",
       "icon": "🐲",
       "previewImage": "previews/kodoraan-v5.jpg",
-      "description": "Kodora's KodoraAN, a merge of Anima models; v5.0 includes Anima-2.9B, so it is the bigger 40-layer kind. The author says it has no particular concept and the look changes from version to version. In our test v5.0 gave bright, saturated, glossy anime with clean faces. The author gives no settings, so the card uses the Anima base card's: 30 steps at CFG 4.5, about 26 seconds a picture on a 12 GB card.",
+      "description": "Bright, saturated, glossy anime with clean faces, on the bigger 40-layer Anima 2.9B. The author says this merge has no particular concept and its look changes from version to version.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.",
       "tags": [
         "Anima",
         "Anime",
@@ -1589,7 +1589,7 @@
       "tagline": "Mature characters on the 2.9B Anima",
       "icon": "🏝️",
       "previewImage": "previews/ccdream-island-29b-mature.jpg",
-      "description": "DreamIsland's CC-Dream Island on Anima-2.9B, the Mature build. For the grown-up look the author asks you to write 'mature woman, mature female, mature' instead of '1girl', and to follow Anima prompting: quality tags, a year tag, @artist tags, character count, and series tags next to character names. With ordinary '1girl' prompts it stayed close to Anima base in our test. 30 steps at CFG 4.5 (the author gives no settings), about 26 seconds a picture on a 12 GB card. The author does not allow sharing merges of it.",
+      "description": "Mature-looking characters on the bigger Anima 2.9B.\n\nFor the grown-up look the author asks you to write 'mature woman, mature female, mature' instead of '1girl'. With ordinary '1girl' prompts it stayed close to Anima base in our test.\n\nFollow Anima prompting: quality tags, a year tag, @artist tags, character count, and series tags next to character names.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nThe author does not allow sharing merges of it. Licence (Civitai): RentCivit only; no derivatives.",
       "tags": [
         "Anima",
         "Anime",
@@ -1695,7 +1695,7 @@
       "tagline": "Soft, glowing 2.5D anime",
       "icon": "🥧",
       "previewImage": "previews/pie-models-anima-cream-v2.jpg",
-      "description": "mommymia's Pie Models for Anima, the Cream v2 pie (2.5D anime; the series also has semi-real pies). In our test it gave soft, glowing 2.5D pictures with smooth shading. 30 steps of Euler a at CFG 5 with the author's quality tags and negative, about 22 seconds a picture on a 12 GB card. The author asks you to read their settings; they recommend 832x1216, 1216x832 or 1024x1024.",
+      "description": "Soft, glowing 2.5D anime with smooth shading. The card uses the author's quality tags and negative. About 22 seconds a picture on a 12 GB card.\n\nThe author asks you to read their settings. They recommend 832x1216, 1216x832 or 1024x1024.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives.",
       "tags": [
         "Anima",
         "Anime",
@@ -1801,7 +1801,7 @@
       "tagline": "Painterly light and atmosphere; give it long prompts",
       "icon": "🧪",
       "previewImage": "previews/riaku-lab-v1.jpg",
-      "description": "flawnest's Riaku Lab, an experimental Anima build (v1.0: 4,500 training steps) aimed at painterly atmosphere and complex lighting. In our test it was the most different of the new Anima cards: warm backlight, glowing haze, painterly finish. The author warns it can be unstable with short prompts, so describe the scene, the light and the mood. 30 steps at CFG 4.5 (the author gives no settings), about 18 seconds a picture on a 12 GB card.",
+      "description": "An experimental Anima aimed at painterly atmosphere and complex lighting. In our test it was the most different of the newer Anima cards: warm backlight, glowing haze and a painterly finish.\n\nGive it long prompts. The author warns it can be unstable with short ones, so describe the scene, the light and the mood.\n\nThe author gives no settings, so the card uses the Anima base card's. About 18 seconds a picture on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.",
       "tags": [
         "Anima",
         "Anime",
@@ -1889,7 +1889,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 5.4,
-          "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB, sha256 b6bc93da280c..., Civitai model 3010443 / version 3416366 'v1.0' / fileId 3309404) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission) on the 2026-10-15 bake's 5 prompts x 2 seeds at 896x1152 against Anima base v1.0 (re-rendered: pixel-identical to 10-15), Anima-2.9B, RDBT b1 and the other shipped Anima cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). No sampler settings published; uses the Anima base card's er_sde / simple, 30 steps, CFG 4.5. Furthest from every other Anima card in the bake (nearest 11.0 dB). Median 17.9 s per 896x1152. No Anima system prompt ('You are an assistant designed to generate anime images... <Prompt Start>'): in the app check (a two-character prompt with a plain black hoodie, seeds 11/22/33/44) the system-prompt cards lettered it on the hoodie (Delta Mix 'Prompt Star', CC-Dream 'PROMPT', Pie a garbled 'START'); the same four seeds without it had none of it and kept their compositions. Ordinary prompt words ('Summer') can still appear on blank clothing, on every Anima card. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: a two-character prompt at 3:4 on 4 seeds (11/22/33/44), the short prompt '1girl, witch, forest' at 16:9 (fine, no instability) and a single-character prompt at 2:3 after the card dropped the system prompt: all clean; about 20 s each. LICENCE (Civitai): image use and on-site generation allowed; derivatives allowed."
+          "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB, sha256 b6bc93da280c..., Civitai model 3010443 / version 3416366 'v1.0' / fileId 3309404) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission) on the 2026-10-15 bake's 5 prompts x 2 seeds at 896x1152 against Anima base v1.0 (re-rendered: pixel-identical to 10-15), Anima-2.9B, RDBT b1 and the other shipped Anima cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). No sampler settings published; uses the Anima base card's er_sde / simple, 30 steps, CFG 4.5. Furthest from every other Anima card in the bake (nearest 11.0 dB). Median 17.9 s per 896x1152. No Anima system prompt ('You are an assistant designed to generate anime images... <Prompt Start>'): in the app check (a two-character prompt with a plain black hoodie, seeds 11/22/33/44) the system-prompt cards lettered it on the hoodie (Delta Mix 'Prompt Star', CC-Dream 'PROMPT', Pie a garbled 'START'); the same four seeds without it had none of it and kept their compositions. Ordinary prompt words ('Summer') can still appear on blank clothing, on every Anima card. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: a two-character prompt at 3:4 on 4 seeds (11/22/33/44), the short prompt '1girl, witch, forest' at 16:9 (fine, no instability) and a single-character prompt at 2:3 after the card dropped the system prompt: all clean; about 20 s each. LICENCE (Civitai): image use and on-site generation allowed; derivatives allowed. v1.0 had 4,500 training steps."
         },
         "extensions": [
           {
@@ -1907,7 +1907,7 @@
       "tagline": "Muted, moody light with detailed backgrounds",
       "icon": "🦪",
       "previewImage": "previews/pearly-unknown-v1.jpg",
-      "description": "Serephian's Pearly Unknown for Anima, made for clean lighting, detailed backgrounds and characters that stand out. In our test it gave a muted, moody, slightly semi-real finish with deep backgrounds. DPM++ 2M at CFG 4.5 for 28 steps with the author's quality tags, about 19 seconds a picture on a 12 GB card. For richer backgrounds the author suggests 'photo background' or 'scenery, detailed background'.",
+      "description": "Muted, moody, slightly semi-real anime with deep, detailed backgrounds and clean light. The card uses the author's quality tags. About 19 seconds a picture on a 12 GB card.\n\nFor richer backgrounds the author suggests 'photo background' or 'scenery, detailed background'.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.",
       "tags": [
         "Anima",
         "Anime",
@@ -2013,7 +2013,7 @@
       "tagline": "Crisp, polished Anima anime; follows long prompts closely",
       "icon": "🌒",
       "previewImage": "previews/unholy-desire-dark-serenity-v3.jpg",
-      "description": "UnholyDesiresStudio's Unholy Desire Mix, Dark Serenity v3.0 on the standard 2B Anima. In our side-by-side test it gave crisp, polished anime with clean faces and careful detail on armour, hair and clothing, and it kept every attribute of a busy two-character prompt in place. 24 steps at CFG 4 with the author's quality tags and negative, about 15 seconds a picture on a 12 GB card. The author's own minimum is 16 steps at CFG 1, which renders in about 5 seconds but in our test dropped details (a sword became a spear, capes went missing) and mixed up who wears what; the CFG slider goes down to 1 if you want that speed. mature-capable.",
+      "description": "Crisp, polished anime with clean faces and careful detail on armour, hair and clothing. In our side-by-side test it kept every attribute of a busy two-character prompt in place. The card uses the author's quality tags and negative. About 15 seconds a picture on a 12 GB card.\n\nIf you want more speed, the CFG slider goes down to 1, and with 16 steps that renders in about 5 seconds. That is the author's own minimum, but in our test it dropped details (a sword became a spear, capes went missing) and mixed up who wears what.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). Licence (Civitai): image use, on-site generation and selling images allowed; derivatives allowed.",
       "tags": [
         "Anima",
         "Anime",
@@ -2119,7 +2119,7 @@
       "tagline": "Dramatic light and close framing on the 2.9B Anima",
       "icon": "🐾",
       "previewImage": "previews/pawhibited-anima-29b-v1.jpg",
-      "description": "Meiyue's Pawhibited, made with CatgirlContraband: a finetune of Anima-2.9B, the 40-layer Anima. In our test it gave dramatic, detailed pictures with closer framing than Anima base; golden-hour scenery can tip into a heavy gold cast. 28 steps of Euler at CFG 4 on the authors' settings, about 27 seconds a picture on a 12 GB card. The authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.",
+      "description": "Dramatic, detailed pictures with closer framing than Anima base, on the bigger 40-layer Anima 2.9B. Golden-hour scenery can tip into a heavy gold cast. About 27 seconds a picture on a 12 GB card.\n\nThe authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.\n\nLicence (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required.",
       "tags": [
         "Anima",
         "Anime",
@@ -2225,7 +2225,7 @@
       "tagline": "Clean, soft, bright anime with the cocoaface look",
       "icon": "🍫",
       "previewImage": "previews/cocoamix-anima-v4.jpg",
-      "description": "ccooccoo's CocoaMix Anima v4.0, a merge of Anima base with the author's own training. In our test it gave clean, soft, bright pictures. It added a small made-up print to a plain hoodie on all four test seeds, so check clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too; add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative. 30 steps at CFG 4.5 (the author gives no settings), about 22 seconds a picture on a 12 GB card. Pictures made with it are non-commercial; ask the author about commercial use. This is a different model from Krea2 CocoaMix.",
+      "description": "Clean, soft, bright anime. About 22 seconds a picture on a 12 GB card; the author gives no settings, so the card uses the Anima base card's.\n\nA few things to check. It added a small made-up print to a plain hoodie on all four test seeds, so look at clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too: add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative.\n\nThis is a different model from Krea2 CocoaMix.\n\nPictures made with it are non-commercial; ask the author about commercial use. Civitai also lists it as RentCivit only, no derivatives, with a fee for reprinting the model.",
       "tags": [
         "Anima",
         "Anime",

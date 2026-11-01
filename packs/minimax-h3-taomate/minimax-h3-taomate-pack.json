@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-taomate-pack",
   "name": "Community — MiniMax H3 (TaoMate 3-Step)",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "Alibaba TaoLive AIGC Team (LoRA); Kijai (ComfyUI conversion)",
   "nsfw": false,
   "description": "Alibaba TaoLive's TaoMate-H3 three-step distillation LoRA on the standard MiniMax H3 FL2VA weights. Three sampling steps instead of twenty, no classifier-free guidance, Euler. Text and image to video only; the LoRA stops using reference pictures, so there is no reference-to-video card. WHAT IT IS FOR. Bake 2026-09-16 on a 12 GB RTX 4070 Ti against the Turbo Accelerated pack at its default ten steps, same seeds and prompts, 5 s at 480p: a talking head rendered in 50 s against 83 s and came out sharper (Laplacian 46 vs 29) with the line verbatim and the mouth closing on the last word; a product turntable was a draw; a beach run lost sharpness (58 vs 102) and motion (frame-to-frame energy 4.5 vs 7.2), the dog smearing and the strides shortening. So: dialogue, presenters, product and other low-motion shots. Keep the turbo packs for action. Same base weights as the MiniMax H3 pack, so with that installed only the 173 MB LoRA downloads. Kijai's rank-19 averaged conversion of the official rank-128 adapter; MiniMax H3 community licence.",
@@ -21,7 +21,7 @@
       "name": "MiniMax H3 Text to Video (TaoMate 3-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-taomate-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound in three sampling steps: about 50 s per five-second shot at 480p on a 12 GB card, against 83 s for the Turbo Accelerated pack. Best for dialogue, presenters and static product shots, where it matched or beat the 10-step turbo on sharpness. Fast-moving subjects come out softer and slower than on the turbo packs; use those for action.",
+      "description": "Describe a scene and get video with matching stereo sound in three sampling steps: about 50 s per five-second shot at 480p on a 12 GB card, against 83 s for the Turbo Accelerated pack.\n\nBest for dialogue, presenters and static product shots, where it matched or beat the 10-step turbo on sharpness. Fast-moving subjects come out softer and slower than on the turbo packs, so use those for action.\n\nA 15-second shot at the 768p tier does not fit in 12 GB.\n\nMiniMax H3 community licence.",
       "tagline": "Three steps; dialogue and static shots",
       "tags": [
         "3-Step",
@@ -351,7 +351,7 @@
       "name": "MiniMax H3 Image to Video (TaoMate 3-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-taomate-i2v.jpg",
-      "description": "Your picture is the first frame; add a last frame and it animates between them, with stereo sound, in three sampling steps. About 50 s per five-second shot at 480p on a 12 GB card. Best for talking heads, presenters and product shots; fast motion comes out softer than on the turbo packs.",
+      "description": "Your picture is the first frame. Add a last frame and it animates between the two, with stereo sound, in three sampling steps. About 50 s per five-second shot at 480p on a 12 GB card.\n\nBest for talking heads, presenters and product shots. Fast motion comes out softer than on the turbo packs.\n\nA 15-second shot at the 768p tier does not fit in 12 GB.\n\nMiniMax H3 community licence.",
       "tagline": "Three steps from a first frame",
       "tags": [
         "3-Step",

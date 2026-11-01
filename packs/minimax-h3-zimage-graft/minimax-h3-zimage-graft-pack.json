@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-zimage-graft-pack",
   "name": "Community — MiniMax H3 (Z-Image Graft)",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "joeygambino",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -22,7 +22,7 @@
       "name": "MiniMax H3 Text to Video (Z-Image Graft)",
       "icon": "🧱",
       "previewImage": "previews/minimax-h3-zimage-graft-t2v.jpg",
-      "description": "joeygambino's 'spatial detail graft': stock MiniMax H3 with Z-Image's per-head attention-normalisation statistics transplanted, so the model attends to fine texture the way the 6B image model does. No retraining, no new knowledge, same identity, same speed, same VRAM. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Same-region native-pixel Laplacian variance: rust/peeling-paint wall 596 vs 411 (+45%), face 353 vs 243 (+45%); exposure slightly brighter; motion preserved; wall time identical (~200 s per 5 s clip at 480p). Where it shows: surfaces - rust, peeling paint, wet concrete, fabric weave. A modest, real gain, not a different look. Text to video on the FL2VA graft.",
+      "description": "Text to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
       "tagline": "Describe a scene - richer surfaces and materials",
       "tags": [
         "Video",
@@ -324,7 +324,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 62,
-          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies."
+          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies. Against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps, no Spectrum or Sage): same-region native-pixel Laplacian variance 596 vs 411 (+45%) on a rust and peeling-paint wall, 353 vs 243 (+45%) on a face; about 200 s per 5 s clip at 480p, identical wall time."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_t2v_cloud.json"
       }
@@ -334,7 +334,7 @@
       "name": "MiniMax H3 Image to Video (Z-Image Graft)",
       "icon": "🖼",
       "previewImage": "previews/minimax-h3-zimage-graft-i2v.jpg",
-      "description": "joeygambino's 'spatial detail graft': stock MiniMax H3 with Z-Image's per-head attention-normalisation statistics transplanted, so the model attends to fine texture the way the 6B image model does. No retraining, no new knowledge, same identity, same speed, same VRAM. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Same-region native-pixel Laplacian variance: rust/peeling-paint wall 596 vs 411 (+45%), face 353 vs 243 (+45%); exposure slightly brighter; motion preserved; wall time identical (~200 s per 5 s clip at 480p). Where it shows: surfaces - rust, peeling paint, wet concrete, fabric weave. A modest, real gain, not a different look. First frame, optional last frame, on the FL2VA graft.",
+      "description": "Image to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Give it a first frame, and a last frame if you want one.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
       "tagline": "First frame (and optional last frame) - graft look",
       "tags": [
         "Video",
@@ -644,7 +644,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 62,
-          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies."
+          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies. Against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps, no Spectrum or Sage): same-region native-pixel Laplacian variance 596 vs 411 (+45%) on a rust and peeling-paint wall, 353 vs 243 (+45%) on a face; about 200 s per 5 s clip at 480p, identical wall time."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_i2v_cloud.json"
       }
@@ -654,7 +654,7 @@
       "name": "MiniMax H3 Reference to Video (Z-Image Graft)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-zimage-graft-r2v.jpg",
-      "description": "joeygambino's 'spatial detail graft': stock MiniMax H3 with Z-Image's per-head attention-normalisation statistics transplanted, so the model attends to fine texture the way the 6B image model does. No retraining, no new knowledge, same identity, same speed, same VRAM. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Same-region native-pixel Laplacian variance: rust/peeling-paint wall 596 vs 411 (+45%), face 353 vs 243 (+45%); exposure slightly brighter; motion preserved; wall time identical (~200 s per 5 s clip at 480p). Where it shows: surfaces - rust, peeling paint, wet concrete, fabric weave. A modest, real gain, not a different look. Reference to video on the ref2va graft (author's int8 ConvRot bake of the same transplant). Verified in-app with a reference image before shipping; the texture numbers above were measured on the FL2VA file.",
+      "description": "Reference to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Add up to nine references.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. Those figures come from the checkpoint behind the text and image cards, not this one. It is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
       "tagline": "Up to nine references - graft surfaces, stock identity",
       "tags": [
         "Video",
@@ -987,7 +987,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 62,
-          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies."
+          "notes": "Two 21 GB pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video) from joeygambino's Hugging Face repo MiniMax-H3-x-Z-Image-native; each card downloads only the one it uses. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. The FL2VA file is the comfy-native int8 format (ComfyUI 0.32+). LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies. Against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps, no Spectrum or Sage): same-region native-pixel Laplacian variance 596 vs 411 (+45%) on a rust and peeling-paint wall, 353 vs 243 (+45%) on a face; about 200 s per 5 s clip at 480p, identical wall time. These texture numbers were measured on the FL2VA file. The ref2va graft is the author's int8 ConvRot bake of the same transplant, verified in the app with a reference image before shipping."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_r2v_cloud.json"
       }

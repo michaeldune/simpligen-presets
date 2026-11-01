@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-sparseref15-pack",
   "name": "Community — MiniMax H3 (SparseRef15)",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "Aki7777777",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -22,7 +22,7 @@
       "name": "MiniMax H3 Text to Video (SparseRef15)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-sparseref15-t2v.jpg",
-      "description": "Aki7777777's SparseRef15 Hybrid: an FL2VA-based checkpoint with a sparse Ref2VA influence applied through AdaLN in 15 main transformer blocks, no LoRA merge. The author's goal is stronger character consistency across long multi-clip sequences while keeping FL2VA's motion freedom. Use FL2VA LoRAs with it, not Ref2VA LoRAs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Same-region native-pixel Laplacian variance on the face crop 396 vs 243 (+63%); the stillest locked-off shot and the most motion in the tracking shot of the 20-step arms; wall time identical (~200 s per 5 s clip at 480p). NOT measured here: the author's long-form identity claim - this pack ships the text and image cards only. Text to video.",
+      "description": "Text to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
       "tagline": "Describe a scene - the sharpest faces at 20 steps",
       "tags": [
         "Video",
@@ -324,7 +324,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "One 21 GB checkpoint (Civitai model 2900456, version 'Pruned Partial-INT8 V1.0') serves both cards; a Civitai API key may be needed for the download. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. FL2VA-based: use FL2VA LoRAs. LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies."
+          "notes": "One 21 GB checkpoint (Civitai model 2900456, version 'Pruned Partial-INT8 V1.0') serves both cards; a Civitai API key may be needed for the download. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. FL2VA-based: use FL2VA LoRAs. LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies. Measured against the official pruned int8 checkpoint at 864x480, 5 s, 20 steps, no Spectrum or Sage: face crop Laplacian variance 396 vs 243 (+63%), about 200 s per 5 s clip at 480p."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_t2v_cloud.json"
       }
@@ -334,7 +334,7 @@
       "name": "MiniMax H3 Image to Video (SparseRef15)",
       "icon": "🖼",
       "previewImage": "previews/minimax-h3-sparseref15-i2v.jpg",
-      "description": "Aki7777777's SparseRef15 Hybrid: an FL2VA-based checkpoint with a sparse Ref2VA influence applied through AdaLN in 15 main transformer blocks, no LoRA merge. The author's goal is stronger character consistency across long multi-clip sequences while keeping FL2VA's motion freedom. Use FL2VA LoRAs with it, not Ref2VA LoRAs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Same-region native-pixel Laplacian variance on the face crop 396 vs 243 (+63%); the stillest locked-off shot and the most motion in the tracking shot of the 20-step arms; wall time identical (~200 s per 5 s clip at 480p). NOT measured here: the author's long-form identity claim - this pack ships the text and image cards only. First frame, optional last frame.",
+      "description": "Image to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom. Your picture is the first frame, and you can add a last frame.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
       "tagline": "First frame (and optional last frame) - SparseRef15 faces",
       "tags": [
         "Video",
@@ -644,7 +644,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 32,
           "sizeGB": 41,
-          "notes": "One 21 GB checkpoint (Civitai model 2900456, version 'Pruned Partial-INT8 V1.0') serves both cards; a Civitai API key may be needed for the download. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. FL2VA-based: use FL2VA LoRAs. LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies."
+          "notes": "One 21 GB checkpoint (Civitai model 2900456, version 'Pruned Partial-INT8 V1.0') serves both cards; a Civitai API key may be needed for the download. Encoder, video VAE and audio VAE are the official Comfy-Org files shared with every other H3 pack. Official 20-step recipe, nothing to install beyond what SimpliGen ships. FL2VA-based: use FL2VA LoRAs. LICENCE: derivative of MiniMax H3 weights, MiniMax H3 Community License applies. Measured against the official pruned int8 checkpoint at 864x480, 5 s, 20 steps, no Spectrum or Sage: face crop Laplacian variance 396 vs 243 (+63%), about 200 s per 5 s clip at 480p."
         },
         "cloudWorkflow": "presets/workflows/video_minimax_h3_i2v_cloud.json"
       }

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-character-swap-pack",
   "name": "Community — MiniMax H3 (Character Swap)",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "addedAt": "2026-10-18",
   "author": "akatz-ai + UntMods (LoRAs) + lightx2v (Turbo LoRAs) + michaeldune (cards)",
   "nsfw": false,
@@ -33,7 +33,7 @@
       "enabled": true,
       "template": "wan-video",
       "tagline": "Swap one person in a clip for your character",
-      "description": "Swap one person in an existing clip for your own character, and leave everyone else in the shot alone. Put the clip in Reference Video 1 and a picture of the character in the Character slot (a full-body front view or a character sheet works). In the prompt, write only who to replace, for example \"the woman in the red coat on the right\" or \"the man on the left\"; the card adds the rest of the instruction. The camera, background, motion and the other people stay; the clip keeps its own soundtrack. Output: the first 5 to 15 s of the clip (Duration) at 480p. On a 12 GB card 5 s takes about 5 minutes, 8 s about 12, 11 s about 17 and 15 s about 36; for long durations close browsers and other programs that use the graphics card, since they can make a long render several times slower. The new face mixes the character with the original performer (brows, face shape, smile), so it is close rather than exact; for the closest match to a character sheet on a single person, use Viggle Animate instead.",
+      "description": "Swap one person in an existing clip for your own character, and leave everyone else in the shot alone. The camera, background, motion and the other people stay, and the clip keeps its own soundtrack.\n\nPut the clip in Reference Video 1 and a picture of the character in the Character slot (a full-body front view or a character sheet works). In the prompt, write only who to replace, for example \"the woman in the red coat on the right\" or \"the man on the left\"; the card adds the rest of the instruction.\n\nOutput: the first 5 to 15 s of the clip (Duration) at 480p. On a 12 GB card 5 s takes about 5 minutes, 8 s about 12, 11 s about 17 and 15 s about 36. For long durations close browsers and other programs that use the graphics card, since they can make a long render several times slower.\n\nThe new face mixes the character with the original performer (brows, face shape, smile), so it is close rather than exact. For the closest match to a character sheet on a single person, use Viggle Animate instead. This card can pick one person out of a group, needs no repaint step and has no non-commercial part.\n\nTo change only the face and hair and keep the outfit, use Head Swap.\n\nLicence: MiniMax H3 Community License (Character Swap LoRA) and Apache-2.0 (Turbo LoRA).",
       "tags": [
         "Video",
         "V2V",
@@ -165,7 +165,7 @@
       "enabled": true,
       "template": "wan-video",
       "tagline": "New face and hair on someone in a clip, outfit kept",
-      "description": "Put a new head on someone in a clip: a new face and hair, and everything else stays. Put the clip in Reference Video 1 and a picture of the head in the Head slot. Crop the picture above the shoulders (face and hair only): any clothes in the picture come along. No prompt is needed. The clothes, props, pose, background and the clip's own soundtrack stay, and the mouth follows the original performance. Good to know: the hair can keep the original's shape and take the new colour (wet, slicked-back or very long hair); it cannot pick one person out of a group, so with two people in the shot it may change both; only the head changes, not the body. Output: the first 5 to 15 s of the clip (Duration) at 480p; on a 12 GB card 5 s takes about 5 minutes, 8 s about 12 and 15 s about 40. For long durations close browsers and other programs that use the graphics card.",
+      "description": "Put a new head on someone in a clip: a new face and hair, and everything else stays. The clothes, props, pose, background and the clip's own soundtrack are kept, and the mouth follows the original performance.\n\nPut the clip in Reference Video 1 and a picture of the head in the Head slot. Crop the picture above the shoulders (face and hair only): any clothes in the picture come along. A four-view character sheet did not swap at all in testing, and a head that clearly differs from the performer swaps most reliably. No prompt is needed.\n\nGood to know: the hair can keep the original's shape and take the new colour (wet, slicked-back or very long hair). This card cannot pick one person out of a group, so with two people in the shot it may change both. Only the head changes, not the body.\n\nOutput: the first 5 to 15 s of the clip (Duration) at 480p. On a 12 GB card 5 s takes about 5 minutes, 8 s about 12 and 15 s about 40. For long durations close browsers and other programs that use the graphics card.\n\nTo replace one chosen person's whole look, including clothes, use Character Swap.\n\nLicence: Apache-2.0 (Head Swap LoRA, Turbo LoRA).",
       "tags": [
         "Video",
         "V2V",

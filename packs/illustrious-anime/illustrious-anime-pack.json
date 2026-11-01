@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -18,7 +18,7 @@
       "tagline": "Detailed semi-realistic anime",
       "icon": "🌙",
       "previewImage": "previews/rule-of-moon-v2p.jpg",
-      "description": "Detailed semi-realistic Illustrious anime with crisp linework, expressive eyes, and clean lighting. Danbooru-tag prompting.",
+      "description": "Detailed semi-realistic anime with crisp linework, expressive eyes and clean lighting. Prompt with Danbooru tags.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -123,7 +123,7 @@
       "tagline": "Fantasy anime creatures & characters",
       "icon": "🐓",
       "previewImage": "previews/mega-cock-fantasy-human.jpg",
-      "description": "Illustrious anime model geared toward fantasy creatures and characters. Danbooru-tag prompting.",
+      "description": "Anime model geared toward fantasy creatures and characters. Prompt with Danbooru tags.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -225,7 +225,7 @@
       "tagline": "Crimson-themed Illustrious anime",
       "icon": "🩸",
       "previewImage": "previews/vete-crimson-oath-v02ill.jpg",
-      "description": "Illustrious anime checkpoint (Crimson Oath, ILL variant) with bold color and dynamic composition. Danbooru-tag prompting.",
+      "description": "Anime with bold colour and dynamic composition. Prompt with Danbooru tags.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -326,7 +326,7 @@
       "name": "Nova Anime XL v7.0",
       "icon": "✨",
       "previewImage": "previews/nova-anime-xl-v70.jpg",
-      "description": "Polished anime and 2.5D illustration with vivid lighting, detailed characters, and rich backgrounds.",
+      "description": "Polished anime and 2.5D illustration with vivid lighting, detailed characters and rich backgrounds. Works with LoRAs.",
       "tags": [
         "Anime",
         "2.5D",
@@ -429,7 +429,7 @@
       "name": "WAI Illustrious SDXL v17",
       "icon": "🌸",
       "previewImage": "previews/wai-illustrious-sdxl-v170.jpg",
-      "description": "WAI-illustrious-SDXL v17.0, one of the most used Illustrious anime checkpoints: clean colour, strong character knowledge, good with Danbooru tags. Keep prompts lean, the author warns that piling on quality tags or a long negative makes pictures blurrier, so the card adds only three. Rating tags work (general, sensitive, nsfw, explicit); put \"nsfw\" in your prompt or leave it out as you need. For an older-looking character add (aged up:1.2) or (mature female:1.2) at the start.",
+      "description": "One of the most used Illustrious anime models: clean colour, strong character knowledge, good with Danbooru tags. About 12 seconds a picture on a 12 GB card.\n\nKeep prompts lean. The author warns that piling on quality tags or a long negative makes pictures blurrier, so the card adds only three.\n\nRating tags work (general, sensitive, nsfw, explicit); put \"nsfw\" in your prompt or leave it out as you need. For an older-looking character add (aged up:1.2) or (mature female:1.2) at the start.\n\nWith two characters, a detail such as glasses can land on the wrong one.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -532,7 +532,7 @@
       "name": "PerfectDeliberate V9.0",
       "icon": "✨",
       "previewImage": "previews/perfectdeliberate-v90.jpg",
-      "description": "Illustrious checkpoint with anime/semi-realistic flexibility, strong aesthetics, and LoRA support.",
+      "description": "Flexible between anime and semi-realistic, with strong aesthetics. Works with LoRAs.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -635,7 +635,7 @@
       "tagline": "Expressive Illustrious anime with V-Pred precision",
       "icon": "🌙",
       "previewImage": "previews/illumiyume-xl-v32.jpg",
-      "description": "IllumiYume XL v3.2 - Illustrious-based anime checkpoint using V-parameterisation for cleaner gradients and more expressive faces. CLIP Skip 2, external VAE.",
+      "description": "Expressive anime with cleaner gradients and more expressive faces.",
       "tags": [
         "Illustrious",
         "SDXL",
@@ -738,7 +738,7 @@
       "tagline": "Versatile anime and semi-real Illustrious mix",
       "icon": "🎨",
       "previewImage": "previews/smoothmix-ultimate-anima-v20.jpg",
-      "description": "SmoothMix Ultimate combines the SmoothMix checkpoints into one - high-quality anime with a semi-realistic push. CLIP Skip 2, baked VAE, euler_ancestral. Danbooru tags + descriptive prompts.",
+      "description": "High-quality anime with a semi-realistic push, combining the SmoothMix checkpoints into one. Prompt with Danbooru tags plus description.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -844,7 +844,7 @@
       "tagline": "Glossy 3D-render style anime, uncensored",
       "icon": "✨",
       "previewImage": "previews/unrealvision-illustrious-v10.jpg",
-      "description": "High-end 3D-render aesthetic blending stylized anime with semi-realism - Unreal Engine 5 / Arcane / Pixar-influenced lighting and volume, vibrant colors, deep skin and fabric texture. Merged in part from Illustrij. No CLIP skip; VAE baked in. Wide, permissive prompt understanding.",
+      "description": "A high-end 3D-render look that blends stylised anime with semi-realism: Unreal Engine 5, Arcane and Pixar-influenced lighting and volume, vibrant colours, deep skin and fabric texture.\n\nIts prompt understanding is wide and permissive.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -947,7 +947,7 @@
       "name": "MoonMix XL v1.0 (soft colour)",
       "icon": "🌙",
       "previewImage": "previews/moonmix-xl-v10.jpg",
-      "description": "dabasir's MoonMix XL, a three-way Illustrious merge (45% Vetehine Moonlace, 30% WAI-Illustrious v17, 25% Illustrious-XL 1.0) tuned for soft, careful colouring. In our test it stayed close to WAI v17 (same compositions from the same seed) with slightly softer colour; it is here because the community asked for it. Danbooru tags work best and it is sensitive to @artist-style tags. 30 steps of Euler a at CFG 7 on the author's settings, about 8 seconds a picture on a 12 GB card.",
+      "description": "Soft, careful colouring. In our test it stayed close to the WAI v17 card, with the same compositions from the same seed and slightly softer colour. It is here because the community asked for it.\n\nDanbooru tags work best, and it is sensitive to @artist-style tags. With two characters, details such as hair colour can swap between them.\n\nAbout 8 seconds a picture on a 12 GB card.\n\nLicence: CreativeML Open RAIL-M from the parent models; Civitai flags allow selling images and merges.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -1031,7 +1031,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7,
-          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 3008081 / version 3413273 / fileId 3305820 by dabasir, sha256 3df506a66b41...). CLIP Skip 2, Euler Ancestral / normal, 30 steps at CFG 7 (author: DPM++ 2M or Euler a, 28-32 steps, CFG 7, 832x1216; they note bf16 is sharper than this fp16 file). WAI's short quality prefix and negative. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission): the Anima bake's 5 prompts x 2 seeds at 832x1216 against the shipped Nova Anime XL v7.0 (run twice, pixel-identical) and WAI-Illustrious v17 cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). Nearest card: WAI v17 (11.9 dB). Median 8.0 s per 832x1216. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: 3 prompts at 3:4, 16:9 (two characters; hair colours swapped between the girls, the usual SDXL attribute swap) and 1:1, all clean; 9-12 s each. LICENCE: CreativeML Open RAIL-M from the parents; Civitai flags allow selling images and merges."
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 3008081 / version 3413273 / fileId 3305820 by dabasir, sha256 3df506a66b41...). CLIP Skip 2, Euler Ancestral / normal, 30 steps at CFG 7 (author: DPM++ 2M or Euler a, 28-32 steps, CFG 7, 832x1216; they note bf16 is sharper than this fp16 file). WAI's short quality prefix and negative. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission): the Anima bake's 5 prompts x 2 seeds at 832x1216 against the shipped Nova Anime XL v7.0 (run twice, pixel-identical) and WAI-Illustrious v17 cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). Nearest card: WAI v17 (11.9 dB). Median 8.0 s per 832x1216. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: 3 prompts at 3:4, 16:9 (two characters; hair colours swapped between the girls, the usual SDXL attribute swap) and 1:1, all clean; 9-12 s each. LICENCE: CreativeML Open RAIL-M from the parents; Civitai flags allow selling images and merges. The merge is 45% Vetehine Moonlace, 30% WAI-Illustrious v17 and 25% Illustrious-XL 1.0."
         },
         "checkpointUrl": "https://civitai.com/api/download/models/3413273?fileId=3305820",
         "extensions": [
@@ -1050,7 +1050,7 @@
       "name": "ClearColor Air XL v1.0 (light, clean)",
       "icon": "🫧",
       "previewImage": "previews/clearcolor-air-xl-v10.jpg",
-      "description": "dabasir's ClearColor Air XL, 75% Nova Anime XL v19 with 25% Nova Orange XL for a little more colour depth and skin detail. In our test it stayed close to our Nova Anime XL v7.0 card, with softer, whiter light; it is here because the community asked for it. The author notes a magenta cast and that it can ignore a requested male character, so state gender and palette clearly. 24 steps of Euler a at CFG 5 on the author's settings, about 6 seconds a picture on a 12 GB card.",
+      "description": "Light, clean colour with a little more depth and skin detail than Nova Anime XL, which it is mostly made from. In our test it stayed close to the Nova Anime XL v7.0 card, with softer, whiter light. It is here because the community asked for it.\n\nThe author notes a magenta cast and that it can ignore a requested male character, so state gender and palette clearly.\n\nAbout 6 seconds a picture on a 12 GB card.\n\nLicence: Illustrious licence via the Nova parents. Civitai flags allow image use and on-site generation; selling the checkpoint or merges is not granted.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -1134,7 +1134,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 7,
-          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 3017614 / version 3425798 / fileId 3320852 by dabasir, sha256 609b97c568b3...). CLIP Skip 2, Euler Ancestral / normal, 24 steps at CFG 5 (author's exact baseline: Euler a, 24 steps, CFG 5, 832x1216). Same quality prefix and negative as the Nova Anime card it descends from. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission): the Anima bake's 5 prompts x 2 seeds at 832x1216 against the shipped Nova Anime XL v7.0 (run twice, pixel-identical) and WAI-Illustrious v17 cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). Nearest card: Nova Anime v7.0 (12.0 dB). Median 6.4 s per 832x1216. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: 3 prompts at 3:4, 16:9 (two characters) and 1:1, all clean; 8-10 s each. LICENCE: Illustrious licence via the Nova parents; Civitai flags allow image use and on-site generation; selling the checkpoint or merges is not granted."
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in (Civitai model 3017614 / version 3425798 / fileId 3320852 by dabasir, sha256 609b97c568b3...). CLIP Skip 2, Euler Ancestral / normal, 24 steps at CFG 5 (author's exact baseline: Euler a, 24 steps, CFG 5, 832x1216). Same quality prefix and negative as the Nova Anime card it descends from. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission): the Anima bake's 5 prompts x 2 seeds at 832x1216 against the shipped Nova Anime XL v7.0 (run twice, pixel-identical) and WAI-Illustrious v17 cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). Nearest card: Nova Anime v7.0 (12.0 dB). Median 6.4 s per 832x1216. Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: 3 prompts at 3:4, 16:9 (two characters) and 1:1, all clean; 8-10 s each. LICENCE: Illustrious licence via the Nova parents; Civitai flags allow image use and on-site generation; selling the checkpoint or merges is not granted. The merge is 75% Nova Anime XL v19 with 25% Nova Orange XL."
         },
         "checkpointUrl": "https://civitai.com/api/download/models/3425798?fileId=3320852",
         "extensions": [
