@@ -1,0 +1,164 @@
+{
+  "id": "minimax-h3-two-person-swap-pack",
+  "name": "Community — MiniMax H3 (Two-Person Swap)",
+  "version": "1.0.0",
+  "author": "D3voz (graph and nodes) + ZhengmingYu (DMAD LoRA) + michaeldune (card)",
+  "nsfw": false,
+  "description": "One card that swaps two people in an existing clip for two characters at once, which the Character Swap card cannot do: it replaces one person. Graph by D3voz (OpenJutsu), running SAM 3.1 tracking, a small vision model that matches your two role lines to the people it tracks, and H3 masked editing with the DMAD 4-step LoRA. Keeps the camera, background, motion, cuts, other people and soundtrack. 5 to 15 s at 480p in the clip's own shape; about 3.5 minutes for 5 s on 12 GB. Adds five extensions through the app, and 8.9 GB on top of the official MiniMax H3 files. MiniMax H3 Community License and SAM License.",
+  "tags": [
+    "Local",
+    "Video",
+    "V2V",
+    "Character Swap",
+    "MiniMax H3"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-two-person-swap",
+      "name": "MiniMax H3 Two-Person Swap",
+      "icon": "🎭",
+      "enabled": true,
+      "template": "wan-video",
+      "tagline": "Swap two people in a clip for two characters",
+      "description": "Swap two people in an existing clip for two characters of your own, and leave everyone else in the shot alone. Put the clip in Reference Video 1 and a picture of each character in Character 1 and Character 2 (a full-body picture or a character sheet works). In the prompt, write two lines that say how the two people in the clip look: the first line is who Character 1 replaces, the second is who Character 2 replaces, for example \"the man in the mustard jacket\" on one line and \"the woman with red hair in the black blazer\" on the next. Describe clothes and hair. Sides alone do not work: with \"the person on the left\", the characters landed on the wrong people in 4 of 4 test runs. Write both lines; the card adds the rest of the instruction, and your words only find the people, they are not used to draw anything. The camera, background, motion, cuts and the clip's own soundtrack stay. Things people carry can stay too: a shoulder bag or a sword in their hands is kept. Output: the first 5 to 15 s of the clip (Duration) in the clip's own shape at 480p, so the card's aspect setting changes nothing, and a vertical clip comes back vertical. The length snaps down to fit H3, so 10 s can come back as 9.6 s; a clip shorter than 5 s comes back at its own length or a little under. On a 12 GB card 5 s takes about 3.5 minutes, 10 s about 6.5 and 15 s about 10; close browsers for long durations. Clips work best with the same two people throughout. Hard cuts held when the shots ran 5 s or longer; with shots of about 2 s, the characters traded places on one shot in both runs of the one clip tested. Clothing wider than the character can leave scraps: a long raincoat left dark shapes beside the legs in 4 of 4 runs. If nobody speaks in the clip, mouths can still move a little on some seeds. Small details can cross between the two characters, such as a backpack strap or the blazer from a picture, so try another seed. To replace one person, use the Character Swap card. The app installs five extensions on first use and restarts the engine. 8.9 GB on top of the official H3 files. MiniMax H3 Community License (base and DMAD LoRA), SAM License (bars military, weapons and ITAR uses); use consented references and label output as AI-generated.",
+      "tags": [
+        "Video",
+        "V2V",
+        "Character Swap",
+        "Reference",
+        "Audio"
+      ],
+      "previewImage": "previews/minimax-h3-two-person-swap.jpg",
+      "video": {
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 Ref2VA (int8) + DMAD 4-step + SAM 3.1",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_two_person_swap.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "acceptsReferenceVideos": {
+          "min": 1,
+          "max": 1,
+          "soundtrack": true
+        },
+        "acceptsReferenceImages": {
+          "min": 2,
+          "max": 2,
+          "slotLabels": [
+            "Character 1",
+            "Character 2"
+          ]
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "dmad_minimax_h3_4step_full_critic_comfyui.safetensors",
+            "url": "https://huggingface.co/ZhengmingYu/DMAD/resolve/b08c2bf3be8e67039c363781e6eaacc9713340cd/minimax_h3/dmad_minimax_h3_4step_full_critic_comfyui.safetensors",
+            "description": "DMAD H3 LoRA (MiniMax H3 Community License), 1.96 GB"
+          },
+          {
+            "dir": "checkpoints",
+            "filename": "sam3.1_multiplex_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/sam3.1/resolve/7bb8374780a725b4353ed31f3a9395c9742b5621/checkpoints/sam3.1_multiplex_fp16.safetensors",
+            "description": "Meta SAM 3.1 video tracker (SAM License), 1.75 GB"
+          },
+          {
+            "dir": "text_encoders",
+            "filename": "qwen3vl_4b_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+            "description": "Qwen3-VL 4B vision model that matches your role lines to the people it tracks, 5.24 GB"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "16:9": {
+                "width": 864,
+                "height": 480
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 48.7,
+          "notes": "Graph from D3voz's comfyui-h3-oneclick-swap (OpenJutsu two-role advanced swap): SAM 3.1 video tracking, Qwen3-VL 4B role labels, grey mannequins, Ref2VA masked edit with the DMAD 4-step LoRA, chained 6 s clips with overlap. Two changes from OpenJutsu: every role line is prefixed so it only reaches the tracker, never the H3 prompt, and the node is pinned to michaeldune's fork, which stops far-off passers-by being labelled as subjects (they rendered as white figures on busy clips). Measured on a 12 GB RTX 4070 Ti with 32 GB RAM: 5 s at 480p in 186-217 s, 10 s in 355-387 s, 15 s in 557-582 s, peak VRAM 11.6 GB, lowest free RAM 1.1 GB. Each run leaves about 7 MB in output/h3_chains."
+        },
+        "extensions": [
+          {
+            "name": "ComfyUI-VideoHelperSuite",
+            "url": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git",
+            "pinnedCommit": "3234937ff5f3ca19068aaba5042771514de2429d",
+            "description": "Video loading (GPL-3.0)"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6",
+            "description": "Mask grow"
+          },
+          {
+            "name": "ComfyUI-MiniMaxH3-Context-Loop",
+            "url": "https://github.com/ethanfel/ComfyUI-MiniMaxH3-Context-Loop.git",
+            "pinnedCommit": "43afeffcc570beb5f7382593e79e4b211c7e02f6",
+            "description": "Overlapping clip chain (GPL-3.0)"
+          },
+          {
+            "name": "ComfyUI-Fantastic-MiniMaxH3-PromptBuilder",
+            "url": "https://github.com/Adudeguyman/ComfyUI-Fantastic-MiniMaxH3-PromptBuilder.git",
+            "pinnedCommit": "22e719fe89336c628383363182a4da3cb58d4f9b",
+            "description": "Masked edit latent (MIT)"
+          },
+          {
+            "name": "comfyui-h3-oneclick-swap",
+            "url": "https://github.com/michaeldune/comfyui-h3-oneclick-swap.git",
+            "pinnedCommit": "43de97a9a1d54238a429ef81eb4d56834d3e3911",
+            "description": "Role masks and swap plan (MIT), michaeldune's fork of D3voz's node with the passer-by fix"
+          }
+        ]
+      }
+    }
+  ],
+  "addedAt": "2026-11-01",
+  "minComfyuiVersion": "v0.43.0",
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+    "https://huggingface.co/Comfy-Org/sam3.1/resolve/7bb8374780a725b4353ed31f3a9395c9742b5621/checkpoints/sam3.1_multiplex_fp16.safetensors": "9ba99c92703c2e8b4f47de2d34a539bb8e18923049e238b780d70dbe6368eb03",
+    "https://huggingface.co/ZhengmingYu/DMAD/resolve/b08c2bf3be8e67039c363781e6eaacc9713340cd/minimax_h3/dmad_minimax_h3_4step_full_critic_comfyui.safetensors": "d3ee9f599ef1ac2d76850e90372ce9064fdc2c16e7f3de6a7ba9bc90cb91eb1b",
+    "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+  }
+}
