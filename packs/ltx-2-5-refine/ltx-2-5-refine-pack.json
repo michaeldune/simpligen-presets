@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-refine-pack",
   "name": "Community — LTX 2.5 (Video Refine, MSR)",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "LiconStudio + Lightricks",
   "nsfw": false,
   "description": "Re-render any finished clip (MiniMax H3 or otherwise) at up to 1080p with LTX 2.5, holding the faces with Licon's Multi-Subject-Reference IC-LoRA. Drop the clip in Reference Video 1, one to four face pictures in the face slots, and optionally a background plate in the fifth slot, the same layout as the official Multi-Reference preset. The clip is scaled to half the tier, encoded, upsampled 2x by the LTX latent spatial upscaler and refined by the distilled LTX 2.5 with the reference faces prepended, then decoded. The source soundtrack is muxed back untouched. LTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack; pick this one for sharpness or when a face needs a reference to hold. The prompt must be LTX style, not the H3 brief: one paragraph, '<who> <does what> in <where>, <camera>, <light>'. Requires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo); the weights are the same files the LTX 2.5 packs already use.",
@@ -18,6 +18,7 @@
       "template": "wan-video",
       "description": "Drop a finished clip in Reference Video 1 and at least one face picture in Face 1 (up to four), plus an optional background plate in the Background slot. Write the prompt LTX style: one paragraph, who, action, place, camera, light. Output is the clip at the chosen tier with its own soundtrack. Measured on a 12 GB RTX 4070 Ti: 5 s from 864x480 to 1920x1088 in 155 s.",
       "video": {
+        "promptFamily": "ltx-2",
         "supports": ["local"],
         "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot) + latent upsampler + Licon MSR V1",
         "baseModels": ["ltxv-2.5-distilled"],

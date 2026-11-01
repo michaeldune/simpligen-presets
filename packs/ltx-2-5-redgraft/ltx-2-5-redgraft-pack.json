@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
@@ -34,6 +34,7 @@
       "template": "wan-video",
       "enabled": true,
       "video": {
+        "promptFamily": "ltx-2",
         "shotModes": ["t2v"],
         "supports": [
           "local"
@@ -209,6 +210,7 @@
       "template": "wan-video",
       "enabled": true,
       "video": {
+        "promptFamily": "ltx-2",
         "shotModes": ["i2v"],
         "supports": [
           "local"

@@ -1,7 +1,7 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
@@ -597,6 +597,7 @@
         ]
       },
       "video": {
+        "promptFamily": "no-prompt",
         "supports": [
           "local"
         ],

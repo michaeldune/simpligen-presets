@@ -1,7 +1,7 @@
 {
   "id": "flux2-klein-pack",
   "name": "Community — Flux 2 Klein",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Black Forest Labs",
   "nsfw": false,
   "description": "FLUX.2 Klein 9B (fp8) — Black Forest Labs' open Flux 2 model. Flux 2 DiT + Qwen 3 4B encoder + Flux 2 VAE, native ComfyUI Flux 2 support.",
@@ -45,6 +45,7 @@
         ]
       },
       "image": {
+        "promptFamily": "flux-klein",
         "supports": [
           "local"
         ],
@@ -150,6 +151,7 @@
         ]
       },
       "image": {
+        "promptFamily": "flux-klein",
         "supports": [
           "local"
         ],

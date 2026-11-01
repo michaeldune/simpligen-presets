@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -39,6 +39,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -142,6 +143,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -243,6 +245,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -344,6 +347,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -446,6 +450,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -547,6 +552,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -649,6 +655,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -752,6 +759,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -858,6 +866,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -959,6 +968,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -1061,6 +1071,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],

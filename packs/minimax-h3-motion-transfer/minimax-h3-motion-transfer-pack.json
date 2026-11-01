@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-motion-transfer-pack",
   "name": "Community — MiniMax H3 Motion Transfer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "addedAt": "2026-10-01",
   "author": "alibaba-pai + kijai + Comfy-Org + larryvrh + xmarre",
   "nsfw": false,
@@ -37,6 +37,7 @@
       "enabled": true,
       "template": "wan-video",
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

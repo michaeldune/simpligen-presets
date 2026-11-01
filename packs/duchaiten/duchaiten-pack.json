@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -134,6 +134,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -238,6 +239,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -445,6 +447,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl",
         "supports": [
           "local"
         ],

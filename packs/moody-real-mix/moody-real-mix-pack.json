@@ -1,7 +1,7 @@
 {
   "id": "moody-real-mix-pack",
   "name": "Community — Moody Models",
-  "version": "7.5.2",
+  "version": "7.5.3",
   "author": "catlover1937",
   "nsfw": false,
   "description": "Local Moody model variants collected into one selectable preset group.",
@@ -39,6 +39,7 @@
         ]
       },
       "image": {
+        "promptFamily": "z-image",
         "supports": [
           "local"
         ],
@@ -135,6 +136,7 @@
         ]
       },
       "image": {
+        "promptFamily": "z-image",
         "supports": [
           "local"
         ],
@@ -230,6 +232,7 @@
         ]
       },
       "image": {
+        "promptFamily": "z-image",
         "supports": [
           "local"
         ],
@@ -326,6 +329,7 @@
         ]
       },
       "image": {
+        "promptFamily": "flux-klein",
         "supports": [
           "local"
         ],
@@ -414,6 +418,7 @@
         ]
       },
       "image": {
+        "promptFamily": "z-image",
         "supports": [
           "local"
         ],

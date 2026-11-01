@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-fasth3-omni-tts-pack",
   "name": "Community — MiniMax H3 Emotion TTS Lip-Sync (FastH3 Omni)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "FastVideo + Nuva Lab + T8mars + IndexTeam",
   "nsfw": false,
   "description": "Cloned-voice lip-sync on FastH3 Omni. Type the line, pick the mood, supply a voice sample and a picture: IndexTTS 2.5 speaks the line in that voice and FastH3 Omni lip-syncs the character to it in one generation. The same card as the Emotion TTS Lip-Sync v2 card, on a faster model (about 20% faster per shot with its sparse attention on) that stays closer to your reference picture. It is a separate pack because FastH3 Omni needs the v0.42.0 engine and the TTS pack works on older engines.\n\nDEPENDENCIES, READ BEFORE INSTALLING. Adds the comfyui-indextts25-T8 custom node (pinned) and 7.7 GB of IndexTTS 2.5 weights into the engine's models/TTS folder. The node pins transformers below 5 and its install DOWNGRADES the engine's transformers (5.x -> 4.57.x); SimpliGen's maintainer has confirmed this is allowed and sticks across engine updates. If the IndexTTS node cannot find its weights on the first run, restart SimpliGen once.",
@@ -36,6 +36,7 @@
       "template": "wan-video",
       "enabled": true,
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

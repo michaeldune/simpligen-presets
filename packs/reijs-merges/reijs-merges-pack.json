@@ -1,7 +1,7 @@
 {
   "id": "reijs-merges-pack",
   "name": "Community — Reij's Merges",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "reijlita",
   "nsfw": false,
   "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
@@ -40,6 +40,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -132,6 +133,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -224,6 +226,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -316,6 +319,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -417,6 +421,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],
@@ -518,6 +523,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sdxl-booru",
         "supports": [
           "local"
         ],

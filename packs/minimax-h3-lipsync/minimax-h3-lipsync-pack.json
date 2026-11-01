@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-lipsync-pack",
   "name": "Community — MiniMax H3 Lip-Sync",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -31,6 +31,7 @@
       "template": "wan-video",
       "enabled": true,
       "video": {
+        "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
         ],

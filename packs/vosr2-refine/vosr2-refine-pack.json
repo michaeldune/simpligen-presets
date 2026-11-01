@@ -1,7 +1,7 @@
 {
   "id": "vosr2-refine-pack",
   "name": "Community — VOSR 2.0 (Video Refine)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "CSWRY + ylchen333",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -19,6 +19,7 @@
       "template": "wan-video",
       "description": "Drop a finished clip in Reference Video 1. Output is exactly twice the source size (an 864x480 H3 clip becomes 1728x960) with its own soundtrack; the prompt, resolution tier and duration slider are ignored. Sharpest of the three refine packs on static shots, slowest per frame, and it can shimmer on fast motion. FIRST RENDER DOWNLOADS 7 GB into the engine with no progress bar; wait it out. Measured on a 12 GB RTX 4070 Ti: 5 s from 864x480 to 1728x960 in 274 s.",
       "video": {
+        "promptFamily": "no-prompt",
         "supports": ["local"],
         "displayModel": "VOSR 2.0 one-step SR (1.4B LightningDiT + Qwen-Image 2D VAE + DINOv2-L)",
         "baseModels": ["vosr2"],

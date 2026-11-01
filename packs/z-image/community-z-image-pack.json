@@ -1,7 +1,7 @@
 {
   "id": "community-z-image",
   "name": "Community — Z-Image",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "various",
   "nsfw": false,
   "description": "Z-Image base checkpoints.",
@@ -37,6 +37,7 @@
         ]
       },
       "image": {
+        "promptFamily": "z-image",
         "supports": [
           "local"
         ],
