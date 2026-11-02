@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -2418,6 +2418,218 @@
           "minRamGB": 16,
           "sizeGB": 5.4,
           "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB, sha256 85fa848534779c0628371139e32cb0ad51846e22b99e34a66217623fc1385eb2, Civitai model 2810241 / version 3382543 'v4.0' / fileId 3271205, by ccooccoo) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Author's quality prompt and negative; no steps or sampler published, so the Anima base card's er_sde / simple, 30 steps, CFG 4.5. Engine-direct median 17.4 s. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a two-character prompt with a plain black hoodie at 3:4 on 4 seeds (11/22/33/44) and a single-character prompt at 16:9, no system-prompt lettering, 19-23 s each. All four seeds put a small made-up print on the plain hoodie (scribble, two garbled box logos, a cat). Seed, size, prompt and negative read back from engine /history. LICENCE: author: images non-commercial unless agreed; Civitai flags RentCivit only, no derivatives, and a fee for reprinting the model, so the card links to Civitai and does not rehost."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nova-anime-am-v6",
+      "name": "Nova Anime AM v6.0 (2.9B)",
+      "tagline": "Bright, airy anime with fresh colour",
+      "icon": "☀️",
+      "previewImage": "previews/nova-anime-am-v6.jpg",
+      "description": "Bright, airy anime with clean faces and fresh colour, on the bigger 2.9B version of Anima. Skies and backgrounds stay light, so pictures read clearly at a glance.\n\nCrody's model blends earlier Anima bases with the 2.9B structure. The author says v6 handles prompts better and places things in the picture more accurately.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, year 2025, newest, highres, absurdres, very aesthetic to the start of your prompt, so you don't need to type them. The negative prompt is the author's.\n\nThis card uses the author's Euler Ancestral at 30 steps and CFG 5. Steps work from 20 to 30 and CFG from 4 to 6.\n\nLicence: the author asks that pictures are not used commercially unless you edit them, and says you can share them freely if you don't make money from them.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Clean",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Nova Anime AM v6.0 (2.9B)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/nova-anime-am-v6.json",
+        "unet": "novaAnimeAM_v6029B.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3395337?fileId=3285211",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, early, old, score_1, score_2, score_3, cartoon, graphic, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured, long body, bad anatomy, bad hands, missing fingers, extra fingers, extra digits, fewer digits, cropped, very displeasing, artist name, blurry, jpeg artifacts, lowres, censor",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.1,
+          "notes": "Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Anima-2.9B-based UNet (diffusion_models, bf16, 5.84 GB, sha256 e641ecf631bf38a5a3003de65c457776513b9a9cc1279fedf674620a3402fb1d, Civitai model 2604424 / version 3395337 'v6.0:2.9B' / fileId 3285211, by Crody). Author: Euler a / Normal, 20-30 steps, CFG 4-6; samples use 30 steps, CFG 5. Baked 2026-11-02 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0 and One Obsession Anima 2.9B, duplicate control pixel-identical (F:\\Claude-Work\\anime-five-20261102). Engine-direct median 25.4 s. Verified in the app 2026-11-02: two-character leak test on 4 seeds plus 16:9 single, all clean with no system-prompt text and pink and blue hair held on 4 of 4; seed, size, steps, sampler and negative read back from engine history; about 31 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; no credit required. The author's page adds the no-commercial-use-unless-edited rule. The card links to Civitai and does not rehost."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-obsession-anima-29b-v2",
+      "name": "One Obsession Anima 2.9B v2",
+      "tagline": "Softer, painted anime with fine fabric and metal",
+      "icon": "🖌️",
+      "previewImage": "previews/one-obsession-anima-29b-v2.jpg",
+      "description": "Softer, more painted anime on the bigger 2.9B version of Anima, with gentler colour than most Anima cards and fine detail in fabric, armour and buildings.\n\nmaxfeifei8 refined it from Anima-2.9B. This is the newest version. It is a separate model from One Obsession Anima v4.0, which is the easier pick for short prompts.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @promizu.\n\nThis card uses the sampler from the author's sample pictures, 30 steps and CFG 4. Check hands on two-person pictures.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Painterly",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "One Obsession Anima 2.9B v2",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/one-obsession-anima-29b-v2.json",
+        "unet": "oneObsession_anima29BV2.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3443561?fileId=3342136",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres, censor",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.1,
+          "notes": "Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Anima-2.9B-based UNet (diffusion_models, bf16, 5.84 GB, sha256 0eb917b3755819ba664e3741417d53aa1dc6d6815ed604f0dceab02cde972576, Civitai model 1318945 / version 3443561 / fileId 3342136, by maxfeifei8, published 2026-11-01; Civitai lists this version under Illustrious but the file is an Anima UNet). The author bundles a text encoder; the v1 copy is byte-identical to the stock qwen_3_06b_base, so the card uses the stock one. Author's samples: er_sde, 30 steps, CFG 4. v1 (version 3289643) was baked beside v2: v1 is harder and more saturated, v2 softer with more surface detail, and v2 was chosen as the current version and the look the Anima cards lacked. Baked 2026-11-02 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0 and Nova Anime AM v6, duplicate control pixel-identical (F:\\Claude-Work\\anime-five-20261102). Engine-direct median 25.4 s. Verified in the app 2026-11-02: two-character leak test on 4 seeds plus 16:9 single, all clean with no system-prompt text and pink and blue hair held on 4 of 4; seed, size, steps, sampler and negative read back from engine history; about 32 s per picture through the app. LICENCE (Civitai): image use and RentCivit; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
         },
         "extensions": [
           {

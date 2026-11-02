@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Community — Illustrious Anime",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime and fantasy SDXL checkpoints.",
@@ -1147,6 +1147,212 @@
         ]
       },
       "tagline": "Light, clean colour; close to Nova Anime"
+    },
+    {
+      "id": "one-obsession-il-v24",
+      "name": "One Obsession v24 (Illustrious)",
+      "icon": "🌫️",
+      "previewImage": "previews/one-obsession-il-v24.jpg",
+      "description": "Detailed Illustrious anime with muted, cinematic colour and hazy light. It suits atmosphere and dramatic scenes more than bright, candy colours.\n\nThe author says it works well without LoRAs or complicated tags, and warns that a newer version is not always better for your taste.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, newest, very aesthetic, highres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 24 steps and CFG 4.5. The author's sample pictures add a hi-res pass up to 1536x2304, which this card does not run.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Cinematic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "One Obsession v24 (Illustrious)",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/one-obsession-il-v24.json",
+        "checkpoint": "oneObsession_v24.safetensors",
+        "steps": 24,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "bad hands, comic, jpeg artifacts, patreon logo, patreon username, web address, signature, watermark, text, logo, artist name, username, twitter username, print shirt, shiny skin",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 32,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 6,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.94 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1318945 / version 3218603 'v24' / fileId 3100615, by maxfeifei8, sha256 2fae33d7f0d23920d145897827e6015ac098a2b90cb682d07846ae762213100b). CLIP Skip 2. Author's samples: Euler a, 20-24 steps, CFG 4.5, 1536x2304 with hi-res. Baked 2026-11-02 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1216 on 5 prompts x 2 seeds against Gock So and RIN Flanime v5, duplicate control pixel-identical (F:\\Claude-Work\\anime-five-20261102). Engine-direct median 7.1 s. Verified in the app 2026-11-02: 5 renders at 3:4, 16:9 and 1:1; seed, size, steps, sampler and negative read back from engine history; blonde and black hair held on the one two-person render; about 14 s per picture through the app. LICENCE (Civitai): image use and RentCivit; derivatives allowed; credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/3218603?fileId=3100615",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Detailed anime with muted, cinematic colour"
+    },
+    {
+      "id": "rin-flanime-il-v5",
+      "name": "RIN Flanime Illustrious v5.0",
+      "icon": "✏️",
+      "previewImage": "previews/rin-flanime-il-v5.jpg",
+      "description": "Flat colour with sharp line art, closer to a clean drawing than a painting. The lines stay fine even in busy backgrounds.\n\nThe author says v5 adds better light and shadow, richer backgrounds, more saturated colour and better attention to small prompt details.\n\nUse Danbooru tags. The card adds masterpiece, best quality, flat color to the start of your prompt, so you don't need to type them. On two-person pictures, hair colours can swap or merge, so check them.\n\nThis card uses DPM++ 2M at 25 steps and CFG 6, as in the author's samples. CFG works from 3 to 7 and Steps from 20 to 40. The author recommends a 1.5x hi-res pass, which this card does not run.\n\nLicence: Civitai allows image use and merges with no credit required. The author asks that the model is not re-uploaded to other sites.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Flat Colour",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "RIN Flanime Illustrious v5.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/rin-flanime-il-v5.json",
+        "checkpoint": "rinFlanimeIllustrious_v50.safetensors",
+        "steps": 25,
+        "cfg": 6,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad quality, worst quality, worst detail, username, signature",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, 6.94 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1544647 / version 3262295 'v5.0' / fileId 3145727, by Rin_x0, sha256 e1e2890ef5469c227fda31a289e336c9338a54ff4f8d751cf98b2fa3c7244fb3). Author: CLIP Skip 2; Euler, Euler a, DPM++ 2M or Karras; 20-40 steps; CFG 3-7; samples DPM++ 2M, 25 steps, CFG 6-7 at 832x1216; hi-res 1.5x Remacri at denoise 0.2-0.4. Baked 2026-11-02 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1216 on 5 prompts x 2 seeds against Gock So and One Obsession v24, duplicate control pixel-identical (F:\\Claude-Work\\anime-five-20261102). Engine-direct median 7.2 s. Verified in the app 2026-11-02: 5 renders at 3:4, 16:9 and 1:1; seed, size, steps, sampler and negative read back from engine history; hair colours held on the one two-person render in the app, but merged on 1 of 2 seeds of the bake's cafe prompt; about 14 s per picture through the app. LICENCE (Civitai): image use and RentCivit; derivatives allowed; no credit required; the author asks for no re-uploads, so the card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/3262295?fileId=3145727",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Flat colour and sharp line art"
     }
   ]
 }

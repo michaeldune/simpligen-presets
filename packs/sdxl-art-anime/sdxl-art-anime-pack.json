@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -583,6 +583,108 @@
         "values": {
           "quality": ""
         }
+      }
+    },
+    {
+      "id": "animagine-xl-40",
+      "name": "Animagine XL 4.0",
+      "tagline": "Knows anime characters by name",
+      "icon": "🏷️",
+      "previewImage": "previews/animagine-xl-40.jpg",
+      "description": "Anime characters by name. CagliostroLab trained it on 8.4 million images up to January 2025, so it often knows a character's look from the name alone, with no LoRA.\n\nTag order matters. Write 1girl, 1boy or 1other, then the character's name, then the series, then a rating, then everything else in any order. Ratings are safe, sensitive, nsfw and explicit. Year tags from 2005 to 2025 steer the art style.\n\nThe card adds masterpiece, high score, great score, absurdres to the end of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 28 steps and CFG 5. CFG works from 4 to 7. It is built for characters, and scenery with no people was its weakest result.\n\nLicence: CreativeML Open RAIL++-M.",
+      "tags": [
+        "SDXL",
+        "Anime",
+        "Characters",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Animagine XL 4.0",
+        "baseModels": [
+          "sdxl"
+        ],
+        "workflow": "workflows/animagine-xl-40.json",
+        "checkpoint": "animagineXL40_v4Opt.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/1408658?fileId=1310654",
+        "steps": 28,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, bad hands, text, error, missing finger, extra digits, fewer digits, cropped, worst quality, low quality, low score, bad score, average score, signature, watermark, username, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 36,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "SDXL 1.0 checkpoint, fp16, 6.94 GB, VAE built in, epsilon (modelspec.prediction_type) (Civitai model 1188071 / version 1408658 'v4 Opt' / fileId 1310654, by CagliostroLab, sha256 6327eca98bfb6538dd7a4edce22484a1bbc57a8cff6b11d075d40da1afb847ac). Author: Euler a, 25-28 steps, CFG 4-7 (5); no CLIP skip mentioned, so the no-skip graph; CLIP skip 2 baked beside it and looked nearly the same. Booru template with no quality values. Baked 2026-11-02 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1216 on 5 prompts x 2 seeds against Gock So and the CLIP skip 2 arm, duplicate control pixel-identical (F:\\Claude-Work\\anime-five-20261102). Engine-direct median 8.1 s. Verified in the app 2026-11-02: 11 renders; Frieren, Gojou Satoru and Rem drawn correctly with costume on 2 of 2 seeds each from the name alone, no LoRA; the end tags read back from engine history in the right place, no app quality suffix; about 14 s per picture through the app. LICENCE: CreativeML Open RAIL++-M; all uses allowed on Civitai. The card links to Civitai and does not rehost."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
       }
     }
   ]
