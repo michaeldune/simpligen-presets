@@ -31,6 +31,7 @@
       ],
       "previewImage": "previews/krea2-identity-edit.jpg",
       "image": {
+        "promptFamily": "krea-2-edit",
         "provider": "comfyui",
         "supports": [
           "local"
@@ -160,6 +161,7 @@
       ],
       "previewImage": "previews/krea2-identity-lock.jpg",
       "image": {
+        "promptFamily": "krea-2-edit",
         "provider": "comfyui",
         "supports": [
           "local"

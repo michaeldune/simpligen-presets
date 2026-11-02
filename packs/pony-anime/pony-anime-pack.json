@@ -39,6 +39,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -121,7 +122,7 @@
       "tagline": "Anime Pony characters",
       "icon": "🌌",
       "previewImage": "previews/aniverse-pony-xl-v60.jpg",
-      "description": "Anime character and illustration generation with the 4n1v3rs3 trigger.",
+      "description": "Anime character and illustration generation. The card adds the 4n1v3rs3 trigger and the score tags for you, so you don't need to type them.",
       "tags": [
         "Pony",
         "SDXL",
@@ -142,6 +143,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -243,6 +245,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -345,6 +348,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -446,6 +450,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],

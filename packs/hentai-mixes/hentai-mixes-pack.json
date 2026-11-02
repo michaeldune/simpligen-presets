@@ -114,6 +114,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -198,6 +199,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -281,6 +283,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -364,6 +367,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -447,6 +451,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -530,6 +535,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -625,6 +631,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -708,6 +715,7 @@
       ],
       "enabled": true,
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],

@@ -166,6 +166,7 @@
       ],
       "previewImage": "previews/outfit-spec-sheet-qwen21.jpg",
       "image": {
+        "promptFamily": "qwen-image-21-edit",
         "provider": "comfyui",
         "supports": [
           "local"

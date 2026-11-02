@@ -41,6 +41,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -345,6 +346,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -549,6 +551,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -642,6 +645,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -734,6 +738,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -829,6 +834,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],

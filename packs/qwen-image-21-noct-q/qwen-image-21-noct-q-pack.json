@@ -47,6 +47,7 @@
         ]
       },
       "image": {
+        "promptFamily": "qwen-image-21",
         "provider": "comfyui",
         "supports": [
           "local"

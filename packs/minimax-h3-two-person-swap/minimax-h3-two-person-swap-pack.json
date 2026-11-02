@@ -30,6 +30,7 @@
       ],
       "previewImage": "previews/minimax-h3-two-person-swap.jpg",
       "video": {
+        "promptFamily": "minimax-h3-swap",
         "supports": [
           "local"
         ],

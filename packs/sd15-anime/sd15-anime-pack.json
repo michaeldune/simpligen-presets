@@ -36,6 +36,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],
@@ -131,6 +132,7 @@
         ]
       },
       "image": {
+        "promptFamily": "sd15",
         "supports": [
           "local"
         ],

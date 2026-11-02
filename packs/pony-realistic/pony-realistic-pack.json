@@ -39,6 +39,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -139,6 +140,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
@@ -240,6 +242,7 @@
         ]
       },
       "image": {
+        "promptFamily": "pony",
         "supports": [
           "local"
         ],
