@@ -1,0 +1,205 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Ri-mix α (Anima)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "stable_diffusion",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Ri-Mix Text Encoder"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "2": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "shift": 3
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "Anima Model Sampling (shift 3)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "{{prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "{{negative_prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "6": {
+    "inputs": {
+      "width": "{{width}}",
+      "height": "{{height}}",
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "er_sde",
+      "scheduler": "simple",
+      "denoise": "{{denoise}}",
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Pass 1 - ER-SDE"
+    }
+  },
+  "11": {
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "upscale_method": "bislerp",
+      "scale_by": 1.5
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "Hi-res upscale 1.5x"
+    }
+  },
+  "12": {
+    "inputs": {
+      "seed": "{{seed}}",
+      "steps": "{{steps}}",
+      "cfg": "{{cfg}}",
+      "sampler_name": "er_sde",
+      "scheduler": "simple",
+      "denoise": 0.4,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Hi-res pass - denoise 0.4"
+    }
+  },
+  "8": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Qwen Image VAE"
+    }
+  },
+  "9": {
+    "inputs": {
+      "samples": [
+        "12",
+        0
+      ],
+      "vae": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "filename_prefix": "ri-mix-anima-hires",
+      "images": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

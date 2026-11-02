@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Community — Anima Anime",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime & illustration checkpoints.",
@@ -320,11 +320,11 @@
     },
     {
       "id": "male-ggmix-illustrious-anima-v11",
-      "name": "Male GG Mix Illustrious/Anima v1.1",
-      "tagline": "Illustrious merge fine-tuned for male anime characters",
+      "name": "Male GG Mix v1.1 (Anima)",
+      "tagline": "Anima checkpoint fine-tuned for male anime characters",
       "icon": "⚔️",
       "previewImage": "previews/male-ggmix-illustrious-anima-v11.jpg",
-      "description": "An Illustrious and Anima merge made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.\n\nThe model is a manual download from civitai.red.",
+      "description": "An Anima checkpoint made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.",
       "tags": [
         "Anima",
         "Anime",
@@ -349,7 +349,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "Male GG Mix Illustrious/Anima v1.1",
+        "displayModel": "Male GG Mix v1.1 (Anima)",
         "baseModels": [
           "anima"
         ],
@@ -411,7 +411,7 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 5.5,
-          "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Manual download required from civitai.red."
+          "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3."
         },
         "extensions": [
           {
@@ -425,15 +425,14 @@
     },
     {
       "id": "ri-mix-illustrious-anima",
-      "name": "Ri-Mix (Illustrious/Anima) α",
-      "tagline": "Illustrious-flavored Anima mix with its own text encoder",
+      "name": "Ri-Mix α (Anima)",
+      "tagline": "phinjo's Ri-mix style on the Anima model",
       "icon": "🌀",
       "previewImage": "previews/ri-mix-illustrious-anima.jpg",
-      "description": "An Anima mix with Illustrious aesthetics, for clean, vibrant anime. Prompt with Danbooru tags.\n\nIt comes with its own text encoder that the other Anima cards don't share, so download all three parts.",
+      "description": "The Anima version of phinjo's Ri-mix style, for clean, vibrant anime. Prompt with Danbooru tags.\n\nThe Ri-mix page on Civitai also has Illustrious versions. Those are separate checkpoints and don't run on this card.",
       "tags": [
         "Anima",
         "Anime",
-        "Illustrious",
         "Booru",
         "Local"
       ],
@@ -455,7 +454,7 @@
           "local"
         ],
         "provider": "comfyui",
-        "displayModel": "Ri-mix - [Illustrious + Anima] α",
+        "displayModel": "Ri-mix α (Anima)",
         "baseModels": [
           "anima"
         ],
@@ -463,7 +462,7 @@
         "unet": "riMixIllustriousAnima_riMixAnima.safetensors",
         "unetUrl": "https://civitai.com/api/download/models/3020951",
         "clip": "riMixIllustriousAnima_riMixAnima_txt.safetensors",
-        "clipUrl": "https://civitai.com/api/download/models/3020951?type=Text%20Encoder&format=Other",
+        "clipUrl": "https://civitai.com/api/download/models/3020951?fileId=2899768",
         "vae": "qwen_image_vae.safetensors",
         "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
         "steps": 30,
@@ -517,7 +516,112 @@
           "recommendedVramGB": 12,
           "minRamGB": 16,
           "sizeGB": 5.2,
-          "notes": "Anima UNet (diffusion_models) + model's OWN text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3. Encoder is a non-shared custom file - download all three parts."
+          "notes": "Anima UNet (diffusion_models) + text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders, same bytes as qwen_3_06b_base under Ri-mix's file name) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ri-mix-anima-hires",
+      "name": "Ri-Mix α Hi-Res (Anima)",
+      "tagline": "Ri-Mix α with a hi-res pass, up to 1536x2304",
+      "icon": "🌀",
+      "previewImage": "previews/ri-mix-anima-hires.jpg",
+      "description": "Ri-Mix α on the settings its creator lists: a hi-res pass and CFG 3. This is the card for the fine detail and wider framing you see in Ri-mix images on Civitai.\n\nEach image is rendered, then refined at 1.5 times the listed size, so 2:3 comes out at 1536x2304. Nothing is added to your prompt, so quality tags are up to you.\n\nIt uses the same three model files as Ri-Mix α.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ri-mix α (Anima)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/ri-mix-anima-hires.json",
+        "unet": "riMixIllustriousAnima_riMixAnima.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3020951",
+        "clip": "riMixIllustriousAnima_riMixAnima_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3020951?fileId=2899768",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 3,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, (lowres:1.2), (worst quality:1.4), (low quality:1.4), (bad anatomy:1.4), bad hands, multiple views, jpeg artifacts, patreon logo, patreon username, web address, signature, watermark, text, logo, artist name, censored, mosaic censoring, loli, chibi",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1248,
+            "height": 1248
+          },
+          "2:3": {
+            "width": 1024,
+            "height": 1536
+          },
+          "3:2": {
+            "width": 1536,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 1088,
+            "height": 1440
+          },
+          "4:3": {
+            "width": 1440,
+            "height": 1088
+          },
+          "9:16": {
+            "width": 960,
+            "height": 1696
+          },
+          "16:9": {
+            "width": 1696,
+            "height": 960
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Same files as Ri-Mix α. Pass 1 at the listed size, then 1.5x latent upscale (bislerp) and a second pass at denoise 0.4. ER-SDE / simple, ModelSamplingAuraFlow shift 3. About 2 minutes per image at 2:3 on a 12 GB 4070 Ti with the model loaded. 8 GB is untested."
         },
         "extensions": [
           {
