@@ -1,7 +1,7 @@
 {
   "id": "moody-real-mix-pack",
   "name": "Community — Moody Models",
-  "version": "7.5.4",
+  "version": "7.5.5",
   "author": "catlover1937",
   "nsfw": false,
   "description": "Local Moody model variants collected into one selectable preset group.",
@@ -113,7 +113,7 @@
       "name": "Moody Real V7 Global FP8",
       "icon": "🌍",
       "previewImage": "previews/moody-real-v7-global-fp8.jpg",
-      "description": "The international V7 variant with more diverse subjects, natural realism, and less beauty-filter influence.",
+      "description": "Natural-looking people of any background in four steps. This is the balanced, general-purpose Moody Real, and the one its author tells most people to download.\n\nIt shares its base with Moody Real V7. The author removed the Asian Instagram and Xiaohongshu style LoRAs and added back a diverse style LoRA, so skin looks less beauty-filtered. Pick Moody Real V7 FP8 if you want that Asian beauty look.\n\nV7 has richer colour than earlier versions and less mature strength.\n\nDescribe the picture in plain sentences. The card adds nothing to your prompt, and there is no negative prompt on this card.\n\nThe author says LoRAs work well on characters of all races.\n\nLicence: Apache 2.0. The author asks that the model not be redistributed without consent.",
       "tags": [
         "Z-Image",
         "Turbo",

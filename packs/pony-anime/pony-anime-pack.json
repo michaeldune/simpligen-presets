@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -327,7 +327,7 @@
       "tagline": "Predictable Pony anime",
       "icon": "🎊",
       "previewImage": "previews/autismmix-sdxl-confetti.jpg",
-      "description": "Predictable Pony-derived anime and character generation with reduced style swing and improved hands.",
+      "description": "A more predictable Pony for anime characters. It swings less in style than Pony Diffusion V6 and has better hands, while keeping Pony's knowledge of characters and artists.\n\nThe card adds score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, source_anime, BREAK before your prompt, so don't type them. Just write your tags.\n\nThe card has no negative prompt, and the author says long negatives and negative embeddings make results worse.\n\nThe author says some LoRAs and styles made for base Pony fit a separate version, AutismMix_pony, better than this one.\n\nLicence: CreativeML Open RAIL++-M.",
       "tags": [
         "Pony",
         "SDXL",

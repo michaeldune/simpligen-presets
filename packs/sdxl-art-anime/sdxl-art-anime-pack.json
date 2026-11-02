@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -287,7 +287,7 @@
       "name": "HelloWorld XL 7.0",
       "icon": "🌍",
       "previewImage": "previews/helloworld-xl-70.jpg",
-      "description": "Versatile SDXL generation with strong anatomy, rich details, broad concepts, and polished aesthetics.",
+      "description": "A general SDXL model for a wide range of subjects, not tied to one style. The author says 7.0 has the best bodies in the series, with better limbs and hands than earlier versions, plus more detail and contrast.\n\nWrite the prompt the way its training pictures were labelled: one summary sentence, then tags for the elements in the picture, then inspired by and a style or artist, then masterpiece. The card adds no quality tags.\n\nIts 2:3 and 3:4 sizes are the shapes most of the training pictures used, so start there.\n\nLicence: CreativeML Open RAIL++-M, plus the author's own terms. Images are free for non-commercial educational or informative use if credited as \"created by LEOSAM's HelloWorld base model\". Any commercial use needs a commercial licence from the author.",
       "tags": [
         "SDXL",
         "Versatile",

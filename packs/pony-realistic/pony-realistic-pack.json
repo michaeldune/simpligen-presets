@@ -1,7 +1,7 @@
 {
   "id": "pony-realistic-pack",
   "name": "Community — Pony Realistic",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
@@ -18,7 +18,7 @@
       "tagline": "Photoreal Pony for lifelike people",
       "icon": "🤖",
       "previewImage": "previews/cyberrealistic-pony-v18.jpg",
-      "description": "Photorealistic Pony SDXL with strong anatomy, skin detail, and cinematic lighting. Works with plain descriptive prompts; no Pony score tags needed.",
+      "description": "Photorealistic people that keep Pony's range, with detailed textures and moody, cinematic lighting. The author says v18 is cleaner, follows prompts better and gives steadier results.\n\nScore tags are optional here. Write your subject on its own, or start with score_9, score_8_up, score_7_up. The card adds nothing to your prompt.\n\nThe author's sample pictures use no LoRAs. If a result looks wrong, the author suggests first checking for too many LoRAs and how the prompt is structured.\n\nFor a card that adds its trigger and score tags for you, use Realism by Stable Yogi (Pony).\n\nLicence: CreativeML Open RAIL++-M.",
       "tags": [
         "Pony",
         "Realistic",
