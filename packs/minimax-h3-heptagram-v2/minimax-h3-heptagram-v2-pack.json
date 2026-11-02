@@ -1,0 +1,975 @@
+{
+  "id": "minimax-h3-heptagram-v2-pack",
+  "name": "Community — MiniMax H3 (Heptagram v2 Entropy)",
+  "version": "1.0.0",
+  "author": "eatyet",
+  "nsfw": true,
+  "description": "MiniMax H3 on eatyet's Heptagram v2 Entropy preview: a merged checkpoint with the TaoMate and HyperFlow speed LoRAs built in, one 19.5 GB file with no LoRA to load. Text, image and reference cards at eight steps. It is a preview, and the author says v2's final form depends on community feedback. High contrast, dense detail, big expressions and very loud sound. It does not hold a locked-off camera. A separate download from Heptagram Turbo. MiniMax H3 Community License; read its territorial and commercial-use terms before commercial use.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "R2V",
+    "MiniMax H3",
+    "Turbo",
+    "Merge"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-heptagram-v2-t2v",
+      "name": "MiniMax H3 Text to Video (Heptagram v2)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-heptagram-v2-t2v.jpg",
+      "description": "Text to video on eatyet's Heptagram v2 Entropy preview, a merged checkpoint with the TaoMate and HyperFlow speed LoRAs built in, so there is no second file. A five-second shot takes about 80 seconds at 480p and about 3 1/2 minutes at 768p on a 12 GB card.\n\nThis is a preview. The author says v2's final form depends on community feedback, so a final release may look different.\n\nIt has a strong look: high contrast, dense surface detail and big expressions. Pick it for punch, and pick another card for soft or natural pictures. On a 3D cartoon test, flour came out as thick clumps on the cook's face.\n\nIt does not hold a still shot. On a locked-off prompt, movement in the frame measured about three times stock H3's on all three seeds, and the camera pushed in on the clip we checked in the app.\n\nSound runs very loud. Busy prompts sat about 16 dB above stock H3. A prompt for quiet room tone and faint distant traffic came out about 30 dB above stock, with no recognisable words but a constant low rumble that sits louder than the character's breath. If you want near silence, pick another card.\n\nThe Steps control covers the author's 4 to 8. Only 8 was tested here, and the author says 8 clearly improves picture and sound.\n\nThis is a separate download from Heptagram Turbo.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
+      "tagline": "Heptagram v2 preview: 8 steps, high contrast",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Turbo"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Heptagram v2 Entropy preview (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_heptagram_v2_t2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "Heptagram_v2_Entropy.safetensors",
+        "unetUrl": "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "One 19.5 GB checkpoint with TaoMate and HyperFlow merged in, plus the shared H3 text encoder and VAEs. Preview release; the Civitai version is 'Heptagram_v2_Entropy prev'. res_multistep / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow, inside the author's ranges (4-8 steps, shift 6-16 video, 3 audio). IN-APP 2026-11-01 (RTX 4070 Ti 12 GB, 31 GB RAM, engine 0.43.0, the agent route, 5 s): 75-79 s at 864x480, 217 s at 1344x768, two prompts, one seed each; graphs read back. ENGINE 2026-11-01, 15 s at 864x480: 290 s. Movement on a locked-off prompt (three seeds, drift figure): 31-43 against stock 10-17. Audio, mean level: -14.0 dB on busy prompts against stock -30; the engine's audio decode caps level at -14 dB, so the model is at or above that cap. Quiet-room prompt -20 to -24 dB against stock -52 to -59 and Heptagram Turbo -42. Transcription found no words in those clips. By band, below 150 Hz holds about -22 to -31 dB through most of the clip on all three seeds (stock -61 to -67), with only short breath-like bursts above 1 kHz. Heard on one clip, seed 4242: low rumble, then a breath at about 3 s, which the prompt allows. The same seed puts a breath at about the same moment on stock, Heptagram Turbo and PRISM-PIKA, far quieter."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors": "c28a2f216f76657f4ad3838d704eaa29c8459db26e1088a61eb2a13dbb99108d"
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-heptagram-v2-i2v",
+      "name": "MiniMax H3 Image to Video (Heptagram v2)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-heptagram-v2-i2v.jpg",
+      "description": "Image to video on eatyet's Heptagram v2 Entropy preview, a merged checkpoint with the TaoMate and HyperFlow speed LoRAs built in, so there is no second file. A five-second 480p shot takes about 85 seconds on a 12 GB card.\n\nYour picture is the first frame. Add a last frame and the video animates between the two. Pictures are centre-cropped to the output shape, so pick the aspect ratio that matches them. In the prompt, describe the path between the frames, not the frames themselves.\n\nOn Pika's sample pair the video opened on the first picture and ended on the second on all three seeds, with the scripted turn, jump and final pose in order.\n\nThis is a preview. The author says v2's final form depends on community feedback, so a final release may look different.\n\nIt has a strong look: high contrast, dense surface detail and big expressions. On text-to-video tests it did not hold a locked-off shot.\n\nSound runs very loud, reaching about 16 dB above stock H3 on busy prompts in level measurements. The audio was not judged by ear.\n\nThe Steps control covers the author's 4 to 8. Only 8 was tested here, and the author says 8 clearly improves picture and sound.\n\nThis is a separate download from Heptagram Turbo.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
+      "tagline": "Heptagram v2 preview from a first frame",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Turbo"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Heptagram v2 Entropy preview (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_heptagram_v2_i2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "Heptagram_v2_Entropy.safetensors",
+        "unetUrl": "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "One 19.5 GB checkpoint with TaoMate and HyperFlow merged in, plus the shared H3 text encoder and VAEs. Preview release. res_multistep / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. IN-APP 2026-11-01 (RTX 4070 Ti 12 GB, 31 GB RAM, engine 0.43.0, the agent route, 480x864, 5 s): 84-87 s first + last frame, seeds 1-3, 81 s first frame only, seed 1; graphs read back. Match to the pictures, PSNR: first frame 27.8-28.0 dB, last frame 23.9-24.0 dB (Pika Flex on the same pair 29.1 and 25.6; 9.0 dB with no last picture supplied, as a control). Audio -14.0 to -17.5 dB."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "description": "Animate a source image with Heptagram Turbo. The image becomes the first frame and the prompt describes the motion. Runs on the same checkpoint as this pack's text-to-video card, so there is no extra download. Your first and last frame images are CENTRE-CROPPED to the output shape, not letterboxed: match the aspect ratio to your picture, or a tall portrait at 16:9 loses the head.",
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors": "c28a2f216f76657f4ad3838d704eaa29c8459db26e1088a61eb2a13dbb99108d"
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-heptagram-v2-r2v",
+      "name": "MiniMax H3 Reference to Video (Heptagram v2)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-heptagram-v2-r2v.jpg",
+      "description": "Reference to video on eatyet's Heptagram v2 Entropy preview, a merged checkpoint with the TaoMate and HyperFlow speed LoRAs built in, so there is no second file. A five-second 480p shot with two pictures takes about 90 seconds on a 12 GB card.\n\nThe pictures never appear in the video, so the prompt must describe the whole shot. Name each picture as <Picture 1>, <Picture 2> and so on, as in H3's full reference format.\n\nOn Pika's sample it kept a pilot's helmet with its visor lights and a space station from one picture each, on all three seeds. The station's hull came out dirtier and more heavily panelled than the picture. Reference clips and sounds are wired but were not tested.\n\nThis is a preview. The author says v2's final form depends on community feedback, so a final release may look different.\n\nIt has a strong look: high contrast, dense surface detail and big expressions. On text-to-video tests it did not hold a locked-off shot.\n\nSound runs very loud, reaching about 16 dB above stock H3 on busy prompts in level measurements. The audio was not judged by ear.\n\nThe Steps control covers the author's 4 to 8. Only 8 was tested here, and the author says 8 clearly improves picture and sound.\n\nThis is a separate download from Heptagram Turbo.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
+      "tagline": "Heptagram v2 preview from reference pictures",
+      "tags": [
+        "Video",
+        "T2V",
+        "Audio",
+        "Turbo"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Heptagram v2 Entropy preview (INT8)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_heptagram_v2_r2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "Heptagram_v2_Entropy.safetensors",
+        "unetUrl": "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          }
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 41,
+          "notes": "One 19.5 GB checkpoint with TaoMate and HyperFlow merged in, plus the shared H3 text encoder and VAEs. Preview release. res_multistep / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. IN-APP 2026-11-01 (RTX 4070 Ti 12 GB, 31 GB RAM, engine 0.43.0, the agent route, 864x480, 5 s, two pictures): 89-91 s, seeds 1-3; graphs read back. Audio -14.0 dB on all three."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "description": "Keep a person's appearance in a brand new shot with Heptagram Turbo. Supply one to three reference pictures of the SAME person; the reference never appears in the video, so the prompt must describe the whole shot (setting, action and camera), not just the movement. Runs on the same checkpoint as this pack's text-to-video card, so there is no extra download.",
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/eatyet/Heptagram_MNH3_series/resolve/61f614378202ca77aec8d2458025cb79817a0888/Heptagram_v2_Entropy.safetensors": "c28a2f216f76657f4ad3838d704eaa29c8459db26e1088a61eb2a13dbb99108d"
+        },
+        "shotModes": [
+          "r2v"
+        ]
+      }
+    }
+  ]
+}
