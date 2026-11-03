@@ -1,0 +1,403 @@
+{
+  "id": "minimax-h3-8plus2-pack",
+  "name": "Community — MiniMax H3 8+2 Two-Pass R2V",
+  "version": "1.0.0",
+  "author": "Deno (recipe, DenoMix); WarmBloodAban (Singularity); Alibaba PAI, drbaph, Kijai, LBH-123-AI (LoRAs, refiner, upscaler)",
+  "nsfw": false,
+  "description": "Reference to video in two passes on Deno's 8+2 recipe: eight fast steps at a small size, a latent upscale, then the last two of the same eight steps at full size. The sound from the first pass is kept untouched, so the second pass cannot change a spoken line.\n\nTwo cards, same graph. DenoMix is Deno's merge of stock H3 and Singularity with a few extra weights. Singularity v2 is the same recipe for anyone who already has that model or wants more movement.\n\nBoth cards take your reference pictures and run at 768p by default, with a 928p tier for extra detail.",
+  "tags": [
+    "Local",
+    "Video",
+    "R2V",
+    "MiniMax H3",
+    "Two-Pass",
+    "Upscale",
+    "Merge"
+  ],
+  "presets": [
+    {
+      "id": "minimax-h3-8plus2-denomix-r2v",
+      "name": "MiniMax H3 8+2 Reference to Video (DenoMix)",
+      "icon": "🎞️",
+      "previewImage": "previews/minimax-h3-8plus2-denomix-r2v.jpg",
+      "description": "Put your people, places or props into a new shot at 768p with sound. Use this card when you want a steady camera, low-key natural light and textured skin, and a 5 s clip in about 3 minutes on 12 GB.\n\nHOW TO PROMPT. Attach one reference picture for each person, in the order they appear in the prompt. Write the Ref2VA format: subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape and non_diegetic_music. Refer to pictures as <Picture 1>, <Picture 2>, and put spoken lines inside <d>[English] ...</d> tags. Say when the lips close and what happens for the rest of the shot, or H3 fills the time with words you did not write. The card adds no words and no trigger of its own.\n\nWHAT TO EXPECT. DenoMix sits between stock H3 and Singularity v2: less action than v2, a darker picture than stock. In wide shots it often frames people larger than you asked for. Ambience is quiet unless the prompt names the sounds it wants.\n\nSIZES. 768p at 5 s is the tested default for 12 GB. 928p adds real fine detail and is meant for 16 GB or more. A 12 GB card can run 928p or a 10 s clip, but each takes 4 to 20 minutes instead of 3, so close other programs that use the GPU first. Your own LoRAs apply to both passes.",
+      "tagline": "Deno's 8+2 recipe: a steady, moody look at 768p in about 3 minutes",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Reference",
+        "Two-Pass",
+        "Upscale",
+        "8 Steps"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "DenoMix v3 (pruned INT8) + 8+2 two-pass",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_8plus2_r2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 10,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "MiniMax-H3_DenoMix_ref2va_pruned_int8_v3.safetensors",
+        "unetUrl": "https://huggingface.co/Deno2026/MiniMax-H3-DenoMix/resolve/489aa1513a65fd188fd0a043c9da2eac10587910/MiniMax-H3_DenoMix_ref2va_pruned_int8_v3.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+            "url": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ. The workflow does not patch attention itself; SimpliGen injects it when Faster Attention is on (supportsSage), and the node must be installed for that injection to resolve.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "16:9": {
+                "width": 1600,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1600
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 46,
+          "notes": "Downloads the 21 GB DenoMix checkpoint, the shared H3 text encoder and VAEs, the Alibaba 8-step Ref2VA LoRA (1.7 GB), the drbaph DMD Ref2VA LoRA (2.3 GB), Kijai's rank-16 refiner (155 MB) and the 0.69 GB latent upscaler. Needs the latent upscaler custom node at d7c01b9 or later. Measured in the app on a 12 GB RTX 4070 Ti with 31 GB RAM: 5 s at 768p 160 to 195 s (6 runs, all sizes); 10 s at 768p 460 s; 5 s at 928p 405 to 885 s. On 12 GB the second pass sits at the edge of video memory at 928p or 10 s, so times vary run to run. Not measured on 16 GB or more. DenoMix is under the MiniMax H3 Community License. Graph rebuilt from our own Two-Stage card, following the recipe in Deno's GPL-3.0 workflow."
+        },
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "supportsSage": true,
+        "shotModes": [
+          "r2v"
+        ],
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors": "043e5a48e161610ef6c3ea974645220354d06fa618abca15f76d084812eb55c2",
+          "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors": "6f18e1c2eccb14b37322607730f26b16bf1169b56cd098ea006cffaec43d1e39",
+          "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors": "693f41129785f31a820d32100b698cdcc42182c27c291f37f47d1ca5f38f5c20",
+          "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors": "add559cd92e2b17b42ac080516b476df120903e485fc98add4538e0217820fbd",
+          "https://huggingface.co/Deno2026/MiniMax-H3-DenoMix/resolve/489aa1513a65fd188fd0a043c9da2eac10587910/MiniMax-H3_DenoMix_ref2va_pruned_int8_v3.safetensors": "6fc735bb1d2e9e44951106b3ec6a4c063df1535c567bc7d44aaff4c9052add52"
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-8plus2-singularity-v2-r2v",
+      "name": "MiniMax H3 8+2 Reference to Video (Singularity v2)",
+      "icon": "🎞️",
+      "previewImage": "previews/minimax-h3-8plus2-singularity-v2-r2v.jpg",
+      "description": "Put your people, places or props into a new shot at 768p with sound. Use this card when you want more movement, wide shots that stay wide, and a dark, contrasty picture, and a 5 s clip in about 3 minutes on 12 GB. If you already have Singularity v2 you skip the 21 GB checkpoint download.\n\nHOW TO PROMPT. Attach one reference picture for each person, in the order they appear in the prompt. Write the Ref2VA format: subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape and non_diegetic_music. Refer to pictures as <Picture 1>, <Picture 2>, and put spoken lines inside <d>[English] ...</d> tags. Say when the lips close and what happens for the rest of the shot, or H3 fills the time with words you did not write. The card adds no words and no trigger of its own.\n\nWHAT TO EXPECT. Action moves more than on DenoMix or stock, ambience is louder, and faces sit darker, so give a dim scene a clear light source.\n\nSIZES. 768p at 5 s is the tested default for 12 GB. 928p adds fine detail and is meant for 16 GB or more. A 12 GB card can run 928p or a 10 s clip, but each takes 4 to 20 minutes instead of 3, so close other programs that use the GPU first. Your own LoRAs apply to both passes.",
+      "tagline": "Deno's 8+2 recipe on Singularity v2: more movement, no extra checkpoint",
+      "tags": [
+        "Video",
+        "R2V",
+        "Audio",
+        "Reference",
+        "Two-Pass",
+        "Upscale",
+        "8 Steps"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Singularity v2 ref2va (pruned INT8) + 8+2 two-pass",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_8plus2_r2v.json",
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 10,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors",
+        "unetUrl": "https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity/resolve/1259cf16cd0b655ba691a32fb46a409142762972/Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+            "url": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ. The workflow does not patch attention itself; SimpliGen injects it when Faster Attention is on (supportsSage), and the node must be installed for that injection to resolve.",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "16:9": {
+                "width": 1600,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1600
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 46,
+          "notes": "Downloads Singularity v2 (21 GB, skipped if you have it), the shared H3 text encoder and VAEs, the Alibaba 8-step Ref2VA LoRA (1.7 GB), the drbaph DMD Ref2VA LoRA (2.3 GB), Kijai's rank-16 refiner (155 MB) and the 0.69 GB latent upscaler. Needs the latent upscaler custom node at d7c01b9 or later. Measured in the app on a 12 GB RTX 4070 Ti with 31 GB RAM: 5 s at 768p 164 to 205 s (6 runs, all sizes); 10 s at 768p 1170 s; 5 s at 928p 236 to 570 s. On 12 GB the second pass sits at the edge of video memory at 928p or 10 s, so times vary run to run. Not measured on 16 GB or more. Singularity is Apache-2.0 on the MiniMax H3 base. Graph rebuilt from our own Two-Stage card, following the recipe in Deno's GPL-3.0 workflow."
+        },
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "supportsSage": true,
+        "shotModes": [
+          "r2v"
+        ],
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors": "043e5a48e161610ef6c3ea974645220354d06fa618abca15f76d084812eb55c2",
+          "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/MiniMax-H3-Ref2VA-Acc-8Step_pruned_comfy.safetensors": "6f18e1c2eccb14b37322607730f26b16bf1169b56cd098ea006cffaec43d1e39",
+          "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors": "693f41129785f31a820d32100b698cdcc42182c27c291f37f47d1ca5f38f5c20",
+          "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/minimax_h3_open_regenerate_2k_refiner_rank_16_bf16.safetensors": "add559cd92e2b17b42ac080516b476df120903e485fc98add4538e0217820fbd",
+          "https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity/resolve/1259cf16cd0b655ba691a32fb46a409142762972/Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors": "d7637c2c35cd30facd9e93778c491f6d82f91c4a441aecbdb4c384a62a5f3d9f"
+        }
+      }
+    }
+  ]
+}
