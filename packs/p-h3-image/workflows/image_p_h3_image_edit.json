@@ -1,0 +1,548 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load MiniMax H3 FL2VA"
+    }
+  },
+  "sg_lora": {
+    "inputs": {
+      "model": [
+        "sg_unet",
+        0
+      ],
+      "lora_name": "p-h3-image_lora_bf16.safetensors",
+      "strength_model": 1.0
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "P-H3-Image LoRA"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_lora",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_shift": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "shift_video": 1.0,
+      "shift_audio": 1.0
+    },
+    "class_type": "MiniMaxH3SigmaShift",
+    "_meta": {
+      "title": "Shift 1.0 / 1.0"
+    }
+  },
+  "sg_te": {
+    "inputs": {
+      "clip_name": "p-h3-image_text_encoder_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load P-H3-Image text encoder"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load P-H3-Image VAE"
+    }
+  },
+  "sg_ups": {
+    "inputs": {
+      "clip_name": "p-h3-image_prompt_upsampler_w4a8.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load prompt upsampler"
+    }
+  },
+  "sg_noise": {
+    "inputs": {
+      "noise_seed": {{seed}}
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "sg_sampler": {
+    "inputs": {
+      "sampler_name": "er_sde"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "sg_sigmas": {
+    "inputs": {
+      "sigmas": "1.0, 0.984753, 0.967905, 0.951688, 0.925372, 0.881923, 0.810083, 0.528718, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "8-step schedule"
+    }
+  },
+  "sg_guider": {
+    "inputs": {
+      "model": [
+        "sg_shift",
+        0
+      ],
+      "conditioning": [
+        "sg_cond",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Guider (no CFG)"
+    }
+  },
+  "sg_sample": {
+    "inputs": {
+      "noise": [
+        "sg_noise",
+        0
+      ],
+      "guider": [
+        "sg_guider",
+        0
+      ],
+      "sampler": [
+        "sg_sampler",
+        0
+      ],
+      "sigmas": [
+        "sg_sigmas",
+        0
+      ],
+      "latent_image": [
+        "sg_cond",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Sample"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_sample",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "images": [
+        "sg_decode",
+        0
+      ],
+      "filename_prefix": "p_h3_image_edit"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "sgopt_ref_image_1__vis": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Picture 1 at 1 MP for the upsampler"
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 2"
+    }
+  },
+  "sgopt_ref_image_2__vis": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Picture 2 at 1 MP for the upsampler"
+    }
+  },
+  "sgopt_ref_image_3__load": {
+    "inputs": {
+      "image": "{{ref_image_3}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 3"
+    }
+  },
+  "sgopt_ref_image_3__vis": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Picture 3 at 1 MP for the upsampler"
+    }
+  },
+  "sgopt_ref_image_4__load": {
+    "inputs": {
+      "image": "{{ref_image_4}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 4"
+    }
+  },
+  "sgopt_ref_image_4__vis": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_4__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Picture 4 at 1 MP for the upsampler"
+    }
+  },
+  "sg_edit_size": {
+    "inputs": {
+      "image": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 4.0,
+      "resolution_steps": 32
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Picture 1 at 4 MP (sets the edit size)"
+    }
+  },
+  "sg_tpl1": {
+    "inputs": {
+      "value": "<|im_start|>user\n<Picture 1>: <|vision_start|><|image_pad|><|vision_end|>Edit <Picture 1>. {a}<|im_end|>\n<|im_start|>assistant\n<think>\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Upsampler input, 1 picture(s)"
+    }
+  },
+  "sg_tpl2": {
+    "inputs": {
+      "value": "<|im_start|>user\n<Picture 1>: <|vision_start|><|image_pad|><|vision_end|><Picture 2>: <|vision_start|><|image_pad|><|vision_end|>Edit <Picture 1>. {a}<|im_end|>\n<|im_start|>assistant\n<think>\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Upsampler input, 2 picture(s)"
+    }
+  },
+  "sg_tpl3": {
+    "inputs": {
+      "value": "<|im_start|>user\n<Picture 1>: <|vision_start|><|image_pad|><|vision_end|><Picture 2>: <|vision_start|><|image_pad|><|vision_end|><Picture 3>: <|vision_start|><|image_pad|><|vision_end|>Edit <Picture 1>. {a}<|im_end|>\n<|im_start|>assistant\n<think>\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Upsampler input, 3 picture(s)"
+    }
+  },
+  "sg_tpl4": {
+    "inputs": {
+      "value": "<|im_start|>user\n<Picture 1>: <|vision_start|><|image_pad|><|vision_end|><Picture 2>: <|vision_start|><|image_pad|><|vision_end|><Picture 3>: <|vision_start|><|image_pad|><|vision_end|><Picture 4>: <|vision_start|><|image_pad|><|vision_end|>Edit <Picture 1>. {a}<|im_end|>\n<|im_start|>assistant\n<think>\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Upsampler input, 4 picture(s)"
+    }
+  },
+  "sgopt_ref_image_2__flag": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Picture 2 given"
+    }
+  },
+  "sg_has2": {
+    "inputs": {
+      "values.value0": false,
+      "values.value1": [
+        "sgopt_ref_image_2__flag",
+        0
+      ]
+    },
+    "class_type": "ComfyOrNode",
+    "_meta": {
+      "title": "Picture 2 given?"
+    }
+  },
+  "sg_pick2": {
+    "inputs": {
+      "switch": [
+        "sg_has2",
+        0
+      ],
+      "on_false": [
+        "sg_tpl1",
+        0
+      ],
+      "on_true": [
+        "sg_tpl2",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Template for 2+ pictures"
+    }
+  },
+  "sgopt_ref_image_3__flag": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Picture 3 given"
+    }
+  },
+  "sg_has3": {
+    "inputs": {
+      "values.value0": false,
+      "values.value1": [
+        "sgopt_ref_image_3__flag",
+        0
+      ]
+    },
+    "class_type": "ComfyOrNode",
+    "_meta": {
+      "title": "Picture 3 given?"
+    }
+  },
+  "sg_pick3": {
+    "inputs": {
+      "switch": [
+        "sg_has3",
+        0
+      ],
+      "on_false": [
+        "sg_pick2",
+        0
+      ],
+      "on_true": [
+        "sg_tpl3",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Template for 3+ pictures"
+    }
+  },
+  "sgopt_ref_image_4__flag": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Picture 4 given"
+    }
+  },
+  "sg_has4": {
+    "inputs": {
+      "values.value0": false,
+      "values.value1": [
+        "sgopt_ref_image_4__flag",
+        0
+      ]
+    },
+    "class_type": "ComfyOrNode",
+    "_meta": {
+      "title": "Picture 4 given?"
+    }
+  },
+  "sg_pick4": {
+    "inputs": {
+      "switch": [
+        "sg_has4",
+        0
+      ],
+      "on_false": [
+        "sg_pick3",
+        0
+      ],
+      "on_true": [
+        "sg_tpl4",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Template for 4+ pictures"
+    }
+  },
+  "sg_request": {
+    "inputs": {
+      "f_string": [
+        "sg_pick4",
+        0
+      ],
+      "values.a": "{{prompt}}"
+    },
+    "class_type": "StringFormat",
+    "_meta": {
+      "title": "Upsampler input"
+    }
+  },
+  "sg_upsample": {
+    "inputs": {
+      "clip": [
+        "sg_ups",
+        0
+      ],
+      "prompt": [
+        "sg_request",
+        0
+      ],
+      "max_length": 3072,
+      "sampling_mode": "off",
+      "thinking": false,
+      "use_default_template": true,
+      "mtp": "auto",
+      "images.image1": [
+        "sgopt_ref_image_1__vis",
+        0
+      ],
+      "images.image2": [
+        "sgopt_ref_image_2__vis",
+        0
+      ],
+      "images.image3": [
+        "sgopt_ref_image_3__vis",
+        0
+      ],
+      "images.image4": [
+        "sgopt_ref_image_4__vis",
+        0
+      ]
+    },
+    "class_type": "TextGenerateV2",
+    "_meta": {
+      "title": "Prompt upsampler (sees the pictures)"
+    }
+  },
+  "sg_cond": {
+    "inputs": {
+      "clip": [
+        "sg_te",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": [
+        "sg_upsample",
+        0
+      ],
+      "width": 0,
+      "height": 0,
+      "images.image_1": [
+        "sg_edit_size",
+        0
+      ],
+      "images.image_2": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "images.image_3": [
+        "sgopt_ref_image_3__load",
+        0
+      ],
+      "images.image_4": [
+        "sgopt_ref_image_4__load",
+        0
+      ]
+    },
+    "class_type": "PH3ImageConditioning",
+    "_meta": {
+      "title": "p-h3-image Conditioning"
+    }
+  }
+}
