@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-heptagram-v2-pack",
   "name": "Community — MiniMax H3 (Heptagram v2 Entropy)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "eatyet",
   "nsfw": true,
   "description": "MiniMax H3 on eatyet's Heptagram v2 Entropy preview: a merged checkpoint with the TaoMate and HyperFlow speed LoRAs built in, one 19.5 GB file with no LoRA to load. Text, image and reference cards at eight steps. It is a preview, and the author says v2's final form depends on community feedback. High contrast, dense detail, big expressions and very loud sound. It does not hold a locked-off camera. A separate download from Heptagram Turbo. MiniMax H3 Community License; read its territorial and commercial-use terms before commercial use.",
@@ -968,7 +968,8 @@
         },
         "shotModes": [
           "r2v"
-        ]
+        ],
+        "studioPreview": true
       }
     }
   ]
