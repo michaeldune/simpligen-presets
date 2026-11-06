@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-regenerate-pack",
   "name": "Community — MiniMax H3 (Regenerate 1080p)",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "NVIDIA (Open-H3-Regenerate-2K) + Kijai + LBH-123-AI",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -43,7 +43,55 @@
         "extensions": [
           {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},
           {"name": "Comfyui_Minimax_h3_latent_Upscaler", "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git", "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f", "description": "Trained 3D latent upscaler (MinimaxH3LatentUpscaler3D). Same pin as the Two-Stage and Video Refine packs."},
-          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage). Not used by the graph itself."}
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage), and ColorMatch, used by the tone-matched card."}
+        ],
+        "steps": 3,
+        "negativePrompt": "",
+        "supportsSage": true,
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {"label": "1080p", "minVramGB": 12, "aspects": {"16:9": {"width": 1920, "height": 1088}, "9:16": {"width": 1088, "height": 1920}, "1:1": {"width": 1440, "height": 1440}}}
+        ],
+        "reclaimVramBeforeDecode": true,
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 47, "notes": "Measured 2026-10-29 on a 12 GB RTX 4070 Ti, SimpliGen engine, Sage on, Sol-Attn off, 5 s clips to 1920x1088: 864x480 source in 415 s, 1344x768 sources in 453-477 s, when nothing else held system RAM (with another ComfyUI holding models the same job took 15-46 min). Sharpness at native pixels (Laplacian variance) against the Video Refine graph run at the same size: about 3x on two faces in a 480p cafe shot, 1.3x on a 768p close-up face with 2x on the background, and only a small gain on a soft, dark profile shot. Identity held on all three clips and two seeds; expect small changes such as added stubble or a lowered gaze opened up. NVIDIA's plain recipe (no first frame) turned a close-up face into a different person on two seeds; the first-frame anchor holds it. NVIDIA's full mix (refiner + lightx2v Turbo + LMS Sharp) is sharper still but paged to 12-31 min on 31 GB RAM, so the card uses the refiner alone. Peak RAM use is high: close other apps; below ~2 GB free the decode can fail. The refiner is NVIDIA's (MiniMax H3 Community License); the file is Kijai's extraction of the refiner part only. Shares the FL2VA base with the I2V packs."}
+      }
+    },
+    {
+      "id": "minimax-h3-regenerate-1080p-tonematch",
+      "name": "MiniMax H3 Regenerate 1080p (tone-matched)",
+      "icon": "🌙",
+      "previewImage": "previews/minimax-h3-regenerate-1080p-tonematch.jpg",
+      "tagline": "The regenerate pass with the source's brightness put back - for dark clips",
+      "tags": ["Video", "V2V", "Upscale", "Regenerate", "1080p", "3-step", "Tone-matched"],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
+      "description": "The same regenerate pass as the Regenerate 1080p card, with one step added at the end: the result's brightness and colour are matched back to your source clip.\n\nPick this card when the source is dark. The regenerate pass loses a roughly fixed amount of brightness at every stage of the chain, about 3 to 4 levels out of 255. On a bright clip that is invisible. On a night shot it is not, because the same loss is a far larger share of the picture and it pushes the shadows down to solid black.\n\nMeasured on a night clip: the plain card came back 11.7% darker, with pure-black pixels up from 6% to 15%. This card brings that to 3.2% and 8%, and its fine detail lands closer to the source as well. On an already-bright clip the gain is small and the blacks can open slightly, so prefer the plain card there.\n\nEverything else is the same: the first 5 s only, 1920x1088, the source soundtrack kept untouched, and the source's first frame as the identity anchor.",
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": ["local"],
+        "displayModel": "MiniMax H3 FL2VA (pruned int8) + LBH 3D Latent Upscaler + NVIDIA Open-H3 Regenerate refiner (Kijai r384)",
+        "baseModels": ["minimax-h3"],
+        "workflow": "workflows/video_minimax_h3_regenerate_1080p_tonematch.json",
+        "duration": {"type": "slider", "min": 5, "max": 15, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": false},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {"dir": "vae", "filename": "minimax_h3_audio_vae_fp32.safetensors", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"},
+          {"dir": "loras", "filename": "minimax_h3_open_regenerate_2k_refiner_rank_384_bf16.safetensors", "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f5c3b1d5a63e008a691fca1b6096fd57a5307536/loras/minimax_h3_open_regenerate_2k_refiner_rank_384_bf16.safetensors"},
+          {"dir": "latent_upscale_models", "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors", "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"}
+        ],
+        "extensions": [
+          {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},
+          {"name": "Comfyui_Minimax_h3_latent_Upscaler", "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git", "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f", "description": "Trained 3D latent upscaler (MinimaxH3LatentUpscaler3D). Same pin as the Two-Stage and Video Refine packs."},
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides PathchSageAttentionKJ for SimpliGen's Faster Attention injection (supportsSage), and ColorMatch, used by the tone-matched card."}
         ],
         "steps": 3,
         "negativePrompt": "",
