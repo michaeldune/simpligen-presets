@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Community — Krea 2",
-  "version": "1.9.3",
+  "version": "1.10.0",
   "author": "Krea AI",
   "nsfw": true,
   "description": "Six Krea 2 single-pass DiT mixes — Moody Mix, RedCraft Red Mix, Realia, Fascium, BF95 Dark Realism and Dark Beast (fp8). Uncensored/photoreal 8-10 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass), all sharing one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its ~12-14 GB checkpoint. Three of the six (RedCraft, Fascium, Dark Beast) are mature-capable mixes. The trained finetunes (Muse, FinalCut, Binyuan) moved to the separate Krea 2 Finetunes pack in 1.6.0. Since 1.7.0: two free GGUF builds of Dark Beast (Q8 matches the FP8 original, Q4 fits 8 GB cards), because the FP8 file is now paid on Civitai. Since 1.8.0: two cards from VXP's experimental Krea 2 beta series (INT8, about 14 s a picture at 1 MP): Beta 4 for anime and illustration, Beta 3 for the same look on photographs. Both put a dark, backlit, high-contrast grade on everything, which none of the other cards here give. Since 1.9.0: DaSiWa Krea2 DarkDesire V3 (Darksidewalker, INT8), added on request; it stays close to stock Krea 2 Turbo, with richer painted skies, bolder anime lines and deeper reds.",
@@ -1308,6 +1308,126 @@
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
+    },
+    {
+      "id": "redcraft-krea2-red-mix-v3",
+      "name": "RedCraft Krea 2 Red Mix 3.0",
+      "tagline": "Red Mix 3.0: darker, more dramatic uncensored realism",
+      "icon": "🌋",
+      "previewImage": "previews/redcraft-krea2-red-mix-v3.jpg",
+      "description": "Uncensored Krea 2 realism with a darker, more dramatic grade than Red Mix 1.1: deeper shadows, stronger contrast and more striking light, such as light shafts and coloured glow. In our test, faces, skin and composition stayed close to 1.1.\n\nAiMeASOP's Red Mix 3.0 (赤佬 3.0), a merge of Krea 2 Raw and Turbo. The author says 3.0 removes mosaics and improves visual effects. RedCraft Krea 2 Red Mix (1.1) stays in the pack if you prefer its lighter look.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's Euler at 10 steps and CFG 1, about 48 seconds a picture at 2 MP on a 12 GB card. The author suggests 8 to 12 steps. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Mature",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "RedCraft Krea 2 Red Mix 3.0",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/redcraft-krea2-red-mix-v3.json",
+        "unet": "redcraftKrea2RedMix_v30fp8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3139241?fileId=3019490",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 10,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.5,
+          "notes": "Krea 2 DiT (diffusion_models) + Qwen3VL 4B fp8 encoder + Qwen-Image VAE, shared with the other Krea 2 cards. CFG 1, negative zeroed. Upscale >1 adds the 4-step denoise-0.1 refine pass gated off at Upscale 1, as on the other Krea 2 cards. Krea 2 Raw + Turbo merge, fp8 scaled (diffusion_models, 13.14 GB, sha256 f6088960c0febd27cbd372fc758bb07d012f2d8ae3cd10c45c903d48b94409ea, Civitai model 958009 / version 3139241 '赤佬 3.0 (Krea2)' / fileId 3019490 (Krea2RedMix3.0-fp8-scaled-ComfyUI), by AiMeASOP, published 2026-07-17). Added beside the Red Mix 1.1 card (version 3066243) on Michael's call 2026-11-06, not replacing it. Author: ER_SDE or Euler, Simple, CFG 1, 8-12 steps; same graph as the 1.1 card. Also ships int8/int4 ConvRot, NVFP4, Q4 GGUF and bf16. Baked 2026-11-06 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against Krea 2 Turbo and Red Mix 1.1, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261106). Engine-direct median 29.8 s. Verified in the app 2026-11-06 (engine v0.44.0): photo on 2 seeds at 3:4 (1216x1632), a lettered poster at 1:1 (headline and small line spelled right), anime at 16:9 (1888x1056), a portrait at 2:3 and Upscale 1.5 at 1:1, all clean; size, steps, sampler, file and scale_by read back from engine history; median 48.4 s per picture through the app, 85.1 s at Upscale 1.5."
+        },
         "upscale": 1,
         "extensions": [
           {

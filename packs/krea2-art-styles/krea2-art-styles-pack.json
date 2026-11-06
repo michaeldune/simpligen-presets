@@ -1,7 +1,7 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Community — Krea 2 Art & Styles",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114 / lonecatone23",
   "nsfw": false,
   "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. Since 1.3.0, Animosity v2.0, also by request and clearly different: dark, ornate, heavily coloured semi-real anime, with a fix for same-looking faces. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
@@ -1135,6 +1135,121 @@
           "minRamGB": 16,
           "sizeGB": 13.2,
           "notes": "Krea-2 DiT (diffusion_models): Civitai model 2596298 (Animosity by lonecatone23), version 3437942 'V2.0', fileId 3335254 (int8 ConvRot), 13.15 GB, SHA256 7527a2515978238cc5af36b97ef2c31ce5f3d44b25bd0d8d715d24716162c4f5. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against stock Krea 2 Turbo and Moody Krea 2 Mix, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). The request linked v1.0; v2.0 was published 2026-10-29 with the face fix. Author publishes no Krea settings; the Krea 2 Turbo defaults of euler / simple, 8 steps, CFG 1 used. Engine-direct median 18.2 s at 1024x1536. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a photo sentence at 3:4 (1216x1632) on 2 seeds, two anime characters with a quoted sign at 16:9 (1888x1056, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408) and the same at Upscale 1.5 (2112x2112, 61 s); 26-30 s otherwise. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; no derivatives; no credit required. v2.0 trains in 224 varied faces to break the same-face lock of v1.0, which the author measured falling from 10.7% to 0.9%."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
+    },
+    {
+      "id": "ray-krea2-mid-aesthetic",
+      "name": "Ray Krea2 x Mid Aesthetic",
+      "tagline": "Moody, romantic, Midjourney-style pictures",
+      "icon": "🕯️",
+      "previewImage": "previews/ray-krea2-mid-aesthetic.jpg",
+      "description": "Moody, romantic pictures with a Midjourney and Niji feel: rich, dark colour, cinematic framing and a touch of gothic melancholy. It works across portraits, landscapes, sci-fi and anime, and keeps the same polished look on all of them.\n\nRay3780 built it on Krea 2 Turbo from a blend of @OnlyLemon's LoRAs, which were trained on her own artwork. In our test it often framed people closer than the prompt asked and sometimes made them younger and more glamorous (a woman in her thirties came out about twenty), so describe age and framing clearly if they matter. Anime prompts come out as painted, semi-real illustration.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's ER SDE at 12 steps and CFG 1, about 42 seconds a picture at 2 MP on a 12 GB card. The author suggests 8 to 12 steps. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "tags": [
+        "Krea",
+        "Cinematic",
+        "Moody",
+        "Illustration",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ray Krea2 x Mid Aesthetic",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/ray-krea2-mid-aesthetic.json",
+        "unet": "rayKrea2MidAesthetic_v1turboInt8Convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3415465?fileId=3308391",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 12,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.2,
+          "notes": "Krea 2 DiT (diffusion_models) + Qwen3VL 4B fp8 encoder + Qwen-Image VAE, shared with the other Krea 2 cards. CFG 1, negative zeroed. Upscale >1 adds the 4-step denoise-0.1 refine pass gated off at Upscale 1, as on the other Krea 2 cards. Krea 2 Turbo fine-tune, INT8 ConvRot (diffusion_models, 12.82 GB, sha256 554b9d48b93c7d4db698ba7f35cee3dc79e34b521557cbfea1f03ddbe84bd999, Civitai model 3009760 / version 3415465 'turbo v1 INT8ConvRot' / fileId 3308391, by Ray3780, published 2026-10-19; the only file). Author: er_sde / simple, 8-12 steps, CFG 1; the author's sample PNGs read 10-12 steps er_sde simple with a Wan 2.1 VAE (the same architecture as the Qwen-Image VAE the card uses) and abliterated Qwen3-VL encoders. Bake: on the 'woman in her thirties' photo prompt both seeds came out about twenty and glamorous; tighter framing than base Turbo on photo and gothic prompts. Baked 2026-11-06 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against Krea 2 Turbo, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261106). Engine-direct median 24.8 s. Verified in the app 2026-11-06 (engine v0.44.0): photo on 2 seeds at 3:4 (1216x1632), a lettered poster at 1:1 (spelled right), anime at 16:9, a portrait at 2:3 (a woman in her fifties kept her age) and Upscale 1.5 at 1:1, all clean; settings read back from engine history; median 42.4 s per picture through the app, 71.6 s at Upscale 1.5."
         },
         "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
         "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
