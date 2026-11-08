@@ -1,0 +1,382 @@
+{
+  "id": "ltx-2-5-stubelius-v1-pack",
+  "name": "LTX 2.5 Stubelius v1",
+  "version": "1.0.0",
+  "author": "Stubelius (model) + michaeldune (pack)",
+  "nsfw": true,
+  "addedAt": "2026-11-08",
+  "description": "Stubelius Remix v1 for LTX 2.5: text to video and image to video with generated sound, for anime, 2.5D and stylized characters. Split out of the LTX 2.5 Stubelius pack, which carried the older beta 2 build and is now retired. Against beta 2 on the same prompts and seeds every clip was visibly crisper, with more motion and slightly less saturated colour; on image to video the two were level. Mature-only: it sexualises clothed women even when the prompt asks for modest clothing. Shares the Gemma4 encoder and the LTX 2.5 VAEs with the other LTX 2.5 packs, so only its own 20 GB checkpoint is new.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "LTX",
+    "Anime",
+    "Stylized",
+    "Mature"
+  ],
+  "checksums": {
+    "https://huggingface.co/Stuubs/Stubelius_Remix_Ltx2.5/resolve/829cf2f7cbdf79872ff365787ba50f80006efe76/ltx2.5-Stubelius_remix_v1_int8_convrot.safetensors": "ab4f2c731a34550337b14a9e9bdeafb85ef4a4f8b265d7c53503400b1d281fc6"
+  },
+  "presets": [
+    {
+      "id": "stubelius-v1-ltx-25-anime-t2v",
+      "name": "LTX 2.5 Stubelius v1 Anime (T2V, Mature)",
+      "icon": "🌸",
+      "description": "Text to video with generated sound for anime, 2.5D and stylized characters, using the sharper v1 of Stubelius Remix. Against the beta 2 card on the same prompts and seeds, every clip was visibly crisper, with more motion and slightly less saturated colour.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
+      "tagline": "Sharper anime-first LTX 2.5 text-to-video with generated audio",
+      "previewImage": "previews/stubelius-v1-ltx-25-anime-t2v.jpg",
+      "tags": [
+        "Video",
+        "T2V",
+        "LTX 2.5",
+        "Anime",
+        "Stylized",
+        "INT8",
+        "Mature"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "promptFamily": "ltx-2",
+        "shotModes": [
+          "t2v"
+        ],
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 Stubelius Remix v1 (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/stubelius-v1-ltx-25-anime-t2v.json",
+        "requiresImage": false,
+        "unet": "ltx2.5-Stubelius_remix_v1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Stuubs/Stubelius_Remix_Ltx2.5/resolve/829cf2f7cbdf79872ff365787ba50f80006efe76/ltx2.5-Stubelius_remix_v1_int8_convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/3c6a4e66e5d0a684231950b9c74dd4ded7b6fadc/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 21.5,
+          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. On 3 of 3 seeds a clothed anime prompt came out with exposed skin, and on 3 of 3 seeds a second character in a two-person prompt was missing from the sampled frames, the same as beta 2. Measured 2026-11-08 on a 4070 Ti, engine-direct at 832x448 for 3 s (the graph upscales to 1664x896): 92 s on this int8 build, against 129 s for beta 2 on the same seed and prompt. The model draws a fake watermark, a garbled web address, in the bottom-right corner of every clip in that test, on all three Stubelius builds. A Q4_K_S GGUF of v1 exists upstream at 11.65 GB and does load through UnetLoaderGGUFDynamicVRAM, but it ran 25 percent slower than int8 and, on the one seed tried, rendered a prompted school shirt see-through where int8 did not, so the pack stays on int8."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stubelius-v1-ltx-25-anime-i2v",
+      "name": "LTX 2.5 Stubelius v1 Anime (I2V, Mature)",
+      "icon": "🌸",
+      "description": "Animates a source image and generates its sound, for anime, 2.5D and stylized characters, using v1 of Stubelius Remix. On image to video it looked the same as the beta 2 card in our test, so either card will do. The sharper picture showed up on text to video.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
+      "tagline": "Anime-first LTX 2.5 image-to-video on Stubelius Remix v1",
+      "previewImage": "previews/stubelius-v1-ltx-25-anime-i2v.jpg",
+      "tags": [
+        "Video",
+        "I2V",
+        "LTX 2.5",
+        "Anime",
+        "Stylized",
+        "INT8",
+        "Mature"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "video": {
+        "promptFamily": "ltx-2",
+        "shotModes": [
+          "i2v"
+        ],
+        "supports": [
+          "local"
+        ],
+        "duration": {
+          "type": "slider",
+          "min": 3,
+          "max": 20,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 832,
+                "height": 448
+              },
+              "9:16": {
+                "width": 448,
+                "height": 832
+              },
+              "4:3": {
+                "width": 768,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 768
+              },
+              "21:9": {
+                "width": 960,
+                "height": 448
+              }
+            }
+          },
+          {
+            "label": "720p",
+            "minVramGB": 8,
+            "aspects": {
+              "1:1": {
+                "width": 960,
+                "height": 960
+              },
+              "16:9": {
+                "width": 1280,
+                "height": 704
+              },
+              "9:16": {
+                "width": 704,
+                "height": 1280
+              },
+              "4:3": {
+                "width": 1024,
+                "height": 768
+              },
+              "3:4": {
+                "width": 768,
+                "height": 1024
+              },
+              "21:9": {
+                "width": 1664,
+                "height": 704
+              }
+            }
+          },
+          {
+            "label": "1080p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1408,
+                "height": 1408
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1536,
+                "height": 1152
+              },
+              "3:4": {
+                "width": 1152,
+                "height": 1536
+              },
+              "21:9": {
+                "width": 2560,
+                "height": 1088
+              }
+            }
+          }
+        ],
+        "displayModel": "LTX 2.5 Stubelius Remix v1 (INT8)",
+        "baseModels": [
+          "ltxv-2.5-distilled"
+        ],
+        "workflow": "workflows/stubelius-v1-ltx-25-anime-i2v.json",
+        "requiresImage": true,
+        "unet": "ltx2.5-Stubelius_remix_v1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Stuubs/Stubelius_Remix_Ltx2.5/resolve/829cf2f7cbdf79872ff365787ba50f80006efe76/ltx2.5-Stubelius_remix_v1_int8_convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "spatialUpscaler": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "ltx-2.5-audio-vae-bf16.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/2356ce76915d6c48d313d7e8b25900e1dd3abaa8/vae/ltx-2.5-audio-vae-bf16.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "ltx-2.3-spatial-upscaler-x2-1.1.safetensors",
+            "url": "https://huggingface.co/Lightricks/LTX-2.3/resolve/3c6a4e66e5d0a684231950b9c74dd4ded7b6fadc/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+          }
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "vramModel": {
+          "floorGB": 8,
+          "gbPerMpSecond": 0.38
+        },
+        "reclaimVramBeforeDecode": true,
+        "acceptsAudio": false,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 21.5,
+          "notes": "Stubelius Remix v1 INT8 ConvRot (Stuubs/Stubelius_Remix_Ltx2.5 @ 829cf2f7, 21.5 GB, sha256 pinned in the pack checksums; beta 2 plus the OmniNFT fine-tune merged in, distilled LoRA already merged, so add neither). The Gemma4 encoder, LTX 2.5 video/audio VAEs and LTX 2.3 spatial upscaler are the same shared companion files the beta 2 cards and the REDgraft pack use. Workflows are the beta 2 cards' graphs, identical apart from the save prefix and a node title. Tested 2026-10-11 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, 480p 16:9, 5 s, 3 text prompts + 1 image x seeds 11/12/13, beta 2 on the same prompts and seeds): text-to-video visibly crisper on 9 of 9 pairs, image-to-video no visible difference, 84-151 s per clip, peak VRAM 11.7 GB on both versions. This image-to-video preset requires a source image. On 3 of 3 seeds a clothed anime prompt came out with exposed skin, and on 3 of 3 seeds a second character in a two-person prompt was missing from the sampled frames, the same as beta 2. Measured 2026-11-08 on a 4070 Ti, engine-direct at 832x448 for 3 s (the graph upscales to 1664x896): 92 s on this int8 build, against 129 s for beta 2 on the same seed and prompt. The model draws a fake watermark, a garbled web address, in the bottom-right corner of every clip in that test, on all three Stubelius builds. A Q4_K_S GGUF of v1 exists upstream at 11.65 GB and does load through UnetLoaderGGUFDynamicVRAM, but it ran 25 percent slower than int8 and, on the one seed tried, rendered a prompted school shirt see-through where int8 did not, so the pack stays on int8."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    }
+  ]
+}
