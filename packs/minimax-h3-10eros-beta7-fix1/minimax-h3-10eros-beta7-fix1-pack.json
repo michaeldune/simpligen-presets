@@ -352,6 +352,10 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "shotModes": [
+          "i2v"
+        ],
+        "studioPreview": true,
         "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
