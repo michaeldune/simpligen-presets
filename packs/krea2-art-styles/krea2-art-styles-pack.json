@@ -1,17 +1,17 @@
 {
   "id": "krea2-art-styles-pack",
-  "name": "Community — Krea 2 Art & Styles",
-  "version": "1.4.0",
-  "author": "llikswonskcalb / FASCIUM / fwaunstp733 / VaelicoAi / youneedanewname / ccooccoo / SeeSeeLP / nvo76 / easygoing0114 / lonecatone23",
+  "name": "Krea 2 Art & Styles",
+  "version": "2.0.0",
+  "author": "various",
   "nsfw": false,
-  "description": "Four Krea 2 checkpoints that do not look like Krea 2. Stock Krea 2 Turbo already handles anime, painting and fantasy prompts well, so a style card only earns its 13 GB if it gives a different picture; of six we tested side by side, these four did. Equinox: crisp, idealised semi-real characters with their own compositions. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Since 1.1.0 the pack also carries four anime checkpoints the community asked for: Krea2-Anime (clean, flat anime with thin lines) and CocoaMix (soft, cute faces) look clearly different; See-Krea2 and Krea 2 Full stay close to stock Krea 2 and are here because users asked for them. Since 1.2.0, Krea-2-Nippon_clear, also close to stock and also by request: cleaner, brighter cel-anime faces and deeper blues on Japanese subjects, non-commercial use only, 15.9 GB. Since 1.3.0, Animosity v2.0, also by request and clearly different: dark, ornate, heavily coloured semi-real anime, with a fix for same-looking faces. All render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass, and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its 13-14 GB checkpoint. For photography use the Krea 2 or Krea 2 Finetunes packs.",
+  "description": "Krea 2 checkpoints that do not look like Krea 2. Equinox: crisp, idealised semi-real characters. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Ray Krea2 x Mid Aesthetic: moody, romantic, Midjourney-style pictures. Since 2.0.0, two dark looks from the old Krea 2 pack: BF95 Dark Realism (cool, cinematic photoreal grade) and VXP Beta 3 (backlit, high-contrast, on photos and illustration alike); the six anime cards moved to Krea 2 Anime. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs. For photography use Krea 2 Realism or Krea 2 Finetunes.",
   "tags": [
     "Local",
     "Krea",
     "Artistic",
-    "Anime",
     "Stylized",
-    "Anthro"
+    "Anthro",
+    "Cinematic"
   ],
   "presets": [
     {
@@ -467,692 +467,6 @@
       }
     },
     {
-      "id": "krea2-anime-v2",
-      "name": "Krea2-Anime v2.0 (fp8)",
-      "tagline": "Clean, bright anime with thin linework; mature-trained",
-      "icon": "🌸",
-      "previewImage": "previews/krea2-anime-v2.jpg",
-      "description": "Text to image for clean, bright anime with thin lines, even light and its own poses. In our test it drew the cleanest, flattest anime of the Krea 2 cards. It is Krea 2 Turbo trained further on a million-picture mature anime set, about a quarter of the planned training by the author's account.\n\nIt wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model.\n\nArtist tags barely work, and the author advises against 4-step LoRAs.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Mature",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "Krea2-Anime v2.0 (fp8)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/krea2-anime-v2.json",
-        "unet": "krea2Anime_v20_3246005.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3357716?fileId=3246005",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 12,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 8,
-            "max": 20,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 13.5,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2908999 (Krea2-Anime), version 3357716 'v2.0', file 3246005 (fp8), 13,485,909,944 B, SHA256 03183242413503b2e68c1c5f8832b27228cbab446419ef8cb39f1c62e09972e3. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-15 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): the 2026-10-03 bake's 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo, VXP Beta 4 Anime, Equinox, Fwaun and Anime UWU, then 4 strength prompts (nude, pixel art, the Krea2-Anime author's long demon prompt, cocoart) x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). Author: 8-20 steps, CFG 1, Euler / Euler a / DPM++ SDE / er_sde, Simple or Normal, 1024-2048 px; this card runs euler/simple, 12 steps. Median 27.7 s per 1024x1536. The same version also comes as bf16, int8 and int4 (6.9 GB, not tested). LICENCE (Civitai): commercial use, merges and derivatives allowed. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (1216x1632, 1888x1056 and 1408x1408), all rendered cleanly."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
-      "id": "cocoamix-krea2-v003",
-      "name": "Krea2 CocoaMix v0.03 beta",
-      "tagline": "Soft, cute anime faces with bright eye highlights",
-      "icon": "🍫",
-      "previewImage": "previews/cocoamix-krea2-v003.jpg",
-      "description": "Text to image with softer, rounder, cuter anime faces than stock Krea 2, with blush and bright eye highlights. This is a beta: a Krea 2 Turbo merge with the author's own training.\n\nThe author's style cue is 'cocoart of no pupils eyes with eye highlights on top'. For an animal girl write 'animal ears, no ears' (their wording).\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence: images are for non-commercial use only, and the author asks for permission before selling images or releasing merges. Civitai flags: no derivatives.",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Cute",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "Krea2 CocoaMix v0.03 beta (fp8)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/cocoamix-krea2-v003.json",
-        "unet": "krea2Cocoamix_v003beta.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3214102?fileId=3095880",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 8,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 6,
-            "max": 12,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 13.1,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2819595 (Krea2 Cocoamix), version 3214102 'v0.03beta', file 3095880 (fp8), 13,141,843,160 B, SHA256 4141230c76cafd8e7649ab280d0427b5f626b0169dff6c4e3d89a6687d8f1397. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-15 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): the 2026-10-03 bake's 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo, VXP Beta 4 Anime, Equinox, Fwaun and Anime UWU, then 4 strength prompts (nude, pixel art, the Krea2-Anime author's long demon prompt, cocoart) x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). The author gives no sampler settings (a Krea 2 Turbo merge), so this uses the Krea 2 Turbo convention: euler/simple, 8 steps, CFG 1. Median 21.8 s per 1024x1536. LICENCE: author's page says non-commercial use only (images included), permission needed to sell images or release merges; Civitai flags: no derivatives. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (1216x1632, 1888x1056 and 1408x1408), all rendered cleanly."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
-      "id": "see-krea2-genesis-v2",
-      "name": "See-Krea2 Genesis V2 (fp8)",
-      "tagline": "Detailed anime scenes, elf and kitsune triggers",
-      "icon": "👾",
-      "previewImage": "previews/see-krea2-genesis-v2.jpg",
-      "description": "Text to image for detailed anime characters and backgrounds. In our test it stayed fairly close to stock Krea 2, with warmer, more painterly faces and busier scenes. It is here because users asked for it.\n\nIt has two trained characters: seesee_elf and seesee_kitsune.\n\nThe author also trained a pixel-art look ('pixel' or '16Bit'), but in our test stock Krea 2 drew sharper pixel art from the same prompt, and this card came out as detailed illustration.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Illustration",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "See-Krea2 Genesis V2 (fp8 scaled)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/see-krea2-genesis-v2.json",
-        "unet": "seeKrea2_genesisV2_3206798.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3320733?fileId=3206798",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 8,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 6,
-            "max": 12,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 13.1,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2846618 (See-Krea2), version 3320733 'Genesis-V2', file 3206798 (fp8 scaled), 13,141,909,672 B, SHA256 1bb85108a23810904a26016278d2d71e1782bb7bd0b008c3d1ff81d24d9a25a6. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-15 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): the 2026-10-03 bake's 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo, VXP Beta 4 Anime, Equinox, Fwaun and Anime UWU, then 4 strength prompts (nude, pixel art, the Krea2-Anime author's long demon prompt, cocoart) x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). Author: 8 steps, CFG 1, euler/simple, about 1024x1024. Median 22.3 s per 1024x1536. INT8 ConvRot, MXFP8, NVFP4 and INT4 builds of the same version exist on the page (not tested). LICENCE (Civitai): commercial use, merges and derivatives allowed. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (1216x1632, 1888x1056 and 1408x1408), all rendered cleanly."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
-      "id": "krea2-full-v1-anime",
-      "nsfw": true,
-      "name": "Krea 2 Full v1.0 Anime (INT8)",
-      "tagline": "Community-favourites Krea 2 mix, anime cut",
-      "icon": "🧩",
-      "previewImage": "previews/krea2-full-v1-anime.jpg",
-      "description": "Text to image from a mix of the community's favourites, in the anime build. The author describes it as a censor-free Krea 2 checkpoint. In our test it stayed close to stock Krea 2 Turbo (which already draws nudity), with softer faces and finer lines on anime prompts. It is here because users asked for it.\n\nThis is the fastest of the Krea 2 anime cards: about 16 seconds a picture at 2 MP on a 12 GB card.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nLicence: Krea 2 Community License Agreement, per the author. Civitai: merges and derivatives allowed.",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Mature",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "Krea 2 Full v1.0 Anime (INT8)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/krea2-full-v1-anime.json",
-        "unet": "krea2Full_v10Anime_3295730.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3395613?fileId=3295730",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 8,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 6,
-            "max": 12,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 14.1,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2994173 (Krea 2 Full), version 3395613 'v1.0 Anime', file 3295730 (int8), 14,132,233,920 B, SHA256 37b8b76b4516d4d4b50222a64b2830c649e07351f545fdac441584410dbfdff7. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-15 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): the 2026-10-03 bake's 5 prompts x 2 seeds at 1024x1536 against base Krea 2 Turbo, VXP Beta 4 Anime, Equinox, Fwaun and Anime UWU, then 4 strength prompts (nude, pixel art, the Krea2-Anime author's long demon prompt, cocoart) x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). The author gives no sampler settings; uses the Krea 2 Turbo convention: euler/simple, 8 steps, CFG 1. Median 16.2 s per 1024x1536. Two int4 builds (8.9 and 6.0 GB) exist on the page (not tested). Krea 2 Community License Agreement per the author. LICENCE (Civitai): merges and derivatives allowed. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (1216x1632, 1888x1056 and 1408x1408), all rendered cleanly."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
-      "id": "nippon-clear-krea2-int8",
-      "name": "Krea-2-Nippon_clear (INT8)",
-      "tagline": "Japanese look, clean bright anime, deep blues; close to stock",
-      "icon": "🏮",
-      "previewImage": "previews/nippon-clear-krea2-int8.jpg",
-      "description": "Text to image for Japanese subjects, anime and photographs alike. It stayed the closest to stock Krea 2 Turbo in our test, with the same compositions from the same seed. The differences are cleaner, brighter cel-anime faces, more saturated colour and deeper blues.\n\nIt is here because the community asked for it, and you may prefer it on your own prompts. It is the largest Krea 2 card to download.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds a picture at 2 MP on a 12 GB card.\n\nNon-commercial use only (Krea 2 Community License plus the Nippon LoRA's terms).",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Japanese",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "Krea-2-Nippon_clear (INT8 ConvRot HQ)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/nippon-clear-krea2-int8.json",
-        "unet": "Krea-2-Nippon_clear_Int8_ConvRot_HQ.safetensors",
-        "unetUrl": "https://huggingface.co/easygoing0114/Krea-2-Nippon_clear/resolve/4cd1444c9ed4b077d1091d65e8513d65a2539990/Krea-2-Nippon_clear_Int8_ConvRot_HQ.safetensors",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 8,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 6,
-            "max": 12,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 15.9,
-          "notes": "Krea-2 DiT (diffusion_models): Hugging Face easygoing0114/Krea-2-Nippon_clear at 4cd1444c9ed4b077d1091d65e8513d65a2539990, Krea-2-Nippon_clear_Int8_ConvRot_HQ.safetensors, 15,867,709,836 B, SHA256 d37052a4e58775bb0fab3bcba63fd931fca5f64a87bb77316e36fe11bf6c3fbb (the same file as Civitai model 3014463, version 3421934). + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality) so the prompt reaches the model as tested. Tested 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine, direct submission): 5 prompts (photo, anime, Japanese shrine photo, gothic portrait, sci-fi wide) x 2 seeds at 1024x1536 against stock Krea 2 Turbo (run twice, pixel-identical), FinalCut Massive Update and Moody Krea 2 Mix (F:\\Claude-Work\\krea2-wishlist-20261024). Author: euler/normal, 8-12 steps, CFG 1 (their embedded ComfyUI graph: 8 steps, CFG 1, zeroed negative); the card's main pass runs euler/normal, the optional 4-step refine keeps the pack's euler/simple. The Civitai link in the request was the 25.7 GB BF16 build; the INT8 ConvRot HQ build of the same model was used for 12 GB cards. FP8 svd-scaled (15.9 GB), MXFP8 and NVFP4 builds exist (not tested). Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route, right after an app restart: a photo sentence at 3:4 (1216x1632, 25.6 s), two anime characters with a quoted sign at 16:9 (1888x1056, 24.8 s, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408, 24.6 s) and the same at Upscale 1.5 (2112x2112, 56.8 s). All four rendered cleanly; the graph ran euler/normal as built. LICENCE: Krea 2 Community License + Nippon LoRA terms, non-commercial use only (author)."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
-      "id": "animosity-krea2-v2-int8",
-      "nsfw": true,
-      "name": "Animosity v2.0 (INT8)",
-      "tagline": "Dark, ornate, heavily coloured semi-real anime",
-      "icon": "🥀",
-      "previewImage": "previews/animosity-krea2-v2-int8.jpg",
-      "description": "Text to image where anime clashes with realism: dark, ornate semi-real pictures with rich colour and a lot of fine detail. In our test it was clearly its own look. It likes to add gold ornament and glowing red eyes to dark subjects, and it stays dark and heavily graded on photo prompts too.\n\nThis version was trained to break the same-face habit of v1.0, and the author reports the same face turning up far less often.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, about 1 minute at 1.5x. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives; no credit required.",
-      "tags": [
-        "Krea",
-        "Anime",
-        "Semi-Real",
-        "Local"
-      ],
-      "enabled": true,
-      "promptStyle": "natural",
-      "template": "sdxl",
-      "ui": {
-        "visibleFields": [
-          "content",
-          "aspectRatio",
-          "shotType",
-          "environment",
-          "lightingSource",
-          "atmosphere"
-        ]
-      },
-      "image": {
-        "promptFamily": "krea-2",
-        "supports": [
-          "local"
-        ],
-        "provider": "comfyui",
-        "displayModel": "Animosity v2.0 (INT8 ConvRot)",
-        "baseModels": [
-          "krea2"
-        ],
-        "workflow": "workflows/animosity-krea2-v2-int8.json",
-        "unet": "animosity_v20Int8Convrot.safetensors",
-        "unetUrl": "https://civitai.com/api/download/models/3437942?fileId=3335254",
-        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
-        "vae": "qwen_image_vae.safetensors",
-        "steps": 8,
-        "cfg": 1,
-        "denoise": 1,
-        "negativePrompt": "",
-        "resolutionOverrides": {
-          "1:1": {
-            "width": 1408,
-            "height": 1408
-          },
-          "4:3": {
-            "width": 1632,
-            "height": 1216
-          },
-          "3:4": {
-            "width": 1216,
-            "height": 1632
-          },
-          "3:2": {
-            "width": 1728,
-            "height": 1152
-          },
-          "2:3": {
-            "width": 1152,
-            "height": 1728
-          },
-          "16:9": {
-            "width": 1888,
-            "height": 1056
-          },
-          "9:16": {
-            "width": 1056,
-            "height": 1888
-          },
-          "21:9": {
-            "width": 2160,
-            "height": 928
-          }
-        },
-        "controls": {
-          "steps": {
-            "min": 6,
-            "max": 12,
-            "step": 1
-          },
-          "upscale": {
-            "min": 1,
-            "max": 2,
-            "step": 0.1
-          }
-        },
-        "requirements": {
-          "minVramGB": 10,
-          "recommendedVramGB": 12,
-          "minRamGB": 16,
-          "sizeGB": 13.2,
-          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2596298 (Animosity by lonecatone23), version 3437942 'V2.0', fileId 3335254 (int8 ConvRot), 13.15 GB, SHA256 7527a2515978238cc5af36b97ef2c31ce5f3d44b25bd0d8d715d24716162c4f5. + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards. Negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against stock Krea 2 Turbo and Moody Krea 2 Mix, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). The request linked v1.0; v2.0 was published 2026-10-29 with the face fix. Author publishes no Krea settings; the Krea 2 Turbo defaults of euler / simple, 8 steps, CFG 1 used. Engine-direct median 18.2 s at 1024x1536. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a photo sentence at 3:4 (1216x1632) on 2 seeds, two anime characters with a quoted sign at 16:9 (1888x1056, 'OPEN' correct, unprompted background signs are made-up text), a short tag prompt at 1:1 (1408x1408) and the same at Upscale 1.5 (2112x2112, 61 s); 26-30 s otherwise. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed; no derivatives; no credit required. v2.0 trains in 224 varied faces to break the same-face lock of v1.0, which the author measured falling from 10.7% to 0.9%."
-        },
-        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
-        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
-        "upscale": 1,
-        "extensions": [
-          {
-            "name": "rgthree-comfy",
-            "url": "https://github.com/rgthree/rgthree-comfy.git",
-            "description": "Power Lora Loader (user LoRA slot)",
-            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
-          }
-        ],
-        "values": {
-          "quality": ""
-        }
-      }
-    },
-    {
       "id": "ray-krea2-mid-aesthetic",
       "name": "Ray Krea2 x Mid Aesthetic",
       "tagline": "Moody, romantic, Midjourney-style pictures",
@@ -1266,6 +580,237 @@
           "quality": ""
         }
       }
+    },
+    {
+      "id": "bf95-krea2-dark-realism-v30",
+      "name": "BF95 Krea 2 Dark Realism v3.0",
+      "tagline": "Dark cinematic photoreal Krea 2 mix",
+      "icon": "🌑",
+      "previewImage": "previews/bf95-krea2-dark-realism-v30.jpg",
+      "description": "Dark, cinematic photoreal pictures with a cool grade, clean skin and strong background separation. A mix of Realism Engine, Ideogram 4 and Krea 2.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 28 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 6 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Realistic",
+        "Dark",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "BF95 Krea 2 Dark Realism v3.0",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/bf95-krea2-dark-realism-v30.json",
+        "unet": "bf95Krea2DarkRealism_v30.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3111156",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.5,
+          "notes": "Krea-2 DiT (diffusion_models, scaled-fp8) + Qwen3VL 4B encoder + Qwen-Image VAE. euler/simple, CFG 1, negative zeroed. Dark cinematic realism mix (Realism Engine + Ideogram 4 + Krea 2). Renders at ~2 MP natively (Krea 2 supports 1K-2K); 2048x2048 also works on 12 GB but takes ~3x longer. Upscale >1 adds a lanczos resize plus a 4-step denoise-0.1 refine pass, as in the official Krea 2 Turbo preset; at Upscale 1 the refine is bypassed by a core ComfyMathExpression + ComfySwitchNode gate, because a same-size refine pass blotches skin on these mixes (tested 4 sampler/denoise variants, all bad; 1.5x is clean). Measured 2026-09-01: 1408x1408 in ~28 s on a 4070 Ti; Upscale 1.5 to 2112x2112 adds ~6 s. All six presets were verified at Upscale 1 and 1.5 with the gate in place."
+        },
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vxp-krea2-beta3-int8",
+      "name": "VXP Krea 2 Beta 3 (Hybrid)",
+      "tagline": "The same dark, backlit look on photos and illustration",
+      "icon": "🌙",
+      "previewImage": "previews/vxp-krea2-beta3-int8.jpg",
+      "description": "The same dark, backlit, high-contrast look as Beta 4, but it covers anime, semi-real and realistic from one checkpoint. This is a separate branch of the experimental beta series, not an older Beta 4.\n\nOn anime and semi-real prompts the two are close. The difference is photographs: Beta 3 keeps them photographic (moody window light, real skin texture) where Beta 4 turns them into illustration.\n\nUncensored.\n\nAbout 14 seconds a picture at 1 MP on a 12 GB card, and 24-26 seconds at 1216x1632. Upscale above 1 and LoRAs are untested on this card.\n\nLicence (Civitai): credit not required, no derivatives or merges, commercial use limited to generation services.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Mature",
+        "Semi-Realistic",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "VXP Krea2 Beta 3 INT8",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/vxp-krea2-beta3-int8.json",
+        "unet": "vxpKrea2Nsfw_beta3INT8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3366950?fileId=3254970",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.3,
+          "notes": "Krea-2 DiT (diffusion_models): Civitai model 2938537, version 3366950 'Beta 3 INT8', file 3254970 (the diffusion model; the page's text encoder and VAE are the stock files), 13,320,458,040 B, SHA256 8024ad57fd47cae32de416d5bc546d1b4e6071ef5bcc614b8bfce18a902b90e3; + Qwen3VL 4B encoder + Qwen-Image VAE, shared with the other Krea 2 cards (the files on the model page are byte-identical to them). euler/simple, 8 steps, CFG 1, negative zeroed. Tested 2026-10-08 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0, direct submission): 6 prompts x 3 seeds at 1024x1536 against base Krea 2 Turbo, Equinox, Moody, BF95 Dark Realism and Dark Beast, all at 8 steps / CFG 1. Median 14 s per picture. The author publishes no settings; a probe showed 4, 8 and 12 steps at CFG 1 clean and 20 steps at CFG 3.5 as heavy noise, so there is no CFG slider. LICENCE (Civitai): credit not required, no derivatives/merges, commercial use limited to generation services. Verified in the app 2026-10-08 (SimpliGen 1.71.0, engine 0.38.0): 3 seeds at 1216x1632 (3:4), all rendered in 24-26 s, queued checkpoint, seed, steps and sampler read back from the engine. Upscale above 1 and LoRAs not tested on this card."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "nsfw": true
     }
   ]
 }
