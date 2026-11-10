@@ -1,0 +1,860 @@
+{
+  "id": "anima-anime-mixes-pack",
+  "name": "Anima Anime Mixes",
+  "version": "1.0.0",
+  "author": "various",
+  "nsfw": false,
+  "description": "Clean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast) and Male GG Mix (male characters). These cards came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "tags": [
+    "Local",
+    "Anima",
+    "Anime"
+  ],
+  "presets": [
+    {
+      "id": "male-ggmix-illustrious-anima-v11",
+      "name": "Male GG Mix v1.1 (Anima)",
+      "tagline": "Anima checkpoint fine-tuned for male anime characters",
+      "icon": "⚔️",
+      "previewImage": "previews/male-ggmix-illustrious-anima-v11.jpg",
+      "description": "An Anima checkpoint made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Male",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Male GG Mix v1.1 (Anima)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/male-ggmix-illustrious-anima-v11.json",
+        "unet": "maleGgmixIllustrious_anima11Base.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2958278",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 35,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, female",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Anima UNet (diffusion_models) + Qwen 0.6B text encoder + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ri-mix-illustrious-anima",
+      "name": "Ri-Mix α (Anima)",
+      "tagline": "phinjo's Ri-mix style on the Anima model",
+      "icon": "🌀",
+      "previewImage": "previews/ri-mix-illustrious-anima.jpg",
+      "description": "The Anima version of phinjo's Ri-mix style, for clean, vibrant anime. Prompt with Danbooru tags.\n\nThe Ri-mix page on Civitai also has Illustrious versions. Those are separate checkpoints and don't run on this card.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ri-mix α (Anima)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/ri-mix-illustrious-anima.json",
+        "unet": "riMixIllustriousAnima_riMixAnima.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3020951",
+        "clip": "riMixIllustriousAnima_riMixAnima_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3020951?fileId=2899768",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Anima UNet (diffusion_models) + text encoder riMixIllustriousAnima_riMixAnima_txt (text_encoders, same bytes as qwen_3_06b_base under Ri-mix's file name) + Qwen-Image VAE. ER-SDE / simple, ModelSamplingAuraFlow shift 3."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ri-mix-anima-hires",
+      "name": "Ri-Mix α Hi-Res (Anima)",
+      "tagline": "Ri-Mix α with a hi-res pass, up to 1536x2304",
+      "icon": "🌀",
+      "previewImage": "previews/ri-mix-anima-hires.jpg",
+      "description": "Ri-Mix α on the settings its creator lists: a hi-res pass and CFG 3. This is the card for the fine detail and wider framing you see in Ri-mix images on Civitai.\n\nEach image is rendered, then refined at 1.5 times the listed size, so 2:3 comes out at 1536x2304. Nothing is added to your prompt, so quality tags are up to you.\n\nIt uses the same three model files as Ri-Mix α.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Ri-mix α (Anima)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/ri-mix-anima-hires.json",
+        "unet": "riMixIllustriousAnima_riMixAnima.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3020951",
+        "clip": "riMixIllustriousAnima_riMixAnima_txt.safetensors",
+        "clipUrl": "https://civitai.com/api/download/models/3020951?fileId=2899768",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 3,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, (lowres:1.2), (worst quality:1.4), (low quality:1.4), (bad anatomy:1.4), bad hands, multiple views, jpeg artifacts, patreon logo, patreon username, web address, signature, watermark, text, logo, artist name, censored, mosaic censoring, loli, chibi",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1248,
+            "height": 1248
+          },
+          "2:3": {
+            "width": 1024,
+            "height": 1536
+          },
+          "3:2": {
+            "width": 1536,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 1088,
+            "height": 1440
+          },
+          "4:3": {
+            "width": 1440,
+            "height": 1088
+          },
+          "9:16": {
+            "width": 960,
+            "height": 1696
+          },
+          "16:9": {
+            "width": 1696,
+            "height": 960
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Same files as Ri-Mix α. Pass 1 at the listed size, then 1.5x latent upscale (bislerp) and a second pass at denoise 0.4. ER-SDE / simple, ModelSamplingAuraFlow shift 3. About 2 minutes per image at 2:3 on a 12 GB 4070 Ti with the model loaded. 8 GB is untested."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "anima-element7-nexus-prism-iv",
+      "name": "Anima Element 7 Nexus Prism IV",
+      "tagline": "Glossy, high-contrast anime with dramatic light",
+      "icon": "💎",
+      "previewImage": "previews/anima-element7-nexus-prism-iv.jpg",
+      "description": "Glossy, high-contrast anime with strong backlight and sparks. This is the most anime branch of the Element 7 suite, and this version fixes lighting and shadows. It leans toward its own poses rather than the base model's.\n\nTags, sentences or both work. About 17 seconds a picture on a 12 GB card.\n\nIt can drift into mature content on its own. The author suggests adding nsfw to the negative prompt if you don't want it.\n\nThe author asks that it not be used for commissions.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Anima Element 7 Nexus Prism IV",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/anima-element7-nexus-prism-iv.json",
+        "unet": "animaElement7Model_nexusPrismIV.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3292162?fileId=3176684",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Anima UNet (diffusion_models, bf16, 3.90 GB, sha256 9DF3DB744573..., Civitai model 2560956 / version 3292162 / fileId 3176684) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. Baked 2026-10-15 against Anima base v1.0 and RDBT b1 on 5 prompts x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). The author gives no sampler settings, so this uses the Anima base card's: er_sde / simple, 30 steps, CFG 4.5. Median 17.1 s per 896x1152 on a 4070 Ti. Author asks that it not be used for commissions. Unlike the other Anima cards, this workflow does NOT prepend the Anima system prompt ('You are an assistant designed to generate anime images... <Prompt Start>'): with it, Element 7 printed parts of that sentence into the picture as caption text on 2 of 4 seeds of a two-character prompt in the app; without it, 0 of the same 4 seeds. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (896x1152, 1344x768 and 1024x1024), all rendered cleanly."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-obsession-anima-v4",
+      "name": "One Obsession Anima v4.0",
+      "tagline": "Beginner-friendly: good pictures from plain prompts",
+      "icon": "💗",
+      "previewImage": "previews/one-obsession-anima-v4.jpg",
+      "description": "Beginner-friendly anime: a short prompt with no artist tags or LoRAs still gives a finished picture, because the card adds the author's recommended quality tags for you. Expect bright, polished anime with clean faces and full backgrounds.\n\nArtist tags work if you want a style: start them with @, for example @piromizu.\n\nAbout 20 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "One Obsession Anima v4.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/one-obsession-anima-v4.json",
+        "unet": "oneObsessionAnima_v40.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3301424?fileId=3186469",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres, censor",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Anima UNet (diffusion_models, fp16, 3.90 GB, sha256 2ACBD9F1D538..., Civitai model 2695493 / version 3301424 / fileId 3186469) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. Baked 2026-10-15 against Anima base v1.0 and RDBT b1 on 5 prompts x 2 seeds (F:\\Claude-Work\\checkpoint-wishlist-20261015). The release also ships a text encoder and VAE; both are byte-identical to the shared Anima files (sha256 CD2A512003E2... and A70580F0213E...), so the card reuses those. Author's quality prefix and negative. er_sde / simple, 30 steps, CFG 4.5 (author gives none). Median 19.9 s per 896x1152 on a 4070 Ti. Verified in the app (1.73.5, engine 0.38.0) 2026-10-15 through the agent route: 3 prompts (tags, a sentence, two characters) at 3:4, 16:9 and 1:1 (896x1152, 1344x768 and 1024x1024), all rendered cleanly."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "unholy-desire-dark-serenity-v3",
+      "name": "Unholy Desire Mix Dark Serenity v3.0",
+      "tagline": "Crisp, polished Anima anime; follows long prompts closely",
+      "icon": "🌒",
+      "previewImage": "previews/unholy-desire-dark-serenity-v3.jpg",
+      "description": "Crisp, polished anime with clean faces and careful detail on armour, hair and clothing. In our side-by-side test it kept every attribute of a busy two-character prompt in place. The card uses the author's quality tags and negative. About 15 seconds a picture on a 12 GB card.\n\nIf you want more speed, the CFG slider goes down to 1, and with 16 steps that renders in about 5 seconds. That is the author's own minimum, but in our test it dropped details (a sword became a spear, capes went missing) and mixed up who wears what.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). Licence (Civitai): image use, on-site generation and selling images allowed; derivatives allowed.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Illustration",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Unholy Desire Mix Dark Serenity v3.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/unholy-desire-dark-serenity-v3.json",
+        "unet": "unholyDesireMixDarkSerenity_v30Anima2b.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3334245?fileId=3220803",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 24,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "bad quality, worst quality, worst detail, sketch, censor, extra limbs, deformed fingers, bad anatomy, mutated body, lowres, low quality, low score, bad score, blurry, text, ugly, hooded eyes, watermark, pale, bad hands, bad proportions, poorly drawn face, poorly drawn hand, missing finger, pixelated, distorted, jpeg artifacts, signature, overexposed, underexposed, censored, mutated, extra finger, cloned face, bad eyes",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 16,
+            "max": 32,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Anima UNet (diffusion_models, bf16, 4.08 GB, sha256 f1281893f717f70fc3d789e0537424f9d5bca544c23f060b8d1cb39e810f8bb3, Civitai model 2692236 / version 3334245 'v3.0_Anima2B' / fileId 3220803) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt (the 2026-10-24 rule: several Anima models letter it into pictures). Author (v1-v2, none for v3): 16+ steps, CFG 1+, their quality prefix and negative (used here; the negative only acts above CFG 1). Baked 2026-10-25 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission) on the 2026-10-15 Anima prompts x 2 seeds at 896x1152 against Anima base (re-rendered: pixel-identical) and every shipped Anima card (F:\\Claude-Work\\dante-request-20261025). Two arms: 16 steps CFG 1 (median 4.8 s; lost details and swapped attributes) and 24 steps CFG 4 (median 13.9 s; all attributes held) - the card ships the second. Nearest card: RDBT b1 (12.9 dB at CFG 1), 11.7 dB at CFG 4: no near-duplicate. The model page also has a 2.9B v2.0 build (not tested). Civitai asks for a sign-in to download (API key). Verified in the app (1.77.0, engine v0.42.0) 2026-10-25 through the agent route, card negative passed explicitly: the two-character hoodie test at 3:4 on seeds 11/22/33/44 (every attribute on the right girl, the hoodie blank on all four: no lettering of any kind) and a single-character prompt at 16:9 (1344x768). 15.1-16.6 s each; graph read back from /history: er_sde/simple, 24 steps, CFG 4, author's prefix and negative, no system prompt. LICENCE (Civitai): image use, on-site generation and selling images allowed; derivatives allowed."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cocoamix-anima-v4",
+      "name": "CocoaMix Anima v4.0",
+      "tagline": "Clean, soft, bright anime with the cocoaface look",
+      "icon": "🍫",
+      "previewImage": "previews/cocoamix-anima-v4.jpg",
+      "description": "Clean, soft, bright anime. About 22 seconds a picture on a 12 GB card; the author gives no settings, so the card uses the Anima base card's.\n\nA few things to check. It added a small made-up print to a plain hoodie on all four test seeds, so look at clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too: add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative.\n\nThis is a different model from Krea2 CocoaMix.\n\nPictures made with it are non-commercial; ask the author about commercial use. Civitai also lists it as RentCivit only, no derivatives, with a fee for reprinting the model.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Soft",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "CocoaMix Anima v4.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/cocoamix-anima-v4.json",
+        "unet": "cocoamixAnima_v40.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3382543?fileId=3271205",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, worst finger, bad quality, censor, censored, mosaic, extra digits, failure, deformed nail, bad hand, bad fingers, soft shine lighting, ears, human ears, real",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Anima UNet (diffusion_models, bf16, 4.18 GB, sha256 85fa848534779c0628371139e32cb0ad51846e22b99e34a66217623fc1385eb2, Civitai model 2810241 / version 3382543 'v4.0' / fileId 3271205, by ccooccoo) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Author's quality prompt and negative; no steps or sampler published, so the Anima base card's er_sde / simple, 30 steps, CFG 4.5. Engine-direct median 17.4 s. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a two-character prompt with a plain black hoodie at 3:4 on 4 seeds (11/22/33/44) and a single-character prompt at 16:9, no system-prompt lettering, 19-23 s each. All four seeds put a small made-up print on the plain hoodie (scribble, two garbled box logos, a cat). Seed, size, prompt and negative read back from engine /history. LICENCE: author: images non-commercial unless agreed; Civitai flags RentCivit only, no derivatives, and a fee for reprinting the model, so the card links to Civitai and does not rehost."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-obsession-anima-v5",
+      "name": "One Obsession Anima v5.0",
+      "tagline": "Bright, punchy anime; 4-second drafts at 10 steps",
+      "icon": "🍭",
+      "previewImage": "previews/one-obsession-anima-v5.jpg",
+      "description": "Bright, punchy anime with saturated colour, strong contrast and lively poses. It is the most vivid of the Anima cards.\n\nmaxfeifei8 built v5.0 on Anima Turbo. It is a separate model from One Obsession Anima v4.0 and 2.9B v2, which stay in the pack. Like v4, it is made to give a finished picture from a short prompt with no artist tags or LoRAs.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @piromizu.\n\nThis card uses the author's settings: 25 steps at CFG 4, about 24 seconds a picture on a 12 GB card. For quick drafts, set Steps to 10 and CFG to 1: about 11 seconds a picture, a little softer and flatter, but clean in our test. Keep CFG at 1 whenever Steps is below 20.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Vivid",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "One Obsession Anima v5.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/one-obsession-anima-v5.json",
+        "unet": "oneObsessionAnima_v50turbo.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3443487?fileId=3342055",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 25,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres, censor",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Anima-Turbo-based UNet (diffusion_models, fp16, 4.18 GB, sha256 fa070a7893839cd7e110a9bff6d9e3b856c4f7ae01d8d2d77f8b91c61a957261, Civitai model 2695493 / version 3443487 'v5.0' / fileId 3342055, by maxfeifei8, published 2026-11-01; file One obsession_animaV5turbo). The author gives no settings; the author's own sample PNGs read ER SDE / Simple, 25 steps, CFG 4, shift 3 at 832x1216 (then a 1.5x hi-res and ADetailer, which the card does not run). A 10-step CFG 1 arm (as on the Anima Turbo card) was baked beside it: 4.0 s median, clean, slightly softer and flatter, so the controls allow Steps 8-40 and CFG 1-5.5. Baked 2026-11-06 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261106). Engine-direct median 18.2 s. Verified in the app 2026-11-06 (engine v0.44.0): tags on 2 seeds at 3:4, a two-person cafe at 16:9, scenery at 1:1 and a plain sentence at 3:4, all clean; plus Steps 10 / CFG 1 sent as options, which the engine ran as 10 steps at CFG 1 (10.9 s, clean); settings read back from engine history; median 24.0 s per picture at the default settings."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    }
+  ]
+}
