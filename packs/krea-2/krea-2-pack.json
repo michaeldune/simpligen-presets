@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Krea 2 Realism",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Krea 2 photoreal mixes, most of them uncensored: Moody Mix, RedCraft Red Mix (1.1 and 3.0), Realia, Fascium V3 and Dark Beast (FP8, plus free GGUF Q8 and Q4 builds, since the FP8 file is paid on Civitai). All are 8-12 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass). They share one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its checkpoint. Renamed from Krea 2 in 2.0.0, when the pack was split: the anime cards (VXP Beta 4, DaSiWa DarkDesire) moved to Krea 2 Anime, and BF95 Dark Realism and VXP Beta 3 moved to Krea 2 Art & Styles. Trained finetunes are in Krea 2 Finetunes.",
+  "description": "Krea 2 photoreal mixes, most of them uncensored: Moody Mix, RedCraft Red Mix (1.1 and 3.0), Realia, Fascium V3, Sick Ollie (natural, true-to-prompt photos) and Dark Beast (FP8, plus free GGUF Q8 and Q4 builds, since the FP8 file is paid on Civitai). All are 8-12 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass). They share one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its checkpoint. Renamed from Krea 2 in 2.0.0, when the pack was split: the anime cards (VXP Beta 4, DaSiWa DarkDesire) moved to Krea 2 Anime, and BF95 Dark Realism and VXP Beta 3 moved to Krea 2 Art & Styles. Trained finetunes are in Krea 2 Finetunes.",
   "tags": [
     "Local",
     "Krea",
@@ -980,6 +980,126 @@
           }
         ],
         "reclaimVramBeforeSampling": true
+      }
+    },
+    {
+      "id": "sickollie-krea2-int8",
+      "name": "Sick Ollie Krea 2",
+      "tagline": "Natural, true-to-prompt photos without a heavy grade",
+      "icon": "🥡",
+      "previewImage": "previews/sickollie-krea2-int8.jpg",
+      "description": "Clean, natural photographic realism. Colour and light follow the prompt instead of a strong house grade, skin looks natural, and small details such as fabric patterns and props come out as written. Anime prompts still come out as anime.\n\nsickollie's Sick Ollie, Krea 2 version. The author made it to work well with character LoRAs.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's settings: Euler with the Beta scheduler, 9 steps, CFG 1, about 30 seconds a picture at 2 MP on a 12 GB card. The author renders at 1440x1920. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "tags": [
+        "Krea",
+        "Turbo",
+        "Mature",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Sick Ollie Krea 2",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/sickollie-krea2-int8.json",
+        "unet": "sickOllie_krea2_int8_convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3154408?fileId=3035672",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 9,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 12.3,
+          "notes": "Krea 2 DiT (diffusion_models) + Qwen3VL 4B fp8 encoder + Qwen-Image VAE, shared with the other Krea 2 cards. CFG 1, negative zeroed. Upscale >1 adds the 4-step denoise-0.1 refine pass gated off at Upscale 1, as on the other Krea 2 cards. Model: INT8 ConvRot (diffusion_models, 13,148,995,440 bytes, sha256 afde753b7f8b13a529cf9d10a2422c490e40a130c9157c9b56743107f511eed8, Civitai model 2676616 / version 3154408 'Krea2' / fileId 3035672 (SICK_OLLIE_Krea2-int8_convrot), by sickollie, published 2026-07-22). The version's primary file is the 25.6 GB bf16, so the fileId pin matters; it also ships FP8, MXFP8 and NVFP4, and molbal publishes GGUF builds (model 2826288). Author: Euler, Beta, CFG 1, 9 steps, 1440x1920. Same graph as the RedCraft 3.0 card except the main sampler's scheduler (beta). Added 2026-11-10 after a Discord user hand-built a card for it. Baked 2026-11-10 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 1024x1536 on 5 prompts x 2 seeds against the 2026-11-06 RedCraft 3.0 renders: engine-direct median 19.8 s (RedCraft 3.0 fp8 29.8 s); Beta and Simple near identical; duplicate control pixel-identical (F:\\Claude-Work\\sickollie-krea2-20261110). Verified in the app 2026-11-10 (engine v0.44.0): photo on 2 seeds at 3:4 (1216x1632), a lettered poster at 1:1 (headline and small line spelled right), anime at 16:9 (1888x1056), a portrait at 2:3 and Upscale 1.5 at 1:1, all clean; size, steps, sampler, scheduler, file and scale_by read back from engine history; about 30 s per picture through the app, 61 s at Upscale 1.5."
+        },
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
       }
     }
   ]
