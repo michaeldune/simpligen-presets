@@ -1,0 +1,947 @@
+{
+  "id": "qwen-image-21-edit-tools-pack",
+  "name": "Qwen Image 2.1 Edit Tools",
+  "version": "1.0.0",
+  "addedAt": "2026-11-09",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minComfyuiVersion": "v0.37.0",
+  "description": "Eight Qwen-Image 2.1 edit cards that each do one job to your picture; they came from the Qwen Image 2.1 pack when it was split on 2026-11-09. Edit (Steady Frame) keeps the result lined up with your original (ausboss's Consistency LoRA). Edit 4MP edits with one to four pictures at the model's full ~4 MP size. Enhance to 4MP adds fine detail to any picture (Elusarca's Detail Enhancer LoRA). Cutout returns the subject on a real transparent background. Character Sheet turns one picture of a person into a front / back / head-angles reference sheet. Head Swap puts one person's face and hair into another picture, Outfit Swap dresses a person in the clothes from another picture, and Pose Studio moves a person into the pose of a 3D doll (MiuProject's VNCCS Pose Studio LoRA). They share the model, encoder and VAE with the Qwen Image 2.1 pack, so with that installed each card costs only its LoRA. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "tags": [
+    "Local",
+    "Qwen",
+    "Edit",
+    "Transparent",
+    "Non-commercial"
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
+    "https://civitai.com/api/download/models/3346353?fileId=3233294": "9aef911a6f1492bd7f3006b4e280562002b6966324892c257f47d0066e83c9d1",
+    "https://civitai.com/api/download/models/3349290": "c1298f51eb090473f924314475952710a2f0322f1df65c0290f3e14997244f96",
+    "https://huggingface.co/MIUProject/VNCCS_PoseStudio_QI2.1/resolve/9857b8a256655da446772a3f1f2b033e33181a6d/VNCCS_QI2_PoseStudioV2.safetensors%20": "c06c8deb8bf2052f6f772118f2c51a741d28fe10cb67cd44e3bd60c6355ea289"
+  },
+  "presets": [
+    {
+      "id": "qwen-image-21-edit-steady",
+      "name": "Qwen Image 2.1 Edit (Steady Frame)",
+      "icon": "📌",
+      "enabled": true,
+      "tagline": "Edit without the picture shifting or resizing",
+      "description": "The Edit card, but the picture stays where it is. Plain Qwen Image 2.1 edits drift: a restyle comes back a few percent taller or nudged sideways, so it no longer lines up with your original. This card adds ausboss's Consistency LoRA, which keeps the edit on the original's frame.\n\nUse it for restyles, recolours, relights and small changes you want to lay over the original.\n\nSame pictures and same wording as the Edit card: refer to them as <image1>, <image2> and so on. About a third slower with one picture, about the same with several.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Qwen",
+        "Local",
+        "Consistency"
+      ],
+      "previewImage": "previews/qwen-image-21-edit-steady.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Consistency LoRA",
+        "workflow": "workflows/image_qwen_image_21_edit_steady.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 20,
+        "cfg": 3,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.5,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Reference loaders use the sgopt_ optional-slot naming, so the app removes an empty slot and its images.image_N input before the job is queued; one encoder serves one to four pictures. References are resized to about 1 MP before encoding (the node's resolution input). Every extra reference lengthens the sequence: on a 4070 Ti 12 GB one reference took 22 s, two took 52 s and four took 106 s at 25 steps (2026-09-20, stock ComfyUI master); identity, a sticker character, a lettered sign and a street scene all carried into one four-reference picture. SINCE 1.4.0 (2026-09-22): guided sampling - CFG 3, 20 steps, seeds_2/sgm_uniform, Adaptive Projected Guidance (1/10/0.3) and FreSca (1/2/8), with a negative prompt - replacing the Comfy template's CFG 1. Tested on 2 prompts x 3 seeds (text to image) and 2 seeds (edit, 1 and 4 references): lettering on signs and menus went from mostly garbled to readable, colour stayed natural, identities held; about 2.4x the time (1 MP text to image ~34 s, one-reference edit ~88 s, four references ~6 min on a 4070 Ti). IN THE APP (2026-09-22): text to image 44 s with a letter-perfect sign and menu; one-reference edit 95 s, identity and clothes kept. The negative prompt is built into the workflow (StringConcatenate) because the app sends an empty negative_prompt; anything the user types is appended. STEADY FRAME CARD (since 1.8.0): the Edit graph plus ausboss/Qwen-Image-2.1-Consistency-LoRA step 1500 (qwen-image-2.1-consistency.safetensors, 159 MB, rank 32, Qwen Research License, pinned to revision 8f05b0fa, sha256 4f44ada1...bd63) at strength 1 through LoraLoaderModelOnly ahead of SimpliGen's LoRA slot. Tested 2026-10-02 on a 4070 Ti 12 GB (SimpliGen engine 0.38.0), 3 source pictures x 7 edits x 2 seeds against the Edit card: worst-corner drift measured with AusBoss Realign to Source fell from a 44 px median (max 65) to 5 px (max 9.5) on watercolor restyles, and from up to 7 px to 0.1 px on local edits and a head turn; the edits themselves and the painted look were unchanged, and the head still turned. About 32% slower with one picture (104 s -> 138 s at 20 steps); with two pictures 135-142 s vs 142-146 s and with four 338 s vs 336 s, all four pictures placed in both."
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "qwen-image-2.1-consistency.safetensors",
+            "url": "https://huggingface.co/ausboss/Qwen-Image-2.1-Consistency-LoRA/resolve/8f05b0fa027d517fa396fb31b71e0eaf48110e89/qwen-image-2.1-consistency.safetensors"
+          }
+        ]
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1",
+        "maxCharacters": 4
+      }
+    },
+    {
+      "id": "qwen-image-21-edit-4mp",
+      "name": "Qwen Image 2.1 Edit 4MP",
+      "icon": "✏️",
+      "enabled": true,
+      "tagline": "Edit or combine up to four pictures, output at 4 megapixels",
+      "description": "The Edit card at the model's full size. Describe the change and refer to the pictures by position: Keep the woman in <image1> unchanged, put the jacket from <image2> on her.\n\nUse one to four reference pictures, or up to 4 characters from the cast picker. The result comes out at about 4 megapixels (2048 x 2048 square, 2752 x 1536 wide).\n\nAbout 2 minutes with one picture and under 4 minutes with four on a 12 GB card. With four people a piece of clothing can change; generate again with a new seed if it does.\n\nPick the aspect ratio that matches your first picture when the framing should stay the same.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "4MP",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-edit-4mp.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_edit_4mp.json",
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": ""
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2400,
+            "height": 1792
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2400
+          },
+          "3:2": {
+            "width": 2528,
+            "height": 1696
+          },
+          "2:3": {
+            "width": 1696,
+            "height": 2528
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Same graph as the Edit card (sgopt_ optional reference slots, QwenImage21Cache, references encoded at about 1 MP) with the model card's 4MP sizes as the aspect-ratio table. Tested 2026-09-22 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0, NVIDIA 617.14), one seed each: one reference at 2048x2048 108 s / 9.9 GB peak, two at 2688x1536 145 s / 11.5 GB, four at 2688x1536 214 s / 11.4 GB; all four people kept face, hair and clothes. At 1 MP, six references dropped a person, so the card stays at four. IN THE APP (2026-09-22, after a restart): one picture 3:4 1792x2400 125 s, two pictures 16:9 155 s, four pictures 16:9 222 s; every face kept in all three, clothes kept except one: with four pictures the bearded man's denim jacket came out as a dark coat."
+        }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1",
+        "maxCharacters": 4
+      }
+    },
+    {
+      "id": "qwen-image-21-enhance-4mp",
+      "name": "Qwen Image 2.1 Enhance to 4MP",
+      "icon": "✨",
+      "enabled": true,
+      "tagline": "Any picture in, the same picture at 4 megapixels with real detail",
+      "description": "Drop in a picture, one you made or any photo, and get it back at about 4 megapixels with fine detail added to skin, hair, fabric and surfaces. Uses the built-in Detail Enhancer LoRA by Elusarca.\n\nThe composition, faces, lettering, colours and lighting stay. Your picture's shape is kept, so the aspect ratio setting is ignored. It does not repair things that are wrong in the picture, such as misspelled text.\n\nThe prompt box is optional: add what should look sharper or what to keep.\n\nAbout 2 minutes on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Upscale",
+        "4MP",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-enhance-4mp.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Detail Enhancer LoRA",
+        "workflow": "workflows/image_qwen_image_21_enhance_4mp.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "elusarcas-qwen2-1-detailer-v1.safetensors",
+            "url": "https://civitai.com/api/download/models/3349290"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture to enhance"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "2:3": {
+            "width": 1696,
+            "height": 2528
+          },
+          "3:2": {
+            "width": 2528,
+            "height": 1696
+          },
+          "3:4": {
+            "width": 1792,
+            "height": 2400
+          },
+          "4:3": {
+            "width": 2400,
+            "height": 1792
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2752
+          },
+          "16:9": {
+            "width": 2752,
+            "height": 1536
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.4,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). This card adds Elusarca's Qwen 2.1 Detail Enhancer LoRA (Civitai model 2956730 v1.0, 76 MB; licence: image use including commercial, credit required, no derivatives; sha256 pinned in the pack checksums) through LoraLoaderModelOnly at strength 1, ahead of SimpliGen's own LoRA slot. The picture is Lanczos-scaled to about 4 MP at its own shape (ImageScaleToTotalPixels, multiple of 32), VAE-encoded as the starting latent and re-noised to 0.8, so layout, faces and lettering carry over; the encoder also sees the picture at 1 MP with the author's recommended brief plus {{prompt}}. Tested 2026-09-22 on a 4070 Ti 12 GB, one seed per setting: from an empty latent (full redraw) the detail was strongest but small faces in a group shot changed and a correct menu word was misspelled (TONKOTSU -> TOMIOTSU); denoise 0.5-0.7 kept everything but added little and slipped one letter; 0.8 kept the face, layout and every letter with added fine detail, about 2 minutes, peak 11.2 GB. Encoding the picture at 2048 instead of 1024 doubled the time with no visible gain. IN THE APP (2026-09-22, engine 0.37.0, NVIDIA driver 617.14): a menu board (every letter kept), a six-person group shot (faces kept) and a close-up portrait (face and eyes kept, finer skin and hair), 110-115 s each."
+        }
+      }
+    },
+    {
+      "id": "qwen-image-21-cutout",
+      "name": "Qwen Image 2.1 Cutout",
+      "icon": "✂️",
+      "enabled": true,
+      "tagline": "Remove the background, get a transparent PNG",
+      "description": "One picture in, the subject out on a transparent background, hair and soft edges included. A picture with no clear subject, such as a street scene, comes back mostly or fully transparent.\n\nThe instruction is built in. Use the prompt box only to say what to keep, for example: keep the microphone and the cable.\n\nThe result always has the size and shape of your picture; the aspect ratio setting is ignored.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Transparent",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-cutout.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_cutout.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture to cut out"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Samples on the latent the encoder returns for the reference, so the cut-out lines up with the source pixel for pixel (rounded to a multiple of 32, about 1 MP). The brief is the model card's own (Remove the background, and output a PNG image) plus a keep-the-whole-subject sentence, with {{prompt}} appended as extra notes. The bare model-card line followed by an empty prompt deleted the subject's jacket and hair on 1 of 3 seeds; with the keep sentence 18 of 18 portrait renders were identical in coverage. Card template tested on a portrait, a B&W profile, a sneaker on a cluttered bench and a long-haired dog, two seeds each: 8 of 8 clean, 16-22 s. A picture with no clear subject (a street scene) comes back mostly or fully transparent."
+        }
+      }
+    },
+    {
+      "id": "qwen-image-21-character-sheet",
+      "name": "Qwen Image 2.1 Character Sheet",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "One picture of a person in, a front / back / head-angles sheet out",
+      "description": "Turns one picture of a person into a character reference sheet on a white background: a large head in the middle, a headless full-body front view on the left, a full-body back view on the right, and two small side profiles facing each other underneath. The layout comes from the built-in Portrait2CharRef LoRA by b675051045971. The brief is built in too, so the prompt box is only for extra notes.\n\nPicture 1 (required) is the person. A full-body picture keeps the whole outfit, bag and shoes included. A head-and-shoulders portrait works too, but the clothes below the shoulders are then invented and change with the seed.\n\nPicture 2 (optional) is an outfit. Add a picture of clothes and the sheet dresses the person in them.\n\nSet the aspect ratio to 3:2. The LoRA was trained for that shape and other shapes break the layout.\n\nAbout 30 seconds on a 12 GB card, about 50 seconds with an outfit picture.\n\nThe large head keeps the angle of your picture, so use a front-facing one for a front-facing head. The back view sometimes keeps its head; only the front view is meant to be headless.\n\nNon-commercial use only (Qwen Research License). The LoRA itself is free to use (Civitai, all permissions open).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Character",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-character-sheet.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8) + Portrait2CharRef LoRA",
+        "workflow": "workflows/image_qwen_image_21_character_sheet.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "qwen21_portrait2charref_v1.safetensors",
+            "url": "https://civitai.com/api/download/models/3346353?fileId=3233294"
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The person",
+            "Outfit (optional)"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.6,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). This card adds the Portrait2CharRef LoRA (Civitai model 2954346 v1.0 by b675051045971, 328 MB, public, permissions: no credit needed, commercial use and derivatives allowed; sha256 pinned in the pack checksums) through LoraLoaderModelOnly at strength 1, ahead of SimpliGen's own LoRA slot. The brief is the author's Chinese training prompt (with its 又测 typo corrected to 右侧); a lazy switch picks a second wording, 人物穿着图2的服装, when picture 2 is supplied - the sgopt_ flag for slot 2 disappears with the empty slot, leaving Or(false). Tested 2026-09-21 in the app through the Edit card with the same LoRA and brief, 3:2 (1216x832), seeds 4242/4243, 9 runs: layout correct 9 of 9 (headless front, mirrored profiles), identity held 9 of 9; sources were two studio portraits, a head crop of the author's own example, a full-body street photo (coat, scarf, sweater, bag, trousers and boots all kept on both seeds) and a portrait plus an outfit-only picture (suit applied, face kept). Without the LoRA the base model keeps the front figure's head and draws both profiles facing the same way. 2 of 9 back views kept the head."
+        }
+      },
+      "characterRoles": [
+        "identity_edit"
+      ],
+      "characterContract": {
+        "placeholders": [
+          "prompt"
+        ],
+        "inputImage": "ref_image_1"
+      }
+    },
+    {
+      "id": "qwen-image-21-head-swap",
+      "name": "Qwen Image 2.1 Head Swap",
+      "icon": "🔁",
+      "enabled": true,
+      "tagline": "Put one person's face and hair into another picture",
+      "description": "Puts one person's face and hair into another picture. Picture 1 is the picture to change. Picture 2 is the person whose face and hair you want; a clear, front-facing photo works best.\n\nThe head from picture 2 goes into picture 1 with that picture's lighting, and the body, clothes, pose and background of picture 1 stay as they are. The hair comes along too: this is a whole-head swap, which is what keeps it clean when the two people's hair is very different.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes. SimpliGen versions before prompt-optional cards still need a few words, for example: head swap.\n\nIf the person in picture 1 is looking sharply away, the new head sometimes turns towards the camera, so try another seed.\n\nAbout 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Face",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-head-swap.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_head_swap.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 2,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture to change",
+            "Face and hair to use"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Briefs adapted from SatoDive's free Qwen 2.1 editing workflow (Civitai 2957471, Apache 2.0), reordered so that picture 1 is the picture being changed: the sampler starts from the encoder's own latent at picture 1's size and shape (about 1 MP, multiple of 32), so the framing stays. The brief is built in (StringConcatenate) with {{prompt}} appended as extra notes. Plain sampling as in the Comfy template: 25 steps, CFG 1, euler/simple. TESTED 2026-09-26 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0), 3 hard pairs x 3 seeds, 45-60 s each: an older man with glasses into a young woman at a cafe window (three-quarter view, golden side light), a woman with an afro onto a bald bearded man under neon, a curly redhead onto a woman hiker in profile. Identity, hair and the picture's lighting carried over 9 of 9 with nothing invented; body, clothes and background kept 9 of 9; head angle kept 6 of 9 (the neon shot's upward look turned to the camera on all three seeds). A face-only brief (keep picture 1's hair) was dropped: it brought the new hair onto the bald target 3 of 3 and made red-curls-plus-ponytail hybrids 3 of 3, and a brief that named glasses as an example invented them. Guided sampling (the Edit card's CFG 3 + APG + FreSca) took 3x as long and invented a beard on one seed, so this card stays at CFG 1."
+        }
+      }
+    },
+    {
+      "id": "qwen-image-21-outfit-swap",
+      "name": "Qwen Image 2.1 Outfit Swap",
+      "icon": "👗",
+      "enabled": true,
+      "tagline": "Dress a person in the clothes from another picture",
+      "description": "Dresses a person in the clothes from another picture. Picture 1 is the person. Picture 2 is the outfit: a photo of someone wearing it, or a flat lay of the clothes.\n\nThe clothes and shoes from picture 2 replace the ones in picture 1, fitted to the person's pose. The face, hair, pose and background of picture 1 stay.\n\nWhat to expect: clothes and shoes come across reliably. Hats do not change: a hat in picture 2 is left off, and a hat already on the person usually stays. Bags and other carried items come across on some seeds and not others, and now and then nothing changes at all, so generate again with a new seed.\n\nThe result keeps the size and shape of picture 1; the aspect ratio setting is ignored. The prompt box is optional, for extra notes such as: the trousers are full length. SimpliGen versions before prompt-optional cards still need a few words, for example: outfit swap.\n\nAbout 1 minute on a 12 GB card.\n\nNon-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Outfit",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-outfit-swap.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_outfit_swap.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 2,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The person",
+            "The outfit"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.3,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only (https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE). All three cards share one set of weights from Comfy-Org/Qwen-Image-2.1: the int8 ConvRot model (7.3 GB), the int8 ConvRot Qwen3-VL 8B text encoder (9.4 GB) and the 2.1 VAE (0.7 GB). Official template settings: 25 steps, CFG 1, euler/simple. Needs ComfyUI v0.37.0 or newer (the first release with Qwen-Image 2.1 support, core commit 6bfaacc67). Briefs adapted from SatoDive's free Qwen 2.1 editing workflow (Civitai 2957471, Apache 2.0), reordered so that picture 1 is the picture being changed: the sampler starts from the encoder's own latent at picture 1's size and shape (about 1 MP, multiple of 32), so the framing stays. The brief is built in (StringConcatenate) with {{prompt}} appended as extra notes. Plain sampling as in the Comfy template: 25 steps, CFG 1, euler/simple. TESTED 2026-09-26 on a 4070 Ti 12 GB (SimpliGen engine 0.37.0), 3 pairs x 3 seeds, 45-60 s each: a man in a three-piece suit + a flat lay (corduroy blazer, striped tee, wide trousers, sneakers, crossbody bag); a woman in a floral dress, sun hat and straw bag + a street photo of a coat outfit (coat, sweater, scarf, bag, trousers, boots); the reverse. Face, pose and background kept 9 of 9. Clothes and shoes swapped 8 of 9 (one seed returned picture 1 unchanged). Headwear: the outfit's sun hat never went on (0 of 3) and the person's own sun hat stayed (2 of 2); no hat was ever invented. The flat lay's bag came across 1 of 3 and the wide trousers were drawn as culottes 2 of 3. The person's own bags were removed 9 of 9. Three brief wordings were tried (SatoDive's, a remove-then-dress version, and one that hands the head to picture 2); the seed decided more than the wording, as in the 2026-09-21 outfit tests."
+        }
+      }
+    },
+    {
+      "id": "qwen-image-21-pose-studio",
+      "name": "Qwen Image 2.1 Pose Studio",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "Put a person into the pose of a 3D doll",
+      "description": "Puts a person into the pose of a 3D doll. Picture 1 is a full-body photo of the person, or pick a saved character. Picture 2 is a Pose Studio doll in the pose you want. The person moves into the doll's pose and keeps their face, hair, clothes and the photo's background.\n\nGet dolls from the free gallery: https://michaeldune.github.io/simpligen-pose-gallery/ . Pick the doll in the same shape as your photo (square or 3:4 portrait) and download it.\n\nThe person lands where the doll stands, at the doll's size. The gallery's dolls all stand near the bottom of the frame, so use a photo with the floor visible down to the bottom edge, or a low pose (kneeling, crawling, sitting) can come out floating.\n\nThe result has the doll picture's size and shape; the aspect ratio setting is ignored. The prompt box is optional, for extra notes about the scene. About a minute on a 12 GB card.\n\nWhat to expect: in our tests (two people, four poses, two seeds, square and 3:4) every result stood or knelt on the floor in the doll's pose once the dolls were framed this way. A side-view doll can come out as a three-quarter view, and different seeds give nearly the same picture.\n\nPose Studio and its pose LoRA are by MiuProject (VNCCS, MIT), used with the author's permission. Gallery poses by Totemistyk. Non-commercial use only (Qwen Research License).",
+      "template": "qwen-edit",
+      "promptStyle": "natural",
+      "tags": [
+        "Edit",
+        "Outfit",
+        "Qwen",
+        "Local"
+      ],
+      "previewImage": "previews/qwen-image-21-pose-studio.jpg",
+      "image": {
+        "promptFamily": "qwen-image-21-edit",
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "qwen-image-2.1"
+        ],
+        "displayModel": "Qwen Image 2.1 (int8)",
+        "workflow": "workflows/image_qwen_image_21_pose_studio.json",
+        "promptOptional": true,
+        "unet": "qwen_image_2.1_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "vae": "qwen_image_2.1_vae_bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/vae/qwen_image_2.1_vae_bf16.safetensors",
+        "clip": "qwen3vl_8b_int8_convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/6ba8d44168a20144423d886669a4eb524fc14b02/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "steps": 25,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "acceptsReferenceImages": {
+          "min": 2,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The person",
+            "The doll (pose)"
+          ]
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.5,
+          "notes": "LICENCE: Qwen Research License, non-commercial use only. Weights: the pack's shared Qwen Image 2.1 int8 model, Qwen3-VL 8B int8 encoder and VAE (17.3 GB) plus the VNCCS Pose Studio QI2.1 V2 LoRA (0.16 GB, MiuProject, MIT; HF MIUProject/VNCCS_PoseStudio_QI2.1 @9857b8a, where the upstream filename ends in a space, saved without it). Graph = the Outfit Swap graph with the LoRA after the user LoRA slot; since 1.12.1 picture 1 = person and picture 2 = doll (the character picker fills picture 1); the encoder still receives image_1 = doll and image_2 = person, the order the LoRA was trained on, and the sampler starts from the encoder's latent at the doll's size; prompt = Pose Studio's own template 'Draw character from image2' + lighting line + the user's notes; euler/simple 25 steps CFG 1. TESTED 2026-10-14 in vanilla ComfyUI (4070 Ti 12 GB): no LoRA 0/8 poses; V2 with the library's own doll framing floated 5/8; with dolls framed at zoom 1.3 and the lowest point at ~93% of the frame, 32/32 grounded and in pose (2 people x 4 poses x 2 seeds x 1:1 and 3:4). Gallery and doll framing: https://michaeldune.github.io/simpligen-pose-gallery/"
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "VNCCS_QI2_PoseStudioV2.safetensors",
+            "url": "https://huggingface.co/MIUProject/VNCCS_PoseStudio_QI2.1/resolve/9857b8a256655da446772a3f1f2b033e33181a6d/VNCCS_QI2_PoseStudioV2.safetensors%20",
+            "description": "VNCCS Pose Studio LoRA for Qwen Image 2.1, V2 (MiuProject, MIT)"
+          }
+        ]
+      }
+    }
+  ]
+}
