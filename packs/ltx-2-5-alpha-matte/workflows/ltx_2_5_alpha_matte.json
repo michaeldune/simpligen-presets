@@ -1,0 +1,54 @@
+{
+  "ltx_unet": {"inputs": {"unet_name": "{{unet}}", "weight_dtype": "default"}, "class_type": "UNETLoader", "_meta": {"title": "Load LTX 2.5 distilled (22B INT8 ConvRot)"}},
+  "alpha_lora": {"inputs": {"lora_name": "ltx-2.5-22b-ic-lora-alpha-gen-0.9.safetensors", "strength_model": 1, "model": ["ltx_unet", 0]}, "class_type": "LTXICLoRALoaderModelOnly", "_meta": {"title": "Load Alpha-Gen IC-LoRA (strength 1, as trained)"}},
+  "ltx_clip": {"inputs": {"clip_name": "{{clip}}", "type": "ltxv", "device": "default"}, "class_type": "CLIPLoader", "_meta": {"title": "Load CLIP - Text Encoder"}},
+  "ltx_audio_vae": {"inputs": {"vae_name": "{{audio_vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Load VAE - Audio"}},
+  "ltx_video_vae": {"inputs": {"vae_name": "{{vae}}"}, "class_type": "VAELoader", "_meta": {"title": "Load VAE - Video"}},
+
+  "alpha_text": {"inputs": {"text": "", "clip": ["ltx_clip", 0]}, "class_type": "CLIPTextEncode", "_meta": {"title": "Empty prompt (the LoRA is trained without one)"}},
+
+  "sgopt_ref_video_1__load": {"inputs": {"file": "{{ref_video_1}}"}, "class_type": "LoadVideo", "_meta": {"title": "Source clip"}},
+  "sgopt_ref_video_1__trim": {"inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": {{duration}}, "strict_duration": false}, "class_type": "Video Slice", "_meta": {"title": "Trim source to Duration"}},
+  "sgopt_ref_video_1__components": {"inputs": {"video": ["sgopt_ref_video_1__trim", 0]}, "class_type": "GetVideoComponents", "_meta": {"title": "Source frames + sound + fps"}},
+
+  "alpha_src": {"inputs": {"image": ["sgopt_ref_video_1__components", 0]}, "class_type": "GetImageSizeAndCount", "_meta": {"title": "Source size and frame count"}},
+  "alpha_long": {"inputs": {"expression": "max(a, b)", "values.a": {{width}}, "values.b": {{height}}}, "class_type": "ComfyMathExpression", "_meta": {"title": "Tier long side"}},
+  "alpha_w": {"inputs": {"expression": "max(32, round(a * c / max(a, b) / 32) * 32)", "values.a": ["alpha_src", 1], "values.b": ["alpha_src", 2], "values.c": ["alpha_long", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Width: source shape at the tier, on the 32 grid"}},
+  "alpha_h": {"inputs": {"expression": "max(32, round(b * c / max(a, b) / 32) * 32)", "values.a": ["alpha_src", 1], "values.b": ["alpha_src", 2], "values.c": ["alpha_long", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Height: source shape at the tier, on the 32 grid"}},
+  "alpha_len": {"inputs": {"expression": "min(a, 145) - ((min(a, 145) - 1) % 8)", "values.a": ["alpha_src", 3]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Frames: at most 145, snapped down to 8k+1"}},
+  "alpha_frames": {"inputs": {"image": ["alpha_src", 0], "batch_index": 0, "length": ["alpha_len", 1]}, "class_type": "ImageFromBatch", "_meta": {"title": "Frames on the LTX grid"}},
+  "alpha_resize": {"inputs": {"image": ["alpha_frames", 0], "upscale_method": "lanczos", "width": ["alpha_w", 1], "height": ["alpha_h", 1], "crop": "center"}, "class_type": "ImageScale", "_meta": {"title": "Fit source to the working size"}},
+
+  "alpha_cond": {"inputs": {"frame_rate": ["sgopt_ref_video_1__components", 2], "positive": ["alpha_text", 0], "negative": ["alpha_text", 0]}, "class_type": "LTXVConditioning", "_meta": {"title": "Conditioning at the source frame rate"}},
+  "alpha_latent": {"inputs": {"width": ["alpha_w", 1], "height": ["alpha_h", 1], "length": ["alpha_len", 1], "batch_size": 1}, "class_type": "EmptyLTXVLatentVideo", "_meta": {"title": "Empty video latent"}},
+  "alpha_guide": {"inputs": {"positive": ["alpha_cond", 0], "negative": ["alpha_cond", 1], "vae": ["ltx_video_vae", 0], "latent": ["alpha_latent", 0], "image": ["alpha_resize", 0], "frame_idx": 0, "strength": 1, "latent_downscale_factor": ["alpha_lora", 1], "crop": "disabled", "use_tiled_encode": false, "tile_size": 256, "tile_overlap": 64}, "class_type": "LTXAddVideoICLoRAGuide", "_meta": {"title": "Source clip as the IC-LoRA guide"}},
+  "alpha_audio_latent": {"inputs": {"frames_number": ["alpha_len", 1], "frame_rate": ["sgopt_ref_video_1__components", 2], "batch_size": 1, "audio_vae": ["ltx_audio_vae", 0]}, "class_type": "LTXVEmptyLatentAudio", "_meta": {"title": "Empty audio latent"}},
+  "alpha_av": {"inputs": {"video_latent": ["alpha_guide", 2], "audio_latent": ["alpha_audio_latent", 0]}, "class_type": "LTXVConcatAVLatent", "_meta": {"title": "Join A/V latent"}},
+
+  "alpha_noise": {"inputs": {"noise_seed": "{{seed}}"}, "class_type": "RandomNoise", "_meta": {"title": "RandomNoise"}},
+  "alpha_sampler": {"inputs": {"sampler_name": "euler_ancestral"}, "class_type": "KSamplerSelect", "_meta": {"title": "KSamplerSelect"}},
+  "alpha_sigmas": {"inputs": {"sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"}, "class_type": "ManualSigmas", "_meta": {"title": "Distilled 8-step schedule (Lightricks)"}},
+  "alpha_guider": {"inputs": {"cfg": 1, "model": ["alpha_lora", 0], "positive": ["alpha_guide", 0], "negative": ["alpha_guide", 1]}, "class_type": "CFGGuider", "_meta": {"title": "CFG Guider (cfg 1)"}},
+  "alpha_sampling": {"inputs": {"noise": ["alpha_noise", 0], "guider": ["alpha_guider", 0], "sampler": ["alpha_sampler", 0], "sigmas": ["alpha_sigmas", 0], "latent_image": ["alpha_av", 0]}, "class_type": "SamplerCustomAdvanced", "_meta": {"title": "Generate the matte (single stage, working size)"}},
+  "alpha_av_split": {"inputs": {"av_latent": ["alpha_sampling", 0]}, "class_type": "LTXVSeparateAVLatent", "_meta": {"title": "LTXVSeparateAVLatent"}},
+  "alpha_crop": {"inputs": {"positive": ["alpha_guide", 0], "negative": ["alpha_guide", 1], "latent": ["alpha_av_split", 0]}, "class_type": "LTXVCropGuides", "_meta": {"title": "Crop Guides (drop the source frames)"}},
+  "ltx_decode": {"inputs": {"tile_size": 512, "overlap": 64, "temporal_size": 128, "temporal_overlap": 32, "samples": ["alpha_crop", 2], "vae": ["ltx_video_vae", 0]}, "class_type": "VAEDecodeTiled", "_meta": {"title": "Decode the matte"}},
+
+  "alpha_mask_raw": {"inputs": {"image": ["ltx_decode", 0], "channel": "red"}, "class_type": "ImageToMask", "_meta": {"title": "Matte as a mask"}},
+  "fix_hard": {"inputs": {"mask": ["alpha_mask_raw", 0], "value": 0.9}, "class_type": "ThresholdMask", "_meta": {"title": "Hole fix 1/6: solid subject (matte > 0.9)"}},
+  "fix_filled": {"inputs": {"mask": ["fix_hard", 0], "expand": 0, "incremental_expandrate": 0, "tapered_corners": true, "flip_input": false, "blur_radius": 0, "lerp_alpha": 1, "decay_factor": 1, "fill_holes": true}, "class_type": "GrowMaskWithBlur", "_meta": {"title": "Hole fix 2/6: fill every enclosed hole"}},
+  "fix_holes": {"inputs": {"destination": ["fix_filled", 0], "source": ["fix_hard", 0], "x": 0, "y": 0, "operation": "subtract"}, "class_type": "MaskComposite", "_meta": {"title": "Hole fix 3/6: the holes alone"}},
+  "fix_r": {"inputs": {"expression": "max(2, round(a / 80))", "values.a": ["alpha_long", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Hole fix: radius, 1/80 of the long side"}},
+  "fix_r_neg": {"inputs": {"expression": "-max(2, round(a / 80))", "values.a": ["alpha_long", 1]}, "class_type": "ComfyMathExpression", "_meta": {"title": "Hole fix: negative radius"}},
+  "fix_open_a": {"inputs": {"mask": ["fix_holes", 0], "expand": ["fix_r_neg", 1], "tapered_corners": true}, "class_type": "GrowMask", "_meta": {"title": "Hole fix 4/6: erode holes"}},
+  "fix_big": {"inputs": {"mask": ["fix_open_a", 0], "expand": ["fix_r", 1], "tapered_corners": true}, "class_type": "GrowMask", "_meta": {"title": "Hole fix 4/6: large holes (gaps between arm and body stay see-through)"}},
+  "fix_small": {"inputs": {"destination": ["fix_holes", 0], "source": ["fix_big", 0], "x": 0, "y": 0, "operation": "subtract"}, "class_type": "MaskComposite", "_meta": {"title": "Hole fix 5/6: small holes only (an open mouth)"}},
+  "alpha_mask": {"inputs": {"destination": ["alpha_mask_raw", 0], "source": ["fix_small", 0], "x": 0, "y": 0, "operation": "add"}, "class_type": "MaskComposite", "_meta": {"title": "Hole fix 6/6: matte with small holes made solid"}},
+  "alpha_matte_image": {"inputs": {"mask": ["alpha_mask", 0]}, "class_type": "MaskToImage", "_meta": {"title": "Repaired matte as a picture"}},
+  "alpha_green": {"inputs": {"width": ["alpha_w", 1], "height": ["alpha_h", 1], "batch_size": ["alpha_len", 1], "color": 65280}, "class_type": "EmptyImage", "_meta": {"title": "Green screen #00FF00"}},
+  "alpha_composite": {"inputs": {"destination": ["alpha_green", 0], "source": ["alpha_resize", 0], "x": 0, "y": 0, "resize_source": false, "mask": ["alpha_mask", 0]}, "class_type": "ImageCompositeMasked", "_meta": {"title": "Subject over green"}},
+  "alpha_pick": {"inputs": {"switch": "{{matte_output}}", "on_true": ["alpha_matte_image", 0], "on_false": ["alpha_composite", 0]}, "class_type": "ComfySwitchNode", "_meta": {"title": "Output: matte or green screen"}},
+
+  "ltx_create_video": {"inputs": {"fps": ["sgopt_ref_video_1__components", 2], "bit_depth": 8, "images": ["alpha_pick", 0], "audio": ["sgopt_ref_video_1__components", 1]}, "class_type": "CreateVideo", "_meta": {"title": "Create Video (source sound)"}},
+  "ltx_save": {"inputs": {"filename_prefix": "video/LTX25_alpha_matte", "format": "auto", "codec": "auto", "video": ["ltx_create_video", 0]}, "class_type": "SaveVideo", "_meta": {"title": "Save Video"}}
+}

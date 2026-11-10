@@ -1,0 +1,71 @@
+{
+  "id": "ltx-2-5-alpha-matte-pack",
+  "name": "LTX 2.5 Alpha Matte (Video Cut-out)",
+  "version": "1.0.0",
+  "author": "Lightricks",
+  "nsfw": false,
+  "minAppVersion": "1.77.0",
+  "description": "Cut the subject out of any clip with Lightricks' Alpha-Gen IC-LoRA on LTX 2.5. Drop a clip in Reference Video 1 and get it back over a green screen, or as a black-and-white matte for an editor. No prompt: the model decides what the foreground is. It keeps single hair strands and gives smoke and motion blur soft, see-through edges. Up to 145 frames per run (about 6 seconds at 24 fps), at the source's own shape. Reuses the official LTX 2.5 weights; the only new download is the 1.3 GB Alpha-Gen LoRA, which sits in its own gated HuggingFace repo, so accept its licence once and give SimpliGen a HuggingFace token.",
+  "tags": ["Local", "Video", "V2V", "Matte", "Green Screen", "Cut-out", "LTX"],
+  "checksums": {
+    "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors": "c4279eeff115cbeaca494bd2183e7d768c38fe85a184dc6afbb7159157c44334",
+    "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors": "6ce688a0aa98a5fa36a9f1e6c3f42152a498cc2b53ee8c15674c64244f91487f",
+    "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/vae/ltx-2.5-video-vae-conv-bf16.safetensors": "685b06ee3d9b2039647698fc4ea33175112462fc374e2777312c907897dfce8d",
+    "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/vae/ltx-2.5-audio-vae-bf16.safetensors": "c52733d37f6a7fb7949c3dc0fb468c6cb2169e4d836983a73babb9f0d54837a5",
+    "https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Alpha-Gen/resolve/4cc554f7f8dd858b50e80f1d37d70ce0103f5c94/ltx-2.5-22b-ic-lora-alpha-gen-0.9.safetensors": "d9e143f979e0756f0c83d772e6a8890f4c6b933db1f7d93fc06e25c179f3fd36"
+  },
+  "presets": [
+    {
+      "id": "ltx-2-5-alpha-matte",
+      "name": "LTX 2.5 Alpha Matte (Video Cut-out)",
+      "icon": "✂️",
+      "previewImage": "previews/ltx-2-5-alpha-matte.jpg",
+      "tagline": "Cut the subject out of a clip: green screen or matte, no prompt",
+      "tags": ["Video", "V2V", "Matte", "Green Screen", "Cut-out"],
+      "enabled": true,
+      "template": "wan-video",
+      "description": "Cuts the subject out of any clip. Put the clip in Reference Video 1 and leave the prompt empty: the model decides what the foreground is.\n\nMatte output off (the default) gives the subject over a #00FF00 green screen, ready for a chroma key. Matte output on gives the black-and-white matte itself (white is the subject), for an editor's track matte or luma key. Either way the clip's own sound goes back on.\n\nHair strands, smoke and motion blur come out soft and partly see-through rather than cut hard. A small hole inside the subject, such as an open mouth, is filled in; a large gap, such as the space between an arm and the body, stays see-through.\n\nThe output keeps the source's shape: the aspect setting is ignored and the tier sets only the long side (864 at 480p, 1280 at 720p). One run takes at most 145 frames, about 6 seconds at 24 fps or 5 seconds at 30 fps; a longer Duration is cut to that. The frame count is rounded down to the model's grid, so the result can be up to a third of a second shorter than the Duration you set.\n\nA 6-second 720p clip took about 4 minutes on a 12 GB card, a 4-second 480p clip about 1 1/2 minutes.\n\nThe Alpha-Gen LoRA is in its own gated HuggingFace repo: accept its licence once on the model page and give SimpliGen a HuggingFace token.",
+      "video": {
+        "promptFamily": "no-prompt",
+        "promptOptional": true,
+        "supports": ["local"],
+        "displayModel": "LTX 2.5 distilled (22B INT8 ConvRot) + Lightricks Alpha-Gen IC-LoRA 0.9",
+        "baseModels": ["ltxv-2.5-distilled"],
+        "workflow": "workflows/ltx_2_5_alpha_matte.json",
+        "duration": {"type": "slider", "min": 1, "max": 6, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "unet": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "clip": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "clipUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "vae": "ltx-2.5-video-vae-conv-bf16.safetensors",
+        "vaeUrl": "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/vae/ltx-2.5-video-vae-conv-bf16.safetensors",
+        "audio_vae": "ltx-2.5-audio-vae-bf16.safetensors",
+        "extraModels": [
+          {"dir": "vae", "filename": "ltx-2.5-audio-vae-bf16.safetensors", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/vae/ltx-2.5-audio-vae-bf16.safetensors"},
+          {"dir": "loras", "filename": "ltx-2.5-22b-ic-lora-alpha-gen-0.9.safetensors", "url": "https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Alpha-Gen/resolve/4cc554f7f8dd858b50e80f1d37d70ce0103f5c94/ltx-2.5-22b-ic-lora-alpha-gen-0.9.safetensors"}
+        ],
+        "extensions": [
+          {"name": "ComfyUI-LTXVideo", "url": "https://github.com/Lightricks/ComfyUI-LTXVideo.git", "pinnedCommit": "3b9c5cde4700917074823d45e25401d81049f8fc", "description": "Provides the IC-LoRA loader and the video guide node (LTXICLoRALoaderModelOnly, LTXAddVideoICLoRAGuide). Same pin as SimpliGen's engine, so usually already installed."},
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "Provides GrowMaskWithBlur, which fills small holes in the matte, and PathchSageAttentionKJ for SimpliGen's Faster Attention injection."}
+        ],
+        "cfg": 1,
+        "steps": 8,
+        "negativePrompt": "",
+        "supportsSage": true,
+        "vramModel": {"floorGB": 8, "gbPerMpSecond": 0.38},
+        "reclaimVramBeforeDecode": true,
+        "matte_output": false,
+        "controls": {
+          "matte_output": {"type": "boolean", "default": false, "note": "Off: the subject over a green screen. On: the black-and-white matte (white is the subject) for an editor's track matte."}
+        },
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {"label": "480p", "minVramGB": 10, "aspects": {"16:9": {"width": 864, "height": 480}, "9:16": {"width": 480, "height": 864}, "1:1": {"width": 864, "height": 864}, "4:3": {"width": 864, "height": 640}, "3:4": {"width": 640, "height": 864}, "21:9": {"width": 864, "height": 384}}},
+          {"label": "720p", "minVramGB": 12, "aspects": {"16:9": {"width": 1280, "height": 720}, "9:16": {"width": 720, "height": 1280}, "1:1": {"width": 1280, "height": 1280}, "4:3": {"width": 1280, "height": 960}, "3:4": {"width": 960, "height": 1280}, "21:9": {"width": 1280, "height": 544}}}
+        ],
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 35, "notes": "Measured 2026-11-10 on a 12 GB RTX 4070 Ti, engine ComfyUI 0.44.0: 864x480 x 137 frames in 120-185 s, 1280x640 x 145 frames in 245 s. Lightricks' 8-step distilled schedule, cfg 1, empty prompt, LoRA strength 1, as their reference workflow. The raw matte matched Lightricks' own published examples to within 1.6-3.3/255 mean on hair and smoke clips. The card then fills small enclosed holes (matte below 0.9 inside the subject, smaller than 1/80 of the long side), which fixed see-through mouths without solidifying smoke (mean change 0.003 on the smoke clip). Width and height follow the source's shape on a 32-pixel grid; frames are cut to at most 145 and to 8k+1. Shares every base file with the official LTX 2.5 pack; the Alpha-Gen LoRA (1.3 GB) is a separate gated repo that needs its own licence acceptance and a HuggingFace token."}
+      }
+    }
+  ]
+}

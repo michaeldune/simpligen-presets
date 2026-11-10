@@ -165,6 +165,21 @@ CUSTOM_NODES = {
         'url':  'https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3',
         'note': 'Spectral-feature-forecasting accelerator for MiniMax H3 - skips transformer evaluations and predicts them instead (~30-40% fewer). NOT pre-installed by SimpliGen - clone into ComfyUI/custom_nodes manually. Approximate by design: output is not bit-identical to unaccelerated MiniMax H3.',
     },
+    'LTXICLoRALoaderModelOnly': {
+        'name': 'ComfyUI-LTXVideo',
+        'url':  'https://github.com/Lightricks/ComfyUI-LTXVideo',
+        'note': 'Lightricks\' LTX nodes: the IC-LoRA loader (also returns the latent downscale factor the guide needs). SimpliGen\'s engine ships it (pin 3b9c5cd), so it is normally already installed.',
+    },
+    'LTXAddVideoICLoRAGuide': {
+        'name': 'ComfyUI-LTXVideo',
+        'url':  'https://github.com/Lightricks/ComfyUI-LTXVideo',
+        'note': 'IC-LoRA video guide node (see above) - feeds the source clip to an IC-LoRA such as Alpha-Gen.',
+    },
+    'GrowMaskWithBlur': {
+        'name': 'ComfyUI-KJNodes',
+        'url':  'https://github.com/kijai/ComfyUI-KJNodes',
+        'note': 'Mask grow/blur with fill_holes (scipy binary_fill_holes). Usually pre-installed by SimpliGen.',
+    },
 }
 
 HF_GATED_REPOS = [
