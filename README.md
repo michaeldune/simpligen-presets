@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 299 ready-to-run presets in 83 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 299 ready-to-run presets in 84 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image, SeFi and Iris-3B — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -21,7 +21,8 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Pony Anime | 5 | Pony (SDXL) | CLIP Skip 2, score tags. Since 1.2.0, Osorubeshi-Ultra Anime-V1 (community request): bright, airy anime that follows prompts loosely, about 13 s |
 | Pony Realistic | 3 | Pony (SDXL) | Photoreal/semi-real |
 | Illustrious Realism | 6 | Illustrious (SDXL) | Photoreal & semi-real |
-| Illustrious Anime | 13 | Illustrious (SDXL) | Anime, incl. V-Pred models and (since 1.3.0) WAI Illustrious SDXL v17. Since 1.4.0, two community-requested merges that stay **close to their parents**: MoonMix XL v1.0 (soft, pale colouring; close to WAI v17) and ClearColor Air XL v1.0 (light, clean colour; close to Nova Anime). Since 1.5.0, One Obsession v24 (muted, cinematic colour) and RIN Flanime v5.0 (flat colour, sharp line art), about 14 s each |
+| Illustrious Anime | 7 | Illustrious (SDXL) | Anime, incl. V-Pred models and (since 1.3.0) WAI Illustrious SDXL v17. Since 1.4.0, two community-requested merges that stay **close to their parents**: MoonMix XL v1.0 (soft, pale colouring; close to WAI v17) and ClearColor Air XL v1.0 (light, clean colour; close to Nova Anime). Since 2.0.0 the cards with a look of their own are in Illustrious Art & Styles |
+| Illustrious Art & Styles | 6 | Illustrious (SDXL) | New in the 2026-11-09 split; the cards came from Illustrious Anime unchanged. **Illustrious checkpoints with a look of their own:** UnrealVision v1.0 (a 3D-render look with Unreal Engine and Arcane-style light), RIN Flanime v5.0 (flat colour, sharp line art) and One Obsession v24 (muted, cinematic colour), about 14 s each, plus three that push anime toward semi-real: Rule of Moon v2p, PerfectDeliberate V9.0 and SmoothMix Ultimate v2.0 |
 | SD 1.5 Anime | 3 | SD 1.5 | External kl-f8-anime2 VAE, 512-base |
 | DucHaiten | 9 | SD 1.5 ×5, SDXL ×1, NoobAI ×2, Pony ×1 | DucHaiten's checkpoint family: GoldenLife, Retro, Real3D Figure, StyleLikeMe and ThiccBoi on SD 1.5 (512-base, CLIP Skip 2); GoldenAge on SDXL; NoobAI-Cinematic plain and Snapvu hires; GameArt UnrealEngine on Pony. ThiccBoi also lives in SD 1.5 Anime, same checkpoint |
 | Reij's Merges | 6 | Illustrious (SDXL) | reijlita merge family |
