@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 299 ready-to-run presets in 84 packs. One zip, one click, models auto-downloaded into SimpliGen.">
+  <img src="./assets/readme/hero.svg" width="100%" alt="SimpliGen Community Preset Packs: 307 ready-to-run presets in 85 packs. One zip, one click, models auto-downloaded into SimpliGen.">
 </p>
 
 Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering image models across SDXL, Pony, Illustrious, SD 1.5, Anima, Krea 2, Flux (1 & 2), Z-Image, SeFi and Iris-3B — plus video: MiniMax H3 packs (text/image/reference-to-video with synchronized audio), LTX 2.5 image-to-video and lip-sync packs, a Wan 2.2 image-to-video pack, and music: YuE2 and MiniMax Music 3 songs, plus YuE2 cover songs, with album art.
@@ -9,7 +9,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
 <p align="center">
-  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 81 packs, 299 presets.">
+  <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 85 packs, 307 presets.">
 </p>
 
 **Image packs**
@@ -23,6 +23,7 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 | Illustrious Realism | 6 | Illustrious (SDXL) | Photoreal & semi-real |
 | Illustrious Anime | 7 | Illustrious (SDXL) | Anime, incl. V-Pred models and (since 1.3.0) WAI Illustrious SDXL v17. Since 1.4.0, two community-requested merges that stay **close to their parents**: MoonMix XL v1.0 (soft, pale colouring; close to WAI v17) and ClearColor Air XL v1.0 (light, clean colour; close to Nova Anime). Since 2.0.0 the cards with a look of their own are in Illustrious Art & Styles |
 | Illustrious Art & Styles | 6 | Illustrious (SDXL) | New in the 2026-11-09 split; the cards came from Illustrious Anime unchanged. **Illustrious checkpoints with a look of their own:** UnrealVision v1.0 (a 3D-render look with Unreal Engine and Arcane-style light), RIN Flanime v5.0 (flat colour, sharp line art) and One Obsession v24 (muted, cinematic colour), about 14 s each, plus three that push anime toward semi-real: Rule of Moon v2p, PerfectDeliberate V9.0 and SmoothMix Ultimate v2.0 |
+| Pie Models | 8 | Illustrious (SDXL) | **Eight flavours of mommymia's Pie Models**, picked from all 19 after baking them side by side, so each card looks clearly different (most of the other anime flavours came out close to Apple Pie v2). Anime: **Apple Pie v2** (soft and glossy, pink-toned eyes), **Nutella** (sharp lines), **Jam** (warm, amber eyes), **Cherry** (a Western comic touch) and **Raspberry** (bold lines, dark and muted). Semi-real: **Mango** (glossy, vibrant), **Key Lime** (soft lustre) and **Impossible** (near-photo faces; add `realistic` for more). The author's DPM++ 2M Karras at 30 steps and CFG 5, about 9 s a picture engine-direct on a 4070 Ti; each card is its own 6.9 GB checkpoint |
 | SD 1.5 Anime | 3 | SD 1.5 | External kl-f8-anime2 VAE, 512-base |
 | DucHaiten | 9 | SD 1.5 ×5, SDXL ×1, NoobAI ×2, Pony ×1 | DucHaiten's checkpoint family: GoldenLife, Retro, Real3D Figure, StyleLikeMe and ThiccBoi on SD 1.5 (512-base, CLIP Skip 2); GoldenAge on SDXL; NoobAI-Cinematic plain and Snapvu hires; GameArt UnrealEngine on Pony. ThiccBoi also lives in SD 1.5 Anime, same checkpoint |
 | Reij's Merges | 6 | Illustrious (SDXL) | reijlita merge family |

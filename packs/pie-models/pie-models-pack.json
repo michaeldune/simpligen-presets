@@ -1,0 +1,851 @@
+{
+  "id": "pie-models-pack",
+  "name": "Pie Models",
+  "version": "1.0.0",
+  "addedAt": "2026-11-09",
+  "author": "mommymia",
+  "nsfw": false,
+  "description": "Eight flavours of mommymia's Pie Models, a family of Illustrious SDXL checkpoints each named after a pie, chosen from 19 after baking them all side by side: the flavours that look clearly different from each other. Anime: Apple Pie v2 (soft and glossy, the one to start with), Nutella (sharp lines), Jam (warm, amber eyes), Cherry (Western comic touch) and Raspberry (bold lines, dark and muted). Semi-real: Mango (glossy), Key Lime (soft lustre) and Impossible (near-photo faces). Prompt with Danbooru tags. Each card is its own 6.9 GB checkpoint.",
+  "tags": [
+    "Local",
+    "Illustrious",
+    "Anime",
+    "SDXL",
+    "Semi-Realistic"
+  ],
+  "checksums": {
+    "https://civitai.com/api/download/models/2496995?fileId=2385098": "6e086541f9529c20877ed53243675693cbfc301ddf9c0c9c860ae24b2a390010",
+    "https://civitai.com/api/download/models/3009657?fileId=2888794": "216ca5f0f88ce1e23fb3161fabf6b20222a5160d52ffefc1164ac4546cc6cfff",
+    "https://civitai.com/api/download/models/2450907?fileId=2342161": "11eda1561564aa5a3ccc20cef42c98a3fe88595f5484ab5942d397470d091485",
+    "https://civitai.com/api/download/models/1891751?fileId=1791621": "613fe18bad9665e133c13712fa1e97da15fe427faac02888449a6b7465871258",
+    "https://civitai.com/api/download/models/2913030?fileId=2791141": "99399fd7a345f5acbb2a148b1db330567566ecbc0b7e3010dd8d1c1dd100ab22",
+    "https://civitai.com/api/download/models/2692143?fileId=2578068": "9ea57f2a771f2891c62a3842be590efaaed5aeb89989cde60ddbd55f2690b1d6",
+    "https://civitai.com/api/download/models/2325846?fileId=2216118": "6d9ab5379b0d30c90a306516daa4e9b57bca2427914fb80d76853744fa2d870d",
+    "https://civitai.com/api/download/models/3397369?fileId=3287592": "4772115821658b4e9ea45523d37ba0b4caf199bfa469b5fff75b9956a48814ec"
+  },
+  "presets": [
+    {
+      "id": "pie-apple-v2",
+      "name": "Pie Models: Apple Pie v2",
+      "icon": "🍎",
+      "previewImage": "previews/pie-apple-v2.jpg",
+      "description": "Soft, glossy 2D and 2.5D anime with bright, pink-toned eyes and warm light. Of the Pie flavours this is the one to start with: most of the other anime flavours (Apple, Oreo, Honey, Fudge, Lemon, Quiche, Pecan) came out very close to it in our test. The author made v2 to fix hands while keeping Apple Pie's style.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Glossy",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Apple Pie v2",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-apple-v2.json",
+        "checkpoint": "pieModels_applev2.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 2496995 'Apple Pie v2' / fileId 2385098, by mommymia, Civitai file ApplePiev2.safetensors, sha256 6e086541f9529c20877ed53243675693cbfc301ddf9c0c9c860ae24b2a390010). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 8.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 13 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2496995?fileId=2385098",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Soft, glossy anime with bright pink eyes"
+    },
+    {
+      "id": "pie-nutella",
+      "name": "Pie Models: Nutella Pie",
+      "icon": "🍫",
+      "previewImage": "previews/pie-nutella.jpg",
+      "description": "Sharp anime with clean line work and smooth shading. Close to Apple Pie v2, with crisper lines and a little less gloss. The author describes it as sharp anime.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 11 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Clean",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Nutella Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-nutella.json",
+        "checkpoint": "pieModels_nutella.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 3009657 'Nutella' / fileId 2888794, by mommymia, Civitai file NutellaPie.safetensors, sha256 216ca5f0f88ce1e23fb3161fabf6b20222a5160d52ffefc1164ac4546cc6cfff). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 8.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 11 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/3009657?fileId=2888794",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Sharp anime line work and smooth shading"
+    },
+    {
+      "id": "pie-jam",
+      "name": "Pie Models: Jam Pie",
+      "icon": "🫙",
+      "previewImage": "previews/pie-jam.jpg",
+      "description": "Stylized 2D anime with warmer colour than the other anime flavours: amber and brown eyes, orange light and bold colour. The author describes it as stylized 2D with some 2.5D, with clean line work, luminous eyes and vivid lighting.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Jam Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-jam.json",
+        "checkpoint": "pieModels_jam.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 2450907 'Jam Pie' / fileId 2342161, by mommymia, Civitai file JamPie.safetensors, sha256 11eda1561564aa5a3ccc20cef42c98a3fe88595f5484ab5942d397470d091485). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 9.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 13 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2450907?fileId=2342161",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Warm, stylized anime with amber eyes"
+    },
+    {
+      "id": "pie-cherry",
+      "name": "Pie Models: Cherry Pie",
+      "icon": "🍒",
+      "previewImage": "previews/pie-cherry.jpg",
+      "description": "Anime with a Western comic touch: brighter, lighter pictures than the other Pie flavours, sharp eyes and rosy cheeks. In our test it once painted a fake signature into a corner, so add signature to the negative prompt if you see one. The author describes it as a blend of Western and anime styles.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 12 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Western",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Cherry Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-cherry.json",
+        "checkpoint": "pieModels_cherry.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 1891751 'Cherry Pie' / fileId 1791621, by mommymia, Civitai file CherryPie.safetensors, sha256 613fe18bad9665e133c13712fa1e97da15fe427faac02888449a6b7465871258). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 8.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 12 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/1891751?fileId=1791621",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Anime mixed with Western comic style"
+    },
+    {
+      "id": "pie-mango",
+      "name": "Pie Models: Mango Pie",
+      "icon": "🥭",
+      "previewImage": "previews/pie-mango.jpg",
+      "description": "Semi-real anime with glossy, vibrant colour and soft 2.5D shading. Faces have more realistic eyes and skin than the anime flavours, and the light is deeper and moodier. The author describes it as semi-real anime: glossy, vibrant, soft 2.5D shading.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Semi-Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Mango Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-mango.json",
+        "checkpoint": "pieModels_mango.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 2913030 'Mango' / fileId 2791141, by mommymia, Civitai file MangoPie.safetensors, sha256 99399fd7a345f5acbb2a148b1db330567566ecbc0b7e3010dd8d1c1dd100ab22). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 8.7 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 13 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2913030?fileId=2791141",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Glossy, vibrant semi-real anime"
+    },
+    {
+      "id": "pie-key-lime",
+      "name": "Pie Models: Key Lime Pie",
+      "icon": "🍈",
+      "previewImage": "previews/pie-key-lime.jpg",
+      "description": "A polished semi-real look with soft shading and smooth skin. Faces sit between anime and real, with realistic eye shapes and gentle, darker light. The author describes it as semi-real with a soft lustre, balancing realistic depth with expressive anime features.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Illustrious",
+        "SDXL",
+        "Semi-Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Key Lime Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-key-lime.json",
+        "checkpoint": "pieModels_keylime.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 2692143 'Key Lime' / fileId 2578068, by mommymia, Civitai file KeyLimePie.safetensors, sha256 9ea57f2a771f2891c62a3842be590efaaed5aeb89989cde60ddbd55f2690b1d6). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 10.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 13 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2692143?fileId=2578068",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Polished semi-real look with soft lustre"
+    },
+    {
+      "id": "pie-impossible",
+      "name": "Pie Models: Impossible Pie",
+      "icon": "🫐",
+      "previewImage": "previews/pie-impossible.jpg",
+      "description": "The most realistic Pie flavour. Faces come out close to photographs, with real teeth and skin, while clothes and scenes keep an illustrated finish. People tend to face the camera more than in the other flavours. For a more realistic result the author suggests adding realistic to your prompt. It is the author's update to Blueberry Pie.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 14 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Illustrious",
+        "SDXL",
+        "Semi-Realistic",
+        "Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Impossible Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-impossible.json",
+        "checkpoint": "pieModels_impossible.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 2325846 'Impossible Pie' / fileId 2216118, by mommymia, Civitai file ImpossiblePie.safetensors, sha256 6d9ab5379b0d30c90a306516daa4e9b57bca2427914fb80d76853744fa2d870d). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 9.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 14 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2325846?fileId=2216118",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "The most realistic Pie: near-photo faces"
+    },
+    {
+      "id": "pie-raspberry",
+      "name": "Pie Models: Raspberry Pie",
+      "icon": "🥧",
+      "previewImage": "previews/pie-raspberry.jpg",
+      "description": "Anime with bold, heavy line art, flat shading and darker, muted colour. It is the newest Pie flavour and looks the least like the others. The author has not described it yet.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Muted",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pie Models: Raspberry Pie",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/pie-raspberry.json",
+        "checkpoint": "pieModels_raspberry.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad anatomy, worst quality, low quality, normal quality, bad hands, mutated, extra fingers, artifacts, disfigured",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1593793 'Pie - Models' / version 3397369 'Raspberry' / fileId 3287592, by mommymia, Civitai file RaspberryPie.safetensors, sha256 4772115821658b4e9ea45523d37ba0b4caf199bfa469b5fff75b9956a48814ec). CLIP Skip 2. Every Pie version's sample pictures: DPM++ 2M Karras, 30 steps (Honey and Grape 32), CFG 5, 832x1216, hi-res 1.5x Remacri at denoise 0.5-0.6. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside all 18 other Pie versions, duplicate control (Raspberry re-run) pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109\\pie). Engine-direct median 9.1 s. Verified in the app 2026-11-10: 3 renders at 3:4, 16:9 and 1:1 through the app agent route; checkpoint, seed, size, steps, CFG, sampler, quality prefix and negative read back from engine history; both hair colours held on the two-person cafe render; about 13 s per picture through the app. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; credit required; no different licence on merges. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/3397369?fileId=3287592",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Bold line art and darker, muted colour"
+    }
+  ]
+}
