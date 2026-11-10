@@ -1,0 +1,540 @@
+{
+  "id": "illustrious-anime-mixes-pack",
+  "name": "Illustrious Anime Mixes",
+  "version": "1.0.0",
+  "addedAt": "2026-11-10",
+  "author": "various",
+  "nsfw": false,
+  "description": "Five community-requested Illustrious SDXL mixes, each with a look of its own: SilvermoonMix v6 V-pred (soft, pale and airy, neutral for artist tags), JANKU v7.77 (bright and clean, thicker lines), dims2 Personal Merge v3.0 (bright, glossy cel shading), ReedXXX v16 (warm, saturated, golden light) and DREAMBOX v4.5 (flat, bold-outlined illustration with retro poster colour). Prompt with Danbooru tags. Each card is its own 6.5 GB checkpoint and uses its author's own settings.",
+  "tags": [
+    "Local",
+    "Illustrious",
+    "Anime",
+    "SDXL"
+  ],
+  "checksums": {
+    "https://civitai.com/api/download/models/2701393?fileId=2587520": "35773b776d2356464ab0777c9a2736fef7d4751cbe32a6c1406719c7982c5cc2",
+    "https://civitai.com/api/download/models/2786084?fileId=2672243": "88177d224ce97f60cf3e908f87902f913ed4562bd79d237f84238a4354601efb",
+    "https://civitai.com/api/download/models/1023901?fileId=929617": "d14ea71ad5bf5a7bba4ad3f6dfd9319ebba32890b5010e3ddf61fcff8fa71d1a",
+    "https://civitai.com/api/download/models/3353299?fileId=3240679": "dd984164e4d0b95145fa78e779bb19898497f5b5244f352d39b4d0352723977b",
+    "https://civitai.com/api/download/models/2359974?fileId=2250765": "176bf04bca3fd82959f03b6614d49c7f6076dfedeff53ce318da940ac4d6721a"
+  },
+  "presets": [
+    {
+      "id": "silvermoonmix-v6-vpred",
+      "name": "SilvermoonMix v6.0 V-pred",
+      "icon": "🌙",
+      "previewImage": "previews/silvermoonmix-v6-vpred.jpg",
+      "description": "Soft, pale, airy anime with gentle pastel light and thin line work. Next to the other Illustrious cards it is the lightest and calmest. The author made it neutral on purpose, so artist tags change it more than most, and says it is good at hands and at pictures with several characters.\n\nUse Danbooru tags. The author's sample pictures use no quality tags and no negative prompt, so this card adds neither; add a negative prompt only if you need one.\n\nThis card uses the author's Euler a with the Simple scheduler at 28 steps and CFG 4.5.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "V-Pred",
+        "Soft",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SilvermoonMix v6.0 V-pred",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/silvermoonmix-v6-vpred.json",
+        "checkpoint": "silvermoonMixEvolved_v60Vpred.safetensors",
+        "steps": 28,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, v-pred with ztsnr (v_pred and ztsnr keys in the header; the engine configures it from them) (Civitai model 1063772 'SilvermoonMix-Illustrious-Evolved' / version 2701393 'v6.0 V-pred' / fileId 2587520, by silvermoong, Civitai file SilvermoonMix-Illustrious-Evolved-v6-Vpred.safetensors, sha256 35773b776d2356464ab0777c9a2736fef7d4751cbe32a6c1406719c7982c5cc2). CLIP Skip 2. This card uses the author's Euler a with the Simple scheduler at 28 steps and CFG 4.5. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside eight other request checkpoints and the One Obsession v24 card as control, control re-run pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109). Engine-direct median 8.1 s. Verified in the app 2026-11-10 (SimpliGen engine v0.44.0, TEST pack mix1110-test-pack): 3 renders through the agent route at 3:4, 16:9 and 1:1 (knight, two-girl cafe, scenery), each graph read back from engine history: checkpoint, seed, size, steps, CFG, sampler, scheduler, quality prefix and negative all as on the card; the cafe kept blonde and black hair apart; median 15 s a picture. LICENCE (Civitai): image use, RentCivit, Rent, Sell and SellMerge; derivatives allowed; no credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2701393?fileId=2587520",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Soft, pale, airy anime that works well with artist tags"
+    },
+    {
+      "id": "janku-v777",
+      "name": "JANKU v7.77",
+      "icon": "✏️",
+      "previewImage": "previews/janku-v777.jpg",
+      "description": "Bright, clean anime with thicker outlines and detailed backgrounds, and wider framing than most anime cards. The author built v7.77 on JANKU and Chenkin to make Chenkin's pictures steadier.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest to the start of your prompt, so you don't need to type them. The author notes v7.77 knows fewer artists than earlier JANKU versions.\n\nThis card uses the author's Euler a with the Simple scheduler at 30 steps and CFG 4.5. The author's sample pictures add their Lazy Embeddings, which this card does not use.\n\nAbout 17 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Clean",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "JANKU v7.77",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/janku-v777.json",
+        "checkpoint": "jankuTrained_v777.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, jpeg artifacts, signature, watermark, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1277670 '✨ JANKU Trained + Chenkin & NoobAI + RouWei Illustrious XL ✨' / version 2786084 'v7.77' / fileId 2672243, by janxd, Civitai file JANKU v7.777.safetensors, sha256 88177d224ce97f60cf3e908f87902f913ed4562bd79d237f84238a4354601efb). CLIP Skip 2. This card uses the author's Euler a with the Simple scheduler at 30 steps and CFG 4.5. The author's sample pictures add their Lazy Embeddings, which this card does not use. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside eight other request checkpoints and the One Obsession v24 card as control, control re-run pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109). Engine-direct median 10.1 s. Verified in the app 2026-11-10 (SimpliGen engine v0.44.0, TEST pack mix1110-test-pack): 3 renders through the agent route at 3:4, 16:9 and 1:1 (knight, two-girl cafe, scenery), each graph read back from engine history: checkpoint, seed, size, steps, CFG, sampler, scheduler, quality prefix and negative all as on the card; the cafe kept blonde and black hair apart; median 17 s a picture. LICENCE (Civitai): image use and RentCivit; no derivatives; no credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2786084?fileId=2672243",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Bright, clean anime with thicker lines and detailed backgrounds"
+    },
+    {
+      "id": "dims2-merge-v30",
+      "name": "dims2 Personal Merge v3.0",
+      "icon": "💎",
+      "previewImage": "previews/dims2-merge-v30.jpg",
+      "description": "Bright, glossy cel-shaded anime with clear colour and clean skies. It is a NoobAI-based merge with hands and bodies taken from CyberRealistic XL. On busy two-person prompts it can mix up hair colours, so describe each person clearly.\n\nUse Danbooru tags. The card adds the author's quality tags (masterpiece, best quality, amazing quality, very aesthetic, absurdres) to the start of your prompt, so you don't need to type them.\n\nThis card uses Euler a with the SGM Uniform scheduler at 28 steps and CFG 5.5. The author's sample pictures use a special sampler and a speed LoRA at 18 steps, which this card does not.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Glossy",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "dims2 Personal Merge v3.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/dims2-merge-v30.json",
+        "checkpoint": "dims2PersonalMerge_v30.safetensors",
+        "steps": 28,
+        "cfg": 5.5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, bad quality, bad anatomy, jpeg artifacts, signature, watermark",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 835655 'Illustrious XL personal merge (noob v-pred0.5 test merge updated)' / version 1023901 'v3.0_noob-1.0based' / fileId 929617, by dims2, Civitai file dims2_personalMerge_3.0.safetensors, sha256 d14ea71ad5bf5a7bba4ad3f6dfd9319ebba32890b5010e3ddf61fcff8fa71d1a). CLIP Skip 2. This card uses Euler a with the SGM Uniform scheduler at 28 steps and CFG 5.5. The author's sample pictures use a special sampler and a speed LoRA at 18 steps, which this card does not. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside eight other request checkpoints and the One Obsession v24 card as control, control re-run pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109). Engine-direct median 9.7 s. Verified in the app 2026-11-10 (SimpliGen engine v0.44.0, TEST pack mix1110-test-pack): 3 renders through the agent route at 3:4, 16:9 and 1:1 (knight, two-girl cafe, scenery), each graph read back from engine history: checkpoint, seed, size, steps, CFG, sampler, scheduler, quality prefix and negative all as on the card; the cafe kept blonde and black hair apart; median 15 s a picture. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; no credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/1023901?fileId=929617",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Bright, glossy cel-shaded anime with clear colour"
+    },
+    {
+      "id": "reedxxx-v16",
+      "name": "ReedXXX v16.0",
+      "icon": "🔥",
+      "previewImage": "previews/reedxxx-v16.jpg",
+      "description": "Warm, saturated anime with golden light and rich colour. The author says v16 gets head-to-shoulder proportions and body perspective more stable than earlier versions. When a prompt names no outfit it tends to draw very little clothing, so name what the person wears.\n\nUse Danbooru tags; the author uses WAI-style character tags. The card adds masterpiece, best quality, amazing quality, absurdres to the start of your prompt and the author's negative prompt, so you don't need to type them.\n\nThis card uses the author's Euler with the Normal scheduler at 30 steps and CFG 5.\n\nAbout 17 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Anime",
+        "Illustrious",
+        "SDXL",
+        "Vibrant",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "ReedXXX v16.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/reedxxx-v16.json",
+        "checkpoint": "reedXXXIllustrious_v160.safetensors",
+        "steps": 30,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, sketch, monochrome, greyscale, worst quality, bad quality, normal quality, anatomical nonsense, bad anatomy, watermark, bad feet, bad hands, logo, text, signature, jpeg artifacts, extra digit, deformed anatomy, bad proportions",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 7,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 1717562 'REED_XXX_illustrious_SDXL' / version 3353299 'v16.0' / fileId 3240679, by ReedVaughn, Civitai file reedNSFWIllustrious_v160.safetensors, sha256 dd984164e4d0b95145fa78e779bb19898497f5b5244f352d39b4d0352723977b). CLIP Skip 2. This card uses the author's Euler with the Normal scheduler at 30 steps and CFG 5. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside eight other request checkpoints and the One Obsession v24 card as control, control re-run pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109). Engine-direct median 8.1 s. Verified in the app 2026-11-10 (SimpliGen engine v0.44.0, TEST pack mix1110-test-pack): 3 renders through the agent route at 3:4, 16:9 and 1:1 (knight, two-girl cafe, scenery), each graph read back from engine history: checkpoint, seed, size, steps, CFG, sampler, scheduler, quality prefix and negative all as on the card; the cafe kept blonde and black hair apart; median 17 s a picture. LICENCE (Civitai): image use, RentCivit, Rent, Sell and SellMerge; derivatives allowed; no credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/3353299?fileId=3240679",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Warm, saturated anime with golden light"
+    },
+    {
+      "id": "dreambox-v45",
+      "name": "DREAMBOX v4.5",
+      "icon": "📦",
+      "previewImage": "previews/dreambox-v45.jpg",
+      "description": "Often a flat illustration with bold outlines and retro poster colour, more like a picture book or a comic than anime, which makes it the least like the other Illustrious cards; on some prompts (a knight in our test) it gives ordinary glossy anime instead. In our test it once swapped two characters' outfits, so describe each person clearly.\n\nUse Danbooru tags or plain English. The card adds best quality, masterpiece, absurdres, newest to the start of your prompt. The author trained over 100 style trigger words into the model; the Civitai page lists them, and mixing them gives different looks.\n\nThis card uses the author's DPM++ 2M SDE with the SGM Uniform scheduler at CFG 5, at 24 steps. The author's sample pictures add a hi-res pass, which this card does not run.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "tags": [
+        "Illustrious",
+        "SDXL",
+        "Illustration",
+        "Stylized",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "DREAMBOX v4.5",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/dreambox-v45.json",
+        "checkpoint": "dreambox_v45.safetensors",
+        "steps": 24,
+        "cfg": 5,
+        "denoise": 1,
+        "negativePrompt": "lowres, worst quality, low quality, bad anatomy, bad hands, jpeg artifacts, signature, watermark, text, blurry",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 4,
+            "max": 6.5,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7,
+          "notes": "Illustrious SDXL checkpoint, fp16, 6.46 GB, VAE built in, epsilon (no v_pred key in the header) (Civitai model 798838 'DREAMBOX' / version 2359974 'v4.5' / fileId 2250765, by EWIGKEIT0, Civitai file DREAMBOX_V4.5.safetensors, sha256 176bf04bca3fd82959f03b6614d49c7f6076dfedeff53ce318da940ac4d6721a). CLIP Skip 2. This card uses the author's DPM++ 2M SDE with the SGM Uniform scheduler at CFG 5, at 24 steps. The author's sample pictures add a hi-res pass, which this card does not run. Baked 2026-11-09 on a 4070 Ti 12 GB (SimpliGen engine v0.44.0, direct submission) at 832x1216 on 5 prompts x 2 seeds beside eight other request checkpoints and the One Obsession v24 card as control, control re-run pixel-identical (F:\\Claude-Work\\checkpoint-request-20261109). Engine-direct median 8.1 s. Verified in the app 2026-11-10 (SimpliGen engine v0.44.0, TEST pack mix1110-test-pack): 3 renders through the agent route at 3:4, 16:9 and 1:1 (knight, two-girl cafe, scenery), each graph read back from engine history: checkpoint, seed, size, steps, CFG, sampler, scheduler, quality prefix and negative all as on the card; the cafe kept blonde and black hair apart; median 15 s a picture. LICENCE (Civitai): image use, RentCivit and Rent; derivatives allowed; no credit required. The card links to Civitai and does not rehost."
+        },
+        "checkpointUrl": "https://civitai.com/api/download/models/2359974?fileId=2250765",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      },
+      "tagline": "Flat, bold-outlined illustration with retro poster colour"
+    }
+  ]
+}
