@@ -1,0 +1,293 @@
+{
+  "id": "minimax-h3-image-open-pack",
+  "name": "Community — MiniMax H3-Image (open weights)",
+  "version": "1.0.0",
+  "addedAt": "2026-11-11",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minComfyuiVersion": "v0.45.0",
+  "description": "MiniMax's open-weight H3-Image model: text to image at 4 or 16 megapixels and editing with up to four pictures, through a built-in prompt writer. Runs on a 12 GB card. Reuses the H3 text encoder the H3 video packs already download, plus about 29 GB of its own files. Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
+  "tags": [
+    "Local",
+    "H3",
+    "Edit"
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors": "83eb140f1ff95c068f8a6886e6d3f3d0d4ab2e07bb2fe6d2ef992a51146ee622",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors": "d80e9c2e5cfc9844869961ff5a58c9a9e52182df6bfb30b26018dd7f348721af",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors": "4cc6a1543ad2061806da46f35f90cadb4801dcba246c44782cf42ec0feb6407c"
+  },
+  "presets": [
+    {
+      "id": "minimax-h3-image-open-t2i",
+      "name": "MiniMax H3-Image",
+      "icon": "🖼️",
+      "enabled": true,
+      "tagline": "MiniMax's open H3-Image model, 4 megapixels",
+      "description": "Text to image with MiniMax H3-Image, the open-weight image model MiniMax released in November 2026. A built-in prompt writer turns your request into a full description first, so a short line is enough, and it is good at exact lettering on signs, covers and posters. Renders at about 4 megapixels (2368x1760 at 4:3).",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "4MP",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-open-t2i.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8) + Qwen3.5 9B expander",
+        "workflow": "workflows/image_minimax_h3_image_open_t2i.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          },
+          {
+            "filename": "qwen3.5_9b_w4a8_gptq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 45.2,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB), its single-frame VAE (1.2 GB) and the Qwen3.5 9B w4a8 prompt expander (7.3 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. Needs ComfyUI v0.45.0 (Comfy-Org/ComfyUI#17655). Graph per the Comfy template: 6 steps, cfg 1, euler/simple, zeroed negative. Every request first goes through the expander, which writes the detailed caption the model renders; without it the model misses parts of the request. The expander samples (template settings) and thinks first, which adds about 25-65 s per new prompt. User LoRA slot (rgthree Power Lora Loader, as on P-H3-Image): H3 video LoRAs load, because H3-Image is the same transformer without the audio stream. Tested 2026-11-11 with kreaillustrator_style, h3-realism-people and cinemagrade_style: every key mapped, an empty slot gives the identical picture, and a warm 4 MP run with a LoRA took 53 s in SimpliGen. Trigger words go to the expander with the request, and it may leave them out of its caption; the style LoRAs tested still applied without them. "
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2368,
+            "height": 1760
+          },
+          "3:4": {
+            "width": 1760,
+            "height": 2368
+          },
+          "3:2": {
+            "width": 2496,
+            "height": 1664
+          },
+          "2:3": {
+            "width": 1664,
+            "height": 2496
+          },
+          "16:9": {
+            "width": 2720,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2720
+          },
+          "21:9": {
+            "width": 3136,
+            "height": 1344
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-open-t2i-16mp",
+      "name": "MiniMax H3-Image 16 MP",
+      "icon": "🖼️",
+      "enabled": true,
+      "tagline": "MiniMax's open H3-Image model at its best size, 16 megapixels",
+      "description": "The same model at 16 megapixels (4736x3552 at 4:3), the size MiniMax says gives the best results. Slower than the 4 MP card, and very large files.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "16MP",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-open-t2i-16mp.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8) + Qwen3.5 9B expander",
+        "workflow": "workflows/image_minimax_h3_image_open_t2i.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          },
+          {
+            "filename": "qwen3.5_9b_w4a8_gptq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 45.2,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB), its single-frame VAE (1.2 GB) and the Qwen3.5 9B w4a8 prompt expander (7.3 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. Needs ComfyUI v0.45.0 (Comfy-Org/ComfyUI#17655). Graph per the Comfy template: 6 steps, cfg 1, euler/simple, zeroed negative. Every request first goes through the expander, which writes the detailed caption the model renders; without it the model misses parts of the request. The expander samples (template settings) and thinks first, which adds about 25-65 s per new prompt. User LoRA slot (rgthree Power Lora Loader, as on P-H3-Image): H3 video LoRAs load, because H3-Image is the same transformer without the audio stream. Tested 2026-11-11 with kreaillustrator_style, h3-realism-people and cinemagrade_style: every key mapped, an empty slot gives the identical picture, and a warm 4 MP run with a LoRA took 53 s in SimpliGen. Trigger words go to the expander with the request, and it may leave them out of its caption; the style LoRAs tested still applied without them. "
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 4096,
+            "height": 4096
+          },
+          "4:3": {
+            "width": 4736,
+            "height": 3552
+          },
+          "3:4": {
+            "width": 3552,
+            "height": 4736
+          },
+          "3:2": {
+            "width": 5024,
+            "height": 3360
+          },
+          "2:3": {
+            "width": 3360,
+            "height": 5024
+          },
+          "16:9": {
+            "width": 5472,
+            "height": 3072
+          },
+          "9:16": {
+            "width": 3072,
+            "height": 5472
+          },
+          "21:9": {
+            "width": 6272,
+            "height": 2688
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-open-edit",
+      "name": "MiniMax H3-Image Edit",
+      "icon": "✏️",
+      "enabled": true,
+      "tagline": "Edit a picture by describing the change",
+      "description": "Edit a picture with MiniMax H3-Image. Picture 1 is the one that changes; the result keeps its shape at about 4 megapixels. Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man in <Picture 1>.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Edit",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-open-edit.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8) + Qwen3.5 9B expander",
+        "workflow": "workflows/image_minimax_h3_image_open_edit.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          },
+          {
+            "filename": "qwen3.5_9b_w4a8_gptq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 45.2,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB), its single-frame VAE (1.2 GB) and the Qwen3.5 9B w4a8 prompt expander (7.3 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. Needs ComfyUI v0.45.0 (Comfy-Org/ComfyUI#17655). Graph per the Comfy template: 6 steps, cfg 1, euler/simple, zeroed negative. Every request first goes through the expander, which writes the detailed caption the model renders; without it the model misses parts of the request. The expander samples (template settings) and thinks first, which adds about 25-65 s per new prompt. User LoRA slot (rgthree Power Lora Loader, as on P-H3-Image): H3 video LoRAs load, because H3-Image is the same transformer without the audio stream. Tested 2026-11-11 with kreaillustrator_style, h3-realism-people and cinemagrade_style: every key mapped, an empty slot gives the identical picture, and a warm 4 MP run with a LoRA took 53 s in SimpliGen. Trigger words go to the expander with the request, and it may leave them out of its caption; the style LoRAs tested still applied without them. Edit graph per the Comfy edit template: every picture is scaled to 4 MP (multiple of 32) for the model and picture 1 sets the output size. One change: the expander sees 1 MP copies, labelled <Picture 1> to <Picture 4> in slot order (the template sends 4 MP, which took 8.6 min with two pictures and 15.2 min with four, against 2.2 and 3.0 min at 1 MP; engine-direct on a 4070 Ti 12 GB, 2026-11-11)."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture 1 (the one to edit)",
+            "Picture 2",
+            "Picture 3",
+            "Picture 4"
+          ]
+        }
+      }
+    }
+  ]
+}
