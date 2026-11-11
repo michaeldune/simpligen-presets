@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-singularity-v2-pack",
   "name": "Community — MiniMax H3 (Singularity v2)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "WarmBloodAban (AIGC-Singularity)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -94,8 +94,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
-            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.30 (7df883b): handles the H3 final layer before and after engine 0.45 renamed its shifts argument to grids; v0.2.27 fails on 0.45.",
+            "pinnedCommit": "7df883bb2361b7884ad789e97effd1dc37c8963a"
           }
         ],
         "steps": 20,
@@ -412,8 +412,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
-            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.30 (7df883b): handles the H3 final layer before and after engine 0.45 renamed its shifts argument to grids; v0.2.27 fails on 0.45.",
+            "pinnedCommit": "7df883bb2361b7884ad789e97effd1dc37c8963a"
           }
         ],
         "steps": 20,
@@ -753,8 +753,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
-            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.30 (7df883b): handles the H3 final layer before and after engine 0.45 renamed its shifts argument to grids; v0.2.27 fails on 0.45.",
+            "pinnedCommit": "7df883bb2361b7884ad789e97effd1dc37c8963a"
           }
         ],
         "steps": 20,
@@ -1100,8 +1100,8 @@
           {
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
-            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.27 (120d72e): the earlier pin fails on engine 0.36 (FinalLayer signature); v0.2.27 runs on 0.34 and 0.36.",
-            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+            "description": "Spectrum forecaster: skips transformer evaluations it can predict. Pinned to v0.2.30 (7df883b): handles the H3 final layer before and after engine 0.45 renamed its shifts argument to grids; v0.2.27 fails on 0.45.",
+            "pinnedCommit": "7df883bb2361b7884ad789e97effd1dc37c8963a"
           }
         ],
         "steps": 20,

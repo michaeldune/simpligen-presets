@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-orb360-pack",
   "name": "Community — MiniMax H3 ORB360 Orbit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "addedAt": "2026-10-14",
   "author": "MATLOWAI + Comfy-Org",
   "nsfw": false,
@@ -105,7 +105,7 @@
             "name": "ComfyUI-Spectrum-MiniMax-H3",
             "url": "https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.git",
             "description": "Spectrum forecaster, injected by the app when enabled",
-            "pinnedCommit": "120d72e2f48b781235b34149e39bbdf0f1317d82"
+            "pinnedCommit": "7df883bb2361b7884ad789e97effd1dc37c8963a"
           }
         ],
         "steps": 20,
