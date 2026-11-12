@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-image-open-pack",
   "name": "Community — MiniMax H3-Image (open weights)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-11-11",
   "author": "michaeldune",
   "nsfw": false,
@@ -26,7 +26,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "MiniMax's open H3-Image model, 4 megapixels",
-      "description": "Text to image with MiniMax H3-Image, the open-weight image model MiniMax released in November 2026. A built-in prompt writer turns your request into a full description first, so a short line is enough, and it is good at exact lettering on signs, covers and posters. Renders at about 4 megapixels (2368x1760 at 4:3).",
+      "description": "Text to image with MiniMax H3-Image, the open-weight image model MiniMax released in November 2026. A built-in prompt writer turns your request into a full description first, so a short line is enough, and it is good at exact lettering on signs, covers and posters. Renders at about 4 megapixels (2368x1760 at 4:3). The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -123,7 +123,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "MiniMax's open H3-Image model at its best size, 16 megapixels",
-      "description": "The same model at 16 megapixels (4736x3552 at 4:3), the size MiniMax says gives the best results. Slower than the 4 MP card, and very large files.",
+      "description": "The same model at 16 megapixels (4736x3552 at 4:3), the size MiniMax says gives the best results. Slower than the 4 MP card, and very large files. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -220,7 +220,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit a picture by describing the change",
-      "description": "Edit a picture with MiniMax H3-Image. Picture 1 is the one that changes; the result keeps its shape at about 4 megapixels. Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man in <Picture 1>.",
+      "description": "Edit a picture with MiniMax H3-Image. Picture 1 is the one that changes; the result keeps its shape at about 4 megapixels. Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man in <Picture 1>. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.",
       "promptStyle": "natural",
       "tags": [
         "H3",
