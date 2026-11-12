@@ -1,7 +1,7 @@
 {
   "id": "anima-art-styles-pack",
   "name": "Anima Art & Styles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds) and MyGoo (soft 2.5D with warm, photo-like light). These cards came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
@@ -19,7 +19,7 @@
       "tagline": "MiaoMiao Harem's Anima mainline v1.6",
       "icon": "👑",
       "previewImage": "previews/miaomiao-harem-anima-v16.jpg",
-      "description": "Anime illustration tuned for expression and skin detail. Prompts can mix tags and natural language. It uses the text encoder that comes with the release.\n\nReview the creator's usage restrictions before commercial use.",
+      "description": "Anime illustration tuned for expression and skin detail. Prompts can mix tags and natural language. It uses the text encoder that comes with the release.\n\nReview the creator's usage restrictions before commercial use.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -126,7 +126,7 @@
       "tagline": "Soft, glowing 2.5D anime",
       "icon": "🥧",
       "previewImage": "previews/pie-models-anima-cream-v2.jpg",
-      "description": "Soft, glowing 2.5D anime with smooth shading. The card uses the author's quality tags and negative. About 22 seconds a picture on a 12 GB card.\n\nThe author asks you to read their settings. They recommend 832x1216, 1216x832 or 1024x1024.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives.",
+      "description": "Soft, glowing 2.5D anime with smooth shading. The card uses the author's quality tags and negative. About 22 seconds a picture on a 12 GB card.\n\nThe author asks you to read their settings. They recommend 832x1216, 1216x832 or 1024x1024.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -232,7 +232,7 @@
       "tagline": "Painterly light and atmosphere; give it long prompts",
       "icon": "🧪",
       "previewImage": "previews/riaku-lab-v1.jpg",
-      "description": "An experimental Anima aimed at painterly atmosphere and complex lighting. In our test it was the most different of the newer Anima cards: warm backlight, glowing haze and a painterly finish.\n\nGive it long prompts. The author warns it can be unstable with short ones, so describe the scene, the light and the mood.\n\nThe author gives no settings, so the card uses the Anima base card's. About 18 seconds a picture on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.",
+      "description": "An experimental Anima aimed at painterly atmosphere and complex lighting. In our test it was the most different of the newer Anima cards: warm backlight, glowing haze and a painterly finish.\n\nGive it long prompts. The author warns it can be unstable with short ones, so describe the scene, the light and the mood.\n\nThe author gives no settings, so the card uses the Anima base card's. About 18 seconds a picture on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -338,7 +338,7 @@
       "tagline": "Muted, moody light with detailed backgrounds",
       "icon": "🦪",
       "previewImage": "previews/pearly-unknown-v1.jpg",
-      "description": "Muted, moody, slightly semi-real anime with deep, detailed backgrounds and clean light. The card uses the author's quality tags. About 19 seconds a picture on a 12 GB card.\n\nFor richer backgrounds the author suggests 'photo background' or 'scenery, detailed background'.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.",
+      "description": "Muted, moody, slightly semi-real anime with deep, detailed backgrounds and clean light. The card uses the author's quality tags. About 19 seconds a picture on a 12 GB card.\n\nFor richer backgrounds the author suggests 'photo background' or 'scenery, detailed background'.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -444,7 +444,7 @@
       "tagline": "Soft 2.5D anime with warm, photo-like light",
       "icon": "🌤️",
       "previewImage": "previews/mygoo-anima-v005.jpg",
-      "description": "Soft 2.5D anime: semi-real faces, warm light like a photo and a blurred background behind the subject. It frames people closer than most Anima cards.\n\nforest919 merged Anima base with their own trained style and character weights and hinaAnima2 R Tweaker v3, with that creator's permission. The author calls it experimental. This card is v0.05, the version requested; newer versions are on the author's page.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_7, highres to the start of your prompt, so you don't need to type them. For a flatter anime look, leave out words like cinematic lighting, depth of field and semi-realistic.\n\nThis card uses the author's ER SDE at 30 steps and CFG 4.5, about 21 seconds a picture on a 12 GB card. The author suggests 25 to 50 steps and CFG 4 to 5, with more steps for final pictures.",
+      "description": "Soft 2.5D anime: semi-real faces, warm light like a photo and a blurred background behind the subject. It frames people closer than most Anima cards.\n\nforest919 merged Anima base with their own trained style and character weights and hinaAnima2 R Tweaker v3, with that creator's permission. The author calls it experimental. This card is v0.05, the version requested; newer versions are on the author's page.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_7, highres to the start of your prompt, so you don't need to type them. For a flatter anime look, leave out words like cinematic lighting, depth of field and semi-realistic.\n\nThis card uses the author's ER SDE at 30 steps and CFG 4.5, about 21 seconds a picture on a 12 GB card. The author suggests 25 to 50 steps and CFG 4 to 5, with more steps for final pictures.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",

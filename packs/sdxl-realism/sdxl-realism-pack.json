@@ -1,7 +1,7 @@
 {
   "id": "sdxl-realism-pack",
   "name": "Community — SDXL Realism",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "various",
   "nsfw": false,
   "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
@@ -17,7 +17,7 @@
       "tagline": "Photoreal SDXL (realism)",
       "icon": "🎨",
       "previewImage": "previews/sdxl-triple-headed-monkeys-v10.jpg",
-      "description": "Photoreal SDXL for lifelike people and scenes, mature and general subjects alike. Prompt in natural language.",
+      "description": "Photoreal SDXL for lifelike people and scenes, mature and general subjects alike. Prompt in natural language.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Realistic",
@@ -117,7 +117,7 @@
       "name": "EpicRealism XL",
       "icon": "📷",
       "previewImage": "previews/epicrealism-xl.jpg",
-      "description": "Photorealistic pictures from the version of epiCRealism XL its author calls probably the best.\n\nThe card adds no quality tags. To raise fidelity, the author starts the prompt with: masterpiece, 4k, ray tracing, intricate details, highly-detailed, hyper-realistic, 8k RAW Editorial Photo.\n\nAfter the subject, the author adds: cinematic light, dramatic light, shallow depth of field, high budget, bokeh, cinemascope\n\nFor a film look, add: film grain ISO 200 faded film, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage\n\nThe author suggests CFG 2 to 5, with higher values looking more artistic. This card starts just above that at 5.5, so lower CFG for a more photographic result.\n\nLicence: CreativeML Open RAIL++-M with an addendum. Read it on the model's Civitai page before commercial use.",
+      "description": "Photorealistic pictures from the version of epiCRealism XL its author calls probably the best.\n\nThe card adds no quality tags. To raise fidelity, the author starts the prompt with: masterpiece, 4k, ray tracing, intricate details, highly-detailed, hyper-realistic, 8k RAW Editorial Photo.\n\nAfter the subject, the author adds: cinematic light, dramatic light, shallow depth of field, high budget, bokeh, cinemascope\n\nFor a film look, add: film grain ISO 200 faded film, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage\n\nThe author suggests CFG 2 to 5, with higher values looking more artistic. This card starts just above that at 5.5, so lower CFG for a more photographic result.\n\nLicence: CreativeML Open RAIL++-M with an addendum. Read it on the model's Civitai page before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Photorealism",
@@ -185,7 +185,7 @@
       "name": "Juggernaut XL Ragnarok",
       "icon": "⚔️",
       "previewImage": "previews/juggernaut-xl-ragnarok.jpg",
-      "description": "The final SDXL Juggernaut, for photorealism and digital painting, with better poses, hands and feet than earlier versions.\n\nIt is still SDXL. The author warns that text and faces at a distance remain weak.\n\nThe card adds nothing to your prompt and starts with no negative prompt, as the author recommends: add only what you don't want to see.\n\nCFG works from 3 to 6, and lower looks a little more realistic. Steps work from 30 to 40. The author's settings include a 1.5x hi-res pass, which this card does not run.\n\nIt keeps general and mature pictures fairly well apart. For very explicit pictures the author points to the Lustify model instead.\n\nLicence: CreativeML Open RAIL++-M with an addendum. The author says you can merge it, train on it and sell your images, and asks only for a shoutout. Read the addendum on the model's Civitai page before commercial use.",
+      "description": "The final SDXL Juggernaut, for photorealism and digital painting, with better poses, hands and feet than earlier versions.\n\nIt is still SDXL. The author warns that text and faces at a distance remain weak.\n\nThe card adds nothing to your prompt and starts with no negative prompt, as the author recommends: add only what you don't want to see.\n\nCFG works from 3 to 6, and lower looks a little more realistic. Steps work from 30 to 40. The author's settings include a 1.5x hi-res pass, which this card does not run.\n\nIt keeps general and mature pictures fairly well apart. For very explicit pictures the author points to the Lustify model instead.\n\nLicence: CreativeML Open RAIL++-M with an addendum. The author says you can merge it, train on it and sell your images, and asks only for a shoutout. Read the addendum on the model's Civitai page before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Photorealism",
@@ -254,7 +254,7 @@
       "name": "RealVisXL V5.0",
       "icon": "🎥",
       "previewImage": "previews/realvisxl-v50.jpg",
-      "description": "Photorealistic people and scenes. The author aims it squarely at photorealism, and it makes both general and mature pictures.\n\nThe card adds no quality tags. Its negative prompt is the author's and includes open mouth, so laughing, singing or shouting faces can be harder to get.\n\nThe author recommends at least 30 steps on this sampler, which is where the card starts. The author also suggests a gentle hi-res pass of 1.1x to 1.5x, which this card does not run.\n\nLicence: CreativeML Open RAIL++-M with an addendum. Read it on the model's Civitai page before commercial use.",
+      "description": "Photorealistic people and scenes. The author aims it squarely at photorealism, and it makes both general and mature pictures.\n\nThe card adds no quality tags. Its negative prompt is the author's and includes open mouth, so laughing, singing or shouting faces can be harder to get.\n\nThe author recommends at least 30 steps on this sampler, which is where the card starts. The author also suggests a gentle hi-res pass of 1.1x to 1.5x, which this card does not run.\n\nLicence: CreativeML Open RAIL++-M with an addendum. Read it on the model's Civitai page before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Photorealism",
@@ -339,7 +339,7 @@
       "tagline": "Raw high-fidelity realism, uncensored",
       "icon": "🌆",
       "previewImage": "previews/pure-tukano-nsfw-v10.jpg",
-      "description": "Photoreal SDXL trained for explicit adult content, with realistic female anatomy, natural skin texture and flawless proportions. It avoids the common 'plastic skin' look.",
+      "description": "Photoreal SDXL trained for explicit adult content, with realistic female anatomy, natural skin texture and flawless proportions. It avoids the common 'plastic skin' look.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Realistic",

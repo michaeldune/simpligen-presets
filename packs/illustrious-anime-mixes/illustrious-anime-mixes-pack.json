@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-mixes-pack",
   "name": "Illustrious Anime Mixes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-11-10",
   "author": "various",
   "nsfw": false,
@@ -25,7 +25,7 @@
       "name": "SilvermoonMix v6.0 V-pred",
       "icon": "🌙",
       "previewImage": "previews/silvermoonmix-v6-vpred.jpg",
-      "description": "Soft, pale, airy anime with gentle pastel light and thin line work. Next to the other Illustrious cards it is the lightest and calmest. The author made it neutral on purpose, so artist tags change it more than most, and says it is good at hands and at pictures with several characters.\n\nUse Danbooru tags. The author's sample pictures use no quality tags and no negative prompt, so this card adds neither; add a negative prompt only if you need one.\n\nThis card uses the author's Euler a with the Simple scheduler at 28 steps and CFG 4.5.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "description": "Soft, pale, airy anime with gentle pastel light and thin line work. Next to the other Illustrious cards it is the lightest and calmest. The author made it neutral on purpose, so artist tags change it more than most, and says it is good at hands and at pictures with several characters.\n\nUse Danbooru tags. The author's sample pictures use no quality tags and no negative prompt, so this card adds neither; add a negative prompt only if you need one.\n\nThis card uses the author's Euler a with the Simple scheduler at 28 steps and CFG 4.5.\n\nAbout 15 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -129,7 +129,7 @@
       "name": "JANKU v7.77",
       "icon": "✏️",
       "previewImage": "previews/janku-v777.jpg",
-      "description": "Bright, clean anime with thicker outlines and detailed backgrounds, and wider framing than most anime cards. The author built v7.77 on JANKU and Chenkin to make Chenkin's pictures steadier.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest to the start of your prompt, so you don't need to type them. The author notes v7.77 knows fewer artists than earlier JANKU versions.\n\nThis card uses the author's Euler a with the Simple scheduler at 30 steps and CFG 4.5. The author's sample pictures add their Lazy Embeddings, which this card does not use.\n\nAbout 17 seconds a picture on a 12 GB card.",
+      "description": "Bright, clean anime with thicker outlines and detailed backgrounds, and wider framing than most anime cards. The author built v7.77 on JANKU and Chenkin to make Chenkin's pictures steadier.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, very aesthetic, absurdres, newest to the start of your prompt, so you don't need to type them. The author notes v7.77 knows fewer artists than earlier JANKU versions.\n\nThis card uses the author's Euler a with the Simple scheduler at 30 steps and CFG 4.5. The author's sample pictures add their Lazy Embeddings, which this card does not use.\n\nAbout 17 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -232,7 +232,7 @@
       "name": "dims2 Personal Merge v3.0",
       "icon": "💎",
       "previewImage": "previews/dims2-merge-v30.jpg",
-      "description": "Bright, glossy cel-shaded anime with clear colour and clean skies. It is a NoobAI-based merge with hands and bodies taken from CyberRealistic XL. On busy two-person prompts it can mix up hair colours, so describe each person clearly.\n\nUse Danbooru tags. The card adds the author's quality tags (masterpiece, best quality, amazing quality, very aesthetic, absurdres) to the start of your prompt, so you don't need to type them.\n\nThis card uses Euler a with the SGM Uniform scheduler at 28 steps and CFG 5.5. The author's sample pictures use a special sampler and a speed LoRA at 18 steps, which this card does not.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "description": "Bright, glossy cel-shaded anime with clear colour and clean skies. It is a NoobAI-based merge with hands and bodies taken from CyberRealistic XL. On busy two-person prompts it can mix up hair colours, so describe each person clearly.\n\nUse Danbooru tags. The card adds the author's quality tags (masterpiece, best quality, amazing quality, very aesthetic, absurdres) to the start of your prompt, so you don't need to type them.\n\nThis card uses Euler a with the SGM Uniform scheduler at 28 steps and CFG 5.5. The author's sample pictures use a special sampler and a speed LoRA at 18 steps, which this card does not.\n\nAbout 15 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -335,7 +335,7 @@
       "name": "ReedXXX v16.0",
       "icon": "🔥",
       "previewImage": "previews/reedxxx-v16.jpg",
-      "description": "Warm, saturated anime with golden light and rich colour. The author says v16 gets head-to-shoulder proportions and body perspective more stable than earlier versions. When a prompt names no outfit it tends to draw very little clothing, so name what the person wears.\n\nUse Danbooru tags; the author uses WAI-style character tags. The card adds masterpiece, best quality, amazing quality, absurdres to the start of your prompt and the author's negative prompt, so you don't need to type them.\n\nThis card uses the author's Euler with the Normal scheduler at 30 steps and CFG 5.\n\nAbout 17 seconds a picture on a 12 GB card.",
+      "description": "Warm, saturated anime with golden light and rich colour. The author says v16 gets head-to-shoulder proportions and body perspective more stable than earlier versions. When a prompt names no outfit it tends to draw very little clothing, so name what the person wears.\n\nUse Danbooru tags; the author uses WAI-style character tags. The card adds masterpiece, best quality, amazing quality, absurdres to the start of your prompt and the author's negative prompt, so you don't need to type them.\n\nThis card uses the author's Euler with the Normal scheduler at 30 steps and CFG 5.\n\nAbout 17 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -438,7 +438,7 @@
       "name": "DREAMBOX v4.5",
       "icon": "📦",
       "previewImage": "previews/dreambox-v45.jpg",
-      "description": "Often a flat illustration with bold outlines and retro poster colour, more like a picture book or a comic than anime, which makes it the least like the other Illustrious cards; on some prompts (a knight in our test) it gives ordinary glossy anime instead. In our test it once swapped two characters' outfits, so describe each person clearly.\n\nUse Danbooru tags or plain English. The card adds best quality, masterpiece, absurdres, newest to the start of your prompt. The author trained over 100 style trigger words into the model; the Civitai page lists them, and mixing them gives different looks.\n\nThis card uses the author's DPM++ 2M SDE with the SGM Uniform scheduler at CFG 5, at 24 steps. The author's sample pictures add a hi-res pass, which this card does not run.\n\nAbout 15 seconds a picture on a 12 GB card.",
+      "description": "Often a flat illustration with bold outlines and retro poster colour, more like a picture book or a comic than anime, which makes it the least like the other Illustrious cards; on some prompts (a knight in our test) it gives ordinary glossy anime instead. In our test it once swapped two characters' outfits, so describe each person clearly.\n\nUse Danbooru tags or plain English. The card adds best quality, masterpiece, absurdres, newest to the start of your prompt. The author trained over 100 style trigger words into the model; the Civitai page lists them, and mixing them gives different looks.\n\nThis card uses the author's DPM++ 2M SDE with the SGM Uniform scheduler at CFG 5, at 24 steps. The author's sample pictures add a hi-res pass, which this card does not run.\n\nAbout 15 seconds a picture on a 12 GB card.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Illustrious",
         "SDXL",

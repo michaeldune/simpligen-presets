@@ -1,7 +1,7 @@
 {
   "id": "moss-image-pack",
   "name": "Community — MOSS-Image",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "addedAt": "2026-10-18",
   "author": "michaeldune",
   "nsfw": false,
@@ -27,7 +27,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Posters and signs with every quoted word spelled right",
-      "description": "Text to image built around lettering: headlines, signs, menus and handwriting come out spelled right, including Chinese and Japanese.\n\nPut every word you want on the picture in quotes and say where it goes, for example: at the top, large bold letters read \"SUMMER SALE\". Text you only describe comes out as pseudo-letters.\n\nIt follows layout and style directions well: a two-ink screenprint stays two inks, and a 1970s poster looks printed.\n\nAbout 20 seconds on a 12 GB card. Wide 16:9 pictures of one person can draw them twice; square, 3:4 and 3:2 are safer for people.\n\nApache-2.0.",
+      "description": "Text to image built around lettering: headlines, signs, menus and handwriting come out spelled right, including Chinese and Japanese.\n\nPut every word you want on the picture in quotes and say where it goes, for example: at the top, large bold letters read \"SUMMER SALE\". Text you only describe comes out as pseudo-letters.\n\nIt follows layout and style directions well: a two-ink screenprint stays two inks, and a 1970s poster looks printed.\n\nAbout 20 seconds on a 12 GB card. Wide 16:9 pictures of one person can draw them twice; square, 3:4 and 3:2 are safer for people.\n\nApache-2.0.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -132,7 +132,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image lettering in 8 steps",
-      "description": "MOSS-Image with an 8-step speed LoRA: about 3 seconds per picture once your prompt is loaded and about 10 seconds when you change it, on a 12 GB card.\n\nLettering holds up just as well. Put every word you want in quotes.\n\nThe trade-off is smoother, retouched-looking skin and less variety between seeds. For portraits, or when you want very different takes, use the 25-step MOSS-Image card.\n\nWide 16:9 pictures of one person can draw them twice.\n\nApache-2.0.",
+      "description": "MOSS-Image with an 8-step speed LoRA: about 3 seconds per picture once your prompt is loaded and about 10 seconds when you change it, on a 12 GB card.\n\nLettering holds up just as well. Put every word you want in quotes.\n\nThe trade-off is smoother, retouched-looking skin and less variety between seeds. For portraits, or when you want very different takes, use the 25-step MOSS-Image card.\n\nWide 16:9 pictures of one person can draw them twice.\n\nApache-2.0.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",

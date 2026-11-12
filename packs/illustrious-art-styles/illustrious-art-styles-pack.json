@@ -1,7 +1,7 @@
 {
   "id": "illustrious-art-styles-pack",
   "name": "Illustrious Art & Styles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious SDXL checkpoints with a look of their own, which came from the Illustrious Anime pack when it was split on 2026-11-09. UnrealVision: a high-end 3D-render look (Unreal Engine, Arcane and Pixar-style light). RIN Flanime: flat colour with sharp line art, closer to a clean drawing. One Obsession v24: muted, cinematic colour and hazy light. Rule of Moon, PerfectDeliberate and SmoothMix Ultimate: anime pushed toward semi-real. Prompt with Danbooru tags. For plain anime use Illustrious Anime; for photoreal people use Illustrious Realism.",
@@ -20,7 +20,7 @@
       "tagline": "Detailed semi-realistic anime",
       "icon": "🌙",
       "previewImage": "previews/rule-of-moon-v2p.jpg",
-      "description": "Detailed semi-realistic anime with crisp linework, expressive eyes and clean lighting. Prompt with Danbooru tags.",
+      "description": "Detailed semi-realistic anime with crisp linework, expressive eyes and clean lighting. Prompt with Danbooru tags.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -124,7 +124,7 @@
       "name": "PerfectDeliberate V9.0",
       "icon": "✨",
       "previewImage": "previews/perfectdeliberate-v90.jpg",
-      "description": "Flexible between anime and semi-realistic, with strong aesthetics. Works with LoRAs.",
+      "description": "Flexible between anime and semi-realistic, with strong aesthetics. Works with LoRAs.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -227,7 +227,7 @@
       "tagline": "Versatile anime and semi-real Illustrious mix",
       "icon": "🎨",
       "previewImage": "previews/smoothmix-ultimate-anima-v20.jpg",
-      "description": "High-quality anime with a semi-realistic push, combining the SmoothMix checkpoints into one. Prompt with Danbooru tags plus description.",
+      "description": "High-quality anime with a semi-realistic push, combining the SmoothMix checkpoints into one. Prompt with Danbooru tags plus description.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -333,7 +333,7 @@
       "tagline": "Glossy 3D-render style anime, uncensored",
       "icon": "✨",
       "previewImage": "previews/unrealvision-illustrious-v10.jpg",
-      "description": "A high-end 3D-render look that blends stylised anime with semi-realism: Unreal Engine 5, Arcane and Pixar-influenced lighting and volume, vibrant colours, deep skin and fabric texture.\n\nIts prompt understanding is wide and permissive.",
+      "description": "A high-end 3D-render look that blends stylised anime with semi-realism: Unreal Engine 5, Arcane and Pixar-influenced lighting and volume, vibrant colours, deep skin and fabric texture.\n\nIts prompt understanding is wide and permissive.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -436,7 +436,7 @@
       "name": "One Obsession v24 (Illustrious)",
       "icon": "🌫️",
       "previewImage": "previews/one-obsession-il-v24.jpg",
-      "description": "Detailed Illustrious anime with muted, cinematic colour and hazy light. It suits atmosphere and dramatic scenes more than bright, candy colours.\n\nThe author says it works well without LoRAs or complicated tags, and warns that a newer version is not always better for your taste.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, newest, very aesthetic, highres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 24 steps and CFG 4.5. The author's sample pictures add a hi-res pass up to 1536x2304, which this card does not run.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.",
+      "description": "Detailed Illustrious anime with muted, cinematic colour and hazy light. It suits atmosphere and dramatic scenes more than bright, candy colours.\n\nThe author says it works well without LoRAs or complicated tags, and warns that a newer version is not always better for your taste.\n\nUse Danbooru tags. The card adds masterpiece, best quality, amazing quality, newest, very aesthetic, highres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 24 steps and CFG 4.5. The author's sample pictures add a hi-res pass up to 1536x2304, which this card does not run.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -539,7 +539,7 @@
       "name": "RIN Flanime Illustrious v5.0",
       "icon": "✏️",
       "previewImage": "previews/rin-flanime-il-v5.jpg",
-      "description": "Flat colour with sharp line art, closer to a clean drawing than a painting. The lines stay fine even in busy backgrounds.\n\nThe author says v5 adds better light and shadow, richer backgrounds, more saturated colour and better attention to small prompt details.\n\nUse Danbooru tags. The card adds masterpiece, best quality, flat color to the start of your prompt, so you don't need to type them. On two-person pictures, hair colours can swap or merge, so check them.\n\nThis card uses DPM++ 2M at 25 steps and CFG 6, as in the author's samples. CFG works from 3 to 7 and Steps from 20 to 40. The author recommends a 1.5x hi-res pass, which this card does not run.\n\nLicence: Civitai allows image use and merges with no credit required. The author asks that the model is not re-uploaded to other sites.",
+      "description": "Flat colour with sharp line art, closer to a clean drawing than a painting. The lines stay fine even in busy backgrounds.\n\nThe author says v5 adds better light and shadow, richer backgrounds, more saturated colour and better attention to small prompt details.\n\nUse Danbooru tags. The card adds masterpiece, best quality, flat color to the start of your prompt, so you don't need to type them. On two-person pictures, hair colours can swap or merge, so check them.\n\nThis card uses DPM++ 2M at 25 steps and CFG 6, as in the author's samples. CFG works from 3 to 7 and Steps from 20 to 40. The author recommends a 1.5x hi-res pass, which this card does not run.\n\nLicence: Civitai allows image use and merges with no credit required. The author asks that the model is not re-uploaded to other sites.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",

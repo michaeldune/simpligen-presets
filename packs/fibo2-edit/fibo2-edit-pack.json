@@ -1,7 +1,7 @@
 {
   "id": "fibo2-edit-pack",
   "name": "Fibo 2.0 Edit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -26,7 +26,7 @@
       "tagline": "Recolour, relight, restage — non-commercial",
       "icon": "🖌️",
       "previewImage": "previews/fibo2-edit.jpg",
-      "description": "Changes the one thing you name in a picture and leaves the rest alone. About 14 seconds for a 1 megapixel picture on a 12 GB card.\n\nThe only picture slot is the picture to edit. In the prompt, name the change and name what to keep: \"Change only the red bicycle to a bright yellow bicycle. Keep everything else in the street exactly as it is.\"\n\nColour, outfit, lighting, season and weather changes hold the rest of the frame in place, text in the picture comes through letter-exact, and an object you recolour stays the same object.\n\nPick the ratio that matches your picture to keep the whole frame. Another ratio centre-crops it, though the edit itself still holds up.\n\nCompared with MOSS-Image Edit on the same pictures, this was the better editor: told to make a red bicycle yellow it recoloured that bicycle where MOSS drew a different one, and it holds faces, skin tone and the original light closer. The weak spot is a heavy style change such as photo to watercolour, which drifts the face more than MOSS does.\n\nNeeds a SimpliGen engine with native Fibo 2.0 support.\n\nLicence: the Fibo 2.0 weights are CC BY-NC 4.0, non-commercial use only. Selling the pictures, or using them in anything commercial, needs a separate agreement with BRIA AI (platform.bria.ai/licensing).",
+      "description": "Changes the one thing you name in a picture and leaves the rest alone. About 14 seconds for a 1 megapixel picture on a 12 GB card.\n\nThe only picture slot is the picture to edit. In the prompt, name the change and name what to keep: \"Change only the red bicycle to a bright yellow bicycle. Keep everything else in the street exactly as it is.\"\n\nColour, outfit, lighting, season and weather changes hold the rest of the frame in place, text in the picture comes through letter-exact, and an object you recolour stays the same object.\n\nPick the ratio that matches your picture to keep the whole frame. Another ratio centre-crops it, though the edit itself still holds up.\n\nCompared with MOSS-Image Edit on the same pictures, this was the better editor: told to make a red bicycle yellow it recoloured that bicycle where MOSS drew a different one, and it holds faces, skin tone and the original light closer. The weak spot is a heavy style change such as photo to watercolour, which drifts the face more than MOSS does.\n\nNeeds a SimpliGen engine with native Fibo 2.0 support.\n\nLicence: the Fibo 2.0 weights are CC BY-NC 4.0, non-commercial use only. Selling the pictures, or using them in anything commercial, needs a separate agreement with BRIA AI (platform.bria.ai/licensing).\n\nModel format: int8 ConvRot.",
       "tags": [
         "Edit",
         "Fibo 2.0",

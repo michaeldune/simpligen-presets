@@ -1,7 +1,7 @@
 {
   "id": "pie-models-pack",
   "name": "Pie Models",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-11-09",
   "author": "mommymia",
   "nsfw": false,
@@ -29,7 +29,7 @@
       "name": "Pie Models: Apple Pie v2",
       "icon": "🍎",
       "previewImage": "previews/pie-apple-v2.jpg",
-      "description": "Soft, glossy 2D and 2.5D anime with bright, pink-toned eyes and warm light. Of the Pie flavours this is the one to start with: most of the other anime flavours (Apple, Oreo, Honey, Fudge, Lemon, Quiche, Pecan) came out very close to it in our test. The author made v2 to fix hands while keeping Apple Pie's style.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "description": "Soft, glossy 2D and 2.5D anime with bright, pink-toned eyes and warm light. Of the Pie flavours this is the one to start with: most of the other anime flavours (Apple, Oreo, Honey, Fudge, Lemon, Quiche, Pecan) came out very close to it in our test. The author made v2 to fix hands while keeping Apple Pie's style.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -132,7 +132,7 @@
       "name": "Pie Models: Nutella Pie",
       "icon": "🍫",
       "previewImage": "previews/pie-nutella.jpg",
-      "description": "Sharp anime with clean line work and smooth shading. Close to Apple Pie v2, with crisper lines and a little less gloss. The author describes it as sharp anime.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 11 seconds a picture on a 12 GB card.",
+      "description": "Sharp anime with clean line work and smooth shading. Close to Apple Pie v2, with crisper lines and a little less gloss. The author describes it as sharp anime.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 11 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -235,7 +235,7 @@
       "name": "Pie Models: Jam Pie",
       "icon": "🫙",
       "previewImage": "previews/pie-jam.jpg",
-      "description": "Stylized 2D anime with warmer colour than the other anime flavours: amber and brown eyes, orange light and bold colour. The author describes it as stylized 2D with some 2.5D, with clean line work, luminous eyes and vivid lighting.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "description": "Stylized 2D anime with warmer colour than the other anime flavours: amber and brown eyes, orange light and bold colour. The author describes it as stylized 2D with some 2.5D, with clean line work, luminous eyes and vivid lighting.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -338,7 +338,7 @@
       "name": "Pie Models: Cherry Pie",
       "icon": "🍒",
       "previewImage": "previews/pie-cherry.jpg",
-      "description": "Anime with a Western comic touch: brighter, lighter pictures than the other Pie flavours, sharp eyes and rosy cheeks. In our test it once painted a fake signature into a corner, so add signature to the negative prompt if you see one. The author describes it as a blend of Western and anime styles.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 12 seconds a picture on a 12 GB card.",
+      "description": "Anime with a Western comic touch: brighter, lighter pictures than the other Pie flavours, sharp eyes and rosy cheeks. In our test it once painted a fake signature into a corner, so add signature to the negative prompt if you see one. The author describes it as a blend of Western and anime styles.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 12 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -441,7 +441,7 @@
       "name": "Pie Models: Mango Pie",
       "icon": "🥭",
       "previewImage": "previews/pie-mango.jpg",
-      "description": "Semi-real anime with glossy, vibrant colour and soft 2.5D shading. Faces have more realistic eyes and skin than the anime flavours, and the light is deeper and moodier. The author describes it as semi-real anime: glossy, vibrant, soft 2.5D shading.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "description": "Semi-real anime with glossy, vibrant colour and soft 2.5D shading. Faces have more realistic eyes and skin than the anime flavours, and the light is deeper and moodier. The author describes it as semi-real anime: glossy, vibrant, soft 2.5D shading.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -544,7 +544,7 @@
       "name": "Pie Models: Key Lime Pie",
       "icon": "🍈",
       "previewImage": "previews/pie-key-lime.jpg",
-      "description": "A polished semi-real look with soft shading and smooth skin. Faces sit between anime and real, with realistic eye shapes and gentle, darker light. The author describes it as semi-real with a soft lustre, balancing realistic depth with expressive anime features.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "description": "A polished semi-real look with soft shading and smooth skin. Faces sit between anime and real, with realistic eye shapes and gentle, darker light. The author describes it as semi-real with a soft lustre, balancing realistic depth with expressive anime features.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "SDXL",
@@ -646,7 +646,7 @@
       "name": "Pie Models: Impossible Pie",
       "icon": "🫐",
       "previewImage": "previews/pie-impossible.jpg",
-      "description": "The most realistic Pie flavour. Faces come out close to photographs, with real teeth and skin, while clothes and scenes keep an illustrated finish. People tend to face the camera more than in the other flavours. For a more realistic result the author suggests adding realistic to your prompt. It is the author's update to Blueberry Pie.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 14 seconds a picture on a 12 GB card.",
+      "description": "The most realistic Pie flavour. Faces come out close to photographs, with real teeth and skin, while clothes and scenes keep an illustrated finish. People tend to face the camera more than in the other flavours. For a more realistic result the author suggests adding realistic to your prompt. It is the author's update to Blueberry Pie.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 14 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "SDXL",
@@ -749,7 +749,7 @@
       "name": "Pie Models: Raspberry Pie",
       "icon": "🥧",
       "previewImage": "previews/pie-raspberry.jpg",
-      "description": "Anime with bold, heavy line art, flat shading and darker, muted colour. It is the newest Pie flavour and looks the least like the others. The author has not described it yet.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.",
+      "description": "Anime with bold, heavy line art, flat shading and darker, muted colour. It is the newest Pie flavour and looks the least like the others. The author has not described it yet.\n\nUse Danbooru tags. The card adds masterpiece, newest, absurdres, incredibly absurdres, best quality, amazing quality, very aesthetic to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's DPM++ 2M Karras at 30 steps and CFG 5. The author's sample pictures add a 1.5x hi-res pass, which this card does not run.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",

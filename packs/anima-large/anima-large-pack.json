@@ -1,7 +1,7 @@
 {
   "id": "anima-large-pack",
   "name": "Anima Large",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima fine-tunes on the bigger bases: the 40-layer Anima 2.9B (Nova Orange, Nova Anime, Delta Mix v7 Flat, KodoraAN, CC-Dream Island Mature, Pawhibited, One Obsession 2.9B v2) and the 52-layer 3.8B (Delta Mix V8). Finer detail and fuller backgrounds than the regular Anima cards, at about 20-40 s a picture on a 12 GB card and a 7-9 GB download each. These cards came from Anima Anime when it was split on 2026-11-10; the official Anima-2.9B v1 preview stays in Anima Anime. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
@@ -17,7 +17,7 @@
       "tagline": "Bright, clean anime with detailed skin",
       "icon": "🍊",
       "previewImage": "previews/nova-orange-am-v4.jpg",
-      "description": "Bright, clean, polished anime with soft skin shading and lots of light, on the larger Anima 2.9B base. It uses the author's quality prefix and negative. About 20 seconds a picture on a 12 GB card.\n\nThis is the Anima version of Nova Orange XL, and a different model from Nova Reality AM in the Anima Realism pack.\n\nGenerated images are not for commercial use unless edited, per the author.",
+      "description": "Bright, clean, polished anime with soft skin shading and lots of light, on the larger Anima 2.9B base. It uses the author's quality prefix and negative. About 20 seconds a picture on a 12 GB card.\n\nThis is the Anima version of Nova Orange XL, and a different model from Nova Reality AM in the Anima Realism pack.\n\nGenerated images are not for commercial use unless edited, per the author.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -123,7 +123,7 @@
       "tagline": "Soft, cool-toned 2.5D on the bigger 2.9B Anima",
       "icon": "🔷",
       "previewImage": "previews/anima-delta-mix-29b-v7-flat.jpg",
-      "description": "Soft, cool-toned, glossy 2.5D pictures with gentle light, on the bigger 40-layer Anima 2.9B. The author says it leans a little toward kemonomimi. About 24 seconds a picture on a 12 GB card.\n\nIt runs in SimpliGen as is: the author's page asks for a loader patch, but it loaded correctly with clean pictures in our test.\n\nNon-commercial (Anima licence); do not sell the weights.",
+      "description": "Soft, cool-toned, glossy 2.5D pictures with gentle light, on the bigger 40-layer Anima 2.9B. The author says it leans a little toward kemonomimi. About 24 seconds a picture on a 12 GB card.\n\nIt runs in SimpliGen as is: the author's page asks for a loader patch, but it loaded correctly with clean pictures in our test.\n\nNon-commercial (Anima licence); do not sell the weights.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -229,7 +229,7 @@
       "tagline": "Bright, saturated, glossy anime",
       "icon": "🐲",
       "previewImage": "previews/kodoraan-v5.jpg",
-      "description": "Bright, saturated, glossy anime with clean faces, on the bigger 40-layer Anima 2.9B. The author says this merge has no particular concept and its look changes from version to version.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.",
+      "description": "Bright, saturated, glossy anime with clean faces, on the bigger 40-layer Anima 2.9B. The author says this merge has no particular concept and its look changes from version to version.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nLicence (Civitai): RentCivit/Rent, derivatives allowed.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -334,7 +334,7 @@
       "tagline": "Mature characters on the 2.9B Anima",
       "icon": "🏝️",
       "previewImage": "previews/ccdream-island-29b-mature.jpg",
-      "description": "Mature-looking characters on the bigger Anima 2.9B.\n\nFor the grown-up look the author asks you to write 'mature woman, mature female, mature' instead of '1girl'. With ordinary '1girl' prompts it stayed close to Anima base in our test.\n\nFollow Anima prompting: quality tags, a year tag, @artist tags, character count, and series tags next to character names.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nThe author does not allow sharing merges of it. Licence (Civitai): RentCivit only; no derivatives.",
+      "description": "Mature-looking characters on the bigger Anima 2.9B.\n\nFor the grown-up look the author asks you to write 'mature woman, mature female, mature' instead of '1girl'. With ordinary '1girl' prompts it stayed close to Anima base in our test.\n\nFollow Anima prompting: quality tags, a year tag, @artist tags, character count, and series tags next to character names.\n\nThe author gives no settings, so the card uses the Anima base card's. About 26 seconds a picture on a 12 GB card.\n\nThe author does not allow sharing merges of it. Licence (Civitai): RentCivit only; no derivatives.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -440,7 +440,7 @@
       "tagline": "Dramatic light and close framing on the 2.9B Anima",
       "icon": "🐾",
       "previewImage": "previews/pawhibited-anima-29b-v1.jpg",
-      "description": "Dramatic, detailed pictures with closer framing than Anima base, on the bigger 40-layer Anima 2.9B. Golden-hour scenery can tip into a heavy gold cast. About 27 seconds a picture on a 12 GB card.\n\nThe authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.\n\nLicence (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required.",
+      "description": "Dramatic, detailed pictures with closer framing than Anima base, on the bigger 40-layer Anima 2.9B. Golden-hour scenery can tip into a heavy gold cast. About 27 seconds a picture on a 12 GB card.\n\nThe authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.\n\nLicence (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -546,7 +546,7 @@
       "tagline": "Bright, airy anime with fresh colour",
       "icon": "☀️",
       "previewImage": "previews/nova-anime-am-v6.jpg",
-      "description": "Bright, airy anime with clean faces and fresh colour, on the bigger 2.9B version of Anima. Skies and backgrounds stay light, so pictures read clearly at a glance.\n\nCrody's model blends earlier Anima bases with the 2.9B structure. The author says v6 handles prompts better and places things in the picture more accurately.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, year 2025, newest, highres, absurdres, very aesthetic to the start of your prompt, so you don't need to type them. The negative prompt is the author's.\n\nThis card uses the author's Euler Ancestral at 30 steps and CFG 5. Steps work from 20 to 30 and CFG from 4 to 6.\n\nLicence: the author asks that pictures are not used commercially unless you edit them, and says you can share them freely if you don't make money from them.",
+      "description": "Bright, airy anime with clean faces and fresh colour, on the bigger 2.9B version of Anima. Skies and backgrounds stay light, so pictures read clearly at a glance.\n\nCrody's model blends earlier Anima bases with the 2.9B structure. The author says v6 handles prompts better and places things in the picture more accurately.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, year 2025, newest, highres, absurdres, very aesthetic to the start of your prompt, so you don't need to type them. The negative prompt is the author's.\n\nThis card uses the author's Euler Ancestral at 30 steps and CFG 5. Steps work from 20 to 30 and CFG from 4 to 6.\n\nLicence: the author asks that pictures are not used commercially unless you edit them, and says you can share them freely if you don't make money from them.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -652,7 +652,7 @@
       "tagline": "Softer, painted anime with fine fabric and metal",
       "icon": "🖌️",
       "previewImage": "previews/one-obsession-anima-29b-v2.jpg",
-      "description": "Softer, more painted anime on the bigger 2.9B version of Anima, with gentler colour than most Anima cards and fine detail in fabric, armour and buildings.\n\nmaxfeifei8 refined it from Anima-2.9B. This is the newest version. It is a separate model from One Obsession Anima v4.0, which is the easier pick for short prompts.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @promizu.\n\nThis card uses the sampler from the author's sample pictures, 30 steps and CFG 4. Check hands on two-person pictures.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.",
+      "description": "Softer, more painted anime on the bigger 2.9B version of Anima, with gentler colour than most Anima cards and fine detail in fabric, armour and buildings.\n\nmaxfeifei8 refined it from Anima-2.9B. This is the newest version. It is a separate model from One Obsession Anima v4.0, which is the easier pick for short prompts.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @promizu.\n\nThis card uses the sampler from the author's sample pictures, 30 steps and CFG 4. Check hands on two-person pictures.\n\nLicence: Civitai allows image use and merges, with credit to the author. Please credit maxfeifei8 when you share what you make.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -758,7 +758,7 @@
       "tagline": "Moody, painted anime with full, detailed backgrounds",
       "icon": "🌆",
       "previewImage": "previews/anima-delta-mix-38b-v8.jpg",
-      "description": "Moody, painted anime with muted colour, cinematic light and busy, detailed backgrounds. Next to the brighter Anima cards it looks darker and more like a film still.\n\n_Luner_'s Delta Mix on the biggest version of Anima (3.8B, 52 layers). It is a separate model from Anima Delta Mix 2.9B v7.0 Flat. The author says V8 focuses on filling the background and on detail across the whole picture, and warns that this early version breaks hands and fingers more often than earlier ones, so check hands.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, absurdres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 30 steps and CFG 4.5, about 40 seconds a picture on a 12 GB card. The author suggests 30 to 40 steps and CFG 4 to 5.5. It runs as is: the author's loader patch is only needed for LoRAs, and ordinary Anima LoRAs may not fit this bigger model.",
+      "description": "Moody, painted anime with muted colour, cinematic light and busy, detailed backgrounds. Next to the brighter Anima cards it looks darker and more like a film still.\n\n_Luner_'s Delta Mix on the biggest version of Anima (3.8B, 52 layers). It is a separate model from Anima Delta Mix 2.9B v7.0 Flat. The author says V8 focuses on filling the background and on detail across the whole picture, and warns that this early version breaks hands and fingers more often than earlier ones, so check hands.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, absurdres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 30 steps and CFG 4.5, about 40 seconds a picture on a 12 GB card. The author suggests 30 to 40 steps and CFG 4 to 5.5. It runs as is: the author's loader patch is only needed for LoRAs, and ordinary Anima LoRAs may not fit this bigger model.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",

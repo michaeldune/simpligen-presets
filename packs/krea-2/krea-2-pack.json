@@ -1,7 +1,7 @@
 {
   "id": "krea-2-pack",
   "name": "Krea 2 Realism",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Krea AI",
   "nsfw": true,
   "description": "Krea 2 photoreal mixes, most of them uncensored: Moody Mix, RedCraft Red Mix (1.1 and 3.0), Realia, Fascium V3, Sick Ollie (natural, true-to-prompt photos) and Dark Beast (FP8, plus free GGUF Q8 and Q4 builds, since the FP8 file is paid on Civitai). All are 8-12 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass). They share one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its checkpoint. Renamed from Krea 2 in 2.0.0, when the pack was split: the anime cards (VXP Beta 4, DaSiWa DarkDesire) moved to Krea 2 Anime, and BF95 Dark Realism and VXP Beta 3 moved to Krea 2 Art & Styles. Trained finetunes are in Krea 2 Finetunes.",
@@ -19,7 +19,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix",
       "icon": "🌙",
       "previewImage": "previews/moody-krea2-mix-v10.jpg",
-      "description": "Uncensored, moody photoreal pictures with warm, freckled, natural skin. The best skin texture and natural anatomy of the Krea cards.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 25 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 10 seconds. 2048x2048 also works on 12 GB, in about 70 seconds.",
+      "description": "Uncensored, moody photoreal pictures with warm, freckled, natural skin. The best skin texture and natural anatomy of the Krea cards.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 25 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 10 seconds. 2048x2048 also works on 12 GB, in about 70 seconds.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -143,7 +143,7 @@
       "tagline": "Uncensored Krea 2 red-mix, 10-step",
       "icon": "🔥",
       "previewImage": "previews/redcraft-krea2-red-mix.jpg",
-      "description": "Uncensored realism with the strongest micro-detail of the six Krea mixes, warm and freckled. A merge of Krea 2 Raw and Turbo.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 35 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 5 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
+      "description": "Uncensored realism with the strongest micro-detail of the six Krea mixes, warm and freckled. A merge of Krea 2 Raw and Turbo.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 35 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 5 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -260,7 +260,7 @@
       "tagline": "Red Mix 3.0: darker, more dramatic uncensored realism",
       "icon": "🌋",
       "previewImage": "previews/redcraft-krea2-red-mix-v3.jpg",
-      "description": "Uncensored Krea 2 realism with a darker, more dramatic grade than Red Mix 1.1: deeper shadows, stronger contrast and more striking light, such as light shafts and coloured glow. In our test, faces, skin and composition stayed close to 1.1.\n\nAiMeASOP's Red Mix 3.0 (赤佬 3.0), a merge of Krea 2 Raw and Turbo. The author says 3.0 removes mosaics and improves visual effects. RedCraft Krea 2 Red Mix (1.1) stays in the pack if you prefer its lighter look.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's Euler at 10 steps and CFG 1, about 48 seconds a picture at 2 MP on a 12 GB card. The author suggests 8 to 12 steps. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "description": "Uncensored Krea 2 realism with a darker, more dramatic grade than Red Mix 1.1: deeper shadows, stronger contrast and more striking light, such as light shafts and coloured glow. In our test, faces, skin and composition stayed close to 1.1.\n\nAiMeASOP's Red Mix 3.0 (赤佬 3.0), a merge of Krea 2 Raw and Turbo. The author says 3.0 removes mosaics and improves visual effects. RedCraft Krea 2 Red Mix (1.1) stays in the pack if you prefer its lighter look.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's Euler at 10 steps and CFG 1, about 48 seconds a picture at 2 MP on a 12 GB card. The author suggests 8 to 12 steps. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -380,7 +380,7 @@
       "tagline": "Photoreal Krea 2 realism mix, 8-step",
       "icon": "📷",
       "previewImage": "previews/realia-krea2-v10.jpg",
-      "description": "Natural photoreal skin that is soft and slightly cooler than Moody's: the most 'unedited photo' look of the Krea mixes. Raise the steps to 10-12 for extra detail.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 30 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 8 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
+      "description": "Natural photoreal skin that is soft and slightly cooler than Moody's: the most 'unedited photo' look of the Krea mixes. Raise the steps to 10-12 for extra detail.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 30 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 8 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -504,7 +504,7 @@
       "tagline": "Uncensored Krea 2 photoreal mix, 8-step",
       "icon": "💎",
       "previewImage": "previews/fascium-krea2-v3.jpg",
-      "description": "Uncensored photoreal detail with a muted, desaturated palette and matte skin. It reads more editorial than the other Krea mixes.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 6 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
+      "description": "Uncensored photoreal detail with a muted, desaturated palette and matte skin. It reads more editorial than the other Krea mixes.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 6 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -621,7 +621,7 @@
       "tagline": "Aggressive uncensored Krea 2, fast",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-fp8.jpg",
-      "description": "Uncensored, bold and fast: a high-contrast film look with pale skin and wider, more environmental framing. This is the 2x-speed edition, so you can try 6 steps.\n\nFor new installs: the creator has made this FP8 file paid on Civitai, so it will not download here unless you have bought it there (a one-off Buzz unlock, not a subscription). If you have not, use the Dark Beast GGUF cards instead, which are free and give the same picture.\n\nIf you do own it and install the file by hand rather than letting the card fetch it, take the 11.94 GB fp8 build, not the 20.68 GB one: the card is set up for the smaller file.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 7 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.",
+      "description": "Uncensored, bold and fast: a high-contrast film look with pale skin and wider, more environmental framing. This is the 2x-speed edition, so you can try 6 steps.\n\nFor new installs: the creator has made this FP8 file paid on Civitai, so it will not download here unless you have bought it there (a one-off Buzz unlock, not a subscription). If you have not, use the Dark Beast GGUF cards instead, which are free and give the same picture.\n\nIf you do own it and install the file by hand rather than letting the card fetch it, take the 11.94 GB fp8 build, not the 20.68 GB one: the card is set up for the smaller file.\n\nIt renders at about 2 MP. The Upscale slider (1.1-2x) adds a 4-step detail pass that came out clean at 1.5x; 1x is a clean single pass.\n\nAbout 34 seconds for a 1408 px picture on a 12 GB card, and Upscale 1.5 adds about 7 seconds. 2048x2048 also works on 12 GB but takes about 3 times longer.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Turbo",
@@ -738,7 +738,7 @@
       "tagline": "Aggressive uncensored Krea 2, the free Q8 build",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-gguf-q8.jpg",
-      "description": "The free build of Dark Beast, for when you cannot download the FP8 file, which is paid on Civitai. In our side-by-side it gave the same picture as the FP8 original for the same seed: uncensored, bold and high-contrast.\n\nIt is a 14.6 GB download. If disk space or VRAM matters more than an exact match, use the Q4 card.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.",
+      "description": "The free build of Dark Beast, for when you cannot download the FP8 file, which is paid on Civitai. In our side-by-side it gave the same picture as the FP8 original for the same seed: uncensored, bold and high-contrast.\n\nIt is a 14.6 GB download. If disk space or VRAM matters more than an exact match, use the Q4 card.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.\n\nModel format: GGUF Q8_0.",
       "tags": [
         "Krea",
         "Turbo",
@@ -863,7 +863,7 @@
       "tagline": "Dark Beast for 8 GB cards, free download",
       "icon": "🐺",
       "previewImage": "previews/dark-beast-krea2-gguf-q4.jpg",
-      "description": "A free, smaller Dark Beast: an 8.3 GB file for cards that cannot hold the 12-15 GB builds. It fits 8 GB cards. Same uncensored, high-contrast look.\n\nThe heavier compression changes the picture: for the same seed it composes differently from the FP8 and Q8 builds, but the results were clean in our test.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.",
+      "description": "A free, smaller Dark Beast: an 8.3 GB file for cards that cannot hold the 12-15 GB builds. It fits 8 GB cards. Same uncensored, high-contrast look.\n\nThe heavier compression changes the picture: for the same seed it composes differently from the FP8 and Q8 builds, but the results were clean in our test.\n\nAbout 40 seconds for a 1408 px picture on a 12 GB card. It renders at about 2 MP, and the Upscale slider (1.1-2x) adds a 4-step detail pass.\n\nModel format: GGUF Q4_0.",
       "tags": [
         "Krea",
         "Turbo",
@@ -988,7 +988,7 @@
       "tagline": "Natural, true-to-prompt photos without a heavy grade",
       "icon": "🥡",
       "previewImage": "previews/sickollie-krea2-int8.jpg",
-      "description": "Clean, natural photographic realism. Colour and light follow the prompt instead of a strong house grade, skin looks natural, and small details such as fabric patterns and props come out as written. Anime prompts still come out as anime.\n\nsickollie's Sick Ollie, Krea 2 version. The author made it to work well with character LoRAs.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's settings: Euler with the Beta scheduler, 9 steps, CFG 1, about 30 seconds a picture at 2 MP on a 12 GB card. The author renders at 1440x1920. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "description": "Clean, natural photographic realism. Colour and light follow the prompt instead of a strong house grade, skin looks natural, and small details such as fabric patterns and props come out as written. Anime prompts still come out as anime.\n\nsickollie's Sick Ollie, Krea 2 version. The author made it to work well with character LoRAs.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1.\n\nThis card uses the author's settings: Euler with the Beta scheduler, 9 steps, CFG 1, about 30 seconds a picture at 2 MP on a 12 GB card. The author renders at 1440x1920. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Turbo",

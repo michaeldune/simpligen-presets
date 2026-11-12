@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-sparseref15-pack",
   "name": "Community — MiniMax H3 (SparseRef15)",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "Aki7777777",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -22,7 +22,7 @@
       "name": "MiniMax H3 Text to Video (SparseRef15)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-sparseref15-t2v.jpg",
-      "description": "Text to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
+      "description": "Text to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.\n\nModel format: int8 ConvRot on part of the model, the rest unquantized (the author calls it partial int8).",
       "tagline": "Describe a scene - the sharpest faces at 20 steps",
       "tags": [
         "Video",
@@ -334,7 +334,7 @@
       "name": "MiniMax H3 Image to Video (SparseRef15)",
       "icon": "🖼",
       "previewImage": "previews/minimax-h3-sparseref15-i2v.jpg",
-      "description": "Image to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom. Your picture is the first frame, and you can add a last frame.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
+      "description": "Image to video on Aki7777777's SparseRef15 Hybrid, a checkpoint built for stronger character consistency without losing motion freedom. Your picture is the first frame, and you can add a last frame.\n\nAgainst the official checkpoint on the same prompt and seed, faces came out about 63% sharper. Among the 20-step models compared it gave the stillest locked-off shot and the most motion in the tracking shot, at the same render time: about 3 1/3 minutes for a five-second 480p shot on a 12 GB card.\n\nThe author aims for character consistency across long multi-clip sequences. That claim has not been tested here, so the pack has text and image cards only and no reference card.\n\nUse FL2VA LoRAs with it, not Ref2VA LoRAs.\n\nA Civitai API key may be needed for the download.\n\nLicence: a derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.\n\nModel format: int8 ConvRot on part of the model, the rest unquantized (the author calls it partial int8).",
       "tagline": "First frame (and optional last frame) - SparseRef15 faces",
       "tags": [
         "Video",

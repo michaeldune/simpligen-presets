@@ -1,7 +1,7 @@
 {
   "id": "illustrious-realism-pack",
   "name": "Community — Illustrious Realism",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "various",
   "nsfw": false,
   "description": "A collection of Illustrious-based photoreal SDXL checkpoints for lifelike output.",
@@ -18,7 +18,7 @@
       "tagline": "Detailed photoreal Illustrious",
       "icon": "📷",
       "previewImage": "previews/illustrious-realism-v40.jpg",
-      "description": "Photorealistic people on Illustrious, with no fixed look. The author built it to be a broad realism base rather than an amateur or cinematic style, and v4 moves further toward pure realism.\n\nIt was made by training fixes for known weak spots instead of merging other checkpoints. Eyes at different distances were one of the targets.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nThis card uses Euler Ancestral, which the author says gives a softer, more natural look.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Photorealistic people on Illustrious, with no fixed look. The author built it to be a broad realism base rather than an amateur or cinematic style, and v4 moves further toward pure realism.\n\nIt was made by training fixes for known weak spots instead of merging other checkpoints. Eyes at different distances were one of the targets.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nThis card uses Euler Ancestral, which the author says gives a softer, more natural look.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -121,7 +121,7 @@
       "tagline": "Photoreal Illustrious portraits",
       "icon": "📷",
       "previewImage": "previews/catpony-real-v60.jpg",
-      "description": "Photorealistic Illustrious portraits from ggyydream's merge.\n\nThe author says it leans toward Asian faces and that words for ethnicity don't steer it well. The author also says merging left faces looking mixed.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nThe author lists no settings for v6. Older versions ask for 36 to 50 steps against this card's 30, so raise Steps if detail falls short.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Photorealistic Illustrious portraits from ggyydream's merge.\n\nThe author says it leans toward Asian faces and that words for ethnicity don't steer it well. The author also says merging left faces looking mixed.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nThe author lists no settings for v6. Older versions ask for 36 to 50 steps against this card's 30, so raise Steps if detail falls short.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -224,7 +224,7 @@
       "tagline": "IllustriousXL v2-based realism",
       "icon": "📷",
       "previewImage": "previews/unnamedixl-realistic-v5.jpg",
-      "description": "Photorealistic Illustrious pictures with more fine detail than earlier versions, at the cost of following your prompt slightly less closely.\n\nV5 grew out of a merge of Illustrious Realism and CatPony-Real, used to make training pictures for a detail booster. So it is related to both of those cards.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Photorealistic Illustrious pictures with more fine detail than earlier versions, at the cost of following your prompt slightly less closely.\n\nV5 grew out of a merge of Illustrious Realism and CatPony-Real, used to make training pictures for a detail booster. So it is related to both of those cards.\n\nDescribe the picture or use Danbooru tags. The card adds masterpiece, best quality, amazing quality, ultra detailed, realistic to the start of your prompt, so you don't need to type them.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -326,7 +326,7 @@
       "name": "IllustriousSAT Real V3",
       "icon": "🎞️",
       "previewImage": "previews/illustrioussat-real-v3.jpg",
-      "description": "Fast photorealistic Illustrious pictures with strong character knowledge, dynamic composition and cinematic scene handling.",
+      "description": "Fast photorealistic Illustrious pictures with strong character knowledge, dynamic composition and cinematic scene handling.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -421,7 +421,7 @@
       "tagline": "Semi-realistic Illustrious (anime and photoreal)",
       "icon": "📷",
       "previewImage": "previews/semi-real-illustrious-v30.jpg",
-      "description": "Semi-realistic pictures that blend anime and photoreal looks. Prompt with Danbooru tags plus description.",
+      "description": "Semi-realistic pictures that blend anime and photoreal looks. Prompt with Danbooru tags plus description.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "SemiRealistic",
@@ -523,7 +523,7 @@
       "tagline": "Natural portrait realism with flexible LoRA blending",
       "icon": "📷",
       "previewImage": "previews/babes-illustrious-v55-fp16.jpg",
-      "description": "Natural portrait realism: realistic skin, diverse faces, stronger anatomy and controlled portrait lighting.",
+      "description": "Natural portrait realism: realistic skin, diverse faces, stronger anatomy and controlled portrait lighting.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",

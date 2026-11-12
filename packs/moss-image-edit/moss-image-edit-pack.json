@@ -1,7 +1,7 @@
 {
   "id": "moss-image-edit-pack",
   "name": "MOSS-Image Edit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -27,7 +27,7 @@
       "tagline": "Change one thing; the lettering survives",
       "icon": "✏️",
       "previewImage": "previews/moss-image-edit.jpg",
-      "description": "Give it a picture and a sentence. Name the change and name what to keep: \"Change only the dark green paintwork to deep navy blue. Keep both signs, their lettering, the bread in the window and the brickwork exactly as they are.\"\n\nColour, outfit, lighting, season and visual-style changes all work, and text in the picture comes through letter-exact even under a full restyle.\n\nPick the aspect ratio that matches your picture. On a mismatched ratio it is centre-cropped first and the edit gets looser, lettering included.\n\nLimits: small objects are redrawn rather than recoloured, so a bicycle changes colour but can come back with a different frame or gain a basket. A \"change only X\" instruction can spill onto a neighbouring surface, and fine texture softens a little.",
+      "description": "Give it a picture and a sentence. Name the change and name what to keep: \"Change only the dark green paintwork to deep navy blue. Keep both signs, their lettering, the bread in the window and the brickwork exactly as they are.\"\n\nColour, outfit, lighting, season and visual-style changes all work, and text in the picture comes through letter-exact even under a full restyle.\n\nPick the aspect ratio that matches your picture. On a mismatched ratio it is centre-cropped first and the edit gets looser, lettering included.\n\nLimits: small objects are redrawn rather than recoloured, so a bicycle changes colour but can come back with a different frame or gain a basket. A \"change only X\" instruction can spill onto a neighbouring surface, and fine texture softens a little.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Edit",
         "MOSS-Image",

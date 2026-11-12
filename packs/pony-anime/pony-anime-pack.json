@@ -1,7 +1,7 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
@@ -18,7 +18,7 @@
       "tagline": "Classic Pony character base",
       "icon": "🎠",
       "previewImage": "previews/pony-diffusion-v6-xl.jpg",
-      "description": "Versatile character and illustration generation with Pony V6 quality tags.",
+      "description": "Versatile character and illustration generation with Pony V6 quality tags.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -122,7 +122,7 @@
       "tagline": "Anime Pony characters",
       "icon": "🌌",
       "previewImage": "previews/aniverse-pony-xl-v60.jpg",
-      "description": "Anime character and illustration generation. The card adds the 4n1v3rs3 trigger and the score tags for you, so you don't need to type them.",
+      "description": "Anime character and illustration generation. The card adds the 4n1v3rs3 trigger and the score tags for you, so you don't need to type them.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -224,7 +224,7 @@
       "tagline": "Polished Pony characters",
       "icon": "🦄",
       "previewImage": "previews/prefect-pony-xl-v6.jpg",
-      "description": "Polished character generation with broad LoRA compatibility.\n\nThe download comes from Civitai, which asks for a sign-in (an API key).",
+      "description": "Polished character generation with broad LoRA compatibility.\n\nThe download comes from Civitai, which asks for a sign-in (an API key).\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -327,7 +327,7 @@
       "tagline": "Predictable Pony anime",
       "icon": "🎊",
       "previewImage": "previews/autismmix-sdxl-confetti.jpg",
-      "description": "A more predictable Pony for anime characters. It swings less in style than Pony Diffusion V6 and has better hands, while keeping Pony's knowledge of characters and artists.\n\nThe card adds score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, source_anime, BREAK before your prompt, so don't type them. Just write your tags.\n\nThe card has no negative prompt, and the author says long negatives and negative embeddings make results worse.\n\nThe author says some LoRAs and styles made for base Pony fit a separate version, AutismMix_pony, better than this one.\n\nLicence: CreativeML Open RAIL++-M.",
+      "description": "A more predictable Pony for anime characters. It swings less in style than Pony Diffusion V6 and has better hands, while keeping Pony's knowledge of characters and artists.\n\nThe card adds score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, source_anime, BREAK before your prompt, so don't type them. Just write your tags.\n\nThe card has no negative prompt, and the author says long negatives and negative embeddings make results worse.\n\nThe author says some LoRAs and styles made for base Pony fit a separate version, AutismMix_pony, better than this one.\n\nLicence: CreativeML Open RAIL++-M.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -431,7 +431,7 @@
       "tagline": "Bright, clean Pony anime, wide and airy",
       "icon": "👘",
       "previewImage": "previews/osorubeshi-ultra-anime-v1.jpg",
-      "description": "Bright, clean, sunlit anime with wide compositions and clear eyes, from OsorubeshiAI's Pony checkpoint.\n\nIt follows prompts loosely: hair colours and uniform details can drift. With no hair colour in the prompt it drew the same silver-haired face on all three test seeds, so name the hair and check the result.\n\nUse Pony score tags. About 13 seconds a picture on a 12 GB card. The author publishes no settings.\n\nPlease credit OsorubeshiAI when you share what you make.",
+      "description": "Bright, clean, sunlit anime with wide compositions and clear eyes, from OsorubeshiAI's Pony checkpoint.\n\nIt follows prompts loosely: hair colours and uniform details can drift. With no hair colour in the prompt it drew the same silver-haired face on all three test seeds, so name the hair and check the result.\n\nUse Pony score tags. About 13 seconds a picture on a 12 GB card. The author publishes no settings.\n\nPlease credit OsorubeshiAI when you share what you make.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "Anime",

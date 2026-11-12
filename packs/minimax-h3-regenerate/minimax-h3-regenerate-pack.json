@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-regenerate-pack",
   "name": "Community — MiniMax H3 (Regenerate 1080p)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "NVIDIA (Open-H3-Regenerate-2K) + Kijai + LBH-123-AI",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
@@ -19,7 +19,7 @@
       "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
-      "description": "Regenerates a finished H3 clip at 1080p with new fine detail in three steps, using NVIDIA's Open-H3-Regenerate-2K refiner. The source soundtrack is kept untouched.\n\nPut a 480p or 768p H3 clip in Reference Video 1, paste the same brief that made it, and pick the aspect that matches your clip. Only the first 5 s is used, and the duration slider is ignored.\n\nDetail comes up a lot, most from 480p clips: hair strands, knit, skin and readable lettering appear. The source's first frame anchors the identity, so the person stays the same, but they can pick up small changes such as added stubble or a lowered gaze opened up. Use the Video Refine pack when the clip must stay exactly as it is.\n\nA 5-second clip to 1920x1088 takes about 7 minutes on a 12 GB card. It needs most of 32 GB of system RAM: close other apps, or it can take several times longer. Below about 2 GB free the decode can fail.\n\nThe refiner is NVIDIA's, under the MiniMax H3 Community License.",
+      "description": "Regenerates a finished H3 clip at 1080p with new fine detail in three steps, using NVIDIA's Open-H3-Regenerate-2K refiner. The source soundtrack is kept untouched.\n\nPut a 480p or 768p H3 clip in Reference Video 1, paste the same brief that made it, and pick the aspect that matches your clip. Only the first 5 s is used, and the duration slider is ignored.\n\nDetail comes up a lot, most from 480p clips: hair strands, knit, skin and readable lettering appear. The source's first frame anchors the identity, so the person stays the same, but they can pick up small changes such as added stubble or a lowered gaze opened up. Use the Video Refine pack when the clip must stay exactly as it is.\n\nA 5-second clip to 1920x1088 takes about 7 minutes on a 12 GB card. It needs most of 32 GB of system RAM: close other apps, or it can take several times longer. Below about 2 GB free the decode can fail.\n\nThe refiner is NVIDIA's, under the MiniMax H3 Community License.\n\nModel format: int8 ConvRot.",
       "video": {
         "promptFamily": "minimax-h3-video",
         "supports": ["local"],
@@ -67,7 +67,7 @@
       "template": "wan-video",
       "supportsDialogue": true,
       "dialogueFormat": {"placement": "inline-end", "template": " The character says{delivery}: \"{dialogue}\""},
-      "description": "The same regenerate pass as the Regenerate 1080p card, with one step added at the end: the result's brightness and colour are matched back to your source clip.\n\nPick this card when the source is dark. The regenerate pass loses a roughly fixed amount of brightness at every stage of the chain, about 3 to 4 levels out of 255. On a bright clip that is invisible. On a night shot it is not, because the same loss is a far larger share of the picture and it pushes the shadows down to solid black.\n\nMeasured on a night clip: the plain card came back 11.7% darker, with pure-black pixels up from 6% to 15%. This card brings that to 3.2% and 8%, and its fine detail lands closer to the source as well. On an already-bright clip the gain is small and the blacks can open slightly, so prefer the plain card there.\n\nEverything else is the same: the first 5 s only, 1920x1088, the source soundtrack kept untouched, and the source's first frame as the identity anchor.",
+      "description": "The same regenerate pass as the Regenerate 1080p card, with one step added at the end: the result's brightness and colour are matched back to your source clip.\n\nPick this card when the source is dark. The regenerate pass loses a roughly fixed amount of brightness at every stage of the chain, about 3 to 4 levels out of 255. On a bright clip that is invisible. On a night shot it is not, because the same loss is a far larger share of the picture and it pushes the shadows down to solid black.\n\nMeasured on a night clip: the plain card came back 11.7% darker, with pure-black pixels up from 6% to 15%. This card brings that to 3.2% and 8%, and its fine detail lands closer to the source as well. On an already-bright clip the gain is small and the blacks can open slightly, so prefer the plain card there.\n\nEverything else is the same: the first 5 s only, 1920x1088, the source soundtrack kept untouched, and the source's first frame as the identity anchor.\n\nModel format: int8 ConvRot.",
       "video": {
         "promptFamily": "minimax-h3-video",
         "supports": ["local"],

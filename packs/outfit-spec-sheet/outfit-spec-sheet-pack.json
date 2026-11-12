@@ -1,7 +1,7 @@
 {
   "id": "outfit-spec-sheet-pack",
   "name": "Community — Outfit Spec Sheet",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "minComfyuiVersion": "v0.37.0",
   "addedAt": "2026-09-15",
   "author": "michaeldune",
@@ -31,7 +31,7 @@
       "icon": "🧵",
       "enabled": true,
       "tagline": "Photo of an outfit to a fashion design board",
-      "description": "Drop in a photo of someone wearing an outfit and get a luxury lookbook-style specification board: the clothing and accessories lifted off the person onto a plain white mannequin, on a warm ivory ground with a soft shadow, plus a row of three close-ups of details that exist in the photo.\n\nThe full brief is built in, so the prompt can stay empty. Anything you type is added as extra notes (\"keep the sunglasses\", \"show the back of the jacket\").\n\nNo text is rendered, on purpose: local models garble captions, and a caption-free board is what you want to hand to an illustrator or feed back into another generator. Close-ups can still invent a button or snap when the garment has no hardware.\n\nBest at 3:4 or 2:3. About 40 to 60 seconds a board on a 12 GB card.\n\nApache-2.0 weights. For a heading and colour swatches, use the Qwen 2.1 card in this pack, which is non-commercial only.",
+      "description": "Drop in a photo of someone wearing an outfit and get a luxury lookbook-style specification board: the clothing and accessories lifted off the person onto a plain white mannequin, on a warm ivory ground with a soft shadow, plus a row of three close-ups of details that exist in the photo.\n\nThe full brief is built in, so the prompt can stay empty. Anything you type is added as extra notes (\"keep the sunglasses\", \"show the back of the jacket\").\n\nNo text is rendered, on purpose: local models garble captions, and a caption-free board is what you want to hand to an illustrator or feed back into another generator. Close-ups can still invent a button or snap when the garment has no hardware.\n\nBest at 3:4 or 2:3. About 40 to 60 seconds a board on a 12 GB card.\n\nApache-2.0 weights. For a heading and colour swatches, use the Qwen 2.1 card in this pack, which is non-commercial only.\n\nModel format: fp8.",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [
@@ -155,7 +155,7 @@
       "icon": "🧵",
       "enabled": true,
       "tagline": "Outfit photo to a design board with heading and colour swatches",
-      "description": "Turns an outfit photo into a specification board in two passes inside one job. First the outfit is lifted off the person as a ghost-mannequin shot (clothes, hat, bag, scarf, shoes). Then a board is built around it: the heading OUTFIT SPECIFICATION, three close-up detail crops and four colour swatches taken from the real colours of the outfit.\n\nCompared with the original card it keeps more of the outfit, removes the person reliably, and adds the heading and the swatches.\n\nIt is not reliable on every try: in testing the whole outfit survived on 6 of 9 boards. A coat, or the shirt and tie under a jacket, can go missing, and once a hat appeared that was not in the photo. When that happens, generate again with a new seed. Detail crops can still invent a button or a zip.\n\nAbout a minute per board on a 12 GB card.\n\nMade for the 3:4 shape. The brief is built in; the prompt box is for optional extra notes about the board.\n\nLicence: Qwen-Image 2.1 is under the Qwen Research Licence, non-commercial use only. For commercial work use the original Outfit Spec Sheet card in this pack (Apache-2.0 weights). Uses the same three files as the Qwen Image 2.1 pack, so nothing new downloads if that is installed.",
+      "description": "Turns an outfit photo into a specification board in two passes inside one job. First the outfit is lifted off the person as a ghost-mannequin shot (clothes, hat, bag, scarf, shoes). Then a board is built around it: the heading OUTFIT SPECIFICATION, three close-up detail crops and four colour swatches taken from the real colours of the outfit.\n\nCompared with the original card it keeps more of the outfit, removes the person reliably, and adds the heading and the swatches.\n\nIt is not reliable on every try: in testing the whole outfit survived on 6 of 9 boards. A coat, or the shirt and tie under a jacket, can go missing, and once a hat appeared that was not in the photo. When that happens, generate again with a new seed. Detail crops can still invent a button or a zip.\n\nAbout a minute per board on a 12 GB card.\n\nMade for the 3:4 shape. The brief is built in; the prompt box is for optional extra notes about the board.\n\nLicence: Qwen-Image 2.1 is under the Qwen Research Licence, non-commercial use only. For commercial work use the original Outfit Spec Sheet card in this pack (Apache-2.0 weights). Uses the same three files as the Qwen Image 2.1 pack, so nothing new downloads if that is installed.\n\nModel format: int8 ConvRot.",
       "template": "qwen-edit",
       "promptStyle": "natural",
       "tags": [

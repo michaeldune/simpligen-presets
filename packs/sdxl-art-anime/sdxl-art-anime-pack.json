@@ -1,7 +1,7 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "various",
   "nsfw": false,
   "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
@@ -18,7 +18,7 @@
       "tagline": "Artistic SDXL (YamerMIX)",
       "icon": "🎨",
       "previewImage": "previews/yamermix-v11-rundiffusion.jpg",
-      "description": "Versatile artistic and illustration SDXL model. Prompt in natural language.",
+      "description": "Versatile artistic and illustration SDXL model. Prompt in natural language.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Local"
@@ -117,7 +117,7 @@
       "tagline": "Niji-style anime SDXL",
       "icon": "🎨",
       "previewImage": "previews/sdxl-niji-seven.jpg",
-      "description": "Niji-style anime SDXL with vivid color and clean linework. Works with both tags and natural language.",
+      "description": "Niji-style anime SDXL with vivid color and clean linework. Works with both tags and natural language.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Anime",
@@ -216,7 +216,7 @@
       "name": "Cheyenne 1.6",
       "icon": "🖼️",
       "previewImage": "previews/cheyenne-v16.jpg",
-      "description": "Graphic-novel and comics illustration. The CFG setting controls the look, from rough sketches to bold outlined color.",
+      "description": "Graphic-novel and comics illustration. The CFG setting controls the look, from rough sketches to bold outlined color.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Graphic Novel",
@@ -287,7 +287,7 @@
       "name": "HelloWorld XL 7.0",
       "icon": "🌍",
       "previewImage": "previews/helloworld-xl-70.jpg",
-      "description": "A general SDXL model for a wide range of subjects, not tied to one style. The author says 7.0 has the best bodies in the series, with better limbs and hands than earlier versions, plus more detail and contrast.\n\nWrite the prompt the way its training pictures were labelled: one summary sentence, then tags for the elements in the picture, then inspired by and a style or artist, then masterpiece. The card adds no quality tags.\n\nIts 2:3 and 3:4 sizes are the shapes most of the training pictures used, so start there.\n\nLicence: CreativeML Open RAIL++-M, plus the author's own terms. Images are free for non-commercial educational or informative use if credited as \"created by LEOSAM's HelloWorld base model\". Any commercial use needs a commercial licence from the author.",
+      "description": "A general SDXL model for a wide range of subjects, not tied to one style. The author says 7.0 has the best bodies in the series, with better limbs and hands than earlier versions, plus more detail and contrast.\n\nWrite the prompt the way its training pictures were labelled: one summary sentence, then tags for the elements in the picture, then inspired by and a style or artist, then masterpiece. The card adds no quality tags.\n\nIts 2:3 and 3:4 sizes are the shapes most of the training pictures used, so start there.\n\nLicence: CreativeML Open RAIL++-M, plus the author's own terms. Images are free for non-commercial educational or informative use if credited as \"created by LEOSAM's HelloWorld base model\". Any commercial use needs a commercial licence from the author.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Versatile",
@@ -387,7 +387,7 @@
       "tagline": "Painterly artistic style, warm color palette",
       "icon": "🎨",
       "previewImage": "previews/legacy-atelier-v10.jpg",
-      "description": "Artistic SDXL merge with painterly brushwork and rich, warm color grading. Sister checkpoint to Art Studio Complete.",
+      "description": "Artistic SDXL merge with painterly brushwork and rich, warm color grading. Sister checkpoint to Art Studio Complete.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Artistic",
@@ -488,7 +488,7 @@
       "tagline": "Warm, glowing SDXL anime with close framing",
       "icon": "💌",
       "previewImage": "previews/gockso-anime-love-song.jpg",
-      "description": "Warm, glowing, bloom-heavy anime with close framing, from GockSo's SDXL merge of AnythingXL and a Blue Archive model, fine-tuned for colour. It uses the author's short quality tags and negative.\n\nOn long prompts it followed less closely than the Anima cards, so check hair colours and costume details.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nLicence: credit is required, so please credit GockSo when you share what you make. Selling images is not listed as allowed.",
+      "description": "Warm, glowing, bloom-heavy anime with close framing, from GockSo's SDXL merge of AnythingXL and a Blue Archive model, fine-tuned for colour. It uses the author's short quality tags and negative.\n\nOn long prompts it followed less closely than the Anima cards, so check hair colours and costume details.\n\nAbout 13 seconds a picture on a 12 GB card.\n\nLicence: credit is required, so please credit GockSo when you share what you make. Selling images is not listed as allowed.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Anime",
@@ -591,7 +591,7 @@
       "tagline": "Knows anime characters by name",
       "icon": "🏷️",
       "previewImage": "previews/animagine-xl-40.jpg",
-      "description": "Anime characters by name. CagliostroLab trained it on 8.4 million images up to January 2025, so it often knows a character's look from the name alone, with no LoRA.\n\nTag order matters. Write 1girl, 1boy or 1other, then the character's name, then the series, then a rating, then everything else in any order. Ratings are safe, sensitive, nsfw and explicit. Year tags from 2005 to 2025 steer the art style.\n\nThe card adds masterpiece, high score, great score, absurdres to the end of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 28 steps and CFG 5. CFG works from 4 to 7. It is built for characters, and scenery with no people was its weakest result.\n\nLicence: CreativeML Open RAIL++-M.",
+      "description": "Anime characters by name. CagliostroLab trained it on 8.4 million images up to January 2025, so it often knows a character's look from the name alone, with no LoRA.\n\nTag order matters. Write 1girl, 1boy or 1other, then the character's name, then the series, then a rating, then everything else in any order. Ratings are safe, sensitive, nsfw and explicit. Year tags from 2005 to 2025 steer the art style.\n\nThe card adds masterpiece, high score, great score, absurdres to the end of your prompt, so you don't need to type them.\n\nThis card uses the author's Euler Ancestral at 28 steps and CFG 5. CFG works from 4 to 7. It is built for characters, and scenery with no people was its weakest result.\n\nLicence: CreativeML Open RAIL++-M.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "Anime",

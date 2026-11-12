@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-refine-pack",
   "name": "Community — LTX 2.5 (Video Refine, MSR)",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "LiconStudio + Lightricks",
   "nsfw": false,
   "description": "Re-render any finished clip (MiniMax H3 or otherwise) at up to 1080p with LTX 2.5, holding the faces with Licon's Multi-Subject-Reference IC-LoRA. Drop the clip in Reference Video 1, one to four face pictures in the face slots, and optionally a background plate in the fifth slot, the same layout as the official Multi-Reference preset. The clip is scaled to half the tier, encoded, upsampled 2x by the LTX latent spatial upscaler and refined by the distilled LTX 2.5 with the reference faces prepended, then decoded. The source soundtrack is muxed back untouched. LTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack; pick this one for sharpness or when a face needs a reference to hold. The prompt must be LTX style, not the H3 brief: one paragraph, '<who> <does what> in <where>, <camera>, <light>'. Requires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo); the weights are the same files the LTX 2.5 packs already use.",
@@ -16,7 +16,7 @@
       "tags": ["Video", "V2V", "Upscale", "Refine", "MSR", "1080p"],
       "enabled": true,
       "template": "wan-video",
-      "description": "Re-renders a finished clip, from MiniMax H3 or anywhere else, at up to 1080p, with reference pictures holding the faces. The clip's soundtrack goes back on untouched.\n\nPut the clip in Reference Video 1 and at least one face picture in Face 1 (up to four faces). You can add a background plate in the Background slot.\n\nWrite the prompt LTX style, not as an H3 brief: one paragraph of who, action, place, camera, light. For example: '<who> <does what> in <where>, <camera>, <light>'.\n\nLTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack. Pick this one for sharpness, or when a face needs a reference to hold. Duration follows the source clip, up to 15 seconds.\n\nA 5-second clip from 864x480 to 1920x1088 takes about 2 1/2 minutes on a 12 GB card.\n\nRequires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo).",
+      "description": "Re-renders a finished clip, from MiniMax H3 or anywhere else, at up to 1080p, with reference pictures holding the faces. The clip's soundtrack goes back on untouched.\n\nPut the clip in Reference Video 1 and at least one face picture in Face 1 (up to four faces). You can add a background plate in the Background slot.\n\nWrite the prompt LTX style, not as an H3 brief: one paragraph of who, action, place, camera, light. For example: '<who> <does what> in <where>, <camera>, <light>'.\n\nLTX re-renders texture, so expect a crisper, more LTX-looking result than the H3 Video Refine pack. Pick this one for sharpness, or when a face needs a reference to hold. Duration follows the source clip, up to 15 seconds.\n\nA 5-second clip from 864x480 to 1920x1088 takes about 2 1/2 minutes on a 12 GB card.\n\nRequires a HuggingFace API key and one-time acceptance of the LTX 2.5 licence (gated repo).\n\nModel format: int8 ConvRot.",
       "video": {
         "promptFamily": "ltx-2",
         "supports": ["local"],

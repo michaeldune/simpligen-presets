@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-mixes-pack",
   "name": "Anima Anime Mixes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Clean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast) and Male GG Mix (male characters). These cards came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
@@ -17,7 +17,7 @@
       "tagline": "Anima checkpoint fine-tuned for male anime characters",
       "icon": "⚔️",
       "previewImage": "previews/male-ggmix-illustrious-anima-v11.jpg",
-      "description": "An Anima checkpoint made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.",
+      "description": "An Anima checkpoint made for male anime characters. Strong male anatomy and expressive faces, and it suits action, fantasy and portrait scenes.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -122,7 +122,7 @@
       "tagline": "phinjo's Ri-mix style on the Anima model",
       "icon": "🌀",
       "previewImage": "previews/ri-mix-illustrious-anima.jpg",
-      "description": "The Anima version of phinjo's Ri-mix style, for clean, vibrant anime. Prompt with Danbooru tags.\n\nThe Ri-mix page on Civitai also has Illustrious versions. Those are separate checkpoints and don't run on this card.",
+      "description": "The Anima version of phinjo's Ri-mix style, for clean, vibrant anime. Prompt with Danbooru tags.\n\nThe Ri-mix page on Civitai also has Illustrious versions. Those are separate checkpoints and don't run on this card.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -227,7 +227,7 @@
       "tagline": "Ri-Mix α with a hi-res pass, up to 1536x2304",
       "icon": "🌀",
       "previewImage": "previews/ri-mix-anima-hires.jpg",
-      "description": "Ri-Mix α on the settings its creator lists: a hi-res pass and CFG 3. This is the card for the fine detail and wider framing you see in Ri-mix images on Civitai.\n\nEach image is rendered, then refined at 1.5 times the listed size, so 2:3 comes out at 1536x2304. Nothing is added to your prompt, so quality tags are up to you.\n\nIt uses the same three model files as Ri-Mix α.",
+      "description": "Ri-Mix α on the settings its creator lists: a hi-res pass and CFG 3. This is the card for the fine detail and wider framing you see in Ri-mix images on Civitai.\n\nEach image is rendered, then refined at 1.5 times the listed size, so 2:3 comes out at 1536x2304. Nothing is added to your prompt, so quality tags are up to you.\n\nIt uses the same three model files as Ri-Mix α.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -332,7 +332,7 @@
       "tagline": "Glossy, high-contrast anime with dramatic light",
       "icon": "💎",
       "previewImage": "previews/anima-element7-nexus-prism-iv.jpg",
-      "description": "Glossy, high-contrast anime with strong backlight and sparks. This is the most anime branch of the Element 7 suite, and this version fixes lighting and shadows. It leans toward its own poses rather than the base model's.\n\nTags, sentences or both work. About 17 seconds a picture on a 12 GB card.\n\nIt can drift into mature content on its own. The author suggests adding nsfw to the negative prompt if you don't want it.\n\nThe author asks that it not be used for commissions.",
+      "description": "Glossy, high-contrast anime with strong backlight and sparks. This is the most anime branch of the Element 7 suite, and this version fixes lighting and shadows. It leans toward its own poses rather than the base model's.\n\nTags, sentences or both work. About 17 seconds a picture on a 12 GB card.\n\nIt can drift into mature content on its own. The author suggests adding nsfw to the negative prompt if you don't want it.\n\nThe author asks that it not be used for commissions.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -438,7 +438,7 @@
       "tagline": "Beginner-friendly: good pictures from plain prompts",
       "icon": "💗",
       "previewImage": "previews/one-obsession-anima-v4.jpg",
-      "description": "Beginner-friendly anime: a short prompt with no artist tags or LoRAs still gives a finished picture, because the card adds the author's recommended quality tags for you. Expect bright, polished anime with clean faces and full backgrounds.\n\nArtist tags work if you want a style: start them with @, for example @piromizu.\n\nAbout 20 seconds a picture on a 12 GB card.",
+      "description": "Beginner-friendly anime: a short prompt with no artist tags or LoRAs still gives a finished picture, because the card adds the author's recommended quality tags for you. Expect bright, polished anime with clean faces and full backgrounds.\n\nArtist tags work if you want a style: start them with @, for example @piromizu.\n\nAbout 20 seconds a picture on a 12 GB card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -544,7 +544,7 @@
       "tagline": "Crisp, polished Anima anime; follows long prompts closely",
       "icon": "🌒",
       "previewImage": "previews/unholy-desire-dark-serenity-v3.jpg",
-      "description": "Crisp, polished anime with clean faces and careful detail on armour, hair and clothing. In our side-by-side test it kept every attribute of a busy two-character prompt in place. The card uses the author's quality tags and negative. About 15 seconds a picture on a 12 GB card.\n\nIf you want more speed, the CFG slider goes down to 1, and with 16 steps that renders in about 5 seconds. That is the author's own minimum, but in our test it dropped details (a sword became a spear, capes went missing) and mixed up who wears what.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). Licence (Civitai): image use, on-site generation and selling images allowed; derivatives allowed.",
+      "description": "Crisp, polished anime with clean faces and careful detail on armour, hair and clothing. In our side-by-side test it kept every attribute of a busy two-character prompt in place. The card uses the author's quality tags and negative. About 15 seconds a picture on a 12 GB card.\n\nIf you want more speed, the CFG slider goes down to 1, and with 16 steps that renders in about 5 seconds. That is the author's own minimum, but in our test it dropped details (a sword became a spear, capes went missing) and mixed up who wears what.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). Licence (Civitai): image use, on-site generation and selling images allowed; derivatives allowed.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -650,7 +650,7 @@
       "tagline": "Clean, soft, bright anime with the cocoaface look",
       "icon": "🍫",
       "previewImage": "previews/cocoamix-anima-v4.jpg",
-      "description": "Clean, soft, bright anime. About 22 seconds a picture on a 12 GB card; the author gives no settings, so the card uses the Anima base card's.\n\nA few things to check. It added a small made-up print to a plain hoodie on all four test seeds, so look at clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too: add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative.\n\nThis is a different model from Krea2 CocoaMix.\n\nPictures made with it are non-commercial; ask the author about commercial use. Civitai also lists it as RentCivit only, no derivatives, with a fee for reprinting the model.",
+      "description": "Clean, soft, bright anime. About 22 seconds a picture on a 12 GB card; the author gives no settings, so the card uses the Anima base card's.\n\nA few things to check. It added a small made-up print to a plain hoodie on all four test seeds, so look at clothing. By default it draws eyes without pupils: add 'dark circle pupils' to get them. Animal girls lose their human ears by default too: add 'human ears' if you want them. For realistic pictures, the author says to remove 'real' from the negative.\n\nThis is a different model from Krea2 CocoaMix.\n\nPictures made with it are non-commercial; ask the author about commercial use. Civitai also lists it as RentCivit only, no derivatives, with a fee for reprinting the model.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -756,7 +756,7 @@
       "tagline": "Bright, punchy anime; 4-second drafts at 10 steps",
       "icon": "🍭",
       "previewImage": "previews/one-obsession-anima-v5.jpg",
-      "description": "Bright, punchy anime with saturated colour, strong contrast and lively poses. It is the most vivid of the Anima cards.\n\nmaxfeifei8 built v5.0 on Anima Turbo. It is a separate model from One Obsession Anima v4.0 and 2.9B v2, which stay in the pack. Like v4, it is made to give a finished picture from a short prompt with no artist tags or LoRAs.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @piromizu.\n\nThis card uses the author's settings: 25 steps at CFG 4, about 24 seconds a picture on a 12 GB card. For quick drafts, set Steps to 10 and CFG to 1: about 11 seconds a picture, a little softer and flatter, but clean in our test. Keep CFG at 1 whenever Steps is below 20.",
+      "description": "Bright, punchy anime with saturated colour, strong contrast and lively poses. It is the most vivid of the Anima cards.\n\nmaxfeifei8 built v5.0 on Anima Turbo. It is a separate model from One Obsession Anima v4.0 and 2.9B v2, which stay in the pack. Like v4, it is made to give a finished picture from a short prompt with no artist tags or LoRAs.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_9, score_8, score_7, absurdres, newest, very aesthetic, amazing quality, highres to the start of your prompt, so you don't need to type them. Artist tags work with an @ in front, such as @piromizu.\n\nThis card uses the author's settings: 25 steps at CFG 4, about 24 seconds a picture on a 12 GB card. For quick drafts, set Steps to 10 and CFG to 1: about 11 seconds a picture, a little softer and flatter, but clean in our test. Keep CFG at 1 whenever Steps is below 20.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anima",
         "Anime",

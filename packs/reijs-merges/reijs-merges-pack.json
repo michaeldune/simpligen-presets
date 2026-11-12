@@ -1,7 +1,7 @@
 {
   "id": "reijs-merges-pack",
   "name": "Community — Reij's Merges",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "reijlita",
   "nsfw": false,
   "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
@@ -19,7 +19,7 @@
       "tagline": "Comic-anime hybrid with soft 3D depth",
       "icon": "🎨",
       "previewImage": "previews/illustrij-v21.jpg",
-      "description": "A comic and anime hybrid with digital-art rendering and a touch of 3D, heading toward semi-realism. It has a recognisable look of its own that the author calls an ID model. It makes general and mature pictures, and the author moved it toward a more adult look from v19.\n\nUse Danbooru tags. The card adds no quality tags, so start with the author's: masterpiece, best quality.\n\nThe author's settings include a 1.5x hi-res pass, which this card does not run.\n\nFor softer anime pick AniMiJ. For something closer to realism pick ILustREAL.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "A comic and anime hybrid with digital-art rendering and a touch of 3D, heading toward semi-realism. It has a recognisable look of its own that the author calls an ID model. It makes general and mature pictures, and the author moved it toward a more adult look from v19.\n\nUse Danbooru tags. The card adds no quality tags, so start with the author's: masterpiece, best quality.\n\nThe author's settings include a 1.5x hi-res pass, which this card does not run.\n\nFor softer anime pick AniMiJ. For something closer to realism pick ILustREAL.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -112,7 +112,7 @@
       "tagline": "Soft, vibrant retro-modern anime",
       "icon": "💙",
       "previewImage": "previews/animij-v10.jpg",
-      "description": "Soft, vibrant anime with a retro touch: clean subject separation, a gently blurred background, soft-gloss skin highlights and warm against cool colour. Expressions stay calm and restrained.\n\nThe author calls it an ID model with a look of its own, and warns that the style won't suit everyone. Flexible character identity is one of the traits the author lists.\n\nUse Danbooru tags. The card adds nothing to your prompt and has no negative prompt.\n\nThis card uses the author's stable, slightly sharper recipe. Keep CFG around 5.1 to 5.6 and Steps around 26 to 30. Its tall 9:16 size is the author's 832x1536.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Soft, vibrant anime with a retro touch: clean subject separation, a gently blurred background, soft-gloss skin highlights and warm against cool colour. Expressions stay calm and restrained.\n\nThe author calls it an ID model with a look of its own, and warns that the style won't suit everyone. Flexible character identity is one of the traits the author lists.\n\nUse Danbooru tags. The card adds nothing to your prompt and has no negative prompt.\n\nThis card uses the author's stable, slightly sharper recipe. Keep CFG around 5.1 to 5.6 and Steps around 26 to 30. Its tall 9:16 size is the author's 832x1536.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -205,7 +205,7 @@
       "tagline": "Cinematic anime-realism blend",
       "icon": "🌺",
       "previewImage": "previews/ilustreal-v5.jpg",
-      "description": "Realism mixed with fantasy, for vivid characters that feel lifelike and otherworldly at once. Rich textures and dynamic lighting give it a cinematic look. The author's notes on earlier versions say it stops short of full realism, so use a photoreal card for a true photo.\n\nWrite tags with underscores, as the author does. The card adds no quality tags, so start with: masterpiece, high_quality, highres, sharp_focus, detailed_eyes\n\nThe author's notes for earlier versions recommend a face-fix pass for people far from the camera, and this card has none, so distant faces may come out weak.\n\nCFG works from 5 to 7.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Realism mixed with fantasy, for vivid characters that feel lifelike and otherworldly at once. Rich textures and dynamic lighting give it a cinematic look. The author's notes on earlier versions say it stops short of full realism, so use a photoreal card for a true photo.\n\nWrite tags with underscores, as the author does. The card adds no quality tags, so start with: masterpiece, high_quality, highres, sharp_focus, detailed_eyes\n\nThe author's notes for earlier versions recommend a face-fix pass for people far from the camera, and this card has none, so distant faces may come out weak.\n\nCFG works from 5 to 7.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Realistic",
@@ -298,7 +298,7 @@
       "tagline": "Cinematic anime with dramatic lighting",
       "icon": "🎬",
       "previewImage": "previews/project-r-v1.jpg",
-      "description": "Anime with a sharp subject against soft surroundings, dynamic camera angles and a mix of painted and rendered looks.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nOne user's tip on the model's page: use words like dynamic pose or dynamic view sparingly.\n\nThe author's settings include a 1.5x hi-res pass, which this card does not run. The author works mostly in tall shapes, such as the card's 2:3.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Anime with a sharp subject against soft surroundings, dynamic camera angles and a mix of painted and rendered looks.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nOne user's tip on the model's page: use words like dynamic pose or dynamic view sparingly.\n\nThe author's settings include a 1.5x hi-res pass, which this card does not run. The author works mostly in tall shapes, such as the card's 2:3.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -400,7 +400,7 @@
       "tagline": "Soft dual-tone anime portraits",
       "icon": "🌗",
       "previewImage": "previews/twinlight-v1.jpg",
-      "description": "Soft, ethereal fantasy characters that sit between cute and uncanny. Expect painterly dreamcore, a little baroque elegance and figures wrapped in light.\n\nPick it for a strange, gentle mood. For more movement use Project.R, and for intimate, gaze-led portraits use Insight.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nThe author publishes no settings, so treat this card's Steps and CFG as a starting point.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Soft, ethereal fantasy characters that sit between cute and uncanny. Expect painterly dreamcore, a little baroque elegance and figures wrapped in light.\n\nPick it for a strange, gentle mood. For more movement use Project.R, and for intimate, gaze-led portraits use Insight.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nThe author publishes no settings, so treat this card's Steps and CFG as a starting point.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -502,7 +502,7 @@
       "tagline": "Cinematic anime with deep depth-of-field",
       "icon": "👁️",
       "previewImage": "previews/insight-v1.jpg",
-      "description": "Intimate, gaze-led portraits with painterly softness, somewhere between anime and semi-realism. Light works as part of the story, with inner glows, cool tones and warm accents. The author says it handles low light and night scenes well.\n\nCompositions stay uncluttered, with the subject clearly separated from the background. Hair, particles and atmosphere give a slight sense of motion.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's sampler, 30 steps and CFG 5.4. The author also adds a small 1.2x hi-res pass and a face fix, which this card does not run.\n\nLicence: Illustrious License. Read it before commercial use.",
+      "description": "Intimate, gaze-led portraits with painterly softness, somewhere between anime and semi-realism. Light works as part of the story, with inner glows, cool tones and warm accents. The author says it handles low light and night scenes well.\n\nCompositions stay uncluttered, with the subject clearly separated from the background. Hair, particles and atmosphere give a slight sense of motion.\n\nUse Danbooru tags. The card adds masterpiece, high_quality, highres to the start of your prompt, so you don't need to type them.\n\nThis card uses the author's sampler, 30 steps and CFG 5.4. The author also adds a small 1.2x hi-res pass and a face fix, which this card does not run.\n\nLicence: Illustrious License. Read it before commercial use.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",

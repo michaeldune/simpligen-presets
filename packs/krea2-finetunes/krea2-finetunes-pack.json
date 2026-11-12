@@ -1,7 +1,7 @@
 {
   "id": "krea2-finetunes-pack",
   "name": "Community — Krea 2 Finetunes",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "author": "Stable Yogi / Felldude / Binyuan / Adel_AI / lodestones (quant: silveroxides) / Cyberdelia",
   "nsfw": true,
   "description": "Six trained Krea 2 checkpoints, as opposed to the merges in the Krea 2 Realism pack — each with a specific, tested purpose. Muse v3.5 Extended: clean SFW editorial portraits with a real 8-20 step / CFG 1-3 range (ships 12 steps / CFG 1.5). FinalCut v2: matte skin instead of Krea 2's glossy 'wet skin', native up to 2432x1920, mature-capable. Binyuan Portrait v3.2: East Asian portrait realism trained on ~1,000 unedited studio photos. Kreamania V8: Adel_AI's refinement of Krea 2 for volumetric light and matte skin, mature content intact. Kroma v0.3 Turbo (since 1.3.0): lodestones' Krea 2 fine-tune on the Chroma dataset, more artistic range, uncensored, fixed at CFG 1. CyberRealistic v4.0 (since 1.4.0): Cyberdelia's full finetune that makes Krea 2 photographic by default, natural skin and believable light from plain sentences. All six render at native ~2 MP with an Upscale slider (1.1-2x) that adds a gated 4-step detail-refine pass. They share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each preset costs only its 12.8-14.5 GB checkpoint.",
@@ -19,7 +19,7 @@
       "tagline": "Clean editorial portraits with a real quality dial",
       "icon": "💫",
       "previewImage": "previews/muse-krea2-v35-extended.jpg",
-      "description": "Text to image for clean SFW editorial portraits, fashion and lifestyle characters. Unlike a turbo checkpoint pinned to one setting, it holds together across 8-20 steps and CFG 1-3, so you get a real quality dial.\n\nThe default of 12 steps at CFG 1.5 gives natural pores and freckles without crunch, in about 1 minute at 1408x1408 on a 12 GB card, counting model load. 8 steps at CFG 1 is softer and 2x faster.\n\nThe author's 16 steps at CFG 2 went over-baked and HDR-crunchy in our test, so treat CFG 2 and up as a punch dial, not a default. The author says not to go above CFG 3.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x, and adds about 30 seconds.",
+      "description": "Text to image for clean SFW editorial portraits, fashion and lifestyle characters. Unlike a turbo checkpoint pinned to one setting, it holds together across 8-20 steps and CFG 1-3, so you get a real quality dial.\n\nThe default of 12 steps at CFG 1.5 gives natural pores and freckles without crunch, in about 1 minute at 1408x1408 on a 12 GB card, counting model load. 8 steps at CFG 1 is softer and 2x faster.\n\nThe author's 16 steps at CFG 2 went over-baked and HDR-crunchy in our test, so treat CFG 2 and up as a punch dial, not a default. The author says not to go above CFG 3.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x, and adds about 30 seconds.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Realistic",
@@ -143,7 +143,7 @@
       "tagline": "Matte skin, no Krea gloss; native up to 2432x1920",
       "icon": "🎬",
       "previewImage": "previews/finalcut-krea2-v2-int8.jpg",
-      "description": "Text to image built to remove Krea 2's glossy 'wet skin'. It is a trained finetune, not a merge. In our side-by-side the earlier v2 file held that claim: matte skin and cooler, softer light where Moody and Realia show sheen.\n\nThis is the Massive Update release, which replaced v2. It has not been tested here yet, so the settings and the result above carry over from v2. Timings for v2 on a 12 GB card were about 27 seconds at 1408x1408 and 66 seconds at 2432x1920.\n\nMature-capable, and fine for SFW work.\n\nRenders at about 2 MP and natively up to 2432x1920. The Upscale slider (1.1-2x) adds a detail-refine pass.",
+      "description": "Text to image built to remove Krea 2's glossy 'wet skin'. It is a trained finetune, not a merge. In our side-by-side the earlier v2 file held that claim: matte skin and cooler, softer light where Moody and Realia show sheen.\n\nThis is the Massive Update release, which replaced v2. It has not been tested here yet, so the settings and the result above carry over from v2. Timings for v2 on a 12 GB card were about 27 seconds at 1408x1408 and 66 seconds at 2432x1920.\n\nMature-capable, and fine for SFW work.\n\nRenders at about 2 MP and natively up to 2432x1920. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Realistic",
@@ -268,7 +268,7 @@
       "tagline": "Krea 2 trained on the Chroma dataset: more artistic range, uncensored",
       "icon": "🎨",
       "previewImage": "previews/kroma-v03-txtfusion-turbo.jpg",
-      "description": "Text to image with more artistic range than stock Krea 2: a full fine-tune on the Chroma dataset, by the maker of Chroma. Community reports call it more artistic and less 'clean', and uncensored out of the box, so treat it as mature-capable.\n\nIn our tests it followed clothing and colour instructions (a yellow oilskin, a red coat with a green scarf, three described people at a cafe table), kept shop-sign and small card lettering readable, and did clean anime line art, on par with FinalCut.\n\nThere is no CFG slider because the picture breaks up into speckle above CFG 1.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds at 1408x1408 on a 12 GB card.\n\nLicence: the Krea 2 community licence governs the base weights; the fine-tune itself is released under MIT.",
+      "description": "Text to image with more artistic range than stock Krea 2: a full fine-tune on the Chroma dataset, by the maker of Chroma. Community reports call it more artistic and less 'clean', and uncensored out of the box, so treat it as mature-capable.\n\nIn our tests it followed clothing and colour instructions (a yellow oilskin, a red coat with a green scarf, three described people at a cafe table), kept shop-sign and small card lettering readable, and did clean anime line art, on par with FinalCut.\n\nThere is no CFG slider because the picture breaks up into speckle above CFG 1.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds at 1408x1408 on a 12 GB card.\n\nLicence: the Krea 2 community licence governs the base weights; the fine-tune itself is released under MIT.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Artistic",
@@ -387,7 +387,7 @@
       "tagline": "East Asian portrait realism, trained on unedited photos",
       "icon": "📷",
       "previewImage": "previews/binyuan-krea2-portrait-v32.jpg",
-      "description": "Text to image for East Asian portrait realism, trained on about 1,000 unedited studio photographs of East Asian women. It is the only checkpoint in this pack aimed at East Asian faces. In our studio test it gave the most photographic result of the three tried: natural features, matte skin and convincing hair, where Moody went waxy.\n\nIt reads lighting words literally: a 'softbox' in the prompt got drawn into the frame. Describe the quality of the light, not the gear.\n\nThis is the author's stable release; the author marks v4.x as experimental. SFW-oriented.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x. About 23 seconds at 1408x1408 on a 12 GB card, counting model load.",
+      "description": "Text to image for East Asian portrait realism, trained on about 1,000 unedited studio photographs of East Asian women. It is the only checkpoint in this pack aimed at East Asian faces. In our studio test it gave the most photographic result of the three tried: natural features, matte skin and convincing hair, where Moody went waxy.\n\nIt reads lighting words literally: a 'softbox' in the prompt got drawn into the frame. Describe the quality of the light, not the gear.\n\nThis is the author's stable release; the author marks v4.x as experimental. SFW-oriented.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x. About 23 seconds at 1408x1408 on a 12 GB card, counting model load.\n\nModel format: plain int8, without ConvRot.",
       "tags": [
         "Krea",
         "Realistic",
@@ -512,7 +512,7 @@
       "tagline": "Adel_AI refine: volumetric light, matte skin, mature content intact",
       "icon": "🔆",
       "previewImage": "previews/kreamania-v8.jpg",
-      "description": "Text to image with more volumetric light and less of Krea 2's 'wet/damp skin', with mature rendering left intact. It is a refinement trained directly on Krea 2, not a merge. Both goals held in our test: matte, freckled skin under raking window light, and dust and mist that actually read as volume.\n\nFor the illustrated look add the trigger word 'Bradhamel art style'. Leave it out for photos.\n\nThe author warns that a random artifact has persisted since V7. A different seed clears it.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 55 seconds at 1216x1632 on a 12 GB card, counting model load.",
+      "description": "Text to image with more volumetric light and less of Krea 2's 'wet/damp skin', with mature rendering left intact. It is a refinement trained directly on Krea 2, not a merge. Both goals held in our test: matte, freckled skin under raking window light, and dust and mist that actually read as volume.\n\nFor the illustrated look add the trigger word 'Bradhamel art style'. Leave it out for photos.\n\nThe author warns that a random artifact has persisted since V7. A different seed clears it.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 55 seconds at 1216x1632 on a 12 GB card, counting model load.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Realistic",
@@ -637,7 +637,7 @@
       "tagline": "Photographic by default: natural skin, available light",
       "icon": "📷",
       "previewImage": "previews/cyberrealistic-krea2-v4-int8.jpg",
-      "description": "Text to image that is photographic by default: natural freckled skin, crisp detail and believable light, without a stack of realism words. In our side-by-side against stock Krea 2 Turbo, FinalCut and Moody it gave the most photographic pictures. It still draws anime or illustration when you ask for them.\n\nWrite plain sentences and say where the light comes from (the author's best tip). Quality tags like 'masterpiece' do nothing.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x, about 51 seconds. About 23 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use of images allowed, selling and merges allowed.",
+      "description": "Text to image that is photographic by default: natural freckled skin, crisp detail and believable light, without a stack of realism words. In our side-by-side against stock Krea 2 Turbo, FinalCut and Moody it gave the most photographic pictures. It still draws anime or illustration when you ask for them.\n\nWrite plain sentences and say where the light comes from (the author's best tip). Quality tags like 'masterpiece' do nothing.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, clean at 1.5x, about 51 seconds. About 23 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use of images allowed, selling and merges allowed.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Realistic",

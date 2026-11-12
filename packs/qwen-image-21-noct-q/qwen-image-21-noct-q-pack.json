@@ -1,7 +1,7 @@
 {
   "id": "qwen-image-21-noct-q-pack",
   "name": "Community — Qwen Image 2.1 Noct Q",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "addedAt": "2026-10-12",
   "author": "Noctaluna",
   "nsfw": true,
@@ -26,7 +26,7 @@
       "icon": "🌙",
       "enabled": true,
       "tagline": "Qwen Image 2.1 without the censorship, no LoRA needed",
-      "description": "Text to image from Noctaluna's uncensored build of Qwen-Image 2.1. Nudes and explicit scenes render as written, with no LoRA and no trigger word, and it keeps Qwen's long-prompt following.\n\nWrite the prompt as a caption of the finished picture, in full sentences: the kind of shot, the person with an adult age (\"a woman in her twenties\"), what they do, where, the light and the framing.\n\nSizes are about 1.5 megapixels. 2:3 (1024x1536) is the author's recommended shape.\n\nAbout 50 seconds a picture on a 12 GB card at the author's setting of CFG 3. CFG 1 is about twice as fast, but it then ignores the negative prompt.\n\nMature. Licence: Qwen Research License, non-commercial use only.",
+      "description": "Text to image from Noctaluna's uncensored build of Qwen-Image 2.1. Nudes and explicit scenes render as written, with no LoRA and no trigger word, and it keeps Qwen's long-prompt following.\n\nWrite the prompt as a caption of the finished picture, in full sentences: the kind of shot, the person with an adult age (\"a woman in her twenties\"), what they do, where, the light and the framing.\n\nSizes are about 1.5 megapixels. 2:3 (1024x1536) is the author's recommended shape.\n\nAbout 50 seconds a picture on a 12 GB card at the author's setting of CFG 3. CFG 1 is about twice as fast, but it then ignores the negative prompt.\n\nMature. Licence: Qwen Research License, non-commercial use only.\n\nModel format: int8 ConvRot.",
       "template": "sdxl",
       "promptStyle": "natural",
       "tags": [

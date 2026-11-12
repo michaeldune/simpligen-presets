@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-lipsync-pack",
   "name": "Community — MiniMax H3 Lip-Sync",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "author": "michaeldune",
   "nsfw": false,
   "addedAt": "2026-08-24",
@@ -18,7 +18,7 @@
       "id": "minimax-h3-lipsync-r2v",
       "name": "MiniMax H3 Lip-Sync",
       "icon": "🎤",
-      "description": "Make your characters sing or speak your own audio. It takes up to nine reference images, so a full band stays recognisable in a wide shot, and H3 syncs the person at the microphone rather than everyone in frame.\n\nDrop in a whole song if you like. The card trims it to the shot length, and the start-offset slider picks which part the shot syncs to, so there is no need to cut audio files by hand.\n\nMatch your audio length to the shot. If the track is shorter than the duration, H3 syncs correctly until the audio runs out, then invents the rest as convincing but meaningless singing. Duration defaults to 10 s, so a 5 s upload gives 5 good seconds and 5 invented ones. Upload a longer track or lower the duration.\n\nOn a 12 GB card with six references at 480p, 5 s takes about 2 1/2 minutes and 10 s about 7 minutes. Leave steps at 6: 10 steps gave no better sync and no visible picture gain. A 10 s take still beats two 5 s takes plus a cut you did not want.\n\nUses the same weights as the MiniMax H3 Turbo pack, so there is no extra download if you have that installed.",
+      "description": "Make your characters sing or speak your own audio. It takes up to nine reference images, so a full band stays recognisable in a wide shot, and H3 syncs the person at the microphone rather than everyone in frame.\n\nDrop in a whole song if you like. The card trims it to the shot length, and the start-offset slider picks which part the shot syncs to, so there is no need to cut audio files by hand.\n\nMatch your audio length to the shot. If the track is shorter than the duration, H3 syncs correctly until the audio runs out, then invents the rest as convincing but meaningless singing. Duration defaults to 10 s, so a 5 s upload gives 5 good seconds and 5 invented ones. Upload a longer track or lower the duration.\n\nOn a 12 GB card with six references at 480p, 5 s takes about 2 1/2 minutes and 10 s about 7 minutes. Leave steps at 6: 10 steps gave no better sync and no visible picture gain. A 10 s take still beats two 5 s takes plus a cut you did not want.\n\nUses the same weights as the MiniMax H3 Turbo pack, so there is no extra download if you have that installed.\n\nModel format: int8 ConvRot.",
       "tagline": "Audio-driven lip sync that holds a whole band, not just one face",
       "previewImage": "previews/minimax-h3-lipsync-r2v.jpg",
       "tags": [

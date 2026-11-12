@@ -1,7 +1,7 @@
 {
   "id": "p-h3-image-pack",
   "name": "Community — P-H3-Image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-11-04",
   "author": "michaeldune",
   "nsfw": false,
@@ -27,7 +27,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "8-megapixel pictures in 8 steps from MiniMax H3",
-      "description": "Text to image with P-H3-Image, Pruna's 8-step image model distilled from MiniMax H3. Write a short request; a built-in prompt writer turns it into a full description first, so one line is enough. It renders at about 8 megapixels (3360x2496 at 4:3) in about a minute on a 12 GB card. LICENCE: the P-H3-Image weights and the MiniMax H3 transformer are under the MiniMax H3 Community License.",
+      "description": "Text to image with P-H3-Image, Pruna's 8-step image model distilled from MiniMax H3. Write a short request; a built-in prompt writer turns it into a full description first, so one line is enough. It renders at about 8 megapixels (3360x2496 at 4:3) in about a minute on a 12 GB card. LICENCE: the P-H3-Image weights and the MiniMax H3 transformer are under the MiniMax H3 Community License.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -126,7 +126,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit a picture by describing the change",
-      "description": "Edit a picture with P-H3-Image. Picture 1 is the one that changes; the result keeps its shape and comes out at about 4 megapixels. Pictures 2 to 4 are optional references; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man. One short sentence works best. About a minute with one picture on a 12 GB card; big reference pictures add time (about two minutes with an 8-megapixel second picture). LICENCE: the P-H3-Image weights and the MiniMax H3 transformer are under the MiniMax H3 Community License.",
+      "description": "Edit a picture with P-H3-Image. Picture 1 is the one that changes; the result keeps its shape and comes out at about 4 megapixels. Pictures 2 to 4 are optional references; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man. One short sentence works best. About a minute with one picture on a 12 GB card; big reference pictures add time (about two minutes with an 8-megapixel second picture). LICENCE: the P-H3-Image weights and the MiniMax H3 transformer are under the MiniMax H3 Community License.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",

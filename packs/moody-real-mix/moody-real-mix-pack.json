@@ -1,7 +1,7 @@
 {
   "id": "moody-real-mix-pack",
   "name": "Community — Moody Models",
-  "version": "7.5.5",
+  "version": "7.5.6",
   "author": "catlover1937",
   "nsfw": false,
   "description": "Local Moody model variants collected into one selectable preset group.",
@@ -17,7 +17,7 @@
       "name": "Moody Real V7 FP8",
       "icon": "📷",
       "previewImage": "previews/moody-real-v7-fp8.jpg",
-      "description": "Realistic portraits with expressive faces, rich color and editorial lighting.",
+      "description": "Realistic portraits with expressive faces, rich color and editorial lighting.\n\nModel format: fp8.",
       "tags": [
         "Z-Image",
         "Turbo",
@@ -113,7 +113,7 @@
       "name": "Moody Real V7 Global FP8",
       "icon": "🌍",
       "previewImage": "previews/moody-real-v7-global-fp8.jpg",
-      "description": "Natural-looking people of any background in four steps. This is the balanced, general-purpose Moody Real, and the one its author tells most people to download.\n\nIt shares its base with Moody Real V7. The author removed the Asian Instagram and Xiaohongshu style LoRAs and added back a diverse style LoRA, so skin looks less beauty-filtered. Pick Moody Real V7 FP8 if you want that Asian beauty look.\n\nV7 has richer colour than earlier versions and less mature strength.\n\nDescribe the picture in plain sentences. The card adds nothing to your prompt, and there is no negative prompt on this card.\n\nThe author says LoRAs work well on characters of all races.\n\nLicence: Apache 2.0. The author asks that the model not be redistributed without consent.",
+      "description": "Natural-looking people of any background in four steps. This is the balanced, general-purpose Moody Real, and the one its author tells most people to download.\n\nIt shares its base with Moody Real V7. The author removed the Asian Instagram and Xiaohongshu style LoRAs and added back a diverse style LoRA, so skin looks less beauty-filtered. Pick Moody Real V7 FP8 if you want that Asian beauty look.\n\nV7 has richer colour than earlier versions and less mature strength.\n\nDescribe the picture in plain sentences. The card adds nothing to your prompt, and there is no negative prompt on this card.\n\nThe author says LoRAs work well on characters of all races.\n\nLicence: Apache 2.0. The author asks that the model not be redistributed without consent.\n\nModel format: fp8.",
       "tags": [
         "Z-Image",
         "Turbo",
@@ -210,7 +210,7 @@
       "name": "Moody Wild V4 Base FP8",
       "icon": "🌿",
       "previewImage": "previews/moody-wild-v4-base-fp8.jpg",
-      "description": "Full 40-step Z-Image sampling for high detail and flexible artistic generation.",
+      "description": "Full 40-step Z-Image sampling for high detail and flexible artistic generation.\n\nModel format: fp8.",
       "tags": [
         "Z-Image",
         "Base",
@@ -307,7 +307,7 @@
       "name": "Moody Desire V2 PRO FP8",
       "icon": "♦️",
       "previewImage": "previews/moody-desire-v2-pro-fp8.jpg",
-      "description": "High-detail FLUX.2 Klein 9B generation for inpainting-oriented realism and expressive character work.",
+      "description": "High-detail FLUX.2 Klein 9B generation for inpainting-oriented realism and expressive character work.\n\nModel format: fp8.",
       "tags": [
         "FLUX.2",
         "Klein",
@@ -396,7 +396,7 @@
       "name": "Moody Pro V13 FP8",
       "icon": "🌙",
       "previewImage": "previews/moody-pro-v13-fp8.jpg",
-      "description": "Improved anatomy, stability and LoRA compatibility, with a balanced photographic aesthetic.",
+      "description": "Improved anatomy, stability and LoRA compatibility, with a balanced photographic aesthetic.\n\nModel format: fp8.",
       "tags": [
         "Z-Image",
         "Turbo",

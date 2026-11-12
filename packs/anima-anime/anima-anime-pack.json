@@ -1,7 +1,7 @@
 {
   "id": "anima-anime-pack",
   "name": "Anima Anime",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) anime checkpoints: the official models and the fast cards. Anima Base v1.0 (the widest range of styles), the official Anima Turbo v1.1 (10 steps, about 6 s) and the official Anima-2.9B v1 preview, plus VXP Anima Turbo, the two RDBT distills and Diving v8 (flat TV-anime cel shading). Since 2.0.0 the other cards are in Anima Large (the 2.9B and 3.8B fine-tunes), Anima Anime Mixes (clean, bright mixes) and Anima Art & Styles (soft, 2.5D and painterly looks). Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
@@ -17,7 +17,7 @@
       "tagline": "Flexible base anime & illustration model",
       "icon": "🌸",
       "previewImage": "previews/anima-base-v1.jpg",
-      "description": "The plain base Anima model, with the widest range of styles of the Anima cards.\n\nPrompt with Danbooru tags, and name artist and quality tags for a stronger look.",
+      "description": "The plain base Anima model, with the widest range of styles of the Anima cards.\n\nPrompt with Danbooru tags, and name artist and quality tags for a stronger look.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -123,7 +123,7 @@
       "tagline": "Polished anime look in 14 steps",
       "icon": "💠",
       "previewImage": "previews/vxp-anima-turbo-v1.jpg",
-      "description": "Fast anime pictures with one strong, consistent style: clean linework, rich colour and solid faces. Built to finish in 12-15 steps, about 12 seconds for a 1 MP picture on a 12 GB card.\n\nPrompt with Danbooru tags, plain sentences, or both. For a known character, look up its exact tag on animadex.net first. Keep CFG around 3-4; higher looks forced.\n\nThe author forbids re-uploading the model to PixAI.",
+      "description": "Fast anime pictures with one strong, consistent style: clean linework, rich colour and solid faces. Built to finish in 12-15 steps, about 12 seconds for a 1 MP picture on a 12 GB card.\n\nPrompt with Danbooru tags, plain sentences, or both. For a known character, look up its exact tag on animadex.net first. Keep CFG around 3-4; higher looks forced.\n\nThe author forbids re-uploading the model to PixAI.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -228,7 +228,7 @@
       "name": "RDBT Anima b1 v0.39.b",
       "icon": "🎨",
       "previewImage": "previews/rdbt-anima-b1-v039b.jpg",
-      "description": "Fast distilled Anima for illustration. Name an art style in the prompt for predictable results.",
+      "description": "Fast distilled Anima for illustration. Name an art style in the prompt for predictable results.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -324,7 +324,7 @@
       "tagline": "Newer RDBT: painterly, moody, no default style",
       "icon": "🖌️",
       "previewImage": "previews/rdbt-anima-v23-16s.jpg",
-      "description": "Painterly, moody anime in 16 steps, about 6 seconds a picture on a 12 GB card. Next to the RDBT b1 card it comes out softer, more painterly and darker-lit.\n\nThis model has no built-in style on purpose, so name one (an @artist tag or a style in words) or the look will wander. No quality tags needed.\n\nThis is the newest of the distilled RDBT versions and the last one: the author has stopped updating them. The author does not allow sharing merges of this model.",
+      "description": "Painterly, moody anime in 16 steps, about 6 seconds a picture on a 12 GB card. Next to the RDBT b1 card it comes out softer, more painterly and darker-lit.\n\nThis model has no built-in style on purpose, so name one (an @artist tag or a style in words) or the look will wander. No quality tags needed.\n\nThis is the newest of the distilled RDBT versions and the last one: the author has stopped updating them. The author does not allow sharing merges of this model.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -429,7 +429,7 @@
       "tagline": "Flat cel shading, bold outlines, fast",
       "icon": "🤿",
       "previewImage": "previews/diving-anima-v8.jpg",
-      "description": "The flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. About 11 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nPersonal use only: the author prohibits selling it.",
+      "description": "The flattest, most TV-anime finish of the Anima cards: clean cel shading and bold outlines. About 11 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nPersonal use only: the author prohibits selling it.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -535,7 +535,7 @@
       "tagline": "Bigger Anima, newer characters (to July 2026)",
       "icon": "📚",
       "previewImage": "previews/anima-29b-v1.jpg",
-      "description": "A bigger Anima, grown from 28 to 40 layers and trained on 1.7 million more anime pictures, with characters and series up to July 2026. In our test it gave the most different pictures of the Anima cards, with its own compositions and a warm, saturated palette.\n\nIt needs detailed prompts: name the series after every character, describe the background, and keep the year tag the card adds. A one-sentence prompt left most of the frame empty in our test.\n\nAbout 24 seconds a picture on a 12 GB card. An early preview, by the author's own account.\n\nLicence: CircleStone Labs Non-Commercial License (derivative model).",
+      "description": "A bigger Anima, grown from 28 to 40 layers and trained on 1.7 million more anime pictures, with characters and series up to July 2026. In our test it gave the most different pictures of the Anima cards, with its own compositions and a warm, saturated palette.\n\nIt needs detailed prompts: name the series after every character, describe the background, and keep the year tag the card adds. A one-sentence prompt left most of the frame empty in our test.\n\nAbout 24 seconds a picture on a 12 GB card. An early preview, by the author's own account.\n\nLicence: CircleStone Labs Non-Commercial License (derivative model).\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",
@@ -641,7 +641,7 @@
       "tagline": "The official fast Anima: 10 steps, about 6 seconds",
       "icon": "⚡",
       "previewImage": "previews/anima-turbo-v11.jpg",
-      "description": "The official fast Anima from the makers of the base model, and the fastest Anima card: about 6 seconds a picture on a 12 GB card, in 10 steps.\n\nExpect crisp lines, strong contrast and a confident default style. The authors say the speed trades some variety for stability, and recommend starting here and iterating on prompts quickly.\n\nArtist tags work: start them with @.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.",
+      "description": "The official fast Anima from the makers of the base model, and the fastest Anima card: about 6 seconds a picture on a 12 GB card, in 10 steps.\n\nExpect crisp lines, strong contrast and a confident default style. The authors say the speed trades some variety for stability, and recommend starting here and iterating on prompts quickly.\n\nArtist tags work: start them with @.\n\nLicence (Civitai): image use and on-site generation allowed; derivatives allowed.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Anime",

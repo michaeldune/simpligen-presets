@@ -1,7 +1,7 @@
 {
   "id": "pony-realistic-pack",
   "name": "Community — Pony Realistic",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "various",
   "nsfw": false,
   "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
@@ -18,7 +18,7 @@
       "tagline": "Photoreal Pony for lifelike people",
       "icon": "🤖",
       "previewImage": "previews/cyberrealistic-pony-v18.jpg",
-      "description": "Photorealistic people that keep Pony's range, with detailed textures and moody, cinematic lighting. The author says v18 is cleaner, follows prompts better and gives steadier results.\n\nScore tags are optional here. Write your subject on its own, or start with score_9, score_8_up, score_7_up. The card adds nothing to your prompt.\n\nThe author's sample pictures use no LoRAs. If a result looks wrong, the author suggests first checking for too many LoRAs and how the prompt is structured.\n\nFor a card that adds its trigger and score tags for you, use Realism by Stable Yogi (Pony).\n\nLicence: CreativeML Open RAIL++-M.",
+      "description": "Photorealistic people that keep Pony's range, with detailed textures and moody, cinematic lighting. The author says v18 is cleaner, follows prompts better and gives steadier results.\n\nScore tags are optional here. Write your subject on its own, or start with score_9, score_8_up, score_7_up. The card adds nothing to your prompt.\n\nThe author's sample pictures use no LoRAs. If a result looks wrong, the author suggests first checking for too many LoRAs and how the prompt is structured.\n\nFor a card that adds its trigger and score tags for you, use Realism by Stable Yogi (Pony).\n\nLicence: CreativeML Open RAIL++-M.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "Realistic",
@@ -120,7 +120,7 @@
       "tagline": "Pony blend with semi-realistic proportions",
       "icon": "🎨",
       "previewImage": "previews/semi-realistic-pony-v10.jpg",
-      "description": "Blends Pony V6 with semi-realistic looks and proportions.",
+      "description": "Blends Pony V6 with semi-realistic looks and proportions.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -221,7 +221,7 @@
       "tagline": "Community-tuned photoreal Pony with fixed anatomy & hands",
       "icon": "📷",
       "previewImage": "previews/realism-stable-yogi-pony-v65.jpg",
-      "description": "Photorealistic Pony SDXL tuned over community feedback, with improved anatomy, hand grips, expressions and full-body proportions. The trigger word 99rbsy99 and score-up tags are applied automatically, so you don't need to type them.",
+      "description": "Photorealistic Pony SDXL tuned over community feedback, with improved anatomy, hand grips, expressions and full-body proportions. The trigger word 99rbsy99 and score-up tags are applied automatically, so you don't need to type them.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "Realistic",

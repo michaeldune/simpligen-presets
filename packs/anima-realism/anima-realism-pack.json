@@ -1,7 +1,7 @@
 {
   "id": "anima-realism-pack",
   "name": "Community — Anima Realism",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "various",
   "nsfw": false,
   "description": "Anima (Cosmos) photoreal checkpoints.",
@@ -16,7 +16,7 @@
       "name": "Nova Reality AM v1.0",
       "icon": "📷",
       "previewImage": "previews/nova-reality-am-v10.jpg",
-      "description": "Photoreal Anima with realistic detail and flexible style control. Write prompts the way you would describe a photograph. Works with LoRAs.",
+      "description": "Photoreal Anima with realistic detail and flexible style control. Write prompts the way you would describe a photograph. Works with LoRAs.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Realistic",
@@ -122,7 +122,7 @@
       "tagline": "Photoreal Anima (turbo)",
       "icon": "📷",
       "previewImage": "previews/photanima-v23-turbo.jpg",
-      "description": "Photoreal Anima, distilled to run in few steps.",
+      "description": "Photoreal Anima, distilled to run in few steps.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anima",
         "Realistic",
@@ -227,7 +227,7 @@
       "tagline": "Realistic/editorial Anima v1",
       "icon": "📷",
       "previewImage": "previews/jedpointreal-anima-v1.jpg",
-      "description": "Realistic Anima tuned for detailed faces, editorial fashion and cinematic lighting, in painterly or photoreal-leaning scenes. It uses the text encoder that comes with the release.",
+      "description": "Realistic Anima tuned for detailed faces, editorial fashion and cinematic lighting, in painterly or photoreal-leaning scenes. It uses the text encoder that comes with the release.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Anima",
         "Realistic",

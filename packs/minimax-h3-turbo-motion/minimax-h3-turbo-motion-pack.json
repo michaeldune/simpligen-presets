@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-turbo-motion-pack",
   "name": "Community — MiniMax H3 (Turbo LoRA, Fast Motion)",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "author": "larryvrh",
   "nsfw": false,
   "description": "MiniMax H3 video with the v1-850 Turbo LoRA + matching dual-schedule sampler from larryvrh/MiniMax-H3-Turbo-Lora — a focused 4-step option for heavy or fast motion, where the v4-600 line can produce motion-smear or trailing ghosting. It keeps audio in sync and caps at 6 steps because v1 over-sharpens at higher step counts. Training continues, and audio plus fast-motion behaviour remain open areas, so treat this as a preview. Same base MiniMax H3 checkpoint/text-encoder/VAE as SimpliGen's official MiniMax H3 pack, so no extra large downloads beyond the ~744MB LoRA.",
@@ -19,7 +19,7 @@
       "name": "MiniMax H3 Text to Video (Turbo, Fast Motion)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-turbo-motion-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound in 4 steps, made for heavy or fast motion. The default Turbo cards can smear or leave trails on that kind of movement. For static shots or small movement, use those instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.",
+      "description": "Describe a scene and get video with matching stereo sound in 4 steps, made for heavy or fast motion. The default Turbo cards can smear or leave trails on that kind of movement. For static shots or small movement, use those instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.\n\nModel format: int8 ConvRot.",
       "tagline": "MiniMax H3 T2V for heavy/fast motion in 4 steps",
       "tags": [
         "Video",
@@ -324,7 +324,7 @@
       "name": "MiniMax H3 Reference to Video (Turbo, Fast Motion)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-turbo-motion-r2v.jpg",
-      "description": "Carry a character and a look into a new scene with sound in 4 steps, made for heavy movement. Add up to nine references. The default Turbo cards can smear or leave trails on that kind of movement. For normal motion, use those instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nKnown issue: a reference video fails on every Turbo LoRA card, with the error 'The size of tensor a (3) must match the size of tensor b (2)'. Reference images and reference audio are fine, so remove the video and the job completes. For reference video, use the Community MiniMax H3 (Sol-Attn + EasyCache) R2V card, which has no Turbo LoRA. The fault is in an upstream node, not this pack.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.",
+      "description": "Carry a character and a look into a new scene with sound in 4 steps, made for heavy movement. Add up to nine references. The default Turbo cards can smear or leave trails on that kind of movement. For normal motion, use those instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nKnown issue: a reference video fails on every Turbo LoRA card, with the error 'The size of tensor a (3) must match the size of tensor b (2)'. Reference images and reference audio are fine, so remove the video and the job completes. For reference video, use the Community MiniMax H3 (Sol-Attn + EasyCache) R2V card, which has no Turbo LoRA. The fault is in an upstream node, not this pack.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.\n\nModel format: int8 ConvRot.",
       "tagline": "Reference images/video + v1-850 for fast motion in 4 steps",
       "tags": [
         "Video",
@@ -654,7 +654,7 @@
       "name": "MiniMax H3 Image to Video (Turbo, Fast Motion)",
       "icon": "🖼️",
       "previewImage": "previews/minimax-h3-turbo-motion-i2v.jpg",
-      "description": "Bring a still image to life, with stereo sound to match, in 4 steps, made for heavy or fast motion. For static shots or small movement, use the default Turbo cards instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nThe first slot is the first frame. The last frame is optional.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.",
+      "description": "Bring a still image to life, with stereo sound to match, in 4 steps, made for heavy or fast motion. For static shots or small movement, use the default Turbo cards instead.\n\nStay at 4 steps for heavy motion. The card caps at 6, because this version over-sharpens at higher step counts.\n\nThe first slot is the first frame. The last frame is optional.\n\nTraining continues, and audio and fast motion are still open areas, so treat the output as a preview.\n\nDo not also pick this LoRA in the LoRA slot. The card applies minimax_h3_turbo_4step_ema_ckpt850.safetensors itself, and selecting it again doubles its strength, which gives over-sharp grain and artifacts. It shows up in the picker because the app lists every LoRA on disk.\n\nModel format: int8 ConvRot.",
       "tagline": "MiniMax H3 I2V fast motion in 4 steps",
       "tags": [
         "Video",

@@ -1,7 +1,7 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Illustrious Anime",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Illustrious-based anime SDXL checkpoints: WAI Illustrious v17, Nova Anime XL v7.0, IllumiYume XL v3.2 (V-pred), Vete Crimson Oath, Mega Cock Fantasy - Human, and two community-requested merges that stay close to their parents, MoonMix XL (close to WAI v17) and ClearColor Air XL (close to Nova Anime). Prompt with Danbooru tags. Since 2.0.0 the cards with a look of their own (UnrealVision, RIN Flanime, One Obsession, Rule of Moon, PerfectDeliberate, SmoothMix Ultimate) are in the Illustrious Art & Styles pack.",
@@ -18,7 +18,7 @@
       "tagline": "Fantasy anime creatures & characters",
       "icon": "🐓",
       "previewImage": "previews/mega-cock-fantasy-human.jpg",
-      "description": "Anime model geared toward fantasy creatures and characters. Prompt with Danbooru tags.",
+      "description": "Anime model geared toward fantasy creatures and characters. Prompt with Danbooru tags.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -120,7 +120,7 @@
       "tagline": "Crimson-themed Illustrious anime",
       "icon": "🩸",
       "previewImage": "previews/vete-crimson-oath-v02ill.jpg",
-      "description": "Anime with bold colour and dynamic composition. Prompt with Danbooru tags.",
+      "description": "Anime with bold colour and dynamic composition. Prompt with Danbooru tags.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "Anime",
@@ -221,7 +221,7 @@
       "name": "Nova Anime XL v7.0",
       "icon": "✨",
       "previewImage": "previews/nova-anime-xl-v70.jpg",
-      "description": "Polished anime and 2.5D illustration with vivid lighting, detailed characters and rich backgrounds. Works with LoRAs.",
+      "description": "Polished anime and 2.5D illustration with vivid lighting, detailed characters and rich backgrounds. Works with LoRAs.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "2.5D",
@@ -324,7 +324,7 @@
       "name": "WAI Illustrious SDXL v17",
       "icon": "🌸",
       "previewImage": "previews/wai-illustrious-sdxl-v170.jpg",
-      "description": "One of the most used Illustrious anime models: clean colour, strong character knowledge, good with Danbooru tags. About 12 seconds a picture on a 12 GB card.\n\nKeep prompts lean. The author warns that piling on quality tags or a long negative makes pictures blurrier, so the card adds only three.\n\nRating tags work (general, sensitive, nsfw, explicit); put \"nsfw\" in your prompt or leave it out as you need. For an older-looking character add (aged up:1.2) or (mature female:1.2) at the start.\n\nWith two characters, a detail such as glasses can land on the wrong one.",
+      "description": "One of the most used Illustrious anime models: clean colour, strong character knowledge, good with Danbooru tags. About 12 seconds a picture on a 12 GB card.\n\nKeep prompts lean. The author warns that piling on quality tags or a long negative makes pictures blurrier, so the card adds only three.\n\nRating tags work (general, sensitive, nsfw, explicit); put \"nsfw\" in your prompt or leave it out as you need. For an older-looking character add (aged up:1.2) or (mature female:1.2) at the start.\n\nWith two characters, a detail such as glasses can land on the wrong one.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -428,7 +428,7 @@
       "tagline": "Expressive Illustrious anime with V-Pred precision",
       "icon": "🌙",
       "previewImage": "previews/illumiyume-xl-v32.jpg",
-      "description": "Expressive anime with cleaner gradients and more expressive faces.",
+      "description": "Expressive anime with cleaner gradients and more expressive faces.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Illustrious",
         "SDXL",
@@ -530,7 +530,7 @@
       "name": "MoonMix XL v1.0 (soft colour)",
       "icon": "🌙",
       "previewImage": "previews/moonmix-xl-v10.jpg",
-      "description": "Soft, careful colouring. In our test it stayed close to the WAI v17 card, with the same compositions from the same seed and slightly softer colour. It is here because the community asked for it.\n\nDanbooru tags work best, and it is sensitive to @artist-style tags. With two characters, details such as hair colour can swap between them.\n\nAbout 8 seconds a picture on a 12 GB card.\n\nLicence: CreativeML Open RAIL-M from the parent models; Civitai flags allow selling images and merges.",
+      "description": "Soft, careful colouring. In our test it stayed close to the WAI v17 card, with the same compositions from the same seed and slightly softer colour. It is here because the community asked for it.\n\nDanbooru tags work best, and it is sensitive to @artist-style tags. With two characters, details such as hair colour can swap between them.\n\nAbout 8 seconds a picture on a 12 GB card.\n\nLicence: CreativeML Open RAIL-M from the parent models; Civitai flags allow selling images and merges.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",
@@ -633,7 +633,7 @@
       "name": "ClearColor Air XL v1.0 (light, clean)",
       "icon": "🫧",
       "previewImage": "previews/clearcolor-air-xl-v10.jpg",
-      "description": "Light, clean colour with a little more depth and skin detail than Nova Anime XL, which it is mostly made from. In our test it stayed close to the Nova Anime XL v7.0 card, with softer, whiter light. It is here because the community asked for it.\n\nThe author notes a magenta cast and that it can ignore a requested male character, so state gender and palette clearly.\n\nAbout 6 seconds a picture on a 12 GB card.\n\nLicence: Illustrious licence via the Nova parents. Civitai flags allow image use and on-site generation; selling the checkpoint or merges is not granted.",
+      "description": "Light, clean colour with a little more depth and skin detail than Nova Anime XL, which it is mostly made from. In our test it stayed close to the Nova Anime XL v7.0 card, with softer, whiter light. It is here because the community asked for it.\n\nThe author notes a magenta cast and that it can ignore a requested male character, so state gender and palette clearly.\n\nAbout 6 seconds a picture on a 12 GB card.\n\nLicence: Illustrious licence via the Nova parents. Civitai flags allow image use and on-site generation; selling the checkpoint or merges is not granted.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Anime",
         "Illustrious",

@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-zimage-graft-pack",
   "name": "Community — MiniMax H3 (Z-Image Graft)",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "joeygambino",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
@@ -22,7 +22,7 @@
       "name": "MiniMax H3 Text to Video (Z-Image Graft)",
       "icon": "🧱",
       "previewImage": "previews/minimax-h3-zimage-graft-t2v.jpg",
-      "description": "Text to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
+      "description": "Text to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.\n\nModel format: int8 ConvRot.",
       "tagline": "Describe a scene - richer surfaces and materials",
       "tags": [
         "Video",
@@ -334,7 +334,7 @@
       "name": "MiniMax H3 Image to Video (Z-Image Graft)",
       "icon": "🖼",
       "previewImage": "previews/minimax-h3-zimage-graft-i2v.jpg",
-      "description": "Image to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Give it a first frame, and a last frame if you want one.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
+      "description": "Image to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Give it a first frame, and a last frame if you want one.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. That is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.\n\nModel format: int8 ConvRot.",
       "tagline": "First frame (and optional last frame) - graft look",
       "tags": [
         "Video",
@@ -654,7 +654,7 @@
       "name": "MiniMax H3 Reference to Video (Z-Image Graft)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-zimage-graft-r2v.jpg",
-      "description": "Reference to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Add up to nine references.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. Those figures come from the checkpoint behind the text and image cards, not this one. It is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.",
+      "description": "Reference to video with richer surfaces and materials than stock MiniMax H3, at the same identity, speed and VRAM. It is joeygambino's graft of Z-Image's attention statistics into H3, with no retraining. Add up to nine references.\n\nIt shows on surfaces: rust, peeling paint, wet concrete, fabric weave. Against the official checkpoint on the same seed and prompt, fine detail measured about 45% higher on a rusty wall and on a face, the picture was slightly brighter, and the motion was unchanged. Those figures come from the checkpoint behind the text and image cards, not this one. It is a modest, real gain, not a different look.\n\nPick it for sets, surfaces and materials. The official pack stays the neutral baseline.\n\nA five-second 480p clip takes about 3 1/3 minutes on a 12 GB card, the same as stock.\n\nLicence: derivative of MiniMax H3 weights, so the MiniMax H3 Community License applies.\n\nModel format: int8 ConvRot.",
       "tagline": "Up to nine references - graft surfaces, stock identity",
       "tags": [
         "Video",

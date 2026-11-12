@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-10eros-pack",
   "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "author": "DmitryDB",
   "nsfw": true,
   "description": "MiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
@@ -19,7 +19,7 @@
       "name": "MiniMax H3 Text to Video (10Eros Max)",
       "icon": "🎬",
       "previewImage": "previews/minimax-h3-10eros-t2v.jpg",
-      "description": "Text to video on the 10Eros Max finetune of MiniMax H3. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.",
+      "description": "Text to video on the 10Eros Max finetune of MiniMax H3. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.\n\nModel format: int8 ConvRot.",
       "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
       "tags": [
         "Video",
@@ -326,7 +326,7 @@
       "name": "MiniMax H3 Image to Video (10Eros Max)",
       "icon": "🎬",
       "previewImage": "previews/minimax-h3-10eros-i2v.jpg",
-      "description": "Image to video on the 10Eros Max finetune of MiniMax H3. Your picture is the first frame, and you can add a last frame. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.",
+      "description": "Image to video on the 10Eros Max finetune of MiniMax H3. Your picture is the first frame, and you can add a last frame. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.\n\nModel format: int8 ConvRot.",
       "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
       "tags": [
         "Video",
@@ -642,7 +642,7 @@
       "name": "MiniMax H3 Reference to Video (10Eros Max)",
       "icon": "🎬",
       "previewImage": "previews/minimax-h3-10eros-r2v.jpg",
-      "description": "Reference to video on the 10Eros Max finetune of MiniMax H3. Add up to nine reference pictures. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.",
+      "description": "Reference to video on the 10Eros Max finetune of MiniMax H3. Add up to nine reference pictures. It runs the same way as the stock H3 preset, so the model is the only difference.\n\nA five-second 480p shot takes about 2 minutes on a 12 GB card, a dead heat with the official preset.\n\nFree system RAM matters more than VRAM here. Keep 16 GB or more free or render times get sharply worse.\n\nModel format: int8 ConvRot.",
       "tagline": "Non-pruned 10Eros finetune on the stock H3 sampler",
       "tags": [
         "Video",

@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-alpha-matte-pack",
   "name": "LTX 2.5 Alpha Matte (Video Cut-out)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Lightricks",
   "nsfw": false,
   "minAppVersion": "1.77.0",
@@ -24,7 +24,7 @@
       "tags": ["Video", "V2V", "Matte", "Green Screen", "Cut-out"],
       "enabled": true,
       "template": "wan-video",
-      "description": "Cuts the subject out of any clip. Put the clip in Reference Video 1 and leave the prompt empty: the model decides what the foreground is.\n\nMatte output off (the default) gives the subject over a #00FF00 green screen, ready for a chroma key. Matte output on gives the black-and-white matte itself (white is the subject), for an editor's track matte or luma key. Either way the clip's own sound goes back on.\n\nHair strands, smoke and motion blur come out soft and partly see-through rather than cut hard. A small hole inside the subject, such as an open mouth, is filled in; a large gap, such as the space between an arm and the body, stays see-through.\n\nThe output keeps the source's shape: the aspect setting is ignored and the tier sets only the long side (864 at 480p, 1280 at 720p). One run takes at most 145 frames, about 6 seconds at 24 fps or 5 seconds at 30 fps; a longer Duration is cut to that. The frame count is rounded down to the model's grid, so the result can be up to a third of a second shorter than the Duration you set.\n\nA 6-second 720p clip took about 4 minutes on a 12 GB card, a 4-second 480p clip about 1 1/2 minutes.\n\nThe Alpha-Gen LoRA is in its own gated HuggingFace repo: accept its licence once on the model page and give SimpliGen a HuggingFace token.",
+      "description": "Cuts the subject out of any clip. Put the clip in Reference Video 1 and leave the prompt empty: the model decides what the foreground is.\n\nMatte output off (the default) gives the subject over a #00FF00 green screen, ready for a chroma key. Matte output on gives the black-and-white matte itself (white is the subject), for an editor's track matte or luma key. Either way the clip's own sound goes back on.\n\nHair strands, smoke and motion blur come out soft and partly see-through rather than cut hard. A small hole inside the subject, such as an open mouth, is filled in; a large gap, such as the space between an arm and the body, stays see-through.\n\nThe output keeps the source's shape: the aspect setting is ignored and the tier sets only the long side (864 at 480p, 1280 at 720p). One run takes at most 145 frames, about 6 seconds at 24 fps or 5 seconds at 30 fps; a longer Duration is cut to that. The frame count is rounded down to the model's grid, so the result can be up to a third of a second shorter than the Duration you set.\n\nA 6-second 720p clip took about 4 minutes on a 12 GB card, a 4-second 480p clip about 1 1/2 minutes.\n\nThe Alpha-Gen LoRA is in its own gated HuggingFace repo: accept its licence once on the model page and give SimpliGen a HuggingFace token.\n\nModel format: int8 ConvRot.",
       "video": {
         "promptFamily": "no-prompt",
         "promptOptional": true,

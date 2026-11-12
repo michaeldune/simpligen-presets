@@ -1,7 +1,7 @@
 {
   "id": "krea2-anime-pack",
   "name": "Krea 2 Anime",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "various",
   "nsfw": false,
   "description": "Krea 2 checkpoints for anime and illustration, eight cards that came from the Krea 2 and Krea 2 Art & Styles packs when they were split on 2026-11-09. Clearly different from stock Krea 2: Krea2-Anime v2.0 (clean, flat anime with thin lines), CocoaMix (soft, cute faces), Animosity v2.0 (dark, ornate semi-real anime) and VXP Beta 4 (backlit, high-contrast anime). Close to stock Krea 2, here because the community asked for them: See-Krea2 Genesis V2, Krea 2 Full v1.0 Anime, Krea-2-Nippon_clear and DaSiWa DarkDesire V3. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its checkpoint.",
@@ -18,7 +18,7 @@
       "tagline": "Clean, bright anime with thin linework; mature-trained",
       "icon": "🌸",
       "previewImage": "previews/krea2-anime-v2.jpg",
-      "description": "Text to image for clean, bright anime with thin lines, even light and its own poses. In our test it drew the cleanest, flattest anime of the Krea 2 cards. It is Krea 2 Turbo trained further on a million-picture mature anime set, about a quarter of the planned training by the author's account.\n\nIt wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model.\n\nArtist tags barely work, and the author advises against 4-step LoRAs.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
+      "description": "Text to image for clean, bright anime with thin lines, even light and its own poses. In our test it drew the cleanest, flattest anime of the Krea 2 cards. It is Krea 2 Turbo trained further on a million-picture mature anime set, about a quarter of the planned training by the author's account.\n\nIt wants long, detailed prompts: describe the setting, the action, the character and the style in sentences, then add tags. Short prompts look like any anime model.\n\nArtist tags barely work, and the author advises against 4-step LoRAs.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Anime",
@@ -132,7 +132,7 @@
       "tagline": "Soft, cute anime faces with bright eye highlights",
       "icon": "🍫",
       "previewImage": "previews/cocoamix-krea2-v003.jpg",
-      "description": "Text to image with softer, rounder, cuter anime faces than stock Krea 2, with blush and bright eye highlights. This is a beta: a Krea 2 Turbo merge with the author's own training.\n\nThe author's style cue is 'cocoart of no pupils eyes with eye highlights on top'. For an animal girl write 'animal ears, no ears' (their wording).\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence: images are for non-commercial use only, and the author asks for permission before selling images or releasing merges. Civitai flags: no derivatives.",
+      "description": "Text to image with softer, rounder, cuter anime faces than stock Krea 2, with blush and bright eye highlights. This is a beta: a Krea 2 Turbo merge with the author's own training.\n\nThe author's style cue is 'cocoart of no pupils eyes with eye highlights on top'. For an animal girl write 'animal ears, no ears' (their wording).\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence: images are for non-commercial use only, and the author asks for permission before selling images or releasing merges. Civitai flags: no derivatives.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Anime",
@@ -246,7 +246,7 @@
       "tagline": "Detailed anime scenes, elf and kitsune triggers",
       "icon": "👾",
       "previewImage": "previews/see-krea2-genesis-v2.jpg",
-      "description": "Text to image for detailed anime characters and backgrounds. In our test it stayed fairly close to stock Krea 2, with warmer, more painterly faces and busier scenes. It is here because users asked for it.\n\nIt has two trained characters: seesee_elf and seesee_kitsune.\n\nThe author also trained a pixel-art look ('pixel' or '16Bit'), but in our test stock Krea 2 drew sharper pixel art from the same prompt, and this card came out as detailed illustration.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.",
+      "description": "Text to image for detailed anime characters and backgrounds. In our test it stayed fairly close to stock Krea 2, with warmer, more painterly faces and busier scenes. It is here because users asked for it.\n\nIt has two trained characters: seesee_elf and seesee_kitsune.\n\nThe author also trained a pixel-art look ('pixel' or '16Bit'), but in our test stock Krea 2 drew sharper pixel art from the same prompt, and this card came out as detailed illustration.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 22 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): commercial use, merges and derivatives allowed.\n\nModel format: fp8.",
       "tags": [
         "Krea",
         "Anime",
@@ -361,7 +361,7 @@
       "tagline": "Community-favourites Krea 2 mix, anime cut",
       "icon": "🧩",
       "previewImage": "previews/krea2-full-v1-anime.jpg",
-      "description": "Text to image from a mix of the community's favourites, in the anime build. The author describes it as a censor-free Krea 2 checkpoint. In our test it stayed close to stock Krea 2 Turbo (which already draws nudity), with softer faces and finer lines on anime prompts. It is here because users asked for it.\n\nThis is the fastest of the Krea 2 anime cards: about 16 seconds a picture at 2 MP on a 12 GB card.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nLicence: Krea 2 Community License Agreement, per the author. Civitai: merges and derivatives allowed.",
+      "description": "Text to image from a mix of the community's favourites, in the anime build. The author describes it as a censor-free Krea 2 checkpoint. In our test it stayed close to stock Krea 2 Turbo (which already draws nudity), with softer faces and finer lines on anime prompts. It is here because users asked for it.\n\nThis is the fastest of the Krea 2 anime cards: about 16 seconds a picture at 2 MP on a 12 GB card.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nLicence: Krea 2 Community License Agreement, per the author. Civitai: merges and derivatives allowed.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Anime",
@@ -475,7 +475,7 @@
       "tagline": "Japanese look, clean bright anime, deep blues; close to stock",
       "icon": "🏮",
       "previewImage": "previews/nippon-clear-krea2-int8.jpg",
-      "description": "Text to image for Japanese subjects, anime and photographs alike. It stayed the closest to stock Krea 2 Turbo in our test, with the same compositions from the same seed. The differences are cleaner, brighter cel-anime faces, more saturated colour and deeper blues.\n\nIt is here because the community asked for it, and you may prefer it on your own prompts. It is the largest Krea 2 card to download.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds a picture at 2 MP on a 12 GB card.\n\nNon-commercial use only (Krea 2 Community License plus the Nippon LoRA's terms).",
+      "description": "Text to image for Japanese subjects, anime and photographs alike. It stayed the closest to stock Krea 2 Turbo in our test, with the same compositions from the same seed. The differences are cleaner, brighter cel-anime faces, more saturated colour and deeper blues.\n\nIt is here because the community asked for it, and you may prefer it on your own prompts. It is the largest Krea 2 card to download.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass. About 25 seconds a picture at 2 MP on a 12 GB card.\n\nNon-commercial use only (Krea 2 Community License plus the Nippon LoRA's terms).\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Anime",
@@ -590,7 +590,7 @@
       "tagline": "Dark, ornate, heavily coloured semi-real anime",
       "icon": "🥀",
       "previewImage": "previews/animosity-krea2-v2-int8.jpg",
-      "description": "Text to image where anime clashes with realism: dark, ornate semi-real pictures with rich colour and a lot of fine detail. In our test it was clearly its own look. It likes to add gold ornament and glowing red eyes to dark subjects, and it stays dark and heavily graded on photo prompts too.\n\nThis version was trained to break the same-face habit of v1.0, and the author reports the same face turning up far less often.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, about 1 minute at 1.5x. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives; no credit required.",
+      "description": "Text to image where anime clashes with realism: dark, ornate semi-real pictures with rich colour and a lot of fine detail. In our test it was clearly its own look. It likes to add gold ornament and glowing red eyes to dark subjects, and it stays dark and heavily graded on photo prompts too.\n\nThis version was trained to break the same-face habit of v1.0, and the author reports the same face turning up far less often.\n\nA quoted sign came out right in our test; background signs you did not ask for are made-up text.\n\nRenders at about 2 MP. The Upscale slider (1.1-2x) adds a detail-refine pass, about 1 minute at 1.5x. About 28 seconds a picture at 2 MP on a 12 GB card.\n\nLicence (Civitai): image use and on-site generation allowed; no derivatives; no credit required.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Anime",
@@ -704,7 +704,7 @@
       "tagline": "Backlit, high-contrast anime and illustration",
       "icon": "🌅",
       "previewImage": "previews/vxp-krea2-beta4-anime-int8.jpg",
-      "description": "Backlit, high-contrast anime and illustration, from an experimental beta series. It puts one look on everything: strong backlight, rim-lit hair, deep shadows and a dark grade. In our side-by-side none of the other Krea 2 cards gave that picture.\n\nAnime and semi-real illustration are its home ground. It also turns photo prompts into illustration, so use Beta 3 or a realism card for photographs.\n\nUncensored, but on clothed prompts it kept the clothes on in our test.\n\nAbout 14 seconds a picture at 1 MP on a 12 GB card, and 24-26 seconds at 1216x1632. Upscale above 1 and LoRAs are untested on this card.\n\nLicence (Civitai): credit not required, no derivatives or merges, commercial use limited to generation services.",
+      "description": "Backlit, high-contrast anime and illustration, from an experimental beta series. It puts one look on everything: strong backlight, rim-lit hair, deep shadows and a dark grade. In our side-by-side none of the other Krea 2 cards gave that picture.\n\nAnime and semi-real illustration are its home ground. It also turns photo prompts into illustration, so use Beta 3 or a realism card for photographs.\n\nUncensored, but on clothed prompts it kept the clothes on in our test.\n\nAbout 14 seconds a picture at 1 MP on a 12 GB card, and 24-26 seconds at 1216x1632. Upscale above 1 and LoRAs are untested on this card.\n\nLicence (Civitai): credit not required, no derivatives or merges, commercial use limited to generation services.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Turbo",
@@ -818,7 +818,7 @@
       "tagline": "Darksidewalker's Krea 2 mix: richer anime skies, darker accents; close to stock",
       "icon": "🖤",
       "previewImage": "previews/dasiwa-krea2-darkdesire-v3-int8.jpg",
-      "description": "Krea 2 Turbo pushed toward a darker, anime-friendly style by Darksidewalker, the maker of our DaSiWa H3 packs. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed. The differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it.\n\nAbout 22 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). The author does not allow merges of it. Licence (Civitai): image use and on-site generation allowed; no derivatives.",
+      "description": "Krea 2 Turbo pushed toward a darker, anime-friendly style by Darksidewalker, the maker of our DaSiWa H3 packs. In our side-by-side test it stayed close to stock Krea 2 Turbo, with the same compositions from the same seed. The differences are richer, more painted skies and backgrounds, slightly bolder lines on anime prompts and deeper reds on dark scenes. It is here because the community asked for it.\n\nAbout 22 seconds a picture on a 12 GB card.\n\nMature-capable.\n\nCivitai asks for a sign-in to download (API key). The author does not allow merges of it. Licence (Civitai): image use and on-site generation allowed; no derivatives.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Krea",
         "Turbo",

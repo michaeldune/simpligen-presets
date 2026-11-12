@@ -1,7 +1,7 @@
 {
   "id": "iris-3b-pack",
   "name": "Community — Iris-3B",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Speridlabs",
   "nsfw": false,
   "description": "Iris-3B by Speridlabs: a small (3B) text-to-image model that paints pixels directly, with no VAE. Two cards: the base model (50 steps, about 35 s a picture on a 12 GB card) and the official 4-step Turbo (about 10 s a picture). Both render at about 1 megapixel and share the Qwen3VL 4B text encoder the Krea 2 cards already use, so the base card adds only a 3.4 GB download. Runs through the ComfyUI-Iris pack by Nynxz, which the app installs for you. The base card's file is INT8 and needs an RTX 20-series card or newer. Apache-2.0.",
@@ -24,7 +24,7 @@
       "tagline": "Small pixel-space model, no VAE, about 35 s a picture",
       "icon": "👁️",
       "previewImage": "previews/iris-3b.jpg",
-      "description": "A small text-to-image model that paints pixels directly, so there is no VAE softening fine detail. About 35 seconds a picture on a 12 GB card.\n\nThe default of 50 steps at CFG 3 is a good start. Raise Steps toward 100 for the model card's reference quality, or lower it to 30 for speed.\n\nStay near 1 megapixel: the model was tuned there and draws a visible grid at small sizes. Leave the negative prompt empty unless you need it. Prompts are plain descriptive English, up to about 295 tokens.\n\nThis INT8 file needs an RTX 20-series card or newer. LoRAs are untested.\n\nLicence: Apache-2.0.",
+      "description": "A small text-to-image model that paints pixels directly, so there is no VAE softening fine detail. About 35 seconds a picture on a 12 GB card.\n\nThe default of 50 steps at CFG 3 is a good start. Raise Steps toward 100 for the model card's reference quality, or lower it to 30 for speed.\n\nStay near 1 megapixel: the model was tuned there and draws a visible grid at small sizes. Leave the negative prompt empty unless you need it. Prompts are plain descriptive English, up to about 295 tokens.\n\nThis INT8 file needs an RTX 20-series card or newer. LoRAs are untested.\n\nLicence: Apache-2.0.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Iris",
         "Realistic",
@@ -140,7 +140,7 @@
       "tagline": "The official 4-step distill, about 10 s a picture",
       "icon": "⚡",
       "previewImage": "previews/iris-3b-turbo.jpg",
-      "description": "The official 4-step version of Iris-3B, about 10 seconds a picture on a 12 GB card. Layouts follow the base card closely for the same seed, which makes it a fast way to try prompts before a 50-step render.\n\nThere is no Steps or CFG slider and the negative prompt is not used: the four-step schedule is part of the model. The sizes offered are the ones Turbo was distilled at.\n\nLoRAs are untested.\n\nLicence: Apache-2.0.",
+      "description": "The official 4-step version of Iris-3B, about 10 seconds a picture on a 12 GB card. Layouts follow the base card closely for the same seed, which makes it a fast way to try prompts before a 50-step render.\n\nThere is no Steps or CFG slider and the negative prompt is not used: the four-step schedule is part of the model. The sizes offered are the ones Turbo was distilled at.\n\nLoRAs are untested.\n\nLicence: Apache-2.0.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Iris",
         "Turbo",

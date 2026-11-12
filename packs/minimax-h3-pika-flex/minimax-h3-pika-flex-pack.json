@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pika-flex-pack",
   "name": "Community — MiniMax H3 (Pika H3 Flex 6-Step)",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Pika Labs (adapters); Comfy-Org (ComfyUI repack)",
   "nsfw": false,
   "description": "Pika Labs' Pika H3 Flex (released 2026-10-29): MiniMax H3 post-trained on video, audio and reference examples, distilled to six steps and refined with reward feedback. It ships as two adapters on the standard H3 weights, one for text and first/last-frame video (FL2VA) and one for reference-to-video (Ref2VA), so with the MiniMax H3 pack installed only the 1.96 GB adapter downloads. The cards run Pika's published schedule exactly as the Comfy-Org templates do: lcm sampler, a fixed seven-value sigma list, CFG 1. There is no step control and no Spectrum or Sol-Attn, because the adapter is already distilled and Pika warn that a second accelerator breaks the output; do not add a turbo or speed LoRA in the LoRA slot either. Tested 2026-10-29 on a 12 GB RTX 4070 Ti with 32 GB RAM, one seed per card on Pika's own template prompts: 5 s at 480p in 81 s (text), 89 s (first + last frame) and 93 s (two references); 5 s at 768p in 4 min 12 s. All three followed their prompt beat for beat, the first/last-frame card landed on both pictures, and the reference card held a helmet and a space station from one picture each. Run again through SimpliGen itself (faster attention on), the same three shots took 79, 82 and 83 s and matched the engine runs beat for beat. The 'seconds, not minutes' speeds in Pika's announcement are datacenter-GPU numbers. Pika's prompting notes: give every camera move a stopping point, describe a wide shot as content ('small inside a large empty room'), and expect a hand told to stop just short to make contact. MiniMax H3 Community License; read its territorial and commercial-use terms before commercial use.",
@@ -21,7 +21,7 @@
       "name": "MiniMax H3 Text to Video (Pika H3 Flex 6-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-pika-flex-t2v.jpg",
-      "description": "Describe a scene and get video with matching stereo sound in six steps. A five-second shot takes about 1.5 minutes at 480p and about 4 minutes at 768p on a 12 GB card.\n\nWrite the prompt the H3 way: style, then each shot with its camera move, then sound. Give each camera move an end point.",
+      "description": "Describe a scene and get video with matching stereo sound in six steps. A five-second shot takes about 1.5 minutes at 480p and about 4 minutes at 768p on a 12 GB card.\n\nWrite the prompt the H3 way: style, then each shot with its camera move, then sound. Give each camera move an end point.\n\nModel format: int8 ConvRot.",
       "tagline": "Pika's six-step H3, from a prompt",
       "tags": [
         "6-Step",
@@ -339,7 +339,7 @@
       "name": "MiniMax H3 Image to Video (Pika H3 Flex 6-Step)",
       "icon": "⚡",
       "previewImage": "previews/minimax-h3-pika-flex-i2v.jpg",
-      "description": "Your picture is the first frame. Add a last frame and the video animates between the two, with stereo sound, in six steps. A five-second 480p shot takes about 1.5 minutes on a 12 GB card.\n\nPictures are centre-cropped to the output shape, so pick the aspect ratio that matches them. In the prompt, describe the path between the frames, not the frames themselves, and give each camera move an end point. On Pika's sample pair the video opened on the first picture and ended on the second.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
+      "description": "Your picture is the first frame. Add a last frame and the video animates between the two, with stereo sound, in six steps. A five-second 480p shot takes about 1.5 minutes on a 12 GB card.\n\nPictures are centre-cropped to the output shape, so pick the aspect ratio that matches them. In the prompt, describe the path between the frames, not the frames themselves, and give each camera move an end point. On Pika's sample pair the video opened on the first picture and ended on the second.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.\n\nModel format: int8 ConvRot.",
       "tagline": "Six steps between a first and last frame",
       "tags": [
         "6-Step",
@@ -665,7 +665,7 @@
       "name": "MiniMax H3 Reference to Video (Pika H3 Flex 6-Step)",
       "icon": "🎭",
       "previewImage": "previews/minimax-h3-pika-flex-r2v.jpg",
-      "description": "Steers the people, props, places and voices of a shot with up to nine reference pictures, three reference clips and three sounds, generated in six steps. A five-second 480p shot with two pictures takes about 1.5 minutes on a 12 GB card.\n\nThe pictures never appear in the video, so the prompt must describe the whole shot. Name each picture as <Picture 1>, <Picture 2> and so on, as in H3's full reference format. Give each camera move an end point.\n\nOn Pika's sample it kept a pilot's helmet and a space station from one picture each. Reference clips and sounds are wired but were not tested.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.",
+      "description": "Steers the people, props, places and voices of a shot with up to nine reference pictures, three reference clips and three sounds, generated in six steps. A five-second 480p shot with two pictures takes about 1.5 minutes on a 12 GB card.\n\nThe pictures never appear in the video, so the prompt must describe the whole shot. Name each picture as <Picture 1>, <Picture 2> and so on, as in H3's full reference format. Give each camera move an end point.\n\nOn Pika's sample it kept a pilot's helmet and a space station from one picture each. Reference clips and sounds are wired but were not tested.\n\nDo not add a turbo or speed LoRA in the LoRA slot: Pika warn that a second accelerator breaks the output.\n\nMiniMax H3 Community License. Read its territorial and commercial-use terms before commercial use.\n\nModel format: int8 ConvRot.",
       "tagline": "Six-step H3 from reference pictures",
       "tags": [
         "6-Step",

@@ -1,7 +1,7 @@
 {
   "id": "community-z-image",
   "name": "Community — Z-Image",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "various",
   "nsfw": false,
   "description": "Z-Image base checkpoints.",
@@ -15,7 +15,7 @@
       "name": "LucidDreamer Z v0.79 SR",
       "icon": "💭",
       "previewImage": "previews/luciddreamer-z-v079-sr-zib.jpg",
-      "description": "Semi-realistic pictures on Z-Image Base, general-purpose across subjects. The base was an anime model, so anime-style drawings can still appear. Name the style you want in the prompt.\n\nSpell out the pose, composition and background. The author warns about this version specifically: left to itself, it can go strange.\n\nDescribe the picture in plain sentences. The card adds nothing to your prompt.\n\nThe author builds this series around a Distill LoRA and strongly recommends one. This card runs without it, at 30 steps with the author's fallback settings. The whole series is experimental.\n\nLicence: Apache 2.0.",
+      "description": "Semi-realistic pictures on Z-Image Base, general-purpose across subjects. The base was an anime model, so anime-style drawings can still appear. Name the style you want in the prompt.\n\nSpell out the pose, composition and background. The author warns about this version specifically: left to itself, it can go strange.\n\nDescribe the picture in plain sentences. The card adds nothing to your prompt.\n\nThe author builds this series around a Distill LoRA and strongly recommends one. This card runs without it, at 30 steps with the author's fallback settings. The whole series is experimental.\n\nLicence: Apache 2.0.\n\nModel format: fp8.",
       "tags": [
         "Z-Image",
         "Base",

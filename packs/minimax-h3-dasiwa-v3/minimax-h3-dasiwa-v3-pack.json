@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-dasiwa-v3-pack",
   "name": "Community — MiniMax H3 (DaSiWa Hybrid v3)",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Darksidewalker",
   "nsfw": false,
   "description": "Darksidewalker's DaSiWa Hybrid Turbo v3 (2026-10-01): the third release of the drop-in int8 ConvRot finetune, with what the author describes as a retuned distillation blend, better motion and more detail on anime and stylised subjects. One checkpoint covers text, image and reference to video, distillation baked in, no Turbo LoRA, nothing to install. WHY A THIRD DASIWA PACK. It is an option, not a replacement: the v1 and v2 packs stay as they are. Measured 2026-10-07 on a 12 GB RTX 4070 Ti against the v2 pack on the same seed, prompts, references and graphs: the same speed (about 100 s per five-second shot at 480p, eight steps), every identity held on three reference sets (solo, two-person, person plus location), and a scripted line came out word for word on three of three seeds. The look is different rather than plainly better: on our comparison seed v3 was darker and cleaner, kept a studio light out of frame where v2 put it in the shot, and showed less surface grain and less movement. Try both and keep the one you like. Works with the app's Faster Attention toggle (76-85 s per shot with it on). Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
@@ -21,7 +21,7 @@
       "name": "MiniMax H3 Text to Video (DaSiWa Hybrid v3)",
       "icon": "⛩️",
       "previewImage": "previews/minimax-h3-dasiwa-v3-t2v.jpg",
-      "description": "Describe a scene and get video with synchronised audio, eight steps by default. This is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, with less surface grain and less movement, so try both and keep the one you like.\n\nAbout 100 s per five-second shot at 480p on a 12 GB card, or 76-85 s with the app's Faster Attention toggle on. Tested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
+      "description": "Describe a scene and get video with synchronised audio, eight steps by default. This is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, with less surface grain and less movement, so try both and keep the one you like.\n\nAbout 100 s per five-second shot at 480p on a 12 GB card, or 76-85 s with the app's Faster Attention toggle on. Tested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.\n\nModel format: int8 ConvRot.",
       "tagline": "DaSiWa's third release; eight steps",
       "tags": [
         "Video",
@@ -321,7 +321,7 @@
       "name": "MiniMax H3 Image to Video (DaSiWa Hybrid v3)",
       "icon": "🖼️",
       "previewImage": "previews/minimax-h3-dasiwa-v3-i2v.jpg",
-      "description": "Animate a picture with synchronised audio, eight steps by default. Your picture is the first frame; an optional second picture is the last frame.\n\nThis is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, so try both and keep the one you like.\n\nTested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
+      "description": "Animate a picture with synchronised audio, eight steps by default. Your picture is the first frame; an optional second picture is the last frame.\n\nThis is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, so try both and keep the one you like.\n\nTested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.\n\nModel format: int8 ConvRot.",
       "tagline": "Start from a picture; eight steps",
       "tags": [
         "Video",
@@ -629,7 +629,7 @@
       "name": "MiniMax H3 Reference to Video (DaSiWa Hybrid v3)",
       "icon": "👥",
       "previewImage": "previews/minimax-h3-dasiwa-v3-r2v.jpg",
-      "description": "Make video with synchronised audio from up to nine reference pictures, eight steps by default. Every identity held on a solo reference, a two-person shot and a person-plus-location set.\n\nThis is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, so try both and keep the one you like.\n\nAbout 2 minutes per five-second reference shot at 480p on a 12 GB card, or 76-85 s with the app's Faster Attention toggle on. Tested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.",
+      "description": "Make video with synchronised audio from up to nine reference pictures, eight steps by default. Every identity held on a solo reference, a two-person shot and a person-plus-location set.\n\nThis is an option beside DaSiWa v2, not a replacement. It runs at the same speed. On our comparison seed it was darker and cleaner than v2, so try both and keep the one you like.\n\nAbout 2 minutes per five-second reference shot at 480p on a 12 GB card, or 76-85 s with the app's Faster Attention toggle on. Tested at eight steps only: the slider allows fewer, but that is unverified on this checkpoint.\n\nNeeds a Civitai API key: the author requires sign-in to download, so add one in Settings before installing. The model itself is free.\n\nModel format: int8 ConvRot.",
       "tagline": "Up to nine references; eight steps",
       "tags": [
         "Video",

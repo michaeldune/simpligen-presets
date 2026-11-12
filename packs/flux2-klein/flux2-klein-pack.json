@@ -1,7 +1,7 @@
 {
   "id": "flux2-klein-pack",
   "name": "Community — Flux 2 Klein",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "Black Forest Labs",
   "nsfw": false,
   "description": "FLUX.2 Klein 9B (fp8) — Black Forest Labs' open Flux 2 model. Flux 2 DiT + Qwen 3 4B encoder + Flux 2 VAE, native ComfyUI Flux 2 support.",
@@ -24,7 +24,7 @@
       "tagline": "Open Flux 2 — strong prompt-following and detail",
       "icon": "🌀",
       "previewImage": "previews/flux2-klein-9b-fp8.jpg",
-      "description": "Open Flux 2 model with excellent prompt adherence, coherent composition and clean detail, distilled to 4 steps.\n\nIt is fine-tuned to resist Mature content but has no hard output filter.\n\nLicence: non-commercial (Black Forest Labs).",
+      "description": "Open Flux 2 model with excellent prompt adherence, coherent composition and clean detail, distilled to 4 steps.\n\nIt is fine-tuned to resist Mature content but has no hard output filter.\n\nLicence: non-commercial (Black Forest Labs).\n\nModel format: fp8.",
       "tags": [
         "Flux",
         "Flux2",
@@ -130,7 +130,7 @@
       "tagline": "Fast 4-step Klein 4B with wide style range",
       "icon": "🎨",
       "previewImage": "previews/klein-4b-maxx-v10.jpg",
-      "description": "A fine-tune of the distilled 4B Klein with a wide style range, from photoreal to painterly. Lighter and faster than the 9B, in 4 steps.\n\nLicence: the Klein base is non-commercial.",
+      "description": "A fine-tune of the distilled 4B Klein with a wide style range, from photoreal to painterly. Lighter and faster than the 9B, in 4 steps.\n\nLicence: the Klein base is non-commercial.\n\nModel format: fp8.",
       "tags": [
         "Flux",
         "Flux2",

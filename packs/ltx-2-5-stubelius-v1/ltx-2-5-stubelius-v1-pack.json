@@ -1,7 +1,7 @@
 {
   "id": "ltx-2-5-stubelius-v1-pack",
   "name": "LTX 2.5 Stubelius v1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Stubelius (model) + michaeldune (pack)",
   "nsfw": true,
   "addedAt": "2026-11-08",
@@ -24,7 +24,7 @@
       "id": "stubelius-v1-ltx-25-anime-t2v",
       "name": "LTX 2.5 Stubelius v1 Anime (T2V, Mature)",
       "icon": "🌸",
-      "description": "Text to video with generated sound for anime, 2.5D and stylized characters, using the sharper v1 of Stubelius Remix. Against the beta 2 card on the same prompts and seeds, every clip was visibly crisper, with more motion and slightly less saturated colour.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
+      "description": "Text to video with generated sound for anime, 2.5D and stylized characters, using the sharper v1 of Stubelius Remix. Against the beta 2 card on the same prompts and seeds, every clip was visibly crisper, with more motion and slightly less saturated colour.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.\n\nModel format: int8 ConvRot.",
       "tagline": "Sharper anime-first LTX 2.5 text-to-video with generated audio",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-t2v.jpg",
       "tags": [
@@ -203,7 +203,7 @@
       "id": "stubelius-v1-ltx-25-anime-i2v",
       "name": "LTX 2.5 Stubelius v1 Anime (I2V, Mature)",
       "icon": "🌸",
-      "description": "Animates a source image and generates its sound, for anime, 2.5D and stylized characters, using v1 of Stubelius Remix. On image to video it looked the same as the beta 2 card in our test, so either card will do. The sharper picture showed up on text to video.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.",
+      "description": "Animates a source image and generates its sound, for anime, 2.5D and stylized characters, using v1 of Stubelius Remix. On image to video it looked the same as the beta 2 card in our test, so either card will do. The sharper picture showed up on text to video.\n\nThis is a mature-only model. A clothed anime prompt came out with exposed skin every time, and a second character in a two-person prompt was missing from the sampled frames every time, the same as beta 2. Re-roll when a staging beat is skipped.\n\nAbout 85-100 seconds for 5 seconds at 480p on a 12 GB card, the same as the beta 2 card.\n\nRequires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 for the shared encoder and VAEs.\n\nLicence: LTX-2 Community License; check the base and donor model licences before commercial use. Adult-capable model, for consenting-adult creative work only.\n\nModel format: int8 ConvRot.",
       "tagline": "Anime-first LTX 2.5 image-to-video on Stubelius Remix v1",
       "previewImage": "previews/stubelius-v1-ltx-25-anime-i2v.jpg",
       "tags": [

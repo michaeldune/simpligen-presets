@@ -1,7 +1,7 @@
 {
   "id": "moss-nsfw-finetunes-pack",
   "name": "Community — MOSS-Image Figure Finetunes",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "addedAt": "2026-10-19",
   "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
   "nsfw": true,
@@ -28,7 +28,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with the anatomy fixed",
-      "description": "A mature MOSS-Image merge by iamddtla, with LoRAs merged in to fix anatomy and add poses, keeping the base model's look and faces. In our test it avoided the anatomy errors the MOSS-Image cards made.\n\nSFW prompts come out close to MOSS-Image, lettering included. Quote every word you want on the picture.\n\n50 steps as the author runs it, about 50 seconds a picture on a 12 GB card; 25-30 steps is about twice as fast. Character LoRAs work with it (the author tested them).",
+      "description": "A mature MOSS-Image merge by iamddtla, with LoRAs merged in to fix anatomy and add poses, keeping the base model's look and faces. In our test it avoided the anatomy errors the MOSS-Image cards made.\n\nSFW prompts come out close to MOSS-Image, lettering included. Quote every word you want on the picture.\n\n50 steps as the author runs it, about 50 seconds a picture on a 12 GB card; 25-30 steps is about twice as fast. Character LoRAs work with it (the author tested them).\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -132,7 +132,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Fast MOSS-Image in 8 steps",
-      "description": "A fast mature MOSS-Image finetune by neuroshaman: 8 steps at CFG 1, about 15 seconds a picture on a 12 GB card. In our test it avoided the anatomy errors the MOSS-Image cards made on mature prompts.\n\nThe look is smooth and retouched. On SFW prompts it follows directions less closely than MOSS-Image and can add made-up small text, so keep the words you want in quotes and check small print.",
+      "description": "A fast mature MOSS-Image finetune by neuroshaman: 8 steps at CFG 1, about 15 seconds a picture on a 12 GB card. In our test it avoided the anatomy errors the MOSS-Image cards made on mature prompts.\n\nThe look is smooth and retouched. On SFW prompts it follows directions less closely than MOSS-Image and can add made-up small text, so keep the words you want in quotes and check small print.\n\nModel format: int8 ConvRot on about half the weights, the rest bf16.",
       "tags": [
         "Image",
         "MOSS",
@@ -236,7 +236,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Fast photos with a natural, amateur look",
-      "description": "Mature photos with an amateur look, natural skin and lived-in rooms. By J1B: MOSS-Image with an 8-step speed LoRA merged in. 12 steps at CFG 1, about 13 seconds a picture on a 12 GB card, the fastest card in the pack.\n\nIn our test it drew the sharpest anatomy. On some sex positions it drew a different pose, so name the position in the first sentence. Write the prompt as sentences, not a tag list.",
+      "description": "Mature photos with an amateur look, natural skin and lived-in rooms. By J1B: MOSS-Image with an 8-step speed LoRA merged in. 12 steps at CFG 1, about 13 seconds a picture on a 12 GB card, the fastest card in the pack.\n\nIn our test it drew the sharpest anatomy. On some sex positions it drew a different pose, so name the position in the first sentence. Write the prompt as sentences, not a tag list.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -340,7 +340,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with a glossy glamour look",
-      "description": "A MOSS-Image finetune by CrHasher, made for explicit mature work, with a glossy, tanned glamour look. 25 steps at CFG 3.5, about 37 seconds a picture on a 12 GB card.\n\nIn our test its sex scenes were the most explicit and the easiest to read. Check close-up anatomy on complex positions. The author notes a lean toward Asian faces, so describe the look you want.",
+      "description": "A MOSS-Image finetune by CrHasher, made for explicit mature work, with a glossy, tanned glamour look. 25 steps at CFG 3.5, about 37 seconds a picture on a 12 GB card.\n\nIn our test its sex scenes were the most explicit and the easiest to read. Check close-up anatomy on complex positions. The author notes a lean toward Asian faces, so describe the look you want.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",

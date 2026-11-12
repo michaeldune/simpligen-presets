@@ -1,7 +1,7 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "addedAt": "2026-10-19",
   "author": "toya_san / catlover1937 / lodestones / malcolmrey / lonecatone23 / nuko_masshigura (pack: michaeldune)",
   "nsfw": false,
@@ -32,7 +32,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Natural-looking MOSS pictures in 8 steps",
-      "description": "Natural-looking pictures with the speed built in: toya_san's MOSS-Image finetune needs no speed LoRA and takes about 12 seconds a picture on a 12 GB card.\n\nSkin and light look natural rather than retouched, and it keeps the light and mood you ask for, so it suits portraits and photo-style prompts better than MOSS-Image Fast.\n\nPut every word you want on the picture in quotes. Lettering is good, but it can still drop a word from a small label now and then, so check signs and buttons.",
+      "description": "Natural-looking pictures with the speed built in: toya_san's MOSS-Image finetune needs no speed LoRA and takes about 12 seconds a picture on a 12 GB card.\n\nSkin and light look natural rather than retouched, and it keeps the light and mood you ask for, so it suits portraits and photo-style prompts better than MOSS-Image Fast.\n\nPut every word you want on the picture in quotes. Lettering is good, but it can still drop a word from a small label now and then, so check signs and buttons.\n\nModel format: int8.",
       "tags": [
         "Image",
         "MOSS",
@@ -132,7 +132,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "MOSS-Image with deeper contrast and richer colour",
-      "description": "MOSS-Image with more contrast and saturation: darker shadows, richer colour, and a painterly look when you ask for illustration. By catlover1937.\n\nLettering stays exact. Put every word you want on the picture in quotes.\n\nAbout 27 seconds a picture on a 12 GB card. Pick it for a punchier look; for a neutral one, use MOSS-Image.",
+      "description": "MOSS-Image with more contrast and saturation: darker shadows, richer colour, and a painterly look when you ask for illustration. By catlover1937.\n\nLettering stays exact. Put every word you want on the picture in quotes.\n\nAbout 27 seconds a picture on a 12 GB card. Pick it for a punchier look; for a neutral one, use MOSS-Image.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -237,7 +237,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Photographic MOSS in 8 steps, with more variety per seed",
-      "description": "A full fine-tune of MOSS-Image Base by lodestones, with its own 8-step speed LoRA: about 4 seconds a picture on a 12 GB card.\n\nIt follows layout and composition directions more literally than MOSS-Image and gives much more variety between seeds. Photos look natural rather than retouched, and posters can come out looking like real printed paper.\n\nLettering: big headlines in quotes come out right, but small signs and thin fonts can lose or garble a word. For text that must be exact, use MOSS-Image.\n\nAsk for a \"woman\" or \"man\" and give an age. With \"girl\" it draws teenagers, and people can look younger than with MOSS-Image even then.",
+      "description": "A full fine-tune of MOSS-Image Base by lodestones, with its own 8-step speed LoRA: about 4 seconds a picture on a 12 GB card.\n\nIt follows layout and composition directions more literally than MOSS-Image and gives much more variety between seeds. Photos look natural rather than retouched, and posters can come out looking like real printed paper.\n\nLettering: big headlines in quotes come out right, but small signs and thin fonts can lose or garble a word. For text that must be exact, use MOSS-Image.\n\nAsk for a \"woman\" or \"man\" and give an age. With \"girl\" it draws teenagers, and people can look younger than with MOSS-Image even then.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -345,7 +345,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Brighter, flatter MOSS-Image with looser lettering",
-      "description": "A brighter, flatter take on MOSS-Image, with looser, more calligraphic poster lettering. It is malcolmrey's true finetune with no LoRAs merged in, a snapshot at 210,000 training steps that the author plans to train further.\n\nPut every word you want in quotes, and check your text: a figure can cover a word on a sign. It reads semi-real rather than anime when you ask for anime.\n\n25 steps at CFG 3 (the author gives no settings), about 23 seconds a picture on a 12 GB card.",
+      "description": "A brighter, flatter take on MOSS-Image, with looser, more calligraphic poster lettering. It is malcolmrey's true finetune with no LoRAs merged in, a snapshot at 210,000 training steps that the author plans to train further.\n\nPut every word you want in quotes, and check your text: a figure can cover a word on a sign. It reads semi-real rather than anime when you ask for anime.\n\n25 steps at CFG 3 (the author gives no settings), about 23 seconds a picture on a 12 GB card.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",
@@ -450,7 +450,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "Deepest colour and contrast of the MOSS cards; slow",
-      "description": "Anime meets realism, with a lot of colour: in our test it had the deepest colour and contrast of the MOSS cards and kept lettering good. By lonecatone23, the MOSS-Image version of their Animosity, trained on its own images rather than merged.\n\nIt only comes as a 10 GB bf16 file, so it is the slow one here: about 53 seconds a picture on a 12 GB card. 25 steps at CFG 3 (the author gives no settings).\n\nPut every word you want in quotes. Please credit lonecatone23 when you share what you make.",
+      "description": "Anime meets realism, with a lot of colour: in our test it had the deepest colour and contrast of the MOSS cards and kept lettering good. By lonecatone23, the MOSS-Image version of their Animosity, trained on its own images rather than merged.\n\nIt only comes as a 10 GB bf16 file, so it is the slow one here: about 53 seconds a picture on a 12 GB card. 25 steps at CFG 3 (the author gives no settings).\n\nPut every word you want in quotes. Please credit lonecatone23 when you share what you make.\n\nModel format: bf16, not quantized.",
       "tags": [
         "Image",
         "MOSS",
@@ -556,7 +556,7 @@
       "enabled": true,
       "template": "sdxl",
       "tagline": "The most polished anime on MOSS-Image, 50 steps",
-      "description": "The most polished anime of the MOSS cards in our test. It is nuko_masshigura's merge of full MOSS-Image finetunes, tuned for anime.\n\nIt runs the author's recipe: 50 steps at CFG 3 with Skip Layer Guidance. The author says the art style and bodies suffer without that guidance. In our test it changed the pictures a little and cost no extra time: about 34 seconds a picture on a 12 GB card.\n\nThe author trained it on natural-language captions and Danbooru tags, so either kind of prompt works. Put every word you want in quotes.",
+      "description": "The most polished anime of the MOSS cards in our test. It is nuko_masshigura's merge of full MOSS-Image finetunes, tuned for anime.\n\nIt runs the author's recipe: 50 steps at CFG 3 with Skip Layer Guidance. The author says the art style and bodies suffer without that guidance. In our test it changed the pictures a little and cost no extra time: about 34 seconds a picture on a 12 GB card.\n\nThe author trained it on natural-language captions and Danbooru tags, so either kind of prompt works. Put every word you want in quotes.\n\nModel format: int8 ConvRot.",
       "tags": [
         "Image",
         "MOSS",

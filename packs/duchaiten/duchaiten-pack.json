@@ -1,7 +1,7 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "DucHaiten",
   "nsfw": true,
   "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
@@ -21,7 +21,7 @@
       "tagline": "Pixar-meets-3D-anime SD 1.5",
       "icon": "✨",
       "previewImage": "previews/duchaiten-goldenlife-v10.jpg",
-      "description": "A 3D blend the author describes as 30% Pixar, 20% 3D realism and 50% 3D anime, trained with a focus on eyes and skin.\n\nNatural-language or tag prompts both work. Best near 512px.",
+      "description": "A 3D blend the author describes as 30% Pixar, 20% 3D realism and 50% 3D anime, trained with a focus on eyes and skin.\n\nNatural-language or tag prompts both work. Best near 512px.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SD 1.5",
         "3D",
@@ -114,7 +114,7 @@
       "tagline": "Cinematic pore-level realism",
       "icon": "🎬",
       "previewImage": "previews/duchaiten-noobai-cinematic-v10.jpg",
-      "description": "Cinematic realism with skin detail down to every pore. The author built it as a successor to his Pony-Real.\n\nNatural-language or tag prompts both work. Skip hires on close-ups; it softens skin.\n\nFor a sharper two-pass version, see the Snapvu card.",
+      "description": "Cinematic realism with skin detail down to every pore. The author built it as a successor to his Pony-Real.\n\nNatural-language or tag prompts both work. Skip hires on close-ups; it softens skin.\n\nFor a sharper two-pass version, see the Snapvu card.\n\nModel format: fp16, not quantized.",
       "tags": [
         "NoobAI",
         "SDXL",
@@ -218,7 +218,7 @@
       "tagline": "Cinematic realism with a hires pass",
       "icon": "🎥",
       "previewImage": "previews/duchaiten-noobai-cinematic-snapvu-v10.jpg",
-      "description": "The Snapvu build of NoobAI-Cinematic: finer light through skin and sharper pores. It renders in two passes, the base picture and then a 1.5x hires pass, so it is slower than the plain card.\n\nThis build needs the hires pass and only behaves at CFG 3-4.5, so keep the CFG in that range.",
+      "description": "The Snapvu build of NoobAI-Cinematic: finer light through skin and sharper pores. It renders in two passes, the base picture and then a 1.5x hires pass, so it is slower than the plain card.\n\nThis build needs the hires pass and only behaves at CFG 3-4.5, so keep the CFG in that range.\n\nModel format: fp16, not quantized.",
       "tags": [
         "NoobAI",
         "SDXL",
@@ -325,7 +325,7 @@
       "tagline": "AAA game-cutscene 3D",
       "icon": "🎮",
       "previewImage": "previews/duchaiten-gameart-unrealengine-v10.jpg",
-      "description": "Tuned toward the look of Unreal Engine 5 game cutscenes. No score tags are needed, because it is built on the author's no-score Pony base.\n\nThe author recommends CFG 8-9.",
+      "description": "Tuned toward the look of Unreal Engine 5 game cutscenes. No score tags are needed, because it is built on the author's no-score Pony base.\n\nThe author recommends CFG 8-9.\n\nModel format: fp16, not quantized.",
       "tags": [
         "Pony",
         "SDXL",
@@ -428,7 +428,7 @@
       "tagline": "Vintage 2.5D illustration",
       "icon": "🏛️",
       "previewImage": "previews/duchaiten-xl-golden-age-v10.jpg",
-      "description": "A classic, golden-age illustrated look across 2D and 2.5D, merged from the author's best SDXL models and several dozen style LoRAs.\n\nThe author gives no special settings; it is meant to be easy.",
+      "description": "A classic, golden-age illustrated look across 2D and 2.5D, merged from the author's best SDXL models and several dozen style LoRAs.\n\nThe author gives no special settings; it is meant to be easy.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SDXL",
         "2.5D",
@@ -530,7 +530,7 @@
       "tagline": "Realistic 3D, thicker bodies",
       "icon": "🔥",
       "previewImage": "previews/duchaiten-real3d-nsfw-v10.jpg",
-      "description": "The author's mature build: realistic 3D figures with detailed skin and fuller body types. He notes a distinctive Asian face that is his own style rather than the common one.\n\nIt has a narrow prompt range by design. Best near 512px.",
+      "description": "The author's mature build: realistic 3D figures with detailed skin and fuller body types. He notes a distinctive Asian face that is his own style rather than the common one.\n\nIt has a narrow prompt range by design. Best near 512px.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SD 1.5",
         "3D",
@@ -624,7 +624,7 @@
       "tagline": "50s-90s film and pin-up",
       "icon": "📼",
       "previewImage": "previews/duchaiten-retro-v20.jpg",
-      "description": "Vintage photographic looks from the 50s to the 90s, pin-up and film stills, plus some live-action-anime range.\n\nBest near 512px.",
+      "description": "Vintage photographic looks from the 50s to the 90s, pin-up and film stills, plus some live-action-anime range.\n\nBest near 512px.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SD 1.5",
         "Retro",
@@ -718,7 +718,7 @@
       "tagline": "Stylized SD 1.5 (DucHaiTen)",
       "icon": "🎨",
       "previewImage": "previews/duchaiten-pack-thiccboi-v10.jpg",
-      "description": "Stylised bodies and bright colour: NijiCute colours, MindBreak hips and FancyxFancy toned builds, with western-comic influence. It covers cartoon, Pixar-like 3D and 2.5D.\n\nPrompt with Danbooru tags. It is very consistent, so edit prompts rather than copying them. Best near 512px.",
+      "description": "Stylised bodies and bright colour: NijiCute colours, MindBreak hips and FancyxFancy toned builds, with western-comic influence. It covers cartoon, Pixar-like 3D and 2.5D.\n\nPrompt with Danbooru tags. It is very consistent, so edit prompts rather than copying them. Best near 512px.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SD 1.5",
         "Anime",
@@ -813,7 +813,7 @@
       "tagline": "Surreal, painterly, all-in-one",
       "icon": "🌀",
       "previewImage": "previews/duchaiten-stylelikeme-v15.jpg",
-      "description": "Surreal, painterly pictures with very high detail. It is flexible across anime, 3D art, painting, cartoon and landscape, and simple prompts work.\n\nOn the author's advice it runs at high CFG and 50 steps; he suggests CFG 11-15. Native size goes up to 768.",
+      "description": "Surreal, painterly pictures with very high detail. It is flexible across anime, 3D art, painting, cartoon and landscape, and simple prompts work.\n\nOn the author's advice it runs at high CFG and 50 steps; he suggests CFG 11-15. Native size goes up to 768.\n\nModel format: fp16, not quantized.",
       "tags": [
         "SD 1.5",
         "Surreal",
