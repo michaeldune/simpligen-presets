@@ -54,6 +54,11 @@ CUSTOM_NODES = {
         'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
         'note': 'H3 Motion Context Trim node (see above) - removes the pinned head from picture and sound together.',
     },
+    'MiniMaxH3MaskedAVBridge': {
+        'name': 'ComfyUI-H3-Motion-Context-MultiRef',
+        'url':  'https://github.com/seitanism/ComfyUI-H3-Motion-Context-MultiRef',
+        'note': 'H3 Masked AV Bridge (see above) - locks the anchor clip\'s first and last frames, picture and sound, into the bridge latent so the loop closes. Pin a823ca7 (same as the Chain packs).',
+    },
     'T8_IndexTTS25_ModelLoader': {
         'name': 'comfyui-indextts25-T8',
         'url':  'https://github.com/T8mars/comfyui-indextts25-T8',
