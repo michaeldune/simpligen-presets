@@ -1,7 +1,7 @@
 {
   "id": "fibo2-edit-pack",
   "name": "Fibo 2.0 Edit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -13,7 +13,7 @@
     "Edit",
     "Local"
   ],
-  "description": "Bria's Fibo 2.0 Edit Turbo: hand it a picture and a sentence, and it changes the one thing you named. Eight steps, about 14 seconds for a 1 megapixel picture on a 12 GB card. In a side-by-side against MOSS-Image Edit on the same pictures, instructions and seeds it was the better editor: told to make a red bicycle yellow it recoloured that bicycle, same frame and same fenders, where MOSS drew a different bicycle; told to repaint a shop front and keep the signs it kept them; and it holds faces, skin tone and the original light closer. Lettering in the picture survives either way. Where it is weaker: a heavy style change (photo to watercolour) drifts the face more than MOSS does. A ratio that does not match your picture centre-crops it, but unlike the MOSS edit card the edit itself still holds up, lettering included. LICENCE: the Fibo 2.0 weights are CC BY-NC 4.0, NON-COMMERCIAL USE ONLY. Selling the pictures, or using them in anything commercial, needs a separate agreement with BRIA AI (platform.bria.ai/licensing). 13.3 GB download. Needs a SimpliGen engine with native Fibo 2.0 support, which landed in ComfyUI on 21 October, after the v0.42.1 tag.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nBria's Fibo 2.0 Edit Turbo: hand it a picture and a sentence, and it changes the one thing you named. Eight steps, about 14 seconds for a 1 megapixel picture on a 12 GB card. In a side-by-side against MOSS-Image Edit on the same pictures, instructions and seeds it was the better editor: told to make a red bicycle yellow it recoloured that bicycle, same frame and same fenders, where MOSS drew a different bicycle; told to repaint a shop front and keep the signs it kept them; and it holds faces, skin tone and the original light closer. Lettering in the picture survives either way. Where it is weaker: a heavy style change (photo to watercolour) drifts the face more than MOSS does. A ratio that does not match your picture centre-crops it, but unlike the MOSS edit card the edit itself still holds up, lettering included. LICENCE: the Fibo 2.0 weights are CC BY-NC 4.0, NON-COMMERCIAL USE ONLY. Selling the pictures, or using them in anything commercial, needs a separate agreement with BRIA AI (platform.bria.ai/licensing). 13.3 GB download. Needs a SimpliGen engine with native Fibo 2.0 support, which landed in ComfyUI on 21 October, after the v0.42.1 tag.",
   "checksums": {
     "https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/b2bffaf57d48825a6989b986f24d5cfb8c71231b/diffusion_models/fibo2_edit_turbo_int8_convrot.safetensors": "1f6fa7c499191f405467123f655f11762661eaa5bd479d1da8f161398ef72c3b",
     "https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/b2bffaf57d48825a6989b986f24d5cfb8c71231b/text_encoders/qwen3vl_4b_int8_convrot.safetensors": "32de113cbf8282b02cbff0794b637b9d6676da09314a1db5a30bcea9bf4ee01c",

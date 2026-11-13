@@ -1,10 +1,10 @@
 {
   "id": "community-z-image",
   "name": "Community — Z-Image",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "various",
   "nsfw": false,
-  "description": "Z-Image base checkpoints.",
+  "description": "Model format: fp8. Steps: 30 by default.\n\nZ-Image base checkpoints.",
   "tags": [
     "Local",
     "Z-Image"

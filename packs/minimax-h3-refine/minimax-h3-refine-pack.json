@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-refine-pack",
   "name": "Community — MiniMax H3 (Video Refine)",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "LBH-123-AI + alibaba-pai + Jalen-Brunson",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
-  "description": "Re-render a finished MiniMax H3 clip at a higher tier without leaving H3. Drop the clip in Reference Video 1, paste the brief that made it, pick the output tier. The clip is encoded, upscaled by LBH-123-AI's trained 3D latent upscaler, then refined with Alibaba's official 8-step PDD distill at denoise 0.25 (the last two of its eight trained blocks) in 73-frame windows with 22-frame overlap, so any length up to 15 s runs in one queue. The source soundtrack is muxed back untouched; nothing is re-synthesised in the audio. Same model family as the clip, so the look, motion and cast stay H3's own. Expects 480p H3 input; it cannot repair a face the source already lost. Euler, CFG 1, 8-step grid, sigma shift 12/3, all enforced by the PDD node. Do not stack a Turbo or lightx2v LoRA in the LoRA slot.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nRe-render a finished MiniMax H3 clip at a higher tier without leaving H3. Drop the clip in Reference Video 1, paste the brief that made it, pick the output tier. The clip is encoded, upscaled by LBH-123-AI's trained 3D latent upscaler, then refined with Alibaba's official 8-step PDD distill at denoise 0.25 (the last two of its eight trained blocks) in 73-frame windows with 22-frame overlap, so any length up to 15 s runs in one queue. The source soundtrack is muxed back untouched; nothing is re-synthesised in the audio. Same model family as the clip, so the look, motion and cast stay H3's own. Expects 480p H3 input; it cannot repair a face the source already lost. Euler, CFG 1, 8-step grid, sigma shift 12/3, all enforced by the PDD node. Do not stack a Turbo or lightx2v LoRA in the LoRA slot.",
   "tags": ["Local", "Video", "V2V", "Upscale", "Refine", "MiniMax H3", "PDD", "8-step"],
   "presets": [
     {

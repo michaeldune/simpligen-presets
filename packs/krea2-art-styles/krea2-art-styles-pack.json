@@ -1,10 +1,10 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Krea 2 Art & Styles",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Krea 2 checkpoints that do not look like Krea 2. Equinox: crisp, idealised semi-real characters. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Ray Krea2 x Mid Aesthetic: moody, romantic, Midjourney-style pictures. Since 2.0.0, two dark looks from the old Krea 2 pack: BF95 Dark Realism (cool, cinematic photoreal grade) and VXP Beta 3 (backlit, high-contrast, on photos and illustration alike); the six anime cards moved to Krea 2 Anime. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs. For photography use Krea 2 Realism or Krea 2 Finetunes.",
+  "description": "Model format and default steps by card: Equinox Krea 2 (Semi-Realistic), Fwaun Tune Krea 2 (Semi-Chibi) and VXP Krea 2 Beta 3 (Hybrid): int8 ConvRot at 8 steps; Fascium KREA ART (Painterly): int8 ConvRot at 10 steps; Wulver Krea 2 (Anthro) and BF95 Krea 2 Dark Realism v3.0: fp8 at 8 steps; Ray Krea2 x Mid Aesthetic: plain int8 (no ConvRot) at 12 steps.\n\nKrea 2 checkpoints that do not look like Krea 2. Equinox: crisp, idealised semi-real characters. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Ray Krea2 x Mid Aesthetic: moody, romantic, Midjourney-style pictures. Since 2.0.0, two dark looks from the old Krea 2 pack: BF95 Dark Realism (cool, cinematic photoreal grade) and VXP Beta 3 (backlit, high-contrast, on photos and illustration alike); the six anime cards moved to Krea 2 Anime. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs. For photography use Krea 2 Realism or Krea 2 Finetunes.",
   "tags": [
     "Local",
     "Krea",

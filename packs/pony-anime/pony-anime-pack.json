@@ -1,10 +1,10 @@
 {
   "id": "pony-anime-pack",
   "name": "Community — Pony Anime",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "various",
   "nsfw": false,
-  "description": "Pony-based SDXL checkpoints for anime, illustration, and stylized characters.",
+  "description": "Model format: fp16, not quantized. Steps: 25 to 30 by default, depending on the card.\n\nPony-based SDXL checkpoints for anime, illustration, and stylized characters.",
   "tags": [
     "Local",
     "Pony",

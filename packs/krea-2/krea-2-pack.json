@@ -1,10 +1,10 @@
 {
   "id": "krea-2-pack",
   "name": "Krea 2 Realism",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": "Krea AI",
   "nsfw": true,
-  "description": "Krea 2 photoreal mixes, most of them uncensored: Moody Mix, RedCraft Red Mix (1.1 and 3.0), Realia, Fascium V3, Sick Ollie (natural, true-to-prompt photos) and Dark Beast (FP8, plus free GGUF Q8 and Q4 builds, since the FP8 file is paid on Civitai). All are 8-12 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass). They share one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its checkpoint. Renamed from Krea 2 in 2.0.0, when the pack was split: the anime cards (VXP Beta 4, DaSiWa DarkDesire) moved to Krea 2 Anime, and BF95 Dark Realism and VXP Beta 3 moved to Krea 2 Art & Styles. Trained finetunes are in Krea 2 Finetunes.",
+  "description": "Model format and default steps by card: Moody Krea 2 Mix V1.0, Realia Krea 2 V1.0, Fascium Krea 2 V3 and Dark Beast Krea 2 (FP8): fp8 at 8 steps; RedCraft Krea 2 Red Mix and RedCraft Krea 2 Red Mix 3.0: fp8 at 10 steps; Dark Beast Krea 2 (GGUF Q8): GGUF Q8_0 at 8 steps; Dark Beast Krea 2 (GGUF Q4): GGUF Q4_0 at 8 steps; Sick Ollie Krea 2: int8 ConvRot at 9 steps.\n\nKrea 2 photoreal mixes, most of them uncensored: Moody Mix, RedCraft Red Mix (1.1 and 3.0), Realia, Fascium V3, Sick Ollie (natural, true-to-prompt photos) and Dark Beast (FP8, plus free GGUF Q8 and Q4 builds, since the FP8 file is paid on Civitai). All are 8-12 step distilled checkpoints at CFG 1, rendering at native ~2 MP (1408x1408 and equivalents) with an Upscale slider (1.1-2x adds a 4-step detail-refine pass; 1x is a clean single pass). They share one Qwen3VL 4B encoder and Qwen-Image VAE, so each extra mix costs only its checkpoint. Renamed from Krea 2 in 2.0.0, when the pack was split: the anime cards (VXP Beta 4, DaSiWa DarkDesire) moved to Krea 2 Anime, and BF95 Dark Realism and VXP Beta 3 moved to Krea 2 Art & Styles. Trained finetunes are in Krea 2 Finetunes.",
   "tags": [
     "Local",
     "Krea",

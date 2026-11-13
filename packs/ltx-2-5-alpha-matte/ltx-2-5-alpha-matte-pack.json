@@ -1,11 +1,11 @@
 {
   "id": "ltx-2-5-alpha-matte-pack",
   "name": "LTX 2.5 Alpha Matte (Video Cut-out)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Lightricks",
   "nsfw": false,
   "minAppVersion": "1.77.0",
-  "description": "Cut the subject out of any clip with Lightricks' Alpha-Gen IC-LoRA on LTX 2.5. Drop a clip in Reference Video 1 and get it back over a green screen, or as a black-and-white matte for an editor. No prompt: the model decides what the foreground is. It keeps single hair strands and gives smoke and motion blur soft, see-through edges. Up to 145 frames per run (about 6 seconds at 24 fps), at the source's own shape. Reuses the official LTX 2.5 weights; the only new download is the 1.3 GB Alpha-Gen LoRA, which sits in its own gated HuggingFace repo, so accept its licence once and give SimpliGen a HuggingFace token.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nCut the subject out of any clip with Lightricks' Alpha-Gen IC-LoRA on LTX 2.5. Drop a clip in Reference Video 1 and get it back over a green screen, or as a black-and-white matte for an editor. No prompt: the model decides what the foreground is. It keeps single hair strands and gives smoke and motion blur soft, see-through edges. Up to 145 frames per run (about 6 seconds at 24 fps), at the source's own shape. Reuses the official LTX 2.5 weights; the only new download is the 1.3 GB Alpha-Gen LoRA, which sits in its own gated HuggingFace repo, so accept its licence once and give SimpliGen a HuggingFace token.",
   "tags": ["Local", "Video", "V2V", "Matte", "Green Screen", "Cut-out", "LTX"],
   "checksums": {
     "https://huggingface.co/Lightricks/LTX-2.5/resolve/e8dc69fd26150afbfa20351f6bc9ac384257f9fd/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors": "c4279eeff115cbeaca494bd2183e7d768c38fe85a184dc6afbb7159157c44334",

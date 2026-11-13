@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-10eros-pack",
   "name": "Community — MiniMax H3 (10Eros Max)",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "author": "DmitryDB",
   "nsfw": true,
-  "description": "MiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
+  "description": "Model format: int8 ConvRot. Steps: 20 by default.\n\nMiniMax H3 on the 10Eros Max finetune, INT8 ConvRot build for RTX 30/40. Non-pruned weights: faster than the stock base despite being larger, because fewer layers need per-step dequantisation. Text-to-video, image-to-video and reference-to-video, all on one model file. The Turbo variants moved to their own pack, MiniMax H3 (10Eros Max, Turbo).",
   "tags": [
     "Local",
     "Video",

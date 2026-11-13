@@ -1,10 +1,10 @@
 {
   "id": "sdxl-art-anime-pack",
   "name": "Community — SDXL Art & Anime",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "various",
   "nsfw": false,
-  "description": "Stylized, artistic, and anime SDXL 1.0 checkpoints.",
+  "description": "Model format: fp16, not quantized. Steps: 28 to 30 by default, depending on the card.\n\nStylized, artistic, and anime SDXL 1.0 checkpoints.",
   "tags": [
     "Local",
     "SDXL",

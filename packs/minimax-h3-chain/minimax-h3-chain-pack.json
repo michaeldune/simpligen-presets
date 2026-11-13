@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-chain-pack",
   "name": "Community — MiniMax H3 (Clip Chaining)",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "NikoDemon80 + seitanism (Motion Context), Comfy-Org (Add Guide)",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
-  "description": "Continue an existing MiniMax H3 clip into a longer one with the motion, camera and sound carried across the cut. Drop the clip to continue into Reference Video 1 and describe what happens next. Two mechanisms, measured side by side on 2026-09-04: MOTION CONTEXT pins the last 22 frames and end-aligns the same 22 frames of audio on the new clip's timeline, so the soundtrack genuinely continues (correlation 0.95, 0 ms lag); ADD GUIDE uses ComfyUI's stock guide node and anchors the same frames forward, so the picture is just as seamless but the audio is imitated rather than continued (-8 ms lag). Both were visually seamless on a static-camera shot (join ratio 1.9 and 1.3 against 16 for a hard cut). Fast action across the cut is untested. Same official weights as the MiniMax H3 pack, no extra downloads; one pure-Python node pack.",
+  "description": "Model format: int8 ConvRot. Steps: 20 by default.\n\nContinue an existing MiniMax H3 clip into a longer one with the motion, camera and sound carried across the cut. Drop the clip to continue into Reference Video 1 and describe what happens next. Two mechanisms, measured side by side on 2026-09-04: MOTION CONTEXT pins the last 22 frames and end-aligns the same 22 frames of audio on the new clip's timeline, so the soundtrack genuinely continues (correlation 0.95, 0 ms lag); ADD GUIDE uses ComfyUI's stock guide node and anchors the same frames forward, so the picture is just as seamless but the audio is imitated rather than continued (-8 ms lag). Both were visually seamless on a static-camera shot (join ratio 1.9 and 1.3 against 16 for a hard cut). Fast action across the cut is untested. Same official weights as the MiniMax H3 pack, no extra downloads; one pure-Python node pack.",
   "tags": [
     "Local",
     "Video",

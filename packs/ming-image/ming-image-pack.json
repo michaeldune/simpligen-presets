@@ -1,13 +1,13 @@
 {
   "id": "ming-image-pack",
   "name": "Community — Ming Image Design",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "addedAt": "2026-09-30",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.38.0",
-  "description": "Ming-Image 0.1 Design from inclusionAI, a 6B model made for design work: app screens, web pages, posters, menus, infographics and ads, with the headlines, buttons and labels you ask for spelled correctly. Describe the layout, the sections and the exact words in quotes. Three cards: Design (about 1 megapixel, about 20 seconds on a 12 GB card), Design 4MP (the model's native 2048 size, about 35 seconds) and Masked Edit, which changes only the area you mark in a second, black-and-white picture and leaves the rest of the design exactly as it was. Headlines, buttons and navigation come out right; long lists and small text can slip a word or garble, so check the lettering and re-roll when needed. It is not a photo model: people and photos come out flat. One 19 GB download covers all three cards. MIT licence.",
+  "description": "Model format: int8 ConvRot. Steps: 12 by default.\n\nMing-Image 0.1 Design from inclusionAI, a 6B model made for design work: app screens, web pages, posters, menus, infographics and ads, with the headlines, buttons and labels you ask for spelled correctly. Describe the layout, the sections and the exact words in quotes. Three cards: Design (about 1 megapixel, about 20 seconds on a 12 GB card), Design 4MP (the model's native 2048 size, about 35 seconds) and Masked Edit, which changes only the area you mark in a second, black-and-white picture and leaves the rest of the design exactly as it was. Headlines, buttons and navigation come out right; long lists and small text can slip a word or garble, so check the lettering and re-roll when needed. It is not a photo model: people and photos come out flat. One 19 GB download covers all three cards. MIT licence.",
   "tags": [
     "Local",
     "Design",

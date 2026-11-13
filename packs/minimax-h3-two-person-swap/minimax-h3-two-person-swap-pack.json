@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-two-person-swap-pack",
   "name": "Community — MiniMax H3 (Two-Person Swap)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "D3voz (graph and nodes) + ZhengmingYu (DMAD LoRA) + michaeldune (card)",
   "nsfw": false,
-  "description": "One card that swaps two people in an existing clip for two characters at once, which the Character Swap card cannot do: it replaces one person. Graph by D3voz (OpenJutsu), running SAM 3.1 tracking, a small vision model that matches your two role lines to the people it tracks, and H3 masked editing with the DMAD 4-step LoRA. Keeps the camera, background, motion, cuts, other people and soundtrack. 5 to 15 s at 480p in the clip's own shape; about 3.5 minutes for 5 s on 12 GB. Adds five extensions through the app, and 8.9 GB on top of the official MiniMax H3 files. MiniMax H3 Community License and SAM License.",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nOne card that swaps two people in an existing clip for two characters at once, which the Character Swap card cannot do: it replaces one person. Graph by D3voz (OpenJutsu), running SAM 3.1 tracking, a small vision model that matches your two role lines to the people it tracks, and H3 masked editing with the DMAD 4-step LoRA. Keeps the camera, background, motion, cuts, other people and soundtrack. 5 to 15 s at 480p in the clip's own shape; about 3.5 minutes for 5 s on 12 GB. Adds five extensions through the app, and 8.9 GB on top of the official MiniMax H3 files. MiniMax H3 Community License and SAM License.",
   "tags": [
     "Local",
     "Video",

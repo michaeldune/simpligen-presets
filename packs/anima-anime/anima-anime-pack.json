@@ -1,10 +1,10 @@
 {
   "id": "anima-anime-pack",
   "name": "Anima Anime",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Anima (Cosmos) anime checkpoints: the official models and the fast cards. Anima Base v1.0 (the widest range of styles), the official Anima Turbo v1.1 (10 steps, about 6 s) and the official Anima-2.9B v1 preview, plus VXP Anima Turbo, the two RDBT distills and Diving v8 (flat TV-anime cel shading). Since 2.0.0 the other cards are in Anima Large (the 2.9B and 3.8B fine-tunes), Anima Anime Mixes (clean, bright mixes) and Anima Art & Styles (soft, 2.5D and painterly looks). Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 10 to 35 by default, depending on the card.\n\nAnima (Cosmos) anime checkpoints: the official models and the fast cards. Anima Base v1.0 (the widest range of styles), the official Anima Turbo v1.1 (10 steps, about 6 s) and the official Anima-2.9B v1 preview, plus VXP Anima Turbo, the two RDBT distills and Diving v8 (flat TV-anime cel shading). Since 2.0.0 the other cards are in Anima Large (the 2.9B and 3.8B fine-tunes), Anima Anime Mixes (clean, bright mixes) and Anima Art & Styles (soft, 2.5D and painterly looks). Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",

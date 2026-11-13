@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-dasiwa-v5-pack",
   "name": "Community — MiniMax H3 (DaSiWa GXS v5)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Darksidewalker",
   "nsfw": false,
-  "description": "Darksidewalker's DaSiWa GXS v5 Turbo (2026-11-08), the fifth release of the drop-in int8 ConvRot finetune. The author describes it as a merge of DaSiWa v4, DaSiWa v5 and Singularity v2 with the Pika Flex HD Turbo distillation baked in. One checkpoint covers text, image and reference to video, with no Turbo LoRA and nothing to install. Eight steps by default, the author's quality setting; the slider goes down to four, which the author calls a fast preview with weaker audio. It is an option beside the v1 to v4 packs, not a replacement. Checked 2026-11-12 on a 12 GB RTX 4070 Ti against the v4 pack on the same seeds, prompts, references and graphs: a scripted line came out word for word on three of three seeds at four, six and eight steps, and every identity held on three reference sets over three seeds. On one seed in three a person-plus-location shot opened on the person's own photo for about a second before dissolving into the scene. Works with the app's Faster Attention toggle. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nDarksidewalker's DaSiWa GXS v5 Turbo (2026-11-08), the fifth release of the drop-in int8 ConvRot finetune. The author describes it as a merge of DaSiWa v4, DaSiWa v5 and Singularity v2 with the Pika Flex HD Turbo distillation baked in. One checkpoint covers text, image and reference to video, with no Turbo LoRA and nothing to install. Eight steps by default, the author's quality setting; the slider goes down to four, which the author calls a fast preview with weaker audio. It is an option beside the v1 to v4 packs, not a replacement. Checked 2026-11-12 on a 12 GB RTX 4070 Ti against the v4 pack on the same seeds, prompts, references and graphs: a scripted line came out word for word on three of three seeds at four, six and eight steps, and every identity held on three reference sets over three seeds. On one seed in three a person-plus-location shot opened on the person's own photo for about a second before dissolving into the scene. Works with the app's Faster Attention toggle. Needs a Civitai API key: the author requires sign-in to download, though the model itself is free.",
   "tags": [
     "Hybrid",
     "I2V",

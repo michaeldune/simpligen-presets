@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-8plus2-pack",
   "name": "Community — MiniMax H3 8+2 Two-Pass R2V",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Deno (recipe, DenoMix); WarmBloodAban (Singularity); Alibaba PAI, drbaph, Kijai, LBH-123-AI (LoRAs, refiner, upscaler)",
   "nsfw": false,
-  "description": "Reference to video in two passes on Deno's 8+2 recipe: eight fast steps at a small size, a latent upscale, then the last two of the same eight steps at full size. The sound from the first pass is kept untouched, so the second pass cannot change a spoken line.\n\nTwo cards, same graph. DenoMix is Deno's merge of stock H3 and Singularity with a few extra weights. Singularity v2 is the same recipe for anyone who already has that model or wants more movement.\n\nBoth cards take your reference pictures and run at 768p by default, with a 928p tier for extra detail.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nReference to video in two passes on Deno's 8+2 recipe: eight fast steps at a small size, a latent upscale, then the last two of the same eight steps at full size. The sound from the first pass is kept untouched, so the second pass cannot change a spoken line.\n\nTwo cards, same graph. DenoMix is Deno's merge of stock H3 and Singularity with a few extra weights. Singularity v2 is the same recipe for anyone who already has that model or wants more movement.\n\nBoth cards take your reference pictures and run at 768p by default, with a 928p tier for extra detail.",
   "tags": [
     "Local",
     "Video",

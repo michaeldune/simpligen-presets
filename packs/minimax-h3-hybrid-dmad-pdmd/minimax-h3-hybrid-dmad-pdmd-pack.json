@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-hybrid-dmad-pdmd-pack",
   "name": "Community — MiniMax H3 (Hybrid DMAD PDMD)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "OliviaRossi (merge); Zhengming Yu et al. (DMAD), Zimo Wang et al. and Iwannapose (PDMD)",
   "nsfw": false,
-  "description": "OliviaRossi's MiniMax H3 Hybrid DMAD PDMD (2026-11-03): a merge of MiniMax H3's two base models, FL2VA for the look and Ref2VA for following references, with the DMAD and PDMD distillations built in. Text, image and reference to video from one 18.9 GB int8 ConvRot file, with no LoRA to load and nothing to install. It downloads from Hugging Face, so no Civitai key is needed. Eight steps by default at the author's settings (euler, simple, shift 12/3, no CFG); the slider covers four to ten. Checked 2026-11-12 on a 12 GB RTX 4070 Ti beside the DaSiWa GXS v5 pack on the same seeds, prompts and references: the picture is brighter and holds more fine background detail, a scripted line came out word for word on three of three seeds, and identity held on a solo and a two-person reference set over three seeds. On one seed in three a person-plus-location shot stayed on the person's own photo and never reached the location. Works with the app's Faster Attention toggle.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nOliviaRossi's MiniMax H3 Hybrid DMAD PDMD (2026-11-03): a merge of MiniMax H3's two base models, FL2VA for the look and Ref2VA for following references, with the DMAD and PDMD distillations built in. Text, image and reference to video from one 18.9 GB int8 ConvRot file, with no LoRA to load and nothing to install. It downloads from Hugging Face, so no Civitai key is needed. Eight steps by default at the author's settings (euler, simple, shift 12/3, no CFG); the slider covers four to ten. Checked 2026-11-12 on a 12 GB RTX 4070 Ti beside the DaSiWa GXS v5 pack on the same seeds, prompts and references: the picture is brighter and holds more fine background detail, a scripted line came out word for word on three of three seeds, and identity held on a solo and a two-person reference set over three seeds. On one seed in three a person-plus-location shot stayed on the person's own photo and never reached the location. Works with the app's Faster Attention toggle.",
   "tags": [
     "8-Step",
     "Hybrid",

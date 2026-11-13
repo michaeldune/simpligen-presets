@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-sparseref15-pack",
   "name": "Community — MiniMax H3 (SparseRef15)",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "Aki7777777",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
-  "description": "Aki7777777's SparseRef15 Hybrid, Pruned Partial-INT8 V1.0: FL2VA with a sparse Ref2VA influence in 15 blocks, built for character consistency without losing FL2VA motion. One 21 GB checkpoint on the official 20-step graphs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Face crop sharpness 396 vs 243 (+63%), stillest static shot, most motion in the moving shot, same ~200 s per clip. Text and image to video only: it is not a native Ref2VA model, and its long-form identity claim is untested on our side, so no reference card until it is.",
+  "description": "Model format: int8 ConvRot on part of the model, the rest unquantized (the author calls it partial int8). Steps: 20 by default.\n\nAki7777777's SparseRef15 Hybrid, Pruned Partial-INT8 V1.0: FL2VA with a sparse Ref2VA influence in 15 blocks, built for character consistency without losing FL2VA motion. One 21 GB checkpoint on the official 20-step graphs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Face crop sharpness 396 vs 243 (+63%), stillest static shot, most motion in the moving shot, same ~200 s per clip. Text and image to video only: it is not a native Ref2VA model, and its long-form identity claim is untested on our side, so no reference card until it is.",
   "tags": [
     "Local",
     "Video",

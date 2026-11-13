@@ -1,10 +1,10 @@
 {
   "id": "illustrious-anime-pack",
   "name": "Illustrious Anime",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Illustrious-based anime SDXL checkpoints: WAI Illustrious v17, Nova Anime XL v7.0, IllumiYume XL v3.2 (V-pred), Vete Crimson Oath, Mega Cock Fantasy - Human, and two community-requested merges that stay close to their parents, MoonMix XL (close to WAI v17) and ClearColor Air XL (close to Nova Anime). Prompt with Danbooru tags. Since 2.0.0 the cards with a look of their own (UnrealVision, RIN Flanime, One Obsession, Rule of Moon, PerfectDeliberate, SmoothMix Ultimate) are in the Illustrious Art & Styles pack.",
+  "description": "Model format: fp16, not quantized. Steps: 20 to 30 by default, depending on the card.\n\nIllustrious-based anime SDXL checkpoints: WAI Illustrious v17, Nova Anime XL v7.0, IllumiYume XL v3.2 (V-pred), Vete Crimson Oath, Mega Cock Fantasy - Human, and two community-requested merges that stay close to their parents, MoonMix XL (close to WAI v17) and ClearColor Air XL (close to Nova Anime). Prompt with Danbooru tags. Since 2.0.0 the cards with a look of their own (UnrealVision, RIN Flanime, One Obsession, Rule of Moon, PerfectDeliberate, SmoothMix Ultimate) are in the Illustrious Art & Styles pack.",
   "tags": [
     "Local",
     "Illustrious",

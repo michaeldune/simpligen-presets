@@ -1,10 +1,10 @@
 {
   "id": "anima-art-styles-pack",
   "name": "Anima Art & Styles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Anima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds) and MyGoo (soft 2.5D with warm, photo-like light). These cards came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 28 to 30 by default, depending on the card.\n\nAnima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds) and MyGoo (soft 2.5D with warm, photo-like light). These cards came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",

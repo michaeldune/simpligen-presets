@@ -2,10 +2,10 @@
   "deprecated": true,
   "id": "sefi-image-pack",
   "name": "Community — SeFi-Image",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "SeFi-Team",
   "nsfw": false,
-  "description": "SeFi-Image 5B — Semantic-First Diffusion (Flux 2 Klein-based). Excellent text rendering and stylized art (posters, anime, watercolor). Runs via the Rebels SeFi custom nodes.",
+  "description": "Model format: GGUF Q8_0. Steps: 4 to 8 by default, depending on the card.\n\nSeFi-Image 5B — Semantic-First Diffusion (Flux 2 Klein-based). Excellent text rendering and stylized art (posters, anime, watercolor). Runs via the Rebels SeFi custom nodes.",
   "tags": [
     "Local",
     "SeFi",

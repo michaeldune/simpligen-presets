@@ -1,10 +1,10 @@
 {
   "id": "pony-realistic-pack",
   "name": "Community — Pony Realistic",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "various",
   "nsfw": false,
-  "description": "Pony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
+  "description": "Model format: fp16, not quantized. Steps: 25 to 30 by default, depending on the card.\n\nPony-based SDXL checkpoints tuned for photorealistic and semi-realistic output.",
   "tags": [
     "Local",
     "Pony",

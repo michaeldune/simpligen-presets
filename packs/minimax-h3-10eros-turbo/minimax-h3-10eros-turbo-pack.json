@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-10eros-turbo-pack",
   "name": "Community — MiniMax H3 (10Eros Max, Turbo)",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "DmitryDB",
   "nsfw": true,
-  "description": "MiniMax H3 on the 10Eros Max finetune with larryvrh's Turbo LoRA: six steps instead of twenty. Text-to-video, image-to-video and reference-to-video. Uses the same 10Eros Max weights as the plain pack, plus the Turbo LoRA - if you have the plain pack installed this costs one extra file.",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nMiniMax H3 on the 10Eros Max finetune with larryvrh's Turbo LoRA: six steps instead of twenty. Text-to-video, image-to-video and reference-to-video. Uses the same 10Eros Max weights as the plain pack, plus the Turbo LoRA - if you have the plain pack installed this costs one extra file.",
   "tags": [
     "Local",
     "Video",

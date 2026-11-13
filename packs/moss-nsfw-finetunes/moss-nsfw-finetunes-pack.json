@@ -1,13 +1,13 @@
 {
   "id": "moss-nsfw-finetunes-pack",
   "name": "Community — MOSS-Image Figure Finetunes",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "addedAt": "2026-10-19",
   "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
   "nsfw": true,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Four mature MOSS-Image finetunes from Civitai that avoid the anatomy errors the MOSS-Image cards make on figure work. Two fast ones: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds. Two slower ones: Anatomy Fix Moss, the base model's look and faces with the anatomy corrected, 50 steps, about 50 seconds; Prime Lust Moss, the most direct of the four, with a glamour look, 25 steps, about 37 seconds. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Model format and default steps by card: Anatomy Fix Moss: int8 ConvRot at 50 steps; Artius Moss: int8 ConvRot on about half the weights (the rest bf16) at 8 steps; Jib Mix Moss Realistic: int8 ConvRot at 12 steps; Prime Lust Moss: int8 ConvRot at 25 steps.\n\nFour mature MOSS-Image finetunes from Civitai that avoid the anatomy errors the MOSS-Image cards make on figure work. Two fast ones: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds. Two slower ones: Anatomy Fix Moss, the base model's look and faces with the anatomy corrected, 50 steps, about 50 seconds; Prime Lust Moss, the most direct of the four, with a glamour look, 25 steps, about 37 seconds. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
     "Local"

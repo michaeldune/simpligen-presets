@@ -1,10 +1,10 @@
 {
   "id": "sdxl-realism-pack",
   "name": "Community — SDXL Realism",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "author": "various",
   "nsfw": false,
-  "description": "General SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
+  "description": "Model format: fp16, not quantized. Steps: 30 to 35 by default, depending on the card.\n\nGeneral SDXL 1.0 photoreal checkpoints for lifelike people and scenes.",
   "tags": [
     "Local",
     "SDXL",

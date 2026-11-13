@@ -1,10 +1,10 @@
 {
   "id": "anima-realism-pack",
   "name": "Community — Anima Realism",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "various",
   "nsfw": false,
-  "description": "Anima (Cosmos) photoreal checkpoints.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 12 to 30 by default, depending on the card.\n\nAnima (Cosmos) photoreal checkpoints.",
   "tags": [
     "Local",
     "Anima",

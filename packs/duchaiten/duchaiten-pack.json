@@ -1,10 +1,10 @@
 {
   "id": "duchaiten-pack",
   "name": "Community — DucHaiten",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "DucHaiten",
   "nsfw": true,
-  "description": "DucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
+  "description": "Model format: fp16, not quantized. Steps: 30 to 50 by default, depending on the card.\n\nDucHaiten's checkpoints across SD 1.5, SDXL, NoobAI and Pony: Pixar-style 3D, cinematic pore-level realism (plain and Snapvu hires), Unreal-Engine game art, golden-age illustration, realistic 3D and retro film.",
   "tags": [
     "Local",
     "DucHaiten",

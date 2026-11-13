@@ -1,10 +1,10 @@
 {
   "id": "illustrious-art-styles-pack",
   "name": "Illustrious Art & Styles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Illustrious SDXL checkpoints with a look of their own, which came from the Illustrious Anime pack when it was split on 2026-11-09. UnrealVision: a high-end 3D-render look (Unreal Engine, Arcane and Pixar-style light). RIN Flanime: flat colour with sharp line art, closer to a clean drawing. One Obsession v24: muted, cinematic colour and hazy light. Rule of Moon, PerfectDeliberate and SmoothMix Ultimate: anime pushed toward semi-real. Prompt with Danbooru tags. For plain anime use Illustrious Anime; for photoreal people use Illustrious Realism.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 30 by default, depending on the card.\n\nIllustrious SDXL checkpoints with a look of their own, which came from the Illustrious Anime pack when it was split on 2026-11-09. UnrealVision: a high-end 3D-render look (Unreal Engine, Arcane and Pixar-style light). RIN Flanime: flat colour with sharp line art, closer to a clean drawing. One Obsession v24: muted, cinematic colour and hazy light. Rule of Moon, PerfectDeliberate and SmoothMix Ultimate: anime pushed toward semi-real. Prompt with Danbooru tags. For plain anime use Illustrious Anime; for photoreal people use Illustrious Realism.",
   "tags": [
     "Local",
     "Illustrious",

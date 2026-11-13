@@ -1,10 +1,10 @@
 {
   "id": "sd15-anime-pack",
   "name": "Community — SD 1.5 Anime",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "various",
   "nsfw": false,
-  "description": "Local SD 1.5 anime checkpoints (CLIP Skip 2, external kl-f8-anime2 VAE), tuned for ~512px.",
+  "description": "Model format: not quantized (fp16 or fp32, depending on the card). Steps: 30 by default.\n\nLocal SD 1.5 anime checkpoints (CLIP Skip 2, external kl-f8-anime2 VAE), tuned for ~512px.",
   "tags": [
     "Local",
     "SD 1.5",

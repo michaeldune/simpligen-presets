@@ -1,11 +1,11 @@
 {
   "id": "song-album-art-pack",
   "name": "Community — Song + Album Art",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "minComfyuiVersion": "v0.37.0",
   "author": "m-a-p (YuE2) + MiniMax (Music 3) + Alibaba Qwen (Qwen-Image 2.1)",
   "nsfw": false,
-  "description": "Local song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Qwen-Image 2.1. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0; painted album art is Qwen-Image 2.1 (Qwen Research Licence, non-commercial).",
+  "description": "Model format: int8 ConvRot (YuE2 or Music 3 for the song, Qwen-Image 2.1 for the cover).\n\nLocal song generation delivered as an MP4 with album art: your picture, a Character, or art painted by Qwen-Image 2.1. YuE2 and MiniMax Music 3 write full songs with lyrics from a style and a lyric sheet. A Cover Song card sings your lyrics in your style over the melody of a song you upload, and a Swap Album Art card puts new art on a finished song. YuE2 and SheetSage2 are CC-BY-NC-4.0 (non-commercial); MiniMax Music 3 is Apache-2.0; painted album art is Qwen-Image 2.1 (Qwen Research Licence, non-commercial).",
   "tags": [
     "Local",
     "Music",

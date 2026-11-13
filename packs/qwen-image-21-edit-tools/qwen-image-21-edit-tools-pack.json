@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-edit-tools-pack",
   "name": "Qwen Image 2.1 Edit Tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "addedAt": "2026-11-09",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Eight Qwen-Image 2.1 edit cards that each do one job to your picture; they came from the Qwen Image 2.1 pack when it was split on 2026-11-09. Edit (Steady Frame) keeps the result lined up with your original (ausboss's Consistency LoRA). Edit 4MP edits with one to four pictures at the model's full ~4 MP size. Enhance to 4MP adds fine detail to any picture (Elusarca's Detail Enhancer LoRA). Cutout returns the subject on a real transparent background. Character Sheet turns one picture of a person into a front / back / head-angles reference sheet. Head Swap puts one person's face and hair into another picture, Outfit Swap dresses a person in the clothes from another picture, and Pose Studio moves a person into the pose of a 3D doll (MiuProject's VNCCS Pose Studio LoRA). They share the model, encoder and VAE with the Qwen Image 2.1 pack, so with that installed each card costs only its LoRA. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Model format: int8 ConvRot. Steps: 20 to 25 by default, depending on the card.\n\nEight Qwen-Image 2.1 edit cards that each do one job to your picture; they came from the Qwen Image 2.1 pack when it was split on 2026-11-09. Edit (Steady Frame) keeps the result lined up with your original (ausboss's Consistency LoRA). Edit 4MP edits with one to four pictures at the model's full ~4 MP size. Enhance to 4MP adds fine detail to any picture (Elusarca's Detail Enhancer LoRA). Cutout returns the subject on a real transparent background. Character Sheet turns one picture of a person into a front / back / head-angles reference sheet. Head Swap puts one person's face and hair into another picture, Outfit Swap dresses a person in the clothes from another picture, and Pose Studio moves a person into the pose of a 3D doll (MiuProject's VNCCS Pose Studio LoRA). They share the model, encoder and VAE with the Qwen Image 2.1 pack, so with that installed each card costs only its LoRA. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",

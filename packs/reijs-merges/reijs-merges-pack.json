@@ -1,10 +1,10 @@
 {
   "id": "reijs-merges-pack",
   "name": "Community — Reij's Merges",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "reijlita",
   "nsfw": false,
-  "description": "A collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
+  "description": "Model format: fp16, not quantized. Steps: 28 to 32 by default, depending on the card.\n\nA collection of Reij's Illustrious merges spanning anime, semi-realism, digital art, and fantasy realism.",
   "tags": [
     "Local",
     "Illustrious",

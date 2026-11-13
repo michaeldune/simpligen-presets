@@ -1,13 +1,13 @@
 {
   "id": "moss-image-pack",
   "name": "Community — MOSS-Image",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "addedAt": "2026-10-18",
   "author": "michaeldune",
   "nsfw": false,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "MOSS-Image from OpenMOSS: a 5B text-to-image model built around lettering. Headlines, signs, posters, menus and handwriting come out spelled right, Chinese and Japanese included, as long as every word is in quotes. Two cards: MOSS-Image (25 steps, about 20 seconds on a 12 GB card) and MOSS-Image Fast (8 steps with lodestones' speed LoRA, about 3 seconds once the prompt is loaded). One 14 GB download covers both. Needs a SimpliGen engine with native MOSS-Image support, which today means the beta engine: Settings > Updates > beta, take the engine update, and the pack installs. On the stable engine the Store marks it as needing the beta engine; it opens on stable by itself once a tagged engine release carries MOSS. Apache-2.0.",
+  "description": "Model format: int8 ConvRot. Steps: 8 to 25 by default, depending on the card.\n\nMOSS-Image from OpenMOSS: a 5B text-to-image model built around lettering. Headlines, signs, posters, menus and handwriting come out spelled right, Chinese and Japanese included, as long as every word is in quotes. Two cards: MOSS-Image (25 steps, about 20 seconds on a 12 GB card) and MOSS-Image Fast (8 steps with lodestones' speed LoRA, about 3 seconds once the prompt is loaded). One 14 GB download covers both. Needs a SimpliGen engine with native MOSS-Image support, which today means the beta engine: Settings > Updates > beta, take the engine update, and the pack installs. On the stable engine the Store marks it as needing the beta engine; it opens on stable by itself once a tagged engine release carries MOSS. Apache-2.0.",
   "tags": [
     "Image",
     "Text",

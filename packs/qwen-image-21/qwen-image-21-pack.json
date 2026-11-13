@@ -1,13 +1,13 @@
 {
   "id": "qwen-image-21-pack",
   "name": "Qwen Image 2.1",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Qwen-Image 2.1, the 7B model that writes lettering correctly and edits from plain words. Text to image at 1 MP and at the model's full ~4 MP, in three speeds: the main card (about 35 s a picture on a 12 GB card), Turbo (Qwen's official 8-step LoRA, about 15 s, still good at small lettering), and Fast Drafts (Viggle's 5-step LoRA, about 11 s, for trying ideas), plus Fast (HDR), Fast Drafts through Felldude's HDR VAE for punchier colour. Turbo 4MP makes a 4 MP picture in about 40 s instead of about 1.5 minutes. Two plain edit cards: Edit (one to four reference pictures) and Fast Edit (PrunaAI's 8-step LoRA, about 20 s for a one-picture edit instead of about 80). One 17 GB download covers the main, 4MP and Edit cards; each faster card adds its LoRA. Since 2.0.0 the eight edit cards that do one job (Steady Frame, Edit 4MP, Enhance to 4MP, Cutout, Character Sheet, Head Swap, Outfit Swap, Pose Studio) are in the Qwen Image 2.1 Edit Tools pack, which shares this pack's model, encoder and VAE. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
+  "description": "Model format: int8 ConvRot. Steps: 5 to 25 by default, depending on the card.\n\nQwen-Image 2.1, the 7B model that writes lettering correctly and edits from plain words. Text to image at 1 MP and at the model's full ~4 MP, in three speeds: the main card (about 35 s a picture on a 12 GB card), Turbo (Qwen's official 8-step LoRA, about 15 s, still good at small lettering), and Fast Drafts (Viggle's 5-step LoRA, about 11 s, for trying ideas), plus Fast (HDR), Fast Drafts through Felldude's HDR VAE for punchier colour. Turbo 4MP makes a 4 MP picture in about 40 s instead of about 1.5 minutes. Two plain edit cards: Edit (one to four reference pictures) and Fast Edit (PrunaAI's 8-step LoRA, about 20 s for a one-picture edit instead of about 80). One 17 GB download covers the main, 4MP and Edit cards; each faster card adds its LoRA. Since 2.0.0 the eight edit cards that do one job (Steady Frame, Edit 4MP, Enhance to 4MP, Cutout, Character Sheet, Head Swap, Outfit Swap, Pose Studio) are in the Qwen Image 2.1 Edit Tools pack, which shares this pack's model, encoder and VAE. LICENCE: the weights are under the Qwen Research License, which allows NON-COMMERCIAL use only; do not use these cards for paid or commercial work.",
   "tags": [
     "Local",
     "Qwen",

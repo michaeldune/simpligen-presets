@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-regenerate-pack",
   "name": "Community — MiniMax H3 (Regenerate 1080p)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "NVIDIA (Open-H3-Regenerate-2K) + Kijai + LBH-123-AI",
   "nsfw": false,
   "minComfyuiVersion": "v0.33.0",
-  "description": "Regenerate a finished MiniMax H3 clip at 1080p with NVIDIA's Open-H3-Regenerate-2K refiner. Drop the clip in Reference Video 1 and paste the brief that made it. The clip is encoded, upscaled by LBH-123-AI's 3D latent upscaler, then re-rendered in three steps from NVIDIA's own schedule (sigma 0.909 to 0, CFG 1) with the refiner LoRA, Kijai's rank-384 extraction. That is far more new detail than the Video Refine pack: hair strands, knit, skin and readable lettering appear. Because it starts from 91% noise it regenerates rather than polishes, so the card feeds the source's first frame back in as an anchor; without it a close-up face came back as a different, older person on two seeds. The source soundtrack is muxed back untouched. First 5 s of the clip only.",
+  "description": "Model format: int8 ConvRot. Steps: 3 by default.\n\nRegenerate a finished MiniMax H3 clip at 1080p with NVIDIA's Open-H3-Regenerate-2K refiner. Drop the clip in Reference Video 1 and paste the brief that made it. The clip is encoded, upscaled by LBH-123-AI's 3D latent upscaler, then re-rendered in three steps from NVIDIA's own schedule (sigma 0.909 to 0, CFG 1) with the refiner LoRA, Kijai's rank-384 extraction. That is far more new detail than the Video Refine pack: hair strands, knit, skin and readable lettering appear. Because it starts from 91% noise it regenerates rather than polishes, so the card feeds the source's first frame back in as an anchor; without it a close-up face came back as a different, older person on two seeds. The source soundtrack is muxed back untouched. First 5 s of the clip only.",
   "tags": ["Local", "Video", "V2V", "Upscale", "Regenerate", "1080p", "MiniMax H3", "3-step"],
   "presets": [
     {

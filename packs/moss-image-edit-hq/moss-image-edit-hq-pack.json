@@ -1,7 +1,7 @@
 {
   "id": "moss-image-edit-hq-pack",
   "name": "MOSS-Image Edit HQ",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -13,7 +13,7 @@
     "Edit",
     "Local"
   ],
-  "description": "The same job as the MOSS-Image Edit card — hand it a picture and a sentence naming the change and what to keep — on a different edit LoRA: akhaliq's MOSS-Image-Edit-HQ (armV5), which is Apache-2.0. The MOSS-Image Edit card runs chinoll's LoRA, whose weights declare no licence at all, so this pack exists for anyone who needs a clean licence on everything they install. It is an alternative, not a replacement, and not an upgrade: measured head to head over 54 arms, chinoll holds the untouched parts of a picture a little closer. Lettering is a dead draw — both come through letter-exact. This card runs warmer and a touch looser. 495 MB on top of the three base weights the MOSS-Image pack already downloads. Unofficial community fine-tune of MOSS-Image-SFT, not an OpenMOSS release. Needs a SimpliGen engine with the MOSS-Image edit nodes, which landed in ComfyUI after the v0.42.1 tag.",
+  "description": "Model format: int8 ConvRot. Steps: 30 by default.\n\nThe same job as the MOSS-Image Edit card — hand it a picture and a sentence naming the change and what to keep — on a different edit LoRA: akhaliq's MOSS-Image-Edit-HQ (armV5), which is Apache-2.0. The MOSS-Image Edit card runs chinoll's LoRA, whose weights declare no licence at all, so this pack exists for anyone who needs a clean licence on everything they install. It is an alternative, not a replacement, and not an upgrade: measured head to head over 54 arms, chinoll holds the untouched parts of a picture a little closer. Lettering is a dead draw — both come through letter-exact. This card runs warmer and a touch looser. 495 MB on top of the three base weights the MOSS-Image pack already downloads. Unofficial community fine-tune of MOSS-Image-SFT, not an OpenMOSS release. Needs a SimpliGen engine with the MOSS-Image edit nodes, which landed in ComfyUI after the v0.42.1 tag.",
   "checksums": {
     "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/diffusion_models/moss_image_sft_int8_convrot.safetensors": "b4d1475bc7eeffd7b809e82ea13a1fba1fb85c4e18365af3813722faa5c0fe4f",
     "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors": "4cc6a1543ad2061806da46f35f90cadb4801dcba246c44782cf42ec0feb6407c",

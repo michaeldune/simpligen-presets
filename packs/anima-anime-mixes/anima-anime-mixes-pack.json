@@ -1,10 +1,10 @@
 {
   "id": "anima-anime-mixes-pack",
   "name": "Anima Anime Mixes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Clean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast) and Male GG Mix (male characters). These cards came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 35 by default, depending on the card.\n\nClean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast) and Male GG Mix (male characters). These cards came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",

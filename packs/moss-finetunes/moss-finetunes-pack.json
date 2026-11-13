@@ -1,13 +1,13 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "addedAt": "2026-10-19",
   "author": "toya_san / catlover1937 / lodestones / malcolmrey / lonecatone23 / nuko_masshigura (pack: michaeldune)",
   "nsfw": false,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Six MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Since 1.2.0, three the community asked for: Moss Serenity (brighter and flatter, about 23 seconds), AniMOSSity (deepest colour and contrast, bf16 only, about 53 seconds) and MOSS Cat Tower (the most polished anime, 50 steps with Skip Layer Guidance, about 34 seconds, engine v0.43.0 or later). Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Model format and default steps by card: Sam_MOSS Turbo: int8 at 8 steps; Moody Moss Mix and Moss Serenity v1.0: int8 ConvRot at 25 steps; Kromoss Turbo: int8 ConvRot at 8 steps; AniMOSSity v1.0 (bf16): bf16 (not quantized) at 25 steps; MOSS Cat Tower v1.0: int8 ConvRot at 50 steps.\n\nSix MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Since 1.2.0, three the community asked for: Moss Serenity (brighter and flatter, about 23 seconds), AniMOSSity (deepest colour and contrast, bf16 only, about 53 seconds) and MOSS Cat Tower (the most polished anime, 50 steps with Skip Layer Guidance, about 34 seconds, engine v0.43.0 or later). Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
     "Text",

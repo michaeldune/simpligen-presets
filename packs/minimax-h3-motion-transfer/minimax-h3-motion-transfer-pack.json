@@ -1,12 +1,12 @@
 {
   "id": "minimax-h3-motion-transfer-pack",
   "name": "Community — MiniMax H3 Motion Transfer",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "addedAt": "2026-10-01",
   "author": "alibaba-pai + kijai + Comfy-Org + larryvrh + xmarre",
   "nsfw": false,
   "minComfyuiVersion": "v0.38.0",
-  "description": "Pose-controlled MiniMax H3: a reference clip's body motion, read by SDPose, drives a new video through the Fun ControlNet union 2.0. One card, Turbo + Spectrum + Sol-Attn, 480p.",
+  "description": "Model format: int8 ConvRot. Steps: 10 by default.\n\nPose-controlled MiniMax H3: a reference clip's body motion, read by SDPose, drives a new video through the Fun ControlNet union 2.0. One card, Turbo + Spectrum + Sol-Attn, 480p.",
   "tags": [
     "Local",
     "Video",

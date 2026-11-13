@@ -1,11 +1,11 @@
 {
   "id": "krea2-identity-edit-pack",
   "name": "Community — Krea 2 Identity Edit",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "lbouaraba / conradlocke",
   "nsfw": false,
   "editCapable": true,
-  "description": "Image editing on Krea 2: hand it a photo and an instruction in plain English. Two presets on one LoRA - Identity Edit at neutral fidelity for outfit, colour and lighting changes, and Identity Lock at fidelity 4.0 for holding a face while you re-stage a character sheet into a new scene, transfer a face between two images, or do virtual try-on. Shares the Krea 2 turbo checkpoint, Qwen3-VL encoder and Qwen-Image VAE with SimpliGen's own Krea 2 pack, so the only new download is a 1.83 GB LoRA. Masked inpainting is not included - SimpliGen presets cannot pass a mask.",
+  "description": "Model format: fp8. Steps: 10 by default.\n\nImage editing on Krea 2: hand it a photo and an instruction in plain English. Two presets on one LoRA - Identity Edit at neutral fidelity for outfit, colour and lighting changes, and Identity Lock at fidelity 4.0 for holding a face while you re-stage a character sheet into a new scene, transfer a face between two images, or do virtual try-on. Shares the Krea 2 turbo checkpoint, Qwen3-VL encoder and Qwen-Image VAE with SimpliGen's own Krea 2 pack, so the only new download is a 1.83 GB LoRA. Masked inpainting is not included - SimpliGen presets cannot pass a mask.",
   "tags": [
     "Local",
     "Krea",

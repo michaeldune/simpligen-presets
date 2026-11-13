@@ -1,11 +1,11 @@
 {
   "id": "illustrious-anime-mixes-pack",
   "name": "Illustrious Anime Mixes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "addedAt": "2026-11-10",
   "author": "various",
   "nsfw": false,
-  "description": "Five community-requested Illustrious SDXL mixes, each with a look of its own: SilvermoonMix v6 V-pred (soft, pale and airy, neutral for artist tags), JANKU v7.77 (bright and clean, thicker lines), dims2 Personal Merge v3.0 (bright, glossy cel shading), ReedXXX v16 (warm, saturated, golden light) and DREAMBOX v4.5 (flat, bold-outlined illustration with retro poster colour). Prompt with Danbooru tags. Each card is its own 6.5 GB checkpoint and uses its author's own settings.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 30 by default, depending on the card.\n\nFive community-requested Illustrious SDXL mixes, each with a look of its own: SilvermoonMix v6 V-pred (soft, pale and airy, neutral for artist tags), JANKU v7.77 (bright and clean, thicker lines), dims2 Personal Merge v3.0 (bright, glossy cel shading), ReedXXX v16 (warm, saturated, golden light) and DREAMBOX v4.5 (flat, bold-outlined illustration with retro poster colour). Prompt with Danbooru tags. Each card is its own 6.5 GB checkpoint and uses its author's own settings.",
   "tags": [
     "Local",
     "Illustrious",

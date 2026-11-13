@@ -1,10 +1,10 @@
 {
   "id": "minimax-h3-prism-pika-pack",
   "name": "Community — MiniMax H3 (PRISM-PIKA)",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "OliviaRossi (merge); WarmBloodAban, TenStrip, Pika Labs (source models)",
   "nsfw": true,
-  "description": "MiniMax H3 on OliviaRossi's PRISM-PIKA: Singularity v2 and 10Eros Max merged by the PRISM method, with Pika H3 Flex built in at 0.85. One 18.8 GB INT8 HQ file with no adapter to load. Text, image and reference cards on Pika Flex's six-step schedule, which is our choice because the author gives no settings. It looks close to Pika Flex with stronger light, and runs about 20 seconds quicker on a 12 GB card. The author says the licence follows the source models, so check them before use, along with the MiniMax H3 Community License.",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nMiniMax H3 on OliviaRossi's PRISM-PIKA: Singularity v2 and 10Eros Max merged by the PRISM method, with Pika H3 Flex built in at 0.85. One 18.8 GB INT8 HQ file with no adapter to load. Text, image and reference cards on Pika Flex's six-step schedule, which is our choice because the author gives no settings. It looks close to Pika Flex with stronger light, and runs about 20 seconds quicker on a 12 GB card. The author says the licence follows the source models, so check them before use, along with the MiniMax H3 Community License.",
   "tags": [
     "6-Step",
     "I2V",

@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-mv-chain-pack",
   "name": "Community — MiniMax H3 Music Video Chain",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "addedAt": "2026-09-20",
   "author": "michaeldune",
   "nsfw": false,
-  "description": "Long single-take singing shots to your own song: 14, 21 or 27 seconds from 2, 3 or 4 chained H3 clips, with the original track in the finished file.",
+  "description": "Model format: int8 ConvRot. Steps: 7 by default.\n\nLong single-take singing shots to your own song: 14, 21 or 27 seconds from 2, 3 or 4 chained H3 clips, with the original track in the finished file.",
   "tags": [
     "Local",
     "Video",

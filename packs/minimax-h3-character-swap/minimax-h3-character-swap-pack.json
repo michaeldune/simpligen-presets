@@ -1,12 +1,12 @@
 {
   "id": "minimax-h3-character-swap-pack",
   "name": "Community — MiniMax H3 (Character Swap)",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "addedAt": "2026-10-18",
   "author": "akatz-ai + UntMods (LoRAs) + lightx2v (Turbo LoRAs) + michaeldune (cards)",
   "nsfw": false,
   "minComfyuiVersion": "v0.37.0",
-  "description": "Two cards for changing who is in an existing clip with MiniMax H3. Character Swap (akatz-ai's LoRA) replaces one chosen person with your character, face, hair and clothes, and leaves everyone else in the shot alone. Head Swap (UntMods' LoRA) gives someone a new face and hair from a head picture and keeps their clothes, props and pose. Both keep the camera, background, motion and the clip's soundtrack, run 5 to 15 s at 480p; on a 12 GB card 5 s takes about 5 minutes, 8 s about 12 and 15 s about 36-40; close browsers for long durations. Next to Viggle Animate, Character Swap can pick one person out of a group, needs no repaint step and has no non-commercial part. Uses the official MiniMax H3 base, encoder and VAEs; with an H3 pack installed the new download is 2.1 GB for Character Swap and 2.0 GB for Head Swap. MiniMax H3 Community License (Character Swap LoRA) and Apache-2.0 (Head Swap LoRA, Turbo LoRAs).",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nTwo cards for changing who is in an existing clip with MiniMax H3. Character Swap (akatz-ai's LoRA) replaces one chosen person with your character, face, hair and clothes, and leaves everyone else in the shot alone. Head Swap (UntMods' LoRA) gives someone a new face and hair from a head picture and keeps their clothes, props and pose. Both keep the camera, background, motion and the clip's soundtrack, run 5 to 15 s at 480p; on a 12 GB card 5 s takes about 5 minutes, 8 s about 12 and 15 s about 36-40; close browsers for long durations. Next to Viggle Animate, Character Swap can pick one person out of a group, needs no repaint step and has no non-commercial part. Uses the official MiniMax H3 base, encoder and VAEs; with an H3 pack installed the new download is 2.1 GB for Character Swap and 2.0 GB for Head Swap. MiniMax H3 Community License (Character Swap LoRA) and Apache-2.0 (Head Swap LoRA, Turbo LoRAs).",
   "tags": [
     "Local",
     "Video",

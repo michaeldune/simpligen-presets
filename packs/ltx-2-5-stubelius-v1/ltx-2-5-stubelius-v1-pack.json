@@ -1,11 +1,11 @@
 {
   "id": "ltx-2-5-stubelius-v1-pack",
   "name": "LTX 2.5 Stubelius v1",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Stubelius (model) + michaeldune (pack)",
   "nsfw": true,
   "addedAt": "2026-11-08",
-  "description": "Stubelius Remix v1 for LTX 2.5: text to video and image to video with generated sound, for anime, 2.5D and stylized characters. Split out of the LTX 2.5 Stubelius pack, which carried the older beta 2 build and is now retired. Against beta 2 on the same prompts and seeds every clip was visibly crisper, with more motion and slightly less saturated colour; on image to video the two were level. Mature-only: it sexualises clothed women even when the prompt asks for modest clothing. Shares the Gemma4 encoder and the LTX 2.5 VAEs with the other LTX 2.5 packs, so only its own 20 GB checkpoint is new.",
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\nStubelius Remix v1 for LTX 2.5: text to video and image to video with generated sound, for anime, 2.5D and stylized characters. Split out of the LTX 2.5 Stubelius pack, which carried the older beta 2 build and is now retired. Against beta 2 on the same prompts and seeds every clip was visibly crisper, with more motion and slightly less saturated colour; on image to video the two were level. Mature-only: it sexualises clothed women even when the prompt asks for modest clothing. Shares the Gemma4 encoder and the LTX 2.5 VAEs with the other LTX 2.5 packs, so only its own 20 GB checkpoint is new.",
   "tags": [
     "Local",
     "Video",

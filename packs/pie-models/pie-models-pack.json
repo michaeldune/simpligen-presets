@@ -1,11 +1,11 @@
 {
   "id": "pie-models-pack",
   "name": "Pie Models",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "addedAt": "2026-11-09",
   "author": "mommymia",
   "nsfw": false,
-  "description": "Eight flavours of mommymia's Pie Models, a family of Illustrious SDXL checkpoints each named after a pie, chosen from 19 after baking them all side by side: the flavours that look clearly different from each other. Anime: Apple Pie v2 (soft and glossy, the one to start with), Nutella (sharp lines), Jam (warm, amber eyes), Cherry (Western comic touch) and Raspberry (bold lines, dark and muted). Semi-real: Mango (glossy), Key Lime (soft lustre) and Impossible (near-photo faces). Prompt with Danbooru tags. Each card is its own 6.9 GB checkpoint.",
+  "description": "Model format: fp16, not quantized. Steps: 30 by default.\n\nEight flavours of mommymia's Pie Models, a family of Illustrious SDXL checkpoints each named after a pie, chosen from 19 after baking them all side by side: the flavours that look clearly different from each other. Anime: Apple Pie v2 (soft and glossy, the one to start with), Nutella (sharp lines), Jam (warm, amber eyes), Cherry (Western comic touch) and Raspberry (bold lines, dark and muted). Semi-real: Mango (glossy), Key Lime (soft lustre) and Impossible (near-photo faces). Prompt with Danbooru tags. Each card is its own 6.9 GB checkpoint.",
   "tags": [
     "Local",
     "Illustrious",

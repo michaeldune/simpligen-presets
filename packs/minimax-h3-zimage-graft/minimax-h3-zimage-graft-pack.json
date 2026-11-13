@@ -1,11 +1,11 @@
 {
   "id": "minimax-h3-zimage-graft-pack",
   "name": "Community — MiniMax H3 (Z-Image Graft)",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "joeygambino",
   "nsfw": false,
   "minComfyuiVersion": "v0.34.0",
-  "description": "Stock MiniMax H3 with Z-Image's attention statistics grafted in for richer surfaces and textures at the same identity, speed and VRAM. Two pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video), official 20-step graphs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Rust-wall crop sharpness 596 vs 411, face crop 353 vs 243, exposure a touch brighter, motion unchanged, same ~200 s per clip. Pick it for sets, surfaces and materials; the official pack remains the neutral baseline.",
+  "description": "Model format: int8 ConvRot. Steps: 20 by default.\n\nStock MiniMax H3 with Z-Image's attention statistics grafted in for richer surfaces and textures at the same identity, speed and VRAM. Two pruned int8 checkpoints (FL2VA for text/image to video, ref2va for reference to video), official 20-step graphs. MEASURED 2026-09-10 on a 12 GB RTX 4070 Ti, vanilla ComfyUI 0.34.3, against the official pruned int8 checkpoint on the same graph, seed, prompt and settings (864x480, 5 s, 20 steps res_multistep/simple, no Spectrum/Sage). Rust-wall crop sharpness 596 vs 411, face crop 353 vs 243, exposure a touch brighter, motion unchanged, same ~200 s per clip. Pick it for sets, surfaces and materials; the official pack remains the neutral baseline.",
   "tags": [
     "Local",
     "Video",

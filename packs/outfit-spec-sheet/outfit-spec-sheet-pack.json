@@ -1,13 +1,13 @@
 {
   "id": "outfit-spec-sheet-pack",
   "name": "Community — Outfit Spec Sheet",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "minComfyuiVersion": "v0.37.0",
   "addedAt": "2026-09-15",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
-  "description": "One photo of an outfit in, one fashion-house specification board out. Two cards: the original on Qwen Image Edit 2511 (Apache-2.0, same weights as SimpliGen's own Image Edit pack: garments on a mannequin, three detail crops, no text) and a two-pass Qwen-Image 2.1 card that keeps more of the outfit and adds a heading and real colour swatches (Qwen Research Licence, NON-COMMERCIAL use only; same weights as the Qwen Image 2.1 pack). The brief is baked in; the prompt box is for optional extra notes.",
+  "description": "Model format and default steps by card: Outfit Spec Sheet: fp8 at 4 steps; Outfit Spec Sheet (Qwen 2.1): int8 ConvRot at 25 steps.\n\nOne photo of an outfit in, one fashion-house specification board out. Two cards: the original on Qwen Image Edit 2511 (Apache-2.0, same weights as SimpliGen's own Image Edit pack: garments on a mannequin, three detail crops, no text) and a two-pass Qwen-Image 2.1 card that keeps more of the outfit and adds a heading and real colour swatches (Qwen Research Licence, NON-COMMERCIAL use only; same weights as the Qwen Image 2.1 pack). The brief is baked in; the prompt box is for optional extra notes.",
   "tags": [
     "Local",
     "Edit",

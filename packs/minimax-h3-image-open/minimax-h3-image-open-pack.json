@@ -1,13 +1,13 @@
 {
   "id": "minimax-h3-image-open-pack",
   "name": "Community — MiniMax H3-Image (open weights)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "addedAt": "2026-11-11",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.45.0",
-  "description": "MiniMax's open-weight H3-Image model: text to image at 4 or 16 megapixels and editing with up to four pictures, through a built-in prompt writer. Runs on a 12 GB card. Reuses the H3 text encoder the H3 video packs already download, plus about 29 GB of its own files. Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nMiniMax's open-weight H3-Image model: text to image at 4 or 16 megapixels and editing with up to four pictures, through a built-in prompt writer. Runs on a 12 GB card. Reuses the H3 text encoder the H3 video packs already download, plus about 29 GB of its own files. Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
   "tags": [
     "Local",
     "H3",

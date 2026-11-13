@@ -1,10 +1,10 @@
 {
   "id": "krea2-anime-pack",
   "name": "Krea 2 Anime",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Krea 2 checkpoints for anime and illustration, eight cards that came from the Krea 2 and Krea 2 Art & Styles packs when they were split on 2026-11-09. Clearly different from stock Krea 2: Krea2-Anime v2.0 (clean, flat anime with thin lines), CocoaMix (soft, cute faces), Animosity v2.0 (dark, ornate semi-real anime) and VXP Beta 4 (backlit, high-contrast anime). Close to stock Krea 2, here because the community asked for them: See-Krea2 Genesis V2, Krea 2 Full v1.0 Anime, Krea-2-Nippon_clear and DaSiWa DarkDesire V3. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its checkpoint.",
+  "description": "Model format and default steps by card: Krea2-Anime v2.0 (fp8): fp8 at 12 steps; Krea2 CocoaMix v0.03 beta and See-Krea2 Genesis V2 (fp8): fp8 at 8 steps; Krea 2 Full v1.0 Anime (INT8), Krea-2-Nippon_clear (INT8), Animosity v2.0 (INT8), VXP Krea 2 Beta 4 (Anime) and DaSiWa Krea2 DarkDesire V3 (INT8): int8 ConvRot at 8 steps.\n\nKrea 2 checkpoints for anime and illustration, eight cards that came from the Krea 2 and Krea 2 Art & Styles packs when they were split on 2026-11-09. Clearly different from stock Krea 2: Krea2-Anime v2.0 (clean, flat anime with thin lines), CocoaMix (soft, cute faces), Animosity v2.0 (dark, ornate semi-real anime) and VXP Beta 4 (backlit, high-contrast anime). Close to stock Krea 2, here because the community asked for them: See-Krea2 Genesis V2, Krea 2 Full v1.0 Anime, Krea-2-Nippon_clear and DaSiWa DarkDesire V3. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its checkpoint.",
   "tags": [
     "Local",
     "Krea",

@@ -1,10 +1,10 @@
 {
   "id": "krea-flux-pack",
   "name": "Community — Krea Flux",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Community",
   "nsfw": false,
-  "description": "Flux.1 Krea community presets (BFL FLUX.1 Krea dev generation). Krea-CSG Foundation: a GGUF Flux.1 Krea fine-tune (Cyber Supergirl) with strong anime and photoreal range, 35-step euler/beta, lower VRAM than the Krea 2 DiT presets.",
+  "description": "Model format: GGUF Q4_K_M. Steps: 35 by default.\n\nFlux.1 Krea community presets (BFL FLUX.1 Krea dev generation). Krea-CSG Foundation: a GGUF Flux.1 Krea fine-tune (Cyber Supergirl) with strong anime and photoreal range, 35-step euler/beta, lower VRAM than the Krea 2 DiT presets.",
   "tags": [
     "Local",
     "Krea",

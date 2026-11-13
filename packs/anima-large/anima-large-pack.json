@@ -1,10 +1,10 @@
 {
   "id": "anima-large-pack",
   "name": "Anima Large",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "various",
   "nsfw": false,
-  "description": "Anima fine-tunes on the bigger bases: the 40-layer Anima 2.9B (Nova Orange, Nova Anime, Delta Mix v7 Flat, KodoraAN, CC-Dream Island Mature, Pawhibited, One Obsession 2.9B v2) and the 52-layer 3.8B (Delta Mix V8). Finer detail and fuller backgrounds than the regular Anima cards, at about 20-40 s a picture on a 12 GB card and a 7-9 GB download each. These cards came from Anima Anime when it was split on 2026-11-10; the official Anima-2.9B v1 preview stays in Anima Anime. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: bf16, not quantized. Steps: 25 to 30 by default, depending on the card.\n\nAnima fine-tunes on the bigger bases: the 40-layer Anima 2.9B (Nova Orange, Nova Anime, Delta Mix v7 Flat, KodoraAN, CC-Dream Island Mature, Pawhibited, One Obsession 2.9B v2) and the 52-layer 3.8B (Delta Mix V8). Finer detail and fuller backgrounds than the regular Anima cards, at about 20-40 s a picture on a 12 GB card and a 7-9 GB download each. These cards came from Anima Anime when it was split on 2026-11-10; the official Anima-2.9B v1 preview stays in Anima Anime. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",

@@ -1,11 +1,11 @@
 {
   "id": "ltx-2-5-redgraft-pack",
   "name": "Community — LTX 2.5 REDgraft",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "author": "michaeldune",
   "nsfw": true,
   "addedAt": "2026-08-24",
-  "description": "LTX 2.5 text-to-video and image-to-video using the REDgraft mature INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 - the text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
+  "description": "Model format: mostly int8 ConvRot, with some layers in 4-bit (w4a8). Steps: 8 by default.\n\nLTX 2.5 text-to-video and image-to-video using the REDgraft mature INT8 finetune from Civitai. The pack exposes both modes with separate workflows and reuses the official LTX 2.5 companion stack already installed by SimpliGen. Requires a HuggingFace API key (Settings > API Keys) and one-time acceptance of the LTX 2.5 licence at https://huggingface.co/Lightricks/LTX-2.5 - the text encoder and both VAEs live on a gated repository, and without a key the download will retry instead of prompting. Approval is instant.",
   "tags": [
     "Local",
     "Video",

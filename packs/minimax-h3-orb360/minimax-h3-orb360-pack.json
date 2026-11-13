@@ -1,12 +1,12 @@
 {
   "id": "minimax-h3-orb360-pack",
   "name": "Community — MiniMax H3 ORB360 Orbit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "addedAt": "2026-10-14",
   "author": "MATLOWAI + Comfy-Org",
   "nsfw": false,
   "minComfyuiVersion": "v0.38.0",
-  "description": "One photo in, a frozen-moment 360-degree camera orbit out, on MiniMax H3's reference model with MATLOWAI's ORB360 LoRA. One card, 5-second silent clips.",
+  "description": "Model format: int8 ConvRot. Steps: 20 by default.\n\nOne photo in, a frozen-moment 360-degree camera orbit out, on MiniMax H3's reference model with MATLOWAI's ORB360 LoRA. One card, 5-second silent clips.",
   "tags": [
     "Local",
     "Video",
