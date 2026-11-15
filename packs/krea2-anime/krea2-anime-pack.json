@@ -1,10 +1,10 @@
 {
   "id": "krea2-anime-pack",
   "name": "Krea 2 Anime",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format and default steps by card: Krea2-Anime v2.0 (fp8): fp8 at 12 steps; Krea2 CocoaMix v0.03 beta and See-Krea2 Genesis V2 (fp8): fp8 at 8 steps; Krea 2 Full v1.0 Anime (INT8), Krea-2-Nippon_clear (INT8), Animosity v2.0 (INT8), VXP Krea 2 Beta 4 (Anime) and DaSiWa Krea2 DarkDesire V3 (INT8): int8 ConvRot at 8 steps.\n\nKrea 2 checkpoints for anime and illustration, eight cards that came from the Krea 2 and Krea 2 Art & Styles packs when they were split on 2026-11-09. Clearly different from stock Krea 2: Krea2-Anime v2.0 (clean, flat anime with thin lines), CocoaMix (soft, cute faces), Animosity v2.0 (dark, ornate semi-real anime) and VXP Beta 4 (backlit, high-contrast anime). Close to stock Krea 2, here because the community asked for them: See-Krea2 Genesis V2, Krea 2 Full v1.0 Anime, Krea-2-Nippon_clear and DaSiWa DarkDesire V3. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its checkpoint.",
+  "description": "Model format and default steps by card: Krea2-Anime v2.0 (fp8): fp8 at 12 steps; Krea2 CocoaMix v0.03 beta and See-Krea2 Genesis V2 (fp8): fp8 at 8 steps; Krea 2 Full v1.0 Anime (INT8), Krea-2-Nippon_clear (INT8), Animosity v2.0 (INT8), VXP Krea 2 Beta 4 (Anime), DaSiWa Krea2 DarkDesire V3 (INT8) and Krea 2 Anime UWU v2.0: int8 ConvRot at 8 steps.\n\nKrea 2 checkpoints for anime and illustration, nine cards. Eight came from the Krea 2 and Krea 2 Art & Styles packs when they were split on 2026-11-09. Clearly different from stock Krea 2: Krea2-Anime v2.0 (clean, flat anime with thin lines), CocoaMix (soft, cute faces), Animosity v2.0 (dark, ornate semi-real anime), VXP Beta 4 (backlit, high-contrast anime) and, since 1.1.0, Krea 2 Anime UWU v2.0 (flat cel shading with bolder lines; photo prompts stay photos). Close to stock Krea 2, here because the community asked for them: See-Krea2 Genesis V2, Krea 2 Full v1.0 Anime, Krea-2-Nippon_clear and DaSiWa DarkDesire V3. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs, so each card costs only its checkpoint.",
   "tags": [
     "Local",
     "Krea",
@@ -928,6 +928,120 @@
         }
       },
       "nsfw": true
+    },
+    {
+      "id": "krea2-anime-uwu-v2",
+      "name": "Krea 2 Anime UWU v2.0",
+      "tagline": "Flat cel-shaded anime with bolder lines",
+      "icon": "🎨",
+      "previewImage": "previews/krea2-anime-uwu-v2.jpg",
+      "description": "Anime with flat cel shading and bolder lines than stock Krea 2, on compositions close to stock Krea 2's. Photo prompts stay photos, so it also handles CGI and semi-real pictures.\n\nYunmiyun_UwU trained it on Krea 2 Turbo; this is v2.0, the latest version. The author recommends a different text encoder, but in our test it changed very little, so this card uses the encoder shared with the other Krea 2 cards and costs only its checkpoint.\n\nWrite plain sentences; describe the setting, the character and the style.\n\nThis card uses the author's Euler at 8 steps and CFG 1, about 26 seconds a picture at 2 MP on a 12 GB card. The author suggests 8 to 12 steps. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nModel format: int8 ConvRot, with a few layers in bf16.",
+      "tags": [
+        "Krea",
+        "Anime",
+        "Semi-Realistic",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Krea 2 Anime UWU v2.0 (int8)",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/krea2-anime-uwu-v2.json",
+        "unet": "krea2AnimeUwu_v20Int8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3462258?fileId=3364744",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 14.1,
+          "notes": "Qwen3VL 4B fp8 encoder + Qwen-Image VAE, shared with the other Krea 2 cards. CFG 1, negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Upscale >1 adds the 4-step denoise-0.1 refine pass gated off at Upscale 1, as on the other Krea 2 cards. Krea 2 Turbo fine-tune, Civitai model 2961641 (Krea 2 Anime/CGI/Semi-Real UWU turbo, by Yunmiyun_UwU), version 3462258 'v2.0 int8', fileId 3364744 (Krea2  anime UWU V2 .safetensors, saved as krea2AnimeUwu_v20Int8.safetensors, 14.1 GB, sha256 pinned; the only file). Header: int8_tensorwise+convrot on 224 layers, 32 large layers bf16, 5 f32 (the author describes the bf16 block as the 343M fine-tuned matrix). Author: 8-12 steps euler/simple, 1-3 MP, and the Qwen3 VL Instruct 4b Heretic encoder attached to v1.7 (Civitai 3437800 / fileId 3335147). That encoder was tested as a third arm (uwu_enc): small changes only (a bow colour, an expression), same compositions and look, so the card keeps the shared encoder. Baked 2026-11-15 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.45.0, direct submission) at 1024x1536 on 5 prompts (a candid photo of a woman in her thirties, a shrine at dusk, an anime rooftop, a gothic portrait, a sci-fi wide shot) x 2 seeds against Krea 2 Turbo, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261115). Engine-direct median 19.2 s (19.9 s with the author's encoder). Anime: flatter cel shading and bolder lines than Turbo; photos stayed photographic. Verified in the app 2026-11-15 (engine ComfyUI 0.45.0) through the agent route, settings read back from engine history (F:\\Claude-Work\\checkpoint-request-20261115\\app_runs.jsonl): photo on 2 seeds at 3:4 (1216x1632), a lettered poster at 1:1 (spelled right), anime at 16:9, a portrait at 2:3 and Upscale 1.5 at 1:1, all clean; euler/simple 8 steps and the shared encoder confirmed; median 25.8 s per picture, 55 s at Upscale 1.5."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        }
+      }
     }
   ]
 }

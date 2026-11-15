@@ -1,10 +1,10 @@
 {
   "id": "anima-art-styles-pack",
   "name": "Anima Art & Styles",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 28 to 30 by default, depending on the card.\n\nAnima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds) and MyGoo (soft 2.5D with warm, photo-like light). These cards came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 28 to 30 by default, depending on the card.\n\nAnima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds), MyGoo (soft 2.5D with warm, photo-like light) and, since 1.1.0, Fn-Moment v4.1 (cinematic anime with cool dusk light and warm rim light). The first five came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",
@@ -533,6 +533,112 @@
           "minRamGB": 16,
           "sizeGB": 5.4,
           "notes": "Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Anima-Base v1.0 merge, UNet (diffusion_models, fp16, 4.18 GB, sha256 129264cacf9bc8c8ed2462c33ae3580f16025496598734c560369e29b9367b8b, Civitai model 2695108 / version 3026293 'v1.0' (file mygoo_v005_unturbo) / fileId 2905101, by forest919, published 2026-06-12). Requested version kept on Michael's call 2026-11-06 although v1.1 (v006), v1.1b (v006b) and a 2.9B v1.0 exist. Author: er_sde / euler_a / dpmpp_2m_sde / res_multistep, simple or sgm_uniform, 25-50 steps, CFG 4-5; prefix masterpiece, best quality, score_7, safe, highres (the card leaves the safe rating tag to the user) and a short negative. Baked 2026-11-06 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261106). Engine-direct median 18.2 s. Verified in the app 2026-11-06 (engine v0.44.0): tags on 2 seeds at 3:4, a two-person cafe at 16:9, scenery at 1:1 and a plain sentence at 3:4, all clean and soft 2.5D; settings read back from engine history; median 21.3 s per picture through the app."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fn-moment-anima-v41",
+      "name": "Fn-Moment Anima v4.1",
+      "tagline": "Cinematic anime with moody dusk light",
+      "icon": "🎬",
+      "previewImage": "previews/fn-moment-anima-v41.jpg",
+      "description": "Cinematic anime: cool dusk light with warm rim light, clean backgrounds and faces turned to the viewer. It frames people closer than Anima base does.\n\nfannon trained it on Anima base. This is v4.1, the version requested; the author has since released a 2.9B v5.0.\n\nUse Danbooru tags, plain sentences or both. The card adds masterpiece, best quality, score_7 to the start of your prompt, so you don't need to type them.\n\nThis card runs Euler at 30 steps and CFG 4.5, about 24 seconds a picture on a 12 GB card. The author's DPM++ 2M SDE at 25 steps was a little faster but smeared cloth and skin in our test.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Cinematic",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Fn-Moment Anima v4.1",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/fn-moment-anima-v41.json",
+        "unet": "Fn-Moment-Anima-Base-V4.1.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3274802?fileId=3158841",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 30,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.2,
+          "notes": "Civitai model 2733842 (Fn-Moment Anima, by fannon), version 3274802 'v4.0-no turbo', fileId 3158841 (Fn-Moment-Anima-Base-V4.1.safetensors, bf16, 3.9 GB, sha256 pinned; the only file). The non-turbo V4.1, the version requested; a 2.9B V5.0 also exists. Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Author: without the turbo LoRA, dpmpp_2m_sde_gpu + beta1_1, 25 steps, CFG 4 (the V5 notes); the author's samples were made with a turbo LoRA. Baked 2026-11-15 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.45.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261115). dpmpp_2m_sde_gpu/normal 25 steps CFG 4 (15.2 s) gave smeary, waxy cloth at this size, so the card runs euler/normal 30 steps CFG 4.5 (engine-direct median 18.2 s, same as Anima base). Verified in the app 2026-11-15 (engine ComfyUI 0.45.0) through the agent route, settings read back from engine history (F:\\Claude-Work\\checkpoint-request-20261115\\app_runs.jsonl): tags on 2 seeds at 3:4, a two-person cafe at 16:9, scenery at 1:1 and a plain sentence at 3:4, all clean; euler/normal 30 steps CFG 4.5 and the prefix confirmed; median 23.5 s per picture."
         },
         "extensions": [
           {

@@ -1,13 +1,13 @@
 {
   "id": "moss-finetunes-pack",
   "name": "Community — MOSS-Image Finetunes",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "addedAt": "2026-10-19",
   "author": "toya_san / catlover1937 / lodestones / malcolmrey / lonecatone23 / nuko_masshigura (pack: michaeldune)",
   "nsfw": false,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Model format and default steps by card: Sam_MOSS Turbo: int8 at 8 steps; Moody Moss Mix and Moss Serenity v1.0: int8 ConvRot at 25 steps; Kromoss Turbo: int8 ConvRot at 8 steps; AniMOSSity v1.0 (bf16): bf16 (not quantized) at 25 steps; MOSS Cat Tower v1.0: int8 ConvRot at 50 steps.\n\nSix MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Since 1.2.0, three the community asked for: Moss Serenity (brighter and flatter, about 23 seconds), AniMOSSity (deepest colour and contrast, bf16 only, about 53 seconds) and MOSS Cat Tower (the most polished anime, 50 steps with Skip Layer Guidance, about 34 seconds, engine v0.43.0 or later). Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Model format and default steps by card: Sam_MOSS Turbo: int8 at 8 steps; Moody Moss Mix and Moss Serenity v1.0: int8 ConvRot at 25 steps; Kromoss Turbo: int8 ConvRot at 8 steps; AniMOSSity v1.0 (bf16): bf16 (not quantized) at 25 steps; MOSS Cat Tower v1.0: int8 ConvRot at 50 steps; MOSS Ad Infinitum Press (Classic): int8 ConvRot at 30 steps.\n\nSeven MOSS-Image finetunes, each tested side by side against the MOSS-Image pack. Sam_MOSS Turbo (Civitai): natural-looking pictures in 8 steps, about 12 seconds on a 12 GB card. Moody Moss Mix (Civitai): deeper contrast and richer colour, 25 steps, about 27 seconds. Kromoss Turbo (lodestones, since 1.1.0): a full fine-tune of MOSS-Image Base with an 8-step LoRA, about 4 seconds, more variety and more literal layouts, but less reliable small lettering. Since 1.2.0, three the community asked for: Moss Serenity (brighter and flatter, about 23 seconds), AniMOSSity (deepest colour and contrast, bf16 only, about 53 seconds) and MOSS Cat Tower (the most polished anime, 50 steps with Skip Layer Guidance, about 34 seconds, engine v0.43.0 or later). Since 1.3.0, MOSS Ad Infinitum Press (Classic): vintage advertising posters from 1885 to 1948, about 26 seconds, engine v0.43.0 or later. Put every word you want on the picture in quotes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Like that pack, it needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
     "Text",
@@ -22,7 +22,8 @@
     "https://huggingface.co/lodestones/Kromoss/resolve/7f9bb7b06d7b6c27d294b0bab5a2b3056c379279/8-steps-dmd2-lora.safetensors": "7683fe1fb51f73f5d690f24dd6b7f46f31ab9a9873729a854ac5c9a420ffe6f2",
     "https://civitai.com/api/download/models/3432032?fileId=3328199": "d5fc52c117d6da0975ed9135ba75cadb443caa1df8ac7b0e7162b9a4d9d0ce17",
     "https://civitai.com/api/download/models/3416779?fileId=3309934": "053e93a581d8274bf9d268eaad36e771389c6d63e38a4c3abe3f60c30129e851",
-    "https://civitai.com/api/download/models/3426780?fileId=3321854": "ad39fb65e1609e2c6584ac76ad80fcef8028c50e3d023b8da9ae0949074aedef"
+    "https://civitai.com/api/download/models/3426780?fileId=3321854": "ad39fb65e1609e2c6584ac76ad80fcef8028c50e3d023b8da9ae0949074aedef",
+    "https://civitai.com/api/download/models/3463292?fileId=3366195": "24b6af1480c8cfe32149747bc25b6caeb2008c64b49cdbacc7ca17e4a870f14a"
   },
   "presets": [
     {
@@ -643,6 +644,113 @@
           "minRamGB": 32,
           "sizeGB": 13,
           "notes": "Civitai model 3018379 (MOSS Cat Tower by nuko_masshigura), version 3426780 'v1.0', fileId 3321854 (int8, 5.41 GB, sha256 pinned). Author's settings: 1-2 MP, 50 steps, CFG 3, euler / simple, SkipLayerGuidanceDiTSimple single layers 22,24,26, start 0.35, end 0.7. The core SLG node sits between the LoRA node and the sampler. The author asks for ComfyUI v0.42.1 or later; the card is gated on v0.43.0, the engine it was tested on. With and without SLG took the same time (29.5 vs 30.3 s median) and differed by a mean absolute 8.9-21.3 on all 12 images, so it is active. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits; sha256 pinned in the pack checksums. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 832x1248 on 6 prompts (posters, anime, a photo) x 2 seeds against the MOSS-Image Quality card, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a quoted two-line poster at 3:4 on 3 seeds (both lines spelled right on all 3) and an anime sentence at 16:9; SkipLayerGuidanceDiTSimple 22,24,26 confirmed in the graph the engine ran; 34-38 s each. Card workflow pixel-identical to the bake on engine-direct replay. LICENCE (Civitai): image use and on-site generation allowed, derivatives allowed; no selling; no credit required. Skip Layer Guidance runs on layers 22, 24 and 26."
+        },
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-ft-ad-infinitum-classic",
+      "name": "MOSS Ad Infinitum Press (Classic)",
+      "icon": "🎩",
+      "enabled": true,
+      "template": "sdxl",
+      "tagline": "Vintage advertising posters, 1885 to 1948",
+      "description": "Vintage advertising posters from 1885 to 1948: chromolithograph colour, ornate period frames, a headline and a panel. AriaMaiven merged it into MOSS-Image SFT from the Classic years of their Ad Infinitum Press set.\n\nA period scene prints itself in that style with no style words: a woman in a feathered hat or a motor car on a country lane comes out hand-tinted or painted. Modern things need the ask: start with \"a vintage lithograph advertising poster of\", or sneakers and phones stay a photo, as on plain MOSS.\n\nFor lettering, end the prompt with the words in quotes and say where each goes, for example: The only words on the page are the headline \"RADIUM WATER\" at the top, in bold green period display capitals. To letter it yourself, leave the words out and ask for \"a wide empty cream area at the top\". Say the pose rather than the action (\"sits behind the wheel, both hands on the wheel\", not \"drives\").\n\nThis card runs the author's settings: 30 steps at CFG 3 with Skip Layer Guidance on the first half, about 26 seconds a picture on a 12 GB card.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Poster",
+        "Vintage",
+        "Text",
+        "Local"
+      ],
+      "previewImage": "previews/moss-ft-ad-infinitum-classic.jpg",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.43.0",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "",
+        "displayModel": "MOSS Ad Infinitum Press Classic 1.0 (int8)",
+        "workflow": "workflows/moss-ft-ad-infinitum-classic.json",
+        "unet": "adinfinitum_classic_moss_v1_int8_convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3463292?fileId=3366195",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 30,
+        "cfg": 3,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 12.4,
+          "notes": "Civitai model 3046306 (MOSS Ad Infinitum Press, Vintage Ad Posters 1885-1948, by AriaMaiven), version 3463292 'MOSS 1.0 Classic', fileId 3366195 (adinfinitum_classic_moss_v1_int8_convrot.safetensors, int8 ConvRot by its header, 5.04 GB, sha256 pinned; the only file). A merge into MOSS-Image SFT. Author's settings: Load Diffusion Model, qwen3.5_9b text encoder (type moss_image), flux2-vae, 30 steps, CFG 3, euler / simple, SkipLayerGuidanceDiTSimple on layer 22 for the first half (start 0.0, end 0.5) as in the official MOSS-Image workflow, 1024x1536, no trigger word. The card's SLG node is switched from the Cat Tower template's 22,24,26 / 0.35-0.7 to the author's 22 / 0.0-0.5. Shares the Qwen3.5 9B w4a8 text encoder and Flux 2 autoencoder with the MOSS-Image pack, pinned to the same commits. Graph: core nodes only, CLIPLoader type moss_image, EmptyFlux2LatentImage, plain KSampler; NO ModelSamplingSD3. Empty negative, as in the official workflow. Baked 2026-11-15 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.45.0, direct submission) at 832x1248 on 4 prompts (a lettered tonic poster, a period scene with no style words, a lettered ramen poster, a modern photo) x 2 seeds against stock MOSS-Image SFT with the same settings, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261115). Engine-direct median 18.6 s (stock 19.2 s). Headlines spelled right on 4 of 4; the period scene came out hand-tinted or painted with no style words; the modern photo prompt stayed a photo. Verified in the app 2026-11-15 (engine ComfyUI 0.45.0) through the agent route, settings read back from engine history (F:\\Claude-Work\\checkpoint-request-20261115\\app_runs.jsonl): a lettered cocoa poster at 2:3 on 2 seeds (both lines spelled right on both), a period motor-car scene at 3:4 (painted, no style words), a lettered sneaker poster at 1:1 (spelled right) and a wide seaside poster at 16:9 (it added a small garbled caption at the bottom that was not asked for); SkipLayerGuidanceDiTSimple 22 / 0.0-0.5 confirmed in the graph the engine ran; median 25.7 s per picture."
         },
         "extensions": [
           {

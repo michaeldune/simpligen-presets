@@ -1,10 +1,10 @@
 {
   "id": "krea2-art-styles-pack",
   "name": "Krea 2 Art & Styles",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format and default steps by card: Equinox Krea 2 (Semi-Realistic), Fwaun Tune Krea 2 (Semi-Chibi) and VXP Krea 2 Beta 3 (Hybrid): int8 ConvRot at 8 steps; Fascium KREA ART (Painterly): int8 ConvRot at 10 steps; Wulver Krea 2 (Anthro) and BF95 Krea 2 Dark Realism v3.0: fp8 at 8 steps; Ray Krea2 x Mid Aesthetic: plain int8 (no ConvRot) at 12 steps.\n\nKrea 2 checkpoints that do not look like Krea 2. Equinox: crisp, idealised semi-real characters. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Ray Krea2 x Mid Aesthetic: moody, romantic, Midjourney-style pictures. Since 2.0.0, two dark looks from the old Krea 2 pack: BF95 Dark Realism (cool, cinematic photoreal grade) and VXP Beta 3 (backlit, high-contrast, on photos and illustration alike); the six anime cards moved to Krea 2 Anime. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs. For photography use Krea 2 Realism or Krea 2 Finetunes.",
+  "description": "Model format and default steps by card: Equinox Krea 2 (Semi-Realistic), Fwaun Tune Krea 2 (Semi-Chibi) and VXP Krea 2 Beta 3 (Hybrid): int8 ConvRot at 8 steps; Fascium KREA ART (Painterly): int8 ConvRot at 10 steps; Wulver Krea 2 (Anthro) and BF95 Krea 2 Dark Realism v3.0: fp8 at 8 steps; Ray Krea2 x Mid Aesthetic: plain int8 (no ConvRot) at 12 steps; GodAgo v3 + 3ho Anime LoRA: fp8 plus a style LoRA at 8 steps.\n\nKrea 2 checkpoints that do not look like Krea 2. Equinox: crisp, idealised semi-real characters. Fascium KREA ART: 99 painterly artist styles, turns everything into paint. Fwaun Tune: flat-colour, lineless semi-chibi characters. Wulver: anthro and kemono characters that stay animals. Ray Krea2 x Mid Aesthetic: moody, romantic, Midjourney-style pictures. Since 2.0.0, two dark looks from the old Krea 2 pack: BF95 Dark Realism (cool, cinematic photoreal grade) and VXP Beta 3 (backlit, high-contrast, on photos and illustration alike); the six anime cards moved to Krea 2 Anime. Since 2.1.0, GodAgo v3 with its author's 3ho LoRA: backlit 90s cel anime and dark, filmic photos. All render at native ~2 MP with an Upscale slider (1.1-2x) and share the Qwen3VL 4B encoder and Qwen-Image VAE with the other Krea 2 packs. For photography use Krea 2 Realism or Krea 2 Finetunes.",
   "tags": [
     "Local",
     "Krea",
@@ -811,6 +811,129 @@
         ]
       },
       "nsfw": true
+    },
+    {
+      "id": "godago-krea2-v3",
+      "name": "GodAgo v3 + 3ho Anime LoRA",
+      "tagline": "Backlit 90s cel anime and dark, filmic photos",
+      "icon": "🌙",
+      "previewImage": "previews/godago-krea2-v3.jpg",
+      "description": "Backlit 90s cel anime: faces in shadow against the light, muted, filmic colour and soft expressions. Photo prompts stay photos but come out darker and higher-contrast, like a moody film still.\n\nThe card pairs the author's godago v3 checkpoint with their godago 3ho anime LoRA. On its own the checkpoint looks almost like stock Krea 2; the look on the author's page comes from the LoRA, so the card loads it at full strength. You can still add your own LoRAs.\n\nWrite plain sentences. Krea 2 ignores negative prompts at CFG 1. It runs dark, so ask for bright light if you want it.\n\nThis card runs Euler at 8 steps and CFG 1, about 47 seconds a picture at 2 MP (the LoRA adds about 15 of them) on a 12 GB card. The Upscale slider (1.1-2x) adds a detail-refine pass.\n\nModel format: fp8, plus a small style LoRA.",
+      "tags": [
+        "Krea",
+        "Anime",
+        "Retro",
+        "Moody",
+        "Local"
+      ],
+      "enabled": true,
+      "promptStyle": "natural",
+      "template": "sdxl",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "krea-2",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "godago v3 (fp8) + godago 3ho LoRA",
+        "baseModels": [
+          "krea2"
+        ],
+        "workflow": "workflows/godago-krea2-v3.json",
+        "unet": "godago_v30-fp8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3368939?fileId=3257037",
+        "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1408,
+            "height": 1408
+          },
+          "4:3": {
+            "width": 1632,
+            "height": 1216
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1632
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "16:9": {
+            "width": 1888,
+            "height": 1056
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1888
+          },
+          "21:9": {
+            "width": 2160,
+            "height": 928
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 6,
+            "max": 12,
+            "step": 1
+          },
+          "upscale": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 10,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 13.7,
+          "notes": "Qwen3VL 4B fp8 encoder + Qwen-Image VAE, shared with the other Krea 2 cards. CFG 1, negative zeroed; the card blanks the app's default quality suffix (image.values.quality). Upscale >1 adds the 4-step denoise-0.1 refine pass gated off at Upscale 1, as on the other Krea 2 cards. Krea 2 Turbo fine-tune, Civitai model 2949523 (godago), version 3368939 'v3.0', fileId 3257037 (godago_v30-fp8.safetensors, the primary file, fp8 by its header, 13.5 GB, sha256 pinned); the same version also comes as int8 ConvRot and nvfp4. Plus the same author's style LoRA godago 3ho (Civitai model 2961689, version 3355327 'v1.0', fileId 3242765, godago_3ho_anime.safetensors, 229 MB, sha256 99c25038e2381fbd6605e1da5b74d26bfff83715bd9d4ecb9f45f8d544153c4f, base model Krea 2, page text 'Anime vibes'), loaded at 1.0 with LoraLoaderModelOnly ahead of the user LoRA slot, so the refine pass sees it too. Author: no sampler advice ('feel free to use the sampler and scheduler'); the card runs euler/simple 8 steps as on the other Krea 2 Turbo cards. Why the LoRA is built in: the checkpoint alone baked 2026-11-15 (5 prompts x 2 seeds at 1024x1536 against Krea 2 Turbo, duplicate control pixel-identical) came out nearly identical to Turbo, only a slightly darker grade; the doll-like look on the model page comes from the author's LoRAs. Second bake the same day: godago 3ho on Turbo (0.7 and 1.0), GodAgo v3, CyberRealistic v4, Ray Mid Aesthetic and RedCraft Red Mix 3.0, 3 prompts (photo, shrine, anime) x 2 seeds, each against the same model without it. The LoRA gave the same look on every model: anime turns into backlit 90s cel anime with shadowed faces and muted, filmic colour; photos stay photos but go darker and higher-contrast; 0.7 is the same look, weaker. GodAgo + LoRA was the darkest of the five (the shrine nearly black). The LoRA added about 10 s a picture engine-direct (F:\\Claude-Work\\checkpoint-request-20261115, lora_godago3ho_sheet.jpg). Michael's call 2026-11-15: ship GodAgo as one card with the LoRA built in. Verified in the app 2026-11-15 (engine ComfyUI 0.45.0) through the agent route, settings read back from engine history (F:\\Claude-Work\\checkpoint-request-20261115\\app_runs.jsonl): photo on 2 seeds at 3:4 (1216x1632), a lettered poster at 1:1 (spelled right), anime at 16:9, a portrait at 2:3 and Upscale 1.5 at 1:1, all clean; the LoRA at 1.0 confirmed in the graph the engine ran; median 46.7 s per picture, 105 s at Upscale 1.5 (the checkpoint alone was about 31 s engine-direct, so the LoRA costs about 15 s on a 12 GB card)."
+        },
+        "vaeUrl": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/02f0d3eefb59528799653d16735818801177ef1f/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+        "upscale": 1,
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ],
+        "values": {
+          "quality": ""
+        },
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "godago_3ho_anime.safetensors",
+            "url": "https://civitai.com/api/download/models/3355327?fileId=3242765",
+            "description": "godago 3ho anime style LoRA (Civitai 2961689, v1.0), 229 MB, loaded at 1.0"
+          }
+        ]
+      }
     }
   ]
 }
