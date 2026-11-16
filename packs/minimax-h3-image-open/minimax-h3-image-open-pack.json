@@ -1,13 +1,13 @@
 {
   "id": "minimax-h3-image-open-pack",
   "name": "Community — MiniMax H3-Image (open weights)",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "addedAt": "2026-11-11",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
   "minComfyuiVersion": "v0.45.0",
-  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nMiniMax's open-weight H3-Image model: text to image at 4 or 16 megapixels and editing with up to four pictures, through a built-in prompt writer. Runs on a 12 GB card. Reuses the H3 text encoder the H3 video packs already download, plus about 29 GB of its own files. Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nMiniMax's open-weight H3-Image model: text to image at 4 or 16 megapixels and editing with up to four pictures at 4 or 16 megapixels, through a built-in prompt writer, plus a five-view character sheet from one picture. Runs on a 12 GB card. Reuses the H3 text encoder the H3 video packs already download, plus about 29 GB of its own files. Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
   "tags": [
     "Local",
     "H3",
@@ -286,6 +286,187 @@
             "Picture 3",
             "Picture 4"
           ]
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-open-edit-16mp",
+      "name": "MiniMax H3-Image Edit 16 MP",
+      "icon": "✏️",
+      "enabled": true,
+      "tagline": "Edit a picture by describing the change, output at 16 megapixels",
+      "description": "The same edit as MiniMax H3-Image Edit, with the result at about 16 megapixels, the size MiniMax says gives the best results. Picture 1 is the one that changes and sets the shape (a 3:2 picture comes back at 4992x3328). Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>. Slower than the 4 MP card and very large files. About 2 1/2 minutes for a one- or two-picture edit on a 12 GB card. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Edit",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-open-edit-16mp.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8) + Qwen3.5 9B expander",
+        "workflow": "workflows/image_minimax_h3_image_open_edit_16mp.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          },
+          {
+            "filename": "qwen3.5_9b_w4a8_gptq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 45.2,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB), its single-frame VAE (1.2 GB) and the Qwen3.5 9B w4a8 prompt expander (7.3 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. Needs ComfyUI v0.45.0 (Comfy-Org/ComfyUI#17655). Graph per the Comfy template: 6 steps, cfg 1, euler/simple, zeroed negative. Every request first goes through the expander, which writes the detailed caption the model renders; without it the model misses parts of the request. The expander samples (template settings) and thinks first, which adds about 25-65 s per new prompt. User LoRA slot (rgthree Power Lora Loader, as on P-H3-Image): H3 video LoRAs load, because H3-Image is the same transformer without the audio stream. Tested 2026-11-11 with kreaillustrator_style, h3-realism-people and cinemagrade_style: every key mapped, an empty slot gives the identical picture, and a warm 4 MP run with a LoRA took 53 s in SimpliGen. Trigger words go to the expander with the request, and it may leave them out of its caption; the style LoRAs tested still applied without them. Edit graph per the Comfy edit template: every picture is scaled to 4 MP (multiple of 32) for the model and picture 1 sets the output size. One change: the expander sees 1 MP copies, labelled <Picture 1> to <Picture 4> in slot order (the template sends 4 MP, which took 8.6 min with two pictures and 15.2 min with four, against 2.2 and 3.0 min at 1 MP; engine-direct on a 4070 Ti 12 GB, 2026-11-11). Edit 16 MP card: the Edit graph with one change, the output size is picture 1 scaled to 16 MP (multiple of 32) instead of 4 MP; the pictures reach the model and the prompt writer exactly as on the Edit card (the conditioning node itself caps reference latents at a 2048 short edge)."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 4,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture 1 (the one to edit)",
+            "Picture 2",
+            "Picture 3",
+            "Picture 4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-open-character-sheet",
+      "name": "MiniMax H3-Image Character Sheet",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "One picture of a character in, a five-view sheet out at 16 megapixels",
+      "description": "Turns one picture of a character into a reference sheet on a white background: a front portrait and a side portrait stacked on the left, then the full body from the front, the side and the back. The brief is built in, so the prompt box is only for extra notes (for example: anime style, or bare feet).\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nSet the aspect ratio to 21:9 (6272x2688), the wide shape the five views are laid out for. 16:9 and 1:1 also gave all five views in our tests, squeezed closer together. About 75 seconds on a 12 GB card.\n\nThe layout follows ukr8b3g-cmyk's H3 Character Sheet Designer for ComfyUI: the brief and the picture go straight to the model, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Edit",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-open-character-sheet.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_open_character_sheet.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the fixed five-view brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT), whose MiniMax H3-Image template defaults to 'Standard 5 views' (front and profile portraits, full body front, side and back) on a ~2.5:1 canvas. Picture 1 is scaled to 4 MP (multiple of 32) like the Edit card; the output size comes from the aspect ratio (16 MP table). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other cards. Tested 2026-11-16 engine-direct (4070 Ti 12 GB, warm), two characters (photo, anime) x two seeds at 21:9: five views in the requested layout 4 of 4, outfit, props and face held 4 of 4, 70-73 s; the same brief through the pack's prompt writer took 131-138 s with no visible gain, so the card skips it. 16:9 (5472x3072) and 1:1 (4096x4096) one run each, both five views."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 4096,
+            "height": 4096
+          },
+          "4:3": {
+            "width": 4736,
+            "height": 3552
+          },
+          "3:4": {
+            "width": 3552,
+            "height": 4736
+          },
+          "3:2": {
+            "width": 5024,
+            "height": 3360
+          },
+          "2:3": {
+            "width": 3360,
+            "height": 5024
+          },
+          "16:9": {
+            "width": 5472,
+            "height": 3072
+          },
+          "9:16": {
+            "width": 3072,
+            "height": 5472
+          },
+          "21:9": {
+            "width": 6272,
+            "height": 2688
+          }
         }
       }
     }
