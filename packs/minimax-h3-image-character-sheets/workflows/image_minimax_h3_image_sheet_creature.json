@@ -1,0 +1,207 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load MiniMax H3-Image"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_te": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load H3 text encoder (32B nvfp4)"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load H3-Image VAE"
+    }
+  },
+  "sg_neg": {
+    "inputs": {
+      "conditioning": [
+        "sg_cond",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (zeroed)"
+    }
+  },
+  "sg_ksampler": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "sg_cond",
+        0
+      ],
+      "negative": [
+        "sg_neg",
+        0
+      ],
+      "latent_image": [
+        "sg_cond",
+        1
+      ],
+      "seed": {{seed}},
+      "steps": 6,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler (6 steps, cfg 1)"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_ksampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "images": [
+        "sg_decode",
+        0
+      ],
+      "filename_prefix": "minimax_h3_image_sheet_creature"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "sgopt_ref_image_1__scale": {
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "resize_type": "scale total pixels",
+      "resize_type.megapixels": 4.0,
+      "scale_method": "area"
+    },
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 at 4 MP"
+    }
+  },
+  "sgopt_ref_image_1__fit": {
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_1__scale",
+        0
+      ],
+      "resize_type": "scale to multiple",
+      "resize_type.multiple": 32,
+      "scale_method": "area"
+    },
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 to a multiple of 32"
+    }
+  },
+  "sg_cond": {
+    "inputs": {
+      "clip": [
+        "sg_te",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": [
+        "sg_request",
+        0
+      ],
+      "width": 7264,
+      "height": 2176,
+      "images.image_1": [
+        "sgopt_ref_image_1__fit",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ImageConditioning",
+    "_meta": {
+      "title": "MiniMax H3 Image Conditioning"
+    }
+  },
+  "sg_brief": {
+    "inputs": {
+      "value": "Create one character reference sheet from <Picture 1>.\nPreserve the same character design and rendering style across all views.\nWhite background. Each requested view appears once.\nPreserve the character’s natural body surface, colors, markings and body structure from <Picture 1>. Keep the visible torso and lower body free of garments. Retain compatible accessories.\nUse the same stance and limb arrangement as <Picture 1> across all three full-body views. Place the six portraits in the two columns on the left, the three full-body views in the middle, and the hand and foot close-ups in the column on the right. Within each column, read top to bottom:\nFront portrait with the complete head and upper chest. / Profile portrait facing image-left, with the complete head and upper chest. / Three-quarter portrait facing image-left, with the complete head and upper chest.\nProfile portrait facing image-right, with the complete head and upper chest. / Three-quarter portrait facing image-right, with the complete head and upper chest. / Portrait directly from behind, with the complete head and upper back.\nOne complete front view in the character’s natural stance, including the entire silhouette.\nFull body in profile facing image-right. Turn the same figure in place, keeping the reference pose and the same weight-bearing limbs.\nOne complete view directly from behind in the character’s natural stance, including the entire silhouette.\nOne close-up of the character’s hands or forepaws as shown in the reference. Keep their shape and surface markings. Retain reference hand coverings when present. / One close-up of the character’s feet or hind paws as shown in the reference. Keep their shape and surface markings. Retain reference footwear when present."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Character sheet brief (creature, H3 Character Sheet Designer v1.5.0)"
+    }
+  },
+  "sg_request": {
+    "inputs": {
+      "string_a": [
+        "sg_brief",
+        0
+      ],
+      "string_b": "{{prompt}}",
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Brief + your notes"
+    }
+  }
+}

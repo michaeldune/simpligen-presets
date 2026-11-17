@@ -1,0 +1,959 @@
+{
+  "id": "minimax-h3-image-character-sheets-pack",
+  "name": "Community — MiniMax H3-Image Character Sheets",
+  "version": "1.0.0",
+  "addedAt": "2026-11-17",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minComfyuiVersion": "v0.45.0",
+  "description": "Model format: int8 ConvRot. Steps: 6 by default.\n\nCharacter reference sheets from one picture with MiniMax's open-weight H3-Image model, one card per layout: five views, four views, turnaround, a single full body, six head angles, seven views with hands and feet, the outfit laid flat, all thirteen views, and a sheet for animals and mascots. Each card makes a 16-megapixel sheet on a white background. The layouts come from ukr8b3g-cmyk's H3 Character Sheet Designer for ComfyUI. Uses the same model files as the MiniMax H3-Image pack (no prompt writer). Needs SimpliGen's engine at ComfyUI v0.45.0 or newer.",
+  "tags": [
+    "Local",
+    "H3",
+    "Character"
+  ],
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors": "83eb140f1ff95c068f8a6886e6d3f3d0d4ab2e07bb2fe6d2ef992a51146ee622",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors": "d80e9c2e5cfc9844869961ff5a58c9a9e52182df6bfb30b26018dd7f348721af",
+    "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6"
+  },
+  "presets": [
+    {
+      "id": "minimax-h3-image-sheet-standard-5",
+      "name": "H3-Image Sheet: Five Views",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "Front and side portraits plus the full body from the front, side and back",
+      "description": "Turns one picture of a character into a reference sheet on a white background: a front portrait, a side portrait, then the full body from the front, the side and the back. The prompt box is only for extra notes (for example: anime style, or bare feet).\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nThe sheet is always 6272x2528 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-standard-5.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_standard_5.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is our own wording of the Designer's layout (the Designer's own prompt for this view preset gave extra or missing panels in our tests); the canvas (6272x2528) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 6272,
+            "height": 2528
+          },
+          "4:3": {
+            "width": 6272,
+            "height": 2528
+          },
+          "3:4": {
+            "width": 6272,
+            "height": 2528
+          },
+          "3:2": {
+            "width": 6272,
+            "height": 2528
+          },
+          "2:3": {
+            "width": 6272,
+            "height": 2528
+          },
+          "16:9": {
+            "width": 6272,
+            "height": 2528
+          },
+          "9:16": {
+            "width": 6272,
+            "height": 2528
+          },
+          "21:9": {
+            "width": 6272,
+            "height": 2528
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-basic-4",
+      "name": "H3-Image Sheet: Four Views",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "A front portrait plus the full body from the front, side and back",
+      "description": "Turns one picture of a character into a reference sheet on a white background: a front portrait, then the full body from the front, the side and the back. The prompt box is only for extra notes.\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nThe sheet is always 5632x2816 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-basic-4.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_basic_4.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is the one that Designer's MiniMax H3 Image node (v1.5.0) compiles for this view preset with Layout Image off; the canvas (5632x2816) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 5632,
+            "height": 2816
+          },
+          "4:3": {
+            "width": 5632,
+            "height": 2816
+          },
+          "3:4": {
+            "width": 5632,
+            "height": 2816
+          },
+          "3:2": {
+            "width": 5632,
+            "height": 2816
+          },
+          "2:3": {
+            "width": 5632,
+            "height": 2816
+          },
+          "16:9": {
+            "width": 5632,
+            "height": 2816
+          },
+          "9:16": {
+            "width": 5632,
+            "height": 2816
+          },
+          "21:9": {
+            "width": 5632,
+            "height": 2816
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-turnaround",
+      "name": "H3-Image Sheet: Turnaround",
+      "icon": "🔄",
+      "enabled": true,
+      "tagline": "The full body from the front, side and back, nothing else",
+      "description": "Turns one picture of a character into a three-view turnaround on a white background: the full body from the front, the side and the back, side by side. The prompt box is only for extra notes.\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nThe sheet is always 4832x3264 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-turnaround.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_turnaround.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is our own wording of the Designer's layout (the Designer's own prompt for this view preset gave extra or missing panels in our tests); the canvas (4832x3264) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 4832,
+            "height": 3264
+          },
+          "4:3": {
+            "width": 4832,
+            "height": 3264
+          },
+          "3:4": {
+            "width": 4832,
+            "height": 3264
+          },
+          "3:2": {
+            "width": 4832,
+            "height": 3264
+          },
+          "2:3": {
+            "width": 4832,
+            "height": 3264
+          },
+          "16:9": {
+            "width": 4832,
+            "height": 3264
+          },
+          "9:16": {
+            "width": 4832,
+            "height": 3264
+          },
+          "21:9": {
+            "width": 4832,
+            "height": 3264
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-full-body",
+      "name": "H3-Image Sheet: Full Body",
+      "icon": "🧍",
+      "enabled": true,
+      "tagline": "One clean full-body view of the character, standing, facing forward",
+      "description": "Turns one picture of a character into a single full-body view on a white background: standing, facing forward, head to feet with a small margin. Useful for cutting a character out of a busy scene or a cropped photo. The prompt box is only for extra notes.\n\nPicture 1 is the character.\n\nThe sheet is always 2816x5632 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-full-body.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_full_body.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is the one that Designer's MiniMax H3 Image node (v1.5.0) compiles for this view preset with Layout Image off; the canvas (2816x5632) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2816,
+            "height": 5632
+          },
+          "4:3": {
+            "width": 2816,
+            "height": 5632
+          },
+          "3:4": {
+            "width": 2816,
+            "height": 5632
+          },
+          "3:2": {
+            "width": 2816,
+            "height": 5632
+          },
+          "2:3": {
+            "width": 2816,
+            "height": 5632
+          },
+          "16:9": {
+            "width": 2816,
+            "height": 5632
+          },
+          "9:16": {
+            "width": 2816,
+            "height": 5632
+          },
+          "21:9": {
+            "width": 2816,
+            "height": 5632
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-head-6",
+      "name": "H3-Image Sheet: Six Head Angles",
+      "icon": "🙂",
+      "enabled": true,
+      "tagline": "Six head-and-shoulders portraits from every angle, in two rows",
+      "description": "Turns one picture of a character into six head-and-shoulders portraits on a white background, three on top and three below: front, both profiles, both three-quarter angles and the back of the head. The prompt box is only for extra notes.\n\nPicture 1 is the character; a clear view of the face works best.\n\nThe sheet is always 4096x3872 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-head-6.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_head_6.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is the one that Designer's MiniMax H3 Image node (v1.5.0) compiles for this view preset with Layout Image off; the canvas (4096x3872) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 4096,
+            "height": 3872
+          },
+          "4:3": {
+            "width": 4096,
+            "height": 3872
+          },
+          "3:4": {
+            "width": 4096,
+            "height": 3872
+          },
+          "3:2": {
+            "width": 4096,
+            "height": 3872
+          },
+          "2:3": {
+            "width": 4096,
+            "height": 3872
+          },
+          "16:9": {
+            "width": 4096,
+            "height": 3872
+          },
+          "9:16": {
+            "width": 4096,
+            "height": 3872
+          },
+          "21:9": {
+            "width": 4096,
+            "height": 3872
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-seven",
+      "name": "H3-Image Sheet: Seven Views + Hands and Feet",
+      "icon": "🧤",
+      "enabled": true,
+      "tagline": "The five-view sheet plus close-ups of the hands and the footwear",
+      "description": "Turns one picture of a character into a reference sheet on a white background: a front and a side portrait, the full body from the front, the side and the back, then a close-up of both hands above a close-up of the feet and footwear. The prompt box is only for extra notes (for example: bare hands, or shoes off).\n\nPicture 1 is the character, best as a full-body picture so the hands and footwear are visible.\n\nThe sheet is always 6336x2496 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-seven.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_seven.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is our own wording of the Designer's layout (the Designer's own prompt for this view preset gave extra or missing panels in our tests); the canvas (6336x2496) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 6336,
+            "height": 2496
+          },
+          "4:3": {
+            "width": 6336,
+            "height": 2496
+          },
+          "3:4": {
+            "width": 6336,
+            "height": 2496
+          },
+          "3:2": {
+            "width": 6336,
+            "height": 2496
+          },
+          "2:3": {
+            "width": 6336,
+            "height": 2496
+          },
+          "16:9": {
+            "width": 6336,
+            "height": 2496
+          },
+          "9:16": {
+            "width": 6336,
+            "height": 2496
+          },
+          "21:9": {
+            "width": 6336,
+            "height": 2496
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-outfit",
+      "name": "H3-Image Sheet: Outfit Front and Back",
+      "icon": "👕",
+      "enabled": true,
+      "tagline": "The character's outfit laid flat, front and back, with no one wearing it",
+      "description": "Takes the outfit from a picture of a character and lays it out flat on a white background, front and back side by side, with no person in it. The prompt box is only for extra notes.\n\nPicture 1 is the character wearing the outfit, best as a full-body picture. Parts of the outfit the picture does not show are invented.\n\nThis is the least reliable layout: in our tests about half the sheets came out clean, and the others had one fault, such as a garment drawn twice, a long coat drawn short, or the hair left in with goggles or a hat. Run it again with another seed when that happens.\n\nThe sheet is always 3712x4256 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-outfit.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_outfit.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is our own wording of the Designer's layout (the Designer's own prompt for this view preset gave extra or missing panels in our tests); the canvas (3712x4256) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character wearing the outfit"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 3712,
+            "height": 4256
+          },
+          "4:3": {
+            "width": 3712,
+            "height": 4256
+          },
+          "3:4": {
+            "width": 3712,
+            "height": 4256
+          },
+          "3:2": {
+            "width": 3712,
+            "height": 4256
+          },
+          "2:3": {
+            "width": 3712,
+            "height": 4256
+          },
+          "16:9": {
+            "width": 3712,
+            "height": 4256
+          },
+          "9:16": {
+            "width": 3712,
+            "height": 4256
+          },
+          "21:9": {
+            "width": 3712,
+            "height": 4256
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-all-13",
+      "name": "H3-Image Sheet: All Thirteen Views",
+      "icon": "📋",
+      "enabled": true,
+      "tagline": "Six head angles, three full-body views, the outfit flat, hands and feet",
+      "description": "Turns one picture of a character into the fullest reference sheet on a white background: six head-and-shoulders portraits, the full body from the front, the side and the back, the outfit laid flat front and back, and close-ups of the hands and the feet. With this many views, small ones can come out less detailed; the 16-megapixel size helps. The prompt box is only for extra notes.\n\nPicture 1 is the character, best as a full-body picture.\n\nThe sheet is always 7744x2048 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-all-13.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_all_13.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is the one that Designer's MiniMax H3 Image node (v1.5.0) compiles for this view preset with Layout Image off; the canvas (7744x2048) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The character"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 7744,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 7744,
+            "height": 2048
+          },
+          "3:4": {
+            "width": 7744,
+            "height": 2048
+          },
+          "3:2": {
+            "width": 7744,
+            "height": 2048
+          },
+          "2:3": {
+            "width": 7744,
+            "height": 2048
+          },
+          "16:9": {
+            "width": 7744,
+            "height": 2048
+          },
+          "9:16": {
+            "width": 7744,
+            "height": 2048
+          },
+          "21:9": {
+            "width": 7744,
+            "height": 2048
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-image-sheet-creature",
+      "name": "H3-Image Sheet: Animal or Mascot",
+      "icon": "🐺",
+      "enabled": true,
+      "tagline": "Eleven views of an animal or mascot character that wears no clothes",
+      "description": "A reference sheet for animal characters and mascots without clothes: six head angles, three full-body views in the character's own stance, and close-ups of the paws or hands and the feet. It keeps the fur, markings, colours and body shape of the picture instead of dressing the character. The prompt box is only for extra notes.\n\nPicture 1 is the animal or mascot, best as a full-body picture.\n\nThe sheet is always 7264x2176 (about 16 megapixels); the aspect-ratio setting is not used. About 70-90 seconds per sheet on a 12 GB card.\n\nThe layout comes from ukr8b3g-cmyk's H3 Character Sheet Designer (v1.5.0) for ComfyUI. The built-in brief goes straight to the model with the picture, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "promptStyle": "natural",
+      "tags": [
+        "H3",
+        "Character",
+        "16MP",
+        "Local"
+      ],
+      "previewImage": "previews/minimax-h3-image-sheet-creature.jpg",
+      "image": {
+        "provider": "comfyui",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "minimax-h3-image"
+        ],
+        "displayModel": "MiniMax H3-Image (int8)",
+        "workflow": "workflows/image_minimax_h3_image_sheet_creature.json",
+        "values": {
+          "quality": ""
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed."
+          }
+        ],
+        "unet": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "vae": "minimax_h3_image_vae_fp16.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/0bb149f51e3156ed4b90dd45d5620346bfe1df8f/vae/minimax_h3_image_vae_fp16.safetensors",
+        "clips": [
+          {
+            "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ],
+        "steps": 6,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 37.9,
+          "notes": "Weights from Comfy-Org/MiniMax-H3-Image (commit 0bb149f): the 33B H3-Image transformer, pruned int8 (21.0 GB) and its single-frame VAE (1.2 GB); the 32B nvfp4 text encoder (15.7 GB) is the one the H3 video packs already use. No prompt writer: the layout brief (plus the user's notes on a new line) and picture 1 go straight into MiniMaxH3ImageConditioning, as in ukr8b3g-cmyk/H3-Character-Sheet-Designer (MIT). The brief is the one that Designer's MiniMax H3 Image node (v1.5.0) compiles for this view preset with Layout Image off; the canvas (7264x2176) is the Designer's Auto canvas for the preset scaled to ~16 MP. Picture 1 is scaled to 4 MP (multiple of 32). 6 steps, cfg 1, euler/simple, zeroed negative. User LoRA slot as on the other H3-Image cards."
+        },
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "The animal or mascot"
+          ]
+        },
+        "promptOptional": true,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 7264,
+            "height": 2176
+          },
+          "4:3": {
+            "width": 7264,
+            "height": 2176
+          },
+          "3:4": {
+            "width": 7264,
+            "height": 2176
+          },
+          "3:2": {
+            "width": 7264,
+            "height": 2176
+          },
+          "2:3": {
+            "width": 7264,
+            "height": 2176
+          },
+          "16:9": {
+            "width": 7264,
+            "height": 2176
+          },
+          "9:16": {
+            "width": 7264,
+            "height": 2176
+          },
+          "21:9": {
+            "width": 7264,
+            "height": 2176
+          }
+        }
+      }
+    }
+  ]
+}

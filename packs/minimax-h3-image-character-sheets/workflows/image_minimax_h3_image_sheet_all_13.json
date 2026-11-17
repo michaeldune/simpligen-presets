@@ -1,0 +1,207 @@
+{
+  "sg_unet": {
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load MiniMax H3-Image"
+    }
+  },
+  "simpligen_lora_1": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "sg_unet",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    }
+  },
+  "sg_te": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load H3 text encoder (32B nvfp4)"
+    }
+  },
+  "sg_vae": {
+    "inputs": {
+      "vae_name": "{{vae}}"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load H3-Image VAE"
+    }
+  },
+  "sg_neg": {
+    "inputs": {
+      "conditioning": [
+        "sg_cond",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (zeroed)"
+    }
+  },
+  "sg_ksampler": {
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "sg_cond",
+        0
+      ],
+      "negative": [
+        "sg_neg",
+        0
+      ],
+      "latent_image": [
+        "sg_cond",
+        1
+      ],
+      "seed": {{seed}},
+      "steps": 6,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler (6 steps, cfg 1)"
+    }
+  },
+  "sg_decode": {
+    "inputs": {
+      "samples": [
+        "sg_ksampler",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "sg_save": {
+    "inputs": {
+      "images": [
+        "sg_decode",
+        0
+      ],
+      "filename_prefix": "minimax_h3_image_sheet_all_13"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save"
+    }
+  },
+  "sgopt_ref_image_1__load": {
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 1"
+    }
+  },
+  "sgopt_ref_image_1__scale": {
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_1__load",
+        0
+      ],
+      "resize_type": "scale total pixels",
+      "resize_type.megapixels": 4.0,
+      "scale_method": "area"
+    },
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 at 4 MP"
+    }
+  },
+  "sgopt_ref_image_1__fit": {
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_1__scale",
+        0
+      ],
+      "resize_type": "scale to multiple",
+      "resize_type.multiple": 32,
+      "scale_method": "area"
+    },
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 to a multiple of 32"
+    }
+  },
+  "sg_cond": {
+    "inputs": {
+      "clip": [
+        "sg_te",
+        0
+      ],
+      "vae": [
+        "sg_vae",
+        0
+      ],
+      "prompt": [
+        "sg_request",
+        0
+      ],
+      "width": 7744,
+      "height": 2048,
+      "images.image_1": [
+        "sgopt_ref_image_1__fit",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ImageConditioning",
+    "_meta": {
+      "title": "MiniMax H3 Image Conditioning"
+    }
+  },
+  "sg_brief": {
+    "inputs": {
+      "value": "Create one character reference sheet from <Picture 1>.\nPreserve the same character design and rendering style across all views.\nWhite background. Each requested view appears once.\nMatch the relative proportions of the head, torso, and legs in <Picture 1> across the full-body views.\nArrange four blocks side by side across the canvas, from left to right.\nFar left: six portraits in a two-column, three-row grid. Read each row from left to right.\nTop row: Front portrait, complete head and shoulders. Profile portrait facing image-right, complete head and shoulders.\nMiddle row: Profile portrait facing image-left, complete head and shoulders. Three-quarter portrait facing image-right, complete head and shoulders.\nBottom row: Three-quarter portrait facing image-left, complete head and shoulders. Portrait from behind, complete head and shoulders.\nCenter: three full-body figures side by side, equally tall, with a small margin above and below.\nFrom left to right: Full body facing forward, standing, complete figure visible. Full body in profile facing image-right, standing, complete figure visible. Full body from behind, standing, complete figure visible.\nTo their right: two flat outfit views side by side, front on the left and back on the right.\nExtract the front of the outfit onto a white background. No human. The outfit is flat. Extract the back of the outfit onto a white background. No human. The outfit is flat.\nFar right: hands above footwear. Top: Close-up of both hands, including their coverings when present in the reference. Bottom: Close-up of both feet and their footwear when present in the reference."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Character sheet brief (all-13, H3 Character Sheet Designer v1.5.0)"
+    }
+  },
+  "sg_request": {
+    "inputs": {
+      "string_a": [
+        "sg_brief",
+        0
+      ],
+      "string_b": "{{prompt}}",
+      "delimiter": "\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Brief + your notes"
+    }
+  }
+}
