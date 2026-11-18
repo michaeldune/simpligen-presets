@@ -1,0 +1,121 @@
+{
+  "id": "anima-large-pawhibited-retired-pack",
+  "name": "Anima: Pawhibited (retired)",
+  "version": "1.0.0",
+  "author": "Meiyue with CatgirlContraband",
+  "nsfw": false,
+  "description": "A single retired card, kept for anyone who already has the checkpoint. It was removed from the Anima Large pack on 2026-11-18 because the author's Civitai account and the model were deleted, so the file can no longer be downloaded. See README.md in this folder.",
+  "tags": [
+    "Local",
+    "Anima",
+    "Retired"
+  ],
+  "presets": [
+    {
+      "id": "pawhibited-anima-29b-v1",
+      "name": "Pawhibited Anima 2.9B v1.0",
+      "tagline": "Dramatic light and close framing on the 2.9B Anima",
+      "icon": "🐾",
+      "previewImage": "pawhibited-anima-29b-v1.jpg",
+      "description": "Dramatic, detailed pictures with closer framing than Anima base, on the bigger 40-layer Anima 2.9B. Golden-hour scenery can tip into a heavy gold cast. About 27 seconds a picture on a 12 GB card.\n\nThe authors suggest up to 50 steps, but 50 looked the same as 28 in our test and took nearly twice as long. They like 1024x1536 and warn about 1536x1536.\n\nLicence (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Dramatic",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Pawhibited Anima 2.9B v1.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "pawhibited-anima-29b-v1.json",
+        "unet": "pawhibitedAnima29b_v10.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3429588?fileId=3325362",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "steps": 28,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 50,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 7.1,
+          "notes": "Anima-2.9B UNet (diffusion_models, bf16, 5.84 GB, sha256 422436633524c29a9f2f8a32f57b9699f939e5746c0d7ecd5a3bdd5139585b22, Civitai model 3020561 / version 3429588 'v1.0' / fileId 3325362, by Meiyue with CatgirlContraband) + Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Baked 2026-10-31 on a 4070 Ti 12 GB (SimpliGen engine v0.43.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261031). Authors: 28-50 steps, CFG 3.5-5, Euler + sgm_uniform (also res_multistep + linear_quadratic, er_sde, beta). Engine-direct median 23.3 s at 28 steps, 40.4 s at 50, no visible gain from 50. Verified in the app (1.78.0, engine v0.43.0) 2026-10-31 through the agent route: a two-character prompt with a plain black hoodie at 3:4 on 4 seeds (11/22/33/44) and a single-character prompt at 16:9, all clean, no system-prompt lettering, 25-28 s each. Seed, size, prompt and negative read back from engine /history. LICENCE (Civitai): image use, on-site generation, selling images and merges all allowed; no credit required."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    }
+  ]
+}
