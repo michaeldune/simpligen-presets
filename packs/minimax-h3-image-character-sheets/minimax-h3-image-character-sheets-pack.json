@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-image-character-sheets-pack",
   "name": "Community — MiniMax H3-Image Character Sheets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "addedAt": "2026-11-17",
   "author": "michaeldune",
   "nsfw": false,
@@ -120,7 +120,8 @@
             "width": 6272,
             "height": 2528
           }
-        }
+        },
+        "previewFocus": "center 50%"
       }
     },
     {
@@ -224,7 +225,8 @@
             "width": 5632,
             "height": 2816
           }
-        }
+        },
+        "previewFocus": "center 44%"
       }
     },
     {
@@ -328,7 +330,8 @@
             "width": 4832,
             "height": 3264
           }
-        }
+        },
+        "previewFocus": "center 29%"
       }
     },
     {
@@ -640,7 +643,8 @@
             "width": 6336,
             "height": 2496
           }
-        }
+        },
+        "previewFocus": "center 50%"
       }
     },
     {
@@ -848,7 +852,8 @@
             "width": 7744,
             "height": 2048
           }
-        }
+        },
+        "previewFocus": "center 50%"
       }
     },
     {
@@ -952,7 +957,8 @@
             "width": 7264,
             "height": 2176
           }
-        }
+        },
+        "previewFocus": "center 50%"
       }
     }
   ]
