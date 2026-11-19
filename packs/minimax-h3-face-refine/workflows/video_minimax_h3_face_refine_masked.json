@@ -1,0 +1,53 @@
+{
+  "h3_unet": {"class_type": "UNETLoader", "inputs": {"unet_name": "{{unet}}", "weight_dtype": "default"}, "_meta": {"title": "Load MiniMax H3 FL2VA (pruned int8)"}},
+  "h3_clip": {"class_type": "CLIPLoader", "inputs": {"clip_name": "{{clip}}", "type": "minimax", "device": "default"}, "_meta": {"title": "Load H3 text encoder"}},
+  "h3_video_vae": {"class_type": "VAELoader", "inputs": {"vae_name": "{{vae}}"}, "_meta": {"title": "Load H3 video VAE"}},
+  "h3_audio_vae": {"class_type": "VAELoader", "inputs": {"vae_name": "{{audio_vae}}"}, "_meta": {"title": "Load H3 audio VAE"}},
+  "simpligen_lora_1": {"class_type": "Power Lora Loader (rgthree)", "inputs": {"PowerLoraLoaderHeaderWidget": {"type": "PowerLoraLoaderHeaderWidget"}, "➕ Add Lora": "", "model": ["h3_unet", 0], "clip": ["h3_clip", 0]}, "_meta": {"title": "SimpliGen LoRA slot"}},
+  "h3_turbo_lora": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["simpligen_lora_1", 0], "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors", "strength_model": 1.0}, "_meta": {"title": "FL2V turbo 8-step LoRA"}},
+
+  "sgopt_ref_video_1__load": {"class_type": "LoadVideo", "inputs": {"file": "{{ref_video_1}}"}, "_meta": {"title": "Reference Video 1 (the clip to fix)"}},
+  "sgopt_ref_video_1__trim": {"class_type": "Video Slice", "inputs": {"video": ["sgopt_ref_video_1__load", 0], "start_time": 0, "duration": 10, "strict_duration": false}},
+  "sgopt_ref_video_1__components": {"class_type": "GetVideoComponents", "inputs": {"video": ["sgopt_ref_video_1__trim", 0]}},
+  "face_ref_load": {"class_type": "LoadImage", "inputs": {"image": "{{ref_image_1}}", "upload": "image"}, "_meta": {"title": "Face picture (required)"}},
+
+  "src_count": {"class_type": "GetImageSizeAndCount", "inputs": {"image": ["sgopt_ref_video_1__components", 0]}},
+  "src_len": {"class_type": "ComfyMathExpression", "inputs": {"expression": "a - ((a - 5) % 17)", "values.a": ["src_count", 3]}, "_meta": {"title": "Trim to the H3 frame grid (5 + 17n)"}},
+  "src_frames": {"class_type": "ImageFromBatch", "inputs": {"image": ["src_count", 0], "batch_index": 0, "length": ["src_len", 1]}},
+
+  "sam_model": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": "sam3.1_multiplex_fp16.safetensors"}, "_meta": {"title": "Load SAM 3.1"}},
+  "sam_text": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["sam_model", 1], "text": "face"}},
+  "sam_track": {"class_type": "SAM3_VideoTrack", "inputs": {"images": ["src_frames", 0], "model": ["sam_model", 0], "conditioning": ["sam_text", 0], "detection_threshold": 0.4, "max_objects": 1, "detect_interval": 1}, "_meta": {"title": "Track the face"}},
+  "sam_mask": {"class_type": "SAM3_TrackToMask", "inputs": {"track_data": ["sam_track", 0], "object_indices": "0"}},
+  "mask_clean": {"class_type": "MVEx_MaskCleanup", "inputs": {"masks": ["sam_mask", 0], "threshold": 0.3, "method": "shrink_grow", "method.shrink": 2, "method.min_frames": 4, "edge_grow": 4}},
+
+  "face_crop": {"class_type": "MVEx_SubjectCrop", "inputs": {"original_images": ["src_frames", 0], "masks": ["mask_clean", 0], "mode": "zoomed", "mode.crop_scale": 3.0, "mode.padding": "firm", "mode.prefer": "stillness", "mode.pad_surplus_tol": 16, "mode.zoom_step": 1.0, "mode.aspect_ratio": 1.0, "mode.seamless_loop": false, "divisible_by": 32, "upscale_megapixels": -0.26, "resize_method": "auto"}, "_meta": {"title": "Crop a steady square around the face, scaled to about 512 px"}},
+  "crop_size": {"class_type": "GetImageSizeAndCount", "inputs": {"image": ["face_crop", 0]}},
+
+  "lat_mask": {"class_type": "MVEx_MaskToLatentSpace", "inputs": {"masks": ["face_crop", 1], "vae": ["h3_video_vae", 0], "compression": "auto", "spatial_method": "max", "temporal_method": "max", "grow_spatial": 36, "grow_temporal": 1, "grow_temp_mode": "both"}},
+  "crop_encode": {"class_type": "VAEEncode", "inputs": {"pixels": ["face_crop", 0], "vae": ["h3_video_vae", 0]}},
+  "crop_latent_masked": {"class_type": "SetLatentNoiseMask", "inputs": {"samples": ["crop_encode", 0], "mask": ["lat_mask", 0]}},
+  "audio_encode": {"class_type": "VAEEncodeAudio", "inputs": {"audio": ["sgopt_ref_video_1__components", 1], "vae": ["h3_audio_vae", 0]}},
+  "audio_lock": {"class_type": "SolidMask", "inputs": {"value": 0.0, "width": 32, "height": 32}, "_meta": {"title": "Zero mask: keep the clip's audio"}},
+  "audio_latent_locked": {"class_type": "SetLatentNoiseMask", "inputs": {"samples": ["audio_encode", 0], "mask": ["audio_lock", 0]}},
+  "av_latent": {"class_type": "LTXVConcatAVLatent", "inputs": {"video_latent": ["crop_latent_masked", 0], "audio_latent": ["audio_latent_locked", 0]}},
+
+  "h3_conditioning": {"class_type": "MiniMaxH3ReferenceToVideo", "inputs": {"clip": ["simpligen_lora_1", 1], "vae": ["h3_video_vae", 0], "audio_vae": ["h3_audio_vae", 0], "prompt": "{{prompt}}", "width": ["crop_size", 1], "height": ["crop_size", 2], "length": ["src_len", 1], "ref_image_size": "match", "ref_images.ref_image_0": ["face_ref_load", 0]}},
+  "h3_diffdiff": {"class_type": "DifferentialDiffusion", "inputs": {"model": ["h3_turbo_lora", 0], "strength": 1.0}},
+  "h3_guider": {"class_type": "BasicGuider", "inputs": {"model": ["h3_diffdiff", 0], "conditioning": ["h3_conditioning", 0]}},
+  "h3_sampler": {"class_type": "KSamplerSelect", "inputs": {"sampler_name": "euler"}},
+  "h3_sigmas": {"class_type": "BasicScheduler", "inputs": {"model": ["h3_turbo_lora", 0], "scheduler": "beta", "steps": 8, "denoise": 1.0}},
+  "h3_noise": {"class_type": "RandomNoise", "inputs": {"noise_seed": "{{seed}}"}},
+  "h3_sample": {"class_type": "SamplerCustomAdvanced", "inputs": {"noise": ["h3_noise", 0], "guider": ["h3_guider", 0], "sampler": ["h3_sampler", 0], "sigmas": ["h3_sigmas", 0], "latent_image": ["av_latent", 0]}},
+  "h3_split": {"class_type": "LTXVSeparateAVLatent", "inputs": {"av_latent": ["h3_sample", 0]}},
+  "h3_decode_video": {"class_type": "VAEDecode", "inputs": {"samples": ["h3_split", 0], "vae": ["h3_video_vae", 0]}},
+
+  "vosr_model": {"class_type": "VOSR2ModelLoader", "inputs": {"model": "VOSR2", "dtype": "default"}},
+  "vosr_detail": {"class_type": "VOSR2Upscale", "inputs": {"model": ["vosr_model", 0], "image": ["h3_decode_video", 0], "upscale": 1, "seed": "{{seed}}", "color_alignment": "wavelet", "tile_size": 384, "tile_overlap": 32, "vae_tile_size": 512, "vae_tile_overlap": 32}, "_meta": {"title": "VOSR 2.0 detail pass at scale 1"}},
+
+  "paste_mask": {"class_type": "GrowMaskWithBlur", "inputs": {"mask": ["face_crop", 1], "expand": 8, "incremental_expandrate": 0.0, "tapered_corners": true, "flip_input": false, "blur_radius": 6.0, "lerp_alpha": 1.0, "decay_factor": 1.0, "fill_holes": true}, "_meta": {"title": "Soften the face mask for the paste"}},
+  "face_uncrop": {"class_type": "MVEx_SubjectUncrop", "inputs": {"cropped_images": ["vosr_detail", 0], "original_images": ["src_frames", 0], "bboxes": ["face_crop", 2], "cropped_masks": ["paste_mask", 0], "feather": 8, "resize_method": "auto"}, "_meta": {"title": "Paste the face back"}},
+
+  "h3_create_video": {"class_type": "CreateVideo", "inputs": {"images": ["face_uncrop", 0], "fps": ["sgopt_ref_video_1__components", 2], "audio": ["sgopt_ref_video_1__components", 1], "bit_depth": 8}},
+  "h3_save": {"class_type": "SaveVideo", "inputs": {"video": ["h3_create_video", 0], "filename_prefix": "video/MiniMax_H3_face_refine", "format": "auto", "codec": "auto"}}
+}

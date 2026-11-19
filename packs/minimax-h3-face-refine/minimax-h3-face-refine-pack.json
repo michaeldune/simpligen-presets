@@ -1,0 +1,61 @@
+{
+  "id": "minimax-h3-face-refine-pack",
+  "name": "Community — MiniMax H3 (Face Refine)",
+  "version": "1.0.0",
+  "author": "drozbay + CSWRY + ylchen333 + amao2001",
+  "nsfw": false,
+  "minComfyuiVersion": "v0.45.0",
+  "description": "Model format: int8 ConvRot. Steps: 8.\n\nFix a small or smeared face in a finished MiniMax H3 clip. SAM 3.1 finds and tracks the face, drozbay's MaskVidExperiments cuts a steady square around it and scales it to about 512 px, and H3 redraws only the masked face at full denoise while the clip's own audio is locked in the latent, so the mouth follows the soundtrack. VOSR 2.0 then adds skin and eye detail, and the face is pasted back through the same mask. Hair, body and background stay as they were. Method after Veteran AI's masked-latent face refine (amao2001); built on MaskVidExperiments by drozbay and VOSR 2.0 by CSWRY / ylchen333.",
+  "tags": ["Local", "Video", "V2V", "Refine", "Face", "MiniMax H3", "SAM3", "VOSR2", "8-step"],
+  "presets": [
+    {
+      "id": "minimax-h3-face-refine-masked",
+      "name": "MiniMax H3 Face Refine (masked + VOSR2)",
+      "icon": "🙂",
+      "previewImage": "previews/minimax-h3-face-refine-masked.jpg",
+      "tagline": "Redraw one small face in a finished H3 clip from a face picture - audio and lip sync kept",
+      "tags": ["Video", "V2V", "Refine", "Face", "SAM3", "VOSR2"],
+      "enabled": true,
+      "template": "wan-video",
+      "description": "Fixes one small or blurry face in a clip you already made. Only the face is redrawn. Hair, body, background and the soundtrack stay as they were, and the mouth follows the clip's own audio.\n\nPut the clip in Reference Video 1 and a clear picture of the person's face in the Face slot. The face is redrawn from that picture, so use the picture you made the clip with, or another sharp shot of the same person. Without it the redraw cannot tell who the person is and gives them a different face. Paste the prompt that made the clip, or leave the prompt empty. The redraw also follows the prompt: if the clip drifted from its prompt (a dark moustache where the prompt said white), the face moves back towards what the prompt says.\n\nUse it on clips with one person. It fixes one face per run and picks it itself, usually the biggest face in the picture. With several people it can pick the wrong one and turn them into the person in your picture or prompt: on a band clip it fixed the bassist in front instead of the drummer behind, and the bassist came out as the drummer. The clip is cut to H3's frame grid, so up to two-thirds of a second can drop off the end. Clips longer than 10 s are cut at 10 s, and the duration slider is ignored.\n\nIf no face is found, the clip comes back unchanged. Very small faces, or a face turned away at the start of the clip, may not be found.\n\nThe first render downloads 7 GB for the detail pass, with no progress bar, so the job looks stuck for a few minutes. Wait it out.\n\nModel format: int8 ConvRot.",
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": ["local"],
+        "displayModel": "MiniMax H3 FL2VA (pruned int8) + FL2V turbo 8-step + SAM 3.1 + VOSR 2.0",
+        "baseModels": ["minimax-h3"],
+        "workflow": "workflows/video_minimax_h3_face_refine_masked.json",
+        "promptOptional": true,
+        "duration": {"type": "slider", "min": 5, "max": 10, "default": 5, "step": 1, "unit": "seconds", "vramScalesWithDuration": true},
+        "acceptsReferenceVideos": {"min": 1, "max": 1, "soundtrack": true},
+        "acceptsReferenceImages": {"min": 1, "max": 1, "slotLabels": ["Face"]},
+        "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {"dir": "vae", "filename": "minimax_h3_audio_vae_fp32.safetensors", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors"},
+          {"dir": "loras", "filename": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"},
+          {"dir": "checkpoints", "filename": "sam3.1_multiplex_fp16.safetensors", "url": "https://huggingface.co/Comfy-Org/sam3.1/resolve/7bb8374780a725b4353ed31f3a9395c9742b5621/checkpoints/sam3.1_multiplex_fp16.safetensors", "description": "Meta SAM 3.1 video tracker, finds and follows the face"}
+        ],
+        "extensions": [
+          {"name": "rgthree-comfy", "url": "https://github.com/rgthree/rgthree-comfy.git", "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4", "description": "Power Lora Loader, used by SimpliGen's own LoRA slot. Usually pre-installed by SimpliGen."},
+          {"name": "MaskVidExperiments", "url": "https://github.com/drozbay/MaskVidExperiments.git", "pinnedCommit": "c32ed8c17e6fe892a174ebf25fe98b1317de97fb", "description": "drozbay's mask cleanup, steady subject crop/uncrop and pixel-to-latent mask reduction. Needs only scipy, which the engine already has. NOT pre-installed by SimpliGen."},
+          {"name": "ComfyUI-VOSR2", "url": "https://github.com/ylchen333/ComfyUI-VOSR2.git", "pinnedCommit": "483b553df7162dd9e940cce1b1ef2275998bf463", "description": "VOSR 2.0 detail pass. Downloads the 7 GB model bundle from CSWRY/VOSR into models/vosr2 on first use. Same pin as the VOSR 2.0 Video Refine pack."},
+          {"name": "ComfyUI-KJNodes", "url": "https://github.com/kijai/ComfyUI-KJNodes.git", "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6", "description": "GrowMaskWithBlur for the soft paste edge, and PathchSageAttentionKJ for SimpliGen's Faster Attention injection."}
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "supportsSage": false,
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {"label": "Source size (tier ignored)", "minVramGB": 12, "aspects": {"16:9": {"width": 864, "height": 480}, "9:16": {"width": 480, "height": 864}, "1:1": {"width": 640, "height": 640}, "4:3": {"width": 736, "height": 544}, "3:4": {"width": 544, "height": 736}, "21:9": {"width": 1024, "height": 448}}}
+        ],
+        "reclaimVramBeforeDecode": true,
+        "requirements": {"minVramGB": 12, "recommendedVramGB": 16, "minRamGB": 32, "sizeGB": 33, "notes": "Measured 2026-11-18 on an RTX 4070 Ti 12 GB: an 8 s 1344x768 clip took 4.7-4.8 min in the app, and 6-8 s 864x480 clips took 3.6-4.7 min on the same graph in plain ComfyUI, VOSR2 pass included. The face is redrawn at about 512 px whatever the clip size, so time grows with clip length more than with resolution. Output is the source size. Faster Attention stays off: the app would patch the VOSR2 model input as well and the run would fail. Shares the FL2VA base, text encoder and VAEs with the FL2V packs; new downloads are SAM 3.1 (1.7 GB) and the FL2V turbo LoRA if you lack them, plus the 7 GB VOSR2 bundle on first run."}
+      }
+    }
+  ]
+}
