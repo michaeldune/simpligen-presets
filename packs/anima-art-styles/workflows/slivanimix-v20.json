@@ -1,0 +1,161 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load SlivaniMix v2.0"
+    },
+    "inputs": {
+      "unet_name": "{{unet}}",
+      "weight_dtype": "default"
+    }
+  },
+  "3": {
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Anima Qwen Text Encoder"
+    },
+    "inputs": {
+      "clip_name": "{{clip}}",
+      "type": "stable_diffusion",
+      "device": "default"
+    }
+  },
+  "simpligen_lora_1": {
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    },
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "3",
+        0
+      ]
+    }
+  },
+  "2": {
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "Anima Model Sampling (shift 3)"
+    },
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "shift": 3
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    },
+    "inputs": {
+      "text": "masterpiece, best quality, {{prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    },
+    "inputs": {
+      "text": "{{negative_prompt}}",
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ]
+    }
+  },
+  "6": {
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent"
+    },
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    }
+  },
+  "7": {
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    },
+    "inputs": {
+      "seed": {{seed}},
+      "steps": {{steps}},
+      "cfg": {{cfg}},
+      "sampler_name": "er_sde",
+      "scheduler": "simple",
+      "denoise": {{denoise}},
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Qwen-Image VAE"
+    },
+    "inputs": {
+      "vae_name": "{{vae}}"
+    }
+  },
+  "9": {
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    },
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "8",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    },
+    "inputs": {
+      "filename_prefix": "slivanimix-v20",
+      "images": [
+        "9",
+        0
+      ]
+    }
+  }
+}

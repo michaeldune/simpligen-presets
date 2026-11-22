@@ -1,13 +1,13 @@
 {
   "id": "moss-nsfw-finetunes-pack",
   "name": "Community — MOSS-Image Figure Finetunes",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "addedAt": "2026-10-19",
-  "author": "iamddtla / neuroshaman / J1B / CrHasher (pack: michaeldune)",
+  "author": "iamddtla / neuroshaman / J1B / CrHasher / pahpah / Langzaigg (pack: michaeldune)",
   "nsfw": true,
   "minAppVersion": "1.74.0",
   "minComfyuiVersion": "v0.42.0",
-  "description": "Model format and default steps by card: Anatomy Fix Moss: int8 ConvRot at 50 steps; Artius Moss: int8 ConvRot on about half the weights (the rest bf16) at 8 steps; Jib Mix Moss Realistic: int8 ConvRot at 12 steps; Prime Lust Moss: int8 ConvRot at 25 steps.\n\nFour mature MOSS-Image finetunes from Civitai that avoid the anatomy errors the MOSS-Image cards make on figure work. Two fast ones: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds. Two slower ones: Anatomy Fix Moss, the base model's look and faces with the anatomy corrected, 50 steps, about 50 seconds; Prime Lust Moss, the most direct of the four, with a glamour look, 25 steps, about 37 seconds. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "description": "Model format and default steps by card: Anatomy Fix Moss: int8 ConvRot at 50 steps; Artius Moss: int8 ConvRot on about half the weights (the rest bf16) at 8 steps; Jib Mix Moss Realistic: int8 ConvRot at 12 steps; Prime Lust Moss: int8 ConvRot at 25 steps; MossRAEL v0.1: int8 ConvRot at 25 steps; MOSS-Image Anime Turbo AIO: int8 ConvRot all-in-one at 4 steps.\n\nMature MOSS-Image finetunes from Civitai and Hugging Face. Four for figure work that avoid the anatomy errors the MOSS-Image cards make: Jib Mix Moss Realistic, a natural amateur-photo look in 12 steps, about 13 seconds on a 12 GB card; Artius Moss, a smoother, retouched look in 8 steps, about 15 seconds; Anatomy Fix Moss, the base model's look and faces with the anatomy corrected, 50 steps, about 50 seconds; Prime Lust Moss, the most direct of the four, with a glamour look, 25 steps, about 37 seconds. Since 1.2.0, two for anime: MossRAEL v0.1 (expressive anime linework, with artist and series tags) and MOSS-Image Anime Turbo AIO (4 steps, one 14.4 GB file with its own text encoder). The others share the MOSS-Image text encoder and autoencoder, so each adds only its own 5-7 GB checkpoint if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
   "tags": [
     "Image",
     "Local"
@@ -18,7 +18,9 @@
     "https://civitai.com/api/download/models/3413227?fileId=3305738": "1fef4582c4d052baa1d63195512e0483417cd813bb3a3842773fea25c2b5f568",
     "https://civitai.com/api/download/models/3416029?fileId=3309287": "187a5c86c6fea9497bf16d43c5d780ebd46fb52f17a4a8faa2bd553218b0344b",
     "https://civitai.com/api/download/models/3435334?fileId=3332190": "4b504c9bf2f2dde23840e7caa8354d66ff6453c122ec0c37b54f46e7e170c198",
-    "https://civitai.com/api/download/models/3425008?fileId=3319850": "40ce1e5b52b956f839848b8974a0a38b3fe54069df8477977b251712e8872f98"
+    "https://civitai.com/api/download/models/3425008?fileId=3319850": "40ce1e5b52b956f839848b8974a0a38b3fe54069df8477977b251712e8872f98",
+    "https://huggingface.co/sselpah/MossRAEL/resolve/fc7fc769b51201457c4b3baf8dd97ef1d166736a/MossRAEL_preview_int8_convrot.safetensors": "1b219a78efbe5414b1e7fc77026e55fc8da4a2684a13b82466e8de37f289a77c",
+    "https://civitai.com/api/download/models/3433837?fileId=3330382": "9b535b3ace628cfe87075b7516bc9bb437791a0ff34f1043d87ab991de0dc969"
   },
   "presets": [
     {
@@ -433,6 +435,215 @@
             "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
             "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
             "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-nsfw-mossrael",
+      "name": "MossRAEL v0.1 (anime)",
+      "tagline": "Anime linework on MOSS-Image, with artist tags",
+      "icon": "✒️",
+      "previewImage": "previews/moss-nsfw-mossrael.jpg",
+      "description": "An anime finetune of MOSS-Image Base by pahpah, trained on about 68,000 Danbooru illustrations and anime screenshots, with expressive linework. It handles mature prompts. About 27 seconds a picture on a 12 GB card.\n\nDescribe the picture in full sentences. To ask for an artist's style, end with 'Art by @artist name'; 'Art by @anime screencap' gives a TV-anime frame; name a series with '[Copyright: series name];'. No underscores needed.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "worst quality, bad anatomy, watermark, jpeg artifact, bad fingers, extra fingers",
+        "displayModel": "MossRAEL v0.1 (int8)",
+        "workflow": "workflows/moss_nsfw_mossrael.json",
+        "unet": "MossRAEL_preview_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/sselpah/MossRAEL/resolve/fc7fc769b51201457c4b3baf8dd97ef1d166736a/MossRAEL_preview_int8_convrot.safetensors",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 25,
+        "cfg": 4,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 3,
+            "max": 5,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 12.9,
+          "notes": "Hugging Face sselpah/MossRAEL at fc7fc769b51201457c4b3baf8dd97ef1d166736a, MossRAEL_preview_int8_convrot.safetensors (5.41 GB, sha256 pinned; also Civitai version 3444500, marked mature). Header read 2026-11-22: 967 tensors, MOSS layout (layers.N, final_linear_video), int8 with ConvRot. Creator workflow (mossrael_workflow.json): er_sde / simple, 25 steps, CFG 4, ModelSamplingAuraFlow shift 8 ('don't go lower than 6'), 1-1.5 MP, negative as on the card. No SLG in the creator's graph. Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-nsfw-anime-turbo-aio",
+      "name": "MOSS-Image Anime Turbo AIO",
+      "tagline": "Anime MOSS-Image in 4 steps, one all-in-one file",
+      "icon": "⚡",
+      "previewImage": "previews/moss-nsfw-anime-turbo-aio.jpg",
+      "description": "A fast anime MOSS-Image: 4 steps at CFG 1, about 16 seconds a picture on a 12 GB card. It is one all-in-one file with its own text encoder and autoencoder, merged by Langzaigg from a community turbo finetune and a mature LoRA at 0.7.\n\nBecause the text encoder is inside, this card shares nothing with the other MOSS cards: it is a 14.4 GB download of its own. Describe the picture in full sentences; at CFG 1 the negative prompt does nothing.\n\nModel format: int8 ConvRot, with the text encoder and autoencoder in the same file.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Turbo",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "",
+        "displayModel": "MOSS-Image Anime Turbo AIO 1.0",
+        "workflow": "workflows/moss_nsfw_anime_turbo_aio.json",
+        "checkpoint": "moss_image_anime_turbo.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/3433837?fileId=3330382",
+        "steps": 4,
+        "cfg": 1,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 8,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 1,
+            "max": 1.5,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 14.5,
+          "notes": "Civitai model 'MOSS-Image Anime Turbo AIO' (mirror by Experimental_dAIver of Langzaigg's Hugging Face merge, Apache-2.0, Civitai: mature), version 3433837, fileId 3330382 (moss_image_anime_turbo.safetensors, 14.43 GB, sha256 9b535b3ace62...). INT8 ConvRot fused-QKV backbone + Qwen3.5-9B text encoder + FLUX.2 VAE in one checkpoint; load with CheckpointLoaderSimple. Creator settings: 4 steps, res_multistep / simple, CFG 1, empty negative, about 1 MP (fallback euler / simple). Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
           }
         ]
       }

@@ -1,10 +1,10 @@
 {
   "id": "anima-art-styles-pack",
   "name": "Anima Art & Styles",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 28 to 30 by default, depending on the card.\n\nAnima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds), MyGoo (soft 2.5D with warm, photo-like light) and, since 1.1.0, Fn-Moment v4.1 (cinematic anime with cool dusk light and warm rim light). The first five came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card), except BlueberryMix TURBO T6 (int8). Steps: 8 to 30 by default, depending on the card.\n\nAnima checkpoints with a softer or moodier look of their own: MiaoMiao Harem (expression and skin detail), Pie Models Cream v2 (soft, glowing 2.5D), Riaku Lab (painterly atmosphere and complex light), Pearly Unknown (muted, moody, semi-real, deep backgrounds), MyGoo (soft 2.5D with warm, photo-like light), Fn-Moment v4.1 (cinematic anime with cool dusk light and warm rim light) and, since 1.2.0, SlivaniMix v2.0 (a steady style across seeds, at about 1.6 MP) and BlueberryMix TURBO T6 (Mature: 8 steps, int8, for older cards). The first five came from Anima Anime when it was split on 2026-11-10. For photoreal people use Anima Realism. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",
@@ -639,6 +639,198 @@
           "minRamGB": 16,
           "sizeGB": 5.2,
           "notes": "Civitai model 2733842 (Fn-Moment Anima, by fannon), version 3274802 'v4.0-no turbo', fileId 3158841 (Fn-Moment-Anima-Base-V4.1.safetensors, bf16, 3.9 GB, sha256 pinned; the only file). The non-turbo V4.1, the version requested; a 2.9B V5.0 also exists. Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Author: without the turbo LoRA, dpmpp_2m_sde_gpu + beta1_1, 25 steps, CFG 4 (the V5 notes); the author's samples were made with a turbo LoRA. Baked 2026-11-15 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.45.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261115). dpmpp_2m_sde_gpu/normal 25 steps CFG 4 (15.2 s) gave smeary, waxy cloth at this size, so the card runs euler/normal 30 steps CFG 4.5 (engine-direct median 18.2 s, same as Anima base). Verified in the app 2026-11-15 (engine ComfyUI 0.45.0) through the agent route, settings read back from engine history (F:\\Claude-Work\\checkpoint-request-20261115\\app_runs.jsonl): tags on 2 seeds at 3:4, a two-person cafe at 16:9, scenery at 1:1 and a plain sentence at 3:4, all clean; euler/normal 30 steps CFG 4.5 and the prefix confirmed; median 23.5 s per picture."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "slivanimix-v20",
+      "name": "SlivaniMix v2.0 (1280px)",
+      "tagline": "Steady anime style across seeds, trained at 1280px",
+      "icon": "🎐",
+      "previewImage": "previews/slivanimix-v20.jpg",
+      "description": "Anime that keeps one style from seed to seed, a little more polished than Anima Base. bluvoll trained it at 1024 and 1280 pixels, so the card renders at about 1.6 megapixels: about 33 seconds a picture on a 12 GB card.\n\nPrompt with Danbooru tags, plain sentences, or both. Artist tags still work. It leans toward fan-service framing: in our test, 'from below' turned a librarian on a ladder into a shot of her hips, so pick camera tags with care.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "SlivaniMix v2.0 (1280px)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/slivanimix-v20.json",
+        "unet": "Slivani-2.0-1280px.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2974397?fileId=2854055",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "values": {
+          "quality": ""
+        },
+        "steps": 30,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1280,
+            "height": 1280
+          },
+          "16:9": {
+            "width": 1712,
+            "height": 960
+          },
+          "9:16": {
+            "width": 960,
+            "height": 1712
+          },
+          "4:3": {
+            "width": 1472,
+            "height": 1104
+          },
+          "3:4": {
+            "width": 1104,
+            "height": 1472
+          },
+          "21:9": {
+            "width": 1952,
+            "height": 832
+          },
+          "3:2": {
+            "width": 1568,
+            "height": 1040
+          },
+          "2:3": {
+            "width": 1040,
+            "height": 1568
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Civitai model 'SlivaniMix MOSS Image/Anima' by bluvoll, version 2974397 'v2.0 - Base 1.0 - 1280px', fileId 2854055 (Slivani-2.0-1280px.safetensors, 3.90 GB, sha256 6ef602591db5...). Header read 2026-11-22: 685 BF16 tensors, 28 blocks (Anima). Creator gives no sampler settings; trained multi-res 1024 + 1280, says it likes ModelSamplingFlux and that 'masterpiece, best quality' still help. Card uses the Anima Base settings (er_sde / simple, shift 3, CFG 4, 30 steps) at about 1.6 MP. Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "blueberrymix-turbo-t6",
+      "name": "BlueberryMix TURBO T6 (Mature)",
+      "tagline": "Fast Anima mix in 8 steps, int8, for older cards",
+      "icon": "🫐",
+      "previewImage": "previews/blueberrymix-turbo-t6.jpg",
+      "description": "A fast Anima mix built for older graphics cards: 8 steps at CFG 1, about 7 seconds a picture on a 12 GB card, and the int8 file is half the size of the others. BlueberryTrain merged a set of style and turbo LoRAs into Anima Lightning. It handles mature prompts.\n\nPrompt with Danbooru tags. At CFG 1 the negative prompt does nothing; raise CFG to 1.5 if you want one.\n\nModel format: int8.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Turbo",
+        "Mature",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "BlueberryMix TURBO T6 (int8)",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/blueberrymix-turbo-t6.json",
+        "unet": "blueberrymix_t6_int8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3483835?fileId=3391200",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "values": {
+          "quality": ""
+        },
+        "steps": 8,
+        "cfg": 1,
+        "denoise": 1,
+        "negativePrompt": "",
+        "controls": {
+          "steps": {
+            "min": 4,
+            "max": 16,
+            "step": 1
+          },
+          "cfg": {
+            "min": 1,
+            "max": 2,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 3.6,
+          "notes": "Civitai model 'BlueberryMix TURBO' by BlueberryTrain (Civitai: mature), version 3483835 'T6', fileId 3391200 (blueberrymix_t6_int8.safetensors, int8 row-wise, 2.10 GB, sha256 1d75dede08f3...). Header read 2026-11-22: 1581 tensors, 28 blocks (Anima), _quantization_metadata (ComfyUI int8), embedded merge graph = anima_baseV10 + 7 LoRAs incl. turbo 1.1 extracted 0.6 and lightning 0.4. Creator: steps min 4, Euler / ER_SDE / ResMultistep, Simple / Beta / Beta57, CFG 1 (1.5 for a negative). Card: er_sde / simple, 8 steps, CFG 1, shift 3. Built 2026-11-22 (Discord model request)."
         },
         "extensions": [
           {

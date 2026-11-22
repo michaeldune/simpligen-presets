@@ -1,10 +1,10 @@
 {
   "id": "anima-anime-mixes-pack",
   "name": "Anima Anime Mixes",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 35 by default, depending on the card.\n\nClean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast) and Male GG Mix (male characters). These cards came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 35 by default, depending on the card.\n\nClean, bright anime mixes on the regular Anima base: Ri-Mix α and its Hi-Res card, One Obsession v4 (good pictures from plain prompts) and v5 (the most vivid), CocoaMix v4, Unholy Desire Mix Dark Serenity (keeps busy prompts in order), Element 7 Nexus Prism IV (glossy, high contrast), Male GG Mix (male characters) and, since 1.1.0, WAI-ANIMA v1.0 (the WAI look on Anima). The first eight came from Anima Anime when it was split on 2026-11-10. Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",
@@ -845,6 +845,118 @@
           "minRamGB": 16,
           "sizeGB": 5.4,
           "notes": "Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. No Anima system prompt. Anima-Turbo-based UNet (diffusion_models, fp16, 4.18 GB, sha256 fa070a7893839cd7e110a9bff6d9e3b856c4f7ae01d8d2d77f8b91c61a957261, Civitai model 2695493 / version 3443487 'v5.0' / fileId 3342055, by maxfeifei8, published 2026-11-01; file One obsession_animaV5turbo). The author gives no settings; the author's own sample PNGs read ER SDE / Simple, 25 steps, CFG 4, shift 3 at 832x1216 (then a 1.5x hi-res and ADetailer, which the card does not run). A 10-step CFG 1 arm (as on the Anima Turbo card) was baked beside it: 4.0 s median, clean, slightly softer and flatter, so the controls allow Steps 8-40 and CFG 1-5.5. Baked 2026-11-06 on a 4070 Ti 12 GB (SimpliGen engine, ComfyUI 0.44.0, direct submission) at 896x1152 on 5 prompts x 2 seeds against Anima base v1.0, duplicate control pixel-identical (F:\\Claude-Work\\checkpoint-request-20261106). Engine-direct median 18.2 s. Verified in the app 2026-11-06 (engine v0.44.0): tags on 2 seeds at 3:4, a two-person cafe at 16:9, scenery at 1:1 and a plain sentence at 3:4, all clean; plus Steps 10 / CFG 1 sent as options, which the engine ran as 10 steps at CFG 1 (10.9 s, clean); settings read back from engine history; median 24.0 s per picture at the default settings."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wai-anima-v10",
+      "name": "WAI-ANIMA v1.0",
+      "tagline": "WAI's anime look on the Anima base",
+      "icon": "🌸",
+      "previewImage": "previews/wai-anima-v10.jpg",
+      "description": "The WAI look moved to Anima: bright, clean anime from the creator of WAI Illustrious SDXL, built on Anima Base 1.0. The creator calls this first version exploratory. About 25 seconds a picture on a 12 GB card.\n\nPrompt with Danbooru tags. The card adds the creator's quality tags and negative prompt.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "WAI-ANIMA v1.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/wai-anima-v10.json",
+        "unet": "WAI-ANIMA1.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/2983680?fileId=2863158",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "values": {
+          "quality": ""
+        },
+        "steps": 25,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, score_1, score_2, score_3, artist name, blurry, jpeg artifacts, lowres, censor",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1168,
+            "height": 1168
+          },
+          "16:9": {
+            "width": 1568,
+            "height": 880
+          },
+          "9:16": {
+            "width": 880,
+            "height": 1568
+          },
+          "4:3": {
+            "width": 1360,
+            "height": 1024
+          },
+          "3:4": {
+            "width": 1024,
+            "height": 1360
+          },
+          "21:9": {
+            "width": 1792,
+            "height": 768
+          },
+          "3:2": {
+            "width": 1440,
+            "height": 960
+          },
+          "2:3": {
+            "width": 960,
+            "height": 1440
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 32,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Civitai model 'WAI-ANIMA' by WAI0731, version 2983680 'v1.0(base 1.0)', fileId 2863158 (WAI-ANIMA1.safetensors, 3.90 GB, sha256 9d5a1e1393c2...; Civitai says fp16, but the header read after download has 685 BF16 tensors, 28 blocks, Anima). Creator settings: Euler a / Normal, 20-30 steps, CFG 4-5, examples at 1024x1344, positive 'masterpiece, best quality, score_7,', negative as on the card. The version also lists the Qwen 0.6B encoder and an fp8 Qwen-Image VAE; the card uses the official Anima files instead. Built 2026-11-22 (Discord model request)."
         },
         "extensions": [
           {

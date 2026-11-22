@@ -1,0 +1,346 @@
+{
+  "id": "moss-anime-finetunes-pack",
+  "name": "Community — MOSS-Image Anime Finetunes",
+  "version": "1.0.0",
+  "addedAt": "2026-11-22",
+  "author": "CitronLegacy / uraoto / Ikena (pack: michaeldune)",
+  "nsfw": false,
+  "minAppVersion": "1.74.0",
+  "minComfyuiVersion": "v0.43.0",
+  "description": "Model format and default steps by card: Galena CAT: bf16 at 25 steps; CottonMoss: int8 at 12 steps; Hassaku MOSS v0.1: int8 ConvRot at 30 steps.\n\nAnime finetunes of MOSS-Image from Civitai, requested on the SimpliGen Discord. Galena CAT: soft, cute anime with a retro touch. CottonMoss: a fast 12-step anime merge, still experimental. Hassaku MOSS: the Hassaku look, best with Danbooru tags. For the most polished MOSS anime, see MOSS Cat Tower in MOSS-Image Finetunes. They share the MOSS-Image text encoder and autoencoder, so each card adds only its own 5-10 GB if you already have the MOSS-Image pack. Needs a SimpliGen engine with MOSS-Image support, which today means the beta engine (Settings > Updates > beta).",
+  "tags": [
+    "Image",
+    "MOSS",
+    "Anime",
+    "Local"
+  ],
+  "checksums": {
+    "https://civitai.com/api/download/models/3442792?fileId=3341250": "03ff387f0ec8547d4bb33baba866c46a6478b36f37a9d89b091810aee4e3b035",
+    "https://civitai.com/api/download/models/3437076?fileId=3334385": "e4c528e52ceff2178c264b0fc409ad049c58c8120c4bafacb02fd8f16e8be4a9",
+    "https://civitai.com/api/download/models/3458685?fileId=3360477": "fd19fcfbb2ffeabaa34add02ee3ec25852385499bc74ad4dc303b63b3d7b6eac",
+    "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors": "4cc6a1543ad2061806da46f35f90cadb4801dcba246c44782cf42ec0feb6407c",
+    "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5"
+  },
+  "presets": [
+    {
+      "id": "moss-anime-galena-cat",
+      "name": "Galena CAT (MOSS)",
+      "tagline": "Soft retro-cute anime on MOSS-Image",
+      "icon": "🐱",
+      "previewImage": "previews/moss-anime-galena-cat.jpg",
+      "description": "Soft, cute anime with a light retro touch. CitronLegacy brought the Galena CAT look from Illustrious and Anima to MOSS-Image by merging the MOSS-Image SFT model with two of their own style models.\n\nThe creator gives no settings, so the card uses the MOSS-Image card's: 25 steps, CFG 2.5, Skip Layer Guidance on layer 22, about 51 seconds a picture on a 12 GB card (the bf16 file is the slowest of the three). Lettering in quotes came out exact in our test. Describe the picture in full sentences or Danbooru tags, and put any words you want on the picture in quotes.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.43.0",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "",
+        "displayModel": "Galena CAT MOSS v1",
+        "workflow": "workflows/moss_anime_galena_cat.json",
+        "unet": "GalenaCAT_MOSS_v1_sft_pruned_int8.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3442792?fileId=3341250",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 25,
+        "cfg": 2.5,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 17.0,
+          "notes": "Civitai model 'Galena CAT - Galena Citron Anime Treasure' by CitronLegacy, version 3442792 'MOSS', fileId 3341250 (GalenaCAT_MOSS_v1_sft_pruned_int8.safetensors, 9.47 GB; Civitai lists bf16, the file name says int8; header read after download: 378 BF16 tensors, 42 layers, so bf16). Recipe (creator, 2026-10-31): moss_image_sft_bf16 x MoonlightCAT_MOSS_v1 0.8 x CuteRetroStyle_MOSS_v2 0.5. No settings published; card copies the MOSS-Image card (er_sde / simple, 25 steps, CFG 2.5, SLG layer 22 for the first half). Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-anime-cottonmoss",
+      "name": "CottonMoss (turbo test)",
+      "tagline": "Fast anime MOSS-Image in 12 steps",
+      "icon": "☁️",
+      "previewImage": "previews/moss-anime-cottonmoss.jpg",
+      "description": "A fast anime MOSS-Image in 12 steps, about 13 seconds a picture on a 12 GB card. uraoto merged several anime LoRAs and a weakened 8-step speed LoRA into MOSS-Image Base. The creator calls it an experimental prototype: it follows prompts less closely than MOSS-Image and has trouble keeping original characters consistent.\n\nDescribe the picture in full sentences or Danbooru tags. The card puts the creator's quality tags first and adds the creator's negative prompt.\n\nModel format: int8.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Turbo",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "worst quality, low quality, blurry, jpeg artifacts, sepia, username, watermark",
+        "displayModel": "CottonMoss base_turbo_test (int8)",
+        "workflow": "workflows/moss_anime_cottonmoss.json",
+        "unet": "CottonMoss_test_turbo.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3437076?fileId=3334385",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 12,
+        "cfg": 3,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 10,
+            "max": 20,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 2,
+            "max": 4,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1184,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1184
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 656
+          },
+          "3:2": {
+            "width": 1248,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1248
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 12.6,
+          "notes": "Civitai model 'CottonMoss' by uraoto, version 3437076 'base_turbo_test_int8', fileId 3334385 (CottonMoss_test_turbo.safetensors, int8, 5.04 GB, sha256 e4c528e52cef...). Merge on MOSS-Image Base with MOSS-Image-SFT-8-steps-dmd at reduced strength. Creator settings: er_sde, CFG 3, 12 steps, quality tags 'masterpiece, best quality, highres, absurdres' first, negative as on the card. Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moss-anime-hassaku",
+      "name": "Hassaku MOSS v0.1",
+      "tagline": "Semi-real anime on MOSS-Image, Danbooru tags",
+      "icon": "🍊",
+      "previewImage": "previews/moss-anime-hassaku.jpg",
+      "description": "Detailed, semi-real anime on MOSS-Image, about 30 seconds a picture on a 12 GB card. Ikena trained it on 120,000 images as a first test of whether MOSS-Image can be trained, so the style is not fully stable, and backgrounds and lettering are weaker than on MOSS-Image.\n\nPrompt with Danbooru tags, starting with '1girl' or '1boy' and 'solo'. It drifts toward a painted, realistic look: in our test a bearded pirate came out almost photographic, and the same scene with '1girl, solo' stayed closer to anime. With no characters, or with plain sentences, it looks more realistic still. If noses come out too strong, add 'nose' to the negative prompt.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Image",
+        "MOSS",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "promptFamily": "moss-image",
+        "supports": [
+          "local"
+        ],
+        "baseModels": [
+          "moss-image"
+        ],
+        "minEngineVersion": "v0.41.1",
+        "provider": "comfyui",
+        "promptStyle": "natural",
+        "negativePrompt": "worst quality, watermark, jpeg artifact, blurry",
+        "displayModel": "Hassaku MOSS v0.1 (int8)",
+        "workflow": "workflows/moss_anime_hassaku.json",
+        "unet": "hassakuMoss_int8_convrot.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3458685?fileId=3360477",
+        "clip": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/3284a1dbb351e3396d70f39f2a71cbf6ed2ef1bb/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+        "vae": "flux2-vae.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/ed33133cd56476eac818c0943b6f9419b3e4a3a1/split_files/vae/flux2-vae.safetensors",
+        "steps": 30,
+        "cfg": 4,
+        "values": {
+          "quality": ""
+        },
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 50,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 3,
+            "max": 5,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1024,
+            "height": 1024
+          },
+          "16:9": {
+            "width": 1344,
+            "height": 768
+          },
+          "9:16": {
+            "width": 768,
+            "height": 1344
+          },
+          "4:3": {
+            "width": 1152,
+            "height": 896
+          },
+          "3:4": {
+            "width": 896,
+            "height": 1152
+          },
+          "21:9": {
+            "width": 1536,
+            "height": 640
+          },
+          "3:2": {
+            "width": 1216,
+            "height": 832
+          },
+          "2:3": {
+            "width": 832,
+            "height": 1216
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 12,
+          "minRamGB": 32,
+          "sizeGB": 12.6,
+          "notes": "Civitai model 'Hassaku MOSS' by Ikena, version 3458685 'v0.1', fileId 3360477 (hassakuMoss_int8_convrot.safetensors, 5.04 GB, sha256 fd19fcfbb2ff...; bf16 also published, 9.47 GB). Header read 2026-11-22: 714 tensors, MOSS layout, 42 layers, int8 tensorwise ConvRot. Creator: 30-50 steps, CFG 3-5, 832x1216 most recommended (card uses the creator's size list), negative as on the card (+ 'nose' if needed). Embedded graph: euler / sgm_uniform. Built 2026-11-22 (Discord model request)."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    }
+  ]
+}

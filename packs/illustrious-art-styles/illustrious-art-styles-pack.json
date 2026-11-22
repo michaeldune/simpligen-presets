@@ -1,10 +1,10 @@
 {
   "id": "illustrious-art-styles-pack",
   "name": "Illustrious Art & Styles",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 30 by default, depending on the card.\n\nIllustrious SDXL checkpoints with a look of their own, which came from the Illustrious Anime pack when it was split on 2026-11-09. UnrealVision: a high-end 3D-render look (Unreal Engine, Arcane and Pixar-style light). RIN Flanime: flat colour with sharp line art, closer to a clean drawing. One Obsession v24: muted, cinematic colour and hazy light. Rule of Moon, PerfectDeliberate and SmoothMix Ultimate: anime pushed toward semi-real. Prompt with Danbooru tags. For plain anime use Illustrious Anime; for photoreal people use Illustrious Realism.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 24 to 30 by default, depending on the card.\n\nIllustrious SDXL checkpoints with a look of their own, which came from the Illustrious Anime pack when it was split on 2026-11-09. UnrealVision: a high-end 3D-render look (Unreal Engine, Arcane and Pixar-style light). Nova 3DCG XL (since 1.1.0): anime as glossy 3D, close to PVC figures. RIN Flanime: flat colour with sharp line art, closer to a clean drawing. One Obsession v24: muted, cinematic colour and hazy light. Rule of Moon, PerfectDeliberate and SmoothMix Ultimate: anime pushed toward semi-real. Prompt with Danbooru tags. For plain anime use Illustrious Anime; for photoreal people use Illustrious Realism.",
   "tags": [
     "Local",
     "Illustrious",
@@ -636,6 +636,81 @@
         ]
       },
       "tagline": "Flat colour and sharp line art"
+    },
+    {
+      "id": "nova-3dcg-xl-il-v90",
+      "name": "Nova 3DCG XL IL v9.0",
+      "tagline": "Anime as glossy 3D, like PVC figures",
+      "icon": "🧸",
+      "previewImage": "previews/nova-3dcg-xl-il-v90.jpg",
+      "description": "Anime characters rendered as 3D models, close to painted PVC figures, with the faces of Nova Anime XL. Crody's v9.0 handles extreme poses and keeps fingers steadier. About 13 seconds a picture on a 12 GB card. Check held weapons: in our test a lance came out as a pole with a sword guard.\n\nPrompt with Danbooru tags. The card adds the creator's quality tags, '3D, rendered', depth of field and volumetric light, and the creator's negative prompt.\n\nUnedited pictures are non-commercial; ask the creator about commercial use.\n\nModel format: fp16, not quantized.",
+      "tags": [
+        "Illustrious",
+        "Anime",
+        "3D",
+        "SDXL",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "sdxl-booru",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Nova 3DCG XL IL v9.0",
+        "baseModels": [
+          "illustrious",
+          "sdxl"
+        ],
+        "workflow": "workflows/nova-3dcg-xl-il-v90.json",
+        "checkpoint": "Nova3DCGILV9.safetensors",
+        "checkpointUrl": "https://civitai.com/api/download/models/2744564?fileId=2630962",
+        "steps": 28,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "modern, recent, old, oldest, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured, long body, lowres, bad anatomy, bad hands, missing fingers, extra digits, fewer digits, cropped, very displeasing, (worst quality, bad quality:1.2), sketch, jpeg artifacts, signature, watermark, username, simple background, conjoined, bad ai-generated",
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 6,
+            "step": 0.5
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 6.8,
+          "notes": "Civitai model 'Nova 3DCG XL' by Crody, version 2744564 'IL v9.0', fileId 2630962 (Nova3DCGILV9.safetensors, fp16 pruned, 6.46 GB, sha256 7e6a80d04a39...). Header read 2026-11-22: 2516 F16 tensors, SDXL layout (model/conditioner/first_stage_model). Creator settings (Illustrious): Euler a, 20-30 steps, CFG 3-5, clip skip 1-2, positive 'masterpiece, best quality, amazing quality, 4k, very aesthetic, high resolution, ultra-detailed, absurdres, newest, scenery, 3D, rendered, {prompt}, BREAK, depth of field, volumetric lighting', negative as on the card. The card drops 'scenery' (it pushes every picture toward landscapes) and BREAK. Built 2026-11-22 (Discord model request)."
+        },
+        "vae": "sdxl_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/stabilityai/sdxl-vae/resolve/6f5909a7e596173e25d4e97b07fd19cdf9611c76/sdxl_vae.safetensors",
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
     }
   ]
 }

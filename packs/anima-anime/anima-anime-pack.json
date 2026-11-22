@@ -1,10 +1,10 @@
 {
   "id": "anima-anime-pack",
   "name": "Anima Anime",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "author": "various",
   "nsfw": false,
-  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 10 to 35 by default, depending on the card.\n\nAnima (Cosmos) anime checkpoints: the official models and the fast cards. Anima Base v1.0 (the widest range of styles), the official Anima Turbo v1.1 (10 steps, about 6 s) and the official Anima-2.9B v1 preview, plus VXP Anima Turbo, the two RDBT distills and Diving v8 (flat TV-anime cel shading). Since 2.0.0 the other cards are in Anima Large (the 2.9B and 3.8B fine-tunes), Anima Anime Mixes (clean, bright mixes) and Anima Art & Styles (soft, 2.5D and painterly looks). Prompt with Danbooru tags. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
+  "description": "Model format: not quantized (bf16 or fp16, depending on the card). Steps: 10 to 35 by default, depending on the card.\n\nAnima (Cosmos) anime checkpoints: the official models and the fast cards. Anima Base v1.0 (the widest range of styles), the official Anima Turbo v1.1 (10 steps, about 6 s) and the official Anima-2.9B v1 preview, plus VXP Anima Turbo, the two RDBT distills and Diving v8 (flat TV-anime cel shading). Since 2.1.0, Anima Cat Tower v1.1 (soft, polished portraits from plain sentences) and Vanima v2.0 (Anima Base with bolder outlines). Since 2.0.0 the other cards are in Anima Large (the 2.9B and 3.8B fine-tunes), Anima Anime Mixes (clean, bright mixes) and Anima Art & Styles (soft, 2.5D and painterly looks). Prompt with Danbooru tags, except Cat Tower, which takes plain sentences. All Anima cards share the Qwen 0.6B text encoder and Qwen-Image VAE.",
   "tags": [
     "Local",
     "Anima",
@@ -725,6 +725,228 @@
           "minRamGB": 16,
           "sizeGB": 5.4,
           "notes": "Anima UNet (diffusion_models, bf16, 4,182,230,656 B, sha256 fba11953276b57edf59d1dc4f1857ac05aa079c56f982b4d7c20298d57d3f7eb) from circlestone-labs/Anima on Hugging Face at f973fc41 (same file as Civitai model 2458426 / version 3263843 'turbo-v1.1', saved there as anima_turboV11.safetensors). Qwen 0.6B text encoder + Qwen-Image VAE, shared with the other Anima cards. ModelSamplingAuraFlow shift 3. Baked 2026-10-24 on a 4070 Ti 12 GB (SimpliGen engine v0.42.0, direct submission) on the 2026-10-15 bake's 5 prompts x 2 seeds at 896x1152 against Anima base v1.0 (re-rendered: pixel-identical to 10-15), Anima-2.9B, RDBT b1 and the other shipped Anima cards (F:\\Claude-Work\\anima-illustrious-wishlist-20261024). Authors: CFG 1, 8-12 steps; er_sde is their stated default sampler. Negative unused at CFG 1. Median 3.2 s per 896x1152. No Anima system prompt: with it, 1 of the 10 bake pictures (cafe, seed 4242) had 'You ...' lettered across the top; the same 10 without it had none and kept their compositions (13-17 dB to the with-prompt images). Verified in the app (1.77.0, engine v0.42.0) 2026-10-24 through the agent route: a two-character prompt at 3:4 on 4 seeds (11/22/33/44) plus a single-character prompt at 16:9, all clean, no caption or system-prompt lettering; about 6.5 s each in the app (3.2 s in the bake). LICENCE (Civitai): image use and on-site generation allowed; derivatives allowed."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "anima-cat-tower-v11",
+      "name": "Anima Cat Tower v1.1",
+      "tagline": "Soft anime portraits from plain sentences",
+      "icon": "🐈",
+      "previewImage": "previews/anima-cat-tower-v11.jpg",
+      "description": "Soft, polished anime portraits from plain sentences. Anima Cat Tower is a finetune of Anima trained to strengthen the anime look, and v1.1 keeps the art style steady when you describe the picture in natural language instead of tags. Pick it for single-character portraits and upper-body shots; choose 3:4 for a classic portrait frame. It renders at about 2 megapixels, the size the creator uses, so it is slower than the 1-megapixel Anima cards: about 42 seconds a picture on a 12 GB card.\n\nWhat to type: full sentences, in this order: the subject and pose, then face, hair, clothing and details, then props, then framing and camera angle, then background, then lighting, colour and mood, then the overall style. The card adds the creator's quality tags (masterpiece, best quality, highres, absurdres) and the rating tag 'safe' in front of your text, and the creator's negative prompt, so do not type those yourself. No trigger word.\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Portrait",
+        "Natural language",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Anima Cat Tower v1.1",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/anima-cat-tower-v11.json",
+        "unet": "anima_cat_tower_v1.1.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3368209?fileId=3256281",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "values": {
+          "quality": ""
+        },
+        "steps": 30,
+        "cfg": 4,
+        "denoise": 1,
+        "negativePrompt": "worst quality, low quality, blurry, jpeg artifacts, lowres",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1536,
+            "height": 1536
+          },
+          "2:3": {
+            "width": 1152,
+            "height": 1728
+          },
+          "3:2": {
+            "width": 1728,
+            "height": 1152
+          },
+          "3:4": {
+            "width": 1216,
+            "height": 1600
+          },
+          "4:3": {
+            "width": 1600,
+            "height": 1216
+          },
+          "9:16": {
+            "width": 1056,
+            "height": 1872
+          },
+          "16:9": {
+            "width": 1872,
+            "height": 1056
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.5,
+          "notes": "Civitai model 2383017 'Anima Cat Tower' by nuko_masshigura, version 3368209 'v1.1', fileId 3256281 (anima_cat_tower_v1.1.safetensors, bf16 per Civitai file metadata, 4.08 GB, sha256 2d0343cd690a5c5c8539e23d70576e035dd5bf508b3791a641dd07675e72b124). Settings from the creator's own v1.1 showcase images (8 of 8 identical): Euler a / Simple, 30 steps, CFG 4, shift 3, 1216x1600, 1536x1536 and 1600x1216, modules qwen_3_06b_base + qwen_image_vae, positive prefix 'masterpiece, best quality, highres, absurdres, safe,' and negative 'worst quality, low quality, blurry, jpeg artifacts, lowres'. No Anima system prompt. Other ratios scaled to about 1.9 MP. Built 2026-11-22 by an agent for SimpliGen Tutorial 14, moved into Anima Anime the same day."
+        },
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "description": "Power Lora Loader (user LoRA slot)",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vanima-v20",
+      "name": "Vanima v2.0",
+      "tagline": "Anima base look with bolder outlines",
+      "icon": "🖋️",
+      "previewImage": "previews/vanima-v20.jpg",
+      "description": "Anime close to Anima Base, with bolder outlines. RisingV trained it on a small dataset as a test, so artist and style tags work as they do on Anima Base. It renders at about 1.25 megapixels, about 29 seconds a picture on a 12 GB card.\n\nPrompt with Danbooru tags. The card adds the creator's quality tags and negative prompt.\n\nPictures made with it are non-commercial (CircleStone Non-Commercial License).\n\nModel format: bf16, not quantized.",
+      "tags": [
+        "Anima",
+        "Anime",
+        "Booru",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "booru",
+      "ui": {
+        "visibleFields": [
+          "content",
+          "aspectRatio",
+          "shotType",
+          "environment",
+          "lightingSource",
+          "atmosphere"
+        ]
+      },
+      "image": {
+        "promptFamily": "anima",
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "displayModel": "Vanima v2.0",
+        "baseModels": [
+          "anima"
+        ],
+        "workflow": "workflows/vanima-v20.json",
+        "unet": "Vanima_v3.safetensors",
+        "unetUrl": "https://civitai.com/api/download/models/3480749?fileId=3387317",
+        "clip": "qwen_3_06b_base.safetensors",
+        "clipUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/text_encoders/qwen_3_06b_base.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "vaeUrl": "https://huggingface.co/circlestone-labs/Anima/resolve/f973fc41ec7545364ac9776c2440285f43ff2a30/split_files/vae/qwen_image_vae.safetensors",
+        "values": {
+          "quality": ""
+        },
+        "steps": 32,
+        "cfg": 4.5,
+        "denoise": 1,
+        "negativePrompt": "lowres, bad quality, worst quality, score_1, score_2, score_3, jpeg artifacts, signature, watermark",
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 1120,
+            "height": 1120
+          },
+          "16:9": {
+            "width": 1488,
+            "height": 832
+          },
+          "9:16": {
+            "width": 832,
+            "height": 1488
+          },
+          "4:3": {
+            "width": 1296,
+            "height": 976
+          },
+          "3:4": {
+            "width": 976,
+            "height": 1296
+          },
+          "21:9": {
+            "width": 1712,
+            "height": 736
+          },
+          "3:2": {
+            "width": 1376,
+            "height": 912
+          },
+          "2:3": {
+            "width": 912,
+            "height": 1376
+          }
+        },
+        "controls": {
+          "steps": {
+            "min": 24,
+            "max": 40,
+            "step": 1
+          },
+          "cfg": {
+            "min": 3.5,
+            "max": 5.5,
+            "step": 0.1
+          }
+        },
+        "requirements": {
+          "minVramGB": 8,
+          "recommendedVramGB": 12,
+          "minRamGB": 16,
+          "sizeGB": 5.4,
+          "notes": "Civitai model 'Vanima' by RisingV, version 3480749 'v2.0', fileId 3387317 (Vanima_v3.safetensors, bf16, 3.89 GB, sha256 af1847be8ff0...). Creator settings: ER_SDE / Beta, 32 steps, CFG 4-5, 1k-1.5k resolution, quality tags 'masterpiece, best quality, highres, absurdres, newest, year 2025', negative as on the card. Shift 3 as on Anima Base. Built 2026-11-22 (Discord model request)."
         },
         "extensions": [
           {
