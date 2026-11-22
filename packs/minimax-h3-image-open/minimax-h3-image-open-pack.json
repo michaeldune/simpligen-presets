@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-image-open-pack",
   "name": "Community — MiniMax H3-Image (open weights)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "addedAt": "2026-11-11",
   "author": "michaeldune",
   "nsfw": false,
@@ -26,7 +26,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "MiniMax's open H3-Image model, 4 megapixels",
-      "description": "Text to image with MiniMax H3-Image, the open-weight image model MiniMax released in November 2026. A built-in prompt writer turns your request into a full description first, so a short line is enough, and it is good at exact lettering on signs, covers and posters. Renders at about 4 megapixels (2368x1760 at 4:3). The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nModel format: int8 ConvRot.",
+      "description": "Text to image with MiniMax H3-Image, the open-weight image model MiniMax released in November 2026. A built-in prompt writer turns your request into a full description first, so a short line is enough, and it is good at exact lettering on signs, covers and posters. Renders at about 4 megapixels (2368x1760 at 4:3). The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nWhat to type: a short, plain description of the subject, setting and mood. The built-in prompt writer expands it and adds the detail, so there is no need to write a long prompt.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -123,7 +123,7 @@
       "icon": "🖼️",
       "enabled": true,
       "tagline": "MiniMax's open H3-Image model at its best size, 16 megapixels",
-      "description": "The same model at 16 megapixels (4736x3552 at 4:3), the size MiniMax says gives the best results. Slower than the 4 MP card, and very large files. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nModel format: int8 ConvRot.",
+      "description": "The same model at 16 megapixels (4736x3552 at 4:3), the size MiniMax says gives the best results. Slower than the 4 MP card, and very large files. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nWhat to type: a short, plain description of the subject, setting and mood. The built-in prompt writer expands it and adds the detail, so there is no need to write a long prompt.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -220,7 +220,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit a picture by describing the change",
-      "description": "Edit a picture with MiniMax H3-Image. Picture 1 is the one that changes; the result keeps its shape at about 4 megapixels. Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man in <Picture 1>. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nModel format: int8 ConvRot.",
+      "description": "Edit a picture with MiniMax H3-Image. Picture 1 is the one that changes; the result keeps its shape at about 4 megapixels. Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>, for example: Put the hat from <Picture 2> on the man in <Picture 1>. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nWhat to type: one short sentence saying what to change, naming any extra pictures as <Picture 2>, <Picture 3>. The built-in prompt writer adds the detail, so do not describe the whole picture again.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -295,7 +295,7 @@
       "icon": "✏️",
       "enabled": true,
       "tagline": "Edit a picture by describing the change, output at 16 megapixels",
-      "description": "The same edit as MiniMax H3-Image Edit, with the result at about 16 megapixels, the size MiniMax says gives the best results. Picture 1 is the one that changes and sets the shape (a 3:2 picture comes back at 4992x3328). Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>. Slower than the 4 MP card and very large files. About 2 1/2 minutes for a one- or two-picture edit on a 12 GB card. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nModel format: int8 ConvRot.",
+      "description": "The same edit as MiniMax H3-Image Edit, with the result at about 16 megapixels, the size MiniMax says gives the best results. Picture 1 is the one that changes and sets the shape (a 3:2 picture comes back at 4992x3328). Pictures 2 to 4 are optional; name them in the request as <Picture 2>, <Picture 3>. Slower than the 4 MP card and very large files. About 2 1/2 minutes for a one- or two-picture edit on a 12 GB card. The built-in prompt writer refuses sexual requests: nudity works, sex acts do not.\n\nWhat to type: one short sentence saying what to change, naming any extra pictures as <Picture 2>, <Picture 3>. The built-in prompt writer adds the detail, so do not describe the whole picture again.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
@@ -371,7 +371,7 @@
       "icon": "🧍",
       "enabled": true,
       "tagline": "One picture of a character in, a five-view sheet out at 16 megapixels",
-      "description": "Turns one picture of a character into a reference sheet on a white background: a front portrait and a side portrait stacked on the left, then the full body from the front, the side and the back. The brief is built in, so the prompt box is only for extra notes (for example: anime style, or bare feet).\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nSet the aspect ratio to 21:9 (6272x2688), the wide shape the five views are laid out for. 16:9 and 1:1 also gave all five views in our tests, squeezed closer together. About 75 seconds on a 12 GB card.\n\nThe layout follows ukr8b3g-cmyk's H3 Character Sheet Designer for ComfyUI: the brief and the picture go straight to the model, without the prompt writer.\n\nModel format: int8 ConvRot.",
+      "description": "Turns one picture of a character into a reference sheet on a white background: a front portrait and a side portrait stacked on the left, then the full body from the front, the side and the back. The brief is built in, so the prompt box is only for extra notes (for example: anime style, or bare feet).\n\nPicture 1 is the character. A full-body picture keeps the whole outfit; with a head-and-shoulders picture the clothes below are invented.\n\nSet the aspect ratio to 21:9 (6272x2688), the wide shape the five views are laid out for. 16:9 and 1:1 also gave all five views in our tests, squeezed closer together. About 75 seconds on a 12 GB card.\n\nThe layout follows ukr8b3g-cmyk's H3 Character Sheet Designer for ComfyUI: the brief and the picture go straight to the model, without the prompt writer.\n\nWhat to type: nothing, or a few words of extra notes such as a style or one detail to change (anime style, bare feet). The character comes from Picture 1 and the sheet adds the views, poses and background, so do not describe the character, camera, lighting, composition or setting.\n\nModel format: int8 ConvRot.",
       "promptStyle": "natural",
       "tags": [
         "H3",
