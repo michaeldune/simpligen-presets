@@ -8,6 +8,19 @@ Custom local preset packs for [SimpliGen](https://www.simpligen.io/), covering i
 
 > This repo is the source of truth the zips are built from — and now the distribution point too. The `packs-latest` release is rolling: its assets get replaced each time `build-zips.py` runs, so the same link always has the current set. End users never need to clone it.
 
+### Make your own preset with an AI agent
+
+Have a model or a ComfyUI workflow that SimpliGen doesn't offer yet? A coding agent (Claude Code, Codex, Antigravity, Cursor or similar) can build the preset for you from this repo. Copy this, fill in the two lines in angle brackets, and give it to your agent:
+
+```text
+Clone https://github.com/michaeldune/simpligen-presets, read its AGENTS.md, and follow it to make me a SimpliGen preset.
+The model or workflow: <a Civitai or Hugging Face link, or the path to a ComfyUI workflow exported with Export (API)>
+What it should make: <for example "anime portraits" or "5-second videos from a picture">
+Build it as a new pack, install it into my SimpliGen, and finish when one test generation has worked. Ask me before installing custom nodes or pushing anything.
+```
+
+The agent asks what it needs, writes the pack, installs it on your PC, and has you restart SimpliGen and generate once to prove it works. Everything stays on your machine unless you ask it to share the pack. The full reference it works from is [`CUSTOM-PRESET-AUTHORING-GUIDE.md`](./CUSTOM-PRESET-AUTHORING-GUIDE.md).
+
 <p align="center">
   <img src="./assets/readme/section-catalog.svg" width="100%" alt="01 — Pack catalog: 104 packs, 373 presets.">
 </p>
@@ -191,8 +204,8 @@ packs/<slug>/
 See [`CUSTOM-PRESET-AUTHORING-GUIDE.md`](./CUSTOM-PRESET-AUTHORING-GUIDE.md) — architecture detection, workflow families, the `simpligen_lora_1` LoRA marker, pack schema, thumbnails, installer conventions, and validation.
 
 Key conventions:
-- Models install to `%APPDATA%\simpligen\engine\models\<subfolder>\` — checkpoints→`checkpoints\`, UNet/GGUF→`diffusion_models\`, **CLIP/text encoders→`clip\`**, VAE→`vae\`.
-- Pack names carry the `Community — ` prefix so they group together in SimpliGen's picker.
+- Models install under SimpliGen's data folder (`<data_dir>\models\<subfolder>\`, by default in `%APPDATA%\simpligen`) — checkpoints→`checkpoints\`, UNet/GGUF→`diffusion_models\`, **CLIP/text encoders→`clip\`**, VAE→`vae\`.
+- Coding agents start from [`AGENTS.md`](./AGENTS.md), which walks through building, installing and testing a pack step by step.
 - JSON is UTF-8 **without BOM**; installed `previewImage` uses absolute `local-file:///` URIs, source uses relative paths.
 
 <p align="center">
