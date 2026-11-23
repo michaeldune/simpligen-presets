@@ -5,6 +5,14 @@ result when it is settled.
 
 ## Open
 
+### MiniMax H3 video pixel head (2026-11-23)
+Source: https://huggingface.co/pocis/MiniMax-H3-Video-PixelHead (same author as the Qwen-Image 2.1 head; a
+Krea-2-PixelHead also exists). The Qwen-Image 2.1 head was tested 2026-11-23 and not adopted: about 0.6 s saved per
+image, visibly softer, worst on Turbo (`F:\Claude-Work\pixelhead-qwen21-20261123\VERDICT.md`). For H3, the VAE decode
+is a much bigger share of each render, so the speed case may be different. To try: read its node and training range
+first (check the last sigma of our 8-step H3 graphs against it), then run an A/B on vanilla ComfyUI the same way.
+Michael said "not now" on 2026-11-23.
+
 ### Ray Krea2 x Mid Aesthetic card, after 2026-11-03 (2026-10-24)
 Source: RHR's Nov/Dec Discord wishlist, https://civitai.com/models/3009760/ray-krea2-x-mid-aesthetic?modelVersionId=3415465.
 Ray3780's Krea 2 checkpoint rebuilt from several of OnlyLemon's LoRAs (a moody, Niji / Midjourney-style gothic look).
