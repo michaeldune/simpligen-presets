@@ -1,0 +1,1633 @@
+{
+  "id": "minimax-h3-10eros-v1-pack",
+  "name": "MiniMax H3 (10Eros Max 1.0)",
+  "version": "1.0.0",
+  "author": "TenStrip",
+  "nsfw": true,
+  "description": "Model format: int8 ConvRot. Steps: 8 by default.\n\n10Eros Max 1.0 for MiniMax H3: TenStrip's mix of beta5, beta7 and Sulphur 3 on a hybrid FL2VA base, turbo built in, 22.9 GB INT8 HQ. Text to video, image to video, reference to video and two 768p two-pass cards, on LCM at 8 steps. The author made it for explicit animation and suggests plain H3 for anything else. Runs dense rather than the author's sparse attention; the card text says why. A separate download from the beta5, beta6 and beta7 fix1 packs.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "R2V",
+    "MiniMax H3",
+    "Finetune",
+    "10Eros"
+  ],
+  "addedAt": "2026-11-23",
+  "checksums": {
+    "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+  },
+  "presets": [
+    {
+      "id": "minimax-h3-10eros-v1-t2v",
+      "name": "MiniMax H3 Text to Video (10Eros Max 1.0)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-v1-t2v.jpg",
+      "description": "Text to video on 10Eros Max 1.0. 10Eros Max 1.0 is TenStrip's mix of his beta5 and beta7 builds with SulphurAI's Sulphur 3, on a hybrid FL2VA base with the turbo built in, so there is no LoRA to load. The author made it for explicit animation and suggests plain MiniMax H3 for anything else. He says it adapts better to input pictures and poses than beta7, at the cost of some general knowledge.\n\nA five-second 480p shot takes about 90 seconds on a 12 GB card in the app. For more resolution, use the 768p two-pass card.\n\nIt runs LCM with the simple schedule at 8 steps, as the author recommends. The Steps control covers his 8 to 12, but only 8 was tested here.\n\nSparse attention is left off. The author suggests it, but this checkpoint lacks the layers it needs: in our tests it saved about 9% of the time and came out about 30% softer.\n\nOrdinary H3 LoRAs at high rank work poorly on this model, according to the author; he keeps a set of down-ranked LoRAs tested on it at huggingface.co/TenStrip/MMH3_Sulphur3Eros_Loras-MLP-energy-patches. No LoRAs were tested here.\n\nThis is a 22.9 GB download of its own, separate from the beta5, beta6 and beta7 fix1 packs.\n\nModel format: int8 ConvRot.",
+      "tagline": "10Eros Max 1.0: beta5, beta7 and Sulphur 3 mixed, 8 steps",
+      "tags": [
+        "Audio",
+        "T2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "t2v"
+        ],
+        "studioPreview": true,
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max 1.0 8-step TURBO hybrid (INT8 HQ)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_10eros_v1_t2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "One 22.9 GB INT8 HQ checkpoint (TenStrip/10Eros-Max @875036a9) with the turbo baked in, plus the shared H3 text encoder and VAEs. lcm / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. The file carries two tensors, adaln_basis and adaln_mean, that the engine does not read (logged as 'unet unexpected'); the test clips looked normal without them. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 80 s per clip dense; VSA at 10% (no gate layers, so no coarse branch) 73 s and about 30% softer (Laplacian 240-273 against 358-370); er_sde/sgm_uniform looked and timed much the same as lcm/simple. Against beta7 fix1 on the same picture, prompt and seeds: background slide 6-36 px against 50-107 px, flicker 2.2-2.5 against 3.9-4.6, mid-frame sharpness 358-370 against 209-270, first-frame match 22.8-23.0 dB against 23.4-23.5, scripted line in 9 of 9 clips. In the app (1.92, engine 0.46.2, seed 4242, 5 s at the card's default size) this card took 88 s."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-v1-i2v",
+      "name": "MiniMax H3 Image to Video (10Eros Max 1.0)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-v1-i2v.jpg",
+      "description": "Image to video on 10Eros Max 1.0. 10Eros Max 1.0 is TenStrip's mix of his beta5 and beta7 builds with SulphurAI's Sulphur 3, on a hybrid FL2VA base with the turbo built in, so there is no LoRA to load. The author made it for explicit animation and suggests plain MiniMax H3 for anything else. He says it adapts better to input pictures and poses than beta7, at the cost of some general knowledge.\n\nA five-second 480p shot takes about 90 seconds on a 12 GB card in the app.\n\nThe picture becomes the first frame and the prompt describes the motion. Add a second picture for the last frame. Both are centre-cropped to the output shape, so match the aspect ratio to your picture.\n\nAgainst beta7 fix1 on the same picture, prompt and seeds, it held a locked-off camera much better (it slid 1-4% of the frame width over five seconds instead of 6-12%, though it crept in by 2-4%), flickered about half as much and came out sharper. The scripted line came out in every clip.\n\nIt runs LCM with the simple schedule at 8 steps, as the author recommends. The Steps control covers his 8 to 12, but only 8 was tested here.\n\nSparse attention is left off. The author suggests it, but this checkpoint lacks the layers it needs: in our tests it saved about 9% of the time and came out about 30% softer.\n\nOrdinary H3 LoRAs at high rank work poorly on this model, according to the author; he keeps a set of down-ranked LoRAs tested on it at huggingface.co/TenStrip/MMH3_Sulphur3Eros_Loras-MLP-energy-patches. No LoRAs were tested here.\n\nThis is a 22.9 GB download of its own, separate from the beta5, beta6 and beta7 fix1 packs.\n\nModel format: int8 ConvRot.",
+      "tagline": "10Eros Max 1.0: beta5, beta7 and Sulphur 3 mixed, 8 steps",
+      "tags": [
+        "Audio",
+        "I2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "i2v"
+        ],
+        "studioPreview": true,
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max 1.0 8-step TURBO hybrid (INT8 HQ)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_10eros_v1_i2v.json",
+        "supportsSage": true,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "One 22.9 GB INT8 HQ checkpoint (TenStrip/10Eros-Max @875036a9) with the turbo baked in, plus the shared H3 text encoder and VAEs. lcm / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. The file carries two tensors, adaln_basis and adaln_mean, that the engine does not read (logged as 'unet unexpected'); the test clips looked normal without them. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 80 s per clip dense; VSA at 10% (no gate layers, so no coarse branch) 73 s and about 30% softer (Laplacian 240-273 against 358-370); er_sde/sgm_uniform looked and timed much the same as lcm/simple. Against beta7 fix1 on the same picture, prompt and seeds: background slide 6-36 px against 50-107 px, flicker 2.2-2.5 against 3.9-4.6, mid-frame sharpness 358-370 against 209-270, first-frame match 22.8-23.0 dB against 23.4-23.5, scripted line in 9 of 9 clips. In the app (1.92, engine 0.46.2, seed 4242, 5 s at the card's default size) this card took 91 s."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-v1-r2v",
+      "name": "MiniMax H3 Reference to Video (10Eros Max 1.0)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-v1-r2v.jpg",
+      "description": "Reference to video on 10Eros Max 1.0. 10Eros Max 1.0 is TenStrip's mix of his beta5 and beta7 builds with SulphurAI's Sulphur 3, on a hybrid FL2VA base with the turbo built in, so there is no LoRA to load. The author made it for explicit animation and suggests plain MiniMax H3 for anything else. He says it adapts better to input pictures and poses than beta7, at the cost of some general knowledge.\n\nA five-second 480p shot takes about 95 seconds on a 12 GB card in the app.\n\nSupply reference pictures of the same person. The reference never appears in the video, so the prompt must describe the whole shot. The author built 1.0 mainly for multi-picture reference, but users on his page report less smooth motion and some face drift on reference shots, as with other hybrid models. Reference video and audio inputs are untested.\n\nIt runs LCM with the simple schedule at 8 steps, as the author recommends. The Steps control covers his 8 to 12, but only 8 was tested here.\n\nSparse attention is left off. The author suggests it, but this checkpoint lacks the layers it needs: in our tests it saved about 9% of the time and came out about 30% softer.\n\nOrdinary H3 LoRAs at high rank work poorly on this model, according to the author; he keeps a set of down-ranked LoRAs tested on it at huggingface.co/TenStrip/MMH3_Sulphur3Eros_Loras-MLP-energy-patches. No LoRAs were tested here.\n\nThis is a 22.9 GB download of its own, separate from the beta5, beta6 and beta7 fix1 packs.\n\nModel format: int8 ConvRot.",
+      "tagline": "10Eros Max 1.0: beta5, beta7 and Sulphur 3 mixed, 8 steps",
+      "tags": [
+        "Audio",
+        "R2V",
+        "Finetune",
+        "Video"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "r2v"
+        ],
+        "studioPreview": true,
+        "guides": "minimax-h3",
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max 1.0 8-step TURBO hybrid (INT8 HQ)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_10eros_v1_r2v.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 43,
+          "notes": "One 22.9 GB INT8 HQ checkpoint (TenStrip/10Eros-Max @875036a9) with the turbo baked in, plus the shared H3 text encoder and VAEs. lcm / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. The file carries two tensors, adaln_basis and adaln_mean, that the engine does not read (logged as 'unet unexpected'); the test clips looked normal without them. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 80 s per clip dense; VSA at 10% (no gate layers, so no coarse branch) 73 s and about 30% softer (Laplacian 240-273 against 358-370); er_sde/sgm_uniform looked and timed much the same as lcm/simple. Against beta7 fix1 on the same picture, prompt and seeds: background slide 6-36 px against 50-107 px, flicker 2.2-2.5 against 3.9-4.6, mid-frame sharpness 358-370 against 209-270, first-frame match 22.8-23.0 dB against 23.4-23.5, scripted line in 9 of 9 clips. In the app (1.92, engine 0.46.2, seed 4242, 5 s at the card's default size) this card took 93 s."
+        },
+        "supportsSage": true,
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-v1-twopass-t2v",
+      "name": "MiniMax H3 Text to Video 768p Two-Pass (10Eros Max 1.0)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-v1-twopass-t2v.jpg",
+      "description": "Text to video at 768p in two passes on 10Eros Max 1.0. A smaller first pass is upscaled and refined at your chosen size; the default is 1344x768. 10Eros Max 1.0 is TenStrip's mix of his beta5 and beta7 builds with SulphurAI's Sulphur 3, on a hybrid FL2VA base with the turbo built in, so there is no LoRA to load. The author made it for explicit animation and suggests plain MiniMax H3 for anything else. He says it adapts better to input pictures and poses than beta7, at the cost of some general knowledge.\n\nA five-second shot takes about 3 1/2 minutes on a 12 GB card in the app, roughly twice the single-pass card, and leaves little system RAM free, so close other work first. Only 5-second clips were tested.\n\nIt runs LCM with the simple schedule at 8 steps, as the author recommends. The Steps control covers his 8 to 12, but only 8 was tested here. Both passes use LCM.\n\nSparse attention is left off. The author suggests it, but this checkpoint lacks the layers it needs: in our tests it saved about 9% of the time and came out about 30% softer.\n\nOrdinary H3 LoRAs at high rank work poorly on this model, according to the author; he keeps a set of down-ranked LoRAs tested on it at huggingface.co/TenStrip/MMH3_Sulphur3Eros_Loras-MLP-energy-patches. No LoRAs were tested here.\n\nThis is a 22.9 GB download of its own, separate from the beta5, beta6 and beta7 fix1 packs.\n\nModel format: int8 ConvRot.",
+      "tagline": "10Eros Max 1.0: two passes to 768p, 8 steps",
+      "tags": [
+        "Audio",
+        "T2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max 1.0 8-step TURBO hybrid (INT8 HQ)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_10eros_v1_twopass_t2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 44,
+          "notes": "One 22.9 GB INT8 HQ checkpoint (TenStrip/10Eros-Max @875036a9) with the turbo baked in, plus the shared H3 text encoder and VAEs. lcm / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. The file carries two tensors, adaln_basis and adaln_mean, that the engine does not read (logged as 'unet unexpected'); the test clips looked normal without them. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 80 s per clip dense; VSA at 10% (no gate layers, so no coarse branch) 73 s and about 30% softer (Laplacian 240-273 against 358-370); er_sde/sgm_uniform looked and timed much the same as lcm/simple. Against beta7 fix1 on the same picture, prompt and seeds: background slide 6-36 px against 50-107 px, flicker 2.2-2.5 against 3.9-4.6, mid-frame sharpness 358-370 against 209-270, first-frame match 22.8-23.0 dB against 23.4-23.5, scripted line in 9 of 9 clips. Two-pass adds the 0.69 GB latent upscaler and its custom node: a 0.55x first pass at 8 steps, the 3D latent upscaler, then 3 steps beta at 0.35 denoise at the chosen size, all on lcm, with the soundtrack taken from the first pass. In the app (1.92, engine 0.46.2, seed 4242, 5 s at the card's default size) this card took 200 s."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors": "043e5a48e161610ef6c3ea974645220354d06fa618abca15f76d084812eb55c2",
+          "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-10eros-v1-twopass-i2v",
+      "name": "MiniMax H3 Image to Video 768p Two-Pass (10Eros Max 1.0)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-10eros-v1-twopass-i2v.jpg",
+      "description": "Image to video at 768p in two passes on 10Eros Max 1.0. A smaller first pass is upscaled and refined at your chosen size; the default is 1344x768. 10Eros Max 1.0 is TenStrip's mix of his beta5 and beta7 builds with SulphurAI's Sulphur 3, on a hybrid FL2VA base with the turbo built in, so there is no LoRA to load. The author made it for explicit animation and suggests plain MiniMax H3 for anything else. He says it adapts better to input pictures and poses than beta7, at the cost of some general knowledge.\n\nThe picture is the first frame. This card takes one picture only, with no last frame.\n\nA five-second shot takes about 3 1/2 minutes on a 12 GB card in the app, roughly twice the single-pass card, and leaves little system RAM free, so close other work first. Only 5-second clips were tested.\n\nIt runs LCM with the simple schedule at 8 steps, as the author recommends. The Steps control covers his 8 to 12, but only 8 was tested here. Both passes use LCM.\n\nSparse attention is left off. The author suggests it, but this checkpoint lacks the layers it needs: in our tests it saved about 9% of the time and came out about 30% softer.\n\nOrdinary H3 LoRAs at high rank work poorly on this model, according to the author; he keeps a set of down-ranked LoRAs tested on it at huggingface.co/TenStrip/MMH3_Sulphur3Eros_Loras-MLP-energy-patches. No LoRAs were tested here.\n\nThis is a 22.9 GB download of its own, separate from the beta5, beta6 and beta7 fix1 packs.\n\nModel format: int8 ConvRot.",
+      "tagline": "10Eros Max 1.0: two passes to 768p, 8 steps",
+      "tags": [
+        "Audio",
+        "I2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "10Eros Max 1.0 8-step TURBO hybrid (INT8 HQ)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_10eros_v1_twopass_i2v.json",
+        "supportsSage": true,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 1,
+          "slotLabels": [
+            "First frame"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "unetUrl": "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "latent_upscale_models",
+            "filename": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+            "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "Comfyui_Minimax_h3_latent_Upscaler",
+            "url": "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git",
+            "description": "Trained neural latent upscaler for MiniMax H3 (MinimaxH3LatentUpscaler3D). MUST be at commit d7c01b9 or later: 6a4b191 scrambles the second stage (blobby background, cyan skin) on this exact graph. No requirements.txt, torch only.",
+            "pinnedCommit": "d7c01b9011f2e8439493f6c02c29995a27df276f"
+          }
+        ],
+        "steps": 8,
+        "negativePrompt": "",
+        "defaultResolutionTier": 4,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 44,
+          "notes": "One 22.9 GB INT8 HQ checkpoint (TenStrip/10Eros-Max @875036a9) with the turbo baked in, plus the shared H3 text encoder and VAEs. lcm / simple, 8 steps, sigma shift 12 video / 3 audio set in the workflow. The file carries two tensors, adaln_basis and adaln_mean, that the engine does not read (logged as 'unet unexpected'); the test clips looked normal without them. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 80 s per clip dense; VSA at 10% (no gate layers, so no coarse branch) 73 s and about 30% softer (Laplacian 240-273 against 358-370); er_sde/sgm_uniform looked and timed much the same as lcm/simple. Against beta7 fix1 on the same picture, prompt and seeds: background slide 6-36 px against 50-107 px, flicker 2.2-2.5 against 3.9-4.6, mid-frame sharpness 358-370 against 209-270, first-frame match 22.8-23.0 dB against 23.4-23.5, scripted line in 9 of 9 clips. Two-pass adds the 0.69 GB latent upscaler and its custom node: a 0.55x first pass at 8 steps, the 3D latent upscaler, then 3 steps beta at 0.35 denoise at the chosen size, all on lcm, with the soundtrack taken from the first pass. In the app (1.92, engine 0.46.2, seed 4242, 5 s at the card's default size) this card took 196 s."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler/resolve/3f941d5d182014dd5c0a5e16330420ee2d4aa0c6/minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors": "043e5a48e161610ef6c3ea974645220354d06fa618abca15f76d084812eb55c2",
+          "https://huggingface.co/TenStrip/10Eros-Max/resolve/875036a9e9c363483095c82ee5da18fee3cef08b/10Eros_Max_8stepTurbo_v1.0_hybrid-int8_HQ.safetensors": "776194990379ecaf81f8c56925164894f78f3ab27d905c23d85c1164f20ec5bc"
+        },
+        "controls": {
+          "steps": {
+            "min": 8,
+            "max": 12,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    }
+  ]
+}
