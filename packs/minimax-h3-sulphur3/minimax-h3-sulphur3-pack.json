@@ -1,0 +1,988 @@
+{
+  "id": "minimax-h3-sulphur3-pack",
+  "name": "MiniMax H3 (Sulphur 3)",
+  "version": "1.0.0",
+  "author": "SulphurAI",
+  "nsfw": true,
+  "description": "Model format: W4A8 (4-bit weights, group size 16) with ConvRot. Steps: 20 by default.\n\nSulphur 3 for MiniMax H3: SulphurAI's uncensored finetune on the FL2VA base, in the author's 11.4 GB W4A8 file. Text to video, image to video and reference to video on Euler at 20 steps, CFG 1. Slower than the turbo checkpoints, but in our image-to-video test it held the camera steadiest and came out the sharpest. A download of its own, separate from the 10Eros packs.",
+  "tags": [
+    "Local",
+    "Video",
+    "T2V",
+    "I2V",
+    "R2V",
+    "MiniMax H3",
+    "Finetune",
+    "Sulphur"
+  ],
+  "addedAt": "2026-11-23",
+  "checksums": {
+    "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors": "6c496c746d380bc371e5b9ef0c81cbea4f107e8fba1ac3f6b7d821c4e96e9ae0"
+  },
+  "presets": [
+    {
+      "id": "minimax-h3-sulphur3-t2v",
+      "name": "MiniMax H3 Text to Video (Sulphur 3)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-sulphur3-t2v.jpg",
+      "description": "Text to video on Sulphur 3. Sulphur 3 is SulphurAI's uncensored finetune of MiniMax H3, trained on the FL2VA base. This card loads the author's 11.4 GB W4A8 file, the one their own example workflow uses.\n\nA five-second 480p shot takes about 2 1/2 minutes on a 12 GB card in the app.\n\nIt runs the author's settings: Euler with the simple schedule, 20 steps, CFG 1. The model is guidance-distilled, so a negative prompt does nothing. The Steps control goes from 12 to 30, but only 20 was tested.\n\nThe author prompts with JSON captions written by their own prompt tool. In our test a JSON version of the same prompt changed little apart from louder sound, so the usual three-field H3 prompt works.\n\nNot included: the author's optional corrector, which needs extra nodes and about 8 GB more video memory. W4A8 keeps the weights in 4 bits; there is no int8 file of this model yet to compare it with. No LoRAs were tested.\n\nAn 11.4 GB download of its own, separate from the 10Eros packs.\n\nModel format: W4A8 (4-bit weights, group size 16) with ConvRot.",
+      "tagline": "Sulphur 3: SulphurAI's uncensored H3 finetune, 20 steps",
+      "tags": [
+        "Audio",
+        "T2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "t2v"
+        ],
+        "studioPreview": true,
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Sulphur 3 (W4A8 ConvRot)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_sulphur3_t2v.json",
+        "supportsSage": true,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "sulphur3_s3_w4a8.safetensors",
+        "unetUrl": "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 32,
+          "notes": "One 11.4 GB W4A8 checkpoint (SulphurAI/Sulphur-3 @988224b9, quantized/s3_w4a8.safetensors, asym_w4a8_int8 group 16 ConvRot 256, saved as sulphur3_s3_w4a8.safetensors) plus the shared H3 text encoder and VAEs. euler / simple, 20 steps, CFG 1 (BasicGuider, one forward per step), sigma shift 12 video / 3 audio set in the workflow; no corrector. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 131-137 s per clip; background slide 0-9 px (10Eros 1.0: 6-27, beta7 fix1: 50-107), flicker 1.3-2.2, mid-frame sharpness 462-530 (10Eros 1.0: 358-370), first-frame match 23.3-23.5 dB, scripted line in 6 of 6 clips (3 with the author's JSON caption form, which only made the audio louder). In the app (1.92, engine 0.46.2, seed 4242, 5 s at 480p, Faster Attention on) this card took 147 s. Sage helps here: the same I2V run with Faster Attention off took 201 s (9.2 s per step against 7.0)."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors": "6c496c746d380bc371e5b9ef0c81cbea4f107e8fba1ac3f6b7d821c4e96e9ae0"
+        },
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-sulphur3-i2v",
+      "name": "MiniMax H3 Image to Video (Sulphur 3)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-sulphur3-i2v.jpg",
+      "description": "Image to video on Sulphur 3. Sulphur 3 is SulphurAI's uncensored finetune of MiniMax H3, trained on the FL2VA base. This card loads the author's 11.4 GB W4A8 file, the one their own example workflow uses.\n\nA five-second 480p shot takes about 2 3/4 minutes on a 12 GB card in the app.\n\nThe picture becomes the first frame and the prompt describes the motion. Add a second picture for the last frame. Both are centre-cropped to the output shape, so match the aspect ratio to your picture.\n\nIn our image-to-video test against 10Eros Max 1.0 and beta7 fix1 (same picture, prompt and three seeds) it held a locked-off camera best and came out the sharpest, taking about 1.8 times as long as 10Eros Max 1.0 in the app. The scripted line came out in every clip.\n\nIt runs the author's settings: Euler with the simple schedule, 20 steps, CFG 1. The model is guidance-distilled, so a negative prompt does nothing. The Steps control goes from 12 to 30, but only 20 was tested.\n\nThe author prompts with JSON captions written by their own prompt tool. In our test a JSON version of the same prompt changed little apart from louder sound, so the usual three-field H3 prompt works.\n\nNot included: the author's optional corrector, which needs extra nodes and about 8 GB more video memory. W4A8 keeps the weights in 4 bits; there is no int8 file of this model yet to compare it with. No LoRAs were tested.\n\nAn 11.4 GB download of its own, separate from the 10Eros packs.\n\nModel format: W4A8 (4-bit weights, group size 16) with ConvRot.",
+      "tagline": "Sulphur 3: SulphurAI's uncensored H3 finetune, 20 steps",
+      "tags": [
+        "Audio",
+        "I2V",
+        "Finetune",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "i2v"
+        ],
+        "studioPreview": true,
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Sulphur 3 (W4A8 ConvRot)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": true,
+        "workflow": "workflows/video_minimax_h3_sulphur3_i2v.json",
+        "supportsSage": true,
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "slotLabels": [
+            "First frame",
+            "Last frame (optional)"
+          ]
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "sulphur3_s3_w4a8.safetensors",
+        "unetUrl": "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 32,
+          "notes": "One 11.4 GB W4A8 checkpoint (SulphurAI/Sulphur-3 @988224b9, quantized/s3_w4a8.safetensors, asym_w4a8_int8 group 16 ConvRot 256, saved as sulphur3_s3_w4a8.safetensors) plus the shared H3 text encoder and VAEs. euler / simple, 20 steps, CFG 1 (BasicGuider, one forward per step), sigma shift 12 video / 3 audio set in the workflow; no corrector. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 131-137 s per clip; background slide 0-9 px (10Eros 1.0: 6-27, beta7 fix1: 50-107), flicker 1.3-2.2, mid-frame sharpness 462-530 (10Eros 1.0: 358-370), first-frame match 23.3-23.5 dB, scripted line in 6 of 6 clips (3 with the author's JSON caption form, which only made the audio louder). In the app (1.92, engine 0.46.2, seed 4242, 5 s at 480p, Faster Attention on) this card took 164 s. Sage helps here: the same I2V run with Faster Attention off took 201 s (9.2 s per step against 7.0)."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors": "6c496c746d380bc371e5b9ef0c81cbea4f107e8fba1ac3f6b7d821c4e96e9ae0"
+        },
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-sulphur3-r2v",
+      "name": "MiniMax H3 Reference to Video (Sulphur 3)",
+      "icon": "🎬",
+      "previewImage": "previews/minimax-h3-sulphur3-r2v.jpg",
+      "description": "Reference to video on Sulphur 3. Sulphur 3 is SulphurAI's uncensored finetune of MiniMax H3, trained on the FL2VA base. This card loads the author's 11.4 GB W4A8 file, the one their own example workflow uses.\n\nA five-second 480p shot takes about 2 3/4 minutes on a 12 GB card in the app.\n\nSupply reference pictures of the same person. The reference never appears in the video, so the prompt must describe the whole shot. The author also publishes a separate reference variant marked as not yet trained; this card uses the main model. Reference video and audio inputs are untested.\n\nIt runs the author's settings: Euler with the simple schedule, 20 steps, CFG 1. The model is guidance-distilled, so a negative prompt does nothing. The Steps control goes from 12 to 30, but only 20 was tested.\n\nThe author prompts with JSON captions written by their own prompt tool. In our test a JSON version of the same prompt changed little apart from louder sound, so the usual three-field H3 prompt works.\n\nNot included: the author's optional corrector, which needs extra nodes and about 8 GB more video memory. W4A8 keeps the weights in 4 bits; there is no int8 file of this model yet to compare it with. No LoRAs were tested.\n\nAn 11.4 GB download of its own, separate from the 10Eros packs.\n\nModel format: W4A8 (4-bit weights, group size 16) with ConvRot.",
+      "tagline": "Sulphur 3: SulphurAI's uncensored H3 finetune, 20 steps",
+      "tags": [
+        "Audio",
+        "R2V",
+        "Finetune",
+        "Video"
+      ],
+      "enabled": true,
+      "template": "wan-video",
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "r2v"
+        ],
+        "studioPreview": true,
+        "guides": "minimax-h3",
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "Sulphur 3 (W4A8 ConvRot)",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "workflow": "workflows/video_minimax_h3_sulphur3_r2v.json",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "sulphur3_s3_w4a8.safetensors",
+        "unetUrl": "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          }
+        ],
+        "steps": 20,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 32,
+          "notes": "One 11.4 GB W4A8 checkpoint (SulphurAI/Sulphur-3 @988224b9, quantized/s3_w4a8.safetensors, asym_w4a8_int8 group 16 ConvRot 256, saved as sulphur3_s3_w4a8.safetensors) plus the shared H3 text encoder and VAEs. euler / simple, 20 steps, CFG 1 (BasicGuider, one forward per step), sigma shift 12 video / 3 audio set in the workflow; no corrector. MEASURED 2026-11-23 against the engine (RTX 4070 Ti 12 GB, 31 GB RAM, 864x480, 5 s, I2V, three seeds, kitchen attention, engine 0.45.0): 131-137 s per clip; background slide 0-9 px (10Eros 1.0: 6-27, beta7 fix1: 50-107), flicker 1.3-2.2, mid-frame sharpness 462-530 (10Eros 1.0: 358-370), first-frame match 23.3-23.5 dB, scripted line in 6 of 6 clips (3 with the author's JSON caption form, which only made the audio louder). In the app (1.92, engine 0.46.2, seed 4242, 5 s at 480p, Faster Attention on) this card took 160 s. Sage helps here: the same I2V run with Faster Attention off took 201 s (9.2 s per step against 7.0)."
+        },
+        "supportsSage": true,
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/SulphurAI/Sulphur-3/resolve/988224b9913740d60ee54b5a53c7a892467edc76/quantized/s3_w4a8.safetensors": "6c496c746d380bc371e5b9ef0c81cbea4f107e8fba1ac3f6b7d821c4e96e9ae0"
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
+        },
+        "controls": {
+          "steps": {
+            "min": 12,
+            "max": 30,
+            "step": 1,
+            "affectsCost": true
+          }
+        }
+      }
+    }
+  ]
+}
