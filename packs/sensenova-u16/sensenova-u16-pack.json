@@ -1,0 +1,292 @@
+{
+  "id": "sensenova-u16-pack",
+  "name": "Community — SenseNova U1.6",
+  "version": "1.0.0",
+  "author": "michaeldune",
+  "nsfw": false,
+  "editCapable": true,
+  "minComfyuiVersion": "v0.46.0",
+  "addedAt": "2026-11-24",
+  "tags": [
+    "Image",
+    "Text",
+    "Edit",
+    "Local"
+  ],
+  "description": "Model format: int8 ConvRot. Steps: 8 by default (50 on the Quality card).\n\nSenseNova U1.6, an 8B model that understands and draws pictures in one network: text to image at about 4 megapixels with exact lettering for posters, covers and infographics, a 50-step Quality card, and an Edit card that changes a picture from a sentence and can borrow from a second picture. One 17.6 GB file holds the whole model, plus an 815 MB 8-step LoRA. Runs on a 12 GB card. Needs SimpliGen's engine at ComfyUI v0.46.0 or newer.",
+  "checksums": {
+    "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/checkpoints/sensenova_u1.6_8b_mot_int8_convrot.safetensors": "f6e5dc3bfb2023c3d009a8134b8dea8481551afb21b4a03b0e40ce7c651b6f78",
+    "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/loras/sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors": "e37315e45125c53b3aeccaf99a58343409a0b7b344454a8978d29d993bb9b2c5"
+  },
+  "presets": [
+    {
+      "id": "sensenova-u16-t2i",
+      "name": "SenseNova U1.6",
+      "tagline": "4-megapixel pictures with exact lettering, in 8 steps",
+      "icon": "🖼️",
+      "previewImage": "previews/sensenova-u16-t2i.jpg",
+      "description": "Text to image with SenseNova U1.6, an 8B model that understands and draws pictures in one network. It renders at about 4 megapixels (2368x1760 at 4:3) in 8 steps, and it is at its best on pictures that carry text: posters, covers, menus, labelled diagrams and infographics. It also does portraits and photo-style scenes. Pick this card for speed, and the Quality card when you want more skin and surface texture.\n\nWhat to type: a full description in plain sentences. Say what kind of picture it is, then the subject, the setting, the light and the layout. Put every word that should appear in the picture inside double quotes and say where it goes, for example: at the top, in heavy black capitals, the headline reads \"HARBOUR JAZZ NIGHTS\". A one-line prompt gives a plain result.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Image",
+        "SenseNova",
+        "Text",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "values": {
+          "quality": ""
+        },
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "baseModels": [
+          "sensenova-u1.6"
+        ],
+        "checkpoint": "sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "checkpointUrl": "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/checkpoints/sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ],
+        "minEngineVersion": "v0.46.0",
+        "denoise": 1,
+        "negativePrompt": "",
+        "displayModel": "SenseNova U1.6 8B MoT (int8) + 8-step LoRA",
+        "workflow": "workflows/image_sensenova_u16_t2i.json",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/loras/sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors",
+            "description": "SenseNova U1.6 8-step LoRA (Comfy-Org repack), 815 MB, bf16."
+          }
+        ],
+        "steps": 8,
+        "cfg": 1,
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2368,
+            "height": 1760
+          },
+          "3:4": {
+            "width": 1760,
+            "height": 2368
+          },
+          "3:2": {
+            "width": 2496,
+            "height": 1664
+          },
+          "2:3": {
+            "width": 1664,
+            "height": 2496
+          },
+          "16:9": {
+            "width": 2720,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2720
+          },
+          "21:9": {
+            "width": 3136,
+            "height": 1344
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 18.4,
+          "notes": "Weights from Comfy-Org/SenseNova-U1 (commit 1945bcc): one 17.6 GB int8 ConvRot checkpoint that holds the image model, the text encoder and the pixel-space decoder (590 int8 ConvRot layers read from the file header), plus the 815 MB 8-step LoRA. Core ComfyUI nodes only, needs ComfyUI v0.46.0 (Comfy-Org/ComfyUI#16032); the only custom node is rgthree for the user LoRA slot. Graph per the Comfy-Org template image_sensenova_u16_t2i: CheckpointLoaderSimple, EmptyHiDreamO1LatentImage, KSampler euler/simple, VAEDecode from the checkpoint's own VAE output. Turbo settings from the template: the LoRA at 1.0, 8 steps, CFG 1 (both fixed in the graph). TESTED 2026-11-24 engine-direct on a 4070 Ti 12 GB, 31 GB RAM: 4 MP in 7.2 to 9.4 s, 2 MP in 3.5 to 7.7 s, VRAM peak 11.1 to 11.5 GB, 8,955 MB text encoder + 7,854 MB image model staged. Quoted text was letter-exact on 7 of 7 poster and infographic renders; one dense six-caption infographic at 4 MP garbled a caption on one seed. IN THE APP the same day (agent route, models reloaded each run): 13.1 s and 11.5 s at 4 MP (2048x2048 and 1760x2368), size, seed and prompt read back from the engine as sent, no suffix added."
+        }
+      }
+    },
+    {
+      "id": "sensenova-u16-t2i-quality",
+      "name": "SenseNova U1.6 Quality",
+      "tagline": "50 steps for more texture and finer detail",
+      "icon": "💎",
+      "previewImage": "previews/sensenova-u16-t2i-quality.jpg",
+      "description": "SenseNova U1.6 without the 8-step LoRA: 50 steps at CFG 4, the model's own full-quality settings. Several times slower than the standard card, with more skin and surface texture and closer attention to small details in the prompt. Renders at about 4 megapixels (2368x1760 at 4:3). The negative prompt works on this card.\n\nWhat to type: a full description in plain sentences. Say what kind of picture it is, then the subject, the setting, the light and the layout. Put every word that should appear in the picture inside double quotes and say where it goes.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Image",
+        "SenseNova",
+        "Quality",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "values": {
+          "quality": ""
+        },
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "baseModels": [
+          "sensenova-u1.6"
+        ],
+        "checkpoint": "sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "checkpointUrl": "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/checkpoints/sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ],
+        "minEngineVersion": "v0.46.0",
+        "denoise": 1,
+        "negativePrompt": "",
+        "displayModel": "SenseNova U1.6 8B MoT (int8)",
+        "workflow": "workflows/image_sensenova_u16_t2i_quality.json",
+        "steps": 50,
+        "cfg": 4,
+        "controls": {
+          "steps": {
+            "min": 30,
+            "max": 60,
+            "step": 1,
+            "affectsCost": true
+          },
+          "cfg": {
+            "min": 3,
+            "max": 5,
+            "step": 0.5
+          }
+        },
+        "resolutionOverrides": {
+          "1:1": {
+            "width": 2048,
+            "height": 2048
+          },
+          "4:3": {
+            "width": 2368,
+            "height": 1760
+          },
+          "3:4": {
+            "width": 1760,
+            "height": 2368
+          },
+          "3:2": {
+            "width": 2496,
+            "height": 1664
+          },
+          "2:3": {
+            "width": 1664,
+            "height": 2496
+          },
+          "16:9": {
+            "width": 2720,
+            "height": 1536
+          },
+          "9:16": {
+            "width": 1536,
+            "height": 2720
+          },
+          "21:9": {
+            "width": 3136,
+            "height": 1344
+          }
+        },
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 17.6,
+          "notes": "Weights from Comfy-Org/SenseNova-U1 (commit 1945bcc): one 17.6 GB int8 ConvRot checkpoint that holds the image model, the text encoder and the pixel-space decoder (590 int8 ConvRot layers read from the file header). Core ComfyUI nodes only, needs ComfyUI v0.46.0 (Comfy-Org/ComfyUI#16032); the only custom node is rgthree for the user LoRA slot. Graph per the Comfy-Org template image_sensenova_u16_t2i: CheckpointLoaderSimple, EmptyHiDreamO1LatentImage, KSampler euler/simple, VAEDecode from the checkpoint's own VAE output. Quality settings from the template: no LoRA, 50 steps, CFG 4. TESTED 2026-11-24 engine-direct on a 4070 Ti 12 GB: 18.5 s at 1024x1024, 33.0 s at 2 MP. Against the 8-step render of the same prompt and seed the portrait had more skin texture and followed 'clay dust on her fingers' more literally. Engine-direct at 4 MP: 73 s. IN THE APP the same day: 80 s at 2048x2048, 50 steps, CFG 4. In that portrait the skin and fabric were detailed; a small watch movement held in the fingers came out soft."
+        }
+      }
+    },
+    {
+      "id": "sensenova-u16-edit",
+      "name": "SenseNova U1.6 Edit",
+      "tagline": "Change a picture with a sentence; faces and lettering stay put",
+      "icon": "✏️",
+      "previewImage": "previews/sensenova-u16-edit.jpg",
+      "description": "Edit a picture by describing the change, with SenseNova U1.6 in 8 steps. Clothing, setting, weather, objects and wording on a poster or sign all work, and the parts you do not mention stay as they were, faces and lettering included. Add a second picture to bring something in from it, such as an outfit or a poster.\n\nThe result is about 4 megapixels in the shape of Picture 1. The aspect ratio setting is not used.\n\nWhat to type: one or two sentences that name the change and what to keep, for example: Change his denim jacket to a dark green wool coat and make it snow lightly, keeping his face, pose and the background unchanged. For new wording, put it in double quotes. With two pictures, call them \"the first picture\" and \"the second picture\": Dress the man from the first picture in the apron worn by the woman in the second picture.\n\nModel format: int8 ConvRot.",
+      "tags": [
+        "Edit",
+        "SenseNova",
+        "Local"
+      ],
+      "enabled": true,
+      "template": "sdxl",
+      "promptStyle": "natural",
+      "image": {
+        "values": {
+          "quality": ""
+        },
+        "supports": [
+          "local"
+        ],
+        "provider": "comfyui",
+        "baseModels": [
+          "sensenova-u1.6"
+        ],
+        "checkpoint": "sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "checkpointUrl": "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/checkpoints/sensenova_u1.6_8b_mot_int8_convrot.safetensors",
+        "extensions": [
+          {
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "name": "rgthree-comfy",
+            "commit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4",
+            "description": "Power Lora Loader (user LoRA slot)"
+          }
+        ],
+        "minEngineVersion": "v0.46.0",
+        "denoise": 1,
+        "negativePrompt": "",
+        "displayModel": "SenseNova U1.6 8B MoT (int8) + 8-step LoRA",
+        "workflow": "workflows/image_sensenova_u16_edit.json",
+        "extraModels": [
+          {
+            "dir": "loras",
+            "filename": "sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/SenseNova-U1/resolve/1945bcc8fbd56b9ed09aee3e207ea269ad64858d/loras/sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors",
+            "description": "SenseNova U1.6 8-step LoRA (Comfy-Org repack), 815 MB, bf16."
+          }
+        ],
+        "acceptsReferenceImages": {
+          "min": 1,
+          "max": 2,
+          "imagePlaceholder": "ref_image_{n}",
+          "enabledPlaceholder": "ref_{n}_enabled",
+          "promptPrefixTemplate": "",
+          "slotLabels": [
+            "Picture 1 (the one to edit)",
+            "Picture 2 (optional)"
+          ]
+        },
+        "steps": 8,
+        "cfg": 1,
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 32,
+          "sizeGB": 18.4,
+          "notes": "Weights from Comfy-Org/SenseNova-U1 (commit 1945bcc): one 17.6 GB int8 ConvRot checkpoint that holds the image model, the text encoder and the pixel-space decoder (590 int8 ConvRot layers read from the file header), plus the 815 MB 8-step LoRA. Core ComfyUI nodes only, needs ComfyUI v0.46.0 (Comfy-Org/ComfyUI#16032); the only custom node is rgthree for the user LoRA slot. Graph per the Comfy-Org template image_sensenova_u16_image_edit: CheckpointLoaderSimple, EmptyHiDreamO1LatentImage, KSampler euler/simple, VAEDecode from the checkpoint's own VAE output. Each picture is scaled to 4 MP (area) and to a multiple of 32, attached with HiDreamO1ReferenceImages, then SenseNovaConditioning task 'image'; the output takes Picture 1's size. 8 steps, CFG 1, fixed. TESTED 2026-11-24 engine-direct on a 4070 Ti 12 GB: one picture 12.5 to 18.7 s at 4 MP, two pictures 15.7 to 25.9 s (RAM free fell from 8 to 5.8 GB). 10 of 10 edits did what was asked: sunglasses + new setting (2 seeds), poster headline and instrument swap with all other text exact (2), coat + snow on a portrait with the face held at native pixels (2 at 4 MP, 1 at 2 MP), outfit from a second picture (2), poster from a second picture hung on the wall (2). Three pictures or more are untested, so the card offers two slots. IN THE APP the same day: 18.6 s with one picture (chalkboard wording, flowers and apron colour changed, face and awning kept), 25.5 s with two (shirt and apron taken from the second picture, chalkboard text kept); the empty second slot was pruned cleanly."
+        }
+      }
+    }
+  ]
+}

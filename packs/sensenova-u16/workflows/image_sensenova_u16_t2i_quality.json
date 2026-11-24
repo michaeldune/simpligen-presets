@@ -1,0 +1,127 @@
+{
+  "ckpt": {
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load SenseNova U1.6"
+    },
+    "inputs": {
+      "ckpt_name": "{{checkpoint}}"
+    }
+  },
+  "simpligen_lora_1": {
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    },
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "ckpt",
+        0
+      ],
+      "clip": [
+        "ckpt",
+        1
+      ]
+    }
+  },
+  "positive": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Prompt"
+    },
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "text": "{{prompt}}"
+    }
+  },
+  "negative": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative prompt"
+    },
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "text": "{{negative_prompt}}"
+    }
+  },
+  "latent": {
+    "class_type": "EmptyHiDreamO1LatentImage",
+    "_meta": {
+      "title": "Empty picture"
+    },
+    "inputs": {
+      "width": {{width}},
+      "height": {{height}},
+      "batch_size": 1
+    }
+  },
+  "sampler": {
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    },
+    "inputs": {
+      "model": [
+        "simpligen_lora_1",
+        0
+      ],
+      "positive": [
+        "positive",
+        0
+      ],
+      "negative": [
+        "negative",
+        0
+      ],
+      "latent_image": [
+        "latent",
+        0
+      ],
+      "seed": {{seed}},
+      "steps": {{steps}},
+      "cfg": {{cfg}},
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "decode": {
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode (pixel space)"
+    },
+    "inputs": {
+      "samples": [
+        "sampler",
+        0
+      ],
+      "vae": [
+        "ckpt",
+        2
+      ]
+    }
+  },
+  "save": {
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    },
+    "inputs": {
+      "images": [
+        "decode",
+        0
+      ],
+      "filename_prefix": "SenseNova-U16-Quality"
+    }
+  }
+}

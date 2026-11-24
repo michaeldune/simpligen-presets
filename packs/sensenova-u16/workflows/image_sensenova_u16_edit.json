@@ -1,0 +1,283 @@
+{
+  "ckpt": {
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load SenseNova U1.6"
+    },
+    "inputs": {
+      "ckpt_name": "{{checkpoint}}"
+    }
+  },
+  "simpligen_lora_1": {
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "SimpliGen User LoRAs"
+    },
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "ckpt",
+        0
+      ],
+      "clip": [
+        "ckpt",
+        1
+      ]
+    }
+  },
+  "turbo_lora": {
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "8-step LoRA"
+    },
+    "inputs": {
+      "lora_name": "sensenova_u1.6_8b_mot_8step_lora_bf16.safetensors",
+      "strength_model": 1.0,
+      "model": [
+        "simpligen_lora_1",
+        0
+      ]
+    }
+  },
+  "positive": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Prompt"
+    },
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "text": "{{prompt}}"
+    }
+  },
+  "negative": {
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative prompt"
+    },
+    "inputs": {
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "text": "{{negative_prompt}}"
+    }
+  },
+  "ref1_load": {
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 1 (the one to edit)"
+    },
+    "inputs": {
+      "image": "{{ref_image_1}}"
+    }
+  },
+  "ref1_scale": {
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 at 4 MP"
+    },
+    "inputs": {
+      "input": [
+        "ref1_load",
+        0
+      ],
+      "resize_type": "scale total pixels",
+      "resize_type.megapixels": 4.0,
+      "scale_method": "area"
+    }
+  },
+  "ref1_fit": {
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 1 to a multiple of 32"
+    },
+    "inputs": {
+      "input": [
+        "ref1_scale",
+        0
+      ],
+      "resize_type": "scale to multiple",
+      "resize_type.multiple": 32,
+      "scale_method": "lanczos"
+    }
+  },
+  "ref1_size": {
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Output size = Picture 1"
+    },
+    "inputs": {
+      "image": [
+        "ref1_fit",
+        0
+      ]
+    }
+  },
+  "sgopt_ref_image_2__load": {
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Picture 2"
+    },
+    "inputs": {
+      "image": "{{ref_image_2}}"
+    }
+  },
+  "sgopt_ref_image_2__scale": {
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 2 at 4 MP"
+    },
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_2__load",
+        0
+      ],
+      "resize_type": "scale total pixels",
+      "resize_type.megapixels": 4.0,
+      "scale_method": "area"
+    }
+  },
+  "sgopt_ref_image_2__fit": {
+    "class_type": "ResizeImageMaskNode",
+    "_meta": {
+      "title": "Picture 2 to a multiple of 32"
+    },
+    "inputs": {
+      "input": [
+        "sgopt_ref_image_2__scale",
+        0
+      ],
+      "resize_type": "scale to multiple",
+      "resize_type.multiple": 32,
+      "scale_method": "lanczos"
+    }
+  },
+  "latent": {
+    "class_type": "EmptyHiDreamO1LatentImage",
+    "_meta": {
+      "title": "Empty picture"
+    },
+    "inputs": {
+      "width": [
+        "ref1_size",
+        0
+      ],
+      "height": [
+        "ref1_size",
+        1
+      ],
+      "batch_size": 1
+    }
+  },
+  "refs": {
+    "class_type": "HiDreamO1ReferenceImages",
+    "_meta": {
+      "title": "Reference pictures"
+    },
+    "inputs": {
+      "positive": [
+        "positive",
+        0
+      ],
+      "negative": [
+        "negative",
+        0
+      ],
+      "images.image_1": [
+        "ref1_fit",
+        0
+      ],
+      "images.image_2": [
+        "sgopt_ref_image_2__fit",
+        0
+      ]
+    }
+  },
+  "cond": {
+    "class_type": "SenseNovaConditioning",
+    "_meta": {
+      "title": "SenseNova Conditioning (image)"
+    },
+    "inputs": {
+      "conditioning": [
+        "refs",
+        0
+      ],
+      "clip": [
+        "simpligen_lora_1",
+        1
+      ],
+      "negative": [
+        "refs",
+        1
+      ],
+      "task": "image",
+      "max_tokens": 1024
+    }
+  },
+  "sampler": {
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    },
+    "inputs": {
+      "model": [
+        "turbo_lora",
+        0
+      ],
+      "positive": [
+        "cond",
+        0
+      ],
+      "negative": [
+        "cond",
+        2
+      ],
+      "latent_image": [
+        "latent",
+        0
+      ],
+      "seed": {{seed}},
+      "steps": 8,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "decode": {
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode (pixel space)"
+    },
+    "inputs": {
+      "samples": [
+        "sampler",
+        0
+      ],
+      "vae": [
+        "ckpt",
+        2
+      ]
+    }
+  },
+  "save": {
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    },
+    "inputs": {
+      "images": [
+        "decode",
+        0
+      ],
+      "filename_prefix": "SenseNova-U16-Edit"
+    }
+  }
+}
