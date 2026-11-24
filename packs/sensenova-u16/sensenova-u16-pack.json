@@ -1,7 +1,7 @@
 {
   "id": "sensenova-u16-pack",
   "name": "Community — SenseNova U1.6",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "michaeldune",
   "nsfw": false,
   "editCapable": true,
@@ -36,6 +36,7 @@
       "template": "sdxl",
       "promptStyle": "natural",
       "image": {
+        "promptFamily": "sensenova-u16",
         "values": {
           "quality": ""
         },
@@ -132,6 +133,7 @@
       "template": "sdxl",
       "promptStyle": "natural",
       "image": {
+        "promptFamily": "sensenova-u16",
         "values": {
           "quality": ""
         },
@@ -232,6 +234,7 @@
       "template": "sdxl",
       "promptStyle": "natural",
       "image": {
+        "promptFamily": "sensenova-u16-edit",
         "values": {
           "quality": ""
         },
