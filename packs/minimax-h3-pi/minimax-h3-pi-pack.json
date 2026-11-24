@@ -1,17 +1,18 @@
 {
   "id": "minimax-h3-pi-pack",
   "name": "Community — MiniMax H3 (pi-H3 2-Step)",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "minComfyuiVersion": "v0.45.0",
   "author": "Lakonik (pi-H3 adapters and ComfyUI-piFlow)",
   "nsfw": false,
-  "description": "Model format: int8 ConvRot. Steps: 2 by default.\n\nLakonik's pi-H3, a two-step pi-Flow distillation of MiniMax H3 on the standard FL2VA weights. The last step produces the picture directly, so there is no video VAE decode. Text to video and image to video (first frame, optional last frame); no reference-to-video. In the app on a 12 GB RTX 4070 Ti a five-second 480p shot took 31-33 s, against 36.5 s for TaoMate 3-Step. With the same base files installed, only the 2.2 GB adapter downloads.",
+  "description": "Model format: int8 ConvRot. Steps: 2 by default.\n\nLakonik's pi-H3, a two-step pi-Flow distillation of MiniMax H3 on the standard FL2VA weights. The last step produces the picture directly, so there is no video VAE decode. Text to video, image to video (first frame, optional last frame) and, since 1.1.0, reference to video on the standard REF2VA weights. In the app on a 12 GB RTX 4070 Ti a five-second 480p shot took 31-33 s, against 36.5 s for TaoMate 3-Step. With the same base files installed, only the 2.2 GB adapter downloads.",
   "tags": [
     "2-Step",
     "Distill",
     "I2V",
     "Local",
     "MiniMax H3",
+    "R2V",
     "T2V",
     "Video"
   ],
@@ -321,7 +322,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 42.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled)."
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -652,7 +653,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 42.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled)."
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -667,6 +668,352 @@
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors": "600d567f6a9629c8574e8e7041b199bdd9c59a986afa7906910a81919610607d",
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_ref2va_bf16.safetensors": "e32c54c1a7b4f5f397f195cea267ccb18806303bb665678c4bee60953bdf3026",
           "https://huggingface.co/Lakonik/pi-H3/resolve/4a864589b0fac3d14768f932c930c4dcf1a17b56/pi_h3_2step_dwd_adapter_int8_convrot.safetensors": "ef98527409eee4eaec8183265f4ee22d265680524237fae7149dbc203e11e739"
+        }
+      }
+    },
+    {
+      "id": "minimax-h3-pi-r2v",
+      "name": "MiniMax H3 Reference to Video (pi-H3 2-Step)",
+      "icon": "⚡",
+      "previewImage": "previews/minimax-h3-pi-r2v.jpg",
+      "description": "Make video with matching stereo sound from up to nine reference pictures, clips or voices, in two sampling steps. A five-second 480p shot took 36 s on a 12 GB card in the app, against 50 s for the same shot on a four-step turbo.\n\nIn our test the person kept her face, outfit and jewellery, and a scripted line came out word for word.\n\nSteps are fixed at two. Sol-Attn stays off because it smears small faces with this model.\n\nModel format: int8 ConvRot.",
+      "tagline": "Two steps from your references",
+      "tags": [
+        "2-Step",
+        "Audio",
+        "R2V",
+        "Reference",
+        "Video"
+      ],
+      "template": "wan-video",
+      "enabled": true,
+      "supportsDialogue": true,
+      "dialogueFormat": {
+        "placement": "inline-end",
+        "template": " The character says{delivery}: \"{dialogue}\""
+      },
+      "video": {
+        "shotModes": [
+          "r2v"
+        ],
+        "promptFamily": "minimax-h3-video",
+        "supports": [
+          "local"
+        ],
+        "displayModel": "MiniMax H3 FL2VA (int8 + ConvRot) + pi-H3 2-Step DWD adapter",
+        "baseModels": [
+          "minimax-h3"
+        ],
+        "reclaimVramBeforeSampling": true,
+        "reclaimVramBeforeDecode": false,
+        "workflow": "workflows/video_minimax_h3_pi_r2v.json",
+        "supportsSage": true,
+        "supportsSpectrum": false,
+        "supportsSolAttn": false,
+        "duration": {
+          "type": "slider",
+          "min": 5,
+          "max": 15,
+          "default": 5,
+          "step": 1,
+          "unit": "seconds",
+          "vramScalesWithDuration": true
+        },
+        "unet": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "unetUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clipUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae": "minimax_h3_video_vae_int8_convrot.safetensors",
+        "vaeUrl": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+        "extraModels": [
+          {
+            "dir": "vae",
+            "filename": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors"
+          },
+          {
+            "dir": "loras",
+            "filename": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Lakonik/pi-H3/resolve/4a864589b0fac3d14768f932c930c4dcf1a17b56/pi_h3_2step_dwd_adapter_int8_convrot.safetensors"
+          }
+        ],
+        "extensions": [
+          {
+            "name": "rgthree-comfy",
+            "url": "https://github.com/rgthree/rgthree-comfy.git",
+            "pinnedCommit": "d92cad68a6e92a1c5d4032d3ac53f79ea44b08e4"
+          },
+          {
+            "name": "ComfyUI-KJNodes",
+            "url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+            "description": "Provides PathchSageAttentionKJ for the faster-attention opt-in",
+            "pinnedCommit": "3f20054214fec9f9234fd3841ae6f1e4287948f6"
+          },
+          {
+            "name": "ComfyUI-piFlow",
+            "url": "https://github.com/Lakonik/ComfyUI-piFlow.git",
+            "description": "pi-H3 nodes: Load LakonLab Adapter, pi-Flow Scheduler, DWD Decode (v1.4.0)",
+            "pinnedCommit": "bcb6ffb8ff6191115e5803c4ddddef6a73b0b8a8"
+          }
+        ],
+        "steps": 2,
+        "negativePrompt": "",
+        "defaultResolutionTier": 0,
+        "resolutionOptions": [
+          {
+            "label": "480p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 640,
+                "height": 640
+              },
+              "16:9": {
+                "width": 864,
+                "height": 480
+              },
+              "9:16": {
+                "width": 480,
+                "height": 864
+              },
+              "4:3": {
+                "width": 736,
+                "height": 576
+              },
+              "3:4": {
+                "width": 576,
+                "height": 736
+              },
+              "21:9": {
+                "width": 992,
+                "height": 416
+              }
+            }
+          },
+          {
+            "label": "544p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 736,
+                "height": 736
+              },
+              "16:9": {
+                "width": 960,
+                "height": 544
+              },
+              "9:16": {
+                "width": 544,
+                "height": 960
+              },
+              "4:3": {
+                "width": 832,
+                "height": 640
+              },
+              "3:4": {
+                "width": 640,
+                "height": 832
+              },
+              "21:9": {
+                "width": 1120,
+                "height": 480
+              }
+            }
+          },
+          {
+            "label": "608p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 800,
+                "height": 800
+              },
+              "16:9": {
+                "width": 1056,
+                "height": 608
+              },
+              "9:16": {
+                "width": 608,
+                "height": 1056
+              },
+              "4:3": {
+                "width": 928,
+                "height": 672
+              },
+              "3:4": {
+                "width": 672,
+                "height": 928
+              },
+              "21:9": {
+                "width": 1216,
+                "height": 512
+              }
+            }
+          },
+          {
+            "label": "672p",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 928,
+                "height": 928
+              },
+              "16:9": {
+                "width": 1216,
+                "height": 672
+              },
+              "9:16": {
+                "width": 672,
+                "height": 1216
+              },
+              "4:3": {
+                "width": 1056,
+                "height": 800
+              },
+              "3:4": {
+                "width": 800,
+                "height": 1056
+              },
+              "21:9": {
+                "width": 1408,
+                "height": 608
+              }
+            }
+          },
+          {
+            "label": "768p (native)",
+            "minVramGB": 12,
+            "aspects": {
+              "1:1": {
+                "width": 1024,
+                "height": 1024
+              },
+              "16:9": {
+                "width": 1344,
+                "height": 768
+              },
+              "9:16": {
+                "width": 768,
+                "height": 1344
+              },
+              "4:3": {
+                "width": 1184,
+                "height": 864
+              },
+              "3:4": {
+                "width": 864,
+                "height": 1184
+              },
+              "21:9": {
+                "width": 1536,
+                "height": 672
+              }
+            }
+          },
+          {
+            "label": "928p",
+            "minVramGB": 16,
+            "aspects": {
+              "1:1": {
+                "width": 1248,
+                "height": 1248
+              },
+              "16:9": {
+                "width": 1664,
+                "height": 928
+              },
+              "9:16": {
+                "width": 928,
+                "height": 1664
+              },
+              "4:3": {
+                "width": 1440,
+                "height": 1088
+              },
+              "3:4": {
+                "width": 1088,
+                "height": 1440
+              },
+              "21:9": {
+                "width": 1920,
+                "height": 832
+              }
+            }
+          },
+          {
+            "label": "1088p (max)",
+            "minVramGB": 24,
+            "aspects": {
+              "1:1": {
+                "width": 1440,
+                "height": 1440
+              },
+              "16:9": {
+                "width": 1920,
+                "height": 1088
+              },
+              "9:16": {
+                "width": 1088,
+                "height": 1920
+              },
+              "4:3": {
+                "width": 1664,
+                "height": 1248
+              },
+              "3:4": {
+                "width": 1248,
+                "height": 1664
+              },
+              "21:9": {
+                "width": 2208,
+                "height": 960
+              }
+            }
+          }
+        ],
+        "requirements": {
+          "minVramGB": 12,
+          "recommendedVramGB": 16,
+          "minRamGB": 48,
+          "sizeGB": 42.2,
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
+        },
+        "checksums": {
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_int8_convrot.safetensors": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/vae/minimax_h3_audio_vae_fp32.safetensors": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors": "bc2ced0fbea64757fa9acddccfc0b3f4819d1dcf1da6c124d690d368be283923",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_ref2va_int8_convrot.safetensors": "9eef934046a0671bc8a5daf87100705e1478419c574cfde70c50fbe6885f76a9",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors": "600d567f6a9629c8574e8e7041b199bdd9c59a986afa7906910a81919610607d",
+          "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_ref2va_bf16.safetensors": "e32c54c1a7b4f5f397f195cea267ccb18806303bb665678c4bee60953bdf3026",
+          "https://huggingface.co/Lakonik/pi-H3/resolve/4a864589b0fac3d14768f932c930c4dcf1a17b56/pi_h3_2step_dwd_adapter_int8_convrot.safetensors": "ef98527409eee4eaec8183265f4ee22d265680524237fae7149dbc203e11e739"
+        },
+        "guides": "minimax-h3",
+        "acceptsReferenceImages": {
+          "min": 0,
+          "max": 9,
+          "slotLabels": [
+            "Reference 1",
+            "Reference 2",
+            "Reference 3",
+            "Reference 4",
+            "Reference 5",
+            "Reference 6",
+            "Reference 7",
+            "Reference 8",
+            "Reference 9"
+          ]
+        },
+        "acceptsReferenceVideos": {
+          "min": 0,
+          "max": 3,
+          "soundtrack": true
+        },
+        "acceptsReferenceAudios": {
+          "min": 0,
+          "max": 3
         }
       }
     }
