@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pi-pack",
   "name": "Community — MiniMax H3 (pi-H3 2-Step)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minComfyuiVersion": "v0.45.0",
   "author": "Lakonik (pi-H3 adapters and ComfyUI-piFlow)",
   "nsfw": false,
@@ -37,6 +37,9 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "shotModes": [
+          "t2v"
+        ],
         "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
@@ -357,6 +360,9 @@
         "template": " The character says{delivery}: \"{dialogue}\""
       },
       "video": {
+        "shotModes": [
+          "i2v"
+        ],
         "promptFamily": "minimax-h3-video",
         "supports": [
           "local"
