@@ -1,7 +1,7 @@
 {
   "id": "minimax-h3-pi-pack",
   "name": "Community — MiniMax H3 (pi-H3 2-Step)",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minComfyuiVersion": "v0.45.0",
   "author": "Lakonik (pi-H3 adapters and ComfyUI-piFlow)",
   "nsfw": false,
@@ -322,7 +322,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 42.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s. The 1088p (max) tier is far slower: on a 24 GB RTX 4090 a five-second 21:9 reference shot at 2208x960 took 8 to 9 minutes (484 s with 48 GB of system RAM free, 558 s with 13.5 GB free). Draft at 480p or 768p and use 1088p only for a final render."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -653,7 +653,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 42.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s. The 1088p (max) tier is far slower: on a 24 GB RTX 4090 a five-second 21:9 reference shot at 2208x960 took 8 to 9 minutes (484 s with 48 GB of system RAM free, 558 s with 13.5 GB free). Draft at 480p or 768p and use 1088p only for a final render."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
@@ -977,7 +977,7 @@
           "recommendedVramGB": 16,
           "minRamGB": 48,
           "sizeGB": 42.2,
-          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s."
+          "notes": "About 40 GB of weights streamed through system RAM plus the 2.2 GB pi-H3 2-step adapter. Two steps (fixed: the adapter is trained for two), no CFG, pi-Flow scheduler, sigma shift 12/3. The last step outputs pixels, so the video VAE decoder is skipped. Same base files as the MiniMax H3 pack. Faster Attention (Sage) is supported; Sol-Attn and Spectrum are off on purpose. On a 12 GB RTX 4070 Ti in the app: 5 s at 480p 31-33 s, 5 s at 768p 71 s, 15 s at 480p 97 s. A 15-second shot at the 768p tier does not fit in 12 GB (it ran out of system memory and stalled). Reference to video (added 1.1.0) uses the same adapter on the standard REF2VA weights; in the app a five-second 480p reference shot took 36 s. The 1088p (max) tier is far slower: on a 24 GB RTX 4090 a five-second 21:9 reference shot at 2208x960 took 8 to 9 minutes (484 s with 48 GB of system RAM free, 558 s with 13.5 GB free). Draft at 480p or 768p and use 1088p only for a final render."
         },
         "checksums": {
           "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/4cc1d817b6184899b41293954329f576cb5ae86b/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
